@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "jineric:block/wavy_soul_sandstone"
+  }
+}
