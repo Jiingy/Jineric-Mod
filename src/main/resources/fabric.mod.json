@@ -13,7 +13,7 @@
     "sources": "https://github.com/Jiingy/Jineric-Mod"
   },
 
-  "license": "CC0-1.0",
+  "license": "MIT",
   "icon": "assets/jineric/icon.png",
 
   "environment": "*",
