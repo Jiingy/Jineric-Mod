@@ -1,0 +1,23 @@
+{
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+        "recipes": [
+            "jineric:borite_slab",
+            "jineric:borite_stairs",
+            "jineric:borite_pillar",
+            "jineric:borite_wall"
+        ]
+    },
+    "criteria": {
+        "has_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "jineric:borite"
+                    }
+                ]
+            }
+        }
+    }
+}

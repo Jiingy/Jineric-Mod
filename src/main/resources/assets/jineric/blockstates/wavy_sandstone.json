@@ -1,5 +1,7 @@
 {
-  "variants": {
-    "": { "model": "jineric:block/wavy_sandstone" }
-  }
+    "variants": {
+        "": {
+            "model": "jineric:block/wavy_sandstone"
+        }
+    }
 }

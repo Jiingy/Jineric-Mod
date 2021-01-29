@@ -14,10 +14,15 @@
   "block.jineric.borite_stairs": "Borite Stair",
   "block.jineric.borite_wall": "Borite Wall",
 
-
   "block.jineric.wavy_sandstone": "Wavy Sandstone",
+  "block.jineric.wavy_sandstone_slab": "Wavy Sandstone Slab",
+  "block.jineric.wavy_sandstone_stairs": "Wavy Sandstone Stair",
+  "block.jineric.wavy_sandstone_wall": "Wavy Sandstone Wall",
 
-
+  "block.jineric.wavy_red_sandstone": "Wavy Red Sandstone",
+  "block.jineric.wavy_red_sandstone_slab": "Wavy Red Sandstone Slab",
+  "block.jineric.wavy_red_sandstone_stairs": "Wavy Red Sandstone Stair",
+  "block.jineric.wavy_red_sandstone_wall": "Wavy Red Sandstone Wall",
 
   "block.jineric.soul_sandstone": "Soul Sandstone",
   "block.jineric.soul_sandstone_slab": "Soul Sandstone Slab",
@@ -45,6 +50,6 @@
   "block.jineric.smooth_soul_sandstone_wall": "Smooth Soul Sandstone Wall",
 
 
-  "itemGroup.blocks_jineric": "Jineric Blocks",
-  "itemGroup.items_jineric": "Jineric Items"
+  "itemGroup.blocks.jineric": "Jineric Blocks",
+  "itemGroup.items.jineric": "Jineric Items"
 }

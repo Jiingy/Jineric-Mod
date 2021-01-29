@@ -1,0 +1,23 @@
+{
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+        "recipes": [
+            "jineric:wavy_soul_sandstone_slab",
+            "jineric:wavy_soul_sandstone_stairs",
+            "jineric:wavy_soul_sandstone_pillar",
+            "jineric:wavy_soul_sandstone_wall"
+        ]
+    },
+    "criteria": {
+        "has_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "jineric:wavy_soul_sandstone"
+                    }
+                ]
+            }
+        }
+    }
+}

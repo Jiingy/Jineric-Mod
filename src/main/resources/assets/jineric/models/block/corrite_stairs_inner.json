@@ -1,0 +1,8 @@
+{
+    "parent": "minecraft:block/inner_stairs",
+    "textures": {
+        "bottom": "jineric:block/corrite",
+        "top": "jineric:block/corrite",
+        "side": "jineric:block/corrite"
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "variants": {
+        "type=bottom": {
+            "model": "jineric:block/corrite_slab"
+        },
+        "type=double": {
+            "model": "jineric:block/corrite"
+        },
+        "type=top": {
+            "model": "jineric:block/corrite_slab_top"
+        }
+    }
+}

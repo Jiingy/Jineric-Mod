@@ -22,6 +22,11 @@
     "jineric:soul_sandstone_wall",
     "jineric:cut_soul_sandstone_wall",
     "jineric:chiseled_soul_sandstone_wall",
-    "jineric:smooth_soul_sandstone_wall"
+    "jineric:smooth_soul_sandstone_wall",
+    "jineric:wavy_sandstone_wall",
+    "jineric:wavy_soul_sandstone_wall",
+    "jineric:wavy_red_sandstone_wall",
+    "jineric:borite_wall",
+    "jineric:corrite_wall"
   ]
 }

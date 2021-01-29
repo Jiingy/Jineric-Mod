@@ -1,19 +1,14 @@
 {
-  "type": "minecraft:block",
-  "pools": [
-    {
-      "rolls": 1,
-      "entries": [
+    "type": "minecraft:block",
+    "pools": [
         {
-          "type": "minecraft:item",
-          "name": "jineric:borite"
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "jineric:borite"
+                }
+            ]
         }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
-        }
-      ]
-    }
-  ]
+    ]
 }
