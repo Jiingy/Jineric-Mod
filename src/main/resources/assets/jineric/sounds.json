@@ -1,0 +1,11 @@
+{
+  "my_sound": {
+    "sounds": [
+      "jineric:soul_sandstone1",
+      "jineric:soul_sandstone2",
+      "jineric:soul_sandstone3",
+      "jineric:soul_sandstone4",
+      "jineric:soul_sandstone5"
+    ]
+  }
+}

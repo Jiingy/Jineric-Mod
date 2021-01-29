@@ -2,12 +2,49 @@
   "item.jineric.golden_potato": "Golden Potato",
   "item.jineric.golden_sweet_berries": "Golden Sweet Berries",
   "item.jineric.golden_beetroot": "Golden Beetroot",
+
+
   "block.jineric.corrite": "Corrite",
+  "block.jineric.corrite_slab": "Corrite Slab",
+  "block.jineric.corrite_stairs": "Corrite Stair",
+  "block.jineric.corrite_wall": "Corrite Wall",
+
   "block.jineric.borite": "Borite",
+  "block.jineric.borite_slab": "Borite Slab",
+  "block.jineric.borite_stairs": "Borite Stair",
+  "block.jineric.borite_wall": "Borite Wall",
+
+
   "block.jineric.wavy_sandstone": "Wavy Sandstone",
+
+
+
   "block.jineric.soul_sandstone": "Soul Sandstone",
+  "block.jineric.soul_sandstone_slab": "Soul Sandstone Slab",
+  "block.jineric.soul_sandstone_stairs": "Soul Sandstone Stair",
+  "block.jineric.soul_sandstone_wall": "Soul Sandstone Wall",
+
   "block.jineric.cut_soul_sandstone": "Cut Soul Sandstone",
+  "block.jineric.cut_soul_sandstone_slab": "Cut Soul Sandstone Slab",
+  "block.jineric.cut_soul_sandstone_stairs": "Cut Soul Sandstone Stair",
+  "block.jineric.cut_soul_sandstone_wall": "Cut Soul Sandstone Wall",
+
   "block.jineric.chiseled_soul_sandstone": "Chiseled Soul Sandstone",
+  "block.jineric.chiseled_soul_sandstone_slab": "Chiseled Soul Sandstone Slab",
+  "block.jineric.chiseled_soul_sandstone_stairs": "Chiseled Soul Sandstone Stair",
+  "block.jineric.chiseled_soul_sandstone_wall": "Chiseled Soul Sandstone Wall",
+
   "block.jineric.wavy_soul_sandstone": "Wavy Soul Sandstone",
-  "block.jineric.smooth_soul_sandstone": "Smooth Soul Sandstone"
+  "block.jineric.wavy_soul_sandstone_slab": "Wavy Soul Sandstone Slab",
+  "block.jineric.wavy_soul_sandstone_stairs": "Wavy Soul Sandstone Stair",
+  "block.jineric.wavy_soul_sandstone_wall": "Wavy Soul Sandstone Wall",
+
+  "block.jineric.smooth_soul_sandstone": "Smooth Soul Sandstone",
+  "block.jineric.smooth_soul_sandstone_slab": "Smooth Soul Sandstone Slab",
+  "block.jineric.smooth_soul_sandstone_stairs": "Smooth Soul Sandstone Stair",
+  "block.jineric.smooth_soul_sandstone_wall": "Smooth Soul Sandstone Wall",
+
+
+  "itemGroup.blocks_jineric": "Jineric Blocks",
+  "itemGroup.items_jineric": "Jineric Items"
 }
