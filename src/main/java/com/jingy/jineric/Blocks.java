@@ -100,6 +100,9 @@ public class Blocks {
     public static final Block BORITE_SLAB  = register("borite_slab", new SlabBlock(FabricBlockSettings.copy(STONE)));
     public static final Block BORITE_WALL = register("borite_wall", new WallBlock(FabricBlockSettings.copy(STONE)));
 
+    //testing making a block
+    public static final Block TEST_BLOCK = register("test_block", new Block(FabricBlockSettings.copy(BLACK_WOOL)));
+
 
 
     private static Block register(String name, Block block) {
