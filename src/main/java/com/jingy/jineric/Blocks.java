@@ -107,26 +107,20 @@ public class Blocks {
     public static final Block POLISHED_SILTSTONE_WALL = register("polished_siltstone_wall", new WallBlock(FabricBlockSettings.copy(STONE)));
 
 
-    //SALT
+
+    //STORAGE BLOCKS
     public static final Block SALT_BLOCK = register("salt_block", new Block(FabricBlockSettings.copy(SAND)));
-
-    //ROTTEN FLESH BLOCK
     public static final Block ROTTEN_FLESH_BLOCK = register("rotten_flesh_block", new Block(FabricBlockSettings.copy(HONEYCOMB_BLOCK)));
-
-    //FLINT BLOCK
     public static final Block FLINT_BLOCK = register("flint_block", new Block(FabricBlockSettings.copy(STONE)));
-
-    //SOUL JACK O' LANTERN
-    public static final Block SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", new Block(FabricBlockSettings.copy(JACK_O_LANTERN)));
-
-    //testing making a block
-    public static final Block TEST_BLOCK = register("test_block", new Block(FabricBlockSettings.copy(ICE)));
-
-    //CHARCOAL BLOCK
     public static final Block CHARCOAL_BLOCK = register("charcoal_block", new Block(FabricBlockSettings.copy(COAL_BLOCK)));
+
+
+    //DECORATION BLOCKS
+    public static final Block SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", new Block(FabricBlockSettings.copy(JACK_O_LANTERN)));
 
     private static Block register(String name, Block block) {
         return Registry.register(Registry.BLOCK, new Identifier("jineric", name), block);
+
     }
     public static void init() {
     }

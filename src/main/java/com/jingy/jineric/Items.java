@@ -81,9 +81,6 @@ public class Items {
     public static final Item WAVY_SOUL_SANDSTONE_STAIRS = register("wavy_soul_sandstone_stairs", new BlockItem(Blocks.WAVY_SOUL_SANDSTONE_STAIRS, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
     public static final Item WAVY_SOUL_SANDSTONE_WALL = register("wavy_soul_sandstone_wall", new BlockItem(Blocks.WAVY_SOUL_SANDSTONE_WALL, ItemSettings.Decoration().group(ItemGroups.JINERIC_BLOCKS)));
 
-    //test block
-    public static final Item TEST_BLOCK = register("test_block", new BlockItem(Blocks.TEST_BLOCK, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
-
 
 //STONES
     //BORITE
@@ -118,7 +115,7 @@ public class Items {
     public static final Item SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", new BlockItem(Blocks.SOUL_JACK_O_LANTERN, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
 
     //CHARCOAL BLOCK
-    public static final Item CHARCOAL_BLOCK = register("charcoal", new BlockItem(Blocks.CHARCOAL_BLOCK, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
+    public static final Item CHARCOAL_BLOCK = register("charcoal_block", new BlockItem(Blocks.CHARCOAL_BLOCK, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
 
 
     private static Item register(String name, Item item) {
