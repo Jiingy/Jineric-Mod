@@ -103,8 +103,6 @@ public class Blocks {
     //testing making a block
     public static final Block TEST_BLOCK = register("test_block", new Block(FabricBlockSettings.copy(ICE)));
 
-
-
     private static Block register(String name, Block block) {
         return Registry.register(Registry.BLOCK, new Identifier("jineric", name), block);
     }
