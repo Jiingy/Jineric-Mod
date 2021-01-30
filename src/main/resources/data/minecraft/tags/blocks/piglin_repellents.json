@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:soul_fire",
+    "minecraft:soul_torch",
+    "minecraft:soul_lantern",
+    "minecraft:soul_wall_torch",
+    "minecraft:soul_campfire",
+
+    "jineric:soul_jack_o_lantern"
+  ]
+}

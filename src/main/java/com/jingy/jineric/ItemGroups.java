@@ -9,7 +9,7 @@ import net.minecraft.util.Identifier;
 public class ItemGroups {
     public static final ItemGroup JINERIC_BLOCKS = FabricItemGroupBuilder.build(
             new Identifier("blocks", "jineric"),
-            () -> new ItemStack(Items.CORRITE));
+            () -> new ItemStack(Items.SILTSTONE));
 
     public static Item.Settings jinericBlocks() {
         return new Item.Settings().group(JINERIC_BLOCKS);

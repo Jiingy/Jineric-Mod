@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/inner_stairs",
+  "parent": "minecraft:block/outer_stairs",
   "textures": {
     "bottom": "jineric:block/sandstone_top",
     "top": "jineric:block/sandstone_top",
