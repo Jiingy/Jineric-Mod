@@ -1,0 +1,23 @@
+{
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+        "recipes": [
+            "jineric:polished_siltstone_slab",
+            "jineric:polished_siltstone_stairs",
+            "jineric:polished_siltstone_pillar",
+            "jineric:polished_siltstone_wall"
+        ]
+    },
+    "criteria": {
+        "has_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "jineric:polished_siltstone"
+                    }
+                ]
+            }
+        }
+    }
+}

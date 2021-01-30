@@ -4,15 +4,13 @@
   "item.jineric.golden_beetroot": "Golden Beetroot",
 
 
-  "block.jineric.corrite": "Corrite",
-  "block.jineric.corrite_slab": "Corrite Slab",
-  "block.jineric.corrite_stairs": "Corrite Stair",
-  "block.jineric.corrite_wall": "Corrite Wall",
-
   "block.jineric.borite": "Borite",
   "block.jineric.borite_slab": "Borite Slab",
   "block.jineric.borite_stairs": "Borite Stair",
   "block.jineric.borite_wall": "Borite Wall",
+
+  "block.jineric.cut_sandstone_stairs": "Cut Sandstone Stair",
+  "block.jineric.cut_sandstone_wall": "Cut Sandstone Wall",
 
   "block.jineric.wavy_sandstone": "Wavy Sandstone",
   "block.jineric.wavy_sandstone_slab": "Wavy Sandstone Slab",
@@ -50,6 +48,11 @@
   "block.jineric.smooth_soul_sandstone_wall": "Smooth Soul Sandstone Wall",
   
   "block.jineric.test_block": "Test Block",
+
+  "block.jineric.soul_jack_o_lantern": "Soul Jack o'Lantern",
+
+  "block.jineric.salt": "Salt",
+
 
 
   "itemGroup.blocks.jineric": "Jineric Blocks",

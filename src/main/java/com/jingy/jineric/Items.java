@@ -85,18 +85,41 @@ public class Items {
     public static final Item TEST_BLOCK = register("test_block", new BlockItem(Blocks.TEST_BLOCK, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
 
 
-//'-ITES'
-    //CORRITE
-    public static final Item CORRITE = register("corrite", new BlockItem(Blocks.CORRITE, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
-    public static final Item CORRITE_SLAB = register("corrite_slab", new BlockItem(Blocks.CORRITE_SLAB, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
-    public static final Item CORRITE_STAIRS = register("corrite_stairs", new BlockItem(Blocks.CORRITE_STAIRS, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
-    public static final Item CORRITE_WALL = register("corrite_wall", new BlockItem(Blocks.CORRITE_WALL, ItemSettings.Decoration().group(ItemGroups.JINERIC_BLOCKS)));
-
+//STONES
     //BORITE
     public static final Item BORITE = register("borite", new BlockItem(Blocks.BORITE, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
     public static final Item BORITE_SLAB = register("borite_slab", new BlockItem(Blocks.BORITE_SLAB, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
     public static final Item BORITE_STAIRS = register("borite_stairs", new BlockItem(Blocks.BORITE_STAIRS, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
     public static final Item BORITE_WALL = register("borite_wall", new BlockItem(Blocks.BORITE_WALL, ItemSettings.Decoration().group(ItemGroups.JINERIC_BLOCKS)));
+
+    //SILTSTONE
+    public static final Item SILTSTONE = register("siltstone", new BlockItem(Blocks.SILTSTONE, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
+    public static final Item SILTSTONE_SLAB = register("siltstone_slab", new BlockItem(Blocks.SILTSTONE_SLAB, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
+    public static final Item SILTSTONE_STAIRS = register("siltstone_stairs", new BlockItem(Blocks.SILTSTONE_STAIRS, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
+    public static final Item SILTSTONE_WALL = register("siltstone_wall", new BlockItem(Blocks.SILTSTONE_WALL, ItemSettings.Decoration().group(ItemGroups.JINERIC_BLOCKS)));
+
+    //SILTSTONE
+    public static final Item POLISHED_SILTSTONE = register("polished_siltstone", new BlockItem(Blocks.POLISHED_SILTSTONE, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
+    public static final Item POLISHED_SILTSTONE_SLAB = register("polished_siltstone_slab", new BlockItem(Blocks.POLISHED_SILTSTONE_SLAB, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
+    public static final Item POLISHED_SILTSTONE_STAIRS = register("polished_siltstone_stairs", new BlockItem(Blocks.POLISHED_SILTSTONE_STAIRS, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
+    public static final Item POLISHED_SILTSTONE_WALL = register("polished_siltstone_wall", new BlockItem(Blocks.POLISHED_SILTSTONE_WALL, ItemSettings.Decoration().group(ItemGroups.JINERIC_BLOCKS)));
+
+
+    //SALT
+    public static final Item SALT_BLOCK = register("salt_block", new BlockItem(Blocks.SALT_BLOCK, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
+
+    //ROTTEN FLESH BLOCK
+    public static final Item ROTTEN_FLESH_BLOCK = register("rotten_flesh_block", new BlockItem(Blocks.ROTTEN_FLESH_BLOCK, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
+
+    //FLINT BLOCK
+    public static final Item FLINT_BLOCK = register("flint_block", new BlockItem(Blocks.FLINT_BLOCK, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
+
+    //SOUL JACK O'LANTERN
+    public static final Item SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", new BlockItem(Blocks.SOUL_JACK_O_LANTERN, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
+
+    //CHARCOAL BLOCK
+    public static final Item CHARCOAL_BLOCK = register("charcoal", new BlockItem(Blocks.CHARCOAL_BLOCK, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
+
 
     private static Item register(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier("jineric", name), item);

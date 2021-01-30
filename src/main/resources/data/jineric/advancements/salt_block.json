@@ -1,0 +1,23 @@
+{
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+        "recipes": [
+            "jineric:salt_block_slab",
+            "jineric:salt_block_stairs",
+            "jineric:salt_block_pillar",
+            "jineric:salt_block_wall"
+        ]
+    },
+    "criteria": {
+        "has_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "jineric:salt_block"
+                    }
+                ]
+            }
+        }
+    }
+}
