@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "": {
+            "model": "jineric:block/charcoal_block"
+        }
+    }
+}
