@@ -2,7 +2,7 @@
   "parent": "minecraft:block/outer_stairs",
   "textures": {
     "bottom": "jineric:block/soul_sandstone_top",
-    "top": "jineric:block/soul_sandstone_top",
+    "top": "jineric:block/sandstone_top",
     "side": "jineric:block/cut_soul_sandstone"
   }
 }
