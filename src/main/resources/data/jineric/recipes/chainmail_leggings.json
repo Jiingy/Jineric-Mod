@@ -1,18 +1,17 @@
 {
- {
     "type": "minecraft:crafting_shaped",
     "pattern": [
+        "###",
         "# #",
-        " # "
+        "# #"
     ],
     "key": {
         "#": {
-            "item": "minecraft:soul_sandstone"
-            "item": "jineric:soul_sandstone"
+            "item": "minecraft:chain"
         }
     },
     "result": {
-        "item": "jineric:wavy_soul_sandstone",
+        "item": "minecraft:chainmail_leggings",
         "count": 1
     }
 }

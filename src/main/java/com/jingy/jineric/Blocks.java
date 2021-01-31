@@ -15,6 +15,7 @@ import net.minecraft.tag.Tag;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.biome.BiomeEffects;
 
 import static net.minecraft.block.Blocks.*;
 
@@ -106,10 +107,17 @@ public class Blocks {
     public static final Block POLISHED_SILTSTONE_SLAB  = register("polished_siltstone_slab", new SlabBlock(FabricBlockSettings.copy(STONE)));
     public static final Block POLISHED_SILTSTONE_WALL = register("polished_siltstone_wall", new WallBlock(FabricBlockSettings.copy(STONE)));
 
-
-
     //STORAGE BLOCKS
     public static final Block SALT_BLOCK = register("salt_block", new Block(FabricBlockSettings.copy(SAND)));
+  
+    //SLATE
+    public static final Block SLATE = register("slate", new Block(FabricBlockSettings.copy(STONE)));
+    public static final Block SLATE_STAIRS = register("slate_stairs", new BaseJinericStairBlock(STONE.getDefaultState(),FabricBlockSettings.copy(STONE)));
+    public static final Block SLATE_SLAB = register("slate_slab", new SlabBlock(FabricBlockSettings.copy(STONE)));
+    public static final Block SLATE_WALL = register("slate_wall", new WallBlock(FabricBlockSettings.copy(STONE)));
+
+    //STORAGE BLOCKS
+    public static final Block SALT_BLOCK = register("salt_block", new SandBlock(14409422,FabricBlockSettings.copy(SAND)));
     public static final Block ROTTEN_FLESH_BLOCK = register("rotten_flesh_block", new Block(FabricBlockSettings.copy(HONEYCOMB_BLOCK)));
     public static final Block FLINT_BLOCK = register("flint_block", new Block(FabricBlockSettings.copy(STONE)));
     public static final Block CHARCOAL_BLOCK = register("charcoal_block", new Block(FabricBlockSettings.copy(COAL_BLOCK)));
@@ -117,6 +125,7 @@ public class Blocks {
 
     //DECORATION BLOCKS
     public static final Block SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", new Block(FabricBlockSettings.copy(JACK_O_LANTERN)));
+    public static final Block FULL_GRASS_BLOCK = register("full_grass_block", new GrassBlock(FabricBlockSettings.copy(GRASS_BLOCK)));
 
     private static Block register(String name, Block block) {
         return Registry.register(Registry.BLOCK, new Identifier("jineric", name), block);

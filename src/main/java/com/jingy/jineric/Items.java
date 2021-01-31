@@ -21,6 +21,9 @@ public class Items {
     public static final Item GOLDEN_SWEET_BERRIES = register("golden_sweet_berries", new Item(ItemSettings.Food().food(new FoodComponent.Builder().hunger(5).saturationModifier(8f).build()).group(ItemGroups.JINERIC_ITEMS)));
     public static final Item GOLDEN_BEETROOT = register("golden_beetroot", new Item(ItemSettings.Food().food(new FoodComponent.Builder().hunger(4).saturationModifier(5f).build()).group(ItemGroups.JINERIC_ITEMS)));
 
+    //OTHER ITEMS
+    public static final Item SALT = register("salt", new Item(ItemSettings.Misc().group(ItemGroups.JINERIC_ITEMS)));
+
 
 //SAND
     //CUT SANDSTONE
@@ -101,6 +104,11 @@ public class Items {
     public static final Item POLISHED_SILTSTONE_STAIRS = register("polished_siltstone_stairs", new BlockItem(Blocks.POLISHED_SILTSTONE_STAIRS, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
     public static final Item POLISHED_SILTSTONE_WALL = register("polished_siltstone_wall", new BlockItem(Blocks.POLISHED_SILTSTONE_WALL, ItemSettings.Decoration().group(ItemGroups.JINERIC_BLOCKS)));
 
+    //SLATE
+    public static final Item SLATE = register("slate", new BlockItem(Blocks.SLATE, ItemSettings.Decoration().group(ItemGroups.JINERIC_BLOCKS)));
+    public static final Item SLATE_STAIRS = register("slate_stairs", new BlockItem(Blocks.SLATE_STAIRS, ItemSettings.Decoration().group(ItemGroups.JINERIC_BLOCKS)));
+    public static final Item SLATE_SLAB = register("slate_slab", new BlockItem(Blocks.SLATE_SLAB, ItemSettings.Decoration().group(ItemGroups.JINERIC_BLOCKS)));
+    public static final Item SLATE_WALL = register("slate_wall", new BlockItem(Blocks.SLATE_WALL, ItemSettings.Decoration().group(ItemGroups.JINERIC_BLOCKS)));
 
     //SALT
     public static final Item SALT_BLOCK = register("salt_block", new BlockItem(Blocks.SALT_BLOCK, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
@@ -117,6 +125,8 @@ public class Items {
     //CHARCOAL BLOCK
     public static final Item CHARCOAL_BLOCK = register("charcoal_block", new BlockItem(Blocks.CHARCOAL_BLOCK, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
 
+    //FULL GRASS BLOCK
+    public static final Item FULL_GRASS_BLOCK = register("full_grass_block", new BlockItem(Blocks.FULL_GRASS_BLOCK, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
 
     private static Item register(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier("jineric", name), item);
