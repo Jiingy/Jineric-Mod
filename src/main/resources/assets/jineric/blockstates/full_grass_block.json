@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "": {
+            "model": "jineric:block/full_grass_block"
+        }
+    }
+}

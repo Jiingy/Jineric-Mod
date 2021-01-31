@@ -2,7 +2,7 @@
   "item.jineric.golden_potato": "Golden Potato",
   "item.jineric.golden_sweet_berries": "Golden Sweet Berries",
   "item.jineric.golden_beetroot": "Golden Beetroot",
-
+  "item.jineric.salt": "Salt",
 
   "block.jineric.corrite": "Corrite",
   "block.jineric.corrite_slab": "Corrite Slab",
@@ -13,6 +13,15 @@
   "block.jineric.borite_slab": "Borite Slab",
   "block.jineric.borite_stairs": "Borite Stair",
   "block.jineric.borite_wall": "Borite Wall",
+
+  "block.jineric.cut_sandstone_stairs": "Cut Sandstone Stairs",
+  "block.jineric.cut_sandstone_wall": "Cut Sandstone Wall",
+
+  "block.jineric.chiseled_sandstone_stairs": "Chiseled Sandstone Stairs",
+  "block.jineric.chiseled_sandstone_slab": "Chiseled Sandstone Slab",
+  "block.jineric.chiseled_sandstone_wall": "Chiseled Sandstone Wall",
+
+  "block.jineric.smooth_sandstone_wall": "Smooth Sandstone Wall",
 
   "block.jineric.wavy_sandstone": "Wavy Sandstone",
   "block.jineric.wavy_sandstone_slab": "Wavy Sandstone Slab",
@@ -49,6 +58,28 @@
   "block.jineric.smooth_soul_sandstone_stairs": "Smooth Soul Sandstone Stair",
   "block.jineric.smooth_soul_sandstone_wall": "Smooth Soul Sandstone Wall",
 
+  "block.jineric.siltstone": "Siltstone",
+  "block.jineric.siltstone_slab": "Siltstone Slab",
+  "block.jineric.siltstone_stairs": "Siltstone Stairs",
+  "block.jineric.siltstone_wall": "Siltstone Wall",
+
+  "block.jineric.polished_siltstone": "Polished Siltstone",
+  "block.jineric.polished_siltstone_slab": "Polished Siltstone Slab",
+  "block.jineric.polished_siltstone_stairs": "Polished Siltstone Stairs",
+  "block.jineric.polished_siltstone_wall": "Polished Siltstone Wall",
+
+  "block.jineric.slate": "Slate",
+  "block.jineric.slate_slab": "Slate Slab",
+  "block.jineric.slate_stairs": "Slate Stairs",
+  "block.jineric.slate_wall": "Slate Wall",
+
+  "block.jineric.soul_jack_o_lantern": "Soul Jack o'Lantern",
+  "block.jineric.salt_block": "Salt Block",
+
+  "block.jineric.rotten_flesh_block": "Rotten Flesh Block",
+  "block.jineric.flint_block": "Flint Block",
+  "block.jineric.charcoal_block": "Charcoal Block",
+  "block.jineric.full_grass_block": "Full Grass Block",
 
   "itemGroup.blocks.jineric": "Jineric Blocks",
   "itemGroup.items.jineric": "Jineric Items"
