@@ -107,9 +107,6 @@ public class Blocks {
     public static final Block POLISHED_SILTSTONE_SLAB  = register("polished_siltstone_slab", new SlabBlock(FabricBlockSettings.copy(STONE)));
     public static final Block POLISHED_SILTSTONE_WALL = register("polished_siltstone_wall", new WallBlock(FabricBlockSettings.copy(STONE)));
 
-    //STORAGE BLOCKS
-    public static final Block SALT_BLOCK = register("salt_block", new Block(FabricBlockSettings.copy(SAND)));
-  
     //SLATE
     public static final Block SLATE = register("slate", new Block(FabricBlockSettings.copy(STONE)));
     public static final Block SLATE_STAIRS = register("slate_stairs", new BaseJinericStairBlock(STONE.getDefaultState(),FabricBlockSettings.copy(STONE)));
