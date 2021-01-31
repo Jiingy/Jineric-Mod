@@ -1,0 +1,23 @@
+{
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+        "recipes": [
+            "jineric:soul_jack_o_lantern_slab",
+            "jineric:soul_jack_o_lantern_stairs",
+            "jineric:soul_jack_o_lantern_pillar",
+            "jineric:soul_jack_o_lantern_wall"
+        ]
+    },
+    "criteria": {
+        "has_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "jineric:soul_jack_o_lantern"
+                    }
+                ]
+            }
+        }
+    }
+}

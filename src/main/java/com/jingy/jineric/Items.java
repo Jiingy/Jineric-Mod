@@ -85,21 +85,13 @@ public class Items {
     public static final Item WAVY_SOUL_SANDSTONE_WALL = register("wavy_soul_sandstone_wall", new BlockItem(Blocks.WAVY_SOUL_SANDSTONE_WALL, ItemSettings.Decoration().group(ItemGroups.JINERIC_BLOCKS)));
 
 
-//'-ITES'
-    //CORRITE
-    public static final Item CORRITE = register("corrite", new BlockItem(Blocks.CORRITE, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
-    public static final Item CORRITE_SLAB = register("corrite_slab", new BlockItem(Blocks.CORRITE_SLAB, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
-    public static final Item CORRITE_STAIRS = register("corrite_stairs", new BlockItem(Blocks.CORRITE_STAIRS, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
-    public static final Item CORRITE_WALL = register("corrite_wall", new BlockItem(Blocks.CORRITE_WALL, ItemSettings.Decoration().group(ItemGroups.JINERIC_BLOCKS)));
-
+//STONES
     //BORITE
     public static final Item BORITE = register("borite", new BlockItem(Blocks.BORITE, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
     public static final Item BORITE_SLAB = register("borite_slab", new BlockItem(Blocks.BORITE_SLAB, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
     public static final Item BORITE_STAIRS = register("borite_stairs", new BlockItem(Blocks.BORITE_STAIRS, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
     public static final Item BORITE_WALL = register("borite_wall", new BlockItem(Blocks.BORITE_WALL, ItemSettings.Decoration().group(ItemGroups.JINERIC_BLOCKS)));
 
-<<<<<<< Updated upstream
-=======
     //SILTSTONE
     public static final Item SILTSTONE = register("siltstone", new BlockItem(Blocks.SILTSTONE, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
     public static final Item SILTSTONE_SLAB = register("siltstone_slab", new BlockItem(Blocks.SILTSTONE_SLAB, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
@@ -121,7 +113,6 @@ public class Items {
     //SALT
     public static final Item SALT_BLOCK = register("salt_block", new BlockItem(Blocks.SALT_BLOCK, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
 
-
     //ROTTEN FLESH BLOCK
     public static final Item ROTTEN_FLESH_BLOCK = register("rotten_flesh_block", new BlockItem(Blocks.ROTTEN_FLESH_BLOCK, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
 
@@ -137,7 +128,6 @@ public class Items {
     //FULL GRASS BLOCK
     public static final Item FULL_GRASS_BLOCK = register("full_grass_block", new BlockItem(Blocks.FULL_GRASS_BLOCK, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
 
->>>>>>> Stashed changes
     private static Item register(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier("jineric", name), item);
     }

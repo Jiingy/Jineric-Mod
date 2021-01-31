@@ -1,0 +1,23 @@
+{
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+        "recipes": [
+            "jineric:flint_block_slab",
+            "jineric:flint_block_stairs",
+            "jineric:flint_block_pillar",
+            "jineric:flint_block_wall"
+        ]
+    },
+    "criteria": {
+        "has_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "jineric:flint_block"
+                    }
+                ]
+            }
+        }
+    }
+}

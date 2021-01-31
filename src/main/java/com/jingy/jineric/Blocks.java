@@ -89,12 +89,6 @@ public class Blocks {
     public static final Block WAVY_SOUL_SANDSTONE_WALL = register("wavy_soul_sandstone_wall", new WallBlock(FabricBlockSettings.copy(SOUL_SANDSTONE)));
 
 //STONE TYPES:
-    //CORRITE
-    public static final Block CORRITE = register("corrite", new Block(FabricBlockSettings.copy(STONE)));
-    public static final Block CORRITE_STAIRS = register("corrite_stairs", new BaseJinericStairBlock(STONE.getDefaultState(),FabricBlockSettings.copy(STONE)));
-    public static final Block CORRITE_SLAB  = register("corrite_slab", new SlabBlock(FabricBlockSettings.copy(STONE)));
-    public static final Block CORRITE_WALL = register("corrite_wall", new WallBlock(FabricBlockSettings.copy(STONE)));
-
     //BORITE
     public static final Block BORITE = register("borite", new Block(FabricBlockSettings.copy(STONE)));
     public static final Block BORITE_STAIRS = register("borite_stairs", new BaseJinericStairBlock(STONE.getDefaultState(),FabricBlockSettings.copy(STONE)));
@@ -113,6 +107,9 @@ public class Blocks {
     public static final Block POLISHED_SILTSTONE_SLAB  = register("polished_siltstone_slab", new SlabBlock(FabricBlockSettings.copy(STONE)));
     public static final Block POLISHED_SILTSTONE_WALL = register("polished_siltstone_wall", new WallBlock(FabricBlockSettings.copy(STONE)));
 
+    //STORAGE BLOCKS
+    public static final Block SALT_BLOCK = register("salt_block", new Block(FabricBlockSettings.copy(SAND)));
+  
     //SLATE
     public static final Block SLATE = register("slate", new Block(FabricBlockSettings.copy(STONE)));
     public static final Block SLATE_STAIRS = register("slate_stairs", new BaseJinericStairBlock(STONE.getDefaultState(),FabricBlockSettings.copy(STONE)));
@@ -132,6 +129,7 @@ public class Blocks {
 
     private static Block register(String name, Block block) {
         return Registry.register(Registry.BLOCK, new Identifier("jineric", name), block);
+
     }
     public static void init() {
     }
