@@ -1,5 +1,6 @@
 package com.jingy.jineric;
 
+import com.jingy.jineric.registry.JinericWorldGen;
 import net.fabricmc.api.ModInitializer;
 
 public class Jineric implements ModInitializer {
@@ -11,5 +12,6 @@ public class Jineric implements ModInitializer {
         Items.init();
         Blocks.init();
         ItemGroups.init();
+        JinericWorldGen.init();
     }
 }
