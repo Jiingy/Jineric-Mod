@@ -1,11 +1,12 @@
 {
-  "my_sound": {
+  "soul_sandstone": {
     "sounds": [
-      "jineric:soul_sandstone1",
-      "jineric:soul_sandstone2",
-      "jineric:soul_sandstone3",
-      "jineric:soul_sandstone4",
-      "jineric:soul_sandstone5"
+      "jineric:soul_sandstone_1",
+      "jineric:soul_sandstone_2",
+      "jineric:soul_sandstone_3",
+      "jineric:soul_sandstone_4",
+      "jineric:soul_sandstone_5"
     ]
   }
+
 }
