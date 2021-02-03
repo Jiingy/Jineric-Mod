@@ -32,22 +32,18 @@
   "block.jineric.soul_sandstone_slab": "Soul Sandstone Slab",
   "block.jineric.soul_sandstone_stairs": "Soul Sandstone Stairs",
   "block.jineric.soul_sandstone_wall": "Soul Sandstone Wall",
-
   "block.jineric.cut_soul_sandstone": "Cut Soul Sandstone",
   "block.jineric.cut_soul_sandstone_slab": "Cut Soul Sandstone Slab",
   "block.jineric.cut_soul_sandstone_stairs": "Cut Soul Sandstone Stairs",
   "block.jineric.cut_soul_sandstone_wall": "Cut Soul Sandstone Wall",
-
   "block.jineric.chiseled_soul_sandstone": "Chiseled Soul Sandstone",
   "block.jineric.chiseled_soul_sandstone_slab": "Chiseled Soul Sandstone Slab",
   "block.jineric.chiseled_soul_sandstone_stairs": "Chiseled Soul Sandstone Stairs",
   "block.jineric.chiseled_soul_sandstone_wall": "Chiseled Soul Sandstone Wall",
-
   "block.jineric.wavy_soul_sandstone": "Wavy Soul Sandstone",
   "block.jineric.wavy_soul_sandstone_slab": "Wavy Soul Sandstone Slab",
   "block.jineric.wavy_soul_sandstone_stairs": "Wavy Soul Sandstone Stairs",
   "block.jineric.wavy_soul_sandstone_wall": "Wavy Soul Sandstone Wall",
-
   "block.jineric.smooth_soul_sandstone": "Smooth Soul Sandstone",
   "block.jineric.smooth_soul_sandstone_slab": "Smooth Soul Sandstone Slab",
   "block.jineric.smooth_soul_sandstone_stairs": "Smooth Soul Sandstone Stairs",
@@ -56,13 +52,19 @@
   "block.jineric.siltstone": "Siltstone Sandstone",
   "block.jineric.siltstone_slab": "Siltstone Slab",
   "block.jineric.siltstone_stairs": "Siltstone Stairs",
-  "block.jineric.ssiltstone_wall": "Siltstone Wall",
-
+  "block.jineric.siltstone_wall": "Siltstone Wall",
   "block.jineric.polished_siltstone": "Polished Siltstone Sandstone",
   "block.jineric.polished_siltstone_slab": "Polished Siltstone Slab",
   "block.jineric.polished_siltstone_stairs": "Polished Siltstone Stairs",
-  "block.jineric.polished_ssiltstone_wall": "Polished Siltstone Wall",
+  "block.jineric.polished_siltstone_wall": "Polished Siltstone Wall",
 
+  "block.jineric.slate": "Slate",
+  "block.jineric.slate_slab": "Slate Slab",
+  "block.jineric.slate_stairs": "Slate Stairs",
+  "block.jineric.slate_wall": "Slate Wall",
+
+  "block.jineric.smooth_stone_stairs": "Smooth Stone Stairs",
+  "block.jineric.smooth_stone_wall": "Smooth Stone Wall",
 
   "block.jineric.soul_jack_o_lantern": "Soul Jack o'Lantern",
   "block.jineric.salt_block": "Salt",
@@ -70,15 +72,6 @@
   "block.jineric.flint_block": "Flint Block",
   "block.jineric.charcoal_block": "Charcoal Block",
   "block.jineric.full_grass_block": "Full Grass Block",
-
-  "block.jineric.slate": "Slate",
-  "block.jineric.slate_slab": "Slate Slab",
-  "block.jineric.slate_stairs": "Slate Stairs",
-  "block.jineric.slate_wall": "Slate Wall",
-
-  "block.jineric.boreal_planks": "Boreal Planks",
-  "block.jineric.boreal_slab": "Boreal Slab",
-  "block.jineric.boreal_stairs": "Boreal Stairs",
 
   "block.jineric.boreal_planks": "Boreal Planks",
   "block.jineric.boreal_slab": "Boreal Slab",

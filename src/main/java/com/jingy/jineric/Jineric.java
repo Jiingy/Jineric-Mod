@@ -15,6 +15,7 @@ import net.minecraft.world.gen.feature.OreFeatureConfig;
 public class Jineric implements ModInitializer {
     public static final String MOD_ID = "jineric";
     public static ConfiguredFeature<?, ?> BORITE_VEIN = Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, JinericBlocks.BORITE.getDefaultState(), 33)).rangeOf(80).spreadHorizontally().repeat(10);
+    public static ConfiguredFeature<?, ?> SLATE_VEIN = Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, JinericBlocks.SLATE.getDefaultState(), 33)).rangeOf(80).spreadHorizontally().repeat(10);
 
     @Override
     public void onInitialize() {
@@ -26,5 +27,8 @@ public class Jineric implements ModInitializer {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, borite_vein.getValue(), BORITE_VEIN);
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, borite_vein);
 
+        RegistryKey<ConfiguredFeature<?, ?>> slate_vein = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, new Identifier(Jineric.MOD_ID, "slate_vein"));
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, slate_vein.getValue(), SLATE_VEIN);
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, slate_vein);
     }
 }
