@@ -1,4 +1,4 @@
-{
+
  {
     "type": "minecraft:crafting_shaped",
     "pattern": [
@@ -7,7 +7,6 @@
     ],
     "key": {
         "#": {
-            "item": "minecraft:soul_sandstone"
             "item": "jineric:soul_sandstone"
         }
     },

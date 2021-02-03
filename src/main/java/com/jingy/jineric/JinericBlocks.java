@@ -109,7 +109,7 @@ public class JinericBlocks {
 
 
     //DECORATION BLOCKS
-    public static final Block SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", new Block(FabricBlockSettings.copy(JACK_O_LANTERN)));
+    public static final Block SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", new BaseJinericCarvedPumpkinBlock(FabricBlockSettings.copy(JACK_O_LANTERN)));
     public static final Block FULL_GRASS_BLOCK = register("full_grass_block", new GrassBlock(FabricBlockSettings.copy(GRASS_BLOCK)));
 
     //SHULKER CHEST
