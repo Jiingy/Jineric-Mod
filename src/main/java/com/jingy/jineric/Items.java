@@ -128,6 +128,12 @@ public class Items {
     //FULL GRASS BLOCK
     public static final Item FULL_GRASS_BLOCK = register("full_grass_block", new BlockItem(Blocks.FULL_GRASS_BLOCK, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
 
+    //BOREAL PLANKS
+    public static final Item BOREAL_PLANKS = register("boreal_planks", new BlockItem(Blocks.BOREAL_PLANKS, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
+    public static final Item BOREAL_STAIRS = register("boreal_stairs", new BlockItem(Blocks.BOREAL_STAIRS, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
+    public static final Item BOREAL_SLAB = register("boreal_slab", new BlockItem(Blocks.BOREAL_SLAB, ItemSettings.BuildingBlocks().group(ItemGroups.JINERIC_BLOCKS)));
+
+
     private static Item register(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier("jineric", name), item);
     }
