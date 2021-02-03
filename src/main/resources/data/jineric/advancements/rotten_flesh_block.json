@@ -2,10 +2,6 @@
     "parent": "minecraft:recipes/root",
     "rewards": {
         "recipes": [
-            "jineric:rotten_flesh_block_slab",
-            "jineric:rotten_flesh_block_stairs",
-            "jineric:rotten_flesh_block_pillar",
-            "jineric:rotten_flesh_block_wall"
         ]
     },
     "criteria": {
