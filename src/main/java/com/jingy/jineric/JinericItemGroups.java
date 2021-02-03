@@ -6,10 +6,10 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 
-public class ItemGroups {
+public class JinericItemGroups {
     public static final ItemGroup JINERIC_BLOCKS = FabricItemGroupBuilder.build(
             new Identifier("blocks", "jineric"),
-            () -> new ItemStack(Items.SILTSTONE));
+            () -> new ItemStack(JinericItems.SILTSTONE));
 
     public static Item.Settings jinericBlocks() {
         return new Item.Settings().group(JINERIC_BLOCKS);
@@ -18,7 +18,7 @@ public class ItemGroups {
     public static final ItemGroup JINERIC_ITEMS = FabricItemGroupBuilder.build(
             new Identifier("items", "jineric"),
 
-            () -> new ItemStack(Items.GOLDEN_SWEET_BERRIES));
+            () -> new ItemStack(JinericItems.GOLDEN_SWEET_BERRIES));
     public static Item.Settings jinericItems() {
         return new Item.Settings().group(JINERIC_ITEMS);
     }

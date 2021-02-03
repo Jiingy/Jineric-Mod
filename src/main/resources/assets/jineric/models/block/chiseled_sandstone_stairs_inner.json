@@ -1,8 +1,8 @@
 {
     "parent": "minecraft:block/inner_stairs",
     "textures": {
-        "bottom": "jineric:block/chiseled_sandstone",
-        "top": "jineric:block/chiseled_sandstone",
-        "side": "jineric:block/chiseled_sandstone"
+        "bottom": "minecraft:block/chiseled_sandstone",
+        "top": "minecraft:block/chiseled_sandstone",
+        "side": "minecraft:block/chiseled_sandstone"
     }
 }
