@@ -107,6 +107,10 @@ public class JinericBlocks {
     public static final Block FLINT_BLOCK = register("flint_block", new Block(FabricBlockSettings.copy(STONE)));
     public static final Block CHARCOAL_BLOCK = register("charcoal_block", new Block(FabricBlockSettings.copy(COAL_BLOCK)));
 
+    //WOOD
+    public static final Block BOREAL_PLANKS = register("boreal_planks", new Block(FabricBlockSettings.copy(OAK_PLANKS)));
+    public static final Block BOREAL_SLAB = register("boreal_slab", new SlabBlock(FabricBlockSettings.copy(OAK_PLANKS)));
+    public static final Block BOREAL_STAIRS = register("boreal_stairs", new BaseJinericStairBlock(OAK_PLANKS.getDefaultState(),FabricBlockSettings.copy(OAK_PLANKS)));
 
     //DECORATION BLOCKS
     public static final Block SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", new BaseJinericCarvedPumpkinBlock(FabricBlockSettings.copy(JACK_O_LANTERN)));

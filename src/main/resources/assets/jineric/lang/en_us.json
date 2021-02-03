@@ -93,6 +93,10 @@
   "block.jineric.charcoal_block": "Charcoal Block",
   "block.jineric.full_grass_block": "Full Grass Block",
 
+  "block.jineric.boreal_planks": "Boreal Planks",
+  "block.jineric.boreal_slab": "Boreal Slab",
+  "block.jineric.boreal_stairs": "Boreal Stairs",
+
   "itemGroup.blocks.jineric": "Jineric Blocks",
   "itemGroup.items.jineric": "Jineric Items"
 }
