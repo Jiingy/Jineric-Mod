@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/wall_inventory",
   "textures": {
-    "wall": "jineric:block/cut_sandstone"
+    "wall": "minecraft:block/cut_sandstone"
   }
 }

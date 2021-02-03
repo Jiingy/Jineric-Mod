@@ -1,8 +1,0 @@
-{
-    "parent": "minecraft:block/slab",
-    "textures": {
-        "bottom": "jineric:block/corrite",
-        "top": "jineric:block/corrite",
-        "side": "jineric:block/corrite"
-    }
-}

@@ -19,7 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.jingy.jineric.Jineric"
+      "jingy.jineric.Jineric"
     ]
   },
   "mixins": [
