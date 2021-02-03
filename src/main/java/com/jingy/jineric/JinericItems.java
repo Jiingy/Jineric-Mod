@@ -116,12 +116,21 @@ public class JinericItems {
         public static final Item FLINT_BLOCK = register("flint_block", new BlockItem(JinericBlocks.FLINT_BLOCK, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
         public static final Item CHARCOAL_BLOCK = register("charcoal_block", new BlockItem(JinericBlocks.CHARCOAL_BLOCK, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
 
+    //WOOD TYPES
+        //BOREAL
+    public static final Item BOREAL_PLANKS = register("boreal", new BlockItem(JinericBlocks.BOREAL_PLANKS, JinericItemSettings.Decoration().group(JinericItemGroups.JINERIC_BLOCKS)));
+    public static final Item BOREAL_STAIRS = register("boreal_stairs", new BlockItem(JinericBlocks.BOREAL_STAIRS, JinericItemSettings.Decoration().group(JinericItemGroups.JINERIC_BLOCKS)));
+    public static final Item BOREAL_SLAB = register("boreal_slab", new BlockItem(JinericBlocks.BOREAL_SLAB, JinericItemSettings.Decoration().group(JinericItemGroups.JINERIC_BLOCKS)));
+
+
     //DECORATION
         //SOUL JACK O'LANTERN
         public static final Item SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", new BlockItem(JinericBlocks.SOUL_JACK_O_LANTERN, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
 
         //FULL GRASS BLOCK
         public static final Item FULL_GRASS_BLOCK = register("full_grass_block", new BlockItem(JinericBlocks.FULL_GRASS_BLOCK, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
+
+
 
     private static Item register(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier("jineric", name), item);
