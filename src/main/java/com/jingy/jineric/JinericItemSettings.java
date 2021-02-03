@@ -3,7 +3,7 @@ package com.jingy.jineric;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 
-public class ItemSettings {
+public class JinericItemSettings {
 
     public static Item.Settings BuildingBlocks() {
         return new Item.Settings().group(ItemGroup.BUILDING_BLOCKS);

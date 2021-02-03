@@ -6,6 +6,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class Sounds {
+public class JinericSounds {
 
 }
