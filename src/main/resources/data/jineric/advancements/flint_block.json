@@ -2,10 +2,6 @@
     "parent": "minecraft:recipes/root",
     "rewards": {
         "recipes": [
-            "jineric:flint_block_slab",
-            "jineric:flint_block_stairs",
-            "jineric:flint_block_pillar",
-            "jineric:flint_block_wall"
         ]
     },
     "criteria": {

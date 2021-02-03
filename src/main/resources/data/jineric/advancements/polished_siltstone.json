@@ -4,7 +4,6 @@
         "recipes": [
             "jineric:polished_siltstone_slab",
             "jineric:polished_siltstone_stairs",
-            "jineric:polished_siltstone_pillar",
             "jineric:polished_siltstone_wall"
         ]
     },

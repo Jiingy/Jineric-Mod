@@ -2,9 +2,8 @@
     "parent": "minecraft:recipes/root",
     "rewards": {
         "recipes": [
-            "jineric:smooth_stone_slab",
+            "minecraft:smooth_stone_slab",
             "jineric:smooth_stone_stairs",
-            "jineric:smooth_stone_pillar",
             "jineric:smooth_stone_wall"
         ]
     },
@@ -14,7 +13,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "jineric:smooth_stone_slab"
+                        "item": "minecraft:smooth_stone"
                     }
                 ]
             }
