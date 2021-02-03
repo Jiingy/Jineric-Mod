@@ -1,4 +1,4 @@
-package com.jingy.jineric.registry;
+package com.jingy.jineric.items;
 
 import com.jingy.jineric.Jineric;
 import net.minecraft.item.BlockItem;
