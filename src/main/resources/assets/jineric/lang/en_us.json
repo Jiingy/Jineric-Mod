@@ -32,7 +32,7 @@
   "block.jineric.smooth_red_sandstone_wall": "Smooth Red Sandstone Wall",
   "block.jineric.cut_red_sandstone_wall": "Cut Red Sandstone Wall",
   "block.jineric.cut_red_sandstone_stairs": "Cut Red Sandstone Stairs",
-
+  
   "block.jineric.soul_sandstone": "Soul Sandstone",
   "block.jineric.soul_sandstone_slab": "Soul Sandstone Slab",
   "block.jineric.soul_sandstone_stairs": "Soul Sandstone Stairs",
@@ -77,6 +77,8 @@
   "block.jineric.flint_block": "Flint Block",
   "block.jineric.charcoal_block": "Charcoal Block",
   "block.jineric.full_grass_block": "Full Grass Block",
+  "block.jineric.shulker_chest": "Shulker Chest",
+
 
   "block.jineric.boreal_planks": "Boreal Planks",
   "block.jineric.boreal_slab": "Boreal Slab",
