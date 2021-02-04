@@ -1,5 +1,6 @@
-package jingy.jineric;
+package jingy.jineric.sounds;
 
+import jingy.jineric.Jineric;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;

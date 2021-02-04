@@ -1,4 +1,4 @@
-package jingy.jineric.item;
+package jingy.jineric.items;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;

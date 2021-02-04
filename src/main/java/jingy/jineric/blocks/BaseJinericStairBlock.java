@@ -1,4 +1,4 @@
-package jingy.jineric.block;
+package jingy.jineric.blocks;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.StairsBlock;

@@ -1,4 +1,4 @@
-package jingy.jineric.block;
+package jingy.jineric.blocks;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
@@ -125,7 +125,6 @@ public class JinericBlocks {
 
     //SHULKER CHEST
     public static final Block SHULKER_CHEST = register("shulker_chest", new Block(FabricBlockSettings.copy(SHULKER_BOX)));
-
 
 
     private static Block register(String name, Block block) {

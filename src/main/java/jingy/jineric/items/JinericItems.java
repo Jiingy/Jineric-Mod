@@ -1,6 +1,6 @@
-package jingy.jineric.item;
+package jingy.jineric.items;
 
-import jingy.jineric.block.JinericBlocks;
+import jingy.jineric.blocks.JinericBlocks;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.BlockItem;
@@ -135,6 +135,8 @@ public class JinericItems {
         //FULL GRASS BLOCK
         public static final Item FULL_GRASS_BLOCK = register("full_grass_block", new BlockItem(JinericBlocks.FULL_GRASS_BLOCK, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
 
+        //SHULKER CHEST
+        public static final Item SHULKER_CHEST = register("shulker_chest", new BlockItem(JinericBlocks.SHULKER_CHEST, JinericItemSettings.Decoration().group(JinericItemGroups.JINERIC_BLOCKS)));
 
 
     private static Item register(String name, Item item) {

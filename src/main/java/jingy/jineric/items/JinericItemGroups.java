@@ -1,4 +1,4 @@
-package jingy.jineric.item;
+package jingy.jineric.items;
 
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.Item;
