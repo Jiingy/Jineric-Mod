@@ -1,6 +1,8 @@
 package jingy.jineric;
 
+import jingy.jineric.block.JinericShulkerChestBlockEntity;
 import jingy.jineric.block.JinericBlocks;
+import jingy.jineric.block.JinericShulkerChestBlock;
 import jingy.jineric.item.JinericItemGroups;
 import jingy.jineric.item.JinericItems;
 import jingy.jineric.world.JinericWorldGen;
@@ -22,5 +24,7 @@ public class Jineric implements ModInitializer {
         JinericItemGroups.init();
         JinericWorldGen.init();
         JinericSounds.init();
+        JinericShulkerChestBlock.init();
+        JinericShulkerChestBlockEntity.init();
     }
 }

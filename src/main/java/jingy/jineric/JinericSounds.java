@@ -11,7 +11,7 @@ public class JinericSounds {
     public static SoundEvent SOUL_SANDSTONE_INTERACT = new SoundEvent(SOUL_SANDSTONE_ID);
 
     public static final BlockSoundGroup SOUL_SANDSTONE = new BlockSoundGroup(
-            1,
+            0.75f,
             1,
             SOUL_SANDSTONE_INTERACT,
             SOUL_SANDSTONE_INTERACT,
