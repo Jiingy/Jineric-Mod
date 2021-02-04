@@ -47,6 +47,7 @@ public class JinericBlocks {
 
     //SMOOTH RED SANDSTONE
     public static final Block SMOOTH_RED_SANDSTONE_SLAB  = register("smooth_red_sandstone_slab", new SlabBlock(FabricBlockSettings.copy(RED_SANDSTONE)));
+    public static final Block SMOOTH_RED_SANDSTONE_WALL = register("smooth_red_sandstone_wall", new WallBlock(FabricBlockSettings.copy(RED_SANDSTONE)));
 
 //SOUL SAND
     //SOUL SANDSTONE
