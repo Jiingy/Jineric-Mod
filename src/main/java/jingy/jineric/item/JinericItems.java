@@ -53,6 +53,8 @@ public class JinericItems {
         public static final Item WAVY_RED_SANDSTONE_STAIRS = register("wavy_red_sandstone_stairs", new BlockItem(JinericBlocks.WAVY_RED_SANDSTONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
         public static final Item WAVY_RED_SANDSTONE_WALL = register("wavy_red_sandstone_wall", new BlockItem(JinericBlocks.WAVY_RED_SANDSTONE_WALL, JinericItemSettings.Decoration().group(JinericItemGroups.JINERIC_BLOCKS)));
 
+        //SMOOTH RED SANDSTONE
+        public static final Item SMOOTH_RED_SANDSTONE_SLAB = register("smooth_red_sandstone_slab", new BlockItem(JinericBlocks.SMOOTH_RED_SANDSTONE_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
 
     //SOUL SAND
         //SOUL SOUL SANDSTONE
@@ -88,8 +90,8 @@ public class JinericItems {
 
     //STONES
         //SMOOTH STONE
-    public static final Item SMOOTH_STONE_STAIRS = register("smooth_stone_stairs", new BlockItem(JinericBlocks.SMOOTH_STONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
-    public static final Item SMOOTH_STONE_WALL = register("smooth_stone_wall", new BlockItem(JinericBlocks.SMOOTH_STONE_WALL, JinericItemSettings.Decoration().group(JinericItemGroups.JINERIC_BLOCKS)));
+        public static final Item SMOOTH_STONE_STAIRS = register("smooth_stone_stairs", new BlockItem(JinericBlocks.SMOOTH_STONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
+        public static final Item SMOOTH_STONE_WALL = register("smooth_stone_wall", new BlockItem(JinericBlocks.SMOOTH_STONE_WALL, JinericItemSettings.Decoration().group(JinericItemGroups.JINERIC_BLOCKS)));
 
         //BORITE
         public static final Item BORITE = register("borite", new BlockItem(JinericBlocks.BORITE, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
