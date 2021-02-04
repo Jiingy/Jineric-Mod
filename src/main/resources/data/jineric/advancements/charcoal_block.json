@@ -2,10 +2,6 @@
     "parent": "minecraft:recipes/root",
     "rewards": {
         "recipes": [
-            "jineric:charcoal_block_slab",
-            "jineric:charcoal_block_stairs",
-            "jineric:charcoal_block_pillar",
-            "jineric:charcoal_block_wall"
         ]
     },
     "criteria": {

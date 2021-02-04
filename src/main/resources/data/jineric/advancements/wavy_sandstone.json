@@ -4,7 +4,6 @@
         "recipes": [
             "jineric:wavy_sandstone_slab",
             "jineric:wavy_sandstone_stairs",
-            "jineric:wavy_sandstone_pillar",
             "jineric:wavy_sandstone_wall"
         ]
     },

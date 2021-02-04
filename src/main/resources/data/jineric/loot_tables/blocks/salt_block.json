@@ -6,7 +6,7 @@
             "entries": [
                 {
                     "type": "minecraft:item",
-                    "name": "jineric:salt_block"
+                    "name": "jineric:salt"
                 }
             ]
         }

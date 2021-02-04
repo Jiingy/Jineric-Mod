@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "jineric:siltstone"
+        }
+    },
+    "result": {
+        "item": "jineric:siltstone_slab",
+        "count": 6
+    }
+}

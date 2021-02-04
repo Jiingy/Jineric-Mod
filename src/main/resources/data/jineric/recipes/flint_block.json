@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:flint"
+        }
+    },
+    "result": {
+        "item": "jineric:flint_block",
+        "count": 1
+    }
+}

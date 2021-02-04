@@ -19,18 +19,22 @@
     "minecraft:polished_blackstone_brick_wall",
     "minecraft:polished_blackstone_wall",
 
-
-
+    "jineric:smooth_stone_wall",
+    "jineric:borite_wall",
+    "jineric:slate_wall",
     "jineric:siltstone_wall",
     "jineric:polished_siltstone_wall",
+
     "jineric:cut_sandstone_wall",
+    "jineric:wavy_sandstone_wall",
+    "jineric:smooth_sandstone_wall",
+
     "jineric:soul_sandstone_wall",
     "jineric:cut_soul_sandstone_wall",
     "jineric:chiseled_soul_sandstone_wall",
     "jineric:smooth_soul_sandstone_wall",
-    "jineric:wavy_sandstone_wall",
     "jineric:wavy_soul_sandstone_wall",
-    "jineric:wavy_red_sandstone_wall",
-    "jineric:borite_wall"
+
+    "jineric:wavy_red_sandstone_wall"
   ]
 }
