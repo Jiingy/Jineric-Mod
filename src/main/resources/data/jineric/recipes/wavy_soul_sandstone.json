@@ -2,6 +2,7 @@
  {
     "type": "minecraft:crafting_shaped",
     "pattern": [
+        " # ",
         "# #",
         " # "
     ],
@@ -12,6 +13,6 @@
     },
     "result": {
         "item": "jineric:wavy_soul_sandstone",
-        "count": 1
+        "count": 4
     }
 }
