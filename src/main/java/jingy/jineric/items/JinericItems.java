@@ -54,7 +54,6 @@ public class JinericItems {
         public static final Item WAVY_RED_SANDSTONE_WALL = register("wavy_red_sandstone_wall", new BlockItem(JinericBlocks.WAVY_RED_SANDSTONE_WALL, JinericItemSettings.Decoration().group(JinericItemGroups.JINERIC_BLOCKS)));
 
         //SMOOTH RED SANDSTONE
-        public static final Item SMOOTH_RED_SANDSTONE_SLAB = register("smooth_red_sandstone_slab", new BlockItem(JinericBlocks.SMOOTH_RED_SANDSTONE_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
         public static final Item SMOOTH_RED_SANDSTONE_WALL = register("smooth_red_sandstone_wall", new BlockItem(JinericBlocks.SMOOTH_RED_SANDSTONE_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
 
         //CUT RED SANDSTONE
