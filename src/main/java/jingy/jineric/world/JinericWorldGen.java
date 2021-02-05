@@ -1,6 +1,6 @@
 package jingy.jineric.world;
 
-import jingy.jineric.block.JinericBlocks;
+import jingy.jineric.blocks.JinericBlocks;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.util.Identifier;
