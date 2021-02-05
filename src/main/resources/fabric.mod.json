@@ -18,6 +18,9 @@
 
   "environment": "*",
   "entrypoints": {
+    "client": [
+      "jingy.jineric.JinericClient"
+    ],
     "main": [
       "jingy.jineric.Jineric"
     ]

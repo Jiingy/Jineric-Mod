@@ -22,6 +22,7 @@ public class JinericItemGroups {
     public static Item.Settings jinericItems() {
         return new Item.Settings().group(JINERIC_ITEMS);
     }
+
     public static void init() {
     }
 
