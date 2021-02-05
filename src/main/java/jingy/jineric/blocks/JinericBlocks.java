@@ -135,6 +135,7 @@ public class JinericBlocks {
     public static final Block SHULKER_CHEST = register("shulker_chest", new Block(FabricBlockSettings.copy(SHULKER_BOX)));
 
 
+
     private static Block register(String name, Block block) {
         return Registry.register(Registry.BLOCK, new Identifier("jineric", name), block);
     }
