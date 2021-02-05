@@ -17,25 +17,13 @@ import net.minecraft.world.World;
 public class Jineric implements ModInitializer {
 
     public static final String MOD_ID = "jineric";
-    public static final BlockEntityType<?> SHULKER_CHEST_ENTITY_TYPE = ;
 
     public static Identifier id(String path) {
         return new Identifier(MOD_ID, path);
     }
 
-    public static final Identifier SHULKER_CHEST = new Identifier(MOD_ID, "shulker_chest");
-    public static final String SHULKER_CHEST_TRANSLATION_KEY = Util.createTranslationKey("shulker_chest", SHULKER_CHEST);
-
-
     @Override
     public void onInitialize() {
-
-        ContainerProviderRegistry.INSTANCE.registerFactory(SHULKER_CHEST, (syncId, identifier, player, buf) -> {
-            final World world = player.world;
-            final BlockPos pos = buf.readBlockPos();
-            return world.getBlockState(pos).createContainerFactory(player.world, pos).createMenu(syncId, player.inventory, player);
-        });
-
         JinericItems.init();
         JinericBlocks.init();
         JinericItemGroups.init();
