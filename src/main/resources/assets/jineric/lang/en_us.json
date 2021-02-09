@@ -11,28 +11,27 @@
 
   "block.jineric.cut_sandstone_stairs": "Cut Sandstone Stairs",
   "block.jineric.cut_sandstone_wall": "Cut Sandstone Wall",
-
   "block.jineric.chiseled_sandstone_stairs": "Chiseled Sandstone Stairs",
   "block.jineric.chiseled_sandstone_slab": "Chiseled Sandstone Slab",
   "block.jineric.chiseled_sandstone_wall": "Chiseled Sandstone Wall",
-
   "block.jineric.smooth_sandstone_wall": "Smooth Sandstone Wall",
-
   "block.jineric.wavy_sandstone": "Wavy Sandstone",
   "block.jineric.wavy_sandstone_slab": "Wavy Sandstone Slab",
   "block.jineric.wavy_sandstone_stairs": "Wavy Sandstone Stairs",
   "block.jineric.wavy_sandstone_wall": "Wavy Sandstone Wall",
 
+  "block.jineric.smooth_red_sandstone_slab": "Smooth Red Sandstone Slab",
+  "block.jineric.smooth_red_sandstone_wall": "Smooth Red Sandstone Wall",
+  "block.jineric.cut_red_sandstone_wall": "Cut Red Sandstone Wall",
+  "block.jineric.cut_red_sandstone_stairs": "Cut Red Sandstone Stairs",
+  "block.jineric.chiseled_red_sandstone_wall": "Chiseled Red Sandstone Wall",
+  "block.jineric.chiseled_red_sandstone_stairs": "Chiseled Red Sandstone Stairs",
+  "block.jineric.chiseled_red_sandstone_slab": "Chiseled Red Sandstone Slab",
   "block.jineric.wavy_red_sandstone": "Wavy Red Sandstone",
   "block.jineric.wavy_red_sandstone_slab": "Wavy Red Sandstone Slab",
   "block.jineric.wavy_red_sandstone_stairs": "Wavy Red Sandstone Stairs",
   "block.jineric.wavy_red_sandstone_wall": "Wavy Red Sandstone Wall",
 
-  "block.jineric.smooth_red_sandstone_slab": "Smooth Red Sandstone Slab",
-  "block.jineric.smooth_red_sandstone_wall": "Smooth Red Sandstone Wall",
-  "block.jineric.cut_red_sandstone_wall": "Cut Red Sandstone Wall",
-  "block.jineric.cut_red_sandstone_stairs": "Cut Red Sandstone Stairs",
-  
   "block.jineric.soul_sandstone": "Soul Sandstone",
   "block.jineric.soul_sandstone_slab": "Soul Sandstone Slab",
   "block.jineric.soul_sandstone_stairs": "Soul Sandstone Stairs",

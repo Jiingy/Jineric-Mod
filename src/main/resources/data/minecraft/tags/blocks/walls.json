@@ -31,13 +31,14 @@
 
     "jineric:smooth_red_sandstone_wall",
     "jineric:cut_red_sandstone_wall",
+    "jineric:chiseled_red_sandstone_wall",
+    "jineric:wavy_red_sandstone_wall",
 
     "jineric:soul_sandstone_wall",
     "jineric:cut_soul_sandstone_wall",
     "jineric:chiseled_soul_sandstone_wall",
     "jineric:smooth_soul_sandstone_wall",
-    "jineric:wavy_soul_sandstone_wall",
+    "jineric:wavy_soul_sandstone_wall"
 
-    "jineric:wavy_red_sandstone_wall"
   ]
 }
