@@ -26,12 +26,13 @@ public class JinericItems {
     public static final Item WARPED_NETHER_WART = register("warped_nether_wart", new Item(JinericItemSettings.Misc().group(JinericItemGroups.JINERIC_ITEMS)));
 
 //BLOCKS
+
     //SAND
         //CUT SANDSTONE
         public static final Item CUT_SANDSTONE_STAIRS = register("cut_sandstone_stairs", new BlockItem(JinericBlocks.CUT_SANDSTONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
         public static final Item CUT_SANDSTONE_WALL = register("cut_sandstone_wall", new BlockItem(JinericBlocks.CUT_SANDSTONE_WALL, JinericItemSettings.Decoration().group(JinericItemGroups.JINERIC_BLOCKS)));
 
-        //CHISELED SOUL SANDSTONE
+        //CHISELED SANDSTONE
         public static final Item CHISELED_SANDSTONE_SLAB = register("chiseled_sandstone_slab", new BlockItem(JinericBlocks.CHISELED_SANDSTONE_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
         public static final Item CHISELED_SANDSTONE_STAIRS = register("chiseled_sandstone_stairs", new BlockItem(JinericBlocks.CHISELED_SANDSTONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
         public static final Item CHISELED_SANDSTONE_WALL = register("chiseled_sandstone_wall", new BlockItem(JinericBlocks.CHISELED_SANDSTONE_WALL, JinericItemSettings.Decoration().group(JinericItemGroups.JINERIC_BLOCKS)));
@@ -45,14 +46,25 @@ public class JinericItems {
         //SMOOTH SANDSTONE
         public static final Item SMOOTH_SANDSTONE_WALL = register("smooth_sandstone_wall", new BlockItem(JinericBlocks.SMOOTH_SANDSTONE_WALL, JinericItemSettings.Decoration().group(JinericItemGroups.JINERIC_BLOCKS)));
 
-
     //RED SAND
+        //CUT RED SANDSTONE
+        public static final Item CUT_RED_SANDSTONE_STAIRS = register("cut_red_sandstone_stairs", new BlockItem(JinericBlocks.CUT_RED_SANDSTONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
+        public static final Item CUT_RED_SANDSTONE_WALL = register("cut_red_sandstone_wall", new BlockItem(JinericBlocks.CUT_RED_SANDSTONE_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
+
         //WAVY RED SANDSTONE
         public static final Item WAVY_RED_SANDSTONE = register("wavy_red_sandstone", new BlockItem(JinericBlocks.WAVY_RED_SANDSTONE, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
         public static final Item WAVY_RED_SANDSTONE_SLAB = register("wavy_red_sandstone_slab", new BlockItem(JinericBlocks.WAVY_RED_SANDSTONE_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
         public static final Item WAVY_RED_SANDSTONE_STAIRS = register("wavy_red_sandstone_stairs", new BlockItem(JinericBlocks.WAVY_RED_SANDSTONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
         public static final Item WAVY_RED_SANDSTONE_WALL = register("wavy_red_sandstone_wall", new BlockItem(JinericBlocks.WAVY_RED_SANDSTONE_WALL, JinericItemSettings.Decoration().group(JinericItemGroups.JINERIC_BLOCKS)));
 
+        //CHISELED RED SANDSTONE
+        public static final Item CHISELED_RED_SANDSTONE_SLAB = register("chiseled_red_sandstone_slab", new BlockItem(JinericBlocks.CHISELED_RED_SANDSTONE_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
+        public static final Item CHISELED_RED_SANDSTONE_STAIRS = register("chiseled_red_sandstone_stairs", new BlockItem(JinericBlocks.CHISELED_RED_SANDSTONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
+        public static final Item CHISELED_RED_SANDSTONE_WALL = register("chiseled_red_sandstone_wall", new BlockItem(JinericBlocks.CHISELED_RED_SANDSTONE_WALL, JinericItemSettings.Decoration().group(JinericItemGroups.JINERIC_BLOCKS)));
+
+
+    //SMOOTH RED SANDSTONE
+        public static final Item SMOOTH_RED_SANDSTONE_WALL = register("smooth_red_sandstone_wall", new BlockItem(JinericBlocks.SMOOTH_RED_SANDSTONE_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
 
     //SOUL SAND
         //SOUL SOUL SANDSTONE
@@ -73,7 +85,7 @@ public class JinericItems {
         public static final Item CHISELED_SOUL_SANDSTONE_STAIRS = register("chiseled_soul_sandstone_stairs", new BlockItem(JinericBlocks.CHISELED_SOUL_SANDSTONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
         public static final Item CHISELED_SOUL_SANDSTONE_WALL = register("chiseled_soul_sandstone_wall", new BlockItem(JinericBlocks.CHISELED_SOUL_SANDSTONE_WALL, JinericItemSettings.Decoration().group(JinericItemGroups.JINERIC_BLOCKS)));
 
-        //SMOOTH SANDSTONE
+        //SMOOTH SOUL SANDSTONE
         public static final Item SMOOTH_SOUL_SANDSTONE = register("smooth_soul_sandstone", new BlockItem(JinericBlocks.SMOOTH_SOUL_SANDSTONE, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
         public static final Item SMOOTH_SOUL_SANDSTONE_SLAB = register("smooth_soul_sandstone_slab", new BlockItem(JinericBlocks.SMOOTH_SOUL_SANDSTONE_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
         public static final Item SMOOTH_SOUL_SANDSTONE_STAIRS = register("smooth_soul_sandstone_stairs", new BlockItem(JinericBlocks.SMOOTH_SOUL_SANDSTONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
@@ -88,8 +100,8 @@ public class JinericItems {
 
     //STONES
         //SMOOTH STONE
-    public static final Item SMOOTH_STONE_STAIRS = register("smooth_stone_stairs", new BlockItem(JinericBlocks.SMOOTH_STONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
-    public static final Item SMOOTH_STONE_WALL = register("smooth_stone_wall", new BlockItem(JinericBlocks.SMOOTH_STONE_WALL, JinericItemSettings.Decoration().group(JinericItemGroups.JINERIC_BLOCKS)));
+        public static final Item SMOOTH_STONE_STAIRS = register("smooth_stone_stairs", new BlockItem(JinericBlocks.SMOOTH_STONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
+        public static final Item SMOOTH_STONE_WALL = register("smooth_stone_wall", new BlockItem(JinericBlocks.SMOOTH_STONE_WALL, JinericItemSettings.Decoration().group(JinericItemGroups.JINERIC_BLOCKS)));
 
         //BORITE
         public static final Item BORITE = register("borite", new BlockItem(JinericBlocks.BORITE, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
@@ -135,8 +147,6 @@ public class JinericItems {
         //FULL GRASS BLOCK
         public static final Item FULL_GRASS_BLOCK = register("full_grass_block", new BlockItem(JinericBlocks.FULL_GRASS_BLOCK, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.JINERIC_BLOCKS)));
 
-        //SHULKER CHEST
-        public static final Item SHULKER_CHEST = register("shulker_chest", new BlockItem(JinericBlocks.SHULKER_CHEST, JinericItemSettings.Decoration().group(JinericItemGroups.JINERIC_BLOCKS)));
 
 
     private static Item register(String name, Item item) {
