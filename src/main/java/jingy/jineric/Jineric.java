@@ -1,11 +1,10 @@
 package jingy.jineric;
 
-import jingy.jineric.blockentities.ShulkerChestBlockEntity;
-import jingy.jineric.blocks.JinericBlocks;
-import jingy.jineric.blocks.ShulkerChestBlock;
+import jingy.jineric.block.blockentities.ShulkerChestBlockEntity;
+import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.inventory.ShulkerChestInventory;
-import jingy.jineric.items.JinericItemGroups;
-import jingy.jineric.items.JinericItems;
+import jingy.jineric.item.JinericItemGroups;
+import jingy.jineric.item.JinericItems;
 import jingy.jineric.screenhandlers.ShulkerChestScreenHandler;
 import jingy.jineric.sounds.JinericSounds;
 import jingy.jineric.world.JinericWorldGen;
@@ -49,8 +48,8 @@ public class Jineric implements ModInitializer {
         JinericItemGroups.init();
         JinericWorldGen.init();
         JinericSounds.init();
-        ShulkerChestBlockEntity.init();
         ShulkerChestInventory.init();
+        ShulkerChestScreenHandler.init();
     }
 
 }

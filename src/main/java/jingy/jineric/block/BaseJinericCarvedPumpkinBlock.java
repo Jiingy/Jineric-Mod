@@ -1,4 +1,4 @@
-package jingy.jineric.blocks;
+package jingy.jineric.block;
 
 import net.minecraft.block.CarvedPumpkinBlock;
 

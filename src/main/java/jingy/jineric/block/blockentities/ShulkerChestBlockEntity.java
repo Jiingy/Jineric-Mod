@@ -1,4 +1,4 @@
-package jingy.jineric.blockentities;
+package jingy.jineric.block.blockentities;
 
 import jingy.jineric.Jineric;
 import jingy.jineric.inventory.ShulkerChestInventory;
@@ -10,6 +10,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.screen.GenericContainerScreenHandler;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
@@ -17,8 +18,8 @@ import net.minecraft.text.TranslatableText;
 import net.minecraft.util.collection.DefaultedList;
 
 public class ShulkerChestBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ShulkerChestInventory {
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(54, ItemStack.EMPTY);
-    //private static final int INVENTORY_SIZE = 54;
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(INVENTORY_SIZE, ItemStack.EMPTY);
+    private static final int INVENTORY_SIZE = 54;
 
     public ShulkerChestBlockEntity() {
         super(Jineric.SHULKER_CHEST_BLOCK_ENTITY);

@@ -68,7 +68,6 @@ public interface ShulkerChestInventory extends Inventory {
 
         @Override
         default void markDirty() {
-            // Override if you want behavior.
         }
 
         @Override

@@ -1,16 +1,13 @@
-package jingy.jineric.blocks;
+package jingy.jineric.block;
 
-import jingy.jineric.Jineric;
-import jingy.jineric.blockentities.ShulkerChestBlockEntity;
-import net.fabricmc.fabric.api.container.ContainerProviderRegistry;
+
+import jingy.jineric.block.blockentities.ShulkerChestBlockEntity;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
-import net.minecraft.item.ItemStack;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.util.ActionResult;
@@ -27,16 +24,6 @@ public class ShulkerChestBlock extends BlockWithEntity {
         }
 
         @Override
-        public BlockEntity createBlockEntity(BlockView view) {
-            return new ShulkerChestBlockEntity();
-        }
-
-        @Override
-        public BlockRenderType getRenderType(BlockState state) {
-            return BlockRenderType.MODEL;
-        }
-
-        @Override
         public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
             if (!world.isClient) {
                 NamedScreenHandlerFactory screenHandlerFactory = state.createScreenHandlerFactory(world, pos);
@@ -48,21 +35,32 @@ public class ShulkerChestBlock extends BlockWithEntity {
         }
 
         @Override
-        public void onStateReplaced (BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
+        public BlockEntity createBlockEntity(BlockView view) {
+            return new ShulkerChestBlockEntity();
+        }
+
+        @Override
+        public BlockRenderType getRenderType(BlockState state) {
+            return BlockRenderType.MODEL;
+        }
+
+        @Override
+        public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
             if (state.getBlock() != newState.getBlock()) {
-                BlockEntity blockEntity = world.getBlockEntity(pos);
-                if (blockEntity instanceof ShulkerChestBlockEntity) {
-                    ItemScatterer.spawn(world, pos, (Inventory) blockEntity);
-                    world.updateComparators(pos,this);
+                BlockEntity be = world.getBlockEntity(pos);
+
+                if (be instanceof Inventory) {
+                    ItemScatterer.spawn(world, pos, (Inventory) be);
+                    world.updateComparators(pos, this);
                 }
                 super.onStateReplaced(state, world, pos, newState, moved);
             }
         }
 
-        @Override
-        public boolean hasComparatorOutput(BlockState state) {
-            return true;
-        }
+        //@Override
+        //public boolean hasComparatorOutput(BlockState state) {
+            //return true;
+        //}
 
         @Override
         public int getComparatorOutput(BlockState state, World world, BlockPos pos) {

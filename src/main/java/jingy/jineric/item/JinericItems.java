@@ -1,6 +1,6 @@
-package jingy.jineric.items;
+package jingy.jineric.item;
 
-import jingy.jineric.blocks.JinericBlocks;
+import jingy.jineric.block.JinericBlocks;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.BlockItem;

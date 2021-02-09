@@ -17,7 +17,7 @@ public class ShulkerChestScreenHandler extends ScreenHandler {
     public ShulkerChestScreenHandler(int syncId, PlayerInventory playerInventory) {
         this(syncId, playerInventory, new SimpleInventory(INVENTORY_SIZE));
     }
-    
+
     public ShulkerChestScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory) {
         super(Jineric.SHULKER_CHEST_SCREEN_HANDLER, syncId);
         checkSize(inventory, 54);

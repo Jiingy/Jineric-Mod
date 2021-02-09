@@ -1,4 +1,4 @@
-package jingy.jineric.blocks;
+package jingy.jineric.block;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
