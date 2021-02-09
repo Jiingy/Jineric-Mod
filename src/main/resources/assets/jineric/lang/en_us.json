@@ -32,6 +32,11 @@
   "block.jineric.wavy_red_sandstone_stairs": "Wavy Red Sandstone Stairs",
   "block.jineric.wavy_red_sandstone_wall": "Wavy Red Sandstone Wall",
 
+  "block.jineric.smooth_red_sandstone_slab": "Smooth Red Sandstone Slab",
+  "block.jineric.smooth_red_sandstone_wall": "Smooth Red Sandstone Wall",
+  "block.jineric.cut_red_sandstone_wall": "Cut Red Sandstone Wall",
+  "block.jineric.cut_red_sandstone_stairs": "Cut Red Sandstone Stairs",
+  
   "block.jineric.soul_sandstone": "Soul Sandstone",
   "block.jineric.soul_sandstone_slab": "Soul Sandstone Slab",
   "block.jineric.soul_sandstone_stairs": "Soul Sandstone Stairs",
