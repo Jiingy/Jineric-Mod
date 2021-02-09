@@ -1,0 +1,23 @@
+{
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+        "recipes": [
+            "jineric:polished_sandstone_slab",
+            "jineric:polished_sandstone_stairs",
+            "jineric:polished_sandstone_pillar",
+            "jineric:polished_sandstone_wall"
+        ]
+    },
+    "criteria": {
+        "has_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "jineric:polished_sandstone"
+                    }
+                ]
+            }
+        }
+    }
+}

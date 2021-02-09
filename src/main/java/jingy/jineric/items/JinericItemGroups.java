@@ -15,12 +15,30 @@ public class JinericItemGroups {
         return new Item.Settings().group(JINERIC_BLOCKS);
 
     }
-    public static final ItemGroup JINERIC_ITEMS = FabricItemGroupBuilder.build(
-            new Identifier("items", "jineric"),
+    public static final ItemGroup JINERIC_BREWING = FabricItemGroupBuilder.build(
+            new Identifier("brewing", "jineric"),
 
             () -> new ItemStack(JinericItems.GOLDEN_SWEET_BERRIES));
-    public static Item.Settings jinericItems() {
-        return new Item.Settings().group(JINERIC_ITEMS);
+    public static Item.Settings jinericBrewing() {
+        return new Item.Settings().group(JINERIC_BREWING);
+
+    }
+    public static final ItemGroup JINERIC_MISCELLANEOUS = FabricItemGroupBuilder.build(
+            new Identifier("miscellaneous", "jineric"),
+
+            () -> new ItemStack(JinericItems.SALT));
+    public static Item.Settings jinericMiscellaneous() {
+        return new Item.Settings().group(JINERIC_MISCELLANEOUS);
+
+    /*}
+    public static final ItemGroup JINERIC_BREWING = FabricItemGroupBuilder.build(
+            new Identifier("brewing", "jineric"),
+
+            () -> new ItemStack(JinericItems.GOLDEN_SWEET_BERRIES));
+    public static Item.Settings jinericBrewing() {
+        return new Item.Settings().group(JINERIC_BREWING);
+*/
+
     }
     public static void init() {
     }

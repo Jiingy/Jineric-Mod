@@ -4,11 +4,6 @@
   "item.jineric.golden_beetroot": "Golden Beetroot",
   "item.jineric.salt": "Salt",
 
-  "block.jineric.borite": "Borite",
-  "block.jineric.borite_slab": "Borite Slab",
-  "block.jineric.borite_stairs": "Borite Stairs",
-  "block.jineric.borite_wall": "Borite Wall",
-
   "block.jineric.cut_sandstone_stairs": "Cut Sandstone Stairs",
   "block.jineric.cut_sandstone_wall": "Cut Sandstone Wall",
   "block.jineric.chiseled_sandstone_stairs": "Chiseled Sandstone Stairs",
@@ -19,6 +14,10 @@
   "block.jineric.wavy_sandstone_slab": "Wavy Sandstone Slab",
   "block.jineric.wavy_sandstone_stairs": "Wavy Sandstone Stairs",
   "block.jineric.wavy_sandstone_wall": "Wavy Sandstone Wall",
+  "block.jineric.polished_sandstone": "Polished Sandstone",
+  "block.jineric.polished_sandstone_slab": "Polished Sandstone Slab",
+  "block.jineric.polished_sandstone_stairs": "Polished Sandstone Stairs",
+  "block.jineric.polished_sandstone_wall": "Polished Sandstone Wall",
 
   "block.jineric.smooth_red_sandstone_slab": "Smooth Red Sandstone Slab",
   "block.jineric.smooth_red_sandstone_wall": "Smooth Red Sandstone Wall",
@@ -61,14 +60,26 @@
   "block.jineric.polished_siltstone_slab": "Polished Siltstone Slab",
   "block.jineric.polished_siltstone_stairs": "Polished Siltstone Stairs",
   "block.jineric.polished_siltstone_wall": "Polished Siltstone Wall",
-
   "block.jineric.slate": "Slate",
   "block.jineric.slate_slab": "Slate Slab",
   "block.jineric.slate_stairs": "Slate Stairs",
   "block.jineric.slate_wall": "Slate Wall",
-
+  "block.jineric.borite": "Borite",
+  "block.jineric.borite_slab": "Borite Slab",
+  "block.jineric.borite_stairs": "Borite Stairs",
+  "block.jineric.borite_wall": "Borite Wall",
+  "block.jineric.polished_granite_wall": "Polished Granite Wall",
+  "block.jineric.polished_andesite_wall": "Polished Andesite Wall",
+  "block.jineric.polished_diorite_wall": "Polished Diorite Wall",
+  "block.jineric.stone_stairs": "Stone Stairs",
   "block.jineric.smooth_stone_stairs": "Smooth Stone Stairs",
   "block.jineric.smooth_stone_wall": "Smooth Stone Wall",
+  "block.jineric.cracked_stone_brick_slab": "Cracked Stone Brick Slab",
+  "block.jineric.cracked_stone_brick_stairs": "Cracked Stone Brick Stairs",
+  "block.jineric.cracked_stone_brick_wall": "Cracked Stone Brick Wall",
+  "block.jineric.obsidian_slab": "Obsidian Slab",
+  "block.jineric.obsidian_stairs": "Obsidian Stairs",
+  "block.jineric.obsidian_wall": "Obsidian Wall",
 
   "block.jineric.soul_jack_o_lantern": "Soul Jack o'Lantern",
   "block.jineric.salt_block": "Salt",
@@ -77,12 +88,15 @@
   "block.jineric.charcoal_block": "Charcoal Block",
   "block.jineric.full_grass_block": "Full Grass Block",
   "block.jineric.shulker_chest": "Shulker Chest",
-
+  "block.jineric.packed_ice_slab": "Packed Ice Slab",
+  "block.jineric.packed_ice_stairs": "Packed Ice Stairs",
+  "block.jineric.packed_ice_wall": "Packed Ice Wall",
 
   "block.jineric.boreal_planks": "Boreal Planks",
   "block.jineric.boreal_slab": "Boreal Slab",
   "block.jineric.boreal_stairs": "Boreal Stairs",
 
   "itemGroup.blocks.jineric": "Jineric Blocks",
-  "itemGroup.items.jineric": "Jineric Items"
+  "itemGroup.brewing.jineric": "Jineric Brewing",
+  "itemGroup.miscellaneous.jineric": "Jineric Miscellaneous"
 }

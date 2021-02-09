@@ -2,6 +2,6 @@
   "parent": "minecraft:block/template_wall_post",
   "textures": {
     "wall": "minecraft:block/cut_sandstone",
-    "top": "minecraft:block/sandstone_top"
+    "top": "jineric:block/polished_sandstone"
   }
 }

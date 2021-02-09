@@ -1,0 +1,23 @@
+{
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+        "recipes": [
+            "minecraft:polished_andesite_slab",
+            "minecraft:polished_andesite_stairs",
+            "minecraft:polished_andesite_pillar",
+            "minecraft:polished_andesite_wall"
+        ]
+    },
+    "criteria": {
+        "has_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "minecraft:polished_andesite"
+                    }
+                ]
+            }
+        }
+    }
+}
