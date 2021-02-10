@@ -2,7 +2,7 @@
   "parent": "minecraft:block/slab",
   "textures": {
     "bottom": "jineric:block/soul_sandstone_bottom",
-    "top": "jineric:block/soul_sandstone_top",
+    "top": "jineric:block/soul_sandstone_bottom",
     "side": "jineric:block/soul_sandstone"
   }
 }
