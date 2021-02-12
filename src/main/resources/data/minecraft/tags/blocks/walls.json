@@ -1,6 +1,24 @@
 {
   "replace": false,
   "values": [
+    "minecraft:cobblestone_wall",
+    "minecraft:mossy_cobblestone_wall",
+    "minecraft:brick_wall",
+    "minecraft:prismarine_wall",
+    "minecraft:red_sandstone_wall",
+    "minecraft:mossy_stone_brick_wall",
+    "minecraft:granite_wall",
+    "minecraft:stone_brick_wall",
+    "minecraft:nether_brick_wall",
+    "minecraft:andesite_wall",
+    "minecraft:red_nether_brick_wall",
+    "minecraft:sandstone_wall",
+    "minecraft:end_stone_brick_wall",
+    "minecraft:diorite_wall",
+    "minecraft:blackstone_wall",
+    "minecraft:polished_blackstone_brick_wall",
+    "minecraft:polished_blackstone_wall",
+
     "jineric:stone_wall",
     "jineric:smooth_stone_wall",
     "jineric:borite_wall",
@@ -13,23 +31,28 @@
     "jineric:cracked_stone_brick_wall",
 
     "jineric:cut_sandstone_wall",
+    "jineric:polished_sandstone_wall",
     "jineric:chiseled_sandstone_wall",
     "jineric:smooth_sandstone_wall",
     "jineric:wavy_sandstone_wall",
-    "jineric:polished_sandstone_wall",
 
-    "jineric:smooth_red_sandstone_wall",
     "jineric:cut_red_sandstone_wall",
+    "jineric:polished_red_sandstone_wall",
     "jineric:chiseled_red_sandstone_wall",
+    "jineric:smooth_red_sandstone_wall",
     "jineric:wavy_red_sandstone_wall",
 
     "jineric:soul_sandstone_wall",
     "jineric:cut_soul_sandstone_wall",
+    "jineric:polished_soul_sandstone_wall",
     "jineric:chiseled_soul_sandstone_wall",
     "jineric:smooth_soul_sandstone_wall",
     "jineric:wavy_soul_sandstone_wall",
 
     "jineric:packed_ice_wall",
-    "jineric:obsidian_wall"
+    "jineric:snow_wall",
+    "jineric:obsidian_wall",
+    "jineric:dark_prismarine_wall",
+    "jineric:prismarine_brick_wall"
   ]
 }

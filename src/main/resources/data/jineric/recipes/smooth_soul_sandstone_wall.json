@@ -1,11 +1,12 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        "###",
-        "###"
+        "   ",
+        "XXX",
+        "XXX"
     ],
     "key": {
-        "#": {
+        "X": {
             "item": "jineric:smooth_soul_sandstone"
         }
     },

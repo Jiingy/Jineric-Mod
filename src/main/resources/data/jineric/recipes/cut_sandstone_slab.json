@@ -5,11 +5,11 @@
     ],
     "key": {
         "#": {
-            "item": "jineric:cut_soul_sandstone"
+            "item": "minecraft:cut_sandstone"
         }
     },
     "result": {
-        "item": "jineric:cut_soul_sandstone_slab",
+        "item": "jineric:cut_sandstone_slab",
         "count": 6
     }
 }

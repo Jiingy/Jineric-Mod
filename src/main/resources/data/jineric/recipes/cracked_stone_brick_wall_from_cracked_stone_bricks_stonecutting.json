@@ -1,7 +1,7 @@
 {
     "type": "minecraft:stonecutting",
     "ingredient": {
-        "item": "minecraft:cracked_stone_brick"
+        "item": "minecraft:cracked_stone_bricks"
     },
     "result": "jineric:cracked_stone_brick_wall",
     "count": 1

@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "   ",
+        "   ",
+        "XXX"
+    ],
+    "key": {
+        "X": {
+            "item": "jineric:wavy_sandstone"
+        }
+    },
+    "result": {
+        "item": "jineric:wavy_sandstone_slab",
+        "count": 6
+    }
+}

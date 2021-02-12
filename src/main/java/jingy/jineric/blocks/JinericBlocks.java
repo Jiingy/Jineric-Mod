@@ -16,38 +16,43 @@ public class JinericBlocks {
     //CUT SANDSTONE
     public static final Block CUT_SANDSTONE_STAIRS = register("cut_sandstone_stairs", new BaseJinericStairBlock(CUT_SANDSTONE.getDefaultState(),FabricBlockSettings.copy(CUT_SANDSTONE)));
     public static final Block CUT_SANDSTONE_WALL = register("cut_sandstone_wall", new WallBlock(FabricBlockSettings.copy(CUT_SANDSTONE)));
+    //POLISHED SANDSTONE
+    public static final Block POLISHED_SANDSTONE = register("polished_sandstone", new Block(FabricBlockSettings.copy(JinericBlockSettings.SandstoneSettings())));
+    public static final Block POLISHED_SANDSTONE_STAIRS = register("polished_sandstone_stairs", new BaseJinericStairBlock(POLISHED_SANDSTONE.getDefaultState(),FabricBlockSettings.copy(POLISHED_SANDSTONE)));
+    public static final Block POLISHED_SANDSTONE_SLAB  = register("polished_sandstone_slab", new SlabBlock(FabricBlockSettings.copy(POLISHED_SANDSTONE)));
+    public static final Block POLISHED_SANDSTONE_WALL = register("polished_sandstone_wall", new WallBlock(FabricBlockSettings.copy(POLISHED_SANDSTONE)));
     //CHISELED SOUL SANDSTONE
     public static final Block CHISELED_SANDSTONE_STAIRS = register("chiseled_sandstone_stairs", new BaseJinericStairBlock(CHISELED_SANDSTONE.getDefaultState(),FabricBlockSettings.copy(CHISELED_SANDSTONE)));
     public static final Block CHISELED_SANDSTONE_SLAB  = register("chiseled_sandstone_slab", new SlabBlock(FabricBlockSettings.copy(CHISELED_SANDSTONE)));
     public static final Block CHISELED_SANDSTONE_WALL = register("chiseled_sandstone_wall", new WallBlock(FabricBlockSettings.copy(CHISELED_SANDSTONE)));
+    //SMOOTH SANDSTONE
+    public static final Block SMOOTH_SANDSTONE_WALL = register("smooth_sandstone_wall", new WallBlock(FabricBlockSettings.copy(SMOOTH_SANDSTONE)));
     //WAVY SANDSTONE
     public static final Block WAVY_SANDSTONE = register("wavy_sandstone", new Block(FabricBlockSettings.copy(JinericBlockSettings.SandstoneSettings())));
     public static final Block WAVY_SANDSTONE_STAIRS = register("wavy_sandstone_stairs", new BaseJinericStairBlock(WAVY_SANDSTONE.getDefaultState(),FabricBlockSettings.copy(WAVY_SANDSTONE)));
     public static final Block WAVY_SANDSTONE_SLAB  = register("wavy_sandstone_slab", new SlabBlock(FabricBlockSettings.copy(WAVY_SANDSTONE)));
     public static final Block WAVY_SANDSTONE_WALL = register("wavy_sandstone_wall", new WallBlock(FabricBlockSettings.copy(WAVY_SANDSTONE)));
-    //SMOOTH SANDSTONE
-    public static final Block SMOOTH_SANDSTONE_WALL = register("smooth_sandstone_wall", new WallBlock(FabricBlockSettings.copy(SMOOTH_SANDSTONE)));
-    //WAVY SANDSTONE
-    public static final Block POLISHED_SANDSTONE = register("polished_sandstone", new Block(FabricBlockSettings.copy(JinericBlockSettings.SandstoneSettings())));
-    public static final Block POLISHED_SANDSTONE_STAIRS = register("polished_sandstone_stairs", new BaseJinericStairBlock(POLISHED_SANDSTONE.getDefaultState(),FabricBlockSettings.copy(POLISHED_SANDSTONE)));
-    public static final Block POLISHED_SANDSTONE_SLAB  = register("polished_sandstone_slab", new SlabBlock(FabricBlockSettings.copy(POLISHED_SANDSTONE)));
-    public static final Block POLISHED_SANDSTONE_WALL = register("polished_sandstone_wall", new WallBlock(FabricBlockSettings.copy(POLISHED_SANDSTONE)));
 
 //RED SAND
     //CUT RED SANDSTONE
     public static final Block CUT_RED_SANDSTONE_STAIRS = register("cut_red_sandstone_stairs", new BaseJinericStairBlock(RED_SANDSTONE.getDefaultState(),FabricBlockSettings.copy(RED_SANDSTONE)));
     public static final Block CUT_RED_SANDSTONE_WALL = register("cut_red_sandstone_wall", new WallBlock(FabricBlockSettings.copy(RED_SANDSTONE)));
+    //POLISHED RED SANDSTONE
+    public static final Block POLISHED_RED_SANDSTONE = register("polished_red_sandstone", new Block(FabricBlockSettings.copy(JinericBlockSettings.SandstoneSettings())));
+    public static final Block POLISHED_RED_SANDSTONE_STAIRS = register("polished_red_sandstone_stairs", new BaseJinericStairBlock(POLISHED_RED_SANDSTONE.getDefaultState(),FabricBlockSettings.copy(POLISHED_RED_SANDSTONE)));
+    public static final Block POLISHED_RED_SANDSTONE_SLAB  = register("polished_red_sandstone_slab", new SlabBlock(FabricBlockSettings.copy(POLISHED_RED_SANDSTONE)));
+    public static final Block POLISHED_RED_SANDSTONE_WALL = register("polished_red_sandstone_wall", new WallBlock(FabricBlockSettings.copy(POLISHED_RED_SANDSTONE)));
     //CHISELED RED SANDSTONE
     public static final Block CHISELED_RED_SANDSTONE_STAIRS = register("chiseled_red_sandstone_stairs", new BaseJinericStairBlock(CHISELED_RED_SANDSTONE.getDefaultState(),FabricBlockSettings.copy(CHISELED_SANDSTONE)));
     public static final Block CHISELED_RED_SANDSTONE_SLAB  = register("chiseled_red_sandstone_slab", new SlabBlock(FabricBlockSettings.copy(CHISELED_RED_SANDSTONE)));
     public static final Block CHISELED_RED_SANDSTONE_WALL = register("chiseled_red_sandstone_wall", new WallBlock(FabricBlockSettings.copy(CHISELED_RED_SANDSTONE)));
+    //SMOOTH RED SANDSTONE
+    public static final Block SMOOTH_RED_SANDSTONE_WALL = register("smooth_red_sandstone_wall", new WallBlock(FabricBlockSettings.copy(RED_SANDSTONE)));
     //WAVY RED SANDSTONE
     public static final Block WAVY_RED_SANDSTONE = register("wavy_red_sandstone", new Block(FabricBlockSettings.copy(JinericBlockSettings.SandstoneSettings())));
     public static final Block WAVY_RED_SANDSTONE_STAIRS = register("wavy_red_sandstone_stairs", new BaseJinericStairBlock(WAVY_RED_SANDSTONE.getDefaultState(),FabricBlockSettings.copy(WAVY_SANDSTONE)));
     public static final Block WAVY_RED_SANDSTONE_SLAB  = register("wavy_red_sandstone_slab", new SlabBlock(FabricBlockSettings.copy(WAVY_RED_SANDSTONE)));
     public static final Block WAVY_RED_SANDSTONE_WALL = register("wavy_red_sandstone_wall", new WallBlock(FabricBlockSettings.copy(WAVY_RED_SANDSTONE)));
-    //SMOOTH RED SANDSTONE
-    public static final Block SMOOTH_RED_SANDSTONE_WALL = register("smooth_red_sandstone_wall", new WallBlock(FabricBlockSettings.copy(RED_SANDSTONE)));
 
 //SOUL SAND
     //SOUL SANDSTONE
@@ -60,6 +65,11 @@ public class JinericBlocks {
     public static final Block CUT_SOUL_SANDSTONE_STAIRS = register("cut_soul_sandstone_stairs", new BaseJinericStairBlock(SOUL_SANDSTONE.getDefaultState(),FabricBlockSettings.copy(SOUL_SANDSTONE)));
     public static final Block CUT_SOUL_SANDSTONE_SLAB  = register("cut_soul_sandstone_slab", new SlabBlock(FabricBlockSettings.copy(SOUL_SANDSTONE)));
     public static final Block CUT_SOUL_SANDSTONE_WALL = register("cut_soul_sandstone_wall", new WallBlock(FabricBlockSettings.copy(SOUL_SANDSTONE)));
+    //POLISHED SOUL SANDSTONE
+    public static final Block POLISHED_SOUL_SANDSTONE = register("polished_soul_sandstone", new Block(FabricBlockSettings.copy(JinericBlockSettings.SandstoneSettings())));
+    public static final Block POLISHED_SOUL_SANDSTONE_STAIRS = register("polished_soul_sandstone_stairs", new BaseJinericStairBlock(POLISHED_SOUL_SANDSTONE.getDefaultState(),FabricBlockSettings.copy(POLISHED_SOUL_SANDSTONE)));
+    public static final Block POLISHED_SOUL_SANDSTONE_SLAB  = register("polished_soul_sandstone_slab", new SlabBlock(FabricBlockSettings.copy(POLISHED_SOUL_SANDSTONE)));
+    public static final Block POLISHED_SOUL_SANDSTONE_WALL = register("polished_soul_sandstone_wall", new WallBlock(FabricBlockSettings.copy(POLISHED_SOUL_SANDSTONE)));
     //CHISELED SOUL SANDSTONE
     public static final Block CHISELED_SOUL_SANDSTONE = register("chiseled_soul_sandstone", new Block(FabricBlockSettings.copy(JinericBlockSettings.JinericSoulSandstoneSettings())));
     public static final Block CHISELED_SOUL_SANDSTONE_STAIRS = register("chiseled_soul_sandstone_stairs", new BaseJinericStairBlock(SOUL_SANDSTONE.getDefaultState(),FabricBlockSettings.copy(SOUL_SANDSTONE)));
@@ -114,6 +124,12 @@ public class JinericBlocks {
     public static final Block SLATE_SLAB = register("slate_slab", new SlabBlock(FabricBlockSettings.copy(STONE)));
     public static final Block SLATE_WALL = register("slate_wall", new WallBlock(FabricBlockSettings.copy(STONE)));
 
+//PRISMARINE
+    //PRISMARINE BRICKS
+    public static final Block PRISMARINE_BRICK_WALL = register("prismarine_brick_wall", new WallBlock(FabricBlockSettings.copy(PRISMARINE_BRICKS)));
+    //DARK PRISMARINE BRICKS
+    public static final Block DARK_PRISMARINE_WALL = register("dark_prismarine_wall", new WallBlock(FabricBlockSettings.copy(DARK_PRISMARINE)));
+
 //MISCELLANEOUS
     //STORAGE BLOCKS
     public static final Block SALT_BLOCK = register("salt_block", new SandBlock(14409422,FabricBlockSettings.copy(SAND)));
@@ -124,6 +140,8 @@ public class JinericBlocks {
     public static final Block PACKED_ICE_STAIRS = register("packed_ice_stairs", new BaseJinericStairBlock(PACKED_ICE.getDefaultState(),FabricBlockSettings.copy(PACKED_ICE)));
     public static final Block PACKED_ICE_SLAB  = register("packed_ice_slab", new SlabBlock(FabricBlockSettings.copy(PACKED_ICE)));
     public static final Block PACKED_ICE_WALL = register("packed_ice_wall", new WallBlock(FabricBlockSettings.copy(PACKED_ICE)));
+    //SNOW & POWDERED SNOW
+    public static final Block SNOW_WALL = register("snow_wall", new WallBlock(FabricBlockSettings.copy(SNOW_BLOCK)));
     //DECORATION BLOCKS
     public static final Block SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", new BaseJinericCarvedPumpkinBlock(FabricBlockSettings.copy(JACK_O_LANTERN)));
     public static final Block FULL_GRASS_BLOCK = register("full_grass_block", new GrassBlock(FabricBlockSettings.copy(GRASS_BLOCK)));
