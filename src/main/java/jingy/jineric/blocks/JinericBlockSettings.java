@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
 import net.minecraft.block.SlabBlock;
+import net.minecraft.enchantment.SilkTouchEnchantment;
 import net.minecraft.sound.BlockSoundGroup;
 
 public class JinericBlockSettings {
@@ -19,7 +20,7 @@ public class JinericBlockSettings {
                 .sounds(BlockSoundGroup.STONE));
     }
 
-    public static Block SoulSandstoneSettings() {
+    public static Block JinericSoulSandstoneSettings() {
         return new Block(FabricBlockSettings
                 .of(Material.STONE)
                 .breakByTool(FabricToolTags.PICKAXES, 0)
@@ -27,12 +28,21 @@ public class JinericBlockSettings {
                 .strength(0.8f, 4f)
                 .sounds(JinericSounds.SOUL_SANDSTONE));
     }
-    public static SlabBlock SandstoneSettings() {
-        return new SlabBlock(FabricBlockSettings
+    public static Block SandstoneSettings() {
+        return new Block(FabricBlockSettings
                 .of(Material.STONE)
                 .breakByTool(FabricToolTags.PICKAXES, 0)
                 .requiresTool()
                 .strength(0.8f, 4f)
                 .sounds(BlockSoundGroup.STONE));
+    }
+    public static Block JinericPackedIceSettings() {
+        return new Block(FabricBlockSettings
+                .of(Material.DENSE_ICE)
+                .breakByTool(FabricToolTags.PICKAXES, 0)
+                .requiresTool()
+                .strength(0.5f, 0.5f)
+                .sounds(BlockSoundGroup.GLASS));
+
     }
 }

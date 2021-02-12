@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "   ",
+        "XXX",
+        "XXX"
+    ],
+    "key": {
+        "X": {
+            "item": "minecraft:packed_ice"
+        }
+    },
+    "result": {
+        "item": "jineric:packed_ice_wall",
+        "count": 6
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "jineric:polished_sandstone"
+    },
+    "result": "jineric:polished_sandstone",
+    "count": 1
+}

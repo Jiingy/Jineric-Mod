@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "   ",
+        "XXX",
+        "XXX"
+    ],
+    "key": {
+        "X": {
+            "item": "jineric:polished_sandstone"
+        }
+    },
+    "result": {
+        "item": "jineric:polished_sandstone_wall",
+        "count": 6
+    }
+}

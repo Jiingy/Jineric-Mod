@@ -1,0 +1,23 @@
+{
+    "parent": "minecraft:recipes/root",
+    "rewards": {
+        "recipes": [
+            "minecraft:cracked_stone_brick_slab",
+            "minecraft:cracked_stone_brick_stairs",
+            "minecraft:cracked_stone_brick_pillar",
+            "minecraft:cracked_stone_brick_wall"
+        ]
+    },
+    "criteria": {
+        "has_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "minecraft:cracked_stone_brick"
+                    }
+                ]
+            }
+        }
+    }
+}
