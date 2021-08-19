@@ -4,7 +4,7 @@ import jingy.jineric.blocks.JinericBlocks;
 import jingy.jineric.items.JinericItemGroups;
 import jingy.jineric.items.JinericItems;
 import jingy.jineric.sounds.JinericSounds;
-import jingy.jineric.world.JinericWorldGen;
+///import jingy.jineric.world.JinericWorldGen;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.container.ContainerProviderRegistry;
 import net.minecraft.block.entity.BlockEntityType;
@@ -27,7 +27,7 @@ public class Jineric implements ModInitializer {
         JinericItems.init();
         JinericBlocks.init();
         JinericItemGroups.init();
-        JinericWorldGen.init();
+///        JinericWorldGen.init();
         JinericSounds.init();
     }
 }

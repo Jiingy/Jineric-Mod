@@ -1,3 +1,4 @@
+/*
 package jingy.jineric.world;
 
 import jingy.jineric.blocks.JinericBlocks;
@@ -26,12 +27,13 @@ public class JinericWorldGen {
     public static void init() {
 
         //BLOCK VEINS
-        RegistryKey<ConfiguredFeature<?, ?>> borite_vein = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, new Identifier(JinericWorldGen.MOD_ID, "borite_vein"));
+        RegistryKey<ConfiguredFeature<?, ?>> borite_vein = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier(JinericWorldGen.MOD_ID, "borite_vein"));
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, borite_vein.getValue(), JinericWorldGen.BORITE_VEIN);
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, borite_vein);
 
-        RegistryKey<ConfiguredFeature<?, ?>> slate_vein = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, new Identifier(JinericWorldGen.MOD_ID, "slate_vein"));
+        RegistryKey<ConfiguredFeature<?, ?>> slate_vein = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier(JinericWorldGen.MOD_ID, "slate_vein"));
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, slate_vein.getValue(), JinericWorldGen.SLATE_VEIN);
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, slate_vein);
     }
 }
+*/

@@ -1,6 +1,12 @@
 {
   "replace": false,
   "values": [
-    "jineric:packed_ice_stairs"
+    "minecraft:ice",
+    "minecraft:packed_ice",
+    "jineric:packed_ice_slab",
+    "jineric:packed_ice_stairs",
+    "jineric:packed_ice_wall",
+    "minecraft:blue_ice",
+    "minecraft:frosted_ice"
   ]
 }
