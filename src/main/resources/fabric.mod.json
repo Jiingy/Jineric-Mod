@@ -6,7 +6,9 @@
   "name": "Jineric Mod",
   "description": "A mod made to fix and enhance what's lacking in the base game",
   "authors": [
-    "Jingy"
+    "Jingy",
+    "Mr. Cheeze",
+    "MainGameCentral"
   ],
   "contact": {
     "homepage": "",
@@ -23,6 +25,7 @@
     ]
   },
   "mixins": [
+    "jineric.mixins.json"
   ],
 
   "depends": {
