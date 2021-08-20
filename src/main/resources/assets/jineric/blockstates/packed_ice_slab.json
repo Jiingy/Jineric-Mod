@@ -1,13 +1,13 @@
 {
-    "variants": {
-        "type=bottom": {
-            "model": "jineric:block/packed_ice_slab"
-        },
-        "type=double": {
-            "model": "minecraft:block/packed_ice"
-        },
-        "type=top": {
-            "model": "jineric:block/packed_ice_slab_top"
-        }
+  "variants": {
+    "type=bottom": {
+      "model": "jineric:block/packed_ice_slab"
+    },
+    "type=double": {
+      "model": "minecraft:block/packed_ice"
+    },
+    "type=top": {
+      "model": "jineric:block/packed_ice_slab_top"
     }
+  }
 }

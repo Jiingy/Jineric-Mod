@@ -1,13 +1,13 @@
 {
-    "variants": {
-        "type=bottom": {
-            "model": "jineric:block/siltstone_slab"
-        },
-        "type=double": {
-            "model": "jineric:block/siltstone"
-        },
-        "type=top": {
-            "model": "jineric:block/siltstone_slab_top"
-        }
+  "variants": {
+    "type=bottom": {
+      "model": "jineric:block/siltstone_slab"
+    },
+    "type=double": {
+      "model": "jineric:block/siltstone"
+    },
+    "type=top": {
+      "model": "jineric:block/siltstone_slab_top"
     }
+  }
 }

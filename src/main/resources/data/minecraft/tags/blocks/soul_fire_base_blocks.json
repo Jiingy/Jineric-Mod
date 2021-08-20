@@ -1,11 +1,11 @@
 {
   "replace": false,
   "values": [
-	  "minecraft:soul_sand",
-	  "minecraft:soul_soil",
-      "jineric:soul_sandstone",
-      "jineric:cut_soul_sandstone",
-      "jineric:chiseled_soul_sandstone",
-      "jineric:smooth_soul_sandstone"
+    "minecraft:soul_sand",
+    "minecraft:soul_soil",
+    "jineric:soul_sandstone",
+    "jineric:cut_soul_sandstone",
+    "jineric:chiseled_soul_sandstone",
+    "jineric:smooth_soul_sandstone"
   ]
 }

@@ -1,7 +1,7 @@
 {
-    "variants": {
-        "": {
-            "model": "jineric:block/polished_soul_sandstone"
-        }
+  "variants": {
+    "": {
+      "model": "jineric:block/polished_soul_sandstone"
     }
+  }
 }

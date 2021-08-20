@@ -1,13 +1,13 @@
 {
-    "variants": {
-        "type=bottom": {
-            "model": "jineric:block/boreal_slab"
-        },
-        "type=double": {
-            "model": "jineric:block/boreal_planks"
-        },
-        "type=top": {
-            "model": "jineric:block/boreal_slab_top"
-        }
+  "variants": {
+    "type=bottom": {
+      "model": "jineric:block/boreal_slab"
+    },
+    "type=double": {
+      "model": "jineric:block/boreal_planks"
+    },
+    "type=top": {
+      "model": "jineric:block/boreal_slab_top"
     }
+  }
 }

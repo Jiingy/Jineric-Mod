@@ -1,13 +1,13 @@
 {
-    "variants": {
-        "type=bottom": {
-            "model": "jineric:block/chiseled_sandstone_slab"
-        },
-        "type=double": {
-            "model": "minecraft:block/chiseled_sandstone"
-        },
-        "type=top": {
-            "model": "jineric:block/chiseled_sandstone_slab_top"
-        }
+  "variants": {
+    "type=bottom": {
+      "model": "jineric:block/chiseled_sandstone_slab"
+    },
+    "type=double": {
+      "model": "minecraft:block/chiseled_sandstone"
+    },
+    "type=top": {
+      "model": "jineric:block/chiseled_sandstone_slab_top"
     }
+  }
 }

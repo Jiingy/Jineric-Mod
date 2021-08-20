@@ -1,7 +1,7 @@
 {
-    "variants": {
-        "": {
-            "model": "jineric:block/charcoal_block"
-        }
+  "variants": {
+    "": {
+      "model": "jineric:block/charcoal_block"
     }
+  }
 }

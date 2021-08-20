@@ -1,7 +1,7 @@
 {
-    "variants": {
-        "": {
-            "model": "jineric:block/boreal_planks"
-        }
+  "variants": {
+    "": {
+      "model": "jineric:block/boreal_planks"
     }
+  }
 }

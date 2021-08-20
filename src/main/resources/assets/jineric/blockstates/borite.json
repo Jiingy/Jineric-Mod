@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "jineric:block/borite" }
+    "": {
+      "model": "jineric:block/borite"
+    }
   }
 }

@@ -1,6 +1,6 @@
 {
-    "parent": "minecraft:block/cube_all",
-    "textures": {
-        "all": "jineric:block/rotten_flesh_block"
-    }
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "jineric:block/rotten_flesh_block"
+  }
 }

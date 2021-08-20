@@ -1,7 +1,7 @@
 {
-    "variants": {
-        "": {
-            "model": "jineric:block/slate"
-        }
+  "variants": {
+    "": {
+      "model": "jineric:block/slate"
     }
+  }
 }

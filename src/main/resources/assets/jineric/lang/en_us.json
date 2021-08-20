@@ -3,7 +3,6 @@
   "item.jineric.golden_sweet_berries": "Golden Sweet Berries",
   "item.jineric.golden_beetroot": "Golden Beetroot",
   "item.jineric.salt": "Salt",
-
   "block.jineric.cut_sandstone_stairs": "Cut Sandstone Stairs",
   "block.jineric.cut_sandstone_wall": "Cut Sandstone Wall",
   "block.jineric.polished_sandstone": "Polished Sandstone",
@@ -18,7 +17,6 @@
   "block.jineric.wavy_sandstone_slab": "Wavy Sandstone Slab",
   "block.jineric.wavy_sandstone_stairs": "Wavy Sandstone Stairs",
   "block.jineric.wavy_sandstone_wall": "Wavy Sandstone Wall",
-
   "block.jineric.cut_red_sandstone_wall": "Cut Red Sandstone Wall",
   "block.jineric.cut_red_sandstone_stairs": "Cut Red Sandstone Stairs",
   "block.jineric.polished_red_sandstone": "Polished Red Sandstone",
@@ -34,7 +32,6 @@
   "block.jineric.wavy_red_sandstone_wall": "Wavy Red Sandstone Wall",
   "block.jineric.smooth_red_sandstone_slab": "Smooth Red Sandstone Slab",
   "block.jineric.smooth_red_sandstone_wall": "Smooth Red Sandstone Wall",
-
   "block.jineric.soul_sandstone": "Soul Sandstone",
   "block.jineric.cut_soul_sandstone": "Cut Soul Sandstone",
   "block.jineric.polished_soul_sandstone": "Polished Soul Sandstone",
@@ -59,7 +56,6 @@
   "block.jineric.chiseled_soul_sandstone_wall": "Chiseled Soul Sandstone Wall",
   "block.jineric.wavy_soul_sandstone_wall": "Wavy Soul Sandstone Wall",
   "block.jineric.smooth_soul_sandstone_wall": "Smooth Soul Sandstone Wall",
-
   "block.jineric.siltstone": "Siltstone",
   "block.jineric.siltstone_slab": "Siltstone Slab",
   "block.jineric.siltstone_stairs": "Siltstone Stairs",
@@ -88,7 +84,6 @@
   "block.jineric.obsidian_slab": "Obsidian Slab",
   "block.jineric.obsidian_stairs": "Obsidian Stairs",
   "block.jineric.obsidian_wall": "Obsidian Wall",
-
   "block.jineric.soul_jack_o_lantern": "Soul Jack o'Lantern",
   "block.jineric.salt_block": "Salt",
   "block.jineric.rotten_flesh_block": "Rotten Flesh Block",
@@ -102,11 +97,9 @@
   "block.jineric.snow_wall": "Snow Wall",
   "block.jineric.prismarine_brick_wall": "Prismarine Brick Wall",
   "block.jineric.dark_prismarine_wall": "Dark Prismarine Wall",
-
   "block.jineric.boreal_planks": "Boreal Planks",
   "block.jineric.boreal_slab": "Boreal Slab",
   "block.jineric.boreal_stairs": "Boreal Stairs",
-
   "itemGroup.blocks.jineric": "Jineric Blocks",
   "itemGroup.brewing.jineric": "Jineric Brewing",
   "itemGroup.miscellaneous.jineric": "Jineric Miscellaneous"

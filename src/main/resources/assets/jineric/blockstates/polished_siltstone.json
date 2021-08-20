@@ -1,7 +1,7 @@
 {
-    "variants": {
-        "": {
-            "model": "jineric:block/polished_siltstone"
-        }
+  "variants": {
+    "": {
+      "model": "jineric:block/polished_siltstone"
     }
+  }
 }

@@ -2,7 +2,6 @@
   "schemaVersion": 1,
   "id": "jineric",
   "version": "${version}",
-
   "name": "Jineric Mod",
   "description": "A mod made to fix and enhance what's lacking in the base game",
   "authors": [
@@ -14,10 +13,8 @@
     "homepage": "",
     "sources": "https://github.com/Jiingy/Jineric-Mod"
   },
-
   "license": "MIT",
   "icon": "assets/jineric/icon.png",
-
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -27,7 +24,6 @@
   "mixins": [
     "jineric.mixins.json"
   ],
-
   "depends": {
     "fabricloader": ">=0.7.4",
     "fabric": "*",

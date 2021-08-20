@@ -1,17 +1,17 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        " # ",
-        "# #",
-        " # "
-    ],
-    "key": {
-        "#": {
-            "item": "minecraft:sandstone"
-        }
-    },
-    "result": {
-        "item": "jineric:wavy_sandstone",
-        "count": 4
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "# #",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:sandstone"
     }
+  },
+  "result": {
+    "item": "jineric:wavy_sandstone",
+    "count": 4
+  }
 }

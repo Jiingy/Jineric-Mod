@@ -1,16 +1,16 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "##",
-        "##"
-    ],
-    "key": {
-        "#": {
-            "item": "minecraft:grass_block"
-        }
-    },
-    "result": {
-        "item": "jineric:full_grass_block",
-        "count": 4
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:grass_block"
     }
+  },
+  "result": {
+    "item": "jineric:full_grass_block",
+    "count": 4
+  }
 }

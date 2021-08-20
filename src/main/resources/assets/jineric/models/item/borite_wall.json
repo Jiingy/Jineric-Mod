@@ -1,6 +1,6 @@
 {
-    "parent": "minecraft:block/wall_inventory",
-    "textures": {
-        "wall": "jineric:block/borite"
-    }
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "jineric:block/borite"
+  }
 }

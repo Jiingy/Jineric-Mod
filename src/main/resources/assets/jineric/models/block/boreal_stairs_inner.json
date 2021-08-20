@@ -1,8 +1,8 @@
 {
-    "parent": "minecraft:block/inner_stairs",
-    "textures": {
-        "bottom": "jineric:block/boreal_planks",
-        "top": "jineric:block/boreal_planks",
-        "side": "jineric:block/boreal_planks"
-    }
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "jineric:block/boreal_planks",
+    "top": "jineric:block/boreal_planks",
+    "side": "jineric:block/boreal_planks"
+  }
 }

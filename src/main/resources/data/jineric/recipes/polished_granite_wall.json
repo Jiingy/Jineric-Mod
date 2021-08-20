@@ -1,17 +1,17 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "   ",
-        "XXX",
-        "XXX"
-    ],
-    "key": {
-        "X": {
-            "item": "minecraft:polished_granite"
-        }
-    },
-    "result": {
-        "item": "jineric:polished_granite_wall",
-        "count": 6
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:polished_granite"
     }
+  },
+  "result": {
+    "item": "jineric:polished_granite_wall",
+    "count": 6
+  }
 }

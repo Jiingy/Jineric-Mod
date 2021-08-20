@@ -1,8 +1,8 @@
 {
-    "type": "minecraft:stonecutting",
-    "ingredient": {
-      "item": "minecraft:chiseled_sandstone"
-    },
-    "result": "jineric:chiseled_sandstone_stairs",
-    "count": 1
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:chiseled_sandstone"
+  },
+  "result": "jineric:chiseled_sandstone_stairs",
+  "count": 1
 }
