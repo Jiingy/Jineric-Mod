@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "jineric:snow_wall"
+    "jineric:snow_wall",
+    "jineric:salt_block"
   ]
 }

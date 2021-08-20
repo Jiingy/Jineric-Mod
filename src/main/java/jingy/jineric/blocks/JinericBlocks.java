@@ -2,6 +2,7 @@ package jingy.jineric.blocks;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -132,7 +133,7 @@ public class JinericBlocks {
 
 //MISCELLANEOUS
 	//STORAGE BLOCKS
-	public static final Block SALT_BLOCK = register("salt_block", new SandBlock(14409422,FabricBlockSettings.copy(SAND)));
+	public static final Block SALT_BLOCK = register("salt_block", new Block(FabricBlockSettings.copy(CLAY).sounds(BlockSoundGroup.SAND)));
 	public static final Block ROTTEN_FLESH_BLOCK = register("rotten_flesh_block", new Block(FabricBlockSettings.copy(HONEYCOMB_BLOCK)));
 	public static final Block FLINT_BLOCK = register("flint_block", new Block(FabricBlockSettings.copy(STONE)));
 	public static final Block CHARCOAL_BLOCK = register("charcoal_block", new Block(FabricBlockSettings.copy(COAL_BLOCK)));

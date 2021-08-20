@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "jineric:salt_block"
+    }
+  },
+  "result": {
+    "item": "jineric:salt",
+    "count": 4
+  }
+}
