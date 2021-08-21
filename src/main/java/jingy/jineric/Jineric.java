@@ -6,7 +6,10 @@ import jingy.jineric.items.JinericItems;
 import jingy.jineric.sounds.JinericSounds;
 import jingy.jineric.world.JinericWorldGen;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.util.Identifier;
+
+import static jingy.jineric.blocks.JinericBlocks.FULL_GRASS_BLOCK;
 
 public class Jineric implements ModInitializer {
 	public static final String MOD_ID = "jineric";
