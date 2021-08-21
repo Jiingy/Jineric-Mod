@@ -133,10 +133,12 @@ public class JinericBlocks {
 
 //MISCELLANEOUS
 	//STORAGE BLOCKS
-	public static final Block SALT_BLOCK = register("salt_block", new Block(FabricBlockSettings.copy(CLAY).sounds(BlockSoundGroup.SAND)));
+	public static final Block SALT_BLOCK = register("salt_block", new FallingBlock(FabricBlockSettings.copy(CLAY).sounds(BlockSoundGroup.SAND)));
+	public static final Block SUGAR_BLOCK = register("sugar_block", new FallingBlock(FabricBlockSettings.copy(CLAY).sounds(BlockSoundGroup.SAND)));
 	public static final Block ROTTEN_FLESH_BLOCK = register("rotten_flesh_block", new Block(FabricBlockSettings.copy(HONEYCOMB_BLOCK)));
 	public static final Block FLINT_BLOCK = register("flint_block", new Block(FabricBlockSettings.copy(STONE)));
 	public static final Block CHARCOAL_BLOCK = register("charcoal_block", new Block(FabricBlockSettings.copy(COAL_BLOCK)));
+	public static final Block BAMBOO_BLOCK = register("bamboo_block", new PillarBlock(FabricBlockSettings.copy(OAK_LOG)));
 	//PACKED ICE
 	public static final Block PACKED_ICE_STAIRS = register("packed_ice_stairs", new BaseJinericStairBlock(PACKED_ICE.getDefaultState(),FabricBlockSettings.copy(PACKED_ICE)));
 	public static final Block PACKED_ICE_SLAB  = register("packed_ice_slab", new SlabBlock(FabricBlockSettings.copy(PACKED_ICE)));
