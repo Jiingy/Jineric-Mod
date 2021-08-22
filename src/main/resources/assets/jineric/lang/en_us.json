@@ -102,7 +102,14 @@
   "block.jineric.boreal_planks": "Boreal Planks",
   "block.jineric.boreal_slab": "Boreal Slab",
   "block.jineric.boreal_stairs": "Boreal Stairs",
-  "itemGroup.blocks.jineric": "Jineric Blocks",
-  "itemGroup.brewing.jineric": "Jineric Brewing",
-  "itemGroup.miscellaneous.jineric": "Jineric Miscellaneous"
+
+  "itemGroup.building_blocks.jineric": "Building Blocks",
+  "itemGroup.decoration_blocks.jineric": "Decoration Blocks",
+  "itemGroup.redstone.jineric": "Redstone",
+  "itemGroup.transportation.jineric": "Transportation",
+  "itemGroup.miscellaneous.jineric": "Miscellaneous",
+  "itemGroup.foods.jineric": "Foods",
+  "itemGroup.tools.jineric": "Tools",
+  "itemGroup.combat.jineric": "Combat",
+  "itemGroup.brewing.jineric": "Brewing"
 }
