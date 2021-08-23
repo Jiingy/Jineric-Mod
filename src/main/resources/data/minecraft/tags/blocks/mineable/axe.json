@@ -1,6 +1,13 @@
 {
   "replace": false,
   "values": [
-    "jineric:bamboo_block"
+    "jineric:bamboo_block",
+    "jineric:soul_jack_o_lantern",
+
+    "jineric:boreal_log",
+    "jineric:boreal_planks",
+    "jineric:boreal_stairs",
+    "jineric:boreal_slab",
+    "jineric:boreal_fence"
   ]
 }

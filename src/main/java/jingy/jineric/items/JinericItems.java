@@ -120,6 +120,7 @@ public class JinericItems {
 
 //MISCELLANEOUS
 	public static final Item SALT = register("salt", new Item(JinericItemSettings.Misc().group(JinericItemGroups.MISCELLANEOUS)));
+	public static final Item NETHERITE_HORSE_ARMOR = register("netherite_horse_armor", new Item(JinericItemSettings.Misc().group(JinericItemGroups.MISCELLANEOUS)));
 
 // FOODS
 
