@@ -48,6 +48,9 @@
     "jineric:snow_wall",
     "jineric:obsidian_wall",
     "jineric:dark_prismarine_wall",
-    "jineric:prismarine_brick_wall"
+    "jineric:prismarine_brick_wall",
+    "jineric:dripstone_wall",
+    "jineric:calcite_wall",
+    "jineric:tuff_wall"
   ]
 }

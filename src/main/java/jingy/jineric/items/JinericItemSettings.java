@@ -7,10 +7,13 @@ public class JinericItemSettings {
 	public static Item.Settings BuildingBlocks() {
 		return new Item.Settings().group(ItemGroup.BUILDING_BLOCKS);
 	}
+	public static Item.Settings Redstone() {
+		return new Item.Settings().group(ItemGroup.REDSTONE);
+	}
 	public static Item.Settings Misc() {
 		return new Item.Settings().group(ItemGroup.MISC);
 	}
-	public static Item.Settings Decoration() {
+	public static Item.Settings DecorationBlocks() {
 		return new Item.Settings().group(ItemGroup.DECORATIONS);
 	}
 	public static Item.Settings Food() {

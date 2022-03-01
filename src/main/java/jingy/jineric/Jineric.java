@@ -15,8 +15,13 @@ public class Jineric implements ModInitializer {
 		return new Identifier(MOD_ID, path);
 	}
 
+		//public static final Block BOREAL_TRAPDOOR = new Block(FabricBlockSettings.of(Material.WOOD).strength(4.0f));
+
 		@Override
 		public void onInitialize() {
+			//Registry.register(Registry.BLOCK, new Identifier("tutorial", "boreal_trapdoor"), BOREAL_TRAPDOOR);
+			//Registry.register(Registry.ITEM, new Identifier("tutorial", "boreal_trapdoor"), new BlockItem(BOREAL_TRAPDOOR, new FabricItemSettings().group(ItemGroup.MISC)));
+
 		JinericItems.init();
 		JinericBlocks.init();
 		JinericItemGroups.init();

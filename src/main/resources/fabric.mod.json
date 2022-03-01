@@ -19,6 +19,9 @@
   "entrypoints": {
     "main": [
       "jingy.jineric.Jineric"
+    ],
+    "client": [
+      "jingy.jineric.JinericClient"
     ]
   },
   "mixins": [
