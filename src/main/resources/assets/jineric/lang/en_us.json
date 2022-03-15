@@ -109,11 +109,20 @@
   "block.jineric.snow_wall": "Snow Wall",
   "block.jineric.prismarine_brick_wall": "Prismarine Brick Wall",
   "block.jineric.dark_prismarine_wall": "Dark Prismarine Wall",
-  "block.jineric.boreal_log": "Boreal Log",
   "block.jineric.boreal_planks": "Boreal Planks",
-  "block.jineric.boreal_stairs": "Boreal Stairs",
+  "block.jineric.boreal_log": "Boreal Log",
+  "block.jineric.stripped_boreal_log": "Stripped Boreal Log",
+  "block.jineric.stripped_boreal_wood": "Stripped Boreal Wood",
+  "block.jineric.boreal_wood": "Boreal Wood",
   "block.jineric.boreal_slab": "Boreal Slab",
+  "block.jineric.boreal_stairs": "Boreal Stairs",
+
+  "block.jineric.boreal_leaves": "Boreal Leaves",
   "block.jineric.boreal_fence": "Boreal Fence",
+
+  "block.jineric.boreal_pressure_plate": "Boreal Pressure Plate",
+  "block.jineric.boreal_trapdoor": "Boreal Trapdoor",
+  "block.jineric.boreal_fence_gate": "Boreal Fence Gate",
 
   "itemGroup.building_blocks.jineric": "Building Blocks",
   "itemGroup.decoration_blocks.jineric": "Decoration Blocks",

@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "jineric:block/full_grass_block"
+      "model": "minecraft:block/grass_block_top"
     }
   }
 }

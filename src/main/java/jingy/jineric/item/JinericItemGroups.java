@@ -1,7 +1,7 @@
-package jingy.jineric.items;
+package jingy.jineric.item;
 
+import jingy.jineric.registry.JinericItems;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -43,11 +43,6 @@ public class JinericItemGroups {
 	public static final ItemGroup BREWING = FabricItemGroupBuilder.build(
 			new Identifier("brewing", "jineric"),
 			() -> new ItemStack(Items.POTION));
-
-	public static Item.Settings jinericBlocks() {
-		return new Item.Settings().group(BUILDING_BLOCKS);
-
-	}
 
 	public static void init() {
 	}
