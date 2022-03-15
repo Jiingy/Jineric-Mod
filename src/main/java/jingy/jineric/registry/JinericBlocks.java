@@ -18,6 +18,7 @@ public class JinericBlocks {
  */
 
 	//TODO Add all "soul sandstone" blocks to soul_fire_base_blocks.json tag
+	//TODO Fix Gradle
 
 
 //SANDSTONE
