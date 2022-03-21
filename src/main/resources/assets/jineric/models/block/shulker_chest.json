@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "jineric:block/shulker_chest_top",
+    "front": "jineric:block/shulker_chest",
+    "side": "jineric:block/shulker_chest_top"
+  }
+}

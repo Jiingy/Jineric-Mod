@@ -1,6 +1,5 @@
-package jingy.jineric.item;
+package jingy.jineric.registry;
 
-import jingy.jineric.registry.JinericItems;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;

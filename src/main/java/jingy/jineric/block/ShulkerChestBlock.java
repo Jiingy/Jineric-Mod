@@ -1,24 +1,37 @@
 package jingy.jineric.block;
 
 import jingy.jineric.block.tileentity.ShulkerChestBlockEntity;
-import net.minecraft.block.BlockEntityProvider;
-import net.minecraft.block.BlockRenderType;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.BlockWithEntity;
+import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.mob.PiglinBrain;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.screen.ScreenHandler;
+import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
-public class ShulkerChestBlock extends BlockWithEntity implements BlockEntityProvider {
+public class ShulkerChestBlock extends BlockWithEntity {
+	public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
+
 	public ShulkerChestBlock(Settings settings) {
 		super(settings);
+		this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH));
+	}
+
+	@Override
+	public BlockState getPlacementState(ItemPlacementContext ctx) {
+		return this.getDefaultState().with(FACING, ctx.getPlayerFacing().getOpposite());
+	}
+
+	@Override
+	protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+		builder.add(FACING);
 	}
 
 	@Override
@@ -57,16 +70,6 @@ public class ShulkerChestBlock extends BlockWithEntity implements BlockEntityPro
 			}
 			super.onStateReplaced(state, world, pos, newState, moved);
 		}
-	}
-
-	@Override
-	public boolean hasComparatorOutput(BlockState blockState) {
-		return true;
-	}
-
-	@Override
-	public int getComparatorOutput(BlockState blockState, World world, BlockPos blockPos) {
-		return ScreenHandler.calculateComparatorOutput(world.getBlockEntity(blockPos));
 	}
 
 	/*

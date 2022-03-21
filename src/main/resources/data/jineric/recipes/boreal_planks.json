@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "jineric:boreal_logs"
+    }
+  ],
+  "result": {
+    "item": "jineric:boreal_planks",
+    "count": 4
+  }
+}

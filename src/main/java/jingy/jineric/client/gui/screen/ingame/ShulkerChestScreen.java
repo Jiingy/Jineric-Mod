@@ -1,7 +1,6 @@
 package jingy.jineric.client.gui.screen.ingame;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-
 import jingy.jineric.screen.ShulkerChestScreenHandler;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -14,11 +13,13 @@ import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public class ShulkerChestScreen extends HandledScreen<ShulkerChestScreenHandler> {
-	private static final Identifier TEXTURE = new Identifier("minecraft", "textures/gui/container/shulker_box.png");
+	private static final Identifier TEXTURE = new Identifier("jineric", "textures/gui/container/shulker_chest_gui.png");
 
 	public ShulkerChestScreen(ShulkerChestScreenHandler handler, PlayerInventory inventory, Text title) {
 		super(handler, inventory, title);
-		++this.backgroundHeight;
+		this.backgroundWidth = 176;
+		this.backgroundHeight = 276;
+		this.playerInventoryTitleY = 182;
 	}
 
 	@Override
@@ -35,6 +36,6 @@ public class ShulkerChestScreen extends HandledScreen<ShulkerChestScreenHandler>
 		RenderSystem.setShaderTexture(0, TEXTURE);
 		int x = (width - backgroundWidth) / 2;
 		int y = (height - backgroundHeight) / 2;
-		drawTexture(matrices, x, y, 0, 0, this.backgroundWidth, this.backgroundHeight);
+		drawTexture(matrices, x, y, 0, 0, this.backgroundWidth, this.backgroundHeight, 256, 320);
 	}
 }

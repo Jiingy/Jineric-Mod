@@ -1,4 +1,4 @@
-package jingy.jineric.item;
+package jingy.jineric.registry;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -9,6 +9,9 @@ public class JinericItemSettings {
 	}
 	public static Item.Settings Redstone() {
 		return new Item.Settings().group(ItemGroup.REDSTONE);
+	}
+	public static Item.Settings Transportation() {
+		return new Item.Settings().group(ItemGroup.TRANSPORTATION);
 	}
 	public static Item.Settings Misc() {
 		return new Item.Settings().group(ItemGroup.MISC);

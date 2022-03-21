@@ -3,11 +3,9 @@
   "id": "jineric",
   "version": "${version}",
   "name": "Jineric Mod",
-  "description": "A mod made to fix and enhance what's lacking in the base game",
+  "description": "A gameplay focussed mod made to improve the vanilla experience",
   "authors": [
-    "Jingy",
-    "Mr. Cheeze",
-    "MainGameCentral"
+    "Jingy"
   ],
   "contact": {
     "homepage": "",
@@ -18,17 +16,17 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "jingy.jineric.base.Jineric"
+      "jingy.jineric.base.JinericMain"
     ],
     "client": [
-      "jingy.jineric.base.JinericClient"
+      "jingy.jineric.base.JinericClientMain"
     ]
   },
   "mixins": [
     "jineric.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.7.4",
+    "fabricloader": ">=0.13.3",
     "fabric": "*",
     "minecraft": ">=1.18.2"
   },

@@ -1,6 +1,6 @@
 package jingy.jineric.screen;
 
-import jingy.jineric.base.Jineric;
+import jingy.jineric.base.JinericMain;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
@@ -15,34 +15,32 @@ public class ShulkerChestScreenHandler extends ScreenHandler {
 	public ShulkerChestScreenHandler(int syncId, PlayerInventory playerInventory) {
 		this(syncId, playerInventory, new SimpleInventory(81));
 	}
-	//public static ShulkerChestScreenHandler createGeneric9x9(int syncId, PlayerInventory playerInventory, Inventory inventory) {
-		//return new ShulkerChestScreenHandler(ScreenHandlerType.GENERIC_9X9, syncId, playerInventory, inventory, 3);
-	//}
 
 	public ShulkerChestScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory) {
-		super(Jineric.SHULKER_CHEST_SCREEN_HANDLER, syncId);
+		super(JinericMain.SHULKER_CHEST_SCREEN_HANDLER, syncId);
 		checkSize(inventory, 81);
 		this.inventory = inventory;
 		inventory.onOpen(playerInventory.player);
 
 		//This will not render the background of the slots however, this is the Screens job
-		int m;
-		int l;
-		//Player inventory
-		for (m = 0; m < 3; ++m) {
-			for (l = 0; l < 9; ++l) {
-				this.addSlot(new Slot(inventory, l + m * 9, 8 + l * 18, 18 + m * 18));
+		int x;
+		int y;
+
+		//BlockEntity
+		for (x = 0; x < 9; ++x) {
+			for (y = 0; y < 9; ++y) {
+				this.addSlot(new Slot(inventory, y + x * 9, 8 + y * 18, 18 + x * 18));
 			}
 		}
 		//The player inventory
-		for (m = 0; m < 3; ++m) {
-			for (l = 0; l < 9; ++l) {
-				this.addSlot(new Slot(playerInventory, l + m * 9 + 9, 8 + l * 18, 84 + m * 18));
+		for (x = 0; x < 3; ++x) {
+			for (y = 0; y < 9; ++y) {
+				this.addSlot(new Slot(playerInventory, y + x * 9 + 9, 8 + y * 18, 194 + x * 18));
 			}
 		}
 		//The player Hotbar
-		for (m = 0; m < 9; ++m) {
-			this.addSlot(new Slot(playerInventory, m, 8 + m * 18, 142));
+		for (x = 0; x < 9; ++x) {
+			this.addSlot(new Slot(playerInventory, x, 8 + x * 18, 252));
 		}
 
 	}

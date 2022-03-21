@@ -1,7 +1,10 @@
 package jingy.jineric.registry;
 
 import jingy.jineric.block.*;
+import jingy.jineric.block.tileentity.ShulkerChestBlockEntity;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -17,8 +20,14 @@ public class JinericBlocks {
 	public static final Block _WALL = register("_wall", new WallBlock(FabricBlockSettings.copy(BLOCK)));
  */
 
-	//TODO Add all "soul sandstone" blocks to soul_fire_base_blocks.json tag
-	//TODO Fix Gradle
+	//TODO:
+	//	Stair tags
+	//	Burnable blocks usable as fuel
+	//	Grindstone recipes
+	//	Better model for shulker chest
+	//	Waterlogged stair/slab/wall for dripstone grow dripstone
+	//	Shulker chest breakable instantly
+	//	Snow wall breakable by pickaxe
 
 
 //SANDSTONE
@@ -99,12 +108,12 @@ public class JinericBlocks {
 	public static final Block CALCITE_WALL = register("calcite_wall", new WallBlock(Block.Settings.copy(CALCITE)));
 	//CRACKED STONE BRICK
 	public static final Block DRIPSTONE_SLAB  = register("dripstone_slab", new SlabBlock(Block.Settings.copy(DRIPSTONE_BLOCK)));
-	public static final Block DRIPSTONE_STAIRS = register("dripstone_stairs", new JinericStairsBlock(STONE.getDefaultState(),Block.Settings.copy(DRIPSTONE_BLOCK)));
+	public static final Block DRIPSTONE_STAIRS = register("dripstone_stairs", new JinericStairsBlock(STONE.getDefaultState(), Block.Settings.copy(DRIPSTONE_BLOCK)));
 	public static final Block DRIPSTONE_WALL = register("dripstone_wall", new WallBlock(Block.Settings.copy(DRIPSTONE_BLOCK)));
 	//OBSIDIAN
-	public static final Block OBSIDIAN_STAIRS = register("obsidian_stairs", new JinericStairsBlock(OBSIDIAN.getDefaultState(),Block.Settings.copy(OBSIDIAN)));
-	public static final Block OBSIDIAN_SLAB  = register("obsidian_slab", new SlabBlock(Block.Settings.copy(OBSIDIAN)));
-	public static final Block OBSIDIAN_WALL = register("obsidian_wall", new WallBlock(Block.Settings.copy(OBSIDIAN)));
+	public static final Block OBSIDIAN_STAIRS = register("obsidian_stairs", new JinericStairsBlock(OBSIDIAN.getDefaultState(), JinericBlockSettings.Obsidian().nonOpaque()));
+	public static final Block OBSIDIAN_SLAB  = register("obsidian_slab", new SlabBlock(JinericBlockSettings.Obsidian().nonOpaque()));
+	public static final Block OBSIDIAN_WALL = register("obsidian_wall", new WallBlock(JinericBlockSettings.Obsidian().nonOpaque()));
 	//BORITE
 	public static final Block BORITE = register("borite", new Block(Block.Settings.copy(STONE)));
 	public static final Block BORITE_STAIRS = register("borite_stairs", new JinericStairsBlock(STONE.getDefaultState(), Block.Settings.copy(STONE)));
@@ -143,17 +152,17 @@ public class JinericBlocks {
 	public static final Block SNOW_WALL = register("snow_wall", new WallBlock(Block.Settings.copy(SNOW_BLOCK)));
 	//DECORATION BLOCKS
 	public static final Block SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", new JinericCarvedPumpkinBlock(Block.Settings.copy(JACK_O_LANTERN)));
-	public static final Block FULL_GRASS_BLOCK = register("full_grass_block", new GrassBlock(Block.Settings.copy(GRASS_BLOCK)));
+	public static final Block FULL_GRASS_BLOCK = register("full_grass_block", new FullGrassBlock(Block.Settings.copy(GRASS_BLOCK)));
 
 	public static final Block PRISMARINE_BRICK_WALL = register("prismarine_brick_wall", new WallBlock(Block.Settings.copy(PRISMARINE_BRICKS)));
 	public static final Block DARK_PRISMARINE_WALL = register("dark_prismarine_wall", new WallBlock(Block.Settings.copy(DARK_PRISMARINE)));
 
 	//SHULKER CHEST
-	//public static final Block SHULKER_CHEST = register("shulker_chest", new BlockEntity()
+	public static final Block SHULKER_CHEST = new ShulkerChestBlock(FabricBlockSettings.of(Material.SHULKER_BOX));
+	public static BlockEntityType<ShulkerChestBlockEntity> SHULKER_CHEST_ENTITY;
 
 //WOOD
-
-//BOREAL
+	//BOREAL
 	public static final Block BOREAL_PLANKS = register("boreal_planks", new Block(Block.Settings.copy(OAK_PLANKS)));
 	public static final Block BOREAL_LOG = register("boreal_log", new PillarBlock(Block.Settings.copy(OAK_LOG)));
 	public static final Block STRIPPED_BOREAL_LOG = register("stripped_boreal_log", new PillarBlock(Block.Settings.copy(OAK_LOG)));
@@ -161,17 +170,20 @@ public class JinericBlocks {
 	public static final Block BOREAL_WOOD = register("boreal_wood", new PillarBlock(Block.Settings.copy(OAK_WOOD)));
 	public static final Block BOREAL_SLAB = register("boreal_slab", new SlabBlock(Block.Settings.copy(OAK_SLAB)));
 	public static final Block BOREAL_STAIRS = register("boreal_stairs", new JinericStairsBlock(OAK_STAIRS.getDefaultState(), Block.Settings.copy(OAK_STAIRS)));
-	//public static final Block BOREAL_SAPLING = register("boreal_sapling", new
-	public static final Block BOREAL_LEAVES = register("boreal_leaves", new LeavesBlock(Block.Settings.copy(OAK_LEAVES)));
+	//public static final Block BOREAL_SAPLING = register("boreal_sapling", new BorealSaplingBlock(BorealSaplingGenerator(JinericBlocks.BOREAL_SAPLING), Block.Settings.copy(OAK_SAPLING)));
+	public static final Block BOREAL_LEAVES = register("boreal_leaves", new JinericLeavesBlock(Block.Settings.copy(OAK_LEAVES)));
 	public static final Block BOREAL_FENCE = register("boreal_fence", new FenceBlock(Block.Settings.copy(OAK_FENCE)));
 	//public static final Block BOREAL_SIGN = register("boreal_sign", new SignBlock());
 	public static final Block BOREAL_BUTTON = register("boreal_button", new JinericWoodenButtonBlock(Boolean.getBoolean(String.valueOf(POWERED)), AbstractBlock.Settings.copy((OAK_BUTTON))));
 	public static final Block BOREAL_PRESSURE_PLATE = register("boreal_pressure_plate", new JinericWoodenPressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, AbstractBlock.Settings.copy(OAK_PRESSURE_PLATE)));
-	//public static final Block BOREAL_DOOR = register("boreal_door", new JinericDoorBlock(Block.Settings.copy(OAK_DOOR)));
-	public static final Block BOREAL_TRAPDOOR = register("boreal_trapdoor", new JinericWoodenTrapdoorBlock(OAK_TRAPDOOR.getDefaultState(), Block.Settings.copy(OAK_TRAPDOOR)));
+	public static final Block BOREAL_DOOR = register("boreal_door", new JinericDoorBlock(Block.Settings.copy(OAK_DOOR)));
+	public static final Block BOREAL_TRAPDOOR = register("boreal_trapdoor", new JinericWoodenTrapdoorBlock(OAK_TRAPDOOR.getDefaultState(), FabricBlockSettings.copy(OAK_TRAPDOOR).sounds(BlockSoundGroup.WOOD)));
 	public static final Block BOREAL_FENCE_GATE = register("boreal_fence_gate", new FenceGateBlock(Block.Settings.copy(OAK_FENCE_GATE)));
 
-
+	//ICE SLIPPERINESS
+	public static boolean blockIsJinericIce(BlockState state) {
+		return state.isOf(PACKED_ICE_STAIRS) || state.isOf(PACKED_ICE_SLAB) || state.isOf(PACKED_ICE_WALL);
+	}
 
 	private static Block register(String name, Block block) {
 		return Registry.register(Registry.BLOCK, new Identifier("jineric", name), block);

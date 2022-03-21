@@ -1,9 +1,7 @@
 package jingy.jineric.block.tileentity;
 
-import java.util.stream.IntStream;
-
-import jingy.jineric.base.Jineric;
 import jingy.jineric.inventory.ShulkerChestInventory;
+import jingy.jineric.registry.JinericBlocks;
 import jingy.jineric.screen.ShulkerChestScreenHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -26,32 +24,15 @@ import net.minecraft.world.event.GameEvent;
 
 public class ShulkerChestBlockEntity extends LootableContainerBlockEntity implements NamedScreenHandlerFactory, ShulkerChestInventory {
 
-	private static final int[] AVAILABLE_SLOTS = IntStream.range(0, 81).toArray();
 	private DefaultedList<ItemStack> inventory;
-	//private final ViewerCountManager stateManager;
 	private int viewerCount;
 
 	public ShulkerChestBlockEntity(BlockPos blockPos, BlockState state) {
-		super(Jineric.SHULKER_CHEST_ENTITY, blockPos, state);
+		super(JinericBlocks.SHULKER_CHEST_ENTITY, blockPos, state);
 		this.inventory = DefaultedList.ofSize(81, ItemStack.EMPTY);
 
 	}
-	/*
-		protected void onContainerOpen(World world, BlockPos pos, BlockState state) {
-			ShulkerChestEntity.playSound(world, pos, state, SoundEvents.BLOCK_CHEST_OPEN);
 
-		}
-
-		protected void onContainerClose(World world, BlockPos pos, BlockState state) {
-			ShulkerChestEntity.playSound(world, pos, state, SoundEvents.BLOCK_CHEST_CLOSE);
-
-		}
-
-		static void playSound(World world, BlockPos pos, BlockState state, SoundEvent soundEvent) {
-			world.playSound((PlayerEntity), soundEvent, SoundCategory.BLOCKS, 0.5F, world.random.nextFloat() * 0.1F + 0.9F);
-
-		}
-	*/
 	@Override
 	public int size() {
 		return this.inventory.size();
@@ -61,12 +42,12 @@ public class ShulkerChestBlockEntity extends LootableContainerBlockEntity implem
 	public DefaultedList<ItemStack> getItems() {
 		return inventory;
 	}
-/*
+
 	@Override
 	public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
 		return new ShulkerChestScreenHandler(syncId, playerInventory, this);
 	}
-*/
+
 	@Override
 	protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
 		return new ShulkerChestScreenHandler(syncId, playerInventory, this);
@@ -93,15 +74,7 @@ public class ShulkerChestBlockEntity extends LootableContainerBlockEntity implem
 		}
 
 	}
-/*
-	@Override
-	public void onOpen(PlayerEntity player) {
-		if (!this.removed && !player.isSpectator()) {
-			this.stateManager.openContainer(player, this.getWorld(), this.getPos(), this.getCachedState());
-		}
 
-	}
-*/
 	@Override
 	public void onClose(PlayerEntity player) {
 		if (!player.isSpectator()) {
@@ -155,4 +128,5 @@ public class ShulkerChestBlockEntity extends LootableContainerBlockEntity implem
 		Block block = state.getBlock();
 		world.addSyncedBlockEvent(pos, block, 1, newViewerCount);
 	}
+
 }

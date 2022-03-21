@@ -1,7 +1,13 @@
 {
   "variants": {
-    "": {
-      "model": "minecraft:block/grass_block_top"
+    "snowy=false": [
+      {
+        "model": "jineric:block/full_grass_block"
+      }
+
+    ],
+    "snowy=true": {
+      "model": "minecraft:block/grass_block_snow"
     }
   }
 }

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "particle": "jineric:block/full_grass_block",
+    "all": "jineric:block/full_grass_block"
+  }
+}

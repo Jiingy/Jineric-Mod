@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "jineric:siltstone_slab",
+    "jineric:polished_siltstone_slab",
+    "jineric:slate_slab",
+    "jineric:polished_sandstone_slab",
+    "jineric:wavy_sandstone_slab",
+    "jineric:chiseled_sandstone_slab",
+    "jineric:polished_red_sandstone_slab",
+    "jineric:wavy_red_sandstone_slab",
+    "jineric:chiseled_red_sandstone_slab",
+    "jineric:soul_sandstone_slab",
+    "jineric:cut_soul_sandstone_slab",
+    "jineric:polished_soul_sandstone_slab",
+    "jineric:chiseled_soul_sandstone_slab",
+    "jineric:smooth_soul_sandstone_slab",
+    "jineric:wavy_soul_sandstone_slab",
+    "jineric:calcite_slab",
+    "jineric:tuff_slab",
+    "jineric:dripstone_slab",
+    "jineric:obsidian_slab",
+    "jineric:cracked_stone_brick_slab",
+    "jineric:packed_ice_slab"
+  ]
+}

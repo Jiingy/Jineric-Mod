@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_button",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "jineric:boreal_planks"
+    }
+  },
+  "result": {
+    "item": "jineric:boreal_button",
+    "count": 1
+  }
+}

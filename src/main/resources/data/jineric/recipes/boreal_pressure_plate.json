@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_pressure_plate",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "jineric:boreal_planks"
+    }
+  },
+  "result": {
+    "item": "jineric:boreal_pressure_plate",
+    "count": 1
+  }
+}

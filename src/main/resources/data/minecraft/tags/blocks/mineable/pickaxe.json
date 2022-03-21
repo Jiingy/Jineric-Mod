@@ -1,12 +1,12 @@
 {
   "replace": false,
   "values": [
+    "jineric:shulker_chest",
     "jineric:charcoal_block",
     "jineric:flint_block",
     "jineric:packed_ice_stairs",
     "jineric:packed_ice_slab",
     "jineric:packed_ice_wall",
-
     "jineric:siltstone",
     "jineric:siltstone_stairs",
     "jineric:siltstone_slab",

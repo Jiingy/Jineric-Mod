@@ -1,6 +1,6 @@
 package jingy.jineric.sound;
 
-import jingy.jineric.base.Jineric;
+import jingy.jineric.base.JinericMain;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
@@ -8,7 +8,7 @@ import net.minecraft.util.registry.Registry;
 
 public class JinericSounds {
 
-	public static final Identifier SOUL_SANDSTONE_ID = Jineric.id("soul_sandstone");
+	public static final Identifier SOUL_SANDSTONE_ID = JinericMain.id("soul_sandstone");
 	public static SoundEvent SOUL_SANDSTONE_INTERACT = new SoundEvent(SOUL_SANDSTONE_ID);
 	public static final BlockSoundGroup SOUL_SANDSTONE = new BlockSoundGroup(
 			0.75f,
