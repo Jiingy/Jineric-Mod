@@ -4,8 +4,15 @@
   "package": "jingy.jineric.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "BlockEntityRendererFactoriesMixin",
+    "DefaultAttributeRegistryMixin",
+    "MaterialRulesDataAccess",
+    "PointedDripstoneBlockMixin",
+    "WallBlockMixin",
+    "access.SignTypeAccess"
   ],
   "client": [
+    "EntityRenderersMixin",
     "LivingEntityMixin"
   ],
   "injectors": {

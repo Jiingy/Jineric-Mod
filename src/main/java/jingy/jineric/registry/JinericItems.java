@@ -149,7 +149,8 @@ public class JinericItems {
 
 	//MISCELLANEOUS
 	public static final Item SALT = register("salt", new Item(JinericItemSettings.Misc().group(JinericItemGroups.MISCELLANEOUS)));
-	public static final Item NETHERITE_HORSE_ARMOR = register("netherite_horse_armor", new Item(JinericItemSettings.Misc().group(JinericItemGroups.MISCELLANEOUS)));
+	public static final Item NETHERITE_HORSE_ARMOR = register("netherite_horse_armor", new JinericHorseArmorItem(15, "netherite", JinericItemSettings.Transportation().fireproof().maxCount(1)));
+	public static final Item MANX_LOAGHTAN_SPAWN_EGG =register("manx_loaghtan_spawn_egg", new SpawnEggItem(JinericEntities.MANX_LOAGHTAN, 707594, 181629, JinericItemSettings.Misc()));
 
 // FOODS
 
