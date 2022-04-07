@@ -20,6 +20,9 @@
     ],
     "client": [
       "jingy.jineric.base.JinericClientMain"
+    ],
+    "terrablender": [
+      "jingy.jineric.base.JinericMain"
     ]
   },
   "mixins": [

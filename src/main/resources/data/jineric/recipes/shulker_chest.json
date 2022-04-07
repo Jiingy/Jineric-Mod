@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "%%%",
+    "###",
+    "%%%"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:chest"
+    },
+    "%": {
+      "item": "minecraft:shulker_shell"
+    }
+  },
+  "result": {
+    "item": "jineric:shulker_chest",
+    "count": 1
+  }
+}

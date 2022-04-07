@@ -1,20 +1,24 @@
 package jingy.jineric.registry;
 
+import jingy.jineric.base.JinericMain;
 import jingy.jineric.item.JinericElytraItem;
+import jingy.jineric.item.JinericHorseArmorItem;
+import jingy.jineric.util.RegistryObject;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.FoodComponent;
-import net.minecraft.item.Item;
+import net.minecraft.block.Block;
+import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static net.minecraft.entity.EquipmentSlot.CHEST;
 import static net.minecraft.util.Rarity.RARE;
 
-
 @SuppressWarnings("unused")
 public class JinericItems {
-
+	public static final List<RegistryObject<Item>> ITEMS = new ArrayList<>();
 /* TEMPLATES:
 	public static final Item NAME = register("name", new Item(JinericItemSettings.ItemGroup().group(JinericItemGroups.ITEM_GROUP)));
 	public static final Item NAME = register("name", new BlockItem(JinericBlocks.BLOCK, JinericItemSettings.ItemGroup().group(JinericItemGroups.ITEM_GROUP)));
@@ -92,12 +96,12 @@ public class JinericItems {
 	public static final Item PACKED_ICE_STAIRS = register("packed_ice_stairs", new BlockItem(JinericBlocks.PACKED_ICE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.BUILDING_BLOCKS)));
 	public static final Item PACKED_ICE_SLAB = register("packed_ice_slab", new BlockItem(JinericBlocks.PACKED_ICE_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.BUILDING_BLOCKS)));
 
-	//DECORATION BLOCKS
-	public static final Item BOREAL_SAPLING = register("boreal_sapling", new Item(JinericItemSettings.DecorationBlocks().group(JinericItemGroups.DECORATION_BLOCKS)));
-	//public static final Item BOREAL_SAPLING = register("boreal_sapling", new BlockItem(JinericBlocks.BOREAL_SAPLING, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DECORATION_BLOCKS)));
+//DECORATION BLOCKS
+	public static final Item BOREAL_SAPLING = register("boreal_sapling", new BlockItem(JinericBlocks.BOREAL_SAPLING, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DECORATION_BLOCKS)));
 	public static final Item BOREAL_LEAVES = register("boreal_leaves", new BlockItem(JinericBlocks.BOREAL_LEAVES, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DECORATION_BLOCKS)));
 	public static final Item TUMBLEWEED = register("tumbleweed", new BlockItem(JinericBlocks.TUMBLEWEED, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DECORATION_BLOCKS)));
 	public static final Item BOREAL_FENCE = register("boreal_fence", new BlockItem(JinericBlocks.BOREAL_FENCE, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DECORATION_BLOCKS)));
+	public static final Item BOREAL_SIGN = register("boreal_sign", new BlockItem(JinericBlocks.BOREAL_SIGN, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DECORATION_BLOCKS)));
 	public static final Item SILTSTONE_WALL = register("siltstone_wall", new BlockItem(JinericBlocks.SILTSTONE_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DECORATION_BLOCKS)));
 	public static final Item POLISHED_SILTSTONE_WALL = register("polished_siltstone_wall", new BlockItem(JinericBlocks.POLISHED_SILTSTONE_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DECORATION_BLOCKS)));
 	public static final Item SLATE_WALL = register("slate_wall", new BlockItem(JinericBlocks.SLATE_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DECORATION_BLOCKS)));
@@ -132,20 +136,32 @@ public class JinericItems {
 	public static final Item SNOW_WALL = register("snow_wall", new BlockItem(JinericBlocks.SNOW_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DECORATION_BLOCKS)));
 	public static final Item DARK_PRISMARINE_WALL = register("dark_prismarine_wall", new BlockItem(JinericBlocks.DARK_PRISMARINE_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DECORATION_BLOCKS)));
 	public static final Item PRISMARINE_BRICK_WALL = register("prismarine_brick_wall", new BlockItem(JinericBlocks.PRISMARINE_BRICK_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DECORATION_BLOCKS)));
+	public static final Item CUT_COPPER_WALL = register("cut_copper_wall", new BlockItem(JinericBlocks.CUT_COPPER_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DECORATION_BLOCKS)));
+	public static final Item EXPOSED_CUT_COPPER_WALL = register("exposed_cut_copper_wall", new BlockItem(JinericBlocks.EXPOSED_CUT_COPPER_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DECORATION_BLOCKS)));
+	public static final Item WEATHERED_CUT_COPPER_WALL = register("weathered_cut_copper_wall", new BlockItem(JinericBlocks.WEATHERED_CUT_COPPER_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DECORATION_BLOCKS)));
+	public static final Item OXIDIZED_CUT_COPPER_WALL = register("oxidized_cut_copper_wall", new BlockItem(JinericBlocks.OXIDIZED_CUT_COPPER_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DECORATION_BLOCKS)));
+	public static final Item WAXED_CUT_COPPER_WALL = register("waxed_cut_copper_wall", new BlockItem(JinericBlocks.WAXED_CUT_COPPER_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DECORATION_BLOCKS)));
+	public static final Item WAXED_EXPOSED_CUT_COPPER_WALL = register("waxed_exposed_cut_copper_wall", new BlockItem(JinericBlocks.WAXED_EXPOSED_CUT_COPPER_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DECORATION_BLOCKS)));
+	public static final Item WAXED_WEATHERED_CUT_COPPER_WALL = register("waxed_weathered_cut_copper_wall", new BlockItem(JinericBlocks.WAXED_WEATHERED_CUT_COPPER_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DECORATION_BLOCKS)));
+	public static final Item WAXED_OXIDIZED_CUT_COPPER_WALL = register("waxed_oxidized_cut_copper_wall", new BlockItem(JinericBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DECORATION_BLOCKS)));
+
 
 	public static final Item SHULKER_CHEST = register("shulker_chest", new BlockItem(JinericBlocks.SHULKER_CHEST, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DECORATION_BLOCKS)));
 
 
-	// REDSTONE
+// REDSTONE
 	public static final Item BOREAL_BUTTON = register("boreal_button", new BlockItem(JinericBlocks.BOREAL_BUTTON, JinericItemSettings.Redstone().group(JinericItemGroups.REDSTONE)));
 	public static final Item BOREAL_PRESSURE_PLATE = register("boreal_pressure_plate", new BlockItem(JinericBlocks.BOREAL_PRESSURE_PLATE, JinericItemSettings.Redstone().group(JinericItemGroups.REDSTONE)));
 	public static final Item BOREAL_DOOR = register("boreal_door", new BlockItem(JinericBlocks.BOREAL_DOOR, JinericItemSettings.Redstone().group(JinericItemGroups.REDSTONE)));
 	public static final Item BOREAL_TRAPDOOR = register("boreal_trapdoor", new BlockItem(JinericBlocks.BOREAL_TRAPDOOR, JinericItemSettings.Redstone().group(JinericItemGroups.REDSTONE)));
 	public static final Item BOREAL_FENCE_GATE = register("boreal_fence_gate", new BlockItem(JinericBlocks.BOREAL_FENCE_GATE, JinericItemSettings.Redstone().group(JinericItemGroups.REDSTONE)));
+	public static final Item REDSTONE_LANTERN = register("redstone_lantern", new BlockItem(JinericBlocks.REDSTONE_LANTERN, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.REDSTONE)));
+	public static final Item REDSTONE_CAMPFIRE = register("redstone_campfire", new BlockItem(JinericBlocks.REDSTONE_CAMPFIRE, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.REDSTONE)));
+
 
 //TRANSPORTATION
 	//public static final Item BOREAL_BOAT = register("BOREAL_BOAT", new Item(JinericItemSettings.Transportation().group(JinericItemGroups.TRANSPORTATION)));
-
+	//public static final Item NETHERITE_HORSE_ARMOR = register(15, "netherite", new Item(JinericItemSettings.Transportation()))
 
 	//MISCELLANEOUS
 	public static final Item SALT = register("salt", new Item(JinericItemSettings.Misc().group(JinericItemGroups.MISCELLANEOUS)));
@@ -164,23 +180,38 @@ public class JinericItems {
 	public static final Item GOLDEN_BEETROOT = register("golden_beetroot", new Item(JinericItemSettings.Food().food(new FoodComponent.Builder().hunger(4).saturationModifier(5f).build()).group(JinericItemGroups.BREWING)));
 	public static final Item WARPED_NETHER_WART = register("warped_nether_wart", new Item(JinericItemSettings.Misc().group(JinericItemGroups.BREWING)));
 
+	//STORAGE BLOCKS
 	public static final Item SALT_BLOCK = register("salt_block", new BlockItem(JinericBlocks.SALT_BLOCK, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.BUILDING_BLOCKS)));
 	public static final Item SUGAR_BLOCK = register("sugar_block", new BlockItem(JinericBlocks.SUGAR_BLOCK, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.BUILDING_BLOCKS)));
 	public static final Item ROTTEN_FLESH_BLOCK = register("rotten_flesh_block", new BlockItem(JinericBlocks.ROTTEN_FLESH_BLOCK, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.BUILDING_BLOCKS)));
 	public static final Item FLINT_BLOCK = register("flint_block", new BlockItem(JinericBlocks.FLINT_BLOCK, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.BUILDING_BLOCKS)));
 	public static final Item CHARCOAL_BLOCK = register("charcoal_block", new BlockItem(JinericBlocks.CHARCOAL_BLOCK, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.BUILDING_BLOCKS)));
 	public static final Item BAMBOO_BLOCK = register("bamboo_block", new BlockItem(JinericBlocks.BAMBOO_BLOCK, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.BUILDING_BLOCKS)));
+	public static final Item BONE_MEAL_BLOCK = register("bone_meal_block", new BlockItem(JinericBlocks.BONE_MEAL_BLOCK, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.BUILDING_BLOCKS)));
+	public static final Item ENDER_PEARL_BLOCK = register("ender_pearl_block", new BlockItem(JinericBlocks.ENDER_PEARL_BLOCK, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.BUILDING_BLOCKS)));
 
-// ETC
+
+	// ETC
 	public static final Item FROZEN_ELYTRA = register("frozen_elytra", new JinericElytraItem(new FabricItemSettings().maxDamage(432).group(JinericItemGroups.TRANSPORTATION).equipmentSlot(item -> CHEST).rarity(RARE)));
 //.Transportation().group(JinericItemGroups.TRANSPORTATION).maxCount(1).rarity(RARE).maxDamage(432)));
+
+
 
 
 	private static Item register(String name, Item item) {
 		return Registry.register(Registry.ITEM, new Identifier("jineric", name), item);
 	}
 
-	public static void init() {
+	public static <T extends Item> T createItem(T item, String id) {
+		ITEMS.add(new RegistryObject<>(item, id));
+		return item;
+	}
+
+	public static SignItem createSign(String id, Block signBlock, Block wallSignBlock) {
+		return JinericMain.SIGNS ? createItem(new SignItem(new Item.Settings().maxCount(16).group(JinericItemGroups.DECORATION_BLOCKS), signBlock, wallSignBlock), id) : null;
+	}
+
+	public static void itemRegistry() {
 	}
 }
 

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:bone_meal"
+    }
+  },
+  "result": {
+    "item": "jineric:bone_meal_block",
+    "count": 1
+  }
+}

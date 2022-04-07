@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "jineric:rotten_flesh_block"
+    "jineric:rotten_flesh_block",
+    "jineric:boreal_leaves"
   ]
 }

@@ -28,12 +28,19 @@
     "jineric:smooth_soul_sandstone_wall",
     "jineric:wavy_soul_sandstone_wall",
     "jineric:packed_ice_wall",
-    "jineric:snow_wall",
     "jineric:obsidian_wall",
     "jineric:dark_prismarine_wall",
     "jineric:prismarine_brick_wall",
     "jineric:dripstone_wall",
     "jineric:calcite_wall",
-    "jineric:tuff_wall"
+    "jineric:tuff_wall",
+    "jineric:cut_copper_wall",
+    "jineric:exposed_cut_copper_wall",
+    "jineric:weathered_cut_copper_wall",
+    "jineric:oxidized_cut_copper_wall",
+    "jineric:waxed_cut_copper_wall",
+    "jineric:waxed_exposed_cut_copper_wall",
+    "jineric:waxed_weathered_cut_copper_wall",
+    "jineric:waxed_oxidized_cut_copper_wall"
   ]
 }

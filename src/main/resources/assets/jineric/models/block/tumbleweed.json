@@ -1,6 +1,9 @@
 {
-    "parent": "minecraft:block/leaves",
+    "parent": "jineric:block/tumbleweed_cross",
     "textures": {
-        "all": "jineric:block/tumbleweed"
+        "all":"jineric:block/tumbleweed",
+        "top": "jineric:block/tumbleweed_top",
+        "bottom": "jineric:block/tumbleweed_bottom",
+        "bushy": "jineric:block/tumbleweed_bushy"
     }
 }

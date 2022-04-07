@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "jineric:tumbleweed"
+    "jineric:tumbleweed",
+    "jineric:boreal_leaves"
   ]
 }

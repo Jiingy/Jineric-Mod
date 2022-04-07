@@ -1,0 +1,9 @@
+{
+  "parent" : "jineric:block/tumbleweed_cross1",
+  "textures" : {
+    "all" : "jineric:block/tumbleweed1",
+    "top": "jineric:block/tumbleweed_top1",
+    "bottom": "jineric:block/tumbleweed_bottom1",
+    "bushy" : "jineric:block/tumbleweed_bushy1"
+  }
+}
