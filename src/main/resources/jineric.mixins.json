@@ -12,6 +12,7 @@
     "access.SignTypeAccess"
   ],
   "client": [
+    "ElytraFeatureRendererAccessor",
     "EntityRenderersMixin",
     "LivingEntityMixin"
   ],

@@ -39,6 +39,7 @@ public class JinericClientMain implements ClientModInitializer {
 		//ENTITY MODEL LAYERS
 		EntityModelLayerRegistry.registerModelLayer(JinericClientMain.MANX_LOAGHTAN, ManxLoaghtanModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(JinericClientMain.MANX_LOAGHTAN_WOOL, ManxLoaghtanWoolModel::getTexturedModelData);
+		//FabricDefaultAttributeRegistry.register(JinericEntities.MANX_LOAGHTAN, ManxLoaghtan.createManxLoaghtanAttributes());
 
 		//BLOCK RENDER LAYER MAPS
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BOREAL_TRAPDOOR, RenderLayer.getCutout());

@@ -159,18 +159,18 @@ FORMAT:
 	public static final Block FLINT_BLOCK = register("flint_block", new Block(Block.Settings.copy(STONE)));
 	public static final Block CHARCOAL_BLOCK = register("charcoal_block", new Block(Block.Settings.copy(COAL_BLOCK)));
 	public static final Block BAMBOO_BLOCK = register("bamboo_block", new PillarBlock(Block.Settings.copy(OAK_LOG).sounds(BlockSoundGroup.BAMBOO)));
-	public static final Block TUMBLEWEED = register("tumbleweed", new LeavesBlock(Block.Settings.copy(OAK_LEAVES)));
+	public static final Block TUMBLEWEED = register("tumbleweed", new LeavesBlock(Block.Settings.copy(OAK_LEAVES).nonOpaque()));
 	public static final Block BONE_MEAL_BLOCK = register("bone_meal_block", new Block(FabricBlockSettings.copy(BONE_BLOCK)));
 	public static final Block ENDER_PEARL_BLOCK = register("ender_pearl_block", new Block(FabricBlockSettings.copy(HONEY_BLOCK)));
-
-
 
 	//PACKED ICE
 	public static final Block PACKED_ICE_STAIRS = register("packed_ice_stairs", new JinericStairsBlock(PACKED_ICE.getDefaultState(), FabricBlockSettings.copy(PACKED_ICE)));
 	public static final Block PACKED_ICE_SLAB  = register("packed_ice_slab", new SlabBlock(FabricBlockSettings.copy(PACKED_ICE)));
 	public static final Block PACKED_ICE_WALL = register("packed_ice_wall", new WallBlock(FabricBlockSettings.copy(PACKED_ICE)));
+
 	//SNOW & POWDERED SNOW
 	public static final Block SNOW_WALL = register("snow_wall", new WallBlock(FabricBlockSettings.copy(SNOW_BLOCK)));
+
 	//DECORATION BLOCKS
 	public static final Block SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", new JinericCarvedPumpkinBlock(FabricBlockSettings.copy(JACK_O_LANTERN)));
 	public static final Block FULL_GRASS_BLOCK = register("full_grass_block", new FullGrassBlock(FabricBlockSettings.copy(GRASS_BLOCK)));

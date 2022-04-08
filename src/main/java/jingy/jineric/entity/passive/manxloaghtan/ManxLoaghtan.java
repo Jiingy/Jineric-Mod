@@ -64,6 +64,7 @@ public class ManxLoaghtan extends AnimalEntity implements Shearable {
 
    private int eatGrassTimer;
    private EatGrassGoal eatGrassGoal;
+   private int headAngle;
 
    private static float[] getDyedColor(DyeColor color) {
       if (color == DyeColor.BLACK) {
@@ -144,6 +145,10 @@ public class ManxLoaghtan extends AnimalEntity implements Shearable {
       } else {
          return this.eatGrassTimer > 0 ? (float) (Math.PI / 5) : this.getPitch() * (float) (Math.PI / 180.0);
       }
+   }
+
+   public float getHeadPitch() {
+      return (float)this.headAngle / 20.0F * 30.0F * (float) (Math.PI / 180.0);
    }
 
    @Override

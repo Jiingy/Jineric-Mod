@@ -26,7 +26,9 @@ public class DefaultAttributeRegistryMixin {
    @Inject(method = "<clinit>", at = @At("RETURN"))
    private static void jineric$AddAttributes(CallbackInfo callbackInfo) {
       final IdentityHashMap<EntityType<? extends LivingEntity>, DefaultAttributeContainer> suppliers = new IdentityHashMap<>(DEFAULT_ATTRIBUTE_REGISTRY);
-      suppliers.put(JinericEntities.MANX_LOAGHTAN, ManxLoaghtan.createManxLoaghtanAttributes().build());
+      suppliers.put(
+              JinericEntities.MANX_LOAGHTAN, ManxLoaghtan.createManxLoaghtanAttributes().build()
+      );
       DEFAULT_ATTRIBUTE_REGISTRY = suppliers;
    }
 }
