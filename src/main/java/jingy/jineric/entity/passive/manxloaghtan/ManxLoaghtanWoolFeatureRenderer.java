@@ -1,6 +1,6 @@
 package jingy.jineric.entity.passive.manxloaghtan;
 
-import jingy.jineric.registry.JinericEntityModelLayers;
+import jingy.jineric.base.JinericClientMain;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
@@ -21,22 +21,19 @@ public class ManxLoaghtanWoolFeatureRenderer extends FeatureRenderer<ManxLoaghta
 
    public ManxLoaghtanWoolFeatureRenderer(FeatureRendererContext<ManxLoaghtan, ManxLoaghtanModel<ManxLoaghtan>> context, EntityModelLoader entityModelLoader) {
       super(context);
-      this.model = new ManxLoaghtanWoolModel<>(entityModelLoader.getModelPart(JinericEntityModelLayers.MANX_LOAGHTAN_WOOL));
+      this.model = new ManxLoaghtanWoolModel<>(entityModelLoader.getModelPart(JinericClientMain.MANX_LOAGHTAN_WOOL));
    }
 
    public void render(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, ManxLoaghtan manxLoaghtan, float f, float g, float h, float j, float k, float l) {
       MinecraftClient minecraftClient = MinecraftClient.getInstance();
-      boolean bl = minecraftClient.hasOutline(manxLoaghtan);
-      //if (!manxLoaghtanEntity.isSheared()) {
-         if (manxLoaghtan.isInvisible() || bl) {
+      if (!manxLoaghtan.isSheared()) {
             VertexConsumer vertexConsumer;
-            if (bl) {
-               vertexConsumer = vertexConsumerProvider.getBuffer(RenderLayer.getOutline(SKIN));
                this.getContextModel().copyStateTo(this.model);
                this.model.animateModel(manxLoaghtan, f, g, h);
                this.model.setAngles(manxLoaghtan, f, g, j, k, l);
+               vertexConsumer = vertexConsumerProvider.getBuffer(RenderLayer.getEntityTranslucent(SKIN));
                this.model.render(matrixStack, vertexConsumer, i, LivingEntityRenderer.getOverlay(manxLoaghtan, 0.0F), 0.0F, 0.0F, 0.0F, 1.0F);
-            }
+      }
 //JEB FUNCTIONALITY
          /*
          } else {
@@ -65,5 +62,5 @@ public class ManxLoaghtanWoolFeatureRenderer extends FeatureRenderer<ManxLoaghta
             //render(this.getContextModel(), this.model, SKIN, matrixStack, vertexConsumerProvider, i, manxLoaghtanEntity, f, g, j, k, l/*, h, s, t, u*/);
          }
       }
-   }
+   //}
 //}

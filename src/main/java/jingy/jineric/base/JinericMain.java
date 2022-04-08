@@ -64,7 +64,7 @@ public class JinericMain implements ModInitializer, TerraBlenderApi {
 		JinericStatusEffects.RegisterEffects();
 		JinericConfiguredFeatures.getDefaultConfiguredFeature();
 		JinericWorldGen.generateJinericWorldGen();
-		JinericEntityModels.init();
+		//JinericEntityModels.init();
 
 		System.out.println("Jineric Mod Main - Finished initialization");
 	}
