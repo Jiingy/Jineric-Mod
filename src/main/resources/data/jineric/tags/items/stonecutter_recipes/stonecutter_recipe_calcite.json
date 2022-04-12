@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:calcite",
+    "jineric:calcite_slab",
+    "jineric:calcite_stairs",
+    "jineric:calcite_wall",
+    "jineric:polished_calcite",
+    "jineric:polished_calcite_slab",
+    "jineric:polished_calcite_stairs",
+    "jineric:polished_calcite_wall"
+  ]
+}

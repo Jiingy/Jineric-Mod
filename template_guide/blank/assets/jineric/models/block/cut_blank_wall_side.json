@@ -1,0 +1,8 @@
+{
+  "parent": "jineric:block/template_consistency_wall_side_tri",
+  "textures": {
+    "wall": "jineric:block/cut_blank",
+    "wall_top": "jineric:block/cut_blank",
+    "wall_bottom": "jineric:block/cut_blank"
+  }
+}

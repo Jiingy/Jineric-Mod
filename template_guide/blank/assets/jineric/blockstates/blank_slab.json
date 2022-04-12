@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "jineric:block/blank_slab"
+    },
+    "type=double": {
+      "model": "jineric:block/blank"
+    },
+    "type=top": {
+      "model": "jineric:block/blank_slab_top"
+    }
+  }
+}

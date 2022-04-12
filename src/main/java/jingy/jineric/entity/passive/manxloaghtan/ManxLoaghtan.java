@@ -63,6 +63,7 @@ public class ManxLoaghtan extends AnimalEntity implements Shearable {
    );
 
    private int eatGrassTimer;
+   //TODO: See if mixin to add full grass block is possible for eatGrassGoal
    private EatGrassGoal eatGrassGoal;
    private int headAngle;
 

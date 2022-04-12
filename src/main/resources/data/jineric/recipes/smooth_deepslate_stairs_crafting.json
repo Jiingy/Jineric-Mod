@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "X  ",
+        "XX ",
+        "XXX"
+    ],
+    "key": {
+        "X": {
+            "item": "jineric:smooth_deepslate"
+        }
+    },
+    "result": {
+        "item": "jineric:smooth_deepslate_stairs",
+        "count": 4
+    }
+}

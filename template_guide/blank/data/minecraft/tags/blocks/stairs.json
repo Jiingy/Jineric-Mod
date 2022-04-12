@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "jineric:blank_stairs",
+    "jineric:smooth_blank_stairs",
+    "jineric:polished_blank_stairs",
+    "jineric:blank_brick_stairs",
+    "jineric:cut_blank_stairs",
+    "jineric:blank_tile_stairs",
+    "jineric:cobbled_blank_stairs"
+  ]
+}

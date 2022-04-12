@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "jineric:blank_slab",
+    "jineric:smooth_blank_slab",
+    "jineric:polished_blank_slab",
+    "jineric:blank_brick_slab",
+    "jineric:cut_blank_slab",
+    "jineric:blank_tile_slab",
+    "jineric:cobbled_blank_slab"
+  ]
+}

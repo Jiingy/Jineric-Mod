@@ -17,13 +17,12 @@ public class JinericSurfaceRules {
                    MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR_WITH_SURFACE_DEPTH, MaterialRules.block(Blocks.DIRT.getDefaultState())));
 
    public static final MaterialRules.MaterialRule NOISE_FULL_GRASS_BLOCK = MaterialRules.condition(
-           MaterialRules.biome(
-                   JinericBiomes.BOREAL_FOREST),
+           MaterialRules.biome(JinericBiomes.BOREAL_FOREST),
            MaterialRules.condition(jineric$invokesurfaceNoiseThreshold(-0.95D), FULL_GRASS_BLOCK_SURFACE));
 
    public static final MaterialRules.MaterialRule OVERWORLD_ABOVE_PRELIMINARY_SURFACE = MaterialRules.condition(
-           MaterialRules.surface(), MaterialRules.sequence(
-                   NOISE_FULL_GRASS_BLOCK
+           MaterialRules.surface(),
+           MaterialRules.sequence(NOISE_FULL_GRASS_BLOCK
            )
    );
 

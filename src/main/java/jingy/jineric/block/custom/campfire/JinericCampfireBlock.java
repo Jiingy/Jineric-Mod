@@ -1,6 +1,5 @@
 package jingy.jineric.block.custom.campfire;
 
-import jingy.jineric.tag.JinericBlockTags;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -26,6 +25,7 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.tag.BlockTags;
 import net.minecraft.util.*;
 import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
@@ -276,7 +276,7 @@ public class JinericCampfireBlock extends CampfireBlock implements Waterloggable
    }
 
    public static boolean isLitCampfire(BlockState state) {
-      return state.contains(LIT) && state.isIn(JinericBlockTags.JINERIC_CAMPFIRES) && state.get(LIT);
+      return state.contains(LIT) && state.isIn(BlockTags.CAMPFIRES) && state.get(LIT);
    }
 
    @Override
@@ -322,6 +322,6 @@ public class JinericCampfireBlock extends CampfireBlock implements Waterloggable
    }
 
    public static boolean canBeLit(BlockState state) {
-      return state.isIn(JinericBlockTags.JINERIC_CAMPFIRES, statex -> statex.contains(WATERLOGGED) && statex.contains(LIT)) && !state.get(WATERLOGGED) && !state.get(LIT);
+      return state.isIn(BlockTags.CAMPFIRES, statex -> statex.contains(WATERLOGGED) && statex.contains(LIT)) && !state.get(WATERLOGGED) && !state.get(LIT);
    }
 }

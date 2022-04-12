@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "jineric:block/polished_dripstone_slab"
+    },
+    "type=double": {
+      "model": "jineric:block/polished_dripstone"
+    },
+    "type=top": {
+      "model": "jineric:block/polished_dripstone_slab_top"
+    }
+  }
+}

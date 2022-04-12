@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "jineric:blank_wall",
+    "jineric:smooth_blank_wall",
+    "jineric:polished_blank_wall",
+    "jineric:blank_brick_wall",
+    "jineric:cut_blank_wall",
+    "jineric:blank_tile_wall",
+    "jineric:cobbled_blank_wall"
+  ]
+}

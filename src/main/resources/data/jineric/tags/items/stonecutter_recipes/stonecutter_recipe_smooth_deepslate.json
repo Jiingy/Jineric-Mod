@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "jineric:smooth_smooth_deepslate",
+    "jineric:smooth_smooth_deepslate_slab",
+    "jineric:smooth_smooth_deepslate_stairs",
+    "jineric:smooth_smooth_deepslate_wall"
+  ]
+}

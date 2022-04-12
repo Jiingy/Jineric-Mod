@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "jineric:smooth_blank",
+    "jineric:smooth_blank_slab",
+    "jineric:smooth_blank_stairs",
+    "jineric:smooth_blank_wall"
+  ]
+}

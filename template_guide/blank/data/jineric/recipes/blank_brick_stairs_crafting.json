@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "X  ",
+        "XX ",
+        "XXX"
+    ],
+    "key": {
+        "X": {
+            "item": "jineric:blank_bricks"
+        }
+    },
+    "result": {
+        "item": "jineric:blank_brick_stairs",
+        "count": 4
+    }
+}

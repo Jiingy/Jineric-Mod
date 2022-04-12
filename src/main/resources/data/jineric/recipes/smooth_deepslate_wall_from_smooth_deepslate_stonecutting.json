@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "jineric:smooth_deepslate"
+    },
+    "result": "jineric:smooth_deepslate_wall",
+    "count": 1
+}

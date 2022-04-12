@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "jineric:block/smooth_blank",
+    "top": "jineric:block/smooth_blank",
+    "side": "jineric:block/smooth_blank"
+  }
+}

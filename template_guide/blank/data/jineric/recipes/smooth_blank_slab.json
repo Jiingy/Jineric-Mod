@@ -1,0 +1,10 @@
+{
+    "type": "minecraft:smelting",
+    "ingredient": {
+        "item": "jineric:blank_slab"
+    },
+    "result": "jineric:smooth_blank_slab",
+    "count": 1,
+    "experience": 0.1,
+    "cookingtime": 200
+}
