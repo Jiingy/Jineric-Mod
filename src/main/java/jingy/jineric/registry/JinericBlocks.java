@@ -259,6 +259,30 @@ FORMAT:
 	public static final Block POLISHED_CALCITE_WALL = register(
 			"polished_calcite_wall", new WallBlock(Block.Settings.copy(POLISHED_CALCITE))
 	);
+	public static final Block CALCITE_BRICKS = register(
+			"calcite_bricks", new Block(Block.Settings.copy(CALCITE))
+	);
+	public static final Block CALCITE_BRICK_STAIRS = register(
+			"calcite_bricks_stairs", new JinericStairsBlock(CALCITE_BRICKS.getDefaultState(), Block.Settings.copy(CALCITE_BRICKS))
+	);
+	public static final Block CALCITE_BRICK_SLAB = register(
+			"calcite_bricks_slab", new SlabBlock(Block.Settings.copy(CALCITE_BRICKS))
+	);
+	public static final Block CALCITE_BRICK_WALL = register(
+			"calcite_bricks_wall", new WallBlock(Block.Settings.copy(CALCITE_BRICKS))
+	);
+	public static final Block SMOOTH_CALCITE = register(
+			"smooth_calcite", new Block(Block.Settings.copy(CALCITE))
+	);
+	public static final Block SMOOTH_CALCITE_STAIRS = register(
+			"smooth_calcite_stairs", new JinericStairsBlock(SMOOTH_CALCITE.getDefaultState(), Block.Settings.copy(SMOOTH_CALCITE))
+	);
+	public static final Block SMOOTH_CALCITE_SLAB = register(
+			"smooth_calcite_slab", new SlabBlock(Block.Settings.copy(SMOOTH_CALCITE))
+	);
+	public static final Block SMOOTH_CALCITE_WALL = register(
+			"smooth_calcite_wall", new WallBlock(Block.Settings.copy(SMOOTH_CALCITE))
+	);
 
 	//DRIPSTONE
 	public static final Block DRIPSTONE_SLAB  = register(
@@ -335,6 +359,7 @@ FORMAT:
 	public static final Block POLISHED_SILTSTONE_WALL = register(
 			"polished_siltstone_wall", new WallBlock(Block.Settings.copy(STONE))
 	);
+
 	//SLATE
 	public static final Block SLATE = register(
 			"slate", new Block(Block.Settings.copy(STONE))

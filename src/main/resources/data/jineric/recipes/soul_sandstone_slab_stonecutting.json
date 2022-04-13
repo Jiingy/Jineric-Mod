@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "jineric:soul_sandstone"
-  },
-  "result": "jineric:soul_sandstone_slab",
-  "count": 2
-}

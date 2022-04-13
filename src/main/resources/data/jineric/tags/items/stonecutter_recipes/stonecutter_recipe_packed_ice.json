@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:packed_ice",
+    "jineric:packed_ice_slab",
+    "jineric:packed_ice_stairs",
+    "jineric:packed_ice_wall"
+  ]
+}

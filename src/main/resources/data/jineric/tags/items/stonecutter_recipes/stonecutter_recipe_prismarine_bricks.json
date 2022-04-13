@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:prismarine_bricks",
+    "minecraft:prismarine_brick_slab",
+    "minecraft:prismarine_brick_stairs",
+    "jineric:prismarine_brick_wall"
+  ]
+}

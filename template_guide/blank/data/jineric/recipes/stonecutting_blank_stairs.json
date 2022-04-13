@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "jineric:blank"
+    },
+    "result": "jineric:blank_stairs",
+    "count": 1
+}

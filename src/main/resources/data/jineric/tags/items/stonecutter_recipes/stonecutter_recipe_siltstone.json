@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "jineric:siltstone",
+    "jineric:siltstone_slab",
+    "jineric:siltstone_stairs",
+    "jineric:siltstone_wall",
+    "jineric:polished_siltstone",
+    "jineric:polished_siltstone_slab",
+    "jineric:polished_siltstone_stairs",
+    "jineric:polished_siltstone_wall"
+  ]
+}

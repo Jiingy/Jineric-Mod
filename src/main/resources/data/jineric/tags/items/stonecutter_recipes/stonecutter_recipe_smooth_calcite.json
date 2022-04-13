@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "jineric:smooth_calcite",
+    "jineric:smooth_calcite_slab",
+    "jineric:smooth_calcite_stairs",
+    "jineric:smooth_calcite_wall"
+  ]
+}

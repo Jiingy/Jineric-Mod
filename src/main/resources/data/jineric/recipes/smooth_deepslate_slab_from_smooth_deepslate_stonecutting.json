@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "jineric:smooth_deepslate"
-  },
-  "result": "jineric:smooth_deepslate_slab",
-  "count": 2
-}

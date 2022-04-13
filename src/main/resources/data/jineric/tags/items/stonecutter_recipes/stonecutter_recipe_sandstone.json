@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:sandstone",
+    "minecraft:sandstone_slab",
+    "minecraft:sandstone_stairs",
+    "minecraft:sandstone_wall",
+    "minecraft:chiseled_sandstone",
+    "jineric:chiseled_sandstone_slab",
+    "jineric:chiseled_sandstone_stairs",
+    "jineric:chiseled_sandstone_wall",
+    "minecraft:cut_sandstone",
+    "minecraft:cut_sandstone_slab",
+    "jineric:cut_sandstone_stairs",
+    "jineric:cut_sandstone_wall",
+    "jineric:polished_sandstone",
+    "jineric:polished_sandstone_slab",
+    "jineric:polished_sandstone_stairs",
+    "jineric:polished_sandstone_wall",
+    "jineric:wavy_sandstone",
+    "jineric:wavy_sandstone_slab",
+    "jineric:wavy_sandstone_stairs",
+    "jineric:wavy_sandstone_wall"
+  ]
+}

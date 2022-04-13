@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "jineric:siltstone"
-  },
-  "result": "jineric:siltstone_slab",
-  "count": 1
-}

@@ -16,7 +16,7 @@ group = project.maven_group
 
 repositories {
 	mavenCentral()
-
+	maven { url "https://api.modrinth.com/maven" }
 	maven { url = 'https://maven.minecraftforge.net/' }
 }
 
@@ -27,6 +27,8 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation("com.github.glitchfiend:TerraBlender-fabric:${minecraft_version}-${terrablender_version}")
+	modImplementation "maven.modrinth:stonecutter_recipe_tags:3.0.1"
+	include "maven.modrinth:stonecutter_recipe_tags:3.0.1"
 }
 
 processResources {

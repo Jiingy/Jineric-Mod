@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:cut_copper",
+    "minecraft:cut_copper_slab",
+    "minecraft:cut_copper_stairs",
+    "jineric:cut_copper_wall"
+  ]
+}

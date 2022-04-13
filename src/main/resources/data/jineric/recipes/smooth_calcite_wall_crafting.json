@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "XXX",
+        "XXX"
+    ],
+    "key": {
+        "X": {
+            "item": "jineric:smooth_calcite"
+        }
+    },
+    "result": {
+        "item": "jineric:smooth_calcite_wall",
+        "count": 6
+    }
+}
