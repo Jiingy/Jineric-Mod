@@ -263,13 +263,13 @@ FORMAT:
 			"calcite_bricks", new Block(Block.Settings.copy(CALCITE))
 	);
 	public static final Block CALCITE_BRICK_STAIRS = register(
-			"calcite_bricks_stairs", new JinericStairsBlock(CALCITE_BRICKS.getDefaultState(), Block.Settings.copy(CALCITE_BRICKS))
+			"calcite_brick_stairs", new JinericStairsBlock(CALCITE_BRICKS.getDefaultState(), Block.Settings.copy(CALCITE_BRICKS))
 	);
 	public static final Block CALCITE_BRICK_SLAB = register(
-			"calcite_bricks_slab", new SlabBlock(Block.Settings.copy(CALCITE_BRICKS))
+			"calcite_brick_slab", new SlabBlock(Block.Settings.copy(CALCITE_BRICKS))
 	);
 	public static final Block CALCITE_BRICK_WALL = register(
-			"calcite_bricks_wall", new WallBlock(Block.Settings.copy(CALCITE_BRICKS))
+			"calcite_brick_wall", new WallBlock(Block.Settings.copy(CALCITE_BRICKS))
 	);
 	public static final Block SMOOTH_CALCITE = register(
 			"smooth_calcite", new Block(Block.Settings.copy(CALCITE))
