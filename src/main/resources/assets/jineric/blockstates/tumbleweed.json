@@ -2,13 +2,13 @@
     "variants": {
         "distance=1": [
             { "model": "jineric:block/tumbleweed" },
-            { "model": "jineric:block/spruce_leaves1" },
-            { "model": "jineric:block/spruce_leaves2" }
+            { "model": "jineric:block/tumbleweed1" },
+            { "model": "jineric:block/tumbleweed2" }
         ],
         "distance=2": [
             { "model": "jineric:block/tumbleweed" },
-            { "model": "jineric:block/spruce_leaves1" },
-            { "model": "jineric:block/spruce_leaves2" }
+            { "model": "jineric:block/tumbleweed1" },
+            { "model": "jineric:block/tumbleweed2" }
         ],
         "distance=3": [
             { "model": "jineric:block/tumbleweed" },
