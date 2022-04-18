@@ -3,6 +3,7 @@ package jingy.jineric.base;
 import jingy.jineric.block.blockentity.shulkerchest.ShulkerChestScreenHandler;
 import jingy.jineric.entity.JinericPaintingMotive;
 import jingy.jineric.entity.JinericStatusEffects;
+import jingy.jineric.potion.JinericPotions;
 import jingy.jineric.registry.*;
 import jingy.jineric.sound.JinericSounds;
 import jingy.jineric.util.RegistryObject;
@@ -62,6 +63,7 @@ public class JinericMain implements ModInitializer, TerraBlenderApi {
 		JinericItemGroups.init();
 		JinericSounds.init();
 		JinericStatusEffects.RegisterEffects();
+		JinericPotions.registerPotions();
 		JinericConfiguredFeatures.getDefaultConfiguredFeature();
 		JinericWorldGen.generateJinericWorldGen();
 		//JinericEntityModels.init();

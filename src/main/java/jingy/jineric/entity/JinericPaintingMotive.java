@@ -8,6 +8,7 @@ public class JinericPaintingMotive extends PaintingMotive {
 
    public static final PaintingMotive KROMER = register("kromer", 64, 32);
    public static final PaintingMotive KEY_GEN = register("key_gen", 64, 32);
+   //"Peaceful Farm" done by Adam
    public static final PaintingMotive PEACEFUL_FARM = register("peaceful_farm", 16, 16);
 
    private static PaintingMotive register(String name, int width, int height) {

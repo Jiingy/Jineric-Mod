@@ -9,6 +9,7 @@
     "MaterialRulesDataAccess",
     "PointedDripstoneBlockMixin",
     "WallBlockMixin",
+    "access.BrewingRecipeRegistryAccess",
     "access.SignTypeAccess"
   ],
   "client": [
