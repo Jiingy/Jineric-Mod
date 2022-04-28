@@ -8,12 +8,12 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 public interface SignTypeAccess {
 
    @Invoker("<init>")
-   static SignType jineric$create(String name) {
+   static SignType jineric$newSignType(String name) {
       throw new Error("Mixin did not apply!");
    }
 
    @Invoker("register")
-   static SignType jineric$invokeRegister(SignType signType) {
+   static SignType jineric$registerNew(SignType signType) {
       throw new Error("Mixin did not apply!");
    }
 }

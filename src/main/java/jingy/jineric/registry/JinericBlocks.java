@@ -1,26 +1,24 @@
 package jingy.jineric.registry;
 
-import jingy.jineric.block.FullGrassBlock;
-import jingy.jineric.block.JinericSignType;
-import jingy.jineric.block.OxidizableWallBlock;
-import jingy.jineric.block.blockentity.shulkerchest.ShulkerChestBlock;
-import jingy.jineric.block.blockentity.shulkerchest.ShulkerChestBlockEntity;
-import jingy.jineric.block.custom.*;
-import jingy.jineric.block.custom.campfire.JinericCampfireBlock;
-import jingy.jineric.block.custom.campfire.JinericCampfireBlockEntity;
+import jingy.jineric.block.*;
+import jingy.jineric.block.custom.JinericCampfireBlock;
+import jingy.jineric.block.custom.JinericSaplingBlock;
+import jingy.jineric.block.custom.JinericStairsBlock;
+import jingy.jineric.block.enums.JinericChestType;
 import jingy.jineric.block.sapling.BorealSaplingGenerator;
+import jingy.jineric.util.JinericSignType;
 import jingy.jineric.util.RegistryObject;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.ToIntFunction;
 
-import static net.minecraft.block.AbstractButtonBlock.POWERED;
 import static net.minecraft.block.Blocks.*;
 
 public class JinericBlocks {
@@ -458,18 +456,47 @@ FORMAT:
 
 //WOOD
 	//BOREAL
-	public static final Block BOREAL_WOOD = register("boreal_wood", new PillarBlock(FabricBlockSettings.copy(OAK_WOOD)));
-	public static final Block BOREAL_LOG = register("boreal_log", new PillarBlock(FabricBlockSettings.copy(OAK_LOG)));
-	public static final Block STRIPPED_BOREAL_WOOD = register("stripped_boreal_wood", new PillarBlock(FabricBlockSettings.copy(OAK_WOOD)));
-	public static final Block STRIPPED_BOREAL_LOG = register("stripped_boreal_log", new PillarBlock(FabricBlockSettings.copy(OAK_LOG)));
-	public static final Block BOREAL_PLANKS = register("boreal_planks", new Block(FabricBlockSettings.copy(OAK_PLANKS)));
-	public static final Block BOREAL_STAIRS = register("boreal_stairs", new JinericStairsBlock(OAK_STAIRS.getDefaultState(), FabricBlockSettings.copy(OAK_STAIRS)));
-	public static final Block BOREAL_SLAB = register("boreal_slab", new SlabBlock(FabricBlockSettings.copy(OAK_SLAB)));
-	public static final Block BOREAL_FENCE = register("boreal_fence", new FenceBlock(FabricBlockSettings.copy(OAK_FENCE)));
-	public static final Block BOREAL_SIGN = register("boreal_sign", new SignBlock(FabricBlockSettings.copy(OAK_SIGN), JinericSignType.BOREAL));
-	public static final Block BOREAL_WALL_SIGN = register("boreal_wall_sign", new JinericWallSignBlock(FabricBlockSettings.copy(OAK_SIGN), JinericSignType.BOREAL));
-	public static final Block BOREAL_BUTTON = register("boreal_button", new JinericWoodenButtonBlock(Boolean.getBoolean(String.valueOf(POWERED)), FabricBlockSettings.copy((OAK_BUTTON))));
-	public static final Block BOREAL_PRESSURE_PLATE = register("boreal_pressure_plate", new JinericWoodenPressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, AbstractBlock.Settings.copy(OAK_PRESSURE_PLATE)));
+	public static final Block BOREAL_WOOD = register("boreal_wood",
+		new PillarBlock(FabricBlockSettings.copy(OAK_WOOD))
+	);
+
+	public static final Block BOREAL_LOG = register("boreal_log",
+			new PillarBlock(FabricBlockSettings.copy(OAK_LOG))
+	);
+
+	public static final Block STRIPPED_BOREAL_WOOD = register("stripped_boreal_wood",
+			new PillarBlock(FabricBlockSettings.copy(OAK_WOOD)));
+
+	public static final Block STRIPPED_BOREAL_LOG = register("stripped_boreal_log",
+			new PillarBlock(FabricBlockSettings.copy(OAK_LOG))
+	);
+
+	public static final Block BOREAL_PLANKS = register("boreal_planks",
+			new Block(FabricBlockSettings.copy(OAK_PLANKS))
+	);
+
+	public static final Block BOREAL_STAIRS = register("boreal_stairs",
+			new JinericStairsBlock(OAK_STAIRS.getDefaultState(), FabricBlockSettings.copy(OAK_STAIRS))
+	);
+
+	public static final Block BOREAL_SLAB = register("boreal_slab",
+			new SlabBlock(FabricBlockSettings.copy(OAK_SLAB))
+	);
+
+	public static final Block BOREAL_FENCE = register("boreal_fence",
+			new FenceBlock(FabricBlockSettings.copy(OAK_FENCE))
+	);
+
+	public static final Block BOREAL_SIGN = register("boreal_sign",
+			new SignBlock(FabricBlockSettings.copy(OAK_SIGN), JinericSignType.BOREAL)
+	);
+
+	public static final Block BOREAL_WALL_SIGN = register("boreal_wall_sign",
+			new WallSignBlock(FabricBlockSettings.copy(OAK_WALL_SIGN), JinericSignType.BOREAL)
+	);
+
+	public static final Block BOREAL_BUTTON = register("boreal_button", new WoodenButtonBlock(FabricBlockSettings.copy((OAK_BUTTON))));
+	public static final Block BOREAL_PRESSURE_PLATE = register("boreal_pressure_plate", new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, AbstractBlock.Settings.copy(OAK_PRESSURE_PLATE)));
 	public static final Block BOREAL_DOOR = register("boreal_door", new DoorBlock(Block.Settings.copy(OAK_DOOR)));
 	public static final Block BOREAL_TRAPDOOR = register("boreal_trapdoor", new JinericWoodenTrapdoorBlock(OAK_TRAPDOOR.getDefaultState(), FabricBlockSettings.copy(OAK_TRAPDOOR).sounds(BlockSoundGroup.WOOD)));
 	public static final Block BOREAL_FENCE_GATE = register("boreal_fence_gate", new FenceGateBlock(Block.Settings.copy(OAK_FENCE_GATE)));
