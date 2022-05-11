@@ -1,11 +1,12 @@
 package jingy.jineric.base;
 
-import jingy.jineric.block.blockentity.shulkerchest.ShulkerChestScreenHandler;
 import jingy.jineric.entity.JinericPaintingMotive;
 import jingy.jineric.entity.JinericStatusEffects;
 import jingy.jineric.potion.JinericPotions;
+import jingy.jineric.recipe.JinericRecipeType;
+import jingy.jineric.recipe.RefiningRecipe;
 import jingy.jineric.registry.*;
-import jingy.jineric.sound.JinericSounds;
+import jingy.jineric.screen.JinericScreenHandlerType;
 import jingy.jineric.util.RegistryObject;
 import jingy.jineric.world.JinericSurfaceRules;
 import jingy.jineric.world.JmDefaultOverworldRegion;
@@ -14,8 +15,6 @@ import jingy.jineric.world.feature.JinericConfiguredFeatures;
 import jingy.jineric.world.feature.JinericTreeConfiguredFeatures;
 import jingy.jineric.world.gen.JinericWorldGen;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
-import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
@@ -38,15 +37,6 @@ public class JinericMain implements ModInitializer, TerraBlenderApi {
 	return new Identifier(MOD_ID, path);
 	}
 
-	//SHULKER CHEST
-	public static final Identifier SHULKERCHEST = new Identifier(MOD_ID, "shulker_chest");
-	public static final ScreenHandlerType<ShulkerChestScreenHandler> SHULKER_CHEST_SCREEN_HANDLER;
-
-	static {
-		SHULKER_CHEST_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(MOD_ID, "shulker_chest"), ShulkerChestScreenHandler::new);
-		//SHULKER_CHEST_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(SHULKERCHEST, ShulkerChestScreenHandler::new);
-	}
-
 	@Override
 	public void onInitialize() {
 	LOGGER.info("Jineric Mod Main - Starting initialization");
@@ -61,12 +51,15 @@ public class JinericMain implements ModInitializer, TerraBlenderApi {
 		JinericBlocks.blockRegistry();
 		JinericItems.itemRegistry();
 		JinericItemGroups.init();
-		JinericSounds.init();
+//		JinericSounds.initializeSounds();
 		JinericStatusEffects.RegisterEffects();
 		JinericPotions.registerPotions();
 		JinericConfiguredFeatures.getDefaultConfiguredFeature();
 		JinericWorldGen.generateJinericWorldGen();
-		//JinericEntityModels.init();
+		JinericBlockEntityType.registerBlockEntities();
+		RefiningRecipe.registerRefiningRecipe();
+		JinericRecipeType.register();
+		JinericScreenHandlerType.registerScreenHandlers();
 
 		System.out.println("Jineric Mod Main - Finished initialization");
 	}
@@ -74,7 +67,6 @@ public class JinericMain implements ModInitializer, TerraBlenderApi {
 	private void registryBootStrap() {
 		register(BuiltinRegistries.BIOME, JinericBiomes.bootStrap());
 		register(Registry.ENTITY_TYPE, JinericEntities.bootStrap());
-		//register(Registry.BLOCK, JinericBlocks.bootStrap());
 	}
 
 	private static <T> void register(Registry<T> registry, Collection<RegistryObject<T>> objects) {

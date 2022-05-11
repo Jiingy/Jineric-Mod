@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "jineric:block/rhyolite_slab"
+    },
+    "type=double": {
+      "model": "jineric:block/rhyolite"
+    },
+    "type=top": {
+      "model": "jineric:block/rhyolite_slab_top"
+    }
+  }
+}

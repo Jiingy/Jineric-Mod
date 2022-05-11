@@ -10,13 +10,9 @@ import net.minecraft.client.render.entity.model.QuadrupedEntityModel;
 @Environment(EnvType.CLIENT)
 public class ManxLoaghtanModel<T extends ManxLoaghtan> extends QuadrupedEntityModel<T> {
    private float headPitchModifier;
-   //private final ModelPart rightFlatHorn;
-   //private final ModelPart leftFlatHorn;
 
    public ManxLoaghtanModel(ModelPart modelPart) {
       super(modelPart, false, 8.0F, 4.0F, 2.0F, 2.0F, 24);
-      //this.rightFlatHorn = this.head.getChild(JinericEntityModelPartNames.RIGHT_FLAT_HORN);
-      //this.leftFlatHorn = modelPart.getChild(JinericEntityModelPartNames.LEFT_FLAT_HORN);
    }
 
    public static TexturedModelData getTexturedModelData() {
@@ -37,14 +33,18 @@ public class ManxLoaghtanModel<T extends ManxLoaghtan> extends QuadrupedEntityMo
               ModelPartBuilder.create().uv(51, 28).cuboid(-0.5F, -10.30F, -1.5F, 2.0F, 7.0F, 2.0F),
               ModelTransform.of(0.0F, 0.0F, 0.0F, -0.2F, 0.0F, -0.5F)
       );
+
       modelPartData2.addChild(
               EntityModelPartNames.LEFT_HORN,
               ModelPartBuilder.create().uv(51, 18).cuboid(-1.5F, -10.30F, -1.5F, 2.0F, 7.0F, 2.0F),
               ModelTransform.of(0.0F, 0.0F, 0.0F, -0.2F, 0.0F, 0.5F)
       );
    //LOWER HORNS
-      ModelPartBuilder rightFlatHornPartBuilder = ModelPartBuilder.create().uv(23, 18).cuboid(-7.0F, 0.0F, 0.0F, 7.0F, 0.0F, 9.0F, dilation);
-      ModelPartBuilder leftFlatHornPartBuilder = ModelPartBuilder.create().uv(23, 28).cuboid(0.0F, 0.0F, 0.0F, 7.0F, 0.0F, 9.0F, dilation);
+      ModelPartBuilder rightFlatHornPartBuilder = ModelPartBuilder.create().uv(23, 18)
+              .cuboid(-7.0F, 0.0F, 0.0F, 7.0F, 0.0F, 9.0F, dilation);
+
+      ModelPartBuilder leftFlatHornPartBuilder = ModelPartBuilder.create().uv(23, 28)
+              .cuboid(0.0F, 0.0F, 0.0F, 7.0F, 0.0F, 9.0F, dilation);
 
       modelPartData2.addChild(JinericEntityModelPartNames.RIGHT_FLAT_HORN,
               rightFlatHornPartBuilder, ModelTransform.of(-3.0F, -3.5F, -7.001F, 0.0F, 0.0F, -0.5F));
@@ -62,6 +62,7 @@ public class ManxLoaghtanModel<T extends ManxLoaghtan> extends QuadrupedEntityMo
               .cuboid(2.0F, 0.5F, -1.0F, 4, 12, 4, dilation);
       ModelPartBuilder rightLegPartBuilder = ModelPartBuilder.create().uv(47, 0)
               .cuboid(2.0F, 0.5F, -1.0F, 4, 12, 4, dilation);
+
       modelPartData.addChild(EntityModelPartNames.RIGHT_FRONT_LEG, rightLegPartBuilder, ModelTransform.pivot(-7.0F, 11.5F, -6.0F));
       modelPartData.addChild(EntityModelPartNames.LEFT_FRONT_LEG, leftLegPartBuilder, ModelTransform.pivot(-1.0F, 11.5F, -6.0F));
       modelPartData.addChild(EntityModelPartNames.RIGHT_HIND_LEG, rightLegPartBuilder, ModelTransform.pivot(-7.0F, 11.5F, 6));

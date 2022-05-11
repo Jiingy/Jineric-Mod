@@ -1,7 +1,12 @@
 package jingy.jineric.registry;
 
-import jingy.jineric.block.*;
+import jingy.jineric.base.JinericMain;
+import jingy.jineric.block.FullGrassBlock;
+import jingy.jineric.block.OxidizableWallBlock;
+import jingy.jineric.block.RefineryBlock;
+import jingy.jineric.block.ShulkerChestBlock;
 import jingy.jineric.block.custom.JinericCampfireBlock;
+import jingy.jineric.block.custom.JinericChestBlock;
 import jingy.jineric.block.custom.JinericSaplingBlock;
 import jingy.jineric.block.custom.JinericStairsBlock;
 import jingy.jineric.block.enums.JinericChestType;
@@ -34,14 +39,13 @@ FORMAT:
 	//TODO:
 	// --- General Blocks ---
 	//	Grindstone recipes / Block Item tags
-	//	Better model for shulker chest
-	//	WAXED COPPER BLOCKS
-	//	FIGURE OUT WHAT TO DO WITH BORITE
-	//	Tumble weed UV map broken
-	//	MOBS CAN SPAWN ON TRANSPARENT BLOCKs
-	// --- Storage Block additions
-	//	Bone meal block
-	//
+	//	FINISH RHYOLITE & NEW TUFFS
+
+	//TODO: STORAGE BLOCKS
+	//	PRISMARINE_CRYSTAL_BLOCK
+	//	GUNPOWDER_BLOCK
+	//	BLAZE_ROD_BLOCK
+	//	EGG_BLOCK
 
 //SANDSTONE
 	public static final Block CUT_SANDSTONE_STAIRS = register(
@@ -316,18 +320,18 @@ FORMAT:
 			"obsidian_wall", new WallBlock(JinericBlockSettings.obsidianSettings().nonOpaque())
 	);
 
-	//BORITE
-	public static final Block BORITE = register(
-			"borite", new Block(Block.Settings.copy(STONE))
+	//rhyolite
+	public static final Block RHYOLITE = register(
+			"rhyolite", new Block(Block.Settings.copy(STONE))
 	);
-	public static final Block BORITE_STAIRS = register(
-			"borite_stairs", new JinericStairsBlock(STONE.getDefaultState(), Block.Settings.copy(STONE))
+	public static final Block RHYOLITE_STAIRS = register(
+			"rhyolite_stairs", new JinericStairsBlock(STONE.getDefaultState(), Block.Settings.copy(STONE))
 	);
-	public static final Block BORITE_SLAB  = register(
-			"borite_slab", new SlabBlock(Block.Settings.copy(STONE))
+	public static final Block RHYOLITE_SLAB  = register(
+			"rhyolite_slab", new SlabBlock(Block.Settings.copy(STONE))
 	);
-	public static final Block BORITE_WALL = register(
-			"borite_wall", new WallBlock(Block.Settings.copy(STONE))
+	public static final Block RHYOLITE_WALL = register(
+			"rhyolite_wall", new WallBlock(Block.Settings.copy(STONE))
 	);
 
 	//SILTSTONE
@@ -393,7 +397,7 @@ FORMAT:
 			"bamboo_block", new PillarBlock(Block.Settings.copy(OAK_LOG).sounds(BlockSoundGroup.BAMBOO))
 	);
 	public static final Block TUMBLEWEED = register(
-			"tumbleweed", new LeavesBlock(Block.Settings.copy(OAK_LEAVES).nonOpaque())
+			"tumbleweed", JinericBlockSettings.JinericLeavesBlock(BlockSoundGroup.GRASS)
 	);
 	public static final Block BONE_MEAL_BLOCK = register(
 			"bone_meal_block", new Block(FabricBlockSettings.copy(BONE_BLOCK))
@@ -424,7 +428,7 @@ FORMAT:
 	public static final Block SNOW_WALL = register("snow_wall", new WallBlock(FabricBlockSettings.copy(SNOW_BLOCK)));
 
 	//DECORATION BLOCKS
-	public static final Block SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", new JinericCarvedPumpkinBlock(FabricBlockSettings.copy(JACK_O_LANTERN)));
+	public static final Block SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", new CarvedPumpkinBlock(FabricBlockSettings.copy(JACK_O_LANTERN)));
 	public static final Block FULL_GRASS_BLOCK = register("full_grass_block", new FullGrassBlock(FabricBlockSettings.copy(GRASS_BLOCK)));
 
 	public static final Block PRISMARINE_BRICK_WALL = register("prismarine_brick_wall", new WallBlock(FabricBlockSettings.copy(PRISMARINE_BRICKS)));
@@ -440,19 +444,56 @@ FORMAT:
 
 
 	//TODO:
-	//	Move shulker chest and redstone campfire BlockEntityType to better place
 	//	Make sure shulker chest block format change works
 
-	//SHULKER CHEST
-	//public static final Block SHULKER_CHEST = new ShulkerChestBlock(JinericBlockSettings.shulkerChestSettings());
-	public static BlockEntityType<ShulkerChestBlockEntity> SHULKER_CHEST_ENTITY;
-	public static final Block SHULKER_CHEST = register("shulker_chest", new ShulkerChestBlock(JinericBlockSettings.shulkerChestSettings()));
+	//CHESTS
+	public static final Block ACACIA_CHEST = register(
+			"acacia_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.ACACIA)
+	);
 
+	public static final Block BIRCH_CHEST = register(
+			"birch_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.BIRCH)
+	);
+
+	public static final Block BOREAL_CHEST = register(
+			"boreal_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.BOREAL)
+	);
+
+	public static final Block CRIMSON_CHEST = register(
+			"crimson_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.CRIMSON)
+	);
+
+	public static final Block DARK_OAK_CHEST = register(
+			"dark_oak_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.DARK_OAK)
+	);
+
+	public static final Block JUNGLE_CHEST = register(
+			"jungle_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.JUNGLE)
+	);
+
+	public static final Block SHULKER_CHEST = register(
+			"shulker_chest", new ShulkerChestBlock(FabricBlockSettings.of(Material.STONE), JinericChestType.SHULKER)
+	);
+
+	public static final Block SPRUCE_CHEST = register(
+			"spruce_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.SPRUCE)
+	);
+
+	public static final Block WARPED_CHEST = register(
+			"warped_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.WARPED)
+	);
+
+	//	REFINERY
+	public static final Block REFINERY = register(
+			"refinery", new RefineryBlock(AbstractBlock.Settings
+					.copy(FURNACE)
+					.luminance(createLightLevelFromLitBlockState(13))
+			)
+	);
 
 //REDSTONE
 	public static final Block REDSTONE_LANTERN = register("redstone_lantern", new LanternBlock(JinericBlockSettings.redstoneLanternSettings()));
 	public static final Block REDSTONE_CAMPFIRE = register("redstone_campfire", new JinericCampfireBlock(true, 1, JinericBlockSettings.redstoneCampfireSettings()));
-	public static BlockEntityType<JinericCampfireBlockEntity> JINERIC_CAMPFIRE_ENTITY;
 
 //WOOD
 	//BOREAL
@@ -532,12 +573,16 @@ FORMAT:
 */
 
 	//ICE SLIPPERINESS
-	public static boolean blockIsJinericIce(BlockState state) {
+	public static boolean isSlipperyBlock(BlockState state) {
 		return state.isOf(PACKED_ICE_STAIRS) || state.isOf(PACKED_ICE_SLAB) || state.isOf(PACKED_ICE_WALL);
 	}
 
-	private static Block register(String name, Block block) {
-		return Registry.register(Registry.BLOCK, new Identifier("jineric", name), block);
+	private static Block register(String id, Block block) {
+		return Registry.register(Registry.BLOCK, new Identifier(JinericMain.MOD_ID, id), block);
+	}
+
+	private static ToIntFunction<BlockState> createLightLevelFromLitBlockState(int litLevel) {
+		return state -> state.get(Properties.LIT) ? litLevel : 0;
 	}
 
 	public static void blockRegistry() {

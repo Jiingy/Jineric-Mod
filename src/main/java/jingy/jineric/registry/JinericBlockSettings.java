@@ -77,7 +77,7 @@ public class JinericBlockSettings extends Blocks {
 	}
 
 	private static boolean never(BlockState state, BlockView blockView, BlockPos blockPos) {
-		return (boolean)false;
+		return false;
 	}
 
 	private static ToIntFunction<BlockState> createLightLevelFromLitBlockState(int litLevel) {

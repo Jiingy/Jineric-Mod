@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "jineric:block/refinery_top",
+    "front": "jineric:block/refinery_front_on",
+    "side": "jineric:block/refinery_side"
+  }
+}

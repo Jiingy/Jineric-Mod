@@ -71,10 +71,10 @@
   "block.jineric.slate_slab": "Slate Slab",
   "block.jineric.slate_stairs": "Slate Stairs",
   "block.jineric.slate_wall": "Slate Wall",
-  "block.jineric.borite": "Borite",
-  "block.jineric.borite_slab": "Borite Slab",
-  "block.jineric.borite_stairs": "Borite Stairs",
-  "block.jineric.borite_wall": "Borite Wall",
+  "block.jineric.rhyolite": "rhyolite",
+  "block.jineric.rhyolite_slab": "rhyolite Slab",
+  "block.jineric.rhyolite_stairs": "rhyolite Stairs",
+  "block.jineric.rhyolite_wall": "rhyolite Wall",
   "block.jineric.smooth_deepslate": "Smooth Deepslate",
   "block.jineric.smooth_deepslate_slab": "Smooth Deepslate Slab",
   "block.jineric.smooth_deepslate_stairs": "Smooth Deepslate Stairs",
@@ -124,7 +124,8 @@
 
   "block.jineric.redstone_lantern": "Redstone Lantern",
   "block.jineric.redstone_campfire": "Redstone Campfire",
-  "block.jineric.shulker_chest": "Shulker Chest",
+
+
   "block.jineric.packed_ice_slab": "Packed Ice Slab",
   "block.jineric.packed_ice_stairs": "Packed Ice Stairs",
   "block.jineric.packed_ice_wall": "Packed Ice Wall",
@@ -159,5 +160,10 @@
   "itemGroup.combat.jineric": "Combat",
   "itemGroup.brewing.jineric": "Brewing",
 
-  "container.shulkerChest": "Shulker Chest"
+  "block.jineric.shulker_chest": "Shulker Chest",
+  "container.shulkerChest": "Shulker Chest",
+
+  "block.jineric.boreal_chest": "Boreal Chest",
+  "container.borealChest": "Chest",
+  "container.borealChestDouble": "Large Boreal Chest"
 }

@@ -1,10 +1,6 @@
 package jingy.jineric.registry;
 
-import jingy.jineric.block.blockentity.shulkerchest.ShulkerChestBlockEntity;
-import jingy.jineric.block.custom.campfire.JinericCampfireBlockEntity;
-import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.registry.*;
-import net.minecraft.util.registry.Registry;
 
 public class JinericRegistries {
 
@@ -13,7 +9,6 @@ public class JinericRegistries {
       registerCompostable();
       registerStrippable();
       registerFlammable();
-      registerBlockEntities();
       registerOxidizableBlockPairs();
       registerWaxableBlockPairs();
       registerEntityAttributes();
@@ -57,21 +52,11 @@ public class JinericRegistries {
       instance.add(JinericBlocks.BOREAL_DOOR, 5, 20);
       instance.add(JinericBlocks.BOREAL_PRESSURE_PLATE, 5, 20);
       instance.add(JinericBlocks.BOREAL_BUTTON, 5, 20);
-      //instance.add(JinericBlocks.BOREAL_SIGN, 5, 20);
       instance.add(JinericBlocks.CHARCOAL_BLOCK, 5, 5);
       instance.add(JinericBlocks.BAMBOO_BLOCK, 60, 20);
       instance.add(JinericBlocks.BOREAL_LEAVES, 30, 60);
       instance.add(JinericBlocks.TUMBLEWEED, 30, 60);
 
-   }
-
-   private static void registerBlockEntities() {
-      JinericBlocks.SHULKER_CHEST_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
-              "jineric:shulker_chest_entity", FabricBlockEntityTypeBuilder.create(ShulkerChestBlockEntity::new, JinericBlocks.SHULKER_CHEST).build(null));
-
-
-      JinericBlocks.JINERIC_CAMPFIRE_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE,
-              "jineric:redstone_campfire_entity", FabricBlockEntityTypeBuilder.create(JinericCampfireBlockEntity::new, JinericBlocks.REDSTONE_CAMPFIRE).build(null));
    }
 
    private static void registerOxidizableBlockPairs() {

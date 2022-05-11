@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "jineric:block/borite",
-    "top": "jineric:block/borite",
-    "side": "jineric:block/borite"
-  }
-}

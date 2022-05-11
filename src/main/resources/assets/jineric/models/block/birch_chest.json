@@ -1,0 +1,7 @@
+{
+  "parent": "jineric:block/chest_template",
+  "textures": {
+    "0": "jineric:entity/chest/birch_chest",
+    "particle": "minecraft:block/birch_planks"
+  }
+}

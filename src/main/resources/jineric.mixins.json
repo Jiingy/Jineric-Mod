@@ -4,7 +4,6 @@
   "package": "jingy.jineric.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "BlockEntityRendererFactoriesMixin",
     "BlockEntityTypeMixin",
     "DefaultAttributeRegistryMixin",
     "EnchantingTableBlockMixin",
