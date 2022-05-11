@@ -3,7 +3,7 @@
   "values": [
     "jineric:stone_wall",
     "jineric:smooth_stone_wall",
-    "jineric:borite_wall",
+    "jineric:rhyolite_wall",
     "jineric:slate_wall",
     "jineric:siltstone_wall",
     "jineric:polished_siltstone_wall",
@@ -39,6 +39,9 @@
     "jineric:calcite_brick_wall",
     "jineric:smooth_calcite_wall",
     "jineric:tuff_wall",
+    "jineric:polished_tuff_wall",
+    "jineric:smooth_tuff_wall",
+    "jineric:tuff_brick_wall",
     "jineric:cut_copper_wall",
     "jineric:exposed_cut_copper_wall",
     "jineric:weathered_cut_copper_wall",

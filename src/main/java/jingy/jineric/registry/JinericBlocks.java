@@ -239,6 +239,47 @@ FORMAT:
 			"tuff_wall", new WallBlock(Block.Settings.copy(TUFF))
 	);
 
+	//POLISHED TUFF
+	public static final Block POLISHED_TUFF = register(
+			"polished_tuff", new Block(Block.Settings.copy(TUFF))
+	);
+	public static final Block POLISHED_TUFF_STAIRS = register(
+			"polished_tuff_stairs", new JinericStairsBlock(POLISHED_TUFF.getDefaultState(), Block.Settings.copy(POLISHED_TUFF))
+	);
+	public static final Block POLISHED_TUFF_SLAB = register(
+			"polished_tuff_slab", new SlabBlock(Block.Settings.copy(POLISHED_TUFF))
+	);
+	public static final Block POLISHED_TUFF_WALL = register(
+			"polished_tuff_wall", new WallBlock(Block.Settings.copy(POLISHED_TUFF))
+	);
+	
+	// Smooth
+	public static final Block SMOOTH_TUFF = register(
+			"smooth_tuff", new Block(Block.Settings.copy(TUFF))
+	);
+	public static final Block SMOOTH_TUFF_SLAB = register(
+			"smooth_tuff_slab", new SlabBlock(Block.Settings.copy(SMOOTH_TUFF))
+	);
+	public static final Block SMOOTH_TUFF_STAIRS = register(
+			"smooth_tuff_stairs", new JinericStairsBlock(SMOOTH_TUFF.getDefaultState(), Block.Settings.copy(SMOOTH_TUFF))
+	);
+	public static final Block SMOOTH_TUFF_WALL = register(
+			"smooth_tuff_wall", new WallBlock(Block.Settings.copy(SMOOTH_TUFF))
+	);
+	// BRICKS
+	public static final Block TUFF_BRICKS = register(
+			"tuff_bricks", new Block(Block.Settings.copy(TUFF))
+	);
+	public static final Block TUFF_BRICK_SLAB = register(
+			"tuff_brick_slab", new SlabBlock(Block.Settings.copy(TUFF_BRICKS))
+	);
+	public static final Block TUFF_BRICK_STAIRS = register(
+			"tuff_brick_stairs", new JinericStairsBlock(TUFF_BRICKS.getDefaultState(), Block.Settings.copy(TUFF_BRICKS))
+	);
+	public static final Block TUFF_BRICK_WALL = register(
+			"tuff_brick_wall", new WallBlock(Block.Settings.copy(TUFF_BRICKS))
+	);
+
 	//CALCITE
 	public static final Block CALCITE_STAIRS = register(
 			"calcite_stairs", new JinericStairsBlock(CALCITE.getDefaultState(), Block.Settings.copy(CALCITE))
