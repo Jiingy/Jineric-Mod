@@ -45,6 +45,7 @@ public class JinericItems {
 	public static final Item BOREAL_PLANKS = register("boreal_planks", new BlockItem(JinericBlocks.BOREAL_PLANKS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.BUILDING_BLOCKS)));
 	public static final Item BOREAL_STAIRS = register("boreal_stairs", new BlockItem(JinericBlocks.BOREAL_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.BUILDING_BLOCKS)));
 	public static final Item BOREAL_SLAB = register("boreal_slab", new BlockItem(JinericBlocks.BOREAL_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.BUILDING_BLOCKS)));
+	public static final Item BOREAL_BOOKSHELF = register("boreal_bookshelf", new BlockItem(JinericBlocks.BOREAL_BOOKSHELF, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.BUILDING_BLOCKS)));
 	public static final Item SOUL_SANDSTONE = register("soul_sandstone", new BlockItem(JinericBlocks.SOUL_SANDSTONE, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.BUILDING_BLOCKS)));
 	public static final Item SOUL_SANDSTONE_SLAB = register("soul_sandstone_slab", new BlockItem(JinericBlocks.SOUL_SANDSTONE_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.BUILDING_BLOCKS)));
 	public static final Item SOUL_SANDSTONE_STAIRS = register("soul_sandstone_stairs", new BlockItem(JinericBlocks.SOUL_SANDSTONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.BUILDING_BLOCKS)));
@@ -128,7 +129,7 @@ public class JinericItems {
 	public static final Item BOREAL_LEAVES = register("boreal_leaves", new BlockItem(JinericBlocks.BOREAL_LEAVES, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DECORATION_BLOCKS)));
 	public static final Item TUMBLEWEED = register("tumbleweed", new BlockItem(JinericBlocks.TUMBLEWEED, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DECORATION_BLOCKS)));
 	public static final Item BOREAL_FENCE = register("boreal_fence", new BlockItem(JinericBlocks.BOREAL_FENCE, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DECORATION_BLOCKS)));
-
+	public static final Item BOREAL_LADDER = register("boreal_ladder", new BlockItem(JinericBlocks.BOREAL_LADDER, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DECORATION_BLOCKS)));
 	public static final Item BOREAL_SIGN = register("boreal_sign", new SignItem(new FabricItemSettings().maxCount(16).group(JinericItemGroups.DECORATION_BLOCKS), JinericBlocks.BOREAL_SIGN, JinericBlocks.BOREAL_WALL_SIGN));
 
 	public static final Item SILTSTONE_WALL = register("siltstone_wall", new BlockItem(JinericBlocks.SILTSTONE_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DECORATION_BLOCKS)));

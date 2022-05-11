@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "jineric:boreal_slab",
     "jineric:siltstone_slab",
     "jineric:polished_siltstone_slab",
     "jineric:slate_slab",

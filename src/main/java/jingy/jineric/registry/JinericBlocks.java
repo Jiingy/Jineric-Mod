@@ -483,6 +483,14 @@ FORMAT:
 			new SlabBlock(FabricBlockSettings.copy(OAK_SLAB))
 	);
 
+	public static final Block BOREAL_BOOKSHELF = register("boreal_bookshelf",
+			new Block(FabricBlockSettings.copy(BOOKSHELF))
+	);
+
+	public static final Block BOREAL_LADDER = register(
+			"boreal_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER))
+	);
+
 	public static final Block BOREAL_FENCE = register("boreal_fence",
 			new FenceBlock(FabricBlockSettings.copy(OAK_FENCE))
 	);
@@ -498,10 +506,10 @@ FORMAT:
 	public static final Block BOREAL_BUTTON = register("boreal_button", new WoodenButtonBlock(FabricBlockSettings.copy((OAK_BUTTON))));
 	public static final Block BOREAL_PRESSURE_PLATE = register("boreal_pressure_plate", new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, AbstractBlock.Settings.copy(OAK_PRESSURE_PLATE)));
 	public static final Block BOREAL_DOOR = register("boreal_door", new DoorBlock(Block.Settings.copy(OAK_DOOR)));
-	public static final Block BOREAL_TRAPDOOR = register("boreal_trapdoor", new JinericWoodenTrapdoorBlock(OAK_TRAPDOOR.getDefaultState(), FabricBlockSettings.copy(OAK_TRAPDOOR).sounds(BlockSoundGroup.WOOD)));
+	public static final Block BOREAL_TRAPDOOR = register("boreal_trapdoor", new TrapdoorBlock(FabricBlockSettings.copy(OAK_TRAPDOOR)));
 	public static final Block BOREAL_FENCE_GATE = register("boreal_fence_gate", new FenceGateBlock(Block.Settings.copy(OAK_FENCE_GATE)));
 	public static final Block BOREAL_SAPLING = register("boreal_sapling", new JinericSaplingBlock(new BorealSaplingGenerator(), FabricBlockSettings.copy(OAK_SAPLING)));
-	public static final Block BOREAL_LEAVES = register("boreal_leaves", new LeavesBlock(JinericBlockSettings.JinericLeavesBlock(BlockSoundGroup.GRASS)));
+	public static final Block BOREAL_LEAVES = register("boreal_leaves", JinericBlockSettings.JinericLeavesBlock(BlockSoundGroup.GRASS));
 /*
 	//DRIED BAMBOO
 	public static final Block DRIED_BAMBOO_WOOD = register("dried_bamboo_wood", new PillarBlock(FabricBlockSettings.copy(OAK_WOOD)));

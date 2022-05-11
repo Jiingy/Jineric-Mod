@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "%%%",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "jineric:boreal_planks"
+    },
+    "%": {
+      "item": "minecraft:book"
+    }
+  },
+  "result": {
+    "item": "jineric:boreal_bookshelf",
+    "count": 1
+  }
+}

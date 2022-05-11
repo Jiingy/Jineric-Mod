@@ -12,11 +12,21 @@
     "jineric:boreal_stairs",
     "jineric:boreal_slab",
     "jineric:boreal_sapling",
+    "jineric:boreal_ladder",
     "jineric:boreal_fence",
     "jineric:boreal_button",
     "jineric:boreal_pressure_plate",
     "jineric:boreal_door",
     "jineric:boreal_trapdoor",
-    "jineric:boreal_fence_gate"
+    "jineric:boreal_fence_gate",
+    "jineric:boreal_bookshelf",
+    "jineric:acacia_chest",
+    "jineric:birch_chest",
+    "jineric:boreal_chest",
+    "jineric:crimson_chest",
+    "jineric:dark_oak_chest",
+    "jineric:jungle_chest",
+    "jineric:spruce_chest",
+    "jineric:warped_chest"
   ]
 }

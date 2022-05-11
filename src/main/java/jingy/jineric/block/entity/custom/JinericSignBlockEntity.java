@@ -1,4 +1,4 @@
-package jingy.jineric.block.blockentity.sign;
+package jingy.jineric.block.entity.custom;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.SignBlockEntity;
