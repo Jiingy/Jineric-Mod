@@ -1,5 +1,7 @@
-package jingy.jineric.block.custom.campfire;
+package jingy.jineric.block.custom;
 
+import jingy.jineric.block.entity.custom.JinericCampfireBlockEntity;
+import jingy.jineric.registry.JinericBlockEntityType;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -41,8 +43,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 import java.util.Random;
-
-import static jingy.jineric.registry.JinericBlocks.JINERIC_CAMPFIRE_ENTITY;
 
 public class JinericCampfireBlock extends CampfireBlock implements Waterloggable {
 
@@ -308,11 +308,11 @@ public class JinericCampfireBlock extends CampfireBlock implements Waterloggable
    @Override
    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
       if (world.isClient) {
-         return state.get(LIT) ? checkType(type, JINERIC_CAMPFIRE_ENTITY, JinericCampfireBlockEntity::clientTick) : null;
+         return state.get(LIT) ? checkType(type, JinericBlockEntityType.CAMPFIRE, JinericCampfireBlockEntity::clientTick) : null;
       } else {
          return state.get(LIT)
-                 ? checkType(type, JINERIC_CAMPFIRE_ENTITY, JinericCampfireBlockEntity::litServerTick)
-                 : checkType(type, JINERIC_CAMPFIRE_ENTITY, JinericCampfireBlockEntity::unlitServerTick);
+                 ? checkType(type, JinericBlockEntityType.CAMPFIRE, JinericCampfireBlockEntity::litServerTick)
+                 : checkType(type, JinericBlockEntityType.CAMPFIRE, JinericCampfireBlockEntity::unlitServerTick);
       }
    }
 

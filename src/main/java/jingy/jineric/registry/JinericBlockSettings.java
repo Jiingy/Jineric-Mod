@@ -19,7 +19,8 @@ public class JinericBlockSettings extends Blocks {
 				.requiresTool()
 				.strength(0.8f, 4f)
 				.sounds(JinericSounds.SOUL_SANDSTONE)
-				.mapColor(MapColor.BROWN);
+				.mapColor(MapColor.BROWN)
+				.sounds(JinericSounds.SOUL_SANDSTONE);
 	}
 
 	public static FabricBlockSettings obsidianSettings() {

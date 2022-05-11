@@ -214,9 +214,10 @@ public class JinericItems {
 
 //TRANSPORTATION
 //	public static final Item BOREAL_BOAT = register("boreal_boat", new BoatItem(CustomBoatType.BOREAL, JinericItemSettings.Transportation().maxCount(1)));
-	//public static final Item NETHERITE_HORSE_ARMOR = register(15, "netherite", new Item(JinericItemSettings.Transportation()))
+	public static final Item FROZEN_ELYTRA = register("frozen_elytra", new JinericElytraItem(new FabricItemSettings().maxDamage(432).group(JinericItemGroups.TRANSPORTATION).equipmentSlot(item -> CHEST).rarity(RARE)));
 
-	//MISCELLANEOUS
+
+//MISCELLANEOUS
 	public static final Item SALT = register("salt", new Item(JinericItemSettings.Misc().group(JinericItemGroups.MISCELLANEOUS)));
 	public static final Item NETHERITE_HORSE_ARMOR = register("netherite_horse_armor", new JinericHorseArmorItem(15, "netherite", JinericItemSettings.Misc().fireproof().maxCount(1).group(JinericItemGroups.MISCELLANEOUS)));
 	public static final Item MANX_LOAGHTAN_SPAWN_EGG = register("manx_loaghtan_spawn_egg", new SpawnEggItem(JinericEntities.MANX_LOAGHTAN, 0x3f4052, 0x12101d, JinericItemSettings.Misc().group(JinericItemGroups.MISCELLANEOUS)));

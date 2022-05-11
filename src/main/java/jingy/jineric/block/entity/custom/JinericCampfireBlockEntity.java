@@ -1,6 +1,7 @@
-package jingy.jineric.block.custom.campfire;
+package jingy.jineric.block.entity.custom;
 
-import jingy.jineric.registry.JinericBlocks;
+import jingy.jineric.block.custom.JinericCampfireBlock;
+import jingy.jineric.registry.JinericBlockEntityType;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -25,14 +26,12 @@ import java.util.Optional;
 import java.util.Random;
 
 public class JinericCampfireBlockEntity extends BlockEntity implements Clearable {
-   private static final int field_31330 = 2;
-   private static final int field_31331 = 4;
    private final DefaultedList<ItemStack> itemsBeingCooked = DefaultedList.ofSize(4, ItemStack.EMPTY);
    private final int[] cookingTimes = new int[4];
    private final int[] cookingTotalTimes = new int[4];
 
    public JinericCampfireBlockEntity(BlockPos pos, BlockState state) {
-      super(JinericBlocks.JINERIC_CAMPFIRE_ENTITY, pos, state);
+      super(JinericBlockEntityType.CAMPFIRE, pos, state);
    }
 
    public static void litServerTick(World world, BlockPos pos, BlockState state, JinericCampfireBlockEntity campfire) {

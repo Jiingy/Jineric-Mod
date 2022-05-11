@@ -7,7 +7,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class JinericPotions {
-
+//TODO Finish adding
    public static final Potion GLOWING = register(
            "glowing", new Potion(new StatusEffectInstance(StatusEffects.GLOWING, 3600)));
    public static final Potion LONG_GLOWING = register(

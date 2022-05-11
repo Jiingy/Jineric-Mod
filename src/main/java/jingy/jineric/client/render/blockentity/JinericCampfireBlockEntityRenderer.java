@@ -1,5 +1,7 @@
-package jingy.jineric.block.custom.campfire;
+package jingy.jineric.client.render.blockentity;
 
+import jingy.jineric.block.custom.JinericCampfireBlock;
+import jingy.jineric.block.entity.custom.JinericCampfireBlockEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;

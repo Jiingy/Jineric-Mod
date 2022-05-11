@@ -4,10 +4,11 @@ import jingy.jineric.registry.JinericBlocks;
 import jingy.jineric.world.biome.JinericBiomes;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.gen.surfacebuilder.MaterialRules;
+import net.minecraft.world.gen.surfacebuilder.VanillaSurfaceRules;
 
 import static jingy.jineric.mixin.MaterialRulesDataAccess.jineric$invokesurfaceNoiseThreshold;
 
-public class JinericSurfaceRules {
+public class JinericSurfaceRules extends VanillaSurfaceRules {
 
    public static final MaterialRules.MaterialCondition WATER_CHECK = MaterialRules.water(-1, 0);
 
