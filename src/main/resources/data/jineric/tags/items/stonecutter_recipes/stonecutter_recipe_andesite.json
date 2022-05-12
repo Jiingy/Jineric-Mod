@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:andesite",
+    "minecraft:andesite_slab",
+    "minecraft:andesite_stairs",
+    "minecraft:andesite_wall",
+    "minecraft:polished_andesite",
+    "minecraft:polished_andesite_slab",
+    "minecraft:polished_andesite_stairs",
+    "jineric:polished_andesite_wall"
+  ]
+}
