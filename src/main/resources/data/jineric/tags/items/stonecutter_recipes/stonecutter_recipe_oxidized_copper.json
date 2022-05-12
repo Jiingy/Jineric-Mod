@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
+    "minecraft:oxidized_copper",
     "minecraft:oxidized_cut_copper",
     "minecraft:oxidized_cut_copper_slab",
     "minecraft:oxidized_cut_copper_stairs",
-    "jineric:oxidized_cut_copper_wall",
-    "minecraft:oxidized_copper"
+    "jineric:oxidized_cut_copper_wall"
   ]
 }
