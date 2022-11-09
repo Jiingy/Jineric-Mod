@@ -1,0 +1,16 @@
+{
+   "type": "minecraft:crafting_shaped",
+   "pattern": [
+	  "##",
+	  "##"
+   ],
+   "key": {
+	  "#": {
+		 "item": "jineric:polished_dripstone"
+	  }
+   },
+   "result": {
+	  "item": "jineric:dripstone_brick",
+	  "count": 4
+   }
+}
