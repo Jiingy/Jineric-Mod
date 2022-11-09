@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "jineric:cobbled_dripstone"
+        }
+    },
+    "result": {
+        "item": "jineric:cobbled_dripstone_slab",
+        "count": 6
+    }
+}

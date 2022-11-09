@@ -14,7 +14,6 @@ import net.minecraft.screen.ScreenHandler;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -120,7 +119,7 @@ public class ShulkerChestBlockEntity extends JinericChestBlockEntity {
 
    @Override
    protected Text getContainerName() {
-      return new TranslatableText("container.shulkerChest");
+      return Text.translatable("container.shulkerChest");
    }
 
    @Override

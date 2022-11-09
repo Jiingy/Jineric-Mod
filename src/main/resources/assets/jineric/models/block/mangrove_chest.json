@@ -1,0 +1,7 @@
+{
+  "parent": "jineric:block/chest_template",
+  "textures": {
+    "0": "jineric:entity/chest/mangrove_chest",
+    "particle": "jineric:entity/chest/mangrove_chest_particle"
+  }
+}

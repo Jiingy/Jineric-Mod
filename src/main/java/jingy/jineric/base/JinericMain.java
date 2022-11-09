@@ -7,6 +7,7 @@ import jingy.jineric.recipe.JinericRecipeType;
 import jingy.jineric.recipe.RefiningRecipe;
 import jingy.jineric.registry.*;
 import jingy.jineric.screen.JinericScreenHandlerType;
+import jingy.jineric.sound.JinericSounds;
 import jingy.jineric.util.RegistryObject;
 import jingy.jineric.world.JinericSurfaceRules;
 import jingy.jineric.world.JmDefaultOverworldRegion;
@@ -29,12 +30,12 @@ import java.util.Collection;
 public class JinericMain implements ModInitializer, TerraBlenderApi {
 
 	public static final boolean BIOMES = true;
-	public static final boolean SIGNS = false;
 	//MOD
 	public static final Logger LOGGER = LogManager.getLogger("Jineric Mod");
 	public static final String MOD_ID = "jineric";
+
 	public static Identifier id(String path) {
-	return new Identifier(MOD_ID, path);
+		return new Identifier(MOD_ID, path);
 	}
 
 	@Override
@@ -51,7 +52,7 @@ public class JinericMain implements ModInitializer, TerraBlenderApi {
 		JinericBlocks.blockRegistry();
 		JinericItems.itemRegistry();
 		JinericItemGroups.init();
-//		JinericSounds.initializeSounds();
+		JinericSounds.init();
 		JinericStatusEffects.RegisterEffects();
 		JinericPotions.registerPotions();
 		JinericConfiguredFeatures.getDefaultConfiguredFeature();

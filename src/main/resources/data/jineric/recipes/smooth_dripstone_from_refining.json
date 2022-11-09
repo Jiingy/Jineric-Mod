@@ -1,0 +1,8 @@
+{
+  "type": "jineric:refining",
+  "ingredient": {
+    "item": "minecraft:dripstone_block"
+  },
+  "result": "jineric:smooth_dripstone",
+  "experience": 0.2
+}

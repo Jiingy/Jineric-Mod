@@ -1,6 +1,7 @@
 package jingy.jineric.base;
 
 import jingy.jineric.block.enums.JinericChestType;
+import jingy.jineric.client.render.JinericElytraFeatureRenderer;
 import jingy.jineric.client.render.blockentity.GenericChestBlockEntityRenderer;
 import jingy.jineric.client.render.blockentity.JinericCampfireBlockEntityRenderer;
 import jingy.jineric.entity.passive.manxloaghtan.ManxLoaghtanModel;
@@ -28,7 +29,6 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.TexturedRenderLayers;
 import net.minecraft.client.render.entity.ArmorStandEntityRenderer;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;
-import net.minecraft.client.render.entity.feature.ElytraFeatureRenderer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.util.Identifier;
 
@@ -45,12 +45,7 @@ public class JinericClientMain implements ClientModInitializer {
 	public void onInitializeClient() {
 		registerFeatureRenderers();
 
-		//ENTITY MODEL LAYERS
-		EntityModelLayerRegistry.registerModelLayer(JinericClientMain.MANX_LOAGHTAN, ManxLoaghtanModel::getTexturedModelData);
-		EntityModelLayerRegistry.registerModelLayer(JinericClientMain.MANX_LOAGHTAN_WOOL, ManxLoaghtanWoolModel::getTexturedModelData);
-
 		BlockEntityRendererRegistryImpl.register(JinericBlockEntityType.CAMPFIRE, JinericCampfireBlockEntityRenderer::new);
-
 		BlockEntityRendererRegistryImpl.register(JinericBlockEntityType.ACACIA_CHEST, GenericChestBlockEntityRenderer::new);
 		BlockEntityRendererRegistryImpl.register(JinericBlockEntityType.BIRCH_CHEST, GenericChestBlockEntityRenderer::new);
 		BlockEntityRendererRegistryImpl.register(JinericBlockEntityType.BOREAL_CHEST, GenericChestBlockEntityRenderer::new);
@@ -59,8 +54,12 @@ public class JinericClientMain implements ClientModInitializer {
 		BlockEntityRendererRegistryImpl.register(JinericBlockEntityType.JUNGLE_CHEST, GenericChestBlockEntityRenderer::new);
 		BlockEntityRendererRegistryImpl.register(JinericBlockEntityType.SPRUCE_CHEST, GenericChestBlockEntityRenderer::new);
 		BlockEntityRendererRegistryImpl.register(JinericBlockEntityType.WARPED_CHEST, GenericChestBlockEntityRenderer::new);
+		BlockEntityRendererRegistryImpl.register(JinericBlockEntityType.MANGROVE_CHEST, GenericChestBlockEntityRenderer::new);
 		BlockEntityRendererRegistryImpl.register(JinericBlockEntityType.SHULKER_CHEST, GenericChestBlockEntityRenderer::new);
 
+		//ENTITY MODEL LAYERS
+		EntityModelLayerRegistry.registerModelLayer(JinericClientMain.MANX_LOAGHTAN, ManxLoaghtanModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(JinericClientMain.MANX_LOAGHTAN_WOOL, ManxLoaghtanWoolModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayers.ACACIA_CHEST, GenericChestBlockEntityRenderer::getSingleTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayers.DOUBLE_ACACIA_CHEST_LEFT, GenericChestBlockEntityRenderer::getLeftDoubleTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayers.DOUBLE_ACACIA_CHEST_RIGHT, GenericChestBlockEntityRenderer::getRightDoubleTexturedModelData);
@@ -85,11 +84,14 @@ public class JinericClientMain implements ClientModInitializer {
 		EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayers.WARPED_CHEST, GenericChestBlockEntityRenderer::getSingleTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayers.DOUBLE_WARPED_CHEST_LEFT, GenericChestBlockEntityRenderer::getLeftDoubleTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayers.DOUBLE_WARPED_CHEST_RIGHT, GenericChestBlockEntityRenderer::getRightDoubleTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayers.MANGROVE_CHEST, GenericChestBlockEntityRenderer::getSingleTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayers.DOUBLE_MANGROVE_CHEST_LEFT, GenericChestBlockEntityRenderer::getLeftDoubleTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayers.DOUBLE_MANGROVE_CHEST_RIGHT, GenericChestBlockEntityRenderer::getRightDoubleTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayers.SHULKER_CHEST, GenericChestBlockEntityRenderer::getSingleTexturedModelData);
-
-//		EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayers.FROZEN_ELYTRA, );
+//		EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayers.TURTLE_SADDLE, Turtle);
 
 		//BLOCK RENDER LAYER MAPS
+		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.FIREWEED, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BOREAL_TRAPDOOR, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BOREAL_DOOR, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.FULL_GRASS_BLOCK, RenderLayer.getCutout());
@@ -97,7 +99,15 @@ public class JinericClientMain implements ClientModInitializer {
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BOREAL_SAPLING, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.REDSTONE_LANTERN, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.REDSTONE_CAMPFIRE, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.SPRUCE_LADDER, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BIRCH_LADDER, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.MANGROVE_LADDER, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.JUNGLE_LADDER, RenderLayer.getCutoutMipped());
+		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.ACACIA_LADDER, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.WARPED_LADDER, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.CRIMSON_LADDER, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BOREAL_LADDER, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.DARK_OAK_LADDER, RenderLayer.getCutout());
 
 		ClientSpriteRegistryCallback.event(TexturedRenderLayers.CHEST_ATLAS_TEXTURE).register(((atlasTexture, registry) -> {
 			registry.register(JinericChestType.ACACIA.texture);
@@ -124,6 +134,9 @@ public class JinericClientMain implements ClientModInitializer {
 			registry.register(JinericChestType.WARPED.texture);
 			registry.register(JinericChestType.WARPED.textureLeft);
 			registry.register(JinericChestType.WARPED.textureRight);
+			registry.register(JinericChestType.MANGROVE.texture);
+			registry.register(JinericChestType.MANGROVE.textureLeft);
+			registry.register(JinericChestType.MANGROVE.textureRight);
 			registry.register(JinericChestType.SHULKER.texture);
 		}));
 
@@ -137,15 +150,23 @@ public class JinericClientMain implements ClientModInitializer {
 								? BiomeColors.getGrassColor(world, pos)
 								: GrassColors.getColor(0.5D, 1.0D),
 				JinericBlocks.FULL_GRASS_BLOCK);
-
 		ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> GrassColors.getColor(0.5D, 1.0D)),
 				JinericItems.FULL_GRASS_BLOCK);
+
+		ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) ->
+						world != null && pos != null
+								? BiomeColors.getGrassColor(world, pos)
+								: GrassColors.getColor(0.5D, 1.0D),
+				JinericBlocks.JUNGLE_LADDER);
+		ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> GrassColors.getColor(0.5D, 1.0D)),
+				JinericItems.JUNGLE_LADDER);
+
 	}
 
 	private void registerFeatureRenderers() {
 		LivingEntityFeatureRendererRegistrationCallback.EVENT.register((entityType, entityRenderer, registrationHelper, context) -> {
 			if (entityRenderer instanceof ArmorStandEntityRenderer || entityRenderer instanceof PlayerEntityRenderer) {
-				registrationHelper.register(new ElytraFeatureRenderer<>(entityRenderer, context.getModelLoader()));
+				registrationHelper.register(new JinericElytraFeatureRenderer<>(entityRenderer, context.getModelLoader()));
 			}
 		});
 	}

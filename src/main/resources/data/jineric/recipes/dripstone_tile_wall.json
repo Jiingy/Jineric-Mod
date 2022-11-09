@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "jineric:dripstone_tiles"
+        }
+    },
+    "result": {
+        "item": "jineric:dripstone_tile_wall",
+        "count": 6
+    }
+}

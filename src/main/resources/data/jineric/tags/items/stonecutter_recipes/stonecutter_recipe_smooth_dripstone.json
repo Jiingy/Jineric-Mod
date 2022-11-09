@@ -1,0 +1,9 @@
+{
+   "replace": false,
+   "values": [
+	  "jineric:smooth_dripstone",
+	  "jineric:smooth_dripstone_slab",
+	  "jineric:smooth_dripstone_stairs",
+	  "jineric:smooth_dripstone_wall"
+   ]
+}

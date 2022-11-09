@@ -15,7 +15,6 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -97,7 +96,7 @@ public class JinericChestBlockEntity extends ChestBlockEntity {
 
    @Override
    protected Text getContainerName() {
-      return new TranslatableText(getCachedState().getBlock().getTranslationKey());
+      return Text.translatable(getCachedState().getBlock().getTranslationKey());
    }
 
    @Override

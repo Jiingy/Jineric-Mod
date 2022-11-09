@@ -4,6 +4,7 @@
     "minecraft:cut_copper",
     "minecraft:cut_copper_slab",
     "minecraft:cut_copper_stairs",
-    "jineric:cut_copper_wall"
+    "jineric:cut_copper_wall",
+    "minecraft:copper_block"
   ]
 }

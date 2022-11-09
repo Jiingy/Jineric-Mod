@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "jineric:rhyolite",
+    "jineric:rhyolite_slab",
+    "jineric:rhyolite_stairs",
+    "jineric:rhyolite_wall",
+    "jineric:rhyolite_bricks",
+    "jineric:rhyolite_brick_slab",
+    "jineric:rhyolite_brick_stairs",
+    "jineric:rhyolite_brick_wall",
+    "jineric:rhyolite_tiles",
+    "jineric:rhyolite_tile_slab",
+    "jineric:rhyolite_tile_stairs",
+    "jineric:rhyolite_tile_wall",
+    "jineric:chiseled_rhyolite_bricks",
+    "jineric:polished_rhyolite",
+    "jineric:polished_rhyolite_slab",
+    "jineric:polished_rhyolite_stairs",
+    "jineric:polished_rhyolite_wall"
+  ]
+}

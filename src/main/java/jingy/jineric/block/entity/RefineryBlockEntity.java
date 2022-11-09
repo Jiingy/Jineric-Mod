@@ -9,7 +9,6 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.BlockPos;
 
 public class RefineryBlockEntity extends AbstractFurnaceBlockEntity {
@@ -19,7 +18,7 @@ public class RefineryBlockEntity extends AbstractFurnaceBlockEntity {
 
    @Override
    protected Text getContainerName() {
-      return new TranslatableText("container.refinery");
+      return Text.translatable("container.refinery");
    }
 
    @Override

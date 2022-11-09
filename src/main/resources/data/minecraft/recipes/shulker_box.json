@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "jineric:chests"
+    },
+    "-": {
+      "item": "minecraft:shulker_shell"
+    }
+  },
+  "pattern": [
+    "-",
+    "#",
+    "-"
+  ],
+  "result": {
+    "item": "minecraft:shulker_box"
+  }
+}

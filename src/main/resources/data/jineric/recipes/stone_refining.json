@@ -1,0 +1,9 @@
+{
+   "type": "jineric:refining",
+   "ingredient": {
+      "item": "minecraft:cobblestone"
+   },
+   "result": "minecraft:stone",
+   "experience": 0.2,
+   "cookingtime": 200
+}

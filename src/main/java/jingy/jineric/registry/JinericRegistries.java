@@ -11,7 +11,6 @@ public class JinericRegistries {
       registerFlammable();
       registerOxidizableBlockPairs();
       registerWaxableBlockPairs();
-      registerEntityAttributes();
    }
 
    private static void registerIsFuel() {
@@ -23,6 +22,36 @@ public class JinericRegistries {
       registry.add(JinericItems.STRIPPED_BOREAL_LOG, 300);
       registry.add(JinericItems.BOREAL_FENCE, 300);
       registry.add(JinericItems.BOREAL_FENCE_GATE, 300);
+      //BOOKSHELVES
+      registry.add(JinericItems.BOREAL_BOOKSHELF, 300);
+      registry.add(JinericItems.SPRUCE_BOOKSHELF, 300);
+      registry.add(JinericItems.BIRCH_BOOKSHELF, 300);
+      registry.add(JinericItems.JUNGLE_BOOKSHELF, 300);
+      registry.add(JinericItems.ACACIA_BOOKSHELF, 300);
+      registry.add(JinericItems.DARK_OAK_BOOKSHELF, 300);
+      registry.add(JinericItems.MANGROVE_BOOKSHELF, 300);
+      registry.add(JinericItems.CRIMSON_BOOKSHELF, 300);
+      registry.add(JinericItems.WARPED_BOOKSHELF, 300);
+      //LADDERS
+      registry.add(JinericItems.BOREAL_LADDER, 300);
+      registry.add(JinericItems.SPRUCE_LADDER, 300);
+      registry.add(JinericItems.BIRCH_LADDER, 300);
+      registry.add(JinericItems.JUNGLE_LADDER, 300);
+      registry.add(JinericItems.ACACIA_LADDER, 300);
+      registry.add(JinericItems.DARK_OAK_LADDER, 300);
+      registry.add(JinericItems.MANGROVE_LADDER, 300);
+      registry.add(JinericItems.CRIMSON_LADDER, 300);
+      registry.add(JinericItems.WARPED_LADDER, 300);
+      //CHESTS
+      registry.add(JinericItems.BOREAL_CHEST, 300);
+      registry.add(JinericItems.SPRUCE_CHEST, 300);
+      registry.add(JinericItems.BIRCH_CHEST, 300);
+      registry.add(JinericItems.JUNGLE_CHEST, 300);
+      registry.add(JinericItems.ACACIA_CHEST, 300);
+      registry.add(JinericItems.DARK_OAK_CHEST, 300);
+      registry.add(JinericItems.MANGROVE_CHEST, 300);
+      registry.add(JinericItems.CRIMSON_CHEST, 300);
+      registry.add(JinericItems.WARPED_CHEST, 300);
    }
 
    private static void registerCompostable() {
@@ -34,7 +63,6 @@ public class JinericRegistries {
    private static void registerStrippable() {
       StrippableBlockRegistry.register(JinericBlocks.BOREAL_LOG, JinericBlocks.STRIPPED_BOREAL_LOG);
       StrippableBlockRegistry.register(JinericBlocks.BOREAL_WOOD, JinericBlocks.STRIPPED_BOREAL_WOOD);
-
    }
 
    private static void registerFlammable() {
@@ -56,7 +84,16 @@ public class JinericRegistries {
       instance.add(JinericBlocks.BAMBOO_BLOCK, 60, 20);
       instance.add(JinericBlocks.BOREAL_LEAVES, 30, 60);
       instance.add(JinericBlocks.TUMBLEWEED, 30, 60);
-
+      instance.add(JinericBlocks.SPRUCE_BOOKSHELF, 30, 20);
+      instance.add(JinericBlocks.BIRCH_BOOKSHELF, 30, 20);
+      instance.add(JinericBlocks.JUNGLE_BOOKSHELF, 30, 20);
+      instance.add(JinericBlocks.ACACIA_BOOKSHELF, 30, 20);
+      instance.add(JinericBlocks.DARK_OAK_BOOKSHELF, 30, 20);
+      instance.add(JinericBlocks.MANGROVE_BOOKSHELF, 30, 20);
+      instance.add(JinericBlocks.CRIMSON_BOOKSHELF, 30, 20);
+      instance.add(JinericBlocks.WARPED_BOOKSHELF, 30, 20);
+      instance.add(JinericBlocks.STACK_OF_PAPER, 5, 20);
+      instance.add(JinericBlocks.STICK_BUNDLE, 5, 20);
    }
 
    private static void registerOxidizableBlockPairs() {
@@ -70,9 +107,5 @@ public class JinericRegistries {
       OxidizableBlocksRegistry.registerWaxableBlockPair(JinericBlocks.EXPOSED_CUT_COPPER_WALL, JinericBlocks.WAXED_EXPOSED_CUT_COPPER_WALL);
       OxidizableBlocksRegistry.registerWaxableBlockPair(JinericBlocks.WEATHERED_CUT_COPPER_WALL, JinericBlocks.WAXED_WEATHERED_CUT_COPPER_WALL);
       OxidizableBlocksRegistry.registerWaxableBlockPair(JinericBlocks.OXIDIZED_CUT_COPPER_WALL, JinericBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL);
-   }
-
-   private static void registerEntityAttributes() {
-      //EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayers.MANX_LOAGHTAN, );
    }
 }

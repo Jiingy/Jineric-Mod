@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "X  ",
+        "XX ",
+        "XXX"
+    ],
+    "key": {
+        "X": {
+            "item": "jineric:rhyolite"
+        }
+    },
+    "result": {
+        "item": "jineric:rhyolite_stairs",
+        "count": 4
+    }
+}

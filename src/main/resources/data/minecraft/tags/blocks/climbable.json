@@ -1,6 +1,14 @@
 {
   "replace": false,
   "values": [
-    "jineric:boreal_ladder"
+    "jineric:boreal_ladder",
+    "jineric:spruce_ladder",
+    "jineric:acacia_ladder",
+    "jineric:jungle_ladder",
+    "jineric:dark_oak_ladder",
+    "jineric:warped_ladder",
+    "jineric:crimson_ladder",
+    "jineric:birch_ladder",
+    "jineric:mangrove_ladder"
   ]
 }

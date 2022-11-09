@@ -1,6 +1,7 @@
 package jingy.jineric.world.biome;
 
 import jingy.jineric.world.feature.JinericTreePlacedFeature;
+import jingy.jineric.world.gen.JinericDefaultBiomeFeatures;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeMoodSound;
@@ -16,19 +17,17 @@ public class JinericOverworldBiomes extends OverworldBiomeCreator {
 
    private static Biome createBiome(
            Biome.Precipitation precipitation,
-           Biome.Category category,
            float temperature,
            float downfall,
            SpawnSettings.Builder spawnSettings,
            GenerationSettings.Builder generationSettings,
            @Nullable MusicSound music
    ) {
-      return createBiome(precipitation, category, temperature, downfall, 4159204, 329011, spawnSettings, generationSettings, music);
+      return createBiome(precipitation, temperature, downfall, 4159204, 329011, spawnSettings, generationSettings, music);
    }
 
    private static Biome createBiome(
            Biome.Precipitation precipitation,
-           Biome.Category category,
            float temperature,
            float downfall,
            int waterColor,
@@ -39,7 +38,6 @@ public class JinericOverworldBiomes extends OverworldBiomeCreator {
    ) {
       return (new Biome.Builder())
               .precipitation(precipitation)
-              .category(category)
               .temperature(temperature)
               .downfall(downfall)
               .effects(
@@ -47,6 +45,7 @@ public class JinericOverworldBiomes extends OverworldBiomeCreator {
                               .waterColor(waterColor)
                               .waterFogColor(waterFogColor)
                               .fogColor(12638463)
+//                              .grassColor(0x27a361)
                               .skyColor(getSkyColor(temperature))
                               .moodSound(BiomeMoodSound.CAVE)
                               .music(music)
@@ -66,7 +65,7 @@ public class JinericOverworldBiomes extends OverworldBiomeCreator {
       DefaultBiomeFeatures.addFrozenTopLayer(builder);
    }
 
-   public static Biome BorealForest(boolean cold) {
+   public static Biome createBorealForest(boolean cold) {
       SpawnSettings.Builder spawnSettings = new SpawnSettings.Builder();
       DefaultBiomeFeatures.addFarmAnimals(spawnSettings);
 
@@ -77,18 +76,18 @@ public class JinericOverworldBiomes extends OverworldBiomeCreator {
 
       GenerationSettings.Builder generationSettings = new GenerationSettings.Builder();
       addBasicFeatures(generationSettings);
+      JinericDefaultBiomeFeatures.addForestFlowers(generationSettings);
       DefaultBiomeFeatures.addDefaultOres(generationSettings);
       DefaultBiomeFeatures.addDefaultDisks(generationSettings);
-      DefaultBiomeFeatures.addDefaultFlowers(generationSettings);
-      DefaultBiomeFeatures.addTaigaGrass(generationSettings);
+      DefaultBiomeFeatures.addDefaultGrass(generationSettings);
       DefaultBiomeFeatures.addDefaultVegetation(generationSettings);
       JinericTreePlacedFeature.addBorealTrees(generationSettings);
 
-      if (cold) {
-         DefaultBiomeFeatures.addTaigaGrass(generationSettings);
-      } else {
-         DefaultBiomeFeatures.addSweetBerryBushes(generationSettings);
-      }
+//      if (cold) {
+//         DefaultBiomeFeatures.addTaigaGrass(generationSettings);
+//      } else {
+//         DefaultBiomeFeatures.addSweetBerryBushes(generationSettings);
+//      }
 
       //return createBiome()
               //.precipitation(Biome.Precipitation.RAIN)
@@ -107,7 +106,6 @@ public class JinericOverworldBiomes extends OverworldBiomeCreator {
 
       return createBiome(
               cold ? Biome.Precipitation.SNOW : Biome.Precipitation.RAIN,
-              Biome.Category.TAIGA,
               f,
               cold ? 0.4F : 0.8F,
               cold ? 4020182 : 4159204,

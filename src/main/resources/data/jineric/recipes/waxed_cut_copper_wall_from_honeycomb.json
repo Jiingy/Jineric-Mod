@@ -1,0 +1,15 @@
+{
+   "type": "minecraft:crafting_shapeless",
+   "ingredients": [
+	  {
+		 "item": "jineric:cut_copper_wall"
+	  },
+	  {
+		 "item": "minecraft:honeycomb"
+	  }
+   ],
+   "result": {
+	  "count": 1,
+	  "item": "jineric:waxed_cut_copper_wall"
+   }
+}

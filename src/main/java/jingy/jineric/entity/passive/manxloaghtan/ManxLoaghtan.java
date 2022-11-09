@@ -15,18 +15,12 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
-import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.CraftingInventory;
-import net.minecraft.item.DyeItem;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.recipe.RecipeType;
-import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
@@ -37,6 +31,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
@@ -45,7 +40,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
 import java.util.Map;
-import java.util.Random;
 import java.util.stream.Collectors;
 
 public class ManxLoaghtan extends AnimalEntity implements Shearable {
@@ -79,6 +73,10 @@ public class ManxLoaghtan extends AnimalEntity implements Shearable {
 
    public ManxLoaghtan(EntityType<? extends ManxLoaghtan> entityType, World world) {
       super(entityType, world);
+   }
+
+   public static float[] getRgbColor(DyeColor dyeColor) {
+      return (float[])COLORS.get(dyeColor);
    }
 
    @Override
@@ -272,7 +270,7 @@ public class ManxLoaghtan extends AnimalEntity implements Shearable {
    public ManxLoaghtan createChild(ServerWorld serverWorld, PassiveEntity passiveEntity) {
       ManxLoaghtan manxLoaghtan = (ManxLoaghtan)passiveEntity;
       ManxLoaghtan manxLoaghtan2 = JinericEntities.MANX_LOAGHTAN.create(serverWorld);
-      manxLoaghtan2.setColor(this.getChildColor(this, manxLoaghtan));
+//      manxLoaghtan2.setColor(this.getChildColor(this, manxLoaghtan));
       return manxLoaghtan2;
    }
 
@@ -293,32 +291,32 @@ public class ManxLoaghtan extends AnimalEntity implements Shearable {
       return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
    }
 
-   private DyeColor getChildColor(AnimalEntity firstParent, AnimalEntity secondParent) {
-      DyeColor dyeColor = ((SheepEntity)firstParent).getColor();
-      DyeColor dyeColor2 = ((SheepEntity)secondParent).getColor();
-      CraftingInventory craftingInventory = createDyeMixingCraftingInventory(dyeColor, dyeColor2);
-      return (DyeColor)this.world
-              .getRecipeManager()
-              .getFirstMatch(RecipeType.CRAFTING, craftingInventory, this.world)
-              .map(recipe -> recipe.craft(craftingInventory))
-              .map(ItemStack::getItem)
-              .filter(DyeItem.class::isInstance)
-              .map(DyeItem.class::cast)
-              .map(DyeItem::getColor)
-              .orElseGet(() -> this.world.random.nextBoolean() ? dyeColor : dyeColor2);
-   }
+//   private DyeColor getChildColor(AnimalEntity firstParent, AnimalEntity secondParent) {
+//      DyeColor dyeColor = ((SheepEntity)firstParent).getColor();
+//      DyeColor dyeColor2 = ((SheepEntity)secondParent).getColor();
+//      CraftingInventory craftingInventory = createDyeMixingCraftingInventory(dyeColor, dyeColor2);
+//      return (DyeColor)this.world
+//              .getRecipeManager()
+//              .getFirstMatch(RecipeType.CRAFTING, craftingInventory, this.world)
+//              .map(recipe -> recipe.craft(craftingInventory))
+//              .map(ItemStack::getItem)
+//              .filter(DyeItem.class::isInstance)
+//              .map(DyeItem.class::cast)
+//              .map(DyeItem::getColor)
+//              .orElseGet(() -> this.world.random.nextBoolean() ? dyeColor : dyeColor2);
+//   }
 
-   private static CraftingInventory createDyeMixingCraftingInventory(DyeColor firstColor, DyeColor secondColor) {
-      CraftingInventory craftingInventory = new CraftingInventory(new ScreenHandler((ScreenHandlerType)null, -1) {
-         @Override
-         public boolean canUse(PlayerEntity player) {
-            return false;
-         }
-      }, 2, 1);
-      craftingInventory.setStack(0, new ItemStack(DyeItem.byColor(firstColor)));
-      craftingInventory.setStack(1, new ItemStack(DyeItem.byColor(secondColor)));
-      return craftingInventory;
-   }
+//   private static CraftingInventory createDyeMixingCraftingInventory(DyeColor firstColor, DyeColor secondColor) {
+//      CraftingInventory craftingInventory = new CraftingInventory(new ScreenHandler((ScreenHandlerType)null, -1) {
+//         @Override
+//         public boolean canUse(PlayerEntity player) {
+//            return false;
+//         }
+//      }, 2, 1);
+//      craftingInventory.setStack(0, new ItemStack(DyeItem.byColor(firstColor)));
+//      craftingInventory.setStack(1, new ItemStack(DyeItem.byColor(secondColor)));
+//      return craftingInventory;
+//   }
 
    @Override
    protected float getActiveEyeHeight(EntityPose pose, EntityDimensions dimensions) {

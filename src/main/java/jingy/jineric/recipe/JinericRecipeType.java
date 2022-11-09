@@ -16,7 +16,9 @@ public class JinericRecipeType {
               new Identifier(JinericMain.MOD_ID, "refining"),
               new RecipeType<RefiningRecipe>() {
          @Override
-         public String toString() {return "refining";}
+         public String toString() {
+            return "refining";
+         }
       });
 
    }

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "jineric:cobbled_dripstone",
+    "jineric:cobbled_dripstone_slab",
+    "jineric:cobbled_dripstone_stairs",
+    "jineric:cobbled_dripstone_wall"
+  ]
+}

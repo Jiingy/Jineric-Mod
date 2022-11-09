@@ -16,7 +16,7 @@ public class JinericBiomes {
 
    public static final List<RegistryObject<Biome>> BIOMES = new ArrayList<>();
 
-   public static RegistryKey<Biome> BOREAL_FOREST = createBiome("boreal_forest", JinericOverworldBiomes.BorealForest(false));
+   public static RegistryKey<Biome> BOREAL_FOREST = createBiome("boreal_forest", JinericOverworldBiomes.createBorealForest(false));
 
 
    private static RegistryKey<Biome> createBiome(String id, Biome biome) {

@@ -1,0 +1,8 @@
+{
+    "parent": "minecraft:block/outer_stairs",
+    "textures": {
+        "bottom": "jineric:block/rhyolite_tiles",
+        "top": "jineric:block/rhyolite_tiles",
+        "side": "jineric:block/rhyolite_tiles"
+    }
+}

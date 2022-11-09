@@ -45,6 +45,10 @@ public class JinericTextureRenderLayers extends TexturedRenderLayers {
    public static final SpriteIdentifier WARPED_CHEST_LEFT = getChestTextureId("warped_left");
    public static final SpriteIdentifier WARPED_CHEST_RIGHT = getChestTextureId("warped_right");
 
+   public static final SpriteIdentifier MANGROVE_CHEST = getChestTextureId("mangrove_chest");
+   public static final SpriteIdentifier MANGROVE_CHEST_LEFT = getChestTextureId("mangrove_left");
+   public static final SpriteIdentifier MANGROVE_CHEST_RIGHT = getChestTextureId("mangrove_right");
+
    private static SpriteIdentifier getChestTextureId(String variant) {
       return new SpriteIdentifier(CHEST_ATLAS_TEXTURE, new Identifier(JinericMain.MOD_ID, "entity/chest/" + variant));
    }
@@ -78,6 +82,9 @@ public class JinericTextureRenderLayers extends TexturedRenderLayers {
 
       } else if (blockEntity instanceof WarpedChestBlockEntity) {
          return getChestTexture(chestType, WARPED_CHEST, WARPED_CHEST_LEFT, WARPED_CHEST_RIGHT);
+
+      } else if (blockEntity instanceof MangroveChestBlockEntity) {
+         return getChestTexture(chestType, MANGROVE_CHEST, MANGROVE_CHEST_LEFT, MANGROVE_CHEST_RIGHT);
 
       } else {
          return getChestTexture(chestType, NORMAL, NORMAL_LEFT, NORMAL_RIGHT);

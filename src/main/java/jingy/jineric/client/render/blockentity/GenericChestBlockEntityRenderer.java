@@ -8,8 +8,8 @@ import net.fabricmc.api.Environment;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.ChestBlockEntity;
+import net.minecraft.block.entity.LidOpenable;
 import net.minecraft.block.enums.ChestType;
-import net.minecraft.client.block.ChestAnimationProgress;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
@@ -27,7 +27,7 @@ import net.minecraft.world.World;
 import java.util.Calendar;
 
 @Environment(EnvType.CLIENT)
-public class GenericChestBlockEntityRenderer<T extends BlockEntity & ChestAnimationProgress> implements BlockEntityRenderer<T> {
+public class GenericChestBlockEntityRenderer<T extends BlockEntity> implements BlockEntityRenderer<T> {
    private static final String BASE = "bottom";
    private static final String LID = "lid";
    private static final String LATCH = "lock";
@@ -112,7 +112,7 @@ public class GenericChestBlockEntityRenderer<T extends BlockEntity & ChestAnimat
             propertySource = DoubleBlockProperties.PropertyRetriever::getFallback;
          }
 
-         float g = propertySource.<Float2FloatFunction>apply(ChestBlock.getAnimationProgressRetriever(chestEntity)).get(tickDelta);
+         float g = propertySource.<Float2FloatFunction>apply(ChestBlock.getAnimationProgressRetriever((LidOpenable) chestEntity)).get(tickDelta);
          g = 1.0F - g;
          g = 1.0F - g * g * g;
          int i = propertySource.<Int2IntFunction>apply(new LightmapCoordinatesRetriever<>()).applyAsInt(light);

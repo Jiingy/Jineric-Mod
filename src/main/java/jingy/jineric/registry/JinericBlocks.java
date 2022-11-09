@@ -36,17 +36,6 @@ FORMAT:
 	public static final Block _WALL = register("_wall", new WallBlock(FabricBlockSettings.copy(BLOCK)));
  */
 
-	//TODO:
-	// --- General Blocks ---
-	//	Grindstone recipes / Block Item tags
-	//	FINISH RHYOLITE & NEW TUFFS
-
-	//TODO: STORAGE BLOCKS
-	//	PRISMARINE_CRYSTAL_BLOCK
-	//	GUNPOWDER_BLOCK
-	//	BLAZE_ROD_BLOCK
-	//	EGG_BLOCK
-
 //SANDSTONE
 	public static final Block CUT_SANDSTONE_STAIRS = register(
 			"cut_sandstone_stairs", new JinericStairsBlock(CUT_SANDSTONE.getDefaultState(), Block.Settings.copy(CUT_SANDSTONE))
@@ -217,7 +206,12 @@ FORMAT:
 			"polished_andesite_wall", new WallBlock(Block.Settings.copy(POLISHED_ANDESITE))
 	);
 
-	//CRACKED STONE BRICK
+//STONE
+	public static final Block STONE_PILLAR = register(
+			"stone_pillar", new PillarBlock(Block.Settings.copy(STONE))
+	);
+
+	//CRACKED BRICKS
 	public static final Block CRACKED_STONE_BRICK_STAIRS = register(
 			"cracked_stone_brick_stairs", new JinericStairsBlock(STONE.getDefaultState(), Block.Settings.copy(STONE))
 	);
@@ -228,7 +222,35 @@ FORMAT:
 			"cracked_stone_brick_wall", new WallBlock(Block.Settings.copy(STONE))
 	);
 
-	//TUFF
+	//POLISHED
+	public static final Block POLISHED_STONE = register(
+			"polished_stone", new Block(Block.Settings.copy(STONE))
+	);
+	public static final Block POLISHED_STONE_STAIRS = register(
+			"polished_stone_stairs", new JinericStairsBlock(POLISHED_STONE.getDefaultState(), Block.Settings.copy(POLISHED_STONE))
+	);
+	public static final Block POLISHED_STONE_SLAB = register(
+			"polished_stone_slab", new SlabBlock(Block.Settings.copy(POLISHED_STONE))
+	);
+	public static final Block POLISHED_STONE_WALL = register(
+			"polished_stone_wall", new WallBlock(Block.Settings.copy(POLISHED_STONE))
+	);
+
+	//TILES
+	public static final Block STONE_TILES = register(
+			"stone_tiles", new Block(Block.Settings.copy(DEEPSLATE_TILES))
+	);
+	public static final Block STONE_TILE_STAIRS = register(
+			"stone_tile_stairs", new JinericStairsBlock(STONE_TILES.getDefaultState(), Block.Settings.copy(STONE_TILES))
+	);
+	public static final Block STONE_TILE_SLAB = register(
+			"stone_tile_slab", new SlabBlock(Block.Settings.copy(STONE_TILES))
+	);
+	public static final Block STONE_TILE_WALL = register(
+			"stone_tile_wall", new WallBlock(Block.Settings.copy(STONE_TILES))
+	);
+
+//TUFF
 	public static final Block TUFF_STAIRS = register(
 			"tuff_stairs", new JinericStairsBlock(TUFF.getDefaultState(), Block.Settings.copy(TUFF))
 	);
@@ -238,8 +260,6 @@ FORMAT:
 	public static final Block TUFF_WALL = register(
 			"tuff_wall", new WallBlock(Block.Settings.copy(TUFF))
 	);
-
-	//POLISHED TUFF
 	public static final Block POLISHED_TUFF = register(
 			"polished_tuff", new Block(Block.Settings.copy(TUFF))
 	);
@@ -252,8 +272,6 @@ FORMAT:
 	public static final Block POLISHED_TUFF_WALL = register(
 			"polished_tuff_wall", new WallBlock(Block.Settings.copy(POLISHED_TUFF))
 	);
-	
-	// Smooth
 	public static final Block SMOOTH_TUFF = register(
 			"smooth_tuff", new Block(Block.Settings.copy(TUFF))
 	);
@@ -266,7 +284,6 @@ FORMAT:
 	public static final Block SMOOTH_TUFF_WALL = register(
 			"smooth_tuff_wall", new WallBlock(Block.Settings.copy(SMOOTH_TUFF))
 	);
-	// BRICKS
 	public static final Block TUFF_BRICKS = register(
 			"tuff_bricks", new Block(Block.Settings.copy(TUFF))
 	);
@@ -280,7 +297,7 @@ FORMAT:
 			"tuff_brick_wall", new WallBlock(Block.Settings.copy(TUFF_BRICKS))
 	);
 
-	//CALCITE
+//CALCITE
 	public static final Block CALCITE_STAIRS = register(
 			"calcite_stairs", new JinericStairsBlock(CALCITE.getDefaultState(), Block.Settings.copy(CALCITE))
 	);
@@ -327,28 +344,32 @@ FORMAT:
 			"smooth_calcite_wall", new WallBlock(Block.Settings.copy(SMOOTH_CALCITE))
 	);
 
-	//DRIPSTONE
-	public static final Block DRIPSTONE_SLAB  = register(
-			"dripstone_slab", new SlabBlock(Block.Settings.copy(DRIPSTONE_BLOCK))
-	);
-	public static final Block DRIPSTONE_STAIRS = register(
-			"dripstone_stairs", new JinericStairsBlock(STONE.getDefaultState(), Block.Settings.copy(DRIPSTONE_BLOCK))
-	);
-	public static final Block DRIPSTONE_WALL = register(
-			"dripstone_wall", new WallBlock(Block.Settings.copy(DRIPSTONE_BLOCK))
-	);
-	public static final Block POLISHED_DRIPSTONE = register(
-			"polished_dripstone", new Block(Block.Settings.copy(DRIPSTONE_BLOCK))
-	);
-	public static final Block POLISHED_DRIPSTONE_SLAB  = register(
-			"polished_dripstone_slab", new SlabBlock(Block.Settings.copy(POLISHED_DRIPSTONE))
-	);
-	public static final Block POLISHED_DRIPSTONE_STAIRS = register(
-			"polished_dripstone_stairs", new JinericStairsBlock(STONE.getDefaultState(), Block.Settings.copy(POLISHED_DRIPSTONE))
-	);
-	public static final Block POLISHED_DRIPSTONE_WALL = register(
-			"polished_dripstone_wall", new WallBlock(Block.Settings.copy(POLISHED_DRIPSTONE))
-	);
+//DRIPSTONE
+	public static final Block DRIPSTONE_SLAB  = register("dripstone_slab", new SlabBlock(Block.Settings.copy(DRIPSTONE_BLOCK)));
+	public static final Block DRIPSTONE_STAIRS = register("dripstone_stairs", new JinericStairsBlock(DRIPSTONE_BLOCK.getDefaultState(), Block.Settings.copy(DRIPSTONE_BLOCK)));
+	public static final Block DRIPSTONE_WALL = register("dripstone_wall", new WallBlock(Block.Settings.copy(DRIPSTONE_BLOCK)));
+	public static final Block COBBLED_DRIPSTONE = register("cobbled_dripstone", new Block(Block.Settings.copy(DRIPSTONE_BLOCK)));
+	public static final Block COBBLED_DRIPSTONE_SLAB  = register("cobbled_dripstone_slab", new SlabBlock(Block.Settings.copy(COBBLED_DRIPSTONE)));
+	public static final Block COBBLED_DRIPSTONE_STAIRS = register("cobbled_dripstone_stairs", new JinericStairsBlock(COBBLED_DRIPSTONE.getDefaultState(), Block.Settings.copy(COBBLED_DRIPSTONE)));
+	public static final Block COBBLED_DRIPSTONE_WALL = register("cobbled_dripstone_wall", new WallBlock(Block.Settings.copy(COBBLED_DRIPSTONE)));
+	public static final Block DRIPSTONE_BRICKS = register("dripstone_bricks", new Block(Block.Settings.copy(DRIPSTONE_BLOCK)));
+	public static final Block DRIPSTONE_BRICK_SLAB = register("dripstone_brick_slab", new SlabBlock(Block.Settings.copy(DRIPSTONE_BRICKS)));
+	public static final Block DRIPSTONE_BRICK_STAIRS = register("dripstone_brick_stairs", new JinericStairsBlock(DRIPSTONE_BRICKS.getDefaultState(), Block.Settings.copy(DRIPSTONE_BRICKS)));
+	public static final Block DRIPSTONE_BRICK_WALL = register("dripstone_brick_wall", new WallBlock(Block.Settings.copy(DRIPSTONE_BRICKS)));
+	public static final Block POLISHED_DRIPSTONE = register("polished_dripstone", new Block(Block.Settings.copy(DRIPSTONE_BLOCK)));
+	public static final Block POLISHED_DRIPSTONE_SLAB  = register("polished_dripstone_slab", new SlabBlock(Block.Settings.copy(POLISHED_DRIPSTONE)));
+	public static final Block POLISHED_DRIPSTONE_STAIRS = register("polished_dripstone_stairs", new JinericStairsBlock(STONE.getDefaultState(), Block.Settings.copy(POLISHED_DRIPSTONE)));
+	public static final Block POLISHED_DRIPSTONE_WALL = register("polished_dripstone_wall", new WallBlock(Block.Settings.copy(POLISHED_DRIPSTONE)));
+	public static final Block DRIPSTONE_TILES = register("dripstone_tiles", new Block(Block.Settings.copy(DRIPSTONE_BLOCK)));
+	public static final Block DRIPSTONE_TILE_SLAB = register("dripstone_tile_slab", new SlabBlock(Block.Settings.copy(DRIPSTONE_TILES)));
+	public static final Block DRIPSTONE_TILE_STAIRS = register("dripstone_tile_stairs", new JinericStairsBlock(DRIPSTONE_TILES.getDefaultState(), Block.Settings.copy(DRIPSTONE_TILES)));
+	public static final Block DRIPSTONE_TILE_WALL = register("dripstone_tile_wall", new WallBlock(Block.Settings.copy(DRIPSTONE_TILES)));
+	public static final Block SMOOTH_DRIPSTONE = register("smooth_dripstone", new Block(Block.Settings.copy(DRIPSTONE_BLOCK)));
+	public static final Block SMOOTH_DRIPSTONE_SLAB  = register("smooth_dripstone_slab", new SlabBlock(Block.Settings.copy(SMOOTH_DRIPSTONE)));
+	public static final Block SMOOTH_DRIPSTONE_STAIRS = register("smooth_dripstone_stairs", new JinericStairsBlock(SMOOTH_DRIPSTONE.getDefaultState(), Block.Settings.copy(SMOOTH_DRIPSTONE)));
+	public static final Block SMOOTH_DRIPSTONE_WALL = register("smooth_dripstone_wall", new WallBlock(Block.Settings.copy(SMOOTH_DRIPSTONE)));
+	public static final Block CHISELED_DRIPSTONE_BRICKS = register("chiseled_dripstone_bricks", new Block(Block.Settings.copy(DRIPSTONE_BRICKS)));
+	public static final Block DRIPSTONE_PILLAR = register("dripstone_pillar", new PillarBlock(FabricBlockSettings.copy(DRIPSTONE_BLOCK)));
 
 	//OBSIDIAN
 	public static final Block OBSIDIAN_STAIRS = register(
@@ -361,103 +382,156 @@ FORMAT:
 			"obsidian_wall", new WallBlock(JinericBlockSettings.obsidianSettings().nonOpaque())
 	);
 
-	//rhyolite
+//RHYOLITE
+
+	//'STONE'
 	public static final Block RHYOLITE = register(
 			"rhyolite", new Block(Block.Settings.copy(STONE))
 	);
 	public static final Block RHYOLITE_STAIRS = register(
-			"rhyolite_stairs", new JinericStairsBlock(STONE.getDefaultState(), Block.Settings.copy(STONE))
+			"rhyolite_stairs", new JinericStairsBlock(STONE.getDefaultState(), Block.Settings.copy(RHYOLITE))
 	);
 	public static final Block RHYOLITE_SLAB  = register(
-			"rhyolite_slab", new SlabBlock(Block.Settings.copy(STONE))
+			"rhyolite_slab", new SlabBlock(Block.Settings.copy(RHYOLITE))
 	);
 	public static final Block RHYOLITE_WALL = register(
-			"rhyolite_wall", new WallBlock(Block.Settings.copy(STONE))
+			"rhyolite_wall", new WallBlock(Block.Settings.copy(RHYOLITE))
 	);
 
-	//SILTSTONE
+	//COBBLED
+//	public static final Block COBBLED_RHYOLITE = register(
+//			"cobbled_rhyolite", new Block(Block.Settings.copy(RHYOLITE))
+//	);
+//	public static final Block COBBLED_RHYOLITE_STAIRS = register(
+//			"cobbled_rhyolite_stairs", new JinericStairsBlock(RHYOLITE.getDefaultState(), Block.Settings.copy(RHYOLITE))
+//	);
+//	public static final Block COBBLED_RHYOLITE_SLAB  = register(
+//			"cobbled_rhyolite_slab", new SlabBlock(Block.Settings.copy(RHYOLITE))
+//	);
+//	public static final Block COBBLED_RHYOLITE_WALL = register(
+//			"cobbled_rhyolite_wall", new WallBlock(Block.Settings.copy(RHYOLITE))
+//	);
+
+	//SMOOTH
+	public static final Block SMOOTH_RHYOLITE = register(
+			"smooth_rhyolite", new Block(Block.Settings.copy(RHYOLITE))
+	);
+	public static final Block SMOOTH_RHYOLITE_STAIRS = register(
+			"smooth_rhyolite_stairs", new JinericStairsBlock(SMOOTH_RHYOLITE.getDefaultState(), Block.Settings.copy(SMOOTH_RHYOLITE))
+	);
+	public static final Block SMOOTH_RHYOLITE_SLAB  = register(
+			"smooth_rhyolite_slab", new SlabBlock(Block.Settings.copy(SMOOTH_RHYOLITE))
+	);
+	public static final Block SMOOTH_RHYOLITE_WALL = register(
+			"smooth_rhyolite_wall", new WallBlock(Block.Settings.copy(SMOOTH_RHYOLITE))
+	);
+
+	//BRICKS
+	public static final Block RHYOLITE_BRICKS = register(
+			"rhyolite_bricks", new Block(Block.Settings.copy(RHYOLITE))
+	);
+	public static final Block RHYOLITE_BRICK_STAIRS = register(
+			"rhyolite_brick_stairs", new JinericStairsBlock(RHYOLITE_BRICKS.getDefaultState(), Block.Settings.copy(RHYOLITE_BRICKS))
+	);
+	public static final Block RHYOLITE_BRICK_SLAB  = register(
+			"rhyolite_brick_slab", new SlabBlock(Block.Settings.copy(RHYOLITE_BRICKS))
+	);
+	public static final Block RHYOLITE_BRICK_WALL = register(
+			"rhyolite_brick_wall", new WallBlock(Block.Settings.copy(RHYOLITE_BRICKS))
+	);
+
+	//CHISELED
+	public static final Block CHISELED_RHYOLITE_BRICKS = register(
+			"chiseled_rhyolite_bricks", new Block(Block.Settings.copy(RHYOLITE))
+	);
+
+	//TILES
+	public static final Block RHYOLITE_TILES = register(
+			"rhyolite_tiles", new Block(Block.Settings.copy(RHYOLITE))
+	);
+	public static final Block RHYOLITE_TILE_STAIRS = register(
+			"rhyolite_tile_stairs", new JinericStairsBlock(RHYOLITE_TILES.getDefaultState(), Block.Settings.copy(RHYOLITE_TILES))
+	);
+	public static final Block RHYOLITE_TILE_SLAB  = register(
+			"rhyolite_tile_slab", new SlabBlock(Block.Settings.copy(RHYOLITE_TILES))
+	);
+	public static final Block RHYOLITE_TILE_WALL = register(
+			"rhyolite_tile_wall", new WallBlock(Block.Settings.copy(RHYOLITE_TILES))
+	);
+
+	//POLISHED
+	public static final Block POLISHED_RHYOLITE = register(
+			"polished_rhyolite", new Block(Block.Settings.copy(RHYOLITE))
+	);
+	public static final Block POLISHED_RHYOLITE_STAIRS = register(
+			"polished_rhyolite_stairs", new JinericStairsBlock(POLISHED_RHYOLITE.getDefaultState(), Block.Settings.copy(POLISHED_RHYOLITE))
+	);
+	public static final Block POLISHED_RHYOLITE_SLAB  = register(
+			"polished_rhyolite_slab", new SlabBlock(Block.Settings.copy(POLISHED_RHYOLITE))
+	);
+	public static final Block POLISHED_RHYOLITE_WALL = register(
+			"polished_rhyolite_wall", new WallBlock(Block.Settings.copy(POLISHED_RHYOLITE))
+	);
+
+//SILTSTONE
 	public static final Block SILTSTONE = register(
 			"siltstone", new Block(Block.Settings.copy(STONE))
 	);
 	public static final Block SILTSTONE_STAIRS = register(
-			"siltstone_stairs", new JinericStairsBlock(STONE.getDefaultState(), Block.Settings.copy(STONE))
+			"siltstone_stairs", new JinericStairsBlock(SILTSTONE.getDefaultState(), Block.Settings.copy(SILTSTONE))
 	);
 	public static final Block SILTSTONE_SLAB  = register(
-			"siltstone_slab", new SlabBlock(Block.Settings.copy(STONE))
+			"siltstone_slab", new SlabBlock(Block.Settings.copy(SILTSTONE))
 	);
 	public static final Block SILTSTONE_WALL = register(
-			"siltstone_wall", new WallBlock(Block.Settings.copy(STONE))
+			"siltstone_wall", new WallBlock(Block.Settings.copy(SILTSTONE))
 	);
 
 	//POLISHED_SILTSTONE
 	public static final Block POLISHED_SILTSTONE = register(
-			"polished_siltstone", new Block(Block.Settings.copy(STONE))
+			"polished_siltstone", new Block(Block.Settings.copy(SILTSTONE))
 	);
 	public static final Block POLISHED_SILTSTONE_STAIRS = register(
-			"polished_siltstone_stairs", new JinericStairsBlock(STONE.getDefaultState(), Block.Settings.copy(STONE))
+			"polished_siltstone_stairs", new JinericStairsBlock(POLISHED_SILTSTONE.getDefaultState(), Block.Settings.copy(POLISHED_SILTSTONE))
 	);
 	public static final Block POLISHED_SILTSTONE_SLAB  = register(
-			"polished_siltstone_slab", new SlabBlock(Block.Settings.copy(STONE))
+			"polished_siltstone_slab", new SlabBlock(Block.Settings.copy(POLISHED_SILTSTONE))
 	);
 	public static final Block POLISHED_SILTSTONE_WALL = register(
 			"polished_siltstone_wall", new WallBlock(Block.Settings.copy(STONE))
 	);
 
-	//SLATE
-	public static final Block SLATE = register(
-			"slate", new Block(Block.Settings.copy(STONE))
-	);
-	public static final Block SLATE_STAIRS = register(
-			"slate_stairs", new JinericStairsBlock(STONE.getDefaultState(), Block.Settings.copy(STONE))
-	);
-	public static final Block SLATE_SLAB = register(
-			"slate_slab", new SlabBlock(Block.Settings.copy(STONE))
-	);
-	public static final Block SLATE_WALL = register(
-			"slate_wall", new WallBlock(Block.Settings.copy(STONE))
-	);
-
 //MISCELLANEOUS
 	//PACKED ITEM BLOCKS
-	public static final Block SALT_BLOCK = register(
-			"salt_block", new FallingBlock(Block.Settings.copy(CLAY).sounds(BlockSoundGroup.SAND))
+	public static final Block SALT_BLOCK = register("salt_block", new FallingBlock(Block.Settings.copy(CLAY).sounds(BlockSoundGroup.SAND))
 	);
-	public static final Block SUGAR_BLOCK = register(
-			"sugar_block", new FallingBlock(Block.Settings.copy(CLAY).sounds(BlockSoundGroup.SAND))
+	public static final Block SUGAR_BLOCK = register("sugar_block", new FallingBlock(Block.Settings.copy(CLAY).sounds(BlockSoundGroup.SAND))
 	);
-	public static final Block ROTTEN_FLESH_BLOCK = register(
-			"rotten_flesh_block", new Block(Block.Settings.copy(HONEYCOMB_BLOCK))
+	public static final Block ROTTEN_FLESH_BLOCK = register("rotten_flesh_block", new Block(Block.Settings.copy(HONEYCOMB_BLOCK))
 	);
-	public static final Block FLINT_BLOCK = register(
-			"flint_block", new Block(Block.Settings.copy(STONE))
+	public static final Block FLINT_BLOCK = register("flint_block", new Block(Block.Settings.copy(STONE))
 	);
-	public static final Block CHARCOAL_BLOCK = register(
-			"charcoal_block", new Block(Block.Settings.copy(COAL_BLOCK))
+	public static final Block CHARCOAL_BLOCK = register("charcoal_block", new Block(Block.Settings.copy(COAL_BLOCK))
 	);
-	public static final Block BAMBOO_BLOCK = register(
-			"bamboo_block", new PillarBlock(Block.Settings.copy(OAK_LOG).sounds(BlockSoundGroup.BAMBOO))
+	public static final Block BAMBOO_BLOCK = register("bamboo_block", new PillarBlock(Block.Settings.copy(OAK_LOG).sounds(BlockSoundGroup.BAMBOO))
 	);
-	public static final Block TUMBLEWEED = register(
-			"tumbleweed", JinericBlockSettings.JinericLeavesBlock(BlockSoundGroup.GRASS)
+	public static final Block TUMBLEWEED = register("tumbleweed", JinericBlockSettings.JinericLeavesBlock(BlockSoundGroup.GRASS)
 	);
-	public static final Block BONE_MEAL_BLOCK = register(
-			"bone_meal_block", new Block(FabricBlockSettings.copy(BONE_BLOCK))
+	public static final Block BONE_MEAL_BLOCK = register("bone_meal_block", new Block(FabricBlockSettings.copy(BONE_BLOCK))
 	);
-	public static final Block ENDER_PEARL_BLOCK = register(
-			"ender_pearl_block", new Block(FabricBlockSettings.copy(HONEY_BLOCK))
+	public static final Block ENDER_PEARL_BLOCK = register("ender_pearl_block", new Block(FabricBlockSettings.copy(HONEY_BLOCK))
 	);
-	//TODO: Finish implementing:
-	public static final Block PRISMARINE_CRYSTAL_BLOCK = register(
-			"prismarine_crystal_block", new Block(FabricBlockSettings.copy(SEA_LANTERN).luminance(state -> 15))
+	public static final Block PRISMARINE_CRYSTAL_BLOCK = register("prismarine_crystal_block", new Block(FabricBlockSettings.copy(SEA_LANTERN).luminance(state -> 15).requiresTool())
 	);
-	public static final Block GUNPOWDER_BLOCK = register(
-			"gunpowder_block", new Block(FabricBlockSettings.copy(SAND))
+	public static final Block GUNPOWDER_BLOCK = register("gunpowder_block", new Block(FabricBlockSettings.copy(SAND))
 	);
-	public static final Block BLAZE_ROD_BLOCK = register(
-			"blaze_rod_block", new Block(FabricBlockSettings.copy(COAL_BLOCK))
+	public static final Block BLAZE_ROD_BUNDLE = register("blaze_rod_bundle", new Block(FabricBlockSettings.of(Material.AGGREGATE, MapColor.YELLOW))
 	);
-	public static final Block EGG_BLOCK = register(
-			"egg_block", new Block(FabricBlockSettings.copy(CALCITE))
+	public static final Block EGG_BLOCK = register("egg_block", new Block(FabricBlockSettings.of(Material.AGGREGATE).sounds(BlockSoundGroup.CALCITE).strength(0.50F))
+	);
+	public static final Block STICK_BUNDLE = register("stick_bundle", new Block(FabricBlockSettings.copy(OAK_WOOD))
+	);
+	public static final Block STACK_OF_PAPER = register("stack_of_paper", new Block(FabricBlockSettings.of(Material.AGGREGATE, MapColor.WHITE).sounds(BlockSoundGroup.AZALEA_LEAVES))
 	);
 
 	//PACKED ICE
@@ -469,11 +543,13 @@ FORMAT:
 	public static final Block SNOW_WALL = register("snow_wall", new WallBlock(FabricBlockSettings.copy(SNOW_BLOCK)));
 
 	//DECORATION BLOCKS
+	public static final Block FIREWEED = register("fireweed", new TallFlowerBlock(FabricBlockSettings.copy(LILAC)));
 	public static final Block SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", new CarvedPumpkinBlock(FabricBlockSettings.copy(JACK_O_LANTERN)));
 	public static final Block FULL_GRASS_BLOCK = register("full_grass_block", new FullGrassBlock(FabricBlockSettings.copy(GRASS_BLOCK)));
-
 	public static final Block PRISMARINE_BRICK_WALL = register("prismarine_brick_wall", new WallBlock(FabricBlockSettings.copy(PRISMARINE_BRICKS)));
 	public static final Block DARK_PRISMARINE_WALL = register("dark_prismarine_wall", new WallBlock(FabricBlockSettings.copy(DARK_PRISMARINE)));
+	//TODO: FIX OXIDATION
+	//TODO: FIX LIGHTNING STRIKE NOT REFERTING STAGE
 	public static final Block CUT_COPPER_WALL = register("cut_copper_wall", new OxidizableWallBlock(Oxidizable.OxidationLevel.UNAFFECTED, FabricBlockSettings.copy(CUT_COPPER)));
 	public static final Block EXPOSED_CUT_COPPER_WALL = register("exposed_cut_copper_wall", new OxidizableWallBlock(Oxidizable.OxidationLevel.EXPOSED, FabricBlockSettings.copy(EXPOSED_CUT_COPPER)));
 	public static final Block WEATHERED_CUT_COPPER_WALL = register("weathered_cut_copper_wall", new OxidizableWallBlock(Oxidizable.OxidationLevel.WEATHERED, FabricBlockSettings.copy(WEATHERED_CUT_COPPER)));
@@ -483,53 +559,41 @@ FORMAT:
 	public static final Block WAXED_WEATHERED_CUT_COPPER_WALL = register("waxed_weathered_cut_copper_wall", new OxidizableWallBlock(Oxidizable.OxidationLevel.WEATHERED, FabricBlockSettings.copy(WEATHERED_CUT_COPPER)));
 	public static final Block WAXED_OXIDIZED_CUT_COPPER_WALL = register("waxed_oxidized_cut_copper_wall", new OxidizableWallBlock(Oxidizable.OxidationLevel.OXIDIZED, FabricBlockSettings.copy(OXIDIZED_CUT_COPPER)));
 
-
-	//TODO:
-	//	Make sure shulker chest block format change works
-
 	//CHESTS
 	public static final Block ACACIA_CHEST = register(
 			"acacia_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.ACACIA)
 	);
-
 	public static final Block BIRCH_CHEST = register(
 			"birch_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.BIRCH)
 	);
-
 	public static final Block BOREAL_CHEST = register(
 			"boreal_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.BOREAL)
 	);
-
 	public static final Block CRIMSON_CHEST = register(
 			"crimson_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.CRIMSON)
 	);
-
 	public static final Block DARK_OAK_CHEST = register(
 			"dark_oak_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.DARK_OAK)
 	);
-
 	public static final Block JUNGLE_CHEST = register(
 			"jungle_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.JUNGLE)
 	);
-
 	public static final Block SHULKER_CHEST = register(
 			"shulker_chest", new ShulkerChestBlock(FabricBlockSettings.of(Material.STONE), JinericChestType.SHULKER)
 	);
-
 	public static final Block SPRUCE_CHEST = register(
 			"spruce_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.SPRUCE)
 	);
-
 	public static final Block WARPED_CHEST = register(
 			"warped_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.WARPED)
 	);
+	public static final Block MANGROVE_CHEST = register(
+			"mangrove_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.MANGROVE)
+	);
 
-	//	REFINERY
+
 	public static final Block REFINERY = register(
-			"refinery", new RefineryBlock(AbstractBlock.Settings
-					.copy(FURNACE)
-					.luminance(createLightLevelFromLitBlockState(13))
-			)
+			"refinery", new RefineryBlock(AbstractBlock.Settings.copy(FURNACE).luminance(createLightLevelFromLitBlockState(13)))
 	);
 
 //REDSTONE
@@ -537,6 +601,39 @@ FORMAT:
 	public static final Block REDSTONE_CAMPFIRE = register("redstone_campfire", new JinericCampfireBlock(true, 1, JinericBlockSettings.redstoneCampfireSettings()));
 
 //WOOD
+	public static final Block SPRUCE_BOOKSHELF = register("spruce_bookshelf",
+			new Block(FabricBlockSettings.copy(BOOKSHELF))
+	);
+
+	public static final Block BIRCH_BOOKSHELF = register("birch_bookshelf",
+			new Block(FabricBlockSettings.copy(BOOKSHELF))
+	);
+
+	public static final Block JUNGLE_BOOKSHELF = register("jungle_bookshelf",
+			new Block(FabricBlockSettings.copy(BOOKSHELF))
+	);
+
+	public static final Block ACACIA_BOOKSHELF = register("acacia_bookshelf",
+			new Block(FabricBlockSettings.copy(BOOKSHELF))
+	);
+
+	public static final Block DARK_OAK_BOOKSHELF = register("dark_oak_bookshelf",
+			new Block(FabricBlockSettings.copy(BOOKSHELF))
+	);
+
+	public static final Block CRIMSON_BOOKSHELF = register("crimson_bookshelf",
+			new Block(FabricBlockSettings.copy(BOOKSHELF))
+	);
+
+	public static final Block WARPED_BOOKSHELF = register("warped_bookshelf",
+			new Block(FabricBlockSettings.copy(BOOKSHELF))
+	);
+
+	public static final Block MANGROVE_BOOKSHELF = register("mangrove_bookshelf",
+			new Block(FabricBlockSettings.copy(BOOKSHELF))
+	);
+
+
 	//BOREAL
 	public static final Block BOREAL_WOOD = register("boreal_wood",
 		new PillarBlock(FabricBlockSettings.copy(OAK_WOOD))
@@ -592,7 +689,42 @@ FORMAT:
 	public static final Block BOREAL_FENCE_GATE = register("boreal_fence_gate", new FenceGateBlock(Block.Settings.copy(OAK_FENCE_GATE)));
 	public static final Block BOREAL_SAPLING = register("boreal_sapling", new JinericSaplingBlock(new BorealSaplingGenerator(), FabricBlockSettings.copy(OAK_SAPLING)));
 	public static final Block BOREAL_LEAVES = register("boreal_leaves", JinericBlockSettings.JinericLeavesBlock(BlockSoundGroup.GRASS));
-/*
+
+
+
+	public static final Block ACACIA_LADDER = register(
+			"acacia_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER))
+	);
+
+	public static final Block BIRCH_LADDER = register(
+			"birch_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER))
+	);
+
+	public static final Block DARK_OAK_LADDER = register(
+			"dark_oak_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER))
+	);
+
+	public static final Block SPRUCE_LADDER = register(
+			"spruce_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER))
+	);
+
+	public static final Block JUNGLE_LADDER = register(
+			"jungle_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER))
+	);
+
+	public static final Block MANGROVE_LADDER = register(
+			"mangrove_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER))
+	);
+
+	public static final Block WARPED_LADDER = register(
+			"warped_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER))
+	);
+
+	public static final Block CRIMSON_LADDER = register(
+			"crimson_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER))
+	);
+
+	/*
 	//DRIED BAMBOO
 	public static final Block DRIED_BAMBOO_WOOD = register("dried_bamboo_wood", new PillarBlock(FabricBlockSettings.copy(OAK_WOOD)));
 	public static final Block DRIED_BAMBOO_LOG = register("dried_bamboo_log", new PillarBlock(FabricBlockSettings.copy(OAK_LOG)));
