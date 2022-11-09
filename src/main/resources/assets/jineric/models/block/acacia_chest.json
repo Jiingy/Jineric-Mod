@@ -2,6 +2,6 @@
   "parent": "jineric:block/chest_template",
   "textures": {
     "0": "jineric:entity/chest/acacia_chest",
-    "particle": "minecraft:block/acacia_planks"
+    "particle": "jineric:entity/chest/acacia_chest_particle"
   }
 }

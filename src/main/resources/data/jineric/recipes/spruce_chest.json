@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_chest",
+  "pattern": [
+    "###",
+    "# #",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:spruce_planks"
+    }
+  },
+  "result": {
+    "item": "jineric:spruce_chest",
+    "count": 1
+  }
+}

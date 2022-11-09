@@ -2,6 +2,6 @@
   "parent": "jineric:block/chest_template",
   "textures": {
     "0": "jineric:entity/chest/dark_oak_chest",
-    "particle": "minecraft:block/dark_oak_planks"
+    "particle": "jineric:entity/chest/dark_oak_chest_particle"
   }
 }
