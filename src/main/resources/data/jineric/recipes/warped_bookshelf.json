@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_bookshelf",
+  "pattern": [
+    "###",
+    "%%%",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:warped_planks"
+    },
+    "%": {
+      "item": "minecraft:book"
+    }
+  },
+  "result": {
+    "item": "jineric:warped_bookshelf",
+    "count": 1
+  }
+}
