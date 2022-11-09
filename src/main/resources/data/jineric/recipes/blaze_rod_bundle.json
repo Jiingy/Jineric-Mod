@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:blaze_rod"
+    }
+  },
+  "result": {
+    "item": "jineric:blaze_rod_bundle",
+    "count": 9
+  }
+}
