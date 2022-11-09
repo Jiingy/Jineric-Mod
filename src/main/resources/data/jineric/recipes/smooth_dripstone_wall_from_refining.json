@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:refining",
+    "ingredient": {
+        "item": "jineric:dripstone_wall"
+    },
+    "result": "jineric:smooth_dripstone_wall",
+    "experience": 0.2
+}

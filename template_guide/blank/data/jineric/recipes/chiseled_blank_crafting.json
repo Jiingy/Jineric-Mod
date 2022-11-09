@@ -6,11 +6,11 @@
     ],
     "key": {
         "X": {
-            "item": "jineric:cut_blank_slab"
+            "item": "jineric:blank_brick_slab"
         }
     },
     "result": {
         "item": "jineric:chiseled_blank",
-        "count": 2
+        "count": 1
     }
 }

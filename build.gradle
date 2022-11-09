@@ -1,8 +1,8 @@
 plugins {
-	id 'fabric-loom' version '0.11-SNAPSHOT'
-	id "com.modrinth.minotaur" version "1.1.0"
-	id 'io.github.juuxel.loom-quiltflower' version '1.6.1'
+	id 'fabric-loom' version '1.0-SNAPSHOT'
+	id 'io.github.juuxel.loom-quiltflower' version '1.7.1'
 	id "maven-publish"
+	id "com.modrinth.minotaur" version "1.1.0"
 	id "org.jetbrains.kotlin.jvm" version "1.6.20-RC2"
 	id 'idea'
 }
@@ -28,23 +28,18 @@ dependencies {
 	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-	modImplementation("com.github.glitchfiend:TerraBlender-fabric:${minecraft_version}-${terrablender_version}")
-	modImplementation "maven.modrinth:stonecutter_recipe_tags:3.0.1"
-	include "maven.modrinth:stonecutter_recipe_tags:3.0.1"
+	modImplementation("com.github.glitchfiend:TerraBlender-fabric:1.19-${terrablender_version}")
+	modImplementation "maven.modrinth:stonecutter_recipe_tags:${project.stonecutter_recipes_version}"
+	include "maven.modrinth:stonecutter_recipe_tags:${project.stonecutter_recipes_version}"
 }
 
 processResources {
 	inputs.property "version", project.version
 
-	from(sourceSets.main.resources.srcDirs) {
-		include "fabric.mod.json"
+	filesMatching("fabric.mod.json") {
 		expand "version": project.version
-	}
-
-	from(sourceSets.main.resources.srcDirs) {
-		exclude "fabric.mod.json"
 	}
 }
 

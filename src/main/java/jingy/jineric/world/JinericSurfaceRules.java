@@ -6,7 +6,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.world.gen.surfacebuilder.MaterialRules;
 import net.minecraft.world.gen.surfacebuilder.VanillaSurfaceRules;
 
-import static jingy.jineric.mixin.MaterialRulesDataAccess.jineric$invokesurfaceNoiseThreshold;
+import static jingy.jineric.mixin.access.MaterialRulesDataAccess.jineric$invokesurfaceNoiseThreshold;
 
 public class JinericSurfaceRules extends VanillaSurfaceRules {
 

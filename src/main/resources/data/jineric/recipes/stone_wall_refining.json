@@ -1,0 +1,9 @@
+{
+   "type": "jineric:refining",
+   "ingredient": {
+      "item": "minecraft:cobblestone_wall"
+   },
+   "result": "jineric:stone_wall",
+   "experience": 0.2,
+   "cookingtime": 200
+}

@@ -36,6 +36,9 @@ public class JinericBlockEntityType {
    public static final BlockEntityType<WarpedChestBlockEntity> WARPED_CHEST =
            FabricBlockEntityTypeBuilder.create(WarpedChestBlockEntity::new, JinericBlocks.WARPED_CHEST).build(null);
 
+   public static final BlockEntityType<MangroveChestBlockEntity> MANGROVE_CHEST =
+           FabricBlockEntityTypeBuilder.create(MangroveChestBlockEntity::new, JinericBlocks.MANGROVE_CHEST).build(null);
+
    public static final BlockEntityType<ShulkerChestBlockEntity> SHULKER_CHEST =
            FabricBlockEntityTypeBuilder.create(ShulkerChestBlockEntity::new, JinericBlocks.SHULKER_CHEST).build(null);
 
@@ -56,6 +59,7 @@ public class JinericBlockEntityType {
       Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "jungle_chest"), JUNGLE_CHEST);
       Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "spruce_chest"), SPRUCE_CHEST);
       Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "warped_chest"), WARPED_CHEST);
+      Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "mangrove_chest"), MANGROVE_CHEST);
       Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "shulker_chest"), SHULKER_CHEST);
 
       Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "refinery"), REFINERY);

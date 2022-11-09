@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "jineric:prismarine_crystal_block"
+    }
+  },
+  "result": {
+    "item": "minecraft:prismarine_crystals",
+    "count": 9
+  }
+}

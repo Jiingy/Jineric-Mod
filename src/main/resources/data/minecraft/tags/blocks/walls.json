@@ -2,9 +2,14 @@
   "replace": false,
   "values": [
     "jineric:stone_wall",
+    "jineric:polished_stone_wall",
     "jineric:smooth_stone_wall",
+    "jineric:stone_tile_wall",
     "jineric:rhyolite_wall",
-    "jineric:slate_wall",
+    "jineric:rhyolite_brick_wall",
+    "jineric:polished_rhyolite_wall",
+    "jineric:rhyolite_tile_wall",
+    "jineric:smooth_rhyolite_wall",
     "jineric:siltstone_wall",
     "jineric:polished_siltstone_wall",
     "jineric:polished_granite_wall",
@@ -31,8 +36,6 @@
     "jineric:obsidian_wall",
     "jineric:dark_prismarine_wall",
     "jineric:prismarine_brick_wall",
-    "jineric:dripstone_wall",
-    "jineric:polished_dripstone_wall",
     "jineric:smooth_deepslate_wall",
     "jineric:calcite_wall",
     "jineric:polished_calcite_wall",
@@ -49,6 +52,12 @@
     "jineric:waxed_cut_copper_wall",
     "jineric:waxed_exposed_cut_copper_wall",
     "jineric:waxed_weathered_cut_copper_wall",
-    "jineric:waxed_oxidized_cut_copper_wall"
+    "jineric:waxed_oxidized_cut_copper_wall",
+    "jineric:dripstone_wall",
+    "jineric:cobbled_dripstone_wall",
+    "jineric:dripstone_brick_wall",
+    "jineric:smooth_dripstone_wall",
+    "jineric:polished_dripstone_wall",
+    "jineric:dripstone_tile_wall"
   ]
 }

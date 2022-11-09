@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:egg"
+    }
+  },
+  "result": {
+    "item": "jineric:egg_block",
+    "count": 1
+  }
+}

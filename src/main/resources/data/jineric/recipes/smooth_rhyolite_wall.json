@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "XXX",
+        "XXX"
+    ],
+    "key": {
+        "X": {
+            "item": "jineric:smooth_rhyolite"
+        }
+    },
+    "result": {
+        "item": "jineric:smooth_rhyolite_wall",
+        "count": 6
+    }
+}

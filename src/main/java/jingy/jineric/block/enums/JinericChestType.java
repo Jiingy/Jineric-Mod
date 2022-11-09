@@ -50,6 +50,11 @@ public enum JinericChestType {
            new Identifier(JinericMain.MOD_ID, "entity/chest/warped_left"),
            new Identifier(JinericMain.MOD_ID, "entity/chest/warped_right")),
 
+   MANGROVE(27, 9,
+           new Identifier(JinericMain.MOD_ID, "entity/chest/mangrove_chest"),
+           new Identifier(JinericMain.MOD_ID, "entity/chest/mangrove_left"),
+           new Identifier(JinericMain.MOD_ID, "entity/chest/mangrove_right")),
+
    SHULKER(81, 9, new Identifier(JinericMain.MOD_ID, "entity/chest/shulker_chest"));
 
    public final int size;
@@ -88,6 +93,7 @@ public enum JinericChestType {
          case JUNGLE -> JinericBlockEntityType.JUNGLE_CHEST.instantiate(pos, state);
          case SPRUCE -> JinericBlockEntityType.SPRUCE_CHEST.instantiate(pos, state);
          case WARPED -> JinericBlockEntityType.WARPED_CHEST.instantiate(pos, state);
+         case MANGROVE -> JinericBlockEntityType.MANGROVE_CHEST.instantiate(pos, state);
          case SHULKER -> JinericBlockEntityType.SHULKER_CHEST.instantiate(pos, state);
          default -> new ChestBlockEntity(pos, state);
       };
@@ -103,6 +109,7 @@ public enum JinericChestType {
          case JUNGLE -> JinericBlockEntityType.JUNGLE_CHEST;
          case SPRUCE -> JinericBlockEntityType.SPRUCE_CHEST;
          case WARPED -> JinericBlockEntityType.WARPED_CHEST;
+         case MANGROVE -> JinericBlockEntityType.MANGROVE_CHEST;
          case SHULKER -> JinericBlockEntityType.SHULKER_CHEST;
          default -> BlockEntityType.CHEST;
       };

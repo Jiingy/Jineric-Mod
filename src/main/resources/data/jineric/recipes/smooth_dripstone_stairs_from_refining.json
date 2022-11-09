@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:refining",
+    "ingredient": {
+        "item": "jineric:dripstone_stairs"
+    },
+    "result": "jineric:smooth_dripstone_stairs",
+    "experience": 0.2
+}

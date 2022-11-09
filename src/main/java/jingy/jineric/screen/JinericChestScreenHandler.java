@@ -4,6 +4,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
+import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
@@ -53,6 +54,12 @@ public class JinericChestScreenHandler extends ScreenHandler {
       for (x = 0; x < 9; ++x) {
          this.addSlot(new Slot(playerInventory, x, 8 + x * 18, 252));
       }
+   }
+
+   @Override
+   public ItemStack transferSlot(PlayerEntity player, int index) {
+      ItemStack itemStack = ItemStack.EMPTY;
+      return itemStack;
    }
 
    @Override

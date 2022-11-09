@@ -1,0 +1,8 @@
+{
+  "type": "jineric:refining",
+  "ingredient": {
+    "item": "minecraft:stone"
+  },
+  "result": "minecraft:smooth_stone",
+  "experience": 0.2
+}

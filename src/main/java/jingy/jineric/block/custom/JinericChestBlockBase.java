@@ -56,6 +56,8 @@ public class JinericChestBlockBase extends ChestBlock {
       return this.getDefaultState().with(FACING, direction).with(CHEST_TYPE, chestType).with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER);
    }
 
+   //TODO: Double Chest block name is improper
+
    @Nullable
    private Direction getNeighborChestDirection(ItemPlacementContext ctx, Direction dir) {
       BlockState blockState = ctx.getWorld().getBlockState(ctx.getBlockPos().offset(dir));

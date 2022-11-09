@@ -3,6 +3,8 @@
   "values": [
     "jineric:bamboo_block",
     "jineric:soul_jack_o_lantern",
+    "jineric:stack_of_paper",
+    "jineric:stick_bundle",
 
     "jineric:boreal_wood",
     "jineric:boreal_log",
@@ -12,7 +14,6 @@
     "jineric:boreal_stairs",
     "jineric:boreal_slab",
     "jineric:boreal_sapling",
-    "jineric:boreal_ladder",
     "jineric:boreal_fence",
     "jineric:boreal_button",
     "jineric:boreal_pressure_plate",

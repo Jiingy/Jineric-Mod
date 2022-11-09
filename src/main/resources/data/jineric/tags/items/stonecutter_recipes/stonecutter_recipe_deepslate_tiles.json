@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:deepslate_tiles",
+    "minecraft:deepslate_tile_slab",
+    "minecraft:deepslate_tile_stairs",
+    "minecraft:deepslate_tile_wall"
+  ]
+}
