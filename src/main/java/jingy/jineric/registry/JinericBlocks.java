@@ -473,34 +473,6 @@ FORMAT:
 			"polished_rhyolite_wall", new WallBlock(Block.Settings.copy(POLISHED_RHYOLITE))
 	);
 
-//SILTSTONE
-	public static final Block SILTSTONE = register(
-			"siltstone", new Block(Block.Settings.copy(STONE))
-	);
-	public static final Block SILTSTONE_STAIRS = register(
-			"siltstone_stairs", new JinericStairsBlock(SILTSTONE.getDefaultState(), Block.Settings.copy(SILTSTONE))
-	);
-	public static final Block SILTSTONE_SLAB  = register(
-			"siltstone_slab", new SlabBlock(Block.Settings.copy(SILTSTONE))
-	);
-	public static final Block SILTSTONE_WALL = register(
-			"siltstone_wall", new WallBlock(Block.Settings.copy(SILTSTONE))
-	);
-
-	//POLISHED_SILTSTONE
-	public static final Block POLISHED_SILTSTONE = register(
-			"polished_siltstone", new Block(Block.Settings.copy(SILTSTONE))
-	);
-	public static final Block POLISHED_SILTSTONE_STAIRS = register(
-			"polished_siltstone_stairs", new JinericStairsBlock(POLISHED_SILTSTONE.getDefaultState(), Block.Settings.copy(POLISHED_SILTSTONE))
-	);
-	public static final Block POLISHED_SILTSTONE_SLAB  = register(
-			"polished_siltstone_slab", new SlabBlock(Block.Settings.copy(POLISHED_SILTSTONE))
-	);
-	public static final Block POLISHED_SILTSTONE_WALL = register(
-			"polished_siltstone_wall", new WallBlock(Block.Settings.copy(STONE))
-	);
-
 //MISCELLANEOUS
 	//PACKED ITEM BLOCKS
 	public static final Block SALT_BLOCK = register("salt_block", new FallingBlock(Block.Settings.copy(CLAY).sounds(BlockSoundGroup.SAND))
