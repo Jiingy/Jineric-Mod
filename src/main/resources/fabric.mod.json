@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
   "id": "jineric",
-  "version": "${version}",
   "name": "Jineric Mod",
+  "version": "${version}",
+  "environment": "*",
   "description": "A gameplay focussed mod made to improve the vanilla experience",
   "authors": [
     "Jingy"
@@ -13,7 +14,6 @@
   },
   "license": "MIT",
   "icon": "assets/jineric/icon.png",
-  "environment": "*",
   "entrypoints": {
     "main": [
       "jingy.jineric.base.JinericMain"
@@ -29,7 +29,7 @@
     "jineric.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14.6",
+    "fabricloader": ">=0.14.10",
     "fabric": "*",
     "minecraft": "~1.19.2",
     "java": ">=17"
