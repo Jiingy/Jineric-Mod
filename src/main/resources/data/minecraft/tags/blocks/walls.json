@@ -2,8 +2,8 @@
   "replace": false,
   "values": [
     "jineric:stone_wall",
-    "jineric:polished_stone_wall",
     "jineric:smooth_stone_wall",
+    "jineric:polished_stone_wall",
     "jineric:stone_tile_wall",
     "jineric:rhyolite_wall",
     "jineric:rhyolite_brick_wall",

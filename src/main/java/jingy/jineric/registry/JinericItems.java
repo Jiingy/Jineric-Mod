@@ -22,12 +22,12 @@ public class JinericItems {
 
 //DRIPSTONE
 	public static final Item POLISHED_STONE = register("polished_stone", new BlockItem(JinericBlocks.POLISHED_STONE, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
-	public static final Item POLISHED_STONE_SLAB = register("polished_stone_slab", new BlockItem(JinericBlocks.POLISHED_STONE_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item POLISHED_STONE_STAIRS = register("polished_stone_stairs", new BlockItem(JinericBlocks.POLISHED_STONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
+	public static final Item POLISHED_STONE_SLAB = register("polished_stone_slab", new BlockItem(JinericBlocks.POLISHED_STONE_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item POLISHED_STONE_WALL = register("polished_stone_wall", new BlockItem(JinericBlocks.POLISHED_STONE_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item STONE_TILES = register("stone_tiles", new BlockItem(JinericBlocks.STONE_TILES, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
-	public static final Item STONE_TILE_SLAB = register("stone_tile_slab", new BlockItem(JinericBlocks.STONE_TILE_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item STONE_TILE_STAIRS = register("stone_tile_stairs", new BlockItem(JinericBlocks.STONE_TILE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
+	public static final Item STONE_TILE_SLAB = register("stone_tile_slab", new BlockItem(JinericBlocks.STONE_TILE_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item STONE_TILE_WALL = register("stone_tile_wall", new BlockItem(JinericBlocks.STONE_TILE_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item DRIPSTONE_STAIRS = register("dripstone_stairs", new BlockItem(JinericBlocks.DRIPSTONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item DRIPSTONE_SLAB = register("dripstone_slab", new BlockItem(JinericBlocks.DRIPSTONE_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));

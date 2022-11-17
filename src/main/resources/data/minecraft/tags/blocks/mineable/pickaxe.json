@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+
     "jineric:bone_meal_block",
     "jineric:calcite_bricks",
     "jineric:calcite_brick_slab",
@@ -101,6 +102,14 @@
     "jineric:waxed_oxidized_cut_copper_wall",
     "jineric:obsidian_stairs",
     "jineric:obsidian_slab",
+    "jineric:polished_stone",
+    "jineric:polished_stone_stairs",
+    "jineric:polished_stone_slab",
+    "jineric:polished_stone_wall",
+    "jineric:stone_tiles",
+    "jineric:stone_tile_stairs",
+    "jineric:stone_tile_slab",
+    "jineric:stone_tile_wall",
     "jineric:cracked_stone_brick_stairs",
     "jineric:cracked_stone_brick_slab",
     "jineric:smooth_stone_stairs",

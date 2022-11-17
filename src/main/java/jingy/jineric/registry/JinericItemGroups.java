@@ -15,35 +15,10 @@ public class JinericItemGroups {
 			new Identifier("work_in_progress", "jineric"),
 			() -> new ItemStack(JinericItems.FIREWEED));
 
-//	public static final ItemGroup REDSTONE = FabricItemGroupBuilder.build(
-//			new Identifier("redstone", "jineric"),
-//			() -> new ItemStack(Items.REDSTONE));
-//
-//	public static final ItemGroup TRANSPORTATION = FabricItemGroupBuilder.build(
-//			new Identifier("transportation", "jineric"),
-//			() -> new ItemStack(Items.ELYTRA));
-
 	public static final ItemGroup UNKNOWN = FabricItemGroupBuilder.build(
 			new Identifier("unknown", "jineric"),
 			() -> new ItemStack(Items.APPLE));
 
-//	public static final ItemGroup FOODS = FabricItemGroupBuilder.build(
-//			new Identifier("foods", "jineric"),
-//			() -> new ItemStack(Items.APPLE));
-//
-//	public static final ItemGroup TOOLS = FabricItemGroupBuilder.build(
-//			new Identifier("tools", "jineric"),
-//			() -> new ItemStack(Items.IRON_AXE));
-//
-//	public static final ItemGroup COMBAT = FabricItemGroupBuilder.build(
-//			new Identifier("combat", "jineric"),
-//			() -> new ItemStack(Items.GOLDEN_SWORD));
-//
-//	public static final ItemGroup BREWING = FabricItemGroupBuilder.build(
-//			new Identifier("brewing", "jineric"),
-//			() -> new ItemStack(Items.POTION));
-
 	public static void init() {
 	}
-
 }
