@@ -2,7 +2,7 @@ package jingy.jineric.registry;
 
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.FullGrassBlock;
-import jingy.jineric.block.OxidizableWallBlock;
+import jingy.jineric.block.OxidizableCopperWallBlock;
 import jingy.jineric.block.RefineryBlock;
 import jingy.jineric.block.ShulkerChestBlock;
 import jingy.jineric.block.custom.JinericCampfireBlock;
@@ -55,15 +55,6 @@ FORMAT:
 	public static final Block POLISHED_SANDSTONE_WALL = register(
 			"polished_sandstone_wall", new WallBlock(Block.Settings.copy(POLISHED_SANDSTONE))
 	);
-	public static final Block CHISELED_SANDSTONE_STAIRS = register(
-			"chiseled_sandstone_stairs", new JinericStairsBlock(CHISELED_SANDSTONE.getDefaultState(), Block.Settings.copy(CHISELED_SANDSTONE))
-	);
-	public static final Block CHISELED_SANDSTONE_SLAB  = register(
-			"chiseled_sandstone_slab", new SlabBlock(Block.Settings.copy(CHISELED_SANDSTONE))
-	);
-	public static final Block CHISELED_SANDSTONE_WALL = register(
-			"chiseled_sandstone_wall", new WallBlock(Block.Settings.copy(CHISELED_SANDSTONE))
-	);
 	public static final Block SMOOTH_SANDSTONE_WALL = register(
 			"smooth_sandstone_wall", new WallBlock(Block.Settings.copy(SMOOTH_SANDSTONE))
 	);
@@ -86,9 +77,6 @@ FORMAT:
 	public static final Block POLISHED_RED_SANDSTONE_STAIRS = register("polished_red_sandstone_stairs", new JinericStairsBlock(POLISHED_RED_SANDSTONE.getDefaultState(), Block.Settings.copy(POLISHED_RED_SANDSTONE)));
 	public static final Block POLISHED_RED_SANDSTONE_SLAB  = register("polished_red_sandstone_slab", new SlabBlock(Block.Settings.copy(POLISHED_RED_SANDSTONE)));
 	public static final Block POLISHED_RED_SANDSTONE_WALL = register("polished_red_sandstone_wall", new WallBlock(Block.Settings.copy(POLISHED_RED_SANDSTONE)));
-	public static final Block CHISELED_RED_SANDSTONE_STAIRS = register("chiseled_red_sandstone_stairs", new JinericStairsBlock(CHISELED_RED_SANDSTONE.getDefaultState(), Block.Settings.copy(CHISELED_SANDSTONE)));
-	public static final Block CHISELED_RED_SANDSTONE_SLAB  = register("chiseled_red_sandstone_slab", new SlabBlock(Block.Settings.copy(CHISELED_RED_SANDSTONE)));
-	public static final Block CHISELED_RED_SANDSTONE_WALL = register("chiseled_red_sandstone_wall", new WallBlock(Block.Settings.copy(CHISELED_RED_SANDSTONE)));
 	public static final Block SMOOTH_RED_SANDSTONE_WALL = register("smooth_red_sandstone_wall", new WallBlock(Block.Settings.copy(RED_SANDSTONE)));
 	public static final Block WAVY_RED_SANDSTONE = register("wavy_red_sandstone", new Block(Block.Settings.copy(RED_SANDSTONE)));
 	public static final Block WAVY_RED_SANDSTONE_STAIRS = register("wavy_red_sandstone_stairs", new JinericStairsBlock(WAVY_RED_SANDSTONE.getDefaultState(), Block.Settings.copy(WAVY_SANDSTONE)));
@@ -134,15 +122,6 @@ FORMAT:
 	);
 	public static final Block CHISELED_SOUL_SANDSTONE = register(
 			"chiseled_soul_sandstone", new Block(JinericBlockSettings.soulSandstoneSettings())
-	);
-	public static final Block CHISELED_SOUL_SANDSTONE_STAIRS = register(
-			"chiseled_soul_sandstone_stairs", new JinericStairsBlock(SOUL_SANDSTONE.getDefaultState(), Block.Settings.copy(SOUL_SANDSTONE))
-	);
-	public static final Block CHISELED_SOUL_SANDSTONE_SLAB  = register(
-			"chiseled_soul_sandstone_slab", new SlabBlock(Block.Settings.copy(SOUL_SANDSTONE))
-	);
-	public static final Block CHISELED_SOUL_SANDSTONE_WALL = register(
-			"chiseled_soul_sandstone_wall", new WallBlock(Block.Settings.copy(SOUL_SANDSTONE))
 	);
 	public static final Block SMOOTH_SOUL_SANDSTONE = register(
 			"smooth_soul_sandstone", new Block(JinericBlockSettings.soulSandstoneSettings())
@@ -473,34 +452,6 @@ FORMAT:
 			"polished_rhyolite_wall", new WallBlock(Block.Settings.copy(POLISHED_RHYOLITE))
 	);
 
-//SILTSTONE
-	public static final Block SILTSTONE = register(
-			"siltstone", new Block(Block.Settings.copy(STONE))
-	);
-	public static final Block SILTSTONE_STAIRS = register(
-			"siltstone_stairs", new JinericStairsBlock(SILTSTONE.getDefaultState(), Block.Settings.copy(SILTSTONE))
-	);
-	public static final Block SILTSTONE_SLAB  = register(
-			"siltstone_slab", new SlabBlock(Block.Settings.copy(SILTSTONE))
-	);
-	public static final Block SILTSTONE_WALL = register(
-			"siltstone_wall", new WallBlock(Block.Settings.copy(SILTSTONE))
-	);
-
-	//POLISHED_SILTSTONE
-	public static final Block POLISHED_SILTSTONE = register(
-			"polished_siltstone", new Block(Block.Settings.copy(SILTSTONE))
-	);
-	public static final Block POLISHED_SILTSTONE_STAIRS = register(
-			"polished_siltstone_stairs", new JinericStairsBlock(POLISHED_SILTSTONE.getDefaultState(), Block.Settings.copy(POLISHED_SILTSTONE))
-	);
-	public static final Block POLISHED_SILTSTONE_SLAB  = register(
-			"polished_siltstone_slab", new SlabBlock(Block.Settings.copy(POLISHED_SILTSTONE))
-	);
-	public static final Block POLISHED_SILTSTONE_WALL = register(
-			"polished_siltstone_wall", new WallBlock(Block.Settings.copy(STONE))
-	);
-
 //MISCELLANEOUS
 	//PACKED ITEM BLOCKS
 	public static final Block SALT_BLOCK = register("salt_block", new FallingBlock(Block.Settings.copy(CLAY).sounds(BlockSoundGroup.SAND))
@@ -550,14 +501,14 @@ FORMAT:
 	public static final Block DARK_PRISMARINE_WALL = register("dark_prismarine_wall", new WallBlock(FabricBlockSettings.copy(DARK_PRISMARINE)));
 	//TODO: FIX OXIDATION
 	//TODO: FIX LIGHTNING STRIKE NOT REFERTING STAGE
-	public static final Block CUT_COPPER_WALL = register("cut_copper_wall", new OxidizableWallBlock(Oxidizable.OxidationLevel.UNAFFECTED, FabricBlockSettings.copy(CUT_COPPER)));
-	public static final Block EXPOSED_CUT_COPPER_WALL = register("exposed_cut_copper_wall", new OxidizableWallBlock(Oxidizable.OxidationLevel.EXPOSED, FabricBlockSettings.copy(EXPOSED_CUT_COPPER)));
-	public static final Block WEATHERED_CUT_COPPER_WALL = register("weathered_cut_copper_wall", new OxidizableWallBlock(Oxidizable.OxidationLevel.WEATHERED, FabricBlockSettings.copy(WEATHERED_CUT_COPPER)));
-	public static final Block OXIDIZED_CUT_COPPER_WALL = register("oxidized_cut_copper_wall", new OxidizableWallBlock(Oxidizable.OxidationLevel.OXIDIZED, FabricBlockSettings.copy(OXIDIZED_CUT_COPPER)));
-	public static final Block WAXED_CUT_COPPER_WALL = register("waxed_cut_copper_wall", new OxidizableWallBlock(Oxidizable.OxidationLevel.UNAFFECTED, FabricBlockSettings.copy(CUT_COPPER)));
-	public static final Block WAXED_EXPOSED_CUT_COPPER_WALL = register("waxed_exposed_cut_copper_wall", new OxidizableWallBlock(Oxidizable.OxidationLevel.EXPOSED, FabricBlockSettings.copy(EXPOSED_CUT_COPPER)));
-	public static final Block WAXED_WEATHERED_CUT_COPPER_WALL = register("waxed_weathered_cut_copper_wall", new OxidizableWallBlock(Oxidizable.OxidationLevel.WEATHERED, FabricBlockSettings.copy(WEATHERED_CUT_COPPER)));
-	public static final Block WAXED_OXIDIZED_CUT_COPPER_WALL = register("waxed_oxidized_cut_copper_wall", new OxidizableWallBlock(Oxidizable.OxidationLevel.OXIDIZED, FabricBlockSettings.copy(OXIDIZED_CUT_COPPER)));
+	public static final Block CUT_COPPER_WALL = register("cut_copper_wall", new OxidizableCopperWallBlock(Oxidizable.OxidationLevel.UNAFFECTED, FabricBlockSettings.copy(CUT_COPPER)));
+	public static final Block EXPOSED_CUT_COPPER_WALL = register("exposed_cut_copper_wall", new OxidizableCopperWallBlock(Oxidizable.OxidationLevel.EXPOSED, FabricBlockSettings.copy(EXPOSED_CUT_COPPER)));
+	public static final Block WEATHERED_CUT_COPPER_WALL = register("weathered_cut_copper_wall", new OxidizableCopperWallBlock(Oxidizable.OxidationLevel.WEATHERED, FabricBlockSettings.copy(WEATHERED_CUT_COPPER)));
+	public static final Block OXIDIZED_CUT_COPPER_WALL = register("oxidized_cut_copper_wall", new OxidizableCopperWallBlock(Oxidizable.OxidationLevel.OXIDIZED, FabricBlockSettings.copy(OXIDIZED_CUT_COPPER)));
+	public static final Block WAXED_CUT_COPPER_WALL = register("waxed_cut_copper_wall", new OxidizableCopperWallBlock(Oxidizable.OxidationLevel.UNAFFECTED, FabricBlockSettings.copy(CUT_COPPER)));
+	public static final Block WAXED_EXPOSED_CUT_COPPER_WALL = register("waxed_exposed_cut_copper_wall", new OxidizableCopperWallBlock(Oxidizable.OxidationLevel.EXPOSED, FabricBlockSettings.copy(EXPOSED_CUT_COPPER)));
+	public static final Block WAXED_WEATHERED_CUT_COPPER_WALL = register("waxed_weathered_cut_copper_wall", new OxidizableCopperWallBlock(Oxidizable.OxidationLevel.WEATHERED, FabricBlockSettings.copy(WEATHERED_CUT_COPPER)));
+	public static final Block WAXED_OXIDIZED_CUT_COPPER_WALL = register("waxed_oxidized_cut_copper_wall", new OxidizableCopperWallBlock(Oxidizable.OxidationLevel.OXIDIZED, FabricBlockSettings.copy(OXIDIZED_CUT_COPPER)));
 
 	//CHESTS
 	public static final Block ACACIA_CHEST = register(

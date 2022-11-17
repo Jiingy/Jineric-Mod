@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "jineric:block/siltstone",
-    "top": "jineric:block/siltstone",
-    "side": "jineric:block/siltstone"
-  }
-}

@@ -22,12 +22,12 @@ public class JinericItems {
 
 //DRIPSTONE
 	public static final Item POLISHED_STONE = register("polished_stone", new BlockItem(JinericBlocks.POLISHED_STONE, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
-	public static final Item POLISHED_STONE_SLAB = register("polished_stone_slab", new BlockItem(JinericBlocks.POLISHED_STONE_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item POLISHED_STONE_STAIRS = register("polished_stone_stairs", new BlockItem(JinericBlocks.POLISHED_STONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
+	public static final Item POLISHED_STONE_SLAB = register("polished_stone_slab", new BlockItem(JinericBlocks.POLISHED_STONE_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item POLISHED_STONE_WALL = register("polished_stone_wall", new BlockItem(JinericBlocks.POLISHED_STONE_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item STONE_TILES = register("stone_tiles", new BlockItem(JinericBlocks.STONE_TILES, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
-	public static final Item STONE_TILE_SLAB = register("stone_tile_slab", new BlockItem(JinericBlocks.STONE_TILE_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item STONE_TILE_STAIRS = register("stone_tile_stairs", new BlockItem(JinericBlocks.STONE_TILE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
+	public static final Item STONE_TILE_SLAB = register("stone_tile_slab", new BlockItem(JinericBlocks.STONE_TILE_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item STONE_TILE_WALL = register("stone_tile_wall", new BlockItem(JinericBlocks.STONE_TILE_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item DRIPSTONE_STAIRS = register("dripstone_stairs", new BlockItem(JinericBlocks.DRIPSTONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item DRIPSTONE_SLAB = register("dripstone_slab", new BlockItem(JinericBlocks.DRIPSTONE_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
@@ -60,9 +60,6 @@ public class JinericItems {
 	public static final Item SMOOTH_SANDSTONE_WALL = register("smooth_sandstone_wall", new BlockItem(JinericBlocks.SMOOTH_SANDSTONE_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item CUT_SANDSTONE_STAIRS = register("cut_sandstone_stairs", new BlockItem(JinericBlocks.CUT_SANDSTONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item CUT_SANDSTONE_WALL = register("cut_sandstone_wall", new BlockItem(JinericBlocks.CUT_SANDSTONE_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
-	public static final Item CHISELED_SANDSTONE_SLAB = register("chiseled_sandstone_slab", new BlockItem(JinericBlocks.CHISELED_SANDSTONE_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
-	public static final Item CHISELED_SANDSTONE_STAIRS = register("chiseled_sandstone_stairs", new BlockItem(JinericBlocks.CHISELED_SANDSTONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
-	public static final Item CHISELED_SANDSTONE_WALL = register("chiseled_sandstone_wall", new BlockItem(JinericBlocks.CHISELED_SANDSTONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item POLISHED_SANDSTONE = register("polished_sandstone", new BlockItem(JinericBlocks.POLISHED_SANDSTONE, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item POLISHED_SANDSTONE_SLAB = register("polished_sandstone_slab", new BlockItem(JinericBlocks.POLISHED_SANDSTONE_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item POLISHED_SANDSTONE_STAIRS = register("polished_sandstone_stairs", new BlockItem(JinericBlocks.POLISHED_SANDSTONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
@@ -76,9 +73,6 @@ public class JinericItems {
 	public static final Item SMOOTH_RED_SANDSTONE_WALL = register("smooth_red_sandstone_wall", new BlockItem(JinericBlocks.SMOOTH_RED_SANDSTONE_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item CUT_RED_SANDSTONE_STAIRS = register("cut_red_sandstone_stairs", new BlockItem(JinericBlocks.CUT_RED_SANDSTONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item CUT_RED_SANDSTONE_WALL = register("cut_red_sandstone_wall", new BlockItem(JinericBlocks.CUT_RED_SANDSTONE_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
-	public static final Item CHISELED_RED_SANDSTONE_STAIRS = register("chiseled_red_sandstone_stairs", new BlockItem(JinericBlocks.CHISELED_RED_SANDSTONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
-	public static final Item CHISELED_RED_SANDSTONE_SLAB = register("chiseled_red_sandstone_slab", new BlockItem(JinericBlocks.CHISELED_RED_SANDSTONE_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
-	public static final Item CHISELED_RED_SANDSTONE_WALL = register("chiseled_red_sandstone_wall", new BlockItem(JinericBlocks.CHISELED_RED_SANDSTONE_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item POLISHED_RED_SANDSTONE = register("polished_red_sandstone", new BlockItem(JinericBlocks.POLISHED_RED_SANDSTONE, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item POLISHED_RED_SANDSTONE_STAIRS = register("polished_red_sandstone_stairs", new BlockItem(JinericBlocks.POLISHED_RED_SANDSTONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item POLISHED_RED_SANDSTONE_SLAB = register("polished_red_sandstone_slab", new BlockItem(JinericBlocks.POLISHED_RED_SANDSTONE_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
@@ -102,9 +96,6 @@ public class JinericItems {
 	public static final Item POLISHED_SOUL_SANDSTONE_STAIRS = register("polished_soul_sandstone_stairs", new BlockItem(JinericBlocks.POLISHED_SOUL_SANDSTONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item POLISHED_SOUL_SANDSTONE_WALL = register("polished_soul_sandstone_wall", new BlockItem(JinericBlocks.POLISHED_SOUL_SANDSTONE_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item CHISELED_SOUL_SANDSTONE = register("chiseled_soul_sandstone", new BlockItem(JinericBlocks.CHISELED_SOUL_SANDSTONE, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
-	public static final Item CHISELED_SOUL_SANDSTONE_SLAB = register("chiseled_soul_sandstone_slab", new BlockItem(JinericBlocks.CHISELED_SOUL_SANDSTONE_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
-	public static final Item CHISELED_SOUL_SANDSTONE_STAIRS = register("chiseled_soul_sandstone_stairs", new BlockItem(JinericBlocks.CHISELED_SOUL_SANDSTONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
-	public static final Item CHISELED_SOUL_SANDSTONE_WALL = register("chiseled_soul_sandstone_wall", new BlockItem(JinericBlocks.CHISELED_SOUL_SANDSTONE_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item SMOOTH_SOUL_SANDSTONE = register("smooth_soul_sandstone", new BlockItem(JinericBlocks.SMOOTH_SOUL_SANDSTONE, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item SMOOTH_SOUL_SANDSTONE_SLAB = register("smooth_soul_sandstone_slab", new BlockItem(JinericBlocks.SMOOTH_SOUL_SANDSTONE_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
 	public static final Item SMOOTH_SOUL_SANDSTONE_STAIRS = register("smooth_soul_sandstone_stairs", new BlockItem(JinericBlocks.SMOOTH_SOUL_SANDSTONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.DONE)));
@@ -291,18 +282,6 @@ public class JinericItems {
 	public static final Item REDSTONE_LANTERN = register("redstone_lantern", new BlockItem(JinericBlocks.REDSTONE_LANTERN, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.UNKNOWN)));
 	public static final Item REDSTONE_CAMPFIRE = register("redstone_campfire", new BlockItem(JinericBlocks.REDSTONE_CAMPFIRE, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.UNKNOWN)));
 
-	//SILTSTONE
-//	public static final Item SILTSTONE = register("siltstone", new BlockItem(JinericBlocks.SILTSTONE, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.BUILDING_BLOCKS)));
-//	public static final Item SILTSTONE_STAIRS = register("siltstone_stairs", new BlockItem(JinericBlocks.SILTSTONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.BUILDING_BLOCKS)));
-//	public static final Item SILTSTONE_SLAB = register("siltstone_slab", new BlockItem(JinericBlocks.SILTSTONE_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.BUILDING_BLOCKS)));
-//	public static final Item POLISHED_SILTSTONE = register("polished_siltstone", new BlockItem(JinericBlocks.POLISHED_SILTSTONE, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.BUILDING_BLOCKS)));
-//	public static final Item POLISHED_SILTSTONE_STAIRS = register("polished_siltstone_stairs", new BlockItem(JinericBlocks.POLISHED_SILTSTONE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.BUILDING_BLOCKS)));
-//	public static final Item POLISHED_SILTSTONE_SLAB = register("polished_siltstone_slab", new BlockItem(JinericBlocks.POLISHED_SILTSTONE_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.BUILDING_BLOCKS)));
-//	public static final Item SILTSTONE_WALL = register("siltstone_wall", new BlockItem(JinericBlocks.SILTSTONE_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.UNKNOWN)));
-//	public static final Item POLISHED_SILTSTONE_WALL = register("polished_siltstone_wall", new BlockItem(JinericBlocks.POLISHED_SILTSTONE_WALL, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.UNKNOWN)));
-//	public static final Item SLATE = register("slate", new BlockItem(JinericBlocks.SLATE, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.BUILDING_BLOCKS)));
-//	public static final Item SLATE_STAIRS = register("slate_stairs", new BlockItem(JinericBlocks.SLATE_STAIRS, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.BUILDING_BLOCKS)));
-//	public static final Item SLATE_SLAB = register("slate_slab", new BlockItem(JinericBlocks.SLATE_SLAB, JinericItemSettings.BuildingBlocks().group(JinericItemGroups.BUILDING_BLOCKS)));
 
 	private static Item register(String name, Item item) {
 		return Registry.register(Registry.ITEM, new Identifier("jineric", name), item);
