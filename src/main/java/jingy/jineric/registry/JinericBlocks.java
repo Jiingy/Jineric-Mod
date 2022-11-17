@@ -55,15 +55,6 @@ FORMAT:
 	public static final Block POLISHED_SANDSTONE_WALL = register(
 			"polished_sandstone_wall", new WallBlock(Block.Settings.copy(POLISHED_SANDSTONE))
 	);
-	public static final Block CHISELED_SANDSTONE_STAIRS = register(
-			"chiseled_sandstone_stairs", new JinericStairsBlock(CHISELED_SANDSTONE.getDefaultState(), Block.Settings.copy(CHISELED_SANDSTONE))
-	);
-	public static final Block CHISELED_SANDSTONE_SLAB  = register(
-			"chiseled_sandstone_slab", new SlabBlock(Block.Settings.copy(CHISELED_SANDSTONE))
-	);
-	public static final Block CHISELED_SANDSTONE_WALL = register(
-			"chiseled_sandstone_wall", new WallBlock(Block.Settings.copy(CHISELED_SANDSTONE))
-	);
 	public static final Block SMOOTH_SANDSTONE_WALL = register(
 			"smooth_sandstone_wall", new WallBlock(Block.Settings.copy(SMOOTH_SANDSTONE))
 	);
@@ -86,9 +77,6 @@ FORMAT:
 	public static final Block POLISHED_RED_SANDSTONE_STAIRS = register("polished_red_sandstone_stairs", new JinericStairsBlock(POLISHED_RED_SANDSTONE.getDefaultState(), Block.Settings.copy(POLISHED_RED_SANDSTONE)));
 	public static final Block POLISHED_RED_SANDSTONE_SLAB  = register("polished_red_sandstone_slab", new SlabBlock(Block.Settings.copy(POLISHED_RED_SANDSTONE)));
 	public static final Block POLISHED_RED_SANDSTONE_WALL = register("polished_red_sandstone_wall", new WallBlock(Block.Settings.copy(POLISHED_RED_SANDSTONE)));
-	public static final Block CHISELED_RED_SANDSTONE_STAIRS = register("chiseled_red_sandstone_stairs", new JinericStairsBlock(CHISELED_RED_SANDSTONE.getDefaultState(), Block.Settings.copy(CHISELED_SANDSTONE)));
-	public static final Block CHISELED_RED_SANDSTONE_SLAB  = register("chiseled_red_sandstone_slab", new SlabBlock(Block.Settings.copy(CHISELED_RED_SANDSTONE)));
-	public static final Block CHISELED_RED_SANDSTONE_WALL = register("chiseled_red_sandstone_wall", new WallBlock(Block.Settings.copy(CHISELED_RED_SANDSTONE)));
 	public static final Block SMOOTH_RED_SANDSTONE_WALL = register("smooth_red_sandstone_wall", new WallBlock(Block.Settings.copy(RED_SANDSTONE)));
 	public static final Block WAVY_RED_SANDSTONE = register("wavy_red_sandstone", new Block(Block.Settings.copy(RED_SANDSTONE)));
 	public static final Block WAVY_RED_SANDSTONE_STAIRS = register("wavy_red_sandstone_stairs", new JinericStairsBlock(WAVY_RED_SANDSTONE.getDefaultState(), Block.Settings.copy(WAVY_SANDSTONE)));
@@ -134,15 +122,6 @@ FORMAT:
 	);
 	public static final Block CHISELED_SOUL_SANDSTONE = register(
 			"chiseled_soul_sandstone", new Block(JinericBlockSettings.soulSandstoneSettings())
-	);
-	public static final Block CHISELED_SOUL_SANDSTONE_STAIRS = register(
-			"chiseled_soul_sandstone_stairs", new JinericStairsBlock(SOUL_SANDSTONE.getDefaultState(), Block.Settings.copy(SOUL_SANDSTONE))
-	);
-	public static final Block CHISELED_SOUL_SANDSTONE_SLAB  = register(
-			"chiseled_soul_sandstone_slab", new SlabBlock(Block.Settings.copy(SOUL_SANDSTONE))
-	);
-	public static final Block CHISELED_SOUL_SANDSTONE_WALL = register(
-			"chiseled_soul_sandstone_wall", new WallBlock(Block.Settings.copy(SOUL_SANDSTONE))
 	);
 	public static final Block SMOOTH_SOUL_SANDSTONE = register(
 			"smooth_soul_sandstone", new Block(JinericBlockSettings.soulSandstoneSettings())

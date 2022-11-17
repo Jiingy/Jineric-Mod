@@ -120,9 +120,6 @@
     "jineric:polished_soul_sandstone_slab",
     "jineric:polished_soul_sandstone_wall",
     "jineric:chiseled_soul_sandstone",
-    "jineric:chiseled_soul_sandstone_stairs",
-    "jineric:chiseled_soul_sandstone_slab",
-    "jineric:chiseled_soul_sandstone_wall",
     "jineric:smooth_soul_sandstone",
     "jineric:smooth_soul_sandstone_stairs",
     "jineric:smooth_soul_sandstone_slab",
@@ -140,9 +137,6 @@
     "jineric:wavy_sandstone_stairs",
     "jineric:wavy_sandstone_slab",
     "jineric:wavy_sandstone_wall",
-    "jineric:chiseled_sandstone_stairs",
-    "jineric:chiseled_sandstone_slab",
-    "jineric:chiseled_sandstone_wall",
     "jineric:cut_sandstone_stairs",
     "jineric:cut_sandstone_wall",
 
@@ -154,9 +148,6 @@
     "jineric:wavy_red_sandstone_stairs",
     "jineric:wavy_red_sandstone_slab",
     "jineric:wavy_red_sandstone_wall",
-    "jineric:chiseled_red_sandstone_stairs",
-    "jineric:chiseled_red_sandstone_slab",
-    "jineric:chiseled_red_sandstone_wall",
     "jineric:cut_red_sandstone_stairs",
     "jineric:cut_red_sandstone_wall"
   ]
