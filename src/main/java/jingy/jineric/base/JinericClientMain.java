@@ -1,6 +1,5 @@
 package jingy.jineric.base;
 
-import jingy.jineric.block.enums.JinericChestType;
 import jingy.jineric.client.render.JinericElytraFeatureRenderer;
 import jingy.jineric.client.render.blockentity.GenericChestBlockEntityRenderer;
 import jingy.jineric.client.render.blockentity.JinericCampfireBlockEntityRenderer;
@@ -20,13 +19,11 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback;
-import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
 import net.fabricmc.fabric.impl.client.rendering.BlockEntityRendererRegistryImpl;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.color.world.GrassColors;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.TexturedRenderLayers;
 import net.minecraft.client.render.entity.ArmorStandEntityRenderer;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
@@ -92,11 +89,11 @@ public class JinericClientMain implements ClientModInitializer {
 
 		//BLOCK RENDER LAYER MAPS
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.FIREWEED, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BOREAL_TRAPDOOR, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BOREAL_DOOR, RenderLayer.getCutout());
+//		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BOREAL_TRAPDOOR, RenderLayer.getCutout());
+//		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BOREAL_DOOR, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.FULL_GRASS_BLOCK, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BOREAL_LEAVES, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BOREAL_SAPLING, RenderLayer.getCutout());
+//		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BOREAL_SAPLING, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.REDSTONE_LANTERN, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.REDSTONE_CAMPFIRE, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.SPRUCE_LADDER, RenderLayer.getCutout());
@@ -109,36 +106,36 @@ public class JinericClientMain implements ClientModInitializer {
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BOREAL_LADDER, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.DARK_OAK_LADDER, RenderLayer.getCutout());
 
-		ClientSpriteRegistryCallback.event(TexturedRenderLayers.CHEST_ATLAS_TEXTURE).register(((atlasTexture, registry) -> {
-			registry.register(JinericChestType.ACACIA.texture);
-			registry.register(JinericChestType.ACACIA.textureLeft);
-			registry.register(JinericChestType.ACACIA.textureRight);
-			registry.register(JinericChestType.BIRCH.texture);
-			registry.register(JinericChestType.BIRCH.textureLeft);
-			registry.register(JinericChestType.BIRCH.textureRight);
-			registry.register(JinericChestType.BOREAL.texture);
-			registry.register(JinericChestType.BOREAL.textureLeft);
-			registry.register(JinericChestType.BOREAL.textureRight);
-			registry.register(JinericChestType.CRIMSON.texture);
-			registry.register(JinericChestType.CRIMSON.textureLeft);
-			registry.register(JinericChestType.CRIMSON.textureRight);
-			registry.register(JinericChestType.DARK_OAK.texture);
-			registry.register(JinericChestType.DARK_OAK.textureLeft);
-			registry.register(JinericChestType.DARK_OAK.textureRight);
-			registry.register(JinericChestType.JUNGLE.texture);
-			registry.register(JinericChestType.JUNGLE.textureLeft);
-			registry.register(JinericChestType.JUNGLE.textureRight);
-			registry.register(JinericChestType.SPRUCE.texture);
-			registry.register(JinericChestType.SPRUCE.textureLeft);
-			registry.register(JinericChestType.SPRUCE.textureRight);
-			registry.register(JinericChestType.WARPED.texture);
-			registry.register(JinericChestType.WARPED.textureLeft);
-			registry.register(JinericChestType.WARPED.textureRight);
-			registry.register(JinericChestType.MANGROVE.texture);
-			registry.register(JinericChestType.MANGROVE.textureLeft);
-			registry.register(JinericChestType.MANGROVE.textureRight);
-			registry.register(JinericChestType.SHULKER.texture);
-		}));
+//		ClientSpriteRegistryCallback.event(TexturedRenderLayers.CHEST_ATLAS_TEXTURE).register(((atlasTexture, registry) -> {
+//			registry.register(JinericChestType.ACACIA.texture);
+//			registry.register(JinericChestType.ACACIA.textureLeft);
+//			registry.register(JinericChestType.ACACIA.textureRight);
+//			registry.register(JinericChestType.BIRCH.texture);
+//			registry.register(JinericChestType.BIRCH.textureLeft);
+//			registry.register(JinericChestType.BIRCH.textureRight);
+//			registry.register(JinericChestType.BOREAL.texture);
+//			registry.register(JinericChestType.BOREAL.textureLeft);
+//			registry.register(JinericChestType.BOREAL.textureRight);
+//			registry.register(JinericChestType.CRIMSON.texture);
+//			registry.register(JinericChestType.CRIMSON.textureLeft);
+//			registry.register(JinericChestType.CRIMSON.textureRight);
+//			registry.register(JinericChestType.DARK_OAK.texture);
+//			registry.register(JinericChestType.DARK_OAK.textureLeft);
+//			registry.register(JinericChestType.DARK_OAK.textureRight);
+//			registry.register(JinericChestType.JUNGLE.texture);
+//			registry.register(JinericChestType.JUNGLE.textureLeft);
+//			registry.register(JinericChestType.JUNGLE.textureRight);
+//			registry.register(JinericChestType.SPRUCE.texture);
+//			registry.register(JinericChestType.SPRUCE.textureLeft);
+//			registry.register(JinericChestType.SPRUCE.textureRight);
+//			registry.register(JinericChestType.WARPED.texture);
+//			registry.register(JinericChestType.WARPED.textureLeft);
+//			registry.register(JinericChestType.WARPED.textureRight);
+//			registry.register(JinericChestType.MANGROVE.texture);
+//			registry.register(JinericChestType.MANGROVE.textureLeft);
+//			registry.register(JinericChestType.MANGROVE.textureRight);
+//			registry.register(JinericChestType.SHULKER.texture);
+//		}));
 
 		//SCREEN HANDLERS
 		HandledScreens.register(JinericScreenHandlerType.SHULKER_CHEST, ShulkerChestScreen::new);

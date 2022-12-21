@@ -1,9 +1,9 @@
 package jingy.jineric.tag;
 
 import net.minecraft.block.Block;
-import net.minecraft.tag.TagKey;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 public class JinericBlockTags {
    public static final TagKey<Block> JINERIC_WALLS = register("jineric:jineric_walls");
@@ -11,7 +11,7 @@ public class JinericBlockTags {
    public static final TagKey<Block> BOOKSHELVES = register("jineric:bookshelves");
 
    private static TagKey<Block> register(String id) {
-      return TagKey.of(Registry.BLOCK_KEY, new Identifier(id));
+      return TagKey.of(Registries.BLOCK.getKey(), new Identifier(id));
    }
 
    private JinericBlockTags() {

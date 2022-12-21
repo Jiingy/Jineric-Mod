@@ -3,8 +3,9 @@ package jingy.jineric.potion;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.potion.Potion;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 public class JinericPotions {
 //TODO Finish adding
@@ -17,7 +18,7 @@ public class JinericPotions {
    );
 
    public static Potion register(String name, Potion potion) {
-      return Registry.register(Registry.POTION, new Identifier("jineric", name), potion);
+      return Registry.register(Registries.POTION, new Identifier("jineric", name), potion);
    }
 
    public static void registerPotions() {

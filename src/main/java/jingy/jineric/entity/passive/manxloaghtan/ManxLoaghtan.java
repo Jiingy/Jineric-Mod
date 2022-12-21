@@ -268,10 +268,7 @@ public class ManxLoaghtan extends AnimalEntity implements Shearable {
 
    @Override
    public ManxLoaghtan createChild(ServerWorld serverWorld, PassiveEntity passiveEntity) {
-      ManxLoaghtan manxLoaghtan = (ManxLoaghtan)passiveEntity;
-      ManxLoaghtan manxLoaghtan2 = JinericEntities.MANX_LOAGHTAN.create(serverWorld);
-//      manxLoaghtan2.setColor(this.getChildColor(this, manxLoaghtan));
-      return manxLoaghtan2;
+      return JinericEntities.MANX_LOAGHTAN.create(serverWorld);
    }
 
    @Override

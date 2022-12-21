@@ -21,7 +21,7 @@ import net.minecraft.client.render.entity.model.EntityModelLayers;
 import net.minecraft.client.util.SpriteIdentifier;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.Vec3f;
+import net.minecraft.util.math.RotationAxis;
 import net.minecraft.world.World;
 
 import java.util.Calendar;
@@ -102,7 +102,7 @@ public class GenericChestBlockEntityRenderer<T extends BlockEntity> implements B
          matrixStack.push();
          float f = ((Direction)blockState.get(ChestBlock.FACING)).asRotation();
          matrixStack.translate(0.5, 0.5, 0.5);
-         matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(-f));
+         matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(-f));
          matrixStack.translate(-0.5, -0.5, -0.5);
          DoubleBlockProperties.PropertySource<? extends ChestBlockEntity> propertySource;
 

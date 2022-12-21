@@ -4,6 +4,8 @@ import net.fabricmc.fabric.api.registry.*;
 
 public class JinericRegistries {
 
+
+   //TODO: READD VOIDED CODE
    public static void registerJinericMod() {
       registerIsFuel();
       registerCompostable();
@@ -21,7 +23,7 @@ public class JinericRegistries {
       registry.add(JinericItems.STRIPPED_BOREAL_LOG, 300);
       registry.add(JinericItems.STRIPPED_BOREAL_LOG, 300);
       registry.add(JinericItems.BOREAL_FENCE, 300);
-      registry.add(JinericItems.BOREAL_FENCE_GATE, 300);
+//      registry.add(JinericItems.BOREAL_FENCE_GATE, 300);
       //BOOKSHELVES
       registry.add(JinericItems.BOREAL_BOOKSHELF, 300);
       registry.add(JinericItems.SPRUCE_BOOKSHELF, 300);
@@ -75,11 +77,11 @@ public class JinericRegistries {
       instance.add(JinericBlocks.BOREAL_STAIRS, 5, 20);
       instance.add(JinericBlocks.BOREAL_SLAB, 5, 20);
       instance.add(JinericBlocks.BOREAL_FENCE, 5, 20);
-      instance.add(JinericBlocks.BOREAL_FENCE_GATE, 5, 20);
-      instance.add(JinericBlocks.BOREAL_TRAPDOOR, 5, 20);
-      instance.add(JinericBlocks.BOREAL_DOOR, 5, 20);
-      instance.add(JinericBlocks.BOREAL_PRESSURE_PLATE, 5, 20);
-      instance.add(JinericBlocks.BOREAL_BUTTON, 5, 20);
+//      instance.add(JinericBlocks.BOREAL_FENCE_GATE, 5, 20);
+//      instance.add(JinericBlocks.BOREAL_TRAPDOOR, 5, 20);
+//      instance.add(JinericBlocks.BOREAL_DOOR, 5, 20);
+//      instance.add(JinericBlocks.BOREAL_PRESSURE_PLATE, 5, 20);
+//      instance.add(JinericBlocks.BOREAL_BUTTON, 5, 20);
       instance.add(JinericBlocks.CHARCOAL_BLOCK, 5, 5);
       instance.add(JinericBlocks.BAMBOO_BLOCK, 60, 20);
       instance.add(JinericBlocks.BOREAL_LEAVES, 30, 60);

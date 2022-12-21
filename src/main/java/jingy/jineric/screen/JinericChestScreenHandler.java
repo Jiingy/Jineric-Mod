@@ -56,10 +56,16 @@ public class JinericChestScreenHandler extends ScreenHandler {
       }
    }
 
+   //TODO: CHECK
+//   @Override
+//   public ItemStack transferSlot(PlayerEntity player, int index) {
+//      ItemStack itemStack = ItemStack.EMPTY;
+//      return itemStack;
+//   }
+
    @Override
-   public ItemStack transferSlot(PlayerEntity player, int index) {
-      ItemStack itemStack = ItemStack.EMPTY;
-      return itemStack;
+   public ItemStack quickMove(PlayerEntity player, int slot) {
+      return null;
    }
 
    @Override

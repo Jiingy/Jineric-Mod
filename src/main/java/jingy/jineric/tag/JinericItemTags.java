@@ -1,9 +1,9 @@
 package jingy.jineric.tag;
 
 import net.minecraft.item.Item;
-import net.minecraft.tag.TagKey;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 public class JinericItemTags {
 
@@ -12,7 +12,7 @@ public class JinericItemTags {
    public static final TagKey<Item> WOODEN_CHESTS = register("jineric:wooden_chests");
 
    private static TagKey<Item> register(String id) {
-      return TagKey.of(Registry.ITEM_KEY, new Identifier(id));
+      return TagKey.of(Registries.ITEM.getKey(), new Identifier(id));
    }
 
    private JinericItemTags() {

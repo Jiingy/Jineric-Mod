@@ -7,34 +7,22 @@ import jingy.jineric.block.RefineryBlock;
 import jingy.jineric.block.ShulkerChestBlock;
 import jingy.jineric.block.custom.JinericCampfireBlock;
 import jingy.jineric.block.custom.JinericChestBlock;
-import jingy.jineric.block.custom.JinericSaplingBlock;
 import jingy.jineric.block.custom.JinericStairsBlock;
 import jingy.jineric.block.enums.JinericChestType;
-import jingy.jineric.block.sapling.BorealSaplingGenerator;
 import jingy.jineric.util.JinericSignType;
-import jingy.jineric.util.RegistryObject;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.function.ToIntFunction;
 
 import static net.minecraft.block.Blocks.*;
 
 public class JinericBlocks {
-	public static final List<RegistryObject<Block>> BLOCKS = new ArrayList<>();
-/*
-FORMAT:
-	public static final Block _BLOCK = register("block", new Block(FabricBlockSettings.copy(BLOCK)));
-	public static final Block _STAIRS = register("_stairs", new BaseJinericStairBlock(BLOCK.getDefaultState(),FabricBlockSettings.copy(BLOCK)));
-	public static final Block _SLAB = register("_slab", new SlabBlock(FabricBlockSettings.copy(BLOCK)));
-	public static final Block _WALL = register("_wall", new WallBlock(FabricBlockSettings.copy(BLOCK)));
- */
 
 //SANDSTONE
 	public static final Block CUT_SANDSTONE_STAIRS = register(
@@ -633,12 +621,13 @@ FORMAT:
 			new WallSignBlock(FabricBlockSettings.copy(OAK_WALL_SIGN), JinericSignType.BOREAL)
 	);
 
-	public static final Block BOREAL_BUTTON = register("boreal_button", new WoodenButtonBlock(FabricBlockSettings.copy((OAK_BUTTON))));
-	public static final Block BOREAL_PRESSURE_PLATE = register("boreal_pressure_plate", new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, AbstractBlock.Settings.copy(OAK_PRESSURE_PLATE)));
-	public static final Block BOREAL_DOOR = register("boreal_door", new DoorBlock(Block.Settings.copy(OAK_DOOR)));
-	public static final Block BOREAL_TRAPDOOR = register("boreal_trapdoor", new TrapdoorBlock(FabricBlockSettings.copy(OAK_TRAPDOOR)));
-	public static final Block BOREAL_FENCE_GATE = register("boreal_fence_gate", new FenceGateBlock(Block.Settings.copy(OAK_FENCE_GATE)));
-	public static final Block BOREAL_SAPLING = register("boreal_sapling", new JinericSaplingBlock(new BorealSaplingGenerator(), FabricBlockSettings.copy(OAK_SAPLING)));
+	//TODO: FIX
+//	public static final Block BOREAL_BUTTON = register("boreal_button", new ButtonBlock(FabricBlockSettings.copy((OAK_BUTTON))));
+//	public static final Block BOREAL_PRESSURE_PLATE = register("boreal_pressure_plate", new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, AbstractBlock.Settings.copy(OAK_PRESSURE_PLATE)));
+//	public static final Block BOREAL_DOOR = register("boreal_door", new DoorBlock(Block.Settings.copy(OAK_DOOR)));
+//	public static final Block BOREAL_TRAPDOOR = register("boreal_trapdoor", new TrapdoorBlock(FabricBlockSettings.copy(OAK_TRAPDOOR)));
+//	public static final Block BOREAL_FENCE_GATE = register("boreal_fence_gate", new FenceGateBlock(Block.Settings.copy(OAK_FENCE_GATE)));
+//	public static final Block BOREAL_SAPLING = register("boreal_sapling", new JinericSaplingBlock(new BorealSaplingGenerator(), FabricBlockSettings.copy(OAK_SAPLING)));
 	public static final Block BOREAL_LEAVES = register("boreal_leaves", JinericBlockSettings.JinericLeavesBlock(BlockSoundGroup.GRASS));
 
 
@@ -702,7 +691,7 @@ FORMAT:
 	}
 
 	private static Block register(String id, Block block) {
-		return Registry.register(Registry.BLOCK, new Identifier(JinericMain.MOD_ID, id), block);
+		return Registry.register(Registries.BLOCK, new Identifier(JinericMain.MOD_ID, id), block);
 	}
 
 	private static ToIntFunction<BlockState> createLightLevelFromLitBlockState(int litLevel) {

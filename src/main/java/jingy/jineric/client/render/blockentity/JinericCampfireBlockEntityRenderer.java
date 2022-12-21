@@ -13,7 +13,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.Vec3f;
+import net.minecraft.util.math.RotationAxis;
 
 @Environment(EnvType.CLIENT)
 public class JinericCampfireBlockEntityRenderer implements BlockEntityRenderer<JinericCampfireBlockEntity> {
@@ -34,8 +34,8 @@ public class JinericCampfireBlockEntityRenderer implements BlockEntityRenderer<J
             matrixStack.translate(0.5, 0.44921875, 0.5);
             Direction direction2 = Direction.fromHorizontal((l + direction.getHorizontal()) % 4);
             float g = -direction2.asRotation();
-            matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(g));
-            matrixStack.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion(90.0F));
+            matrixStack.multiply(RotationAxis.POSITIVE_X.rotationDegrees(g));
+            matrixStack.multiply(RotationAxis.POSITIVE_X.rotationDegrees(90.0F));
             matrixStack.translate(-0.3125, -0.3125, 0.0);
             matrixStack.scale(0.375F, 0.375F, 0.375F);
             MinecraftClient.getInstance().getItemRenderer().renderItem(itemStack, ModelTransformation.Mode.FIXED, i, j, matrixStack, vertexConsumerProvider, k + l);
