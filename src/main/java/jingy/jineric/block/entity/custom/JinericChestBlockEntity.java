@@ -22,6 +22,8 @@ import net.minecraft.world.World;
 
 public class JinericChestBlockEntity extends ChestBlockEntity {
 
+   private static final Text ACACIA_DOUBLE = Text.translatable("container.acaciaDouble");
+   private final Text BIRCH_DOUBLE = Text.translatable("container.birchDouble");
    JinericChestType type;
 
    private final ViewerCountManager stateManager = new ViewerCountManager() {
@@ -51,13 +53,34 @@ public class JinericChestBlockEntity extends ChestBlockEntity {
       }
    };
 
-   private final ChestLidAnimator lidAnimator = new ChestLidAnimator();
-
    public JinericChestBlockEntity(JinericChestType type, BlockPos blockPos, BlockState blockState) {
       super(type.getBlockEntityType(), blockPos, blockState);
       this.type = type;
       this.setInvStackList(DefaultedList.ofSize(this.size(), ItemStack.EMPTY));
    }
+
+   public JinericChestType getChestType() {
+      return type;
+   }
+
+   public Text getChestTypeText() {
+      return switch (getChestType()) {
+         case ACACIA -> ACACIA_DOUBLE;
+         case BIRCH -> ACACIA_DOUBLE;
+         case BOREAL -> ACACIA_DOUBLE;
+         case CRIMSON -> ACACIA_DOUBLE;
+         case DARK_OAK -> ACACIA_DOUBLE;
+         case JUNGLE -> ACACIA_DOUBLE;
+         case SPRUCE -> ACACIA_DOUBLE;
+         case WARPED -> ACACIA_DOUBLE;
+         case MANGROVE -> ACACIA_DOUBLE;
+         case SHULKER -> ACACIA_DOUBLE;
+      };
+   }
+
+   private final ChestLidAnimator lidAnimator = new ChestLidAnimator();
+
+
 
    public static void clientTick(World world, BlockPos pos, BlockState state, JinericChestBlockEntity blockEntity) {
       blockEntity.lidAnimator.step();
@@ -104,7 +127,5 @@ public class JinericChestBlockEntity extends ChestBlockEntity {
       return type.size;
    }
 
-   public JinericChestType type() {
-      return type;
-   }
+
 }

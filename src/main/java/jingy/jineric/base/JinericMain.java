@@ -1,7 +1,6 @@
 package jingy.jineric.base;
 
 import jingy.jineric.entity.JinericPaintingMotive;
-import jingy.jineric.entity.JinericStatusEffects;
 import jingy.jineric.potion.JinericPotions;
 import jingy.jineric.recipe.JinericRecipeType;
 import jingy.jineric.recipe.RefiningRecipe;
@@ -31,7 +30,6 @@ public class JinericMain implements ModInitializer {
 		JinericItems.itemRegistry();
 		JinericItemGroups.onInitialize();
 		JinericSounds.init();
-		JinericStatusEffects.RegisterEffects();
 		JinericPotions.registerPotions();
 		JinericBlockEntityType.registerBlockEntities();
 		RefiningRecipe.registerRefiningRecipe();

@@ -212,5 +212,6 @@
 
   "block.jineric.boreal_chest": "Boreal Chest",
   "container.borealChest": "Chest",
-  "container.borealChestDouble": "Large Boreal Chest"
+  "container.borealChestDouble": "Large Boreal Chest",
+  "gui.recipebook.toggleRecipes.refinable": "Showing Refinable"
 }

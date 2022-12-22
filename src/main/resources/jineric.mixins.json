@@ -10,6 +10,7 @@
 	  "EnchantingTableBlockMixin",
 	  "EnchantmentMixin",
 	  "PointedDripstoneBlockMixin",
+	  "SmokerBlockMixin",
 	  "TurtleEntityMixin",
 	  "WallBlockMixin",
 	  "access.BrewingRecipeRegistryAccess",

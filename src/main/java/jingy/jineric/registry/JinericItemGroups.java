@@ -34,8 +34,7 @@ public class JinericItemGroups {
 
 	public static final Identifier MOD_ITEMS_ID = new Identifier("jineric:mod_items");
 
-	public static final Map<ItemGroup, Identifier> GROUP_ID_MAP = new ImmutableMap.Builder<ItemGroup, Identifier>()
-			.put(MOD_ITEMS, MOD_ITEMS_ID).build();
+	public static final Map<ItemGroup, Identifier> GROUP_ID_MAP = new ImmutableMap.Builder<ItemGroup, Identifier>().put(MOD_ITEMS, MOD_ITEMS_ID).build();
 
 
 	public static void onInitialize() {

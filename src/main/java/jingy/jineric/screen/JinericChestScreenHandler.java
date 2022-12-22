@@ -3,7 +3,6 @@ package jingy.jineric.screen;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
-import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerType;
@@ -14,17 +13,7 @@ public class JinericChestScreenHandler extends ScreenHandler {
    private final Inventory inventory;
    private final int rows;
 
-   public JinericChestScreenHandler(ScreenHandlerType<?> type, int syncId, PlayerInventory playerInventory, int rows) {
-      this(type, syncId, playerInventory, new SimpleInventory(9 * rows), rows);
-   }
 
-   public static JinericChestScreenHandler createGeneric9x9(int syncId, PlayerInventory playerInventory) {
-      return new JinericChestScreenHandler(JinericScreenHandlerType.SHULKER_CHEST, syncId, playerInventory, 3);
-   }
-
-   public static JinericChestScreenHandler createGeneric9x9(int syncId, PlayerInventory playerInventory, Inventory inventory) {
-      return new JinericChestScreenHandler(JinericScreenHandlerType.SHULKER_CHEST, syncId, playerInventory, inventory, 9);
-   }
 
    public JinericChestScreenHandler(ScreenHandlerType<?> type, int syncId, PlayerInventory playerInventory, Inventory inventory, int rows) {
       super(type, syncId);
@@ -32,36 +21,27 @@ public class JinericChestScreenHandler extends ScreenHandler {
       this.inventory = inventory;
       this.rows = rows;
       inventory.onOpen(playerInventory.player);
-      int z = (this.rows - 4) * 18;
 
-      //This will not render the background of the slots however, this is the Screens job
-      int x;
-      int y;
+      int width;
+      int height;
 
       //BlockEntity
-      for (x = 0; x < this.rows; ++x) {
-         for (y = 0; y < 9; ++y) {
-            this.addSlot(new Slot(inventory, y + x * 9, 8 + y * 18, 18 + x * 18));
+      for (width = 0; width < this.rows; ++width) {
+         for (height = 0; height < 9; ++height) {
+            this.addSlot(new Slot(inventory, height + width * 9, 8 + height * 18, 18 + width * 18));
          }
       }
       //The player inventory
-      for (x = 0; x < 3; ++x) {
-         for (y = 0; y < 9; ++y) {
-            this.addSlot(new Slot(playerInventory, y + x * 9 + 9, 8 + y * 18, 194 + x * 18));
+      for (width = 0; width < 3; ++width) {
+         for (height = 0; height < 9; ++height) {
+            this.addSlot(new Slot(playerInventory, height + width * 9 + 9, 8 + height * 18, 194 + width * 18));
          }
       }
       //The player Hotbar
-      for (x = 0; x < 9; ++x) {
-         this.addSlot(new Slot(playerInventory, x, 8 + x * 18, 252));
+      for (width = 0; width < 9; ++width) {
+         this.addSlot(new Slot(playerInventory, width, 8 + width * 18, 252));
       }
    }
-
-   //TODO: CHECK
-//   @Override
-//   public ItemStack transferSlot(PlayerEntity player, int index) {
-//      ItemStack itemStack = ItemStack.EMPTY;
-//      return itemStack;
-//   }
 
    @Override
    public ItemStack quickMove(PlayerEntity player, int slot) {
@@ -75,9 +55,5 @@ public class JinericChestScreenHandler extends ScreenHandler {
 
    public Inventory getInventory() {
       return this.inventory;
-   }
-
-   public int getRows() {
-      return this.rows;
    }
 }
