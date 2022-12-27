@@ -37,5 +37,10 @@
   "accessWidener": "jineric.accesswidener",
   "suggests": {
     "another-mod": "*"
+  },
+  "custom": {
+    "loom:injected_interfaces": {
+      "net/minecraft/class_1481": ["net/minecraft/class_5146"]
+    }
   }
 }

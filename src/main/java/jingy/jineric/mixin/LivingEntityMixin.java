@@ -35,14 +35,10 @@ public abstract class LivingEntityMixin extends Entity {
 		}
 	}
 
-
-
 	@ModifyVariable(
 			method = "travel",
 			slice = @Slice(from = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;getVelocityAffectingPos()Lnet/minecraft/util/math/BlockPos;")),
-			at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/block/Block;getSlipperiness()F")
-	)
-
+			at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/block/Block;getSlipperiness()F"))
 	@SuppressWarnings("InvalidInjectorMethodSignature")
 	public float jineric$setSlipperiness(float p) {
 		BlockPos pos = getBlockPos();

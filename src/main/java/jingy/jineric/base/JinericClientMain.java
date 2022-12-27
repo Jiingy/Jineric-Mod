@@ -4,6 +4,7 @@ import jingy.jineric.client.render.JinericElytraFeatureRenderer;
 import jingy.jineric.client.render.blockentity.GenericChestBlockEntityRenderer;
 import jingy.jineric.client.render.blockentity.JinericCampfireBlockEntityRenderer;
 import jingy.jineric.client.render.entity.model.JinericEntityModelLayer;
+import jingy.jineric.client.render.entity.model.TurtleSaddleModel;
 import jingy.jineric.entity.passive.manxloaghtan.ManxLoaghtanModel;
 import jingy.jineric.entity.passive.manxloaghtan.ManxLoaghtanWoolModel;
 import jingy.jineric.registry.JinericBlockEntityType;
@@ -24,12 +25,14 @@ import net.fabricmc.fabric.impl.client.rendering.BlockEntityRendererRegistryImpl
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.color.world.GrassColors;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
+import net.minecraft.client.model.Dilation;
+import net.minecraft.client.model.TexturedModelData;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.ArmorStandEntityRenderer;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;
 import net.minecraft.client.render.entity.TurtleEntityRenderer;
 import net.minecraft.client.render.entity.feature.SaddleFeatureRenderer;
-import net.minecraft.client.render.entity.model.TurtleEntityModel;
+import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public class JinericClientMain implements ClientModInitializer {
@@ -50,7 +53,13 @@ public class JinericClientMain implements ClientModInitializer {
 		BlockEntityRendererRegistryImpl.register(JinericBlockEntityType.MANGROVE_CHEST, GenericChestBlockEntityRenderer::new);
 		BlockEntityRendererRegistryImpl.register(JinericBlockEntityType.SHULKER_CHEST, GenericChestBlockEntityRenderer::new);
 
+		//TexturedModelData.of(TurtleEntityModel.getModelData(0, new Dilation(0.5F)), 128, 64)
+
 		//ENTITY MODEL LAYERS
+		EntityModelLayerRegistry.TexturedModelDataProvider turtleSaddle = () -> TexturedModelData.of(TurtleSaddleModel.getModelData(0, new Dilation(0.5F)), 128, 64);
+		EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayer.TURTLE_SADDLE, turtleSaddle);
+//		EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayer.TURTLE_SADDLE, TurtleEntityModel::getTexturedModelData);
+//		EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayer.TURTLE_SADDLE, TurtleSaddleModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayer.MANX_LOAGHTAN, ManxLoaghtanModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayer.MANX_LOAGHTAN_WOOL, ManxLoaghtanWoolModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayers.ACACIA_CHEST, GenericChestBlockEntityRenderer::getSingleTexturedModelData);
@@ -81,7 +90,6 @@ public class JinericClientMain implements ClientModInitializer {
 		EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayers.DOUBLE_MANGROVE_CHEST_LEFT, GenericChestBlockEntityRenderer::getLeftDoubleTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayers.DOUBLE_MANGROVE_CHEST_RIGHT, GenericChestBlockEntityRenderer::getRightDoubleTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayers.SHULKER_CHEST, GenericChestBlockEntityRenderer::getSingleTexturedModelData);
-//		EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayers.TURTLE_SADDLE, Turtle);
 
 		//BLOCK RENDER LAYER MAPS
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.FIREWEED, RenderLayer.getCutout());
@@ -156,19 +164,25 @@ public class JinericClientMain implements ClientModInitializer {
 
 	}
 
+
 	private void registerFeatureRenderers() {
 		LivingEntityFeatureRendererRegistrationCallback.EVENT.register((entityType, entityRenderer, registrationHelper, context) -> {
 			if (entityRenderer instanceof ArmorStandEntityRenderer || entityRenderer instanceof PlayerEntityRenderer) {
-				registrationHelper.register(new JinericElytraFeatureRenderer<>(entityRenderer, context.getModelLoader()));
+				registrationHelper.register(
+						new JinericElytraFeatureRenderer<>(entityRenderer, context.getModelLoader()));
 			}
 		});
 
 		LivingEntityFeatureRendererRegistrationCallback.EVENT.register(((entityType, entityRenderer, registrationHelper, context) -> {
-			if (entityRenderer instanceof TurtleEntityRenderer) {
-				registrationHelper.register(
-						new SaddleFeatureRenderer<>(
-								TurtleEntityRenderer, new TurtleEntityModel<>(context.getPart(JinericEntityModelLayer.TURTLE_SADDLE)), JinericMain.id("textures/entity/turtle/turtle_saddle.png")));
+			if (entityRenderer instanceof TurtleEntityRenderer turtleEntityRenderer) {
+				registrationHelper.register(new SaddleFeatureRenderer(
+						turtleEntityRenderer, new TurtleSaddleModel(context.getPart(JinericEntityModelLayer.TURTLE_SADDLE)),new Identifier(JinericMain.MOD_ID, "textures/entity/turtle/big_sea_turtle_saddle.png"))
+				);
+
 			}
 		}));
 	}
 }
+//(EntityModel<? extends Entity & Saddleable>)
+//new TurtleEntityModel<>(context.getPart(JinericEntityModelLayer.TURTLE_SADDLE))
+//(FeatureRendererContext<Saddleable, ? super TurtleEntityModel<Saddleable>>) entityRenderer

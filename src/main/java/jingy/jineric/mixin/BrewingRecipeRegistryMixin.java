@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import static net.minecraft.recipe.BrewingRecipeRegistry.registerPotionRecipe;
 
 @Mixin(BrewingRecipeRegistry.class)
-public class BrewingRecipeRegistryMixin {
+public abstract class BrewingRecipeRegistryMixin {
 
    @Inject(method = "registerDefaults", at = @At("TAIL"))
    private static void jineric$registerDefaults(CallbackInfo ci) {

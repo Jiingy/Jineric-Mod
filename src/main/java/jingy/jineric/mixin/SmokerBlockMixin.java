@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import static net.minecraft.state.property.Properties.LIT;
 
 @Mixin(SmokerBlock.class)
-public class SmokerBlockMixin {
+public abstract class SmokerBlockMixin {
 
    private static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
 

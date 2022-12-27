@@ -13,10 +13,10 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(BrewingRecipeRegistry.class)
-public class BrewingRecipeRegistryAccess {
+public abstract class BrewingRecipeRegistryAccess {
 
    @Shadow
-   private static void registerPotionRecipe(Potion input, Item item, Potion output) {
+   public static void registerPotionRecipe(Potion input, Item item, Potion output) {
    }
 
    @Inject(at = @At("HEAD"), method = "registerDefaults()V")

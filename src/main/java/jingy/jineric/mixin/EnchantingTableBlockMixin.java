@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(EnchantingTableBlock.class)
-public class EnchantingTableBlockMixin extends BlockWithEntity {
+public abstract class EnchantingTableBlockMixin extends BlockWithEntity {
    public EnchantingTableBlockMixin(Settings settings) {
       super(settings);
    }
