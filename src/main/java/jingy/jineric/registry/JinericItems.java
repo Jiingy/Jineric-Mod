@@ -149,7 +149,6 @@ public class JinericItems {
 	public static final Item FLINT_BLOCK = register("flint_block", new BlockItem(JinericBlocks.FLINT_BLOCK, new FabricItemSettings()));
 	public static final Item BONE_MEAL_BLOCK = register("bone_meal_block", new BlockItem(JinericBlocks.BONE_MEAL_BLOCK, new FabricItemSettings()));
 	public static final Item PRISMARINE_CRYSTAL_BLOCK = register("prismarine_crystal_block", new BlockItem(JinericBlocks.PRISMARINE_CRYSTAL_BLOCK, new FabricItemSettings()));
-	public static final Item BAMBOO_BLOCK = register("bamboo_block", new BlockItem(JinericBlocks.BAMBOO_BLOCK, new FabricItemSettings()));
 	public static final Item SUGAR_BLOCK = register("sugar_block", new BlockItem(JinericBlocks.SUGAR_BLOCK, new FabricItemSettings()));
 	public static final Item ROTTEN_FLESH_BLOCK = register("rotten_flesh_block", new BlockItem(JinericBlocks.ROTTEN_FLESH_BLOCK, new FabricItemSettings()));
 	public static final Item STICK_BUNDLE = register("stick_bundle", new BlockItem(JinericBlocks.STICK_BUNDLE, new FabricItemSettings()));

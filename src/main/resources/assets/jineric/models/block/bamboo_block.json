@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "jineric:block/bamboo_block_top",
-    "side": "jineric:block/bamboo_block"
-  }
-}

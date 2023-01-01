@@ -452,8 +452,6 @@ public class JinericBlocks {
 	);
 	public static final Block CHARCOAL_BLOCK = register("charcoal_block", new Block(Block.Settings.copy(COAL_BLOCK))
 	);
-	public static final Block BAMBOO_BLOCK = register("bamboo_block", new PillarBlock(Block.Settings.copy(OAK_LOG).sounds(BlockSoundGroup.BAMBOO))
-	);
 	public static final Block TUMBLEWEED = register("tumbleweed", JinericBlockSettings.JinericLeavesBlock(BlockSoundGroup.GRASS)
 	);
 	public static final Block BONE_MEAL_BLOCK = register("bone_meal_block", new Block(FabricBlockSettings.copy(BONE_BLOCK))
