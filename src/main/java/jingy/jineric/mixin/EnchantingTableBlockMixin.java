@@ -22,7 +22,7 @@ public abstract class EnchantingTableBlockMixin extends BlockWithEntity {
 
    @Inject(method = "canAccessBookshelf(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/BlockPos;)Z", at = @At("HEAD"), cancellable = true)
    private static void jineric$canAccessBookshelf(World world, BlockPos tablePos, BlockPos bookshelfOffset, CallbackInfoReturnable<Boolean> cir) {
-      if (world.getBlockState(tablePos.add(bookshelfOffset)).isIn(JinericBlockTags.BOOKSHELVES)
+      if (world.getBlockState(tablePos.add(bookshelfOffset)).isIn(JinericBlockTags.WOODEN_BOOKSHELVES)
       && world.isAir(tablePos.add(bookshelfOffset.getX() / 2, bookshelfOffset.getY(), bookshelfOffset.getZ() / 2))) {
          cir.setReturnValue(true);
       }
