@@ -20,10 +20,10 @@ public enum JinericChestType {
            new Identifier(JinericMain.MOD_ID, "entity/chest/birch_left"),
            new Identifier(JinericMain.MOD_ID, "entity/chest/birch_right")),
 
-   BOREAL(27, 9,
-           new Identifier(JinericMain.MOD_ID, "entity/chest/boreal_chest"),
-           new Identifier(JinericMain.MOD_ID, "entity/chest/boreal_left"),
-           new Identifier(JinericMain.MOD_ID, "entity/chest/boreal_right")),
+//   BOREAL(27, 9,
+//           new Identifier(JinericMain.MOD_ID, "entity/chest/boreal_chest"),
+//           new Identifier(JinericMain.MOD_ID, "entity/chest/boreal_left"),
+//           new Identifier(JinericMain.MOD_ID, "entity/chest/boreal_right")),
 
    CRIMSON(27, 9,
            new Identifier(JinericMain.MOD_ID, "entity/chest/crimson_chest"),
@@ -87,7 +87,7 @@ public enum JinericChestType {
       return switch (this) {
          case ACACIA -> JinericBlockEntityType.ACACIA_CHEST.instantiate(pos, state);
          case BIRCH -> JinericBlockEntityType.BIRCH_CHEST.instantiate(pos, state);
-         case BOREAL -> JinericBlockEntityType.BOREAL_CHEST.instantiate(pos, state);
+//         case BOREAL -> JinericBlockEntityType.BOREAL_CHEST.instantiate(pos, state);
          case CRIMSON -> JinericBlockEntityType.CRIMSON_CHEST.instantiate(pos, state);
          case DARK_OAK -> JinericBlockEntityType.DARK_OAK_CHEST.instantiate(pos, state);
          case JUNGLE -> JinericBlockEntityType.JUNGLE_CHEST.instantiate(pos, state);
@@ -95,7 +95,6 @@ public enum JinericChestType {
          case WARPED -> JinericBlockEntityType.WARPED_CHEST.instantiate(pos, state);
          case MANGROVE -> JinericBlockEntityType.MANGROVE_CHEST.instantiate(pos, state);
          case SHULKER -> JinericBlockEntityType.SHULKER_CHEST.instantiate(pos, state);
-         default -> new ChestBlockEntity(pos, state);
       };
    }
 
@@ -103,7 +102,7 @@ public enum JinericChestType {
       return switch (this) {
          case ACACIA -> JinericBlockEntityType.ACACIA_CHEST;
          case BIRCH -> JinericBlockEntityType.BIRCH_CHEST;
-         case BOREAL -> JinericBlockEntityType.BOREAL_CHEST;
+//         case BOREAL -> JinericBlockEntityType.BOREAL_CHEST;
          case CRIMSON -> JinericBlockEntityType.CRIMSON_CHEST;
          case DARK_OAK -> JinericBlockEntityType.DARK_OAK_CHEST;
          case JUNGLE -> JinericBlockEntityType.JUNGLE_CHEST;
@@ -111,7 +110,6 @@ public enum JinericChestType {
          case WARPED -> JinericBlockEntityType.WARPED_CHEST;
          case MANGROVE -> JinericBlockEntityType.MANGROVE_CHEST;
          case SHULKER -> JinericBlockEntityType.SHULKER_CHEST;
-         default -> BlockEntityType.CHEST;
       };
    }
 }

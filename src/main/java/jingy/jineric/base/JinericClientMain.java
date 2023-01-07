@@ -44,7 +44,7 @@ public class JinericClientMain implements ClientModInitializer {
 		BlockEntityRendererRegistryImpl.register(JinericBlockEntityType.CAMPFIRE, JinericCampfireBlockEntityRenderer::new);
 		BlockEntityRendererRegistryImpl.register(JinericBlockEntityType.ACACIA_CHEST, GenericChestBlockEntityRenderer::new);
 		BlockEntityRendererRegistryImpl.register(JinericBlockEntityType.BIRCH_CHEST, GenericChestBlockEntityRenderer::new);
-		BlockEntityRendererRegistryImpl.register(JinericBlockEntityType.BOREAL_CHEST, GenericChestBlockEntityRenderer::new);
+//		BlockEntityRendererRegistryImpl.register(JinericBlockEntityType.BOREAL_CHEST, GenericChestBlockEntityRenderer::new);
 		BlockEntityRendererRegistryImpl.register(JinericBlockEntityType.CRIMSON_CHEST, GenericChestBlockEntityRenderer::new);
 		BlockEntityRendererRegistryImpl.register(JinericBlockEntityType.DARK_OAK_CHEST, GenericChestBlockEntityRenderer::new);
 		BlockEntityRendererRegistryImpl.register(JinericBlockEntityType.JUNGLE_CHEST, GenericChestBlockEntityRenderer::new);
@@ -96,7 +96,7 @@ public class JinericClientMain implements ClientModInitializer {
 //		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BOREAL_TRAPDOOR, RenderLayer.getCutout());
 //		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BOREAL_DOOR, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.FULL_GRASS_BLOCK, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BOREAL_LEAVES, RenderLayer.getCutout());
+//		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BOREAL_LEAVES, RenderLayer.getCutout());
 //		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BOREAL_SAPLING, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.REDSTONE_LANTERN, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.REDSTONE_CAMPFIRE, RenderLayer.getCutout());
@@ -107,7 +107,7 @@ public class JinericClientMain implements ClientModInitializer {
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.ACACIA_LADDER, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.WARPED_LADDER, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.CRIMSON_LADDER, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BOREAL_LADDER, RenderLayer.getCutout());
+//		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BOREAL_LADDER, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.DARK_OAK_LADDER, RenderLayer.getCutout());
 
 //		ClientSpriteRegistryCallback.event(TexturedRenderLayers.CHEST_ATLAS_TEXTURE).register(((atlasTexture, registry) -> {

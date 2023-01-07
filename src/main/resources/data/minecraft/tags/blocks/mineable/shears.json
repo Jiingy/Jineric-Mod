@@ -2,7 +2,6 @@
   "replace": false,
   "values": [
     "jineric:tumbleweed",
-    "jineric:stack_of_paper",
-    "jineric:boreal_leaves"
+    "jineric:stack_of_paper"
   ]
 }

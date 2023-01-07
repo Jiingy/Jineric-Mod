@@ -1,9 +1,5 @@
 {
   "replace": false,
   "values": [
-    "jineric:boreal_log",
-    "jineric:stripped_boreal_log",
-    "jineric:boreal_wood",
-    "jineric:stripped_boreal_wood"
   ]
 }

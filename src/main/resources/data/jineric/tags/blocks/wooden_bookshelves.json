@@ -1,8 +1,6 @@
 {
   "replace": false,
   "values": [
-    "minecraft:bookshelf",
-    "jineric:boreal_bookshelf",
     "jineric:spruce_bookshelf",
     "jineric:birch_bookshelf",
     "jineric:jungle_bookshelf",

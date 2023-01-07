@@ -195,25 +195,25 @@ public class JinericItems {
 //UNKNOWN ---------------------------------------------------------------------------------------------------------- UNKNOWN ---------------------------------------------------------------------------------------------------------------- UNKNOWN -----------------------------------------------------
 	public static final Item REFINERY = register("refinery", new BlockItem(JinericBlocks.REFINERY, new FabricItemSettings()));
 	//BOREAL
-	public static final Item BOREAL_WOOD = register("boreal_wood", new BlockItem(JinericBlocks.BOREAL_WOOD, new FabricItemSettings()));
-	public static final Item BOREAL_LOG = register("boreal_log", new BlockItem(JinericBlocks.BOREAL_LOG, new FabricItemSettings()));
-	public static final Item STRIPPED_BOREAL_WOOD = register("stripped_boreal_wood", new BlockItem(JinericBlocks.STRIPPED_BOREAL_WOOD, new FabricItemSettings()));
-	public static final Item STRIPPED_BOREAL_LOG = register("stripped_boreal_log", new BlockItem(JinericBlocks.STRIPPED_BOREAL_LOG, new FabricItemSettings()));
-	public static final Item BOREAL_PLANKS = register("boreal_planks", new BlockItem(JinericBlocks.BOREAL_PLANKS, new FabricItemSettings()));
-	public static final Item BOREAL_STAIRS = register("boreal_stairs", new BlockItem(JinericBlocks.BOREAL_STAIRS, new FabricItemSettings()));
-	public static final Item BOREAL_SLAB = register("boreal_slab", new BlockItem(JinericBlocks.BOREAL_SLAB, new FabricItemSettings()));
-	public static final Item BOREAL_FENCE = register("boreal_fence", new BlockItem(JinericBlocks.BOREAL_FENCE, new FabricItemSettings()));
+//	public static final Item BOREAL_WOOD = register("boreal_wood", new BlockItem(JinericBlocks.BOREAL_WOOD, new FabricItemSettings()));
+//	public static final Item BOREAL_LOG = register("boreal_log", new BlockItem(JinericBlocks.BOREAL_LOG, new FabricItemSettings()));
+//	public static final Item STRIPPED_BOREAL_WOOD = register("stripped_boreal_wood", new BlockItem(JinericBlocks.STRIPPED_BOREAL_WOOD, new FabricItemSettings()));
+//	public static final Item STRIPPED_BOREAL_LOG = register("stripped_boreal_log", new BlockItem(JinericBlocks.STRIPPED_BOREAL_LOG, new FabricItemSettings()));
+//	public static final Item BOREAL_PLANKS = register("boreal_planks", new BlockItem(JinericBlocks.BOREAL_PLANKS, new FabricItemSettings()));
+//	public static final Item BOREAL_STAIRS = register("boreal_stairs", new BlockItem(JinericBlocks.BOREAL_STAIRS, new FabricItemSettings()));
+//	public static final Item BOREAL_SLAB = register("boreal_slab", new BlockItem(JinericBlocks.BOREAL_SLAB, new FabricItemSettings()));
+//	public static final Item BOREAL_FENCE = register("boreal_fence", new BlockItem(JinericBlocks.BOREAL_FENCE, new FabricItemSettings()));
 //	public static final Item BOREAL_FENCE_GATE = register("boreal_fence_gate", new BlockItem(JinericBlocks.BOREAL_FENCE_GATE, new FabricItemSettings()));
-	public static final Item BOREAL_BOOKSHELF = register("boreal_bookshelf", new BlockItem(JinericBlocks.BOREAL_BOOKSHELF, new FabricItemSettings()));
-	public static final Item BOREAL_SIGN = register("boreal_sign", new SignItem(new FabricItemSettings().maxCount(16), JinericBlocks.BOREAL_SIGN, JinericBlocks.BOREAL_WALL_SIGN));
-	public static final Item BOREAL_LADDER = register("boreal_ladder", new BlockItem(JinericBlocks.BOREAL_LADDER, new FabricItemSettings()));
-	public static final Item BOREAL_CHEST = register("boreal_chest", new BlockItem(JinericBlocks.BOREAL_CHEST, new FabricItemSettings()));
+//	public static final Item BOREAL_BOOKSHELF = register("boreal_bookshelf", new BlockItem(JinericBlocks.BOREAL_BOOKSHELF, new FabricItemSettings()));
+//	public static final Item BOREAL_SIGN = register("boreal_sign", new SignItem(new FabricItemSettings().maxCount(16), JinericBlocks.BOREAL_SIGN, JinericBlocks.BOREAL_WALL_SIGN));
+//	public static final Item BOREAL_LADDER = register("boreal_ladder", new BlockItem(JinericBlocks.BOREAL_LADDER, new FabricItemSettings()));
+//	public static final Item BOREAL_CHEST = register("boreal_chest", new BlockItem(JinericBlocks.BOREAL_CHEST, new FabricItemSettings()));
 //	public static final Item BOREAL_BUTTON = register("boreal_button", new BlockItem(JinericBlocks.BOREAL_BUTTON, new FabricItemSettings()));
 //	public static final Item BOREAL_PRESSURE_PLATE = register("boreal_pressure_plate", new BlockItem(JinericBlocks.BOREAL_PRESSURE_PLATE, new FabricItemSettings()));
 //	public static final Item BOREAL_DOOR = register("boreal_door", new BlockItem(JinericBlocks.BOREAL_DOOR, new FabricItemSettings()));
 //	public static final Item BOREAL_TRAPDOOR = register("boreal_trapdoor", new BlockItem(JinericBlocks.BOREAL_TRAPDOOR, new FabricItemSettings()));
 //	public static final Item BOREAL_SAPLING = register("boreal_sapling", new BlockItem(JinericBlocks.BOREAL_SAPLING, new FabricItemSettings()));
-	public static final Item BOREAL_LEAVES = register("boreal_leaves", new BlockItem(JinericBlocks.BOREAL_LEAVES, new FabricItemSettings()));
+//	public static final Item BOREAL_LEAVES = register("boreal_leaves", new BlockItem(JinericBlocks.BOREAL_LEAVES, new FabricItemSettings()));
 	public static final Item FIREWEED = register("fireweed", new BlockItem(JinericBlocks.FIREWEED, new FabricItemSettings()));
 	//RHYOLITE
 	public static final Item RHYOLITE = register("rhyolite", new BlockItem(JinericBlocks.RHYOLITE, new FabricItemSettings()));
