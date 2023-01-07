@@ -1,6 +1,10 @@
 {
-  "parent": "minecraft:block/wall_inventory",
+  "parent": "jineric:block/polished_wall_inventory",
   "textures": {
-    "wall": "minecraft:block/smooth_stone"
+    "post_top": "jineric:block/wall/smooth_stone/smooth_stone_wall_post_top",
+    "post_side": "minecraft:block/smooth_stone",
+    "bottom": "jineric:block/wall/smooth_stone/smooth_stone_wall_bottom",
+    "line_top": "jineric:block/wall/smooth_stone/smooth_stone_wall_side_top",
+    "side": "jineric:block/wall/smooth_stone/smooth_stone_wall_short_side"
   }
 }

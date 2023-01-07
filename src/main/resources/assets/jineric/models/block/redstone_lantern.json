@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/template_lantern",
   "textures": {
+    "particle": "jineric:item/redstone_lantern",
     "lantern": "jineric:block/redstone_lantern"
   }
 }
