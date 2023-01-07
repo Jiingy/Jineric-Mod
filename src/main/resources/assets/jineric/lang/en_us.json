@@ -217,6 +217,15 @@
   "block.jineric.crimson_chest": "Crimson Chest",
   "block.jineric.warped_chest": "Warped Chest",
 
+  "container.chestAcaciaDouble": "Double Acacia Chest",
+  "container.chestBirchDouble": "Double Birch Chest",
+  "container.chestCrimsonDouble": "Double Crimson Chest",
+  "container.chestDarkOakDouble": "Double Dark Oak Chest",
+  "container.chestJungleDouble": "Double Jungle Chest",
+  "container.chestSpruceDouble": "Double Spruce Chest",
+  "container.chestWarpedDouble": "Double Warped Chest",
+  "container.chestMangroveDouble": "Double Mangrove Chest",
+
   "block.jineric.spruce_ladder": "Spruce Ladder",
   "container.spruce_ladder": "Spruce Ladder",
   "block.jineric.birch_ladder": "Birch Ladder",
@@ -230,5 +239,7 @@
   "block.jineric.boreal_chest": "Boreal Chest",
   "container.borealChest": "Chest",
   "container.borealChestDouble": "Large Boreal Chest",
-  "gui.recipebook.toggleRecipes.refinable": "Showing Refinable"
+
+  "gui.recipebook.toggleRecipes.refinable": "Showing Refinable",
+  "container.refinery": "Refinery"
 }

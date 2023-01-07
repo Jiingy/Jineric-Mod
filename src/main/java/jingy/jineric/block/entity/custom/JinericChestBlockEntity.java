@@ -24,7 +24,7 @@ public class JinericChestBlockEntity extends ChestBlockEntity {
 
    private static final Text ACACIA_DOUBLE = Text.translatable("container.acaciaDouble");
    private final Text BIRCH_DOUBLE = Text.translatable("container.birchDouble");
-   JinericChestType type;
+   private final JinericChestType type;
 
    private final ViewerCountManager stateManager = new ViewerCountManager() {
       @Override
@@ -63,18 +63,18 @@ public class JinericChestBlockEntity extends ChestBlockEntity {
       return type;
    }
 
-   public Text getChestTypeText() {
+   public Text getChestTypeKey() {
       return switch (getChestType()) {
-         case ACACIA -> ACACIA_DOUBLE;
-         case BIRCH -> ACACIA_DOUBLE;
-         case BOREAL -> ACACIA_DOUBLE;
-         case CRIMSON -> ACACIA_DOUBLE;
-         case DARK_OAK -> ACACIA_DOUBLE;
-         case JUNGLE -> ACACIA_DOUBLE;
-         case SPRUCE -> ACACIA_DOUBLE;
-         case WARPED -> ACACIA_DOUBLE;
-         case MANGROVE -> ACACIA_DOUBLE;
-         case SHULKER -> ACACIA_DOUBLE;
+         case ACACIA -> Text.translatable("container.chestAcaciaDouble");
+         case BIRCH -> Text.translatable("container.chestBirchDouble");
+//         case BOREAL -> Text.translatable("container.chestBorealDouble");
+         case CRIMSON -> Text.translatable("container.chestCrimsonDouble");
+         case DARK_OAK -> Text.translatable("container.chestDarkOakDouble");
+         case JUNGLE -> Text.translatable("container.chestJungleDouble");
+         case SPRUCE -> Text.translatable("container.chestSpruceDouble");
+         case WARPED -> Text.translatable("container.chestWarpedDouble");
+         case MANGROVE -> Text.translatable("container.chestMangroveDouble");
+         case SHULKER -> null;
       };
    }
 

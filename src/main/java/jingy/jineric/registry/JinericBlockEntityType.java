@@ -4,7 +4,7 @@ import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.block.entity.RefineryBlockEntity;
 import jingy.jineric.block.entity.ShulkerChestBlockEntity;
-import jingy.jineric.block.entity.custom.JinericCampfireBlockEntity;
+import jingy.jineric.block.entity.custom.RedstoneCampfireBlockEntity;
 import jingy.jineric.block.entity.custom.chest.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.entity.BlockEntityType;
@@ -48,8 +48,8 @@ public class JinericBlockEntityType {
    public static final BlockEntityType<RefineryBlockEntity> REFINERY =
            FabricBlockEntityTypeBuilder.create(RefineryBlockEntity::new, JinericBlocks.REFINERY).build(null);
 
-   public static final BlockEntityType<JinericCampfireBlockEntity> CAMPFIRE =
-           FabricBlockEntityTypeBuilder.create(JinericCampfireBlockEntity::new, JinericBlocks.REDSTONE_CAMPFIRE).build(null);
+   public static final BlockEntityType<RedstoneCampfireBlockEntity> REDSTONE_CAMPFIRE =
+           FabricBlockEntityTypeBuilder.create(RedstoneCampfireBlockEntity::new, JinericBlocks.REDSTONE_CAMPFIRE).build(null);
 
    public static void registerBlockEntities() {
       //CHESTS
@@ -65,7 +65,7 @@ public class JinericBlockEntityType {
       Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "shulker_chest"), SHULKER_CHEST);
 
       Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "refinery"), REFINERY);
-      Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "campfire"), CAMPFIRE);
+      Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "campfire"), REDSTONE_CAMPFIRE);
    }
 }
 

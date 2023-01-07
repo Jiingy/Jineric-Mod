@@ -29,6 +29,7 @@ import net.minecraft.client.render.entity.ArmorStandEntityRenderer;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;
 import net.minecraft.client.render.entity.TurtleEntityRenderer;
 import net.minecraft.client.render.entity.feature.SaddleFeatureRenderer;
+import net.minecraft.client.render.entity.model.TurtleEntityModel;
 import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
@@ -37,8 +38,9 @@ public class JinericClientMain implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		registerFeatureRenderers();
+		ColorProviders.registerColorProviders();
 
-		BlockEntityRendererRegistryImpl.register(JinericBlockEntityType.CAMPFIRE, JinericCampfireBlockEntityRenderer::new);
+		BlockEntityRendererRegistryImpl.register(JinericBlockEntityType.REDSTONE_CAMPFIRE, RedstoneCampfireBlockEntityRenderer::new);
 		BlockEntityRendererRegistryImpl.register(JinericBlockEntityType.ACACIA_CHEST, GenericChestBlockEntityRenderer::new);
 		BlockEntityRendererRegistryImpl.register(JinericBlockEntityType.BIRCH_CHEST, GenericChestBlockEntityRenderer::new);
 //		BlockEntityRendererRegistryImpl.register(JinericBlockEntityType.BOREAL_CHEST, GenericChestBlockEntityRenderer::new);
@@ -53,7 +55,7 @@ public class JinericClientMain implements ClientModInitializer {
 		//TexturedModelData.of(TurtleEntityModel.getModelData(0, new Dilation(0.5F)), 128, 64)
 
 		//ENTITY MODEL LAYERS
-		EntityModelLayerRegistry.TexturedModelDataProvider turtleSaddle = () -> TexturedModelData.of(TurtleSaddleModel.getModelData(0, new Dilation(0.5F)), 128, 64);
+		EntityModelLayerRegistry.TexturedModelDataProvider turtleSaddle = () -> TexturedModelData.of(TurtleEntityModel.getModelData(0, new Dilation(0.5F)), 128, 64);
 		EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayer.TURTLE_SADDLE, turtleSaddle);
 //		EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayer.TURTLE_SADDLE, TurtleEntityModel::getTexturedModelData);
 //		EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayer.TURTLE_SADDLE, TurtleSaddleModel::getTexturedModelData);
@@ -141,24 +143,6 @@ public class JinericClientMain implements ClientModInitializer {
 		//SCREEN HANDLERS
 		HandledScreens.register(JinericScreenHandlerType.SHULKER_CHEST, ShulkerChestScreen::new);
 		HandledScreens.register(JinericScreenHandlerType.REFINERY, RefineryScreen::new);
-
-		// COLOR PROVIDERS
-		ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) ->
-						world != null && pos != null
-								? BiomeColors.getGrassColor(world, pos)
-								: GrassColors.getColor(0.5D, 1.0D),
-				JinericBlocks.FULL_GRASS_BLOCK);
-		ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> GrassColors.getColor(0.5D, 1.0D)),
-				JinericItems.FULL_GRASS_BLOCK);
-
-		ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) ->
-						world != null && pos != null
-								? BiomeColors.getGrassColor(world, pos)
-								: GrassColors.getColor(0.5D, 1.0D),
-				JinericBlocks.JUNGLE_LADDER);
-		ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> GrassColors.getColor(0.5D, 1.0D)),
-				JinericItems.JUNGLE_LADDER);
-
 	}
 
 

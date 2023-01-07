@@ -28,7 +28,7 @@ public class JinericPotions {
 //           ThornsStatusEffect.THORNS, 5760)));
 
    public static Potion register(String name, Potion potion) {
-      return Registry.register(Registries.POTION, new Identifier("jineric", name), potion);
+      return Registry.register(Registries.POTION, new Identifier(JinericMain.MOD_ID, name), potion);
    }
 
    public static void registerPotions() {

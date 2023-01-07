@@ -23,9 +23,11 @@ import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
+import java.util.function.BiPredicate;
 
 public class JinericChestBlockBase extends ChestBlock {
 
@@ -69,8 +71,6 @@ public class JinericChestBlockBase extends ChestBlock {
       return this.getDefaultState().with(FACING, direction).with(CHEST_TYPE, chestType).with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER);
    }
 
-   //TODO: Double Chest block name is improper
-
    private static final DoubleBlockProperties.PropertyRetriever<JinericChestBlockEntity, Optional<NamedScreenHandlerFactory>> NAME_RETRIEVER = new DoubleBlockProperties.PropertyRetriever<JinericChestBlockEntity, Optional<NamedScreenHandlerFactory>>() {
 
       public Optional<NamedScreenHandlerFactory> getFromBoth(JinericChestBlockEntity jinericChestBlockEntity, JinericChestBlockEntity jinericChestBlockEntity2) {
@@ -93,7 +93,7 @@ public class JinericChestBlockBase extends ChestBlock {
                if (jinericChestBlockEntity.hasCustomName()) {
                   return jinericChestBlockEntity.getDisplayName();
                } else {
-                  return (net.minecraft.text.Text)(jinericChestBlockEntity2.hasCustomName() ? jinericChestBlockEntity2.getDisplayName() : jinericChestBlockEntity.getChestTypeText());
+                  return (Text)(jinericChestBlockEntity2.hasCustomName() ? jinericChestBlockEntity2.getDisplayName() : jinericChestBlockEntity.getChestTypeKey());
                }
             }
          });
@@ -122,11 +122,34 @@ public class JinericChestBlockBase extends ChestBlock {
       return (BlockEntityType)this.entityTypeRetriever.get();
    }
 
-//   @Nullable
-//   @Override
-//   public NamedScreenHandlerFactory createScreenHandlerFactory(BlockState state, World world, BlockPos pos) {
-//      return (NamedScreenHandlerFactory)((Optional)this.getBlockEntitySource(state, world, pos, false).apply(NAME_RETRIEVER)).orElse(null);
-//   }
+   @Override
+   public DoubleBlockProperties.PropertySource<? extends JinericChestBlockEntity> getBlockEntitySource(
+           BlockState state, World world, BlockPos pos, boolean ignoreBlocked
+   ) {
+      BiPredicate<WorldAccess, BlockPos> biPredicate;
+      if (ignoreBlocked) {
+         biPredicate = (worldx, posx) -> false;
+      } else {
+         biPredicate = JinericChestBlock::isChestBlocked;
+      }
+
+      return DoubleBlockProperties.toPropertySource(
+              (BlockEntityType<? extends JinericChestBlockEntity>)this.entityTypeRetriever.get(),
+              JinericChestBlock::getDoubleBlockType,
+              JinericChestBlock::getFacing,
+              FACING,
+              state,
+              world,
+              pos,
+              biPredicate
+      );
+   }
+
+   @Nullable
+   @Override
+   public NamedScreenHandlerFactory createScreenHandlerFactory(BlockState state, World world, BlockPos pos) {
+      return (NamedScreenHandlerFactory)((Optional)this.getBlockEntitySource(state, world, pos, false).apply(NAME_RETRIEVER)).orElse(null);
+   }
 
    @Nullable
    @Override
