@@ -3,7 +3,7 @@
    "category": "blocks",
    "experience": 0.2,
    "ingredient": {
-      "item": "minecraft:cobblestone_wall"
+      "item": "minecraft:red_terracotta"
    },
-   "result": "jineric:stone_wall"
+   "result": "minecraft:red_glazed_terracotta"
 }

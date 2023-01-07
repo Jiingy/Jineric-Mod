@@ -1,5 +1,7 @@
 {
    "type": "minecraft:crafting_shapeless",
+   "category": "building",
+   "group": "waxed_oxidized_cut_copper_wall",
    "ingredients": [
 	  {
 		 "item": "jineric:oxidized_cut_copper_wall"

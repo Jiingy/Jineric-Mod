@@ -1,0 +1,9 @@
+{
+   "type": "minecraft:smelting",
+   "category": "blocks",
+   "experience": 0.1,
+   "ingredient": {
+      "item": "jineric:soul_sandstone"
+   },
+   "result": "jineric:smooth_soul_sandstone"
+}
