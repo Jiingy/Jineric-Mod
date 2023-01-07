@@ -1,7 +1,7 @@
 package jingy.jineric.client.render.blockentity;
 
-import jingy.jineric.block.custom.JinericCampfireBlock;
-import jingy.jineric.block.entity.custom.JinericCampfireBlockEntity;
+import jingy.jineric.block.custom.RedstoneCampfireBlock;
+import jingy.jineric.block.entity.custom.RedstoneCampfireBlockEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
@@ -16,16 +16,16 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.RotationAxis;
 
 @Environment(EnvType.CLIENT)
-public class JinericCampfireBlockEntityRenderer implements BlockEntityRenderer<JinericCampfireBlockEntity> {
+public class RedstoneCampfireBlockEntityRenderer implements BlockEntityRenderer<RedstoneCampfireBlockEntity> {
    private static final float SCALE = 0.375F;
 
-   public JinericCampfireBlockEntityRenderer(BlockEntityRendererFactory.Context ctx) {
+   public RedstoneCampfireBlockEntityRenderer(BlockEntityRendererFactory.Context ctx) {
    }
 
-   public void render(JinericCampfireBlockEntity jinericCampfireBlockEntity, float f, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, int j) {
-      Direction direction = jinericCampfireBlockEntity.getCachedState().get(JinericCampfireBlock.FACING);
-      DefaultedList<ItemStack> defaultedList = jinericCampfireBlockEntity.getItemsBeingCooked();
-      int k = (int)jinericCampfireBlockEntity.getPos().asLong();
+   public void render(RedstoneCampfireBlockEntity redstoneCampfireBlockEntity, float f, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, int j) {
+      Direction direction = redstoneCampfireBlockEntity.getCachedState().get(RedstoneCampfireBlock.FACING);
+      DefaultedList<ItemStack> defaultedList = redstoneCampfireBlockEntity.getItemsBeingCooked();
+      int k = (int) redstoneCampfireBlockEntity.getPos().asLong();
 
       for(int l = 0; l < defaultedList.size(); ++l) {
          ItemStack itemStack = defaultedList.get(l);

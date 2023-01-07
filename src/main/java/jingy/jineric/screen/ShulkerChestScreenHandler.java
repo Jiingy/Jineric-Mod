@@ -17,7 +17,7 @@ public class ShulkerChestScreenHandler extends ScreenHandler {
 
 	public ShulkerChestScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory) {
 		super(JinericScreenHandlerType.SHULKER_CHEST, syncId);
-		checkSize(getInventory(), 81);
+		checkSize(inventory, 81);
 		this.inventory = inventory;
 		this.inventory.onOpen(playerInventory.player);
 
@@ -43,13 +43,12 @@ public class ShulkerChestScreenHandler extends ScreenHandler {
 	}
 
 	@Override
-	public ItemStack quickMove(PlayerEntity player, int slot) {
-		return null;
-	}
-
-	@Override
 	public boolean canUse(PlayerEntity player) {
 		return this.inventory.canPlayerUse(player);
+	}
+	@Override
+	public ItemStack quickMove(PlayerEntity player, int slot) {
+		return null;
 	}
 
 	public Inventory getInventory() {

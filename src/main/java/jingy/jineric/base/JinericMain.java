@@ -36,7 +36,7 @@ public class JinericMain implements ModInitializer {
 		JinericSounds.register();
 		JinericPotions.registerPotions();
 		JinericBlockEntityType.registerBlockEntities();
-		RefiningRecipe.registerRefiningRecipe();
+		RefiningRecipe.register();
 		JinericRecipeType.register();
 		JinericScreenHandlerType.registerScreenHandlers();
 

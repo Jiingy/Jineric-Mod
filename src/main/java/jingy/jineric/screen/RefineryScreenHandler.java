@@ -10,10 +10,10 @@ import net.minecraft.screen.PropertyDelegate;
 public class RefineryScreenHandler extends AbstractFurnaceScreenHandler {
 
    public RefineryScreenHandler(int syncId, PlayerInventory playerInventory) {
-      super(JinericScreenHandlerType.REFINERY, JinericRecipeType.REFINING, RecipeBookCategory.FURNACE, syncId, playerInventory);
+      super(JinericScreenHandlerType.REFINERY, JinericRecipeType.REFINING_RECIPE_TYPE, RecipeBookCategory.FURNACE, syncId, playerInventory);
    }
 
    public RefineryScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate propertyDelegate) {
-      super(JinericScreenHandlerType.REFINERY, JinericRecipeType.REFINING, RecipeBookCategory.FURNACE, syncId, playerInventory, inventory, propertyDelegate);
+      super(JinericScreenHandlerType.REFINERY, JinericRecipeType.REFINING_RECIPE_TYPE, RecipeBookCategory.FURNACE, syncId, playerInventory, inventory, propertyDelegate);
    }
 }

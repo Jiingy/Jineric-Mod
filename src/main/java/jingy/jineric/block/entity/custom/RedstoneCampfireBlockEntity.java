@@ -1,10 +1,11 @@
 package jingy.jineric.block.entity.custom;
 
-import jingy.jineric.block.custom.JinericCampfireBlock;
+import jingy.jineric.block.custom.RedstoneCampfireBlock;
 import jingy.jineric.registry.JinericBlockEntityType;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.Entity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
@@ -22,19 +23,21 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
+import net.minecraft.world.event.GameEvent;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
-
-public class JinericCampfireBlockEntity extends BlockEntity implements Clearable {
+//TODO: ITEMS DISPLAYED IMPROPER WHEN COOKING
+public class RedstoneCampfireBlockEntity extends BlockEntity implements Clearable {
    private final DefaultedList<ItemStack> itemsBeingCooked = DefaultedList.ofSize(4, ItemStack.EMPTY);
    private final int[] cookingTimes = new int[4];
    private final int[] cookingTotalTimes = new int[4];
 
-   public JinericCampfireBlockEntity(BlockPos pos, BlockState state) {
-      super(JinericBlockEntityType.CAMPFIRE, pos, state);
+   public RedstoneCampfireBlockEntity(BlockPos pos, BlockState state) {
+      super(JinericBlockEntityType.REDSTONE_CAMPFIRE, pos, state);
    }
 
-   public static void litServerTick(World world, BlockPos pos, BlockState state, JinericCampfireBlockEntity campfire) {
+   public static void litServerTick(World world, BlockPos pos, BlockState state, RedstoneCampfireBlockEntity campfire) {
       boolean bl = false;
 
       for(int i = 0; i < campfire.itemsBeingCooked.size(); ++i) {
@@ -61,7 +64,7 @@ public class JinericCampfireBlockEntity extends BlockEntity implements Clearable
 
    }
 
-   public static void unlitServerTick(World world, BlockPos pos, BlockState state, JinericCampfireBlockEntity campfire) {
+   public static void unlitServerTick(World world, BlockPos pos, BlockState state, RedstoneCampfireBlockEntity campfire) {
       boolean bl = false;
 
       for(int i = 0; i < campfire.itemsBeingCooked.size(); ++i) {
@@ -77,15 +80,15 @@ public class JinericCampfireBlockEntity extends BlockEntity implements Clearable
 
    }
 
-   public static void clientTick(World world, BlockPos pos, BlockState state, JinericCampfireBlockEntity campfire) {
+   public static void clientTick(World world, BlockPos pos, BlockState state, RedstoneCampfireBlockEntity campfire) {
       Random random = world.random;
       if (random.nextFloat() < 0.11F) {
          for(int i = 0; i < random.nextInt(2) + 2; ++i) {
-            JinericCampfireBlock.spawnSmokeParticle(world, pos, state.get(JinericCampfireBlock.SIGNAL_FIRE), false);
+            RedstoneCampfireBlock.spawnSmokeParticle(world, pos, state.get(RedstoneCampfireBlock.SIGNAL_FIRE), false);
          }
       }
 
-      int i = ((Direction)state.get(JinericCampfireBlock.FACING)).getHorizontal();
+      int i = ((Direction)state.get(RedstoneCampfireBlock.FACING)).getHorizontal();
 
       for(int j = 0; j < campfire.itemsBeingCooked.size(); ++j) {
          if (!campfire.itemsBeingCooked.get(j).isEmpty() && random.nextFloat() < 0.2F) {
@@ -155,13 +158,14 @@ public class JinericCampfireBlockEntity extends BlockEntity implements Clearable
               : this.world.getRecipeManager().getFirstMatch(RecipeType.CAMPFIRE_COOKING, new SimpleInventory(item), this.world);
    }
 
-   public boolean addItem(ItemStack item, int cookTime) {
+   public boolean addItem(@Nullable Entity user, ItemStack stack, int cookTime) {
       for(int i = 0; i < this.itemsBeingCooked.size(); ++i) {
          ItemStack itemStack = this.itemsBeingCooked.get(i);
          if (itemStack.isEmpty()) {
             this.cookingTotalTimes[i] = cookTime;
             this.cookingTimes[i] = 0;
-            this.itemsBeingCooked.set(i, item.split(1));
+            this.itemsBeingCooked.set(i, stack.split(1));
+            this.world.emitGameEvent(GameEvent.BLOCK_CHANGE, this.getPos(), GameEvent.Emitter.of(user, this.getCachedState()));
             this.updateListeners();
             return true;
          }

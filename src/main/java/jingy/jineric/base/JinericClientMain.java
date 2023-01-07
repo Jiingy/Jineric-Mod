@@ -3,7 +3,7 @@ package jingy.jineric.base;
 import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.client.render.JinericElytraFeatureRenderer;
 import jingy.jineric.client.render.blockentity.GenericChestBlockEntityRenderer;
-import jingy.jineric.client.render.blockentity.JinericCampfireBlockEntityRenderer;
+import jingy.jineric.client.render.blockentity.RedstoneCampfireBlockEntityRenderer;
 import jingy.jineric.client.render.entity.model.JinericEntityModelLayer;
 import jingy.jineric.client.render.entity.model.TurtleSaddleModel;
 import jingy.jineric.entity.passive.manxloaghtan.ManxLoaghtanModel;
