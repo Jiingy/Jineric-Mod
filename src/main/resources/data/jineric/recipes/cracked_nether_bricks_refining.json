@@ -1,0 +1,9 @@
+{
+   "type": "jineric:refining",
+   "category": "blocks",
+   "experience": 0.1,
+   "ingredient": {
+	  "item": "minecraft:nether_bricks"
+   },
+   "result": "minecraft:cracked_nether_bricks"
+}

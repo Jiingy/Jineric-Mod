@@ -1,6 +1,6 @@
 package jingy.jineric.client.render;
 
-import jingy.jineric.registry.JinericItems;
+import jingy.jineric.item.JinericItems;
 import net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRenderEvents;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.OverlayTexture;

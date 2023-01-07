@@ -1,5 +1,6 @@
 package jingy.jineric.potion;
 
+import jingy.jineric.base.JinericMain;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.potion.Potion;

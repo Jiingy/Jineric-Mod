@@ -1,5 +1,6 @@
 package jingy.jineric.base;
 
+import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.client.render.JinericElytraFeatureRenderer;
 import jingy.jineric.client.render.blockentity.GenericChestBlockEntityRenderer;
 import jingy.jineric.client.render.blockentity.JinericCampfireBlockEntityRenderer;
@@ -8,9 +9,7 @@ import jingy.jineric.client.render.entity.model.TurtleSaddleModel;
 import jingy.jineric.entity.passive.manxloaghtan.ManxLoaghtanModel;
 import jingy.jineric.entity.passive.manxloaghtan.ManxLoaghtanWoolModel;
 import jingy.jineric.registry.JinericBlockEntityType;
-import jingy.jineric.registry.JinericBlocks;
 import jingy.jineric.registry.JinericEntityModelLayers;
-import jingy.jineric.registry.JinericItems;
 import jingy.jineric.screen.JinericScreenHandlerType;
 import jingy.jineric.screen.RefineryScreen;
 import jingy.jineric.screen.ShulkerChestScreen;

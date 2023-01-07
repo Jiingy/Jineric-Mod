@@ -1,6 +1,6 @@
 package jingy.jineric.block.custom;
 
-import jingy.jineric.block.entity.custom.JinericCampfireBlockEntity;
+import jingy.jineric.block.entity.custom.RedstoneCampfireBlockEntity;
 import jingy.jineric.registry.JinericBlockEntityType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CampfireBlock;

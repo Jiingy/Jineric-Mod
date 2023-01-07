@@ -1,6 +1,7 @@
 package jingy.jineric.registry;
 
 import jingy.jineric.base.JinericMain;
+import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.block.entity.RefineryBlockEntity;
 import jingy.jineric.block.entity.ShulkerChestBlockEntity;
 import jingy.jineric.block.entity.custom.JinericCampfireBlockEntity;

@@ -1,9 +1,12 @@
-package jingy.jineric.registry;
+package jingy.jineric.item;
 
-import jingy.jineric.item.JinericElytraItem;
-import jingy.jineric.item.JinericHorseArmorItem;
+import jingy.jineric.block.JinericBlocks;
+import jingy.jineric.registry.JinericEntities;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.item.*;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.FoodComponent;
+import net.minecraft.item.Item;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -17,7 +20,6 @@ public class JinericItems {
 //DONE ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //DRIPSTONE
-	
 	public static final Item POLISHED_STONE = register("polished_stone", new BlockItem(JinericBlocks.POLISHED_STONE, new FabricItemSettings()));
 	public static final Item POLISHED_STONE_STAIRS = register("polished_stone_stairs", new BlockItem(JinericBlocks.POLISHED_STONE_STAIRS, new FabricItemSettings()));
 	public static final Item POLISHED_STONE_SLAB = register("polished_stone_slab", new BlockItem(JinericBlocks.POLISHED_STONE_SLAB, new FabricItemSettings()));
@@ -37,6 +39,10 @@ public class JinericItems {
 	public static final Item DRIPSTONE_BRICK_STAIRS = register("dripstone_brick_stairs", new BlockItem(JinericBlocks.DRIPSTONE_BRICK_STAIRS, new FabricItemSettings()));
 	public static final Item DRIPSTONE_BRICK_SLAB = register("dripstone_brick_slab", new BlockItem(JinericBlocks.DRIPSTONE_BRICK_SLAB, new FabricItemSettings()));
 	public static final Item DRIPSTONE_BRICK_WALL = register("dripstone_brick_wall", new BlockItem(JinericBlocks.DRIPSTONE_BRICK_WALL, new FabricItemSettings()));
+	public static final Item CRACKED_DRIPSTONE_BRICKS = register("cracked_dripstone_bricks", new BlockItem(JinericBlocks.CRACKED_DRIPSTONE_BRICKS, new FabricItemSettings()));
+	public static final Item CRACKED_DRIPSTONE_BRICK_STAIRS = register("cracked_dripstone_brick_stairs", new BlockItem(JinericBlocks.CRACKED_DRIPSTONE_BRICK_STAIRS, new FabricItemSettings()));
+	public static final Item CRACKED_DRIPSTONE_BRICK_SLAB = register("cracked_dripstone_brick_slab", new BlockItem(JinericBlocks.CRACKED_DRIPSTONE_BRICK_SLAB, new FabricItemSettings()));
+	public static final Item CRACKED_DRIPSTONE_BRICK_WALL = register("cracked_dripstone_brick_wall", new BlockItem(JinericBlocks.CRACKED_DRIPSTONE_BRICK_WALL, new FabricItemSettings()));
 	public static final Item POLISHED_DRIPSTONE = register("polished_dripstone", new BlockItem(JinericBlocks.POLISHED_DRIPSTONE, new FabricItemSettings()));
 	public static final Item POLISHED_DRIPSTONE_STAIRS = register("polished_dripstone_stairs", new BlockItem(JinericBlocks.POLISHED_DRIPSTONE_STAIRS, new FabricItemSettings()));
 	public static final Item POLISHED_DRIPSTONE_SLAB = register("polished_dripstone_slab", new BlockItem(JinericBlocks.POLISHED_DRIPSTONE_SLAB, new FabricItemSettings()));
@@ -215,7 +221,7 @@ public class JinericItems {
 //	public static final Item BOREAL_SAPLING = register("boreal_sapling", new BlockItem(JinericBlocks.BOREAL_SAPLING, new FabricItemSettings()));
 //	public static final Item BOREAL_LEAVES = register("boreal_leaves", new BlockItem(JinericBlocks.BOREAL_LEAVES, new FabricItemSettings()));
 	public static final Item FIREWEED = register("fireweed", new BlockItem(JinericBlocks.FIREWEED, new FabricItemSettings()));
-	//RHYOLITE
+//RHYOLITE
 	public static final Item RHYOLITE = register("rhyolite", new BlockItem(JinericBlocks.RHYOLITE, new FabricItemSettings()));
 	public static final Item RHYOLITE_STAIRS = register("rhyolite_stairs", new BlockItem(JinericBlocks.RHYOLITE_STAIRS, new FabricItemSettings()));
 	public static final Item RHYOLITE_SLAB = register("rhyolite_slab", new BlockItem(JinericBlocks.RHYOLITE_SLAB, new FabricItemSettings()));
@@ -237,7 +243,7 @@ public class JinericItems {
 	public static final Item RHYOLITE_BRICK_WALL = register("rhyolite_brick_wall", new BlockItem(JinericBlocks.RHYOLITE_BRICK_WALL, new FabricItemSettings()));
 	public static final Item POLISHED_RHYOLITE_WALL = register("polished_rhyolite_wall", new BlockItem(JinericBlocks.POLISHED_RHYOLITE_WALL, new FabricItemSettings()));
 	public static final Item RHYOLITE_TILE_WALL = register("rhyolite_tile_wall", new BlockItem(JinericBlocks.RHYOLITE_TILE_WALL, new FabricItemSettings()));
-	//TUFF
+//TUFF
 	public static final Item POLISHED_TUFF = register("polished_tuff", new BlockItem(JinericBlocks.POLISHED_TUFF, new FabricItemSettings()));
 	public static final Item POLISHED_TUFF_STAIRS = register("polished_tuff_stairs", new BlockItem(JinericBlocks.POLISHED_TUFF_STAIRS, new FabricItemSettings()));
 	public static final Item POLISHED_TUFF_SLAB = register("polished_tuff_slab", new BlockItem(JinericBlocks.POLISHED_TUFF_SLAB, new FabricItemSettings()));

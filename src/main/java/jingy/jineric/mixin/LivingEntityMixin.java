@@ -1,6 +1,6 @@
 package jingy.jineric.mixin;
 
-import jingy.jineric.registry.JinericBlocks;
+import jingy.jineric.block.JinericBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;

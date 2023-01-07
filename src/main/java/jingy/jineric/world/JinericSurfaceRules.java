@@ -1,6 +1,6 @@
 package jingy.jineric.world;
 
-import jingy.jineric.registry.JinericBlocks;
+import jingy.jineric.block.JinericBlocks;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.gen.surfacebuilder.MaterialRules;
 import net.minecraft.world.gen.surfacebuilder.VanillaSurfaceRules;
