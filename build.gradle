@@ -25,15 +25,17 @@ repositories {
 }
 
 dependencies {
-	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-//	modImplementation("com.github.glitchfiend:TerraBlender-fabric:1.19-${terrablender_version}")
-	//TODO: REMOVE DEPENDENCY FOR STONE CUTTER TAGS
-//	modImplementation "maven.modrinth:stonecutter_recipe_tags:${project.stonecutter_recipes_version}"
-//	include "maven.modrinth:stonecutter_recipe_tags:${project.stonecutter_recipes_version}"
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+	// api
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+	// mixin extras
+	implementation("com.github.LlamaLad7:MixinExtras:0.1.1")
+	include "com.github.LlamaLad7:MixinExtras:0.1.1"
+	annotationProcessor("com.github.LlamaLad7:MixinExtras:0.1.1")
 }
 
 processResources {

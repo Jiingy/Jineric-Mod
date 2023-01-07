@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "jineric:dripstone_tiles",
-    "jineric:dripstone_tile_slab",
-    "jineric:dripstone_tile_stairs",
-    "jineric:dripstone_tile_wall"
-  ]
-}

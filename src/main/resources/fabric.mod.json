@@ -15,14 +15,17 @@
   "license": "MIT",
   "icon": "assets/jineric/icon.png",
   "entrypoints": {
+    "fabric-datagen": [
+      "jingy.jineric.data.JinericDataGeneration"
+    ],
     "main": [
       "jingy.jineric.base.JinericMain"
     ],
     "client": [
       "jingy.jineric.base.JinericClientMain"
     ],
-    "terrablender": [
-      "jingy.jineric.base.JinericMain"
+    "preLaunch": [
+      "jingy.jineric.base.JinericPreLaunch"
     ]
   },
   "mixins": [

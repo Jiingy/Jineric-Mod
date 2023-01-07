@@ -13,7 +13,6 @@
 	  "SmokerBlockMixin",
 	  "TurtleEntityMixin",
 	  "WallBlockMixin",
-	  "access.BrewingRecipeRegistryAccess",
 	  "access.MaterialRulesDataAccess",
 	  "access.SignTypeAccess"
    ],

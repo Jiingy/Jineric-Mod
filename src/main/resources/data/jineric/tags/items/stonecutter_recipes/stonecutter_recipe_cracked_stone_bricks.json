@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "minecraft:cracked_stone_bricks",
-    "jineric:cracked_stone_brick_slab",
-    "jineric:cracked_stone_brick_stairs",
-    "jineric:cracked_stone_brick_wall"
-  ]
-}

@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "minecraft:smooth_stone",
-    "minecraft:smooth_stone_slab",
-    "jineric:smooth_stone_stairs",
-    "jineric:smooth_stone_wall"
-  ]
-}

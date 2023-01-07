@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "minecraft:obsidian",
-    "jineric:obsidian_slab",
-    "jineric:obsidian_stairs",
-    "jineric:obsidian_wall"
-  ]
-}
