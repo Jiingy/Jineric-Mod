@@ -1,17 +1,17 @@
 package jingy.jineric.tag;
 
 import net.minecraft.block.Block;
-import net.minecraft.tag.TagKey;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 public class JinericBlockTags {
-   public static final TagKey<Block> JINERIC_WALLS = register("jineric:jineric_walls");
+   public static final TagKey<Block> SPECIALTY_WALLS = register("jineric:specialty_walls");
    public static final TagKey<Block> FULL_GRASS_REPLACEABLE = register("jineric:full_grass_block_replaceable");
-   public static final TagKey<Block> BOOKSHELVES = register("jineric:bookshelves");
+   public static final TagKey<Block> WOODEN_BOOKSHELVES = register("jineric:wooden_bookshelves");
 
    private static TagKey<Block> register(String id) {
-      return TagKey.of(Registry.BLOCK_KEY, new Identifier(id));
+      return TagKey.of(Registries.BLOCK.getKey(), new Identifier(id));
    }
 
    private JinericBlockTags() {

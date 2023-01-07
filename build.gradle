@@ -1,51 +1,62 @@
 plugins {
-	id 'fabric-loom' version '1.0-SNAPSHOT'
-	id 'io.github.juuxel.loom-quiltflower' version '1.7.1'
-	id "maven-publish"
-	id "com.modrinth.minotaur" version "1.1.0"
-	id "org.jetbrains.kotlin.jvm" version "1.6.20-RC2"
+	id 'java-library'
 	id 'idea'
+	id 'fabric-loom' version '1.0-SNAPSHOT'
+	id "maven-publish"
+	id 'io.github.juuxel.loom-quiltflower' version '1.8.0'
+	id "com.modrinth.minotaur" version "1.1.0"
 }
 
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_16
+/* Setup */
+def ENV = System.getenv()
 
-archivesBaseName = project.archives_base_name
-version = project.mod_version
+sourceCompatibility = targetCompatibility = JavaVersion.VERSION_17
+tasks.withType(JavaCompile).configureEach { it.options.release = 17 }
+
 group = project.maven_group
+archivesBaseName = project.mod_id
+version = project.mod_version
 
-loom {
-	accessWidenerPath = file("src/main/resources/jineric.accesswidener")
-}
-
+/* Dependencies */
 repositories {
 	mavenCentral()
 	maven { url "https://api.modrinth.com/maven" }
 	maven { url = 'https://maven.minecraftforge.net/' }
+	maven { url "https://jitpack.io" }
 }
 
 dependencies {
-	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-	modImplementation("com.github.glitchfiend:TerraBlender-fabric:1.19-${terrablender_version}")
-	modImplementation "maven.modrinth:stonecutter_recipe_tags:${project.stonecutter_recipes_version}"
-	include "maven.modrinth:stonecutter_recipe_tags:${project.stonecutter_recipes_version}"
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+	// api
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+	// mixin extras
+	implementation("com.github.LlamaLad7:MixinExtras:0.1.1")
+	include "com.github.LlamaLad7:MixinExtras:0.1.1"
+	annotationProcessor("com.github.LlamaLad7:MixinExtras:0.1.1")
 }
 
+/* Resource Processing */
 processResources {
 	inputs.property "version", project.version
+	inputs.property "mod_id", project.mod_id
+	inputs.property "mod_name", project.name
+//	inputs.property "mod_description", project.description
+	inputs.property "version", project.version
+//	inputs.property "main_class", project.main_class
 
 	filesMatching("fabric.mod.json") {
-		expand "version": project.version
+		expand(
+			"version": project.version,
+			"mod_id": project.mod_id,
+			"mod_name": project.name,
+//			"mod_description": project.description,
+//			"main_class": project.main_class
+		)
 	}
-}
-
-tasks.withType(JavaCompile) {
-	it.options.encoding = "UTF-8"
-	it.options.release = 16
 }
 
 jar {
@@ -54,15 +65,31 @@ jar {
 	}
 }
 
-java {
-	withSourcesJar()
+/* Data Generation */
+def dataOutput = 'src/main/generated'
+loom {
+	runs {
+		datagen {
+			server()
+			name "Data Generation"
+			vmArg "-Dfabric-api.datagen"
+			vmArg "-Dfabric-api.datagen.output-dir=${file(dataOutput)}"
+//			vmArg "-Dfabric-api.datagen.modid=${mod_id}"
+
+			runDir "build/datagen"
+		}
+	}
+	accessWidenerPath = file("src/main/resources/jineric.accesswidener")
 }
 
-// configure the maven publication
+sourceSets { main { resources { srcDirs += dataOutput } } }
+
+/* Publishing */
+java { withSourcesJar() }
+
 publishing {
 	publications {
 		mavenJava(MavenPublication) {
-			// add all the jars that should be included when publishing to maven
 			artifact(remapJar) {
 				builtBy remapJar
 			}
@@ -72,9 +99,6 @@ publishing {
 		}
 	}
 
-	// select the repositories you want to publish to
 	repositories {
-		// uncomment to publish to the local maven
-		// mavenLocal()
 	}
 }

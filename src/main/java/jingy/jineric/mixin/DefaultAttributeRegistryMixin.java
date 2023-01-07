@@ -18,7 +18,7 @@ import java.util.IdentityHashMap;
 import java.util.Map;
 
 @Mixin(DefaultAttributeRegistry.class)
-public class DefaultAttributeRegistryMixin {
+public abstract class DefaultAttributeRegistryMixin {
 
    @Mutable
    @Shadow @Final private static Map<EntityType<? extends LivingEntity>, DefaultAttributeContainer> DEFAULT_ATTRIBUTE_REGISTRY;

@@ -1,14 +1,16 @@
 package jingy.jineric.registry;
 
 import jingy.jineric.base.JinericMain;
+import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.block.entity.RefineryBlockEntity;
 import jingy.jineric.block.entity.ShulkerChestBlockEntity;
-import jingy.jineric.block.entity.custom.JinericCampfireBlockEntity;
+import jingy.jineric.block.entity.custom.RedstoneCampfireBlockEntity;
 import jingy.jineric.block.entity.custom.chest.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 public class JinericBlockEntityType {
    //CHESTS
@@ -18,8 +20,8 @@ public class JinericBlockEntityType {
    public static final BlockEntityType<BirchChestBlockEntity> BIRCH_CHEST =
            FabricBlockEntityTypeBuilder.create(BirchChestBlockEntity::new, JinericBlocks.BIRCH_CHEST).build(null);
 
-   public static final BlockEntityType<BorealChestBlockEntity> BOREAL_CHEST =
-           FabricBlockEntityTypeBuilder.create(BorealChestBlockEntity::new, JinericBlocks.BOREAL_CHEST).build(null);
+//   public static final BlockEntityType<BorealChestBlockEntity> BOREAL_CHEST =
+//           FabricBlockEntityTypeBuilder.create(BorealChestBlockEntity::new, JinericBlocks.BOREAL_CHEST).build(null);
 
    public static final BlockEntityType<CrimsonChestBlockEntity> CRIMSON_CHEST =
            FabricBlockEntityTypeBuilder.create(CrimsonChestBlockEntity::new, JinericBlocks.CRIMSON_CHEST).build(null);
@@ -46,24 +48,24 @@ public class JinericBlockEntityType {
    public static final BlockEntityType<RefineryBlockEntity> REFINERY =
            FabricBlockEntityTypeBuilder.create(RefineryBlockEntity::new, JinericBlocks.REFINERY).build(null);
 
-   public static final BlockEntityType<JinericCampfireBlockEntity> CAMPFIRE =
-           FabricBlockEntityTypeBuilder.create(JinericCampfireBlockEntity::new, JinericBlocks.REDSTONE_CAMPFIRE).build(null);
+   public static final BlockEntityType<RedstoneCampfireBlockEntity> REDSTONE_CAMPFIRE =
+           FabricBlockEntityTypeBuilder.create(RedstoneCampfireBlockEntity::new, JinericBlocks.REDSTONE_CAMPFIRE).build(null);
 
    public static void registerBlockEntities() {
       //CHESTS
-      Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "acacia_chest"), ACACIA_CHEST);
-      Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "birch_chest"), BIRCH_CHEST);
-      Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "boreal_chest"), BOREAL_CHEST);
-      Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "crimson_chest"), CRIMSON_CHEST);
-      Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "dark_oak_chest"), DARK_OAK_CHEST);
-      Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "jungle_chest"), JUNGLE_CHEST);
-      Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "spruce_chest"), SPRUCE_CHEST);
-      Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "warped_chest"), WARPED_CHEST);
-      Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "mangrove_chest"), MANGROVE_CHEST);
-      Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "shulker_chest"), SHULKER_CHEST);
+      Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "acacia_chest"), ACACIA_CHEST);
+      Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "birch_chest"), BIRCH_CHEST);
+//      Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "boreal_chest"), BOREAL_CHEST);
+      Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "crimson_chest"), CRIMSON_CHEST);
+      Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "dark_oak_chest"), DARK_OAK_CHEST);
+      Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "jungle_chest"), JUNGLE_CHEST);
+      Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "spruce_chest"), SPRUCE_CHEST);
+      Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "warped_chest"), WARPED_CHEST);
+      Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "mangrove_chest"), MANGROVE_CHEST);
+      Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "shulker_chest"), SHULKER_CHEST);
 
-      Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "refinery"), REFINERY);
-      Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "campfire"), CAMPFIRE);
+      Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "refinery"), REFINERY);
+      Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "campfire"), REDSTONE_CAMPFIRE);
    }
 }
 

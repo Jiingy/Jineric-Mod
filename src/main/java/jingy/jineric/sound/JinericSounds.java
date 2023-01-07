@@ -13,6 +13,6 @@ public class JinericSounds {
 			JinericSoundEvents.BLOCK_SOUL_SANDSTONE_BLOCK_HIT,
 			JinericSoundEvents.BLOCK_SOUL_SANDSTONE_BLOCK_FALL);
 
-	public static void init() {
+	public static void register() {
 	}
 }

@@ -1,7 +1,0 @@
-{
-  "parent": "jineric:block/chest_template",
-  "textures": {
-    "0": "jineric:entity/chest/boreal_chest",
-    "particle": "jineric:entity/chest/boreal_chest_particle"
-  }
-}

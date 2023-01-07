@@ -22,7 +22,9 @@ import net.minecraft.world.World;
 
 public class JinericChestBlockEntity extends ChestBlockEntity {
 
-   JinericChestType type;
+   private static final Text ACACIA_DOUBLE = Text.translatable("container.acaciaDouble");
+   private final Text BIRCH_DOUBLE = Text.translatable("container.birchDouble");
+   private final JinericChestType type;
 
    private final ViewerCountManager stateManager = new ViewerCountManager() {
       @Override
@@ -51,13 +53,34 @@ public class JinericChestBlockEntity extends ChestBlockEntity {
       }
    };
 
-   private final ChestLidAnimator lidAnimator = new ChestLidAnimator();
-
    public JinericChestBlockEntity(JinericChestType type, BlockPos blockPos, BlockState blockState) {
       super(type.getBlockEntityType(), blockPos, blockState);
       this.type = type;
       this.setInvStackList(DefaultedList.ofSize(this.size(), ItemStack.EMPTY));
    }
+
+   public JinericChestType getChestType() {
+      return type;
+   }
+
+   public Text getChestTypeKey() {
+      return switch (getChestType()) {
+         case ACACIA -> Text.translatable("container.chestAcaciaDouble");
+         case BIRCH -> Text.translatable("container.chestBirchDouble");
+//         case BOREAL -> Text.translatable("container.chestBorealDouble");
+         case CRIMSON -> Text.translatable("container.chestCrimsonDouble");
+         case DARK_OAK -> Text.translatable("container.chestDarkOakDouble");
+         case JUNGLE -> Text.translatable("container.chestJungleDouble");
+         case SPRUCE -> Text.translatable("container.chestSpruceDouble");
+         case WARPED -> Text.translatable("container.chestWarpedDouble");
+         case MANGROVE -> Text.translatable("container.chestMangroveDouble");
+         case SHULKER -> null;
+      };
+   }
+
+   private final ChestLidAnimator lidAnimator = new ChestLidAnimator();
+
+
 
    public static void clientTick(World world, BlockPos pos, BlockState state, JinericChestBlockEntity blockEntity) {
       blockEntity.lidAnimator.step();
@@ -104,7 +127,5 @@ public class JinericChestBlockEntity extends ChestBlockEntity {
       return type.size;
    }
 
-   public JinericChestType type() {
-      return type;
-   }
+
 }

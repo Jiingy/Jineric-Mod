@@ -1,9 +1,0 @@
-{
-    "type": "minecraft:smelting",
-    "ingredient": {
-        "item": "jineric:cobbled_dripstone"
-    },
-    "result": "minecraft:dripstone_block",
-    "count": 1,
-    "experience": 0.1
-}

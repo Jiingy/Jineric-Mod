@@ -1,8 +1,0 @@
-{
-  "type": "jineric:refining",
-  "ingredient": {
-    "item": "jineric:rhyolite"
-  },
-  "result": "jineric:smooth_rhyolite",
-  "experience": 0.2
-}

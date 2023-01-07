@@ -6,6 +6,7 @@
     "jineric:dripstone_stairs",
     "jineric:cobbled_dripstone_stairs",
     "jineric:dripstone_brick_stairs",
+    "jineric:cracked_dripstone_brick_stairs",
     "jineric:polished_dripstone_stairs",
     "jineric:dripstone_tile_stairs",
     "jineric:smooth_dripstone_stairs",
@@ -13,18 +14,13 @@
     "jineric:polished_sandstone_stairs",
     "jineric:cut_red_sandstone_stairs",
     "jineric:polished_red_sandstone_stairs",
-
-
     "jineric:smooth_stone_stairs",
     "jineric:cracked_stone_brick_stairs",
-
     "jineric:wavy_sandstone_stairs",
-
     "jineric:wavy_red_sandstone_stairs",
     "jineric:soul_sandstone_stairs",
     "jineric:cut_soul_sandstone_stairs",
     "jineric:polished_soul_sandstone_stairs",
-
     "jineric:smooth_soul_sandstone_stairs",
     "jineric:wavy_soul_sandstone_stairs",
     "jineric:packed_ice_stairs",

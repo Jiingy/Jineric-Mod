@@ -1,26 +1,9 @@
 {
   "replace": false,
   "values": [
-    "jineric:bamboo_block",
     "jineric:soul_jack_o_lantern",
     "jineric:stack_of_paper",
     "jineric:stick_bundle",
-
-    "jineric:boreal_wood",
-    "jineric:boreal_log",
-    "jineric:stripped_boreal_wood",
-    "jineric:stripped_boreal_log",
-    "jineric:boreal_planks",
-    "jineric:boreal_stairs",
-    "jineric:boreal_slab",
-    "jineric:boreal_sapling",
-    "jineric:boreal_fence",
-    "jineric:boreal_button",
-    "jineric:boreal_pressure_plate",
-    "jineric:boreal_door",
-    "jineric:boreal_trapdoor",
-    "jineric:boreal_fence_gate",
-    "jineric:boreal_bookshelf",
 
     "jineric:spruce_chest",
     "jineric:birch_chest",
@@ -30,10 +13,8 @@
     "jineric:mangrove_chest",
     "jineric:crimson_chest",
     "jineric:warped_chest",
-    "jineric:boreal_chest",
 
     "minecraft:bookshelf",
-    "jineric:boreal_bookshelf",
     "jineric:spruce_bookshelf",
     "jineric:birch_bookshelf",
     "jineric:jungle_bookshelf",
@@ -44,7 +25,6 @@
     "jineric:mangrove_bookshelf",
 
     "jineric:acacia_ladder",
-    "jineric:boreal_ladder",
     "jineric:birch_ladder",
     "jineric:dark_oak_ladder",
     "jineric:spruce_ladder",

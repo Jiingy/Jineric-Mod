@@ -1,0 +1,9 @@
+{
+   "type": "jineric:refining",
+   "category": "blocks",
+   "experience": 0.2,
+   "ingredient": {
+      "item": "minecraft:sandstone"
+   },
+   "result": "minecraft:smooth_sandstone"
+}

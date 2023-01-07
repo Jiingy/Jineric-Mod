@@ -1,11 +1,11 @@
 package jingy.jineric.mixin;
 
-import jingy.jineric.registry.JinericBlocks;
+import jingy.jineric.block.JinericBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.tag.BlockTags;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -35,14 +35,10 @@ public abstract class LivingEntityMixin extends Entity {
 		}
 	}
 
-
-
 	@ModifyVariable(
 			method = "travel",
 			slice = @Slice(from = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;getVelocityAffectingPos()Lnet/minecraft/util/math/BlockPos;")),
-			at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/block/Block;getSlipperiness()F")
-	)
-
+			at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/block/Block;getSlipperiness()F"))
 	@SuppressWarnings("InvalidInjectorMethodSignature")
 	public float jineric$setSlipperiness(float p) {
 		BlockPos pos = getBlockPos();

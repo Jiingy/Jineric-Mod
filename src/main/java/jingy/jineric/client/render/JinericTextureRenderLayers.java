@@ -14,37 +14,28 @@ public class JinericTextureRenderLayers extends TexturedRenderLayers {
    public static final SpriteIdentifier ACACIA_CHEST = getChestTextureId("acacia_chest");
    public static final SpriteIdentifier ACACIA_CHEST_LEFT = getChestTextureId("acacia_left");
    public static final SpriteIdentifier ACACIA_CHEST_RIGHT = getChestTextureId("acacia_right");
-
    public static final SpriteIdentifier BOREAL_CHEST = getChestTextureId("boreal_chest");
    public static final SpriteIdentifier BOREAL_CHEST_LEFT = getChestTextureId("boreal_left");
    public static final SpriteIdentifier BOREAL_CHEST_RIGHT = getChestTextureId("boreal_right");
-
    public static final SpriteIdentifier BIRCH_CHEST = getChestTextureId("birch_chest");
    public static final SpriteIdentifier BIRCH_CHEST_LEFT = getChestTextureId("birch_left");
    public static final SpriteIdentifier BIRCH_CHEST_RIGHT = getChestTextureId("birch_right");
-
    public static final SpriteIdentifier CRIMSON_CHEST = getChestTextureId("crimson_chest");
    public static final SpriteIdentifier CRIMSON_CHEST_LEFT = getChestTextureId("crimson_left");
    public static final SpriteIdentifier CRIMSON_CHEST_RIGHT = getChestTextureId("crimson_right");
-
    public static final SpriteIdentifier DARK_OAK_CHEST = getChestTextureId("dark_oak_chest");
    public static final SpriteIdentifier DARK_OAK_CHEST_LEFT = getChestTextureId("dark_oak_left");
    public static final SpriteIdentifier DARK_OAK_CHEST_RIGHT = getChestTextureId("dark_oak_right");
-
    public static final SpriteIdentifier JUNGLE_CHEST = getChestTextureId("jungle_chest");
    public static final SpriteIdentifier JUNGLE_CHEST_LEFT = getChestTextureId("jungle_left");
    public static final SpriteIdentifier JUNGLE_CHEST_RIGHT = getChestTextureId("jungle_right");
-
    public static final SpriteIdentifier SHULKER = getChestTextureId("shulker_chest");
-
    public static final SpriteIdentifier SPRUCE_CHEST = getChestTextureId("spruce_chest");
    public static final SpriteIdentifier SPRUCE_CHEST_LEFT = getChestTextureId("spruce_left");
    public static final SpriteIdentifier SPRUCE_CHEST_RIGHT = getChestTextureId("spruce_right");
-
    public static final SpriteIdentifier WARPED_CHEST = getChestTextureId("warped_chest");
    public static final SpriteIdentifier WARPED_CHEST_LEFT = getChestTextureId("warped_left");
    public static final SpriteIdentifier WARPED_CHEST_RIGHT = getChestTextureId("warped_right");
-
    public static final SpriteIdentifier MANGROVE_CHEST = getChestTextureId("mangrove_chest");
    public static final SpriteIdentifier MANGROVE_CHEST_LEFT = getChestTextureId("mangrove_left");
    public static final SpriteIdentifier MANGROVE_CHEST_RIGHT = getChestTextureId("mangrove_right");
@@ -101,9 +92,5 @@ public class JinericTextureRenderLayers extends TexturedRenderLayers {
          default:
             return single;
       }
-   }
-
-   public static SpriteIdentifier getSingleChestTexture(ChestType chestType, SpriteIdentifier single) {
-      return single;
    }
 }

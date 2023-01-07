@@ -21,7 +21,7 @@ import net.minecraft.client.render.entity.model.EntityModelLayers;
 import net.minecraft.client.util.SpriteIdentifier;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.Vec3f;
+import net.minecraft.util.math.RotationAxis;
 import net.minecraft.world.World;
 
 import java.util.Calendar;
@@ -102,7 +102,7 @@ public class GenericChestBlockEntityRenderer<T extends BlockEntity> implements B
          matrixStack.push();
          float f = ((Direction)blockState.get(ChestBlock.FACING)).asRotation();
          matrixStack.translate(0.5, 0.5, 0.5);
-         matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(-f));
+         matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(-f));
          matrixStack.translate(-0.5, -0.5, -0.5);
          DoubleBlockProperties.PropertySource<? extends ChestBlockEntity> propertySource;
 
@@ -116,9 +116,9 @@ public class GenericChestBlockEntityRenderer<T extends BlockEntity> implements B
          g = 1.0F - g;
          g = 1.0F - g * g * g;
          int i = propertySource.<Int2IntFunction>apply(new LightmapCoordinatesRetriever<>()).applyAsInt(light);
-
          SpriteIdentifier sprite = JinericTextureRenderLayers.getChestTexture(chestEntity, chestType, this.christmas);
          VertexConsumer vertexConsumer = sprite.getVertexConsumer(vertexConsumers, RenderLayer::getEntityCutout);
+
          if (isDoubleChest) {
             if (chestType == ChestType.RIGHT) {
                this.render(matrixStack, vertexConsumer, this.doubleChestRightLid, this.doubleChestRightLatch, this.doubleChestRightBase, g, i, overlay);
@@ -132,29 +132,6 @@ public class GenericChestBlockEntityRenderer<T extends BlockEntity> implements B
          matrixStack.pop();
       }
    }
-
-//   public final SpriteIdentifier getTextureFinal(T type, ChestType chestType) {
-//      if(christmas)
-//         return TexturedRenderLayers.getChestTexture(type, chestType, true);
-//      return getTexture(type, chestType);
-//   }
-//
-//   public SpriteIdentifier getTexture(T blockEntity, ChestType chestType) {
-//      if (blockEntity instanceof ShulkerChestBlockEntity) {
-//         return JinericTextureRenderLayers.SHULKER;
-//      } else {
-//         return blockEntity instanceof JinericChestBlockEntity
-//                 ? getChestTexture(chestType,
-//                 JinericTextureRenderLayers.BOREAL_CHEST,
-//                 JinericTextureRenderLayers.BOREAL_CHEST_LEFT,
-//                 JinericTextureRenderLayers.BOREAL_CHEST_RIGHT)
-//
-//                 : getChestTexture(chestType,
-//                 JinericTextureRenderLayers.SPRUCE_CHEST,
-//                 JinericTextureRenderLayers.SPRUCE_CHEST_LEFT,
-//                 JinericTextureRenderLayers.SPRUCE_CHEST_RIGHT);
-//      }
-//   }
 
    private void render(MatrixStack matrices, VertexConsumer vertices, ModelPart lid, ModelPart latch, ModelPart base, float openFactor, int light, int overlay) {
       lid.pitch = -(openFactor * (float) (Math.PI / 2));

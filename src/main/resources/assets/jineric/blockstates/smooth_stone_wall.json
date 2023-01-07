@@ -2,6 +2,17 @@
   "multipart": [
     {
       "when": {
+        "east": "low",
+        "north": "low",
+        "south": "low",
+        "west": "low"
+      },
+      "apply": {
+        "model": "jineric:block/smooth_stone_wall_side_cross"
+      }
+    },
+    {
+      "when": {
         "up": true
       },
       "apply": {
@@ -22,7 +33,7 @@
         "east": "low"
       },
       "apply": {
-        "model": "jineric:block/smooth_stone_wall_side",
+        "model": "jineric:block/smooth_stone_wall_side_rotated",
         "y": 90,
         "uvlock": true
       }
@@ -42,11 +53,143 @@
         "west": "low"
       },
       "apply": {
-        "model": "jineric:block/smooth_stone_wall_side",
+        "model": "jineric:block/smooth_stone_wall_side_rotated",
         "y": 270,
         "uvlock": true
       }
     },
+
+    {
+      "when": {
+        "east": "none",
+        "north": "low",
+        "south": "low",
+        "west": "none"
+      },
+      "apply": {
+        "model": "jineric:block/smooth_stone_wall_side_line",
+        "y": 180,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "low",
+        "north": "none",
+        "south": "none",
+        "west": "low"
+      },
+      "apply": {
+        "model": "jineric:block/smooth_stone_wall_side_line_rotated",
+        "y": 90,
+        "uvlock": true
+      }
+    },
+
+    {
+      "when": {
+        "east": "low",
+        "north": "low",
+        "south": "none",
+        "west": "low"
+      },
+      "apply": {
+        "model": "jineric:block/smooth_stone_wall_side_t",
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "low",
+        "north": "none",
+        "south": "low",
+        "west": "low"
+      },
+      "apply": {
+        "model": "jineric:block/smooth_stone_wall_side_t",
+        "y": 180,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "low",
+        "north": "low",
+        "south": "low",
+        "west": "none"
+      },
+      "apply": {
+        "model": "jineric:block/smooth_stone_wall_side_t",
+        "y": 90,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "none",
+        "north": "low",
+        "south": "low",
+        "west": "low"
+      },
+      "apply": {
+        "model": "jineric:block/smooth_stone_wall_side_t",
+        "y": 270,
+        "uvlock": true
+      }
+    },
+
+    {
+      "when": {
+        "east": "low",
+        "north": "low",
+        "south": "none",
+        "west": "none"
+      },
+      "apply": {
+        "model": "jineric:block/smooth_stone_wall_side_turn",
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "low",
+        "north": "none",
+        "south": "low",
+        "west": "none"
+      },
+      "apply": {
+        "model": "jineric:block/smooth_stone_wall_side_turn",
+        "y": 90,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "none",
+        "north": "none",
+        "south": "low",
+        "west": "low"
+      },
+      "apply": {
+        "model": "jineric:block/smooth_stone_wall_side_turn",
+        "y": 180,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "none",
+        "north": "low",
+        "south": "none",
+        "west": "low"
+      },
+      "apply": {
+        "model": "jineric:block/smooth_stone_wall_side_turn",
+        "y": 270,
+        "uvlock": true
+      }
+    },
+
     {
       "when": {
         "north": "tall"

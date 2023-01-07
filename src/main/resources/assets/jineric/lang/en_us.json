@@ -6,10 +6,15 @@
   "item.jineric.frozen_elytra": "Frozen Elytra",
   "item.jineric.manx_loaghtan_spawn_egg": "Manx Loaghtan Spawn Egg",
   "item.jineric.netherite_horse_armor": "Netherite Horse Armor",
-
   "item.minecraft.potion.effect.glowing": "Potion of Glowing",
   "item.minecraft.splash_potion.effect.glowing": "Splash Potion of Glowing",
   "item.minecraft.lingering_potion.effect.glowing": "Lingering Potion of Glowing",
+  "item.minecraft.potion.effect.darkness": "Potion of Darkness",
+  "item.minecraft.potion.effect.long_darkness": "Potion of Darkness",
+  "item.minecraft.splash_potion.effect.darkness": "Splash Potion of Darkness",
+  "item.minecraft.splash_potion.effect.long_darkness": "Splash Potion of Darkness",
+  "item.minecraft.lingering_potion.effect.darkness": "Lingering Potion of Darkness",
+  "item.minecraft.lingering_potion.effect.long_darkness": "Lingering Potion of Darkness",
 
   "block.jineric.polished_stone": "Polished Stone",
   "block.jineric.polished_stone_stairs": "Polished Stone Stairs",
@@ -108,6 +113,10 @@
   "block.jineric.dripstone_brick_slab": "Dripstone Brick Slab",
   "block.jineric.dripstone_brick_stairs": "Dripstone Brick Stairs",
   "block.jineric.dripstone_brick_wall": "Dripstone Brick Wall",
+  "block.jineric.cracked_dripstone_bricks": "Cracked Dripstone Bricks",
+  "block.jineric.cracked_dripstone_brick_slab": "Cracked Dripstone Brick Slab",
+  "block.jineric.cracked_dripstone_brick_stairs": "Cracked Dripstone Brick Stairs",
+  "block.jineric.cracked_dripstone_brick_wall": "Cracked Dripstone Brick Wall",
   "block.jineric.dripstone_tiles": "Dripstone Tiles",
   "block.jineric.dripstone_tile_slab": "Dripstone Tile Slab",
   "block.jineric.dripstone_tile_stairs": "Dripstone Tile Stairs",
@@ -134,7 +143,6 @@
   "block.jineric.rotten_flesh_block": "Block Of Flesh",
   "block.jineric.flint_block": "Flint Block",
   "block.jineric.charcoal_block": "Block Of Charcoal",
-  "block.jineric.bamboo_bunch": "Bamboo Bunch",
   "block.jineric.stick_bundle": "Stick Bundle",
   "block.jineric.stack_of_paper": "Stack Of Paper",
   "block.jineric.full_grass_block": "Full Grass Block",
@@ -145,7 +153,6 @@
 
   "block.jineric.redstone_lantern": "Redstone Lantern",
   "block.jineric.redstone_campfire": "Redstone Campfire",
-
 
   "block.jineric.packed_ice_slab": "Packed Ice Slab",
   "block.jineric.packed_ice_stairs": "Packed Ice Stairs",
@@ -191,6 +198,16 @@
   "block.jineric.crimson_bookshelf": "Crimson Bookshelf",
   "block.jineric.warped_bookshelf": "Warped Bookshelf",
 
+  "block.jineric.cut_copper_wall": "Cut Copper Wall",
+  "block.jineric.exposed_cut_copper_wall": "Exposed Cut Copper Wall",
+  "block.jineric.weathered_cut_copper_wall": "Weathered Cut Copper Wall",
+  "block.jineric.oxidized_cut_copper_wall": "Oxidized Cut Copper Wall",
+  "block.jineric.waxed_cut_copper_wall": "Waxed Cut Copper Wall",
+  "block.jineric.waxed_exposed_cut_copper_wall": "Waxed Exposed Cut Copper Wall",
+  "block.jineric.waxed_weathered_cut_copper_wall": "Waxed Weathered Cut Copper Wall",
+  "block.jineric.waxed_oxidized_cut_copper_wall": "Waxed Oxidized Cut Copper Wall",
+
+
   "block.jineric.spruce_chest": "Spruce Chest",
   "block.jineric.birch_chest": "Birch Chest",
   "block.jineric.jungle_chest": "Jungle Chest",
@@ -199,6 +216,15 @@
   "block.jineric.mangrove_chest": "Mangrove Chest",
   "block.jineric.crimson_chest": "Crimson Chest",
   "block.jineric.warped_chest": "Warped Chest",
+
+  "container.chestAcaciaDouble": "Double Acacia Chest",
+  "container.chestBirchDouble": "Double Birch Chest",
+  "container.chestCrimsonDouble": "Double Crimson Chest",
+  "container.chestDarkOakDouble": "Double Dark Oak Chest",
+  "container.chestJungleDouble": "Double Jungle Chest",
+  "container.chestSpruceDouble": "Double Spruce Chest",
+  "container.chestWarpedDouble": "Double Warped Chest",
+  "container.chestMangroveDouble": "Double Mangrove Chest",
 
   "block.jineric.spruce_ladder": "Spruce Ladder",
   "container.spruce_ladder": "Spruce Ladder",
@@ -212,5 +238,8 @@
 
   "block.jineric.boreal_chest": "Boreal Chest",
   "container.borealChest": "Chest",
-  "container.borealChestDouble": "Large Boreal Chest"
+  "container.borealChestDouble": "Large Boreal Chest",
+
+  "gui.recipebook.toggleRecipes.refinable": "Showing Refinable",
+  "container.refinery": "Refinery"
 }

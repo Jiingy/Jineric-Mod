@@ -1,6 +1,6 @@
 package jingy.jineric.entity.passive.manxloaghtan;
 
-import jingy.jineric.base.JinericClientMain;
+import jingy.jineric.client.render.entity.model.JinericEntityModelLayer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
@@ -22,7 +22,7 @@ public class ManxLoaghtanWoolFeatureRenderer extends FeatureRenderer<ManxLoaghta
 
    public ManxLoaghtanWoolFeatureRenderer(FeatureRendererContext<ManxLoaghtan, ManxLoaghtanModel<ManxLoaghtan>> context, EntityModelLoader entityModelLoader) {
       super(context);
-      this.model = new ManxLoaghtanWoolModel<>(entityModelLoader.getModelPart(JinericClientMain.MANX_LOAGHTAN_WOOL));
+      this.model = new ManxLoaghtanWoolModel<>(entityModelLoader.getModelPart(JinericEntityModelLayer.MANX_LOAGHTAN_WOOL));
    }
 
    public void render(

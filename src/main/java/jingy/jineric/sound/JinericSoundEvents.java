@@ -1,9 +1,10 @@
 package jingy.jineric.sound;
 
 import jingy.jineric.base.JinericMain;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 public class JinericSoundEvents {
 
@@ -14,6 +15,6 @@ public class JinericSoundEvents {
    public static final SoundEvent BLOCK_SOUL_SANDSTONE_BLOCK_STEP = register("block.soul_sandstone.step");
 
    private static SoundEvent register(String id) {
-      return Registry.register(Registry.SOUND_EVENT, new Identifier(JinericMain.MOD_ID, id), new SoundEvent(new Identifier(id)));
+      return Registry.register(Registries.SOUND_EVENT, new Identifier(JinericMain.MOD_ID, id), SoundEvent.of(new Identifier(id)));
    }
 }

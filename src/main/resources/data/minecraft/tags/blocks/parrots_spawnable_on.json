@@ -1,8 +1,6 @@
 {
   "replace": false,
   "values": [
-    "#minecraft:leaves",
-    "#minecraft:logs",
     "jineric:full_grass_block"
   ]
 }

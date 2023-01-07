@@ -1,6 +1,6 @@
 package jingy.jineric.mixin;
 
-import jingy.jineric.registry.JinericBlocks;
+import jingy.jineric.block.JinericBlocks;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.state.property.BooleanProperty;

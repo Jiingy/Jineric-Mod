@@ -56,13 +56,14 @@ public class JinericOverworldBiomes extends OverworldBiomeCreator {
               .build();
    }
 
+   //TODO: FIX
    private static void addBasicFeatures(GenerationSettings.Builder builder) {
-      DefaultBiomeFeatures.addLandCarvers(builder);
-      DefaultBiomeFeatures.addAmethystGeodes(builder);
-      DefaultBiomeFeatures.addDungeons(builder);
-      DefaultBiomeFeatures.addMineables(builder);
-      DefaultBiomeFeatures.addSprings(builder);
-      DefaultBiomeFeatures.addFrozenTopLayer(builder);
+//      DefaultBiomeFeatures.addLandCarvers(builder);
+//      DefaultBiomeFeatures.addAmethystGeodes(builder);
+//      DefaultBiomeFeatures.addDungeons(builder);
+//      DefaultBiomeFeatures.addMineables(builder);
+//      DefaultBiomeFeatures.addSprings(builder);
+//      DefaultBiomeFeatures.addFrozenTopLayer(builder);
    }
 
    public static Biome createBorealForest(boolean cold) {
@@ -77,10 +78,10 @@ public class JinericOverworldBiomes extends OverworldBiomeCreator {
       GenerationSettings.Builder generationSettings = new GenerationSettings.Builder();
       addBasicFeatures(generationSettings);
       JinericDefaultBiomeFeatures.addForestFlowers(generationSettings);
-      DefaultBiomeFeatures.addDefaultOres(generationSettings);
-      DefaultBiomeFeatures.addDefaultDisks(generationSettings);
-      DefaultBiomeFeatures.addDefaultGrass(generationSettings);
-      DefaultBiomeFeatures.addDefaultVegetation(generationSettings);
+//      DefaultBiomeFeatures.addDefaultOres(generationSettings);
+//      DefaultBiomeFeatures.addDefaultDisks(generationSettings);
+//      DefaultBiomeFeatures.addDefaultGrass(generationSettings);
+//      DefaultBiomeFeatures.addDefaultVegetation(generationSettings);
       JinericTreePlacedFeature.addBorealTrees(generationSettings);
 
 //      if (cold) {

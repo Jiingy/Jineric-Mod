@@ -1,9 +1,16 @@
 package jingy.jineric.registry;
 
-import net.fabricmc.fabric.api.registry.*;
+import jingy.jineric.block.JinericBlocks;
+import jingy.jineric.item.JinericItems;
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
+import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
+import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 
 public class JinericRegistries {
 
+
+   //TODO: READD VOIDED CODE
    public static void registerJinericMod() {
       registerIsFuel();
       registerCompostable();
@@ -15,15 +22,15 @@ public class JinericRegistries {
 
    private static void registerIsFuel() {
       FuelRegistry registry = FuelRegistry.INSTANCE;
-      registry.add(JinericItems.BOREAL_WOOD, 300);
-      registry.add(JinericItems.STRIPPED_BOREAL_WOOD, 300);
-      registry.add(JinericItems.BOREAL_LOG, 300);
-      registry.add(JinericItems.STRIPPED_BOREAL_LOG, 300);
-      registry.add(JinericItems.STRIPPED_BOREAL_LOG, 300);
-      registry.add(JinericItems.BOREAL_FENCE, 300);
-      registry.add(JinericItems.BOREAL_FENCE_GATE, 300);
+//      registry.add(JinericItems.BOREAL_WOOD, 300);
+//      registry.add(JinericItems.STRIPPED_BOREAL_WOOD, 300);
+//      registry.add(JinericItems.BOREAL_LOG, 300);
+//      registry.add(JinericItems.STRIPPED_BOREAL_LOG, 300);
+//      registry.add(JinericItems.STRIPPED_BOREAL_LOG, 300);
+//      registry.add(JinericItems.BOREAL_FENCE, 300);
+//      registry.add(JinericItems.BOREAL_FENCE_GATE, 300);
       //BOOKSHELVES
-      registry.add(JinericItems.BOREAL_BOOKSHELF, 300);
+//      registry.add(JinericItems.BOREAL_BOOKSHELF, 300);
       registry.add(JinericItems.SPRUCE_BOOKSHELF, 300);
       registry.add(JinericItems.BIRCH_BOOKSHELF, 300);
       registry.add(JinericItems.JUNGLE_BOOKSHELF, 300);
@@ -33,7 +40,7 @@ public class JinericRegistries {
       registry.add(JinericItems.CRIMSON_BOOKSHELF, 300);
       registry.add(JinericItems.WARPED_BOOKSHELF, 300);
       //LADDERS
-      registry.add(JinericItems.BOREAL_LADDER, 300);
+//      registry.add(JinericItems.BOREAL_LADDER, 300);
       registry.add(JinericItems.SPRUCE_LADDER, 300);
       registry.add(JinericItems.BIRCH_LADDER, 300);
       registry.add(JinericItems.JUNGLE_LADDER, 300);
@@ -43,7 +50,7 @@ public class JinericRegistries {
       registry.add(JinericItems.CRIMSON_LADDER, 300);
       registry.add(JinericItems.WARPED_LADDER, 300);
       //CHESTS
-      registry.add(JinericItems.BOREAL_CHEST, 300);
+//      registry.add(JinericItems.BOREAL_CHEST, 300);
       registry.add(JinericItems.SPRUCE_CHEST, 300);
       registry.add(JinericItems.BIRCH_CHEST, 300);
       registry.add(JinericItems.JUNGLE_CHEST, 300);
@@ -57,32 +64,31 @@ public class JinericRegistries {
    private static void registerCompostable() {
       CompostingChanceRegistry registry = CompostingChanceRegistry.INSTANCE;
       registry.add(JinericItems.TUMBLEWEED, 0.5F);
-      registry.add(JinericItems.BOREAL_LEAVES, 0.5F);
+//      registry.add(JinericItems.BOREAL_LEAVES, 0.5F);
    }
 
    private static void registerStrippable() {
-      StrippableBlockRegistry.register(JinericBlocks.BOREAL_LOG, JinericBlocks.STRIPPED_BOREAL_LOG);
-      StrippableBlockRegistry.register(JinericBlocks.BOREAL_WOOD, JinericBlocks.STRIPPED_BOREAL_WOOD);
+//      StrippableBlockRegistry.register(JinericBlocks.BOREAL_LOG, JinericBlocks.STRIPPED_BOREAL_LOG);
+//      StrippableBlockRegistry.register(JinericBlocks.BOREAL_WOOD, JinericBlocks.STRIPPED_BOREAL_WOOD);
    }
 
    private static void registerFlammable() {
       FlammableBlockRegistry instance = FlammableBlockRegistry.getDefaultInstance();
-      instance.add(JinericBlocks.BOREAL_WOOD, 5, 5);
-      instance.add(JinericBlocks.BOREAL_LOG, 5, 5);
-      instance.add(JinericBlocks.STRIPPED_BOREAL_LOG, 5, 5);
-      instance.add(JinericBlocks.STRIPPED_BOREAL_WOOD, 5, 5);
-      instance.add(JinericBlocks.BOREAL_PLANKS, 5, 20);
-      instance.add(JinericBlocks.BOREAL_STAIRS, 5, 20);
-      instance.add(JinericBlocks.BOREAL_SLAB, 5, 20);
-      instance.add(JinericBlocks.BOREAL_FENCE, 5, 20);
-      instance.add(JinericBlocks.BOREAL_FENCE_GATE, 5, 20);
-      instance.add(JinericBlocks.BOREAL_TRAPDOOR, 5, 20);
-      instance.add(JinericBlocks.BOREAL_DOOR, 5, 20);
-      instance.add(JinericBlocks.BOREAL_PRESSURE_PLATE, 5, 20);
-      instance.add(JinericBlocks.BOREAL_BUTTON, 5, 20);
+//      instance.add(JinericBlocks.BOREAL_WOOD, 5, 5);
+//      instance.add(JinericBlocks.BOREAL_LOG, 5, 5);
+//      instance.add(JinericBlocks.STRIPPED_BOREAL_LOG, 5, 5);
+//      instance.add(JinericBlocks.STRIPPED_BOREAL_WOOD, 5, 5);
+//      instance.add(JinericBlocks.BOREAL_PLANKS, 5, 20);
+//      instance.add(JinericBlocks.BOREAL_STAIRS, 5, 20);
+//      instance.add(JinericBlocks.BOREAL_SLAB, 5, 20);
+//      instance.add(JinericBlocks.BOREAL_FENCE, 5, 20);
+//      instance.add(JinericBlocks.BOREAL_FENCE_GATE, 5, 20);
+//      instance.add(JinericBlocks.BOREAL_TRAPDOOR, 5, 20);
+//      instance.add(JinericBlocks.BOREAL_DOOR, 5, 20);
+//      instance.add(JinericBlocks.BOREAL_PRESSURE_PLATE, 5, 20);
+//      instance.add(JinericBlocks.BOREAL_BUTTON, 5, 20);
       instance.add(JinericBlocks.CHARCOAL_BLOCK, 5, 5);
-      instance.add(JinericBlocks.BAMBOO_BLOCK, 60, 20);
-      instance.add(JinericBlocks.BOREAL_LEAVES, 30, 60);
+//      instance.add(JinericBlocks.BOREAL_LEAVES, 30, 60);
       instance.add(JinericBlocks.TUMBLEWEED, 30, 60);
       instance.add(JinericBlocks.SPRUCE_BOOKSHELF, 30, 20);
       instance.add(JinericBlocks.BIRCH_BOOKSHELF, 30, 20);

@@ -1,8 +1,6 @@
 {
    "replace": false,
    "values": [
-	  "minecraft:chest",
-	  "jineric:boreal_chest",
 	  "jineric:spruce_chest",
 	  "jineric:birch_chest",
 	  "jineric:jungle_chest",
