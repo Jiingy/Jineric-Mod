@@ -28,6 +28,11 @@
     "jineric:polished_dripstone_slab",
     "jineric:dripstone_tile_slab",
     "jineric:obsidian_slab",
+    "jineric:cracked_deepslate_brick_slab",
+    "jineric:cracked_deepslate_tile_slab",
+    "jineric:cracked_polished_blackstone_brick_slab",
+    "jineric:cracked_nether_brick_slab",
+    "jineric:smooth_basalt_slab",
     "jineric:cracked_stone_brick_slab",
     "jineric:packed_ice_slab"
   ]

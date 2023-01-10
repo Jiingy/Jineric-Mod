@@ -114,6 +114,12 @@ public class JinericItems {
 	public static final Item CRACKED_STONE_BRICK_SLAB = register("cracked_stone_brick_slab", new BlockItem(JinericBlocks.CRACKED_STONE_BRICK_SLAB, new FabricItemSettings()));
 	public static final Item CRACKED_STONE_BRICK_WALL = register("cracked_stone_brick_wall", new BlockItem(JinericBlocks.CRACKED_STONE_BRICK_WALL, new FabricItemSettings()));
 	public static final Item STONE_PILLAR = register("stone_pillar", new BlockItem(JinericBlocks.STONE_PILLAR, new FabricItemSettings()));
+	public static final Item CRACKED_DEEPSLATE_BRICK_STAIRS = register("cracked_deepslate_brick_stairs", new BlockItem(JinericBlocks.CRACKED_DEEPSLATE_BRICK_STAIRS, new FabricItemSettings()));
+	public static final Item CRACKED_DEEPSLATE_BRICK_SLAB = register("cracked_deepslate_brick_slab", new BlockItem(JinericBlocks.CRACKED_DEEPSLATE_BRICK_SLAB, new FabricItemSettings()));
+	public static final Item CRACKED_DEEPSLATE_BRICK_WALL = register("cracked_deepslate_brick_wall", new BlockItem(JinericBlocks.CRACKED_DEEPSLATE_BRICK_WALL, new FabricItemSettings()));
+	public static final Item CRACKED_DEEPSLATE_TILE_STAIRS = register("cracked_deepslate_tile_stairs", new BlockItem(JinericBlocks.CRACKED_DEEPSLATE_TILE_STAIRS, new FabricItemSettings()));
+	public static final Item CRACKED_DEEPSLATE_TILE_SLAB = register("cracked_deepslate_tile_slab", new BlockItem(JinericBlocks.CRACKED_DEEPSLATE_TILE_SLAB, new FabricItemSettings()));
+	public static final Item CRACKED_DEEPSLATE_TILE_WALL = register("cracked_deepslate_tile_wall", new BlockItem(JinericBlocks.CRACKED_DEEPSLATE_TILE_WALL, new FabricItemSettings()));
 	public static final Item SMOOTH_STONE_STAIRS = register("smooth_stone_stairs", new BlockItem(JinericBlocks.SMOOTH_STONE_STAIRS, new FabricItemSettings()));
 	public static final Item SMOOTH_STONE_WALL = register("smooth_stone_wall", new BlockItem(JinericBlocks.SMOOTH_STONE_WALL, new FabricItemSettings()));
 	public static final Item SMOOTH_DEEPSLATE = register("smooth_deepslate", new BlockItem(JinericBlocks.SMOOTH_DEEPSLATE, new FabricItemSettings()));
@@ -138,6 +144,17 @@ public class JinericItems {
 	public static final Item OBSIDIAN_STAIRS = register("obsidian_stairs", new BlockItem(JinericBlocks.OBSIDIAN_STAIRS, new FabricItemSettings()));
 	public static final Item OBSIDIAN_SLAB = register("obsidian_slab", new BlockItem(JinericBlocks.OBSIDIAN_SLAB, new FabricItemSettings()));
 	public static final Item OBSIDIAN_WALL = register("obsidian_wall", new BlockItem(JinericBlocks.OBSIDIAN_WALL, new FabricItemSettings()));
+
+	public static final Item CRACKED_NETHER_BRICK_STAIRS = register("cracked_nether_brick_stairs", new BlockItem(JinericBlocks.CRACKED_NETHER_BRICK_STAIRS, new FabricItemSettings()));
+	public static final Item CRACKED_NETHER_BRICK_SLAB = register("cracked_nether_brick_slab", new BlockItem(JinericBlocks.CRACKED_NETHER_BRICK_SLAB, new FabricItemSettings()));
+	public static final Item CRACKED_NETHER_BRICK_WALL = register("cracked_nether_brick_wall", new BlockItem(JinericBlocks.CRACKED_NETHER_BRICK_WALL, new FabricItemSettings()));
+	public static final Item CRACKED_POLISHED_BLACKSTONE_BRICK_STAIRS = register("cracked_polished_blackstone_brick_stairs", new BlockItem(JinericBlocks.CRACKED_POLISHED_BLACKSTONE_BRICK_STAIRS, new FabricItemSettings()));
+	public static final Item CRACKED_POLISHED_BLACKSTONE_BRICK_SLAB = register("cracked_polished_blackstone_brick_slab", new BlockItem(JinericBlocks.CRACKED_POLISHED_BLACKSTONE_BRICK_SLAB, new FabricItemSettings()));
+	public static final Item CRACKED_POLISHED_BLACKSTONE_BRICK_WALL = register("cracked_polished_blackstone_brick_wall", new BlockItem(JinericBlocks.CRACKED_POLISHED_BLACKSTONE_BRICK_WALL, new FabricItemSettings()));
+	public static final Item SMOOTH_BASALT_STAIRS = register("smooth_basalt_stairs", new BlockItem(JinericBlocks.SMOOTH_BASALT_STAIRS, new FabricItemSettings()));
+	public static final Item SMOOTH_BASALT_SLAB = register("smooth_basalt_slab", new BlockItem(JinericBlocks.SMOOTH_BASALT_SLAB, new FabricItemSettings()));
+	public static final Item SMOOTH_BASALT_WALL = register("smooth_basalt_wall", new BlockItem(JinericBlocks.SMOOTH_BASALT_WALL, new FabricItemSettings()));
+
 //COPPER
 	//REGULAR
 

@@ -1,4 +1,4 @@
-package jingy.jineric.base;
+package jingy.jineric.data;
 
 import com.llamalad7.mixinextras.MixinExtrasBootstrap;
 import net.fabricmc.loader.api.entrypoint.PreLaunchEntrypoint;

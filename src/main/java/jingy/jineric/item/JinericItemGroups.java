@@ -15,32 +15,71 @@ import java.util.Map;
 
 @SuppressWarnings("unstable")
 public class JinericItemGroups {
-//	public static final ItemGroup DONE = FabricItemGroupBuilder.build(
-//			new Identifier("done", "jineric"),
-//			() -> new ItemStack(JinericItems.DRIPSTONE_BRICKS));
-//
-//	public static final ItemGroup WIP = FabricItemGroupBuilder.build(
-//			new Identifier("work_in_progress", "jineric"),
-//			() -> new ItemStack(JinericItems.FIREWEED));
-//
-//	public static final ItemGroup UNKNOWN = FabricItemGroupBuilder.build(
-//			new Identifier("unknown", "jineric"),
-//			() -> new ItemStack(Items.APPLE));
 
 	public static final ItemGroup MOD_ITEMS = FabricItemGroup.builder(new Identifier(JinericMain.MOD_ID, "mod_items"))
 			.displayName(Text.literal("Jineric Mod Items"))
 			.icon(() -> new ItemStack(JinericItems.PRISMARINE_CRYSTAL_BLOCK))
 			.entries((enabledFeatures, entries, operatorEnabled) -> {
+				//NETHER
+				entries.add(JinericItems.CRACKED_POLISHED_BLACKSTONE_BRICK_STAIRS);
+				entries.add(JinericItems.CRACKED_POLISHED_BLACKSTONE_BRICK_SLAB);
+				entries.add(JinericItems.CRACKED_POLISHED_BLACKSTONE_BRICK_WALL);
+				entries.add(JinericItems.SMOOTH_BASALT_STAIRS);
+				entries.add(JinericItems.SMOOTH_BASALT_SLAB);
+				entries.add(JinericItems.SMOOTH_BASALT_WALL);
+				entries.add(JinericItems.CRACKED_NETHER_BRICK_STAIRS);
+				entries.add(JinericItems.CRACKED_NETHER_BRICK_SLAB);
+				entries.add(JinericItems.CRACKED_NETHER_BRICK_WALL);
+
+				entries.add(JinericItems.CRACKED_DEEPSLATE_TILE_STAIRS);
+				entries.add(JinericItems.CRACKED_DEEPSLATE_TILE_SLAB);
+				entries.add(JinericItems.CRACKED_DEEPSLATE_TILE_WALL);
+				entries.add(JinericItems.CRACKED_DEEPSLATE_BRICK_STAIRS);
+				entries.add(JinericItems.CRACKED_DEEPSLATE_BRICK_SLAB);
+				entries.add(JinericItems.CRACKED_DEEPSLATE_BRICK_WALL);
+
 				//STORAGE BLOCKS
 				entries.add(JinericItems.OBSIDIAN_STAIRS);
 				entries.add(JinericItems.OBSIDIAN_SLAB);
 				entries.add(JinericItems.OBSIDIAN_WALL);
 				entries.add(JinericItems.SNOW_WALL);
+				entries.add(JinericItems.TUFF_STAIRS);
+				entries.add(JinericItems.TUFF_SLAB);
+				entries.add(JinericItems.TUFF_WALL);
+				entries.add(JinericItems.POLISHED_TUFF);
+				entries.add(JinericItems.POLISHED_TUFF_STAIRS);
+				entries.add(JinericItems.POLISHED_TUFF_SLAB);
+				entries.add(JinericItems.POLISHED_TUFF_WALL);
+				entries.add(JinericItems.SMOOTH_TUFF);
+				entries.add(JinericItems.SMOOTH_TUFF_STAIRS);
+				entries.add(JinericItems.SMOOTH_TUFF_SLAB);
+				entries.add(JinericItems.SMOOTH_TUFF_WALL);
+				entries.add(JinericItems.TUFF_BRICKS);
+				entries.add(JinericItems.TUFF_BRICK_STAIRS);
+				entries.add(JinericItems.TUFF_BRICK_SLAB);
+				entries.add(JinericItems.TUFF_BRICK_WALL);
+				entries.add(JinericItems.CALCITE_STAIRS);
+				entries.add(JinericItems.CALCITE_SLAB);
+				entries.add(JinericItems.CALCITE_WALL);
+				entries.add(JinericItems.POLISHED_CALCITE);
+				entries.add(JinericItems.POLISHED_CALCITE_STAIRS);
+				entries.add(JinericItems.POLISHED_CALCITE_SLAB);
+				entries.add(JinericItems.POLISHED_CALCITE_WALL);
+				entries.add(JinericItems.CALCITE_BRICKS);
+				entries.add(JinericItems.CALCITE_BRICK_STAIRS);
+				entries.add(JinericItems.CALCITE_BRICK_SLAB);
+				entries.add(JinericItems.CALCITE_BRICK_WALL);
+				entries.add(JinericItems.SMOOTH_CALCITE);
+				entries.add(JinericItems.SMOOTH_CALCITE_STAIRS);
+				entries.add(JinericItems.SMOOTH_CALCITE_SLAB);
+				entries.add(JinericItems.SMOOTH_CALCITE_WALL);
+				entries.add(JinericItems.PACKED_ICE_STAIRS);
+				entries.add(JinericItems.PACKED_ICE_SLAB);
+				entries.add(JinericItems.PACKED_ICE_WALL);
 
-				entries.add(JinericItems.CHARCOAL_BLOCK);
-				entries.add(JinericItems.FLINT_BLOCK);
+				entries.add(JinericItems.FIREWEED);
+
 				entries.add(JinericItems.BONE_MEAL_BLOCK);
-				entries.add(JinericItems.PRISMARINE_CRYSTAL_BLOCK);
 				entries.add(JinericItems.SUGAR_BLOCK);
 				entries.add(JinericItems.ROTTEN_FLESH_BLOCK);
 				entries.add(JinericItems.STICK_BUNDLE);
@@ -61,7 +100,7 @@ public class JinericItemGroups {
 
 	public static final ItemGroup WOODEN_MOD_ITEMS = FabricItemGroup.builder(new Identifier(JinericMain.MOD_ID, "wooden_mod_items"))
 			.displayName(Text.literal("Jineric Wooden Mod Items"))
-			.icon(() ->new ItemStack(JinericItems.WARPED_CHEST))
+			.icon(() -> new ItemStack(JinericItems.WARPED_CHEST))
 			.entries((enabledFeatures, entries, operatorEnabled) -> {
 				//WOODEN BLOCKS
 				entries.add(JinericItems.SPRUCE_BOOKSHELF);
@@ -119,9 +158,9 @@ public class JinericItemGroups {
 			entries.addAfter(JinericItems.STONE_TILE_STAIRS, JinericItems.STONE_TILE_SLAB);
 			entries.addAfter(JinericItems.STONE_TILE_SLAB, JinericItems.STONE_TILE_WALL);
 			//"ITE" BlOCKS
-			entries.addAfter(Items.POLISHED_ANDESITE_STAIRS, JinericItems.POLISHED_ANDESITE_WALL);
-			entries.addAfter(Items.POLISHED_DIORITE_STAIRS, JinericItems.POLISHED_DIORITE_WALL);
-			entries.addAfter(Items.POLISHED_GRANITE_STAIRS, JinericItems.POLISHED_GRANITE_WALL);
+			entries.addAfter(Items.POLISHED_ANDESITE_SLAB, JinericItems.POLISHED_ANDESITE_WALL);
+			entries.addAfter(Items.POLISHED_DIORITE_SLAB, JinericItems.POLISHED_DIORITE_WALL);
+			entries.addAfter(Items.POLISHED_GRANITE_SLAB, JinericItems.POLISHED_GRANITE_WALL);
 			//DRIPSTONE
 			entries.addAfter(Items.POLISHED_ANDESITE_SLAB, Items.DRIPSTONE_BLOCK);
 			entries.addAfter(Items.DRIPSTONE_BLOCK, JinericItems.DRIPSTONE_STAIRS);
@@ -157,8 +196,13 @@ public class JinericItemGroups {
 			entries.addAfter(JinericItems.SMOOTH_DEEPSLATE, JinericItems.SMOOTH_DEEPSLATE_STAIRS);
 			entries.addAfter(JinericItems.SMOOTH_DEEPSLATE_STAIRS, JinericItems.SMOOTH_DEEPSLATE_SLAB);
 			entries.addAfter(JinericItems.SMOOTH_DEEPSLATE_SLAB, JinericItems.SMOOTH_DEEPSLATE_WALL);
-			entries.addAfter(Items.PRISMARINE_BRICK_SLAB, JinericItems.PRISMARINE_BRICK_WALL);
-			entries.addAfter(Items.DARK_PRISMARINE_SLAB, JinericItems.DARK_PRISMARINE_WALL);
+			entries.addAfter(Items.CRACKED_DEEPSLATE_BRICKS, JinericItems.CRACKED_DEEPSLATE_BRICK_STAIRS);
+			entries.addAfter(JinericItems.CRACKED_DEEPSLATE_BRICK_STAIRS, JinericItems.CRACKED_DEEPSLATE_BRICK_SLAB);
+			entries.addAfter(JinericItems.CRACKED_DEEPSLATE_BRICK_SLAB, JinericItems.CRACKED_DEEPSLATE_BRICK_WALL);
+			entries.addAfter(Items.CRACKED_DEEPSLATE_TILES, JinericItems.CRACKED_DEEPSLATE_TILE_STAIRS);
+			entries.addAfter(JinericItems.CRACKED_DEEPSLATE_TILE_STAIRS, JinericItems.CRACKED_DEEPSLATE_TILE_SLAB);
+			entries.addAfter(JinericItems.CRACKED_DEEPSLATE_TILE_SLAB, JinericItems.CRACKED_DEEPSLATE_TILE_WALL);
+//			entries.prepend(Items.POLISHED_BLACKSTONE_BRICK_STAIRS);
 //			entries.addAfter(Items.POLISHED_BLACKSTONE_BRICK_WALL, JinericItems.SOUL_SANDSTONE);
 //			entries.addAfter(JinericItems.SOUL_SANDSTONE, JinericItems.SOUL_SANDSTONE_STAIRS);
 //			entries.addAfter(JinericItems.SOUL_SANDSTONE_STAIRS, JinericItems.SOUL_SANDSTONE_SLAB);
@@ -189,6 +233,20 @@ public class JinericItemGroups {
 			entries.addAfter(JinericItems.POLISHED_RED_SANDSTONE, JinericItems.POLISHED_RED_SANDSTONE_STAIRS);
 			entries.addAfter(JinericItems.POLISHED_RED_SANDSTONE_STAIRS, JinericItems.POLISHED_RED_SANDSTONE_SLAB);
 			entries.addAfter(JinericItems.POLISHED_RED_SANDSTONE_SLAB, JinericItems.POLISHED_RED_SANDSTONE_WALL);
+			entries.addAfter(Items.SEA_LANTERN, JinericItems.PRISMARINE_CRYSTAL_BLOCK);
+			entries.addAfter(Items.PRISMARINE_BRICK_SLAB, JinericItems.PRISMARINE_BRICK_WALL);
+			entries.addAfter(Items.DARK_PRISMARINE_SLAB, JinericItems.DARK_PRISMARINE_WALL);
+			entries.addAfter(Items.SMOOTH_BASALT, JinericItems.SMOOTH_BASALT_STAIRS);
+			entries.addAfter(JinericItems.SMOOTH_BASALT_STAIRS, JinericItems.SMOOTH_BASALT_SLAB);
+			entries.addAfter(JinericItems.SMOOTH_BASALT_SLAB, JinericItems.SMOOTH_BASALT_WALL);
+			entries.addAfter(Items.CRACKED_NETHER_BRICKS, JinericItems.CRACKED_NETHER_BRICK_STAIRS);
+			entries.addAfter(JinericItems.CRACKED_NETHER_BRICK_STAIRS, JinericItems.CRACKED_NETHER_BRICK_SLAB);
+			entries.addAfter(JinericItems.CRACKED_NETHER_BRICK_SLAB, JinericItems.CRACKED_NETHER_BRICK_WALL);
+			entries.addAfter(Items.CRACKED_POLISHED_BLACKSTONE_BRICKS, JinericItems.CRACKED_POLISHED_BLACKSTONE_BRICK_STAIRS);
+			entries.addAfter(JinericItems.CRACKED_POLISHED_BLACKSTONE_BRICK_STAIRS, JinericItems.CRACKED_POLISHED_BLACKSTONE_BRICK_SLAB);
+			entries.addAfter(JinericItems.CRACKED_POLISHED_BLACKSTONE_BRICK_SLAB, JinericItems.CRACKED_POLISHED_BLACKSTONE_BRICK_WALL);
+			entries.addBefore(Items.COAL_BLOCK, JinericItems.FLINT_BLOCK);
+			entries.addAfter(Items.COAL_BLOCK, JinericItems.CHARCOAL_BLOCK);
 			//COPPER
 			entries.addAfter(Items.CUT_COPPER_SLAB, JinericItems.CUT_COPPER_WALL);
 			entries.addAfter(Items.EXPOSED_CUT_COPPER, JinericItems.EXPOSED_CUT_COPPER_WALL);
