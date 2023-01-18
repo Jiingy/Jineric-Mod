@@ -2,7 +2,6 @@ package jingy.jineric.block;
 
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.custom.JinericChestBlock;
-import jingy.jineric.block.custom.RedstoneCampfireBlock;
 import jingy.jineric.block.custom.RedstoneLanternBlock;
 import jingy.jineric.block.enums.JinericChestType;
 import jingy.jineric.registry.JinericBlockSettings;
@@ -103,23 +102,38 @@ public class JinericBlocks {
 	public static final Block POLISHED_ANDESITE_WALL = register("polished_andesite_wall", new WallBlock(FabricBlockSettings.copy(POLISHED_ANDESITE)));
 
 //TUFF
+	public static final Block COBBLED_TUFF = register("cobbled_tuff", new Block(Block.Settings.copy(TUFF)));
+	public static final Block COBBLED_TUFF_SLAB = register("cobbled_tuff_slab", new SlabBlock(Block.Settings.copy(COBBLED_TUFF)));
+	public static final Block COBBLED_TUFF_STAIRS = register("cobbled_tuff_stairs", new StairsBlock(COBBLED_TUFF.getDefaultState(), Block.Settings.copy(COBBLED_TUFF)));
+	public static final Block COBBLED_TUFF_WALL = register("cobbled_tuff_wall", new WallBlock(Block.Settings.copy(COBBLED_TUFF)));
 	public static final Block TUFF_STAIRS = register("tuff_stairs", new StairsBlock(TUFF.getDefaultState(), FabricBlockSettings.copy(TUFF)));
 	public static final Block TUFF_SLAB = register("tuff_slab", new SlabBlock(FabricBlockSettings.copy(TUFF)));
 	public static final Block TUFF_WALL = register("tuff_wall", new WallBlock(FabricBlockSettings.copy(TUFF)));
-	public static final Block POLISHED_TUFF = register("polished_tuff", new Block(FabricBlockSettings.copy(TUFF)));
-	public static final Block POLISHED_TUFF_STAIRS = register(		"polished_tuff_stairs", new StairsBlock(POLISHED_TUFF.getDefaultState(), FabricBlockSettings.copy(POLISHED_TUFF)));
-	public static final Block POLISHED_TUFF_SLAB = register("polished_tuff_slab", new SlabBlock(FabricBlockSettings.copy(POLISHED_TUFF)));
-	public static final Block POLISHED_TUFF_WALL = register("polished_tuff_wall", new WallBlock(FabricBlockSettings.copy(POLISHED_TUFF)));
 	public static final Block SMOOTH_TUFF = register("smooth_tuff", new Block(FabricBlockSettings.copy(TUFF)));
 	public static final Block SMOOTH_TUFF_SLAB = register("smooth_tuff_slab", new SlabBlock(FabricBlockSettings.copy(SMOOTH_TUFF)));
 	public static final Block SMOOTH_TUFF_STAIRS = register("smooth_tuff_stairs", new StairsBlock(SMOOTH_TUFF.getDefaultState(), FabricBlockSettings.copy(SMOOTH_TUFF)));
 	public static final Block SMOOTH_TUFF_WALL = register("smooth_tuff_wall", new WallBlock(FabricBlockSettings.copy(SMOOTH_TUFF)));
+	public static final Block POLISHED_TUFF = register("polished_tuff", new Block(FabricBlockSettings.copy(TUFF)));
+	public static final Block POLISHED_TUFF_STAIRS = register("polished_tuff_stairs", new StairsBlock(POLISHED_TUFF.getDefaultState(), FabricBlockSettings.copy(POLISHED_TUFF)));
+	public static final Block POLISHED_TUFF_SLAB = register("polished_tuff_slab", new SlabBlock(FabricBlockSettings.copy(POLISHED_TUFF)));
+	public static final Block POLISHED_TUFF_WALL = register("polished_tuff_wall", new WallBlock(FabricBlockSettings.copy(POLISHED_TUFF)));
 	public static final Block TUFF_BRICKS = register("tuff_bricks", new Block(FabricBlockSettings.copy(TUFF)));
 	public static final Block TUFF_BRICK_SLAB = register("tuff_brick_slab", new SlabBlock(FabricBlockSettings.copy(TUFF_BRICKS)));
 	public static final Block TUFF_BRICK_STAIRS = register("tuff_brick_stairs", new StairsBlock(TUFF_BRICKS.getDefaultState(), FabricBlockSettings.copy(TUFF_BRICKS)));
 	public static final Block TUFF_BRICK_WALL = register("tuff_brick_wall", new WallBlock(FabricBlockSettings.copy(TUFF_BRICKS)));
+	public static final Block CRACKED_TUFF_BRICKS = register("cracked_tuff_bricks", new Block(FabricBlockSettings.copy(TUFF_BRICKS)));
+	public static final Block CRACKED_TUFF_BRICK_SLAB = register("cracked_tuff_brick_slab", new SlabBlock(FabricBlockSettings.copy(CRACKED_TUFF_BRICKS)));
+	public static final Block CRACKED_TUFF_BRICK_STAIRS = register("cracked_tuff_brick_stairs", new StairsBlock(CRACKED_TUFF_BRICKS.getDefaultState(), FabricBlockSettings.copy(CRACKED_TUFF_BRICKS)));
+	public static final Block CRACKED_TUFF_BRICK_WALL = register("cracked_tuff_brick_wall", new WallBlock(FabricBlockSettings.copy(CRACKED_TUFF_BRICKS)));
+	public static final Block CHISELED_TUFF = register("chiseled_tuff", new Block(Block.Settings.copy(TUFF_BRICKS)));
+	public static final Block TUFF_PILLAR = register("tuff_pillar", new PillarBlock(Block.Settings.copy(TUFF_BRICKS)));
+	public static final Block TUFF_TILES = register("tuff_tiles", new Block(Block.Settings.copy(STONE_TILES)));
+	public static final Block TUFF_TILE_STAIRS = register("tuff_tile_stairs", new StairsBlock(TUFF_TILES.getDefaultState(), Block.Settings.copy(TUFF_TILES)));
+	public static final Block TUFF_TILE_SLAB = register("tuff_tile_slab", new SlabBlock(Block.Settings.copy(TUFF_TILES)));
+	public static final Block TUFF_TILE_WALL = register("tuff_tile_wall", new WallBlock(Block.Settings.copy(TUFF_TILES)));
 
-//CALCITE
+
+	//CALCITE
 	public static final Block CALCITE_STAIRS = register("calcite_stairs", new StairsBlock(CALCITE.getDefaultState(), FabricBlockSettings.copy(CALCITE))	);
 	public static final Block CALCITE_SLAB = register("calcite_slab", new SlabBlock(FabricBlockSettings.copy(CALCITE)));
 	public static final Block CALCITE_WALL = register("calcite_wall", new WallBlock(FabricBlockSettings.copy(CALCITE)));
@@ -164,6 +178,7 @@ public class JinericBlocks {
 	public static final Block SMOOTH_DRIPSTONE_SLAB  = register("smooth_dripstone_slab", new SlabBlock(FabricBlockSettings.copy(SMOOTH_DRIPSTONE)));
 	public static final Block SMOOTH_DRIPSTONE_STAIRS = register("smooth_dripstone_stairs", new StairsBlock(SMOOTH_DRIPSTONE.getDefaultState(), FabricBlockSettings.copy(SMOOTH_DRIPSTONE)));
 	public static final Block SMOOTH_DRIPSTONE_WALL = register("smooth_dripstone_wall", new WallBlock(FabricBlockSettings.copy(SMOOTH_DRIPSTONE)));
+	//TODO: RENAME TO CHISELED_DRIPSTONE
 	public static final Block CHISELED_DRIPSTONE_BRICKS = register("chiseled_dripstone_bricks", new Block(FabricBlockSettings.copy(DRIPSTONE_BRICKS)));
 	public static final Block DRIPSTONE_PILLAR = register("dripstone_pillar", new PillarBlock(FabricBlockSettings.copy(DRIPSTONE_BLOCK)));
 
@@ -173,6 +188,11 @@ public class JinericBlocks {
 	public static final Block OBSIDIAN_WALL = register("obsidian_wall", new WallBlock(JinericBlockSettings.obsidianSettings().nonOpaque()));
 
 	//NETHER
+	public static final Block QUARTZ_WALL = register("quartz_wall", new WallBlock(FabricBlockSettings.copy(QUARTZ_BLOCK)));
+	public static final Block SMOOTH_QUARTZ_WALL = register("smooth_quartz_wall", new WallBlock(FabricBlockSettings.copy(SMOOTH_QUARTZ)));
+	public static final Block QUARTZ_BRICK_SLAB = register("quartz_brick_slab", new SlabBlock(FabricBlockSettings.copy(QUARTZ_BRICKS)));
+	public static final Block QUARTZ_BRICK_STAIRS = register("quartz_brick_stairs", new StairsBlock(QUARTZ_BRICKS.getDefaultState(), FabricBlockSettings.copy(QUARTZ_BRICKS)));
+	public static final Block QUARTZ_BRICK_WALL = register("quartz_brick_wall", new WallBlock(FabricBlockSettings.copy(QUARTZ_BRICKS)));
 	public static final Block SMOOTH_BASALT_SLAB = register("smooth_basalt_slab", new SlabBlock(FabricBlockSettings.copy(SMOOTH_BASALT)));
 	public static final Block SMOOTH_BASALT_STAIRS = register("smooth_basalt_stairs", new StairsBlock(SMOOTH_BASALT.getDefaultState(), FabricBlockSettings.copy(SMOOTH_BASALT)));
 	public static final Block SMOOTH_BASALT_WALL = register("smooth_basalt_wall", new WallBlock(FabricBlockSettings.copy(SMOOTH_BASALT)));
@@ -182,6 +202,9 @@ public class JinericBlocks {
 	public static final Block CRACKED_NETHER_BRICK_SLAB = register("cracked_nether_brick_slab", new SlabBlock(Block.Settings.copy(CRACKED_NETHER_BRICKS)));
 	public static final Block CRACKED_NETHER_BRICK_STAIRS = register("cracked_nether_brick_stairs", new StairsBlock(CRACKED_NETHER_BRICKS.getDefaultState(), Block.Settings.copy(CRACKED_NETHER_BRICKS)));
 	public static final Block CRACKED_NETHER_BRICK_WALL = register("cracked_nether_brick_wall", new WallBlock(Block.Settings.copy(CRACKED_NETHER_BRICKS)));
+
+	//END
+	public static final Block PURPUR_WALL = register("purpur_wall", new WallBlock(FabricBlockSettings.copy(PURPUR_BLOCK)));
 
 //RHYOLITE
 	public static final Block RHYOLITE = register("rhyolite", new Block(FabricBlockSettings.copy(STONE)));
@@ -234,7 +257,7 @@ public class JinericBlocks {
 //PACKED ITEM BLOCKS
 	public static final Block SALT_BLOCK = register("salt_block", new FallingBlock(FabricBlockSettings.copy(CLAY).sounds(BlockSoundGroup.SAND))	);
 	public static final Block SUGAR_BLOCK = register("sugar_block", new FallingBlock(FabricBlockSettings.copy(CLAY).sounds(BlockSoundGroup.SAND)));
-	public static final Block ROTTEN_FLESH_BLOCK = register("rotten_flesh_block", new Block(FabricBlockSettings.copy(HONEYCOMB_BLOCK)));
+	public static final Block ROTTEN_FLESH_BLOCK = register("rotten_flesh_block", new Block(FabricBlockSettings.copy(HONEYCOMB_BLOCK).sounds(BlockSoundGroup.HONEY)));
 	public static final Block FLINT_BLOCK = register("flint_block", new Block(FabricBlockSettings.copy(STONE)));
 	public static final Block CHARCOAL_BLOCK = register("charcoal_block", new Block(FabricBlockSettings.copy(COAL_BLOCK)));
 	public static final Block TUMBLEWEED = register("tumbleweed", JinericBlockSettings.JinericLeavesBlock(BlockSoundGroup.GRASS));
@@ -242,10 +265,10 @@ public class JinericBlocks {
 	public static final Block ENDER_PEARL_BLOCK = register("ender_pearl_block", new Block(FabricBlockSettings.copy(HONEY_BLOCK)));
 	public static final Block PRISMARINE_CRYSTAL_BLOCK = register("prismarine_crystal_block", new Block(FabricBlockSettings.copy(SEA_LANTERN).luminance(state -> 4).requiresTool()));
 //	public static final Block GUNPOWDER_BLOCK = register("gunpowder_block", new Block(FabricBlockSettings.copy(SAND)));
-	public static final Block BLAZE_ROD_BUNDLE = register("blaze_rod_bundle", new Block(FabricBlockSettings.of(Material.AGGREGATE, MapColor.YELLOW)));
-	public static final Block EGG_BLOCK = register("egg_block", new Block(FabricBlockSettings.copy(COAL_BLOCK).sounds(BlockSoundGroup.CALCITE).strength(0.50F)));
-	public static final Block STICK_BUNDLE = register("stick_bundle", new Block(FabricBlockSettings.copy(OAK_WOOD)));
-	public static final Block STACK_OF_PAPER = register("stack_of_paper", new Block(FabricBlockSettings.copy(KELP).sounds(BlockSoundGroup.AZALEA_LEAVES)));
+	public static final Block BLAZE_ROD_BLOCK = register("blaze_rod_block", new Block(FabricBlockSettings.copy(CHARCOAL_BLOCK)));
+	public static final Block EGG_BLOCK = register("egg_block", new Block(FabricBlockSettings.copy(GLOWSTONE).sounds(BlockSoundGroup.CALCITE).strength(0.50F)));
+	public static final Block STICK_BLOCK = register("stick_block", new PillarBlock(FabricBlockSettings.copy(OAK_PLANKS)));
+	public static final Block PAPER_BLOCK = register("paper_block", new Block(FabricBlockSettings.copy(AZALEA_LEAVES).sounds(BlockSoundGroup.AZALEA_LEAVES)));
 
 //PACKED ICE
 	public static final Block PACKED_ICE_STAIRS = register("packed_ice_stairs", new StairsBlock(PACKED_ICE.getDefaultState(), FabricBlockSettings.copy(PACKED_ICE)));

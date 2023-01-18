@@ -97,8 +97,8 @@ public class JinericRegistries {
       instance.add(JinericBlocks.MANGROVE_BOOKSHELF, 30, 20);
       instance.add(JinericBlocks.CRIMSON_BOOKSHELF, 30, 20);
       instance.add(JinericBlocks.WARPED_BOOKSHELF, 30, 20);
-      instance.add(JinericBlocks.STACK_OF_PAPER, 5, 20);
-      instance.add(JinericBlocks.STICK_BUNDLE, 5, 20);
+      instance.add(JinericBlocks.PAPER_BLOCK, 5, 20);
+      instance.add(JinericBlocks.STICK_BLOCK, 5, 20);
    }
 
    private static void registerOxidizableBlockPairs() {
