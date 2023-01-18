@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "jineric:polished_tuff"
+  },
+  "result": "jineric:tuff_tile_stairs"
+}
