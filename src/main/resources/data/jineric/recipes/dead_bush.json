@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "jineric:prismarine_crystal_block"
+      "item": "jineric:tumbleweed"
     }
   ],
   "result": {
-    "count": 9,
-    "item": "minecraft:prismarine_crystals"
+    "count": 4,
+    "item": "minecraft:dead_bush"
   }
 }
