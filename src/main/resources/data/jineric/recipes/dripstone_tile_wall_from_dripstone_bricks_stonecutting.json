@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "jineric:dripstone_bricks"
+  },
+  "result": "jineric:dripstone_tile_wall"
+}
