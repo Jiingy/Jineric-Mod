@@ -2,8 +2,8 @@
   "replace": false,
   "values": [
     "jineric:soul_jack_o_lantern",
-    "jineric:stack_of_paper",
-    "jineric:stick_bundle",
+    "jineric:paper_block",
+    "jineric:stick_block",
 
     "jineric:spruce_chest",
     "jineric:birch_chest",
