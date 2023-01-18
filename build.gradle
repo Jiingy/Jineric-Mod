@@ -69,12 +69,11 @@ jar {
 def dataOutput = 'src/main/generated'
 loom {
 	runs {
-		datagen {
-			server()
+		datagenClient {
+			inherit client
 			name "Data Generation"
 			vmArg "-Dfabric-api.datagen"
 			vmArg "-Dfabric-api.datagen.output-dir=${file(dataOutput)}"
-//			vmArg "-Dfabric-api.datagen.modid=${mod_id}"
 
 			runDir "build/datagen"
 		}
