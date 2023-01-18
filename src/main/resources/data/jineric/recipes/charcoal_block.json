@@ -1,18 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "building",
-  "pattern": [
-    "###",
-    "###",
-    "###"
-  ],
   "key": {
     "#": {
       "item": "minecraft:charcoal"
     }
   },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
   "result": {
-    "item": "jineric:charcoal_block",
-    "count": 1
+    "item": "jineric:charcoal_block"
   }
 }
