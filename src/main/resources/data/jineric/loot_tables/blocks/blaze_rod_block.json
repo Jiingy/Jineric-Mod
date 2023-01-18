@@ -6,7 +6,7 @@
             "entries": [
                 {
                     "type": "minecraft:item",
-                    "name": "jineric:blaze_rod_bundle"
+                    "name": "jineric:blaze_rod_block"
                 }
             ]
         }

@@ -6,7 +6,7 @@
             "entries": [
                 {
                     "type": "minecraft:item",
-                    "name": "jineric:stack_of_paper"
+                    "name": "jineric:paper_block"
                 }
             ]
         }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "jineric:block/stick_bundle"
+    "all": "jineric:block/stick_block"
   }
 }

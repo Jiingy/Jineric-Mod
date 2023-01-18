@@ -1,15 +1,14 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#"
-  ],
-  "key": {
-    "#": {
-      "item": "jineric:stick_bundle"
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "stick",
+  "ingredients": [
+    {
+      "item": "jineric:stick_block"
     }
-  },
+  ],
   "result": {
-    "item": "minecraft:stick",
-    "count": 9
+    "count": 9,
+    "item": "minecraft:stick"
   }
 }
