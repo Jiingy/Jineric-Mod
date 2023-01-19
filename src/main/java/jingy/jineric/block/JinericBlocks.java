@@ -4,6 +4,7 @@ import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.custom.JinericChestBlock;
 import jingy.jineric.block.enums.JinericChestType;
 import jingy.jineric.registry.JinericBlockSettings;
+import jingy.jineric.sound.JinericSoundGroups;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.registry.Registries;
@@ -43,7 +44,7 @@ public class JinericBlocks {
 	public static final Block WAVY_RED_SANDSTONE_SLAB  = register("wavy_red_sandstone_slab", new SlabBlock(FabricBlockSettings.copy(WAVY_RED_SANDSTONE)));
 	public static final Block WAVY_RED_SANDSTONE_WALL = register("wavy_red_sandstone_wall", new WallBlock(FabricBlockSettings.copy(WAVY_RED_SANDSTONE)));
 //SOUL SAND
-	public static final Block SOUL_SANDSTONE = register("soul_sandstone", new Block(JinericBlockSettings.soulSandstoneSettings()));
+	public static final Block SOUL_SANDSTONE = register("soul_sandstone", new Block(FabricBlockSettings.copy(SANDSTONE).sounds(JinericSoundGroups.SOUL_SANDSTONE)));
 	public static final Block SOUL_SANDSTONE_STAIRS = register("soul_sandstone_stairs", new StairsBlock(SOUL_SANDSTONE.getDefaultState(), FabricBlockSettings.copy(SOUL_SANDSTONE)));
 	public static final Block SOUL_SANDSTONE_SLAB  = register("soul_sandstone_slab", new SlabBlock(FabricBlockSettings.copy(SOUL_SANDSTONE)));
 	public static final Block SOUL_SANDSTONE_WALL = register("soul_sandstone_wall", new WallBlock(FabricBlockSettings.copy(SOUL_SANDSTONE)));
@@ -206,10 +207,10 @@ public class JinericBlocks {
 	public static final Block PURPUR_WALL = register("purpur_wall", new WallBlock(FabricBlockSettings.copy(PURPUR_BLOCK)));
 
 //RHYOLITE
-	public static final Block RHYOLITE = register("rhyolite", new Block(FabricBlockSettings.copy(STONE)));
-	public static final Block RHYOLITE_STAIRS = register("rhyolite_stairs", new StairsBlock(STONE.getDefaultState(), FabricBlockSettings.copy(RHYOLITE)));
-	public static final Block RHYOLITE_SLAB  = register("rhyolite_slab", new SlabBlock(FabricBlockSettings.copy(RHYOLITE)));
-	public static final Block RHYOLITE_WALL = register("rhyolite_wall", new WallBlock(FabricBlockSettings.copy(RHYOLITE)));
+//	public static final Block RHYOLITE = register("rhyolite", new Block(FabricBlockSettings.copy(STONE)));
+//	public static final Block RHYOLITE_STAIRS = register("rhyolite_stairs", new StairsBlock(STONE.getDefaultState(), FabricBlockSettings.copy(RHYOLITE)));
+//	public static final Block RHYOLITE_SLAB  = register("rhyolite_slab", new SlabBlock(FabricBlockSettings.copy(RHYOLITE)));
+//	public static final Block RHYOLITE_WALL = register("rhyolite_wall", new WallBlock(FabricBlockSettings.copy(RHYOLITE)));
 
 	//COBBLED
 //	public static final Block COBBLED_RHYOLITE = register(
@@ -224,33 +225,23 @@ public class JinericBlocks {
 //	public static final Block COBBLED_RHYOLITE_WALL = register(
 //			"cobbled_rhyolite_wall", new WallBlock(FabricBlockSettings.copy(RHYOLITE))
 //	);
-
-	//SMOOTH
-	public static final Block SMOOTH_RHYOLITE = register("smooth_rhyolite", new Block(FabricBlockSettings.copy(RHYOLITE)));
-	public static final Block SMOOTH_RHYOLITE_STAIRS = register("smooth_rhyolite_stairs", new StairsBlock(SMOOTH_RHYOLITE.getDefaultState(), FabricBlockSettings.copy(SMOOTH_RHYOLITE)));
-	public static final Block SMOOTH_RHYOLITE_SLAB  = register("smooth_rhyolite_slab", new SlabBlock(FabricBlockSettings.copy(SMOOTH_RHYOLITE)));
-	public static final Block SMOOTH_RHYOLITE_WALL = register("smooth_rhyolite_wall", new WallBlock(FabricBlockSettings.copy(SMOOTH_RHYOLITE)));
-
-	//BRICKS
-	public static final Block RHYOLITE_BRICKS = register("rhyolite_bricks", new Block(FabricBlockSettings.copy(RHYOLITE)));
-	public static final Block RHYOLITE_BRICK_STAIRS = register("rhyolite_brick_stairs", new StairsBlock(RHYOLITE_BRICKS.getDefaultState(), FabricBlockSettings.copy(RHYOLITE_BRICKS)));
-	public static final Block RHYOLITE_BRICK_SLAB  = register("rhyolite_brick_slab", new SlabBlock(FabricBlockSettings.copy(RHYOLITE_BRICKS)));
-	public static final Block RHYOLITE_BRICK_WALL = register("rhyolite_brick_wall", new WallBlock(FabricBlockSettings.copy(RHYOLITE_BRICKS)));
-
-	//CHISELED
-	public static final Block CHISELED_RHYOLITE_BRICKS = register("chiseled_rhyolite_bricks", new Block(FabricBlockSettings.copy(RHYOLITE)));
-
-	//TILES
-	public static final Block RHYOLITE_TILES = register("rhyolite_tiles", new Block(FabricBlockSettings.copy(RHYOLITE)));
-	public static final Block RHYOLITE_TILE_STAIRS = register("rhyolite_tile_stairs", new StairsBlock(RHYOLITE_TILES.getDefaultState(), FabricBlockSettings.copy(RHYOLITE_TILES)));
-	public static final Block RHYOLITE_TILE_SLAB  = register("rhyolite_tile_slab", new SlabBlock(FabricBlockSettings.copy(RHYOLITE_TILES)));
-	public static final Block RHYOLITE_TILE_WALL = register("rhyolite_tile_wall", new WallBlock(FabricBlockSettings.copy(RHYOLITE_TILES)));
-
-	//POLISHED
-	public static final Block POLISHED_RHYOLITE = register("polished_rhyolite", new Block(FabricBlockSettings.copy(RHYOLITE)));
-	public static final Block POLISHED_RHYOLITE_STAIRS = register("polished_rhyolite_stairs", new StairsBlock(POLISHED_RHYOLITE.getDefaultState(), FabricBlockSettings.copy(POLISHED_RHYOLITE)));
-	public static final Block POLISHED_RHYOLITE_SLAB  = register("polished_rhyolite_slab", new SlabBlock(FabricBlockSettings.copy(POLISHED_RHYOLITE)));
-	public static final Block POLISHED_RHYOLITE_WALL = register("polished_rhyolite_wall", new WallBlock(FabricBlockSettings.copy(POLISHED_RHYOLITE)));
+//	public static final Block SMOOTH_RHYOLITE = register("smooth_rhyolite", new Block(FabricBlockSettings.copy(RHYOLITE)));
+//	public static final Block SMOOTH_RHYOLITE_STAIRS = register("smooth_rhyolite_stairs", new StairsBlock(SMOOTH_RHYOLITE.getDefaultState(), FabricBlockSettings.copy(SMOOTH_RHYOLITE)));
+//	public static final Block SMOOTH_RHYOLITE_SLAB  = register("smooth_rhyolite_slab", new SlabBlock(FabricBlockSettings.copy(SMOOTH_RHYOLITE)));
+//	public static final Block SMOOTH_RHYOLITE_WALL = register("smooth_rhyolite_wall", new WallBlock(FabricBlockSettings.copy(SMOOTH_RHYOLITE)));
+//	public static final Block RHYOLITE_BRICKS = register("rhyolite_bricks", new Block(FabricBlockSettings.copy(RHYOLITE)));
+//	public static final Block RHYOLITE_BRICK_STAIRS = register("rhyolite_brick_stairs", new StairsBlock(RHYOLITE_BRICKS.getDefaultState(), FabricBlockSettings.copy(RHYOLITE_BRICKS)));
+//	public static final Block RHYOLITE_BRICK_SLAB  = register("rhyolite_brick_slab", new SlabBlock(FabricBlockSettings.copy(RHYOLITE_BRICKS)));
+//	public static final Block RHYOLITE_BRICK_WALL = register("rhyolite_brick_wall", new WallBlock(FabricBlockSettings.copy(RHYOLITE_BRICKS)));
+//	public static final Block CHISELED_RHYOLITE_BRICKS = register("chiseled_rhyolite_bricks", new Block(FabricBlockSettings.copy(RHYOLITE)));
+//	public static final Block RHYOLITE_TILES = register("rhyolite_tiles", new Block(FabricBlockSettings.copy(RHYOLITE)));
+//	public static final Block RHYOLITE_TILE_STAIRS = register("rhyolite_tile_stairs", new StairsBlock(RHYOLITE_TILES.getDefaultState(), FabricBlockSettings.copy(RHYOLITE_TILES)));
+//	public static final Block RHYOLITE_TILE_SLAB  = register("rhyolite_tile_slab", new SlabBlock(FabricBlockSettings.copy(RHYOLITE_TILES)));
+//	public static final Block RHYOLITE_TILE_WALL = register("rhyolite_tile_wall", new WallBlock(FabricBlockSettings.copy(RHYOLITE_TILES)));
+//	public static final Block POLISHED_RHYOLITE = register("polished_rhyolite", new Block(FabricBlockSettings.copy(RHYOLITE)));
+//	public static final Block POLISHED_RHYOLITE_STAIRS = register("polished_rhyolite_stairs", new StairsBlock(POLISHED_RHYOLITE.getDefaultState(), FabricBlockSettings.copy(POLISHED_RHYOLITE)));
+//	public static final Block POLISHED_RHYOLITE_SLAB  = register("polished_rhyolite_slab", new SlabBlock(FabricBlockSettings.copy(POLISHED_RHYOLITE)));
+//	public static final Block POLISHED_RHYOLITE_WALL = register("polished_rhyolite_wall", new WallBlock(FabricBlockSettings.copy(POLISHED_RHYOLITE)));
 
 	// --- MISCELLANEOUS ---
 //PACKED ITEM BLOCKS

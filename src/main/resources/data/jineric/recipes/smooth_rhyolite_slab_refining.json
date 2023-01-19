@@ -1,8 +1,0 @@
-{
-    "type": "minecraft:refining",
-    "ingredient": {
-        "item": "jineric:rhyolite_slab"
-    },
-    "result": "jineric:smooth_rhyolite_slab",
-    "experience": 0.2
-}

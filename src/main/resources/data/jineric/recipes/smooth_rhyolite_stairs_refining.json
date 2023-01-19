@@ -1,8 +1,0 @@
-{
-    "type": "minecraft:refining",
-    "ingredient": {
-        "item": "jineric:rhyolite_stairs"
-    },
-    "result": "jineric:smooth_rhyolite_stairs",
-    "experience": 0.2
-}
