@@ -1,6 +1,6 @@
-package jingy.jineric.block.entity.custom.chest;
+package jingy.jineric.block.entity.chests;
 
-import jingy.jineric.block.entity.custom.JinericChestBlockEntity;
+import jingy.jineric.block.entity.JinericChestBlockEntity;
 import jingy.jineric.block.enums.JinericChestType;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
