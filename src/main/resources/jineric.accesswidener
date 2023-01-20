@@ -1,4 +1,5 @@
 accessWidener v1 named
 
 accessible class net/minecraft/recipe/CookingRecipeSerializer$RecipeFactory
+accessible field net/minecraft/block/entity/ChestBlockEntity lidAnimator Lnet/minecraft/block/entity/ChestLidAnimator;
 accessible method net/minecraft/client/render/entity/LivingEntityRenderer addFeature (Lnet/minecraft/client/render/entity/feature/FeatureRenderer;)Z

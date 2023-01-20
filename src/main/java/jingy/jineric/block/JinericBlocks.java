@@ -1,7 +1,6 @@
 package jingy.jineric.block;
 
 import jingy.jineric.base.JinericMain;
-import jingy.jineric.block.custom.JinericChestBlock;
 import jingy.jineric.block.enums.JinericChestType;
 import jingy.jineric.registry.JinericBlockSettings;
 import jingy.jineric.sound.JinericSoundGroups;
@@ -286,7 +285,7 @@ public class JinericBlocks {
 //CHESTS
 	public static final Block ACACIA_CHEST = register("acacia_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.ACACIA));
 	public static final Block BIRCH_CHEST = register("birch_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.BIRCH));
-//	public static final Block BOREAL_CHEST = register("boreal_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.BOREAL));
+//	public static final Block BOREAL_CHEST = register("boreal_chest", new FabricBlockSettingsBase(FabricBlockSettings.copy(CHEST), JinericChestType.BOREAL));
 	public static final Block CRIMSON_CHEST = register("crimson_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.CRIMSON)	);
 	public static final Block DARK_OAK_CHEST = register("dark_oak_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.DARK_OAK));
 	public static final Block JUNGLE_CHEST = register("jungle_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.JUNGLE));

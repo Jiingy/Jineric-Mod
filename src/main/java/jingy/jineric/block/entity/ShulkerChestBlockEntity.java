@@ -1,6 +1,5 @@
 package jingy.jineric.block.entity;
 
-import jingy.jineric.block.entity.custom.JinericChestBlockEntity;
 import jingy.jineric.block.enums.JinericChestType;
 import jingy.jineric.screen.ShulkerChestScreenHandler;
 import net.minecraft.block.BlockState;
@@ -19,9 +18,16 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class ShulkerChestBlockEntity extends JinericChestBlockEntity {
-
    private final ChestLidAnimator lidAnimator = new ChestLidAnimator();
+
+   public ShulkerChestBlockEntity(BlockPos blockPos, BlockState blockState) {
+      super(JinericChestType.SHULKER, blockPos, blockState);
+      this.setInvStackList(DefaultedList.ofSize(this.size(), ItemStack.EMPTY));
+   }
+
    private final ViewerCountManager stateManager = new ViewerCountManager() {
+
+
 
       @Override
       protected void onContainerOpen(World world, BlockPos pos, BlockState state) {
@@ -66,11 +72,6 @@ public class ShulkerChestBlockEntity extends JinericChestBlockEntity {
          }
       }
    };
-
-   public ShulkerChestBlockEntity(BlockPos blockPos, BlockState blockState) {
-      super(JinericChestType.SHULKER, blockPos, blockState);
-      this.setInvStackList(DefaultedList.ofSize(this.size(), ItemStack.EMPTY));
-   }
 
    @Override
    public ScreenHandler createMenu(int syncId, PlayerInventory inventory, PlayerEntity player) {

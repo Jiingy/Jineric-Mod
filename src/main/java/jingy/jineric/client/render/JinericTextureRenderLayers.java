@@ -2,7 +2,7 @@ package jingy.jineric.client.render;
 
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.entity.ShulkerChestBlockEntity;
-import jingy.jineric.block.entity.custom.chest.*;
+import jingy.jineric.block.entity.chests.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.enums.ChestType;
 import net.minecraft.client.render.TexturedRenderLayers;
