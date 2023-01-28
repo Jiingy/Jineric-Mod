@@ -1,16 +1,13 @@
-package jingy.jineric.block.custom;
+package jingy.jineric.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LanternBlock;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.Properties;
+import net.minecraft.state.StateManager;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
@@ -18,7 +15,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 
 public class RedstoneLanternBlock extends LanternBlock {
-   public static final BooleanProperty LIT = Properties.LIT;
    protected static final VoxelShape HANGING_SHAPE = VoxelShapes.union(
            Block.createCuboidShape(5.0, 1.0, 5.0, 11.0, 8.0, 11.0),
            Block.createCuboidShape(6.0, 8.0, 6.0, 10.0, 10.0, 10.0),
@@ -34,12 +30,11 @@ public class RedstoneLanternBlock extends LanternBlock {
    }
 
    @Override
-   public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-      this.updateNeighbors(world, pos, state);
-   }
-
-   protected void updateNeighbors(World world, BlockPos pos, BlockState state) {
-      world.updateNeighborsAlways(pos, this);
+   public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
+      for(Direction direction : Direction.values()) {
+         world.updateNeighborsAlways(pos.offset(direction), this);
+      }
+      super.onStateReplaced(state, world, pos, newState, moved);
    }
 
    @Override
@@ -47,37 +42,35 @@ public class RedstoneLanternBlock extends LanternBlock {
       if (state.get(WATERLOGGED)) {
          world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
       }
-
-//      if (state.get(LIT)) {
-       this.scheduleTick(world, pos);
-//      }
       return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
-
-//      // IF BLOCK ABOVE IS INVALID FOR PLACEMENT
-//      return attachedDirection(state).getOpposite() == direction && !state.canPlaceAt(world, pos)
-//              // IF BLOCK BELOW CAN BE PLACED ON
-//              ? (attachedDirection(state) == direction && state.canPlaceAt(world, pos)
-//                     // TRUE: RETURN HANGING FALSE // FALSE: RETURN AIR
-//                     ? state.with(HANGING, Boolean.valueOf(false))
-//                     : Blocks.AIR.getDefaultState())
-//              : super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
    }
 
-   private void scheduleTick(WorldAccess world, BlockPos pos) {
-      if (!world.isClient() && !world.getBlockTickScheduler().isQueued(pos, this)) {
-         world.scheduleBlockTick(pos, this, 2);
+   @Override
+   public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
+      for(Direction direction : Direction.values()) {
+         world.updateNeighborsAlways(pos.offset(direction), this);
       }
    }
 
    @Override
    public int getStrongRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
-      return direction == Direction.UP || direction == Direction.DOWN ? 15 : 0;
+      if (state.get(HANGING)) {
+         return direction == attachedDirection(state) ? 15 : 0;
+      } else if (!state.get(HANGING)) {
+         return direction == attachedDirection(state) ? 15 : 0;
+      }
+      return 0;
    }
-   //(Direction.NORTH != direction) && (Direction.EAST != direction) && (Direction.SOUTH != direction) && (Direction.WEST != direction)
 
    @Override
    public int getWeakRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
-      return Direction.UP != direction && Direction.DOWN != direction ? 15 : 0;
+      return direction != attachedDirection(state) || direction != attachedDirection(state).getOpposite() ? 15 : 0;
+   }
+
+
+   @Override
+   protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+      builder.add(HANGING, WATERLOGGED);
    }
 
    @Override
