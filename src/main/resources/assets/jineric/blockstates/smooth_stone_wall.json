@@ -102,7 +102,7 @@
             "west": "low|tall"
           },
           {
-            "north": "low|tall",
+            "north": "low",
             "east": "low|tall",
             "south": "none|tall",
             "west": "low|tall"
