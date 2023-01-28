@@ -252,40 +252,8 @@ public class JinericItemGroups {
 //				entries.add(JinericItems.SMOOTH_CALCITE_WALL);
 			}).build();
 
-	public static final ItemGroup WOODEN_MOD_ITEMS = FabricItemGroup.builder(new Identifier(JinericMain.MOD_ID, "wooden_mod_items"))
-			.displayName(Text.literal("Jineric Wooden Mod Items"))
-			.icon(() -> new ItemStack(JinericItems.WARPED_CHEST))
-			.entries((enabledFeatures, entries, operatorEnabled) -> {
-				//WOODEN BLOCKS
-				entries.add(JinericItems.SPRUCE_BOOKSHELF);
-				entries.add(JinericItems.SPRUCE_CHEST);
-				entries.add(JinericItems.SPRUCE_LADDER);
-				entries.add(JinericItems.BIRCH_BOOKSHELF);
-				entries.add(JinericItems.BIRCH_CHEST);
-				entries.add(JinericItems.BIRCH_LADDER);
-				entries.add(JinericItems.JUNGLE_BOOKSHELF);
-				entries.add(JinericItems.JUNGLE_CHEST);
-				entries.add(JinericItems.JUNGLE_LADDER);
-				entries.add(JinericItems.ACACIA_BOOKSHELF);
-				entries.add(JinericItems.ACACIA_CHEST);
-				entries.add(JinericItems.ACACIA_LADDER);
-				entries.add(JinericItems.DARK_OAK_BOOKSHELF);
-				entries.add(JinericItems.DARK_OAK_CHEST);
-				entries.add(JinericItems.DARK_OAK_LADDER);
-				entries.add(JinericItems.MANGROVE_BOOKSHELF);
-				entries.add(JinericItems.MANGROVE_CHEST);
-				entries.add(JinericItems.MANGROVE_LADDER);
-				entries.add(JinericItems.CRIMSON_BOOKSHELF);
-				entries.add(JinericItems.CRIMSON_CHEST);
-				entries.add(JinericItems.CRIMSON_LADDER);
-				entries.add(JinericItems.WARPED_BOOKSHELF);
-				entries.add(JinericItems.WARPED_CHEST);
-				entries.add(JinericItems.WARPED_LADDER);
-			}).build();
 	public static final Identifier MOD_ITEMS_ID = new Identifier("jineric:mod_items");
 	public static final Map<ItemGroup, Identifier> GROUP_ID_MAP = new ImmutableMap.Builder<ItemGroup, Identifier>().put(MOD_ITEMS, MOD_ITEMS_ID).build();
-
-
 
 	public static void onInitialize() {
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register((entries) -> {
@@ -513,6 +481,10 @@ public class JinericItemGroups {
 			entries.addAfter(JinericItems.MANGROVE_CHEST, JinericItems.CRIMSON_CHEST);
 			entries.addAfter(JinericItems.CRIMSON_CHEST, JinericItems.WARPED_CHEST);
 		});
+
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register((entries -> {
+			entries.addBefore(Items.BELL, JinericItems.REDSTONE_CAMPFIRE);
+		}));
 
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register((entries -> {
 			entries.addAfter(Items.DIAMOND_HORSE_ARMOR, JinericItems.NETHERITE_HORSE_ARMOR);

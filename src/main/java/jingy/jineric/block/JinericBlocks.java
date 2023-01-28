@@ -9,10 +9,7 @@ import net.minecraft.block.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
-
-import java.util.function.ToIntFunction;
 
 import static net.minecraft.block.Blocks.*;
 
@@ -298,7 +295,7 @@ public class JinericBlocks {
 
 //REDSTONE
 	public static final Block REDSTONE_LANTERN = register("redstone_lantern", new RedstoneLanternBlock(FabricBlockSettings.copy(LANTERN).luminance(state -> 7)));
-	public static final Block REDSTONE_CAMPFIRE = register("redstone_campfire", new RedstoneCampfireBlock(true, 1, JinericBlockSettings.redstoneCampfireSettings()));
+	public static final Block REDSTONE_CAMPFIRE = register("redstone_campfire", new RedstoneCampfireBlock(false, 1, JinericBlockSettings.redstoneCampfireSettings()));
 
 //WOOD
 	public static final Block SPRUCE_BOOKSHELF = register("spruce_bookshelf",new Block(FabricBlockSettings.copy(BOOKSHELF)));
@@ -323,8 +320,6 @@ public class JinericBlocks {
 //	public static final Block BOREAL_FENCE = register("boreal_fence", new FenceBlock(FabricBlockSettings.copy(OAK_FENCE)));
 //	public static final Block BOREAL_SIGN = register("boreal_sign", new SignBlock(FabricBlockSettings.copy(OAK_SIGN), JinericSignType.BOREAL));
 //	public static final Block BOREAL_WALL_SIGN = register("boreal_wall_sign", new WallSignBlock(FabricBlockSettings.copy(OAK_WALL_SIGN), JinericSignType.BOREAL));
-
-	//TODO: FIX
 //	public static final Block BOREAL_BUTTON = register("boreal_button", new ButtonBlock(FabricBlockSettings.copy((OAK_BUTTON))));
 //	public static final Block BOREAL_PRESSURE_PLATE = register("boreal_pressure_plate", new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, AbstractFabricBlockSettings.copy(OAK_PRESSURE_PLATE)));
 //	public static final Block BOREAL_DOOR = register("boreal_door", new DoorBlock(FabricBlockSettings.copy(OAK_DOOR)));
@@ -369,10 +364,6 @@ public class JinericBlocks {
 
 	private static Block register(String id, Block block) {
 		return Registry.register(Registries.BLOCK, new Identifier(JinericMain.MOD_ID, id), block);
-	}
-
-	private static ToIntFunction<BlockState> createLightLevelFromLitBlockState(int litLevel) {
-		return state -> state.get(Properties.LIT) ? litLevel : 0;
 	}
 
 	public static void blockRegistry() {
