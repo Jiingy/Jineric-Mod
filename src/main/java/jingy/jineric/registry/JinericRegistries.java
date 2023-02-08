@@ -8,9 +8,6 @@ import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 
 public class JinericRegistries {
-
-
-   //TODO: READD VOIDED CODE
    public static void registerJinericMod() {
       registerIsFuel();
       registerCompostable();
@@ -87,7 +84,6 @@ public class JinericRegistries {
 //      instance.add(JinericBlocks.BOREAL_DOOR, 5, 20);
 //      instance.add(JinericBlocks.BOREAL_PRESSURE_PLATE, 5, 20);
 //      instance.add(JinericBlocks.BOREAL_BUTTON, 5, 20);
-      instance.add(JinericBlocks.CHARCOAL_BLOCK, 5, 5);
 //      instance.add(JinericBlocks.BOREAL_LEAVES, 30, 60);
       instance.add(JinericBlocks.TUMBLEWEED, 30, 60);
       instance.add(JinericBlocks.SPRUCE_BOOKSHELF, 30, 20);
@@ -98,8 +94,8 @@ public class JinericRegistries {
       instance.add(JinericBlocks.MANGROVE_BOOKSHELF, 30, 20);
       instance.add(JinericBlocks.CRIMSON_BOOKSHELF, 30, 20);
       instance.add(JinericBlocks.WARPED_BOOKSHELF, 30, 20);
-      instance.add(JinericBlocks.STACK_OF_PAPER, 5, 20);
-      instance.add(JinericBlocks.STICK_BUNDLE, 5, 20);
+      instance.add(JinericBlocks.PAPER_BLOCK, 5, 20);
+      instance.add(JinericBlocks.STICK_BLOCK, 5, 20);
    }
 
    private static void registerOxidizableBlockPairs() {

@@ -1,6 +1,5 @@
 package jingy.jineric.block;
 
-import jingy.jineric.block.custom.JinericChestBlock;
 import jingy.jineric.block.entity.ShulkerChestBlockEntity;
 import jingy.jineric.block.enums.JinericChestType;
 import jingy.jineric.registry.JinericBlockEntityType;

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "jineric:cobbled_tuff"
+  },
+  "result": "jineric:cobbled_tuff_slab"
+}

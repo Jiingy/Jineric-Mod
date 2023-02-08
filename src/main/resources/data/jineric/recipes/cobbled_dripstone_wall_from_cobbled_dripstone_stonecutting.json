@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "jineric:cobbled_dripstone"
+  },
+  "result": "jineric:cobbled_dripstone_wall"
+}

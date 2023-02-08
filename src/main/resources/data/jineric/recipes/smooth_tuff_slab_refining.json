@@ -1,0 +1,11 @@
+{
+  "type": "jineric:refining",
+  "category": "blocks",
+  "cookingtime": 100,
+  "experience": 0.2,
+  "group": "smooth_tuff_slab",
+  "ingredient": {
+    "item": "jineric:tuff_slab"
+  },
+  "result": "jineric:smooth_tuff_slab"
+}

@@ -2,8 +2,19 @@
    "sources": [
 	  {
 		 "type": "directory",
-		 "source": "jineric"
+		 "source": "entity/chest",
+		 "prefix": "entity/chest/"
 	  }
-
    ],
+   "values": [
+	  {"resource": "jineric:spruce_chest"},
+	  {"resource": "jineric:birch_chest"},
+	  {"resource": "jineric:jungle_chest"},
+	  {"resource": "jineric:acacia_chest"},
+	  {"resource": "jineric:dark_oak_chest"},
+	  {"resource": "jineric:mangrove_chest"},
+	  {"resource": "jineric:crimson_chest"},
+	  {"resource": "jineric:warped_chest"},
+	  {"resource": "shulker_chest"}
+   ]
 }

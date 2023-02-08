@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "jineric:tuff_tile_wall"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tuff_tiles": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "jineric:tuff_tiles"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_tuff_tiles",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "jineric:tuff_tile_wall"
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "jineric:smooth_dripstone"
+  },
+  "result": "jineric:smooth_dripstone_wall"
+}

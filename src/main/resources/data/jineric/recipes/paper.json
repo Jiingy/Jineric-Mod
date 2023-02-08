@@ -1,15 +1,13 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#"
-  ],
-  "key": {
-    "#": {
-      "item": "jineric:stack_of_paper"
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "jineric:paper_block"
     }
-  },
+  ],
   "result": {
-    "item": "minecraft:paper",
-    "count": 9
+    "count": 9,
+    "item": "minecraft:paper"
   }
 }

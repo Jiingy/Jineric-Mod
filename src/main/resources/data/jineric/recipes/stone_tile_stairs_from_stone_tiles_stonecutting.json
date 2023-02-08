@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "jineric:stone_tiles"
+  },
+  "result": "jineric:stone_tile_stairs"
+}

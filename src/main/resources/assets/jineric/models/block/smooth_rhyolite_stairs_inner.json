@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "jineric:block/smooth_rhyolite",
-    "top": "jineric:block/smooth_rhyolite",
-    "side": "jineric:block/smooth_rhyolite"
-  }
-}

@@ -25,7 +25,7 @@
       "jingy.jineric.base.JinericClientMain"
     ],
     "preLaunch": [
-      "jingy.jineric.base.JinericPreLaunch"
+      "jingy.jineric.data.JinericPreLaunch"
     ]
   },
   "mixins": [

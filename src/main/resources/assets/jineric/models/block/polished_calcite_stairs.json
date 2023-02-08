@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "jineric:block/polished_calcite",
-    "top": "jineric:block/polished_calcite",
-    "side": "jineric:block/polished_calcite"
-  }
-}

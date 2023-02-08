@@ -1,15 +1,14 @@
 {
-   "type": "minecraft:crafting_shaped",
-   "pattern": [
-	  "#"
-   ],
-   "key": {
-	  "#": {
-		 "item": "jineric:sugar_block"
-	  }
-   },
-   "result": {
-	  "item": "minecraft:sugar",
-	  "count": 4
-   }
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "sugar",
+  "ingredients": [
+    {
+      "item": "jineric:sugar_block"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "minecraft:sugar"
+  }
 }

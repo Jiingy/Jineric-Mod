@@ -1,6 +1,6 @@
 package jingy.jineric.registry;
 
-import jingy.jineric.sound.JinericSounds;
+import jingy.jineric.sound.JinericSoundGroups;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.entity.EntityType;
@@ -18,9 +18,9 @@ public class JinericBlockSettings extends Blocks {
 				.of(Material.STONE)
 				.requiresTool()
 				.strength(0.8f, 4f)
-				.sounds(JinericSounds.SOUL_SANDSTONE)
+				.sounds(JinericSoundGroups.SOUL_SANDSTONE)
 				.mapColor(MapColor.BROWN)
-				.sounds(JinericSounds.SOUL_SANDSTONE);
+				.sounds(JinericSoundGroups.SOUL_SANDSTONE);
 	}
 
 	public static FabricBlockSettings obsidianSettings() {
@@ -29,35 +29,13 @@ public class JinericBlockSettings extends Blocks {
 				.requiresTool()
 				.strength(50.0F, 1200.0F).sounds(BlockSoundGroup.STONE);
 	}
-
-	public static FabricBlockSettings shulkerChestSettings() {
-		return FabricBlockSettings
-				.of(JinericBlockMaterials.SHULKER_CHEST_MATERIAL, MapColor.PURPLE)
-				.requiresTool()
-				.strength(2.0F, 2.5F)
-				.sounds(BlockSoundGroup.STONE)
-				.suffocates(JinericBlockSettings::never)
-				.blockVision(JinericBlockSettings::never);
-	}
-	public static FabricBlockSettings redstoneLanternSettings() {
-		return FabricBlockSettings
-				.of(Material.METAL)
-				.requiresTool()
-				.strength(3.5F)
-				.sounds(BlockSoundGroup.LANTERN)
-				.luminance(7)
-				.nonOpaque();
-	}
 	public static FabricBlockSettings redstoneCampfireSettings() {
 		return FabricBlockSettings
 				.of(Material.WOOD, MapColor.BROWN)
-				.requiresTool()
 				.strength(2.0F)
 				.sounds(BlockSoundGroup.WOOD)
 				.luminance(createLightLevelFromLitBlockState(7))
-				.nonOpaque()
-				.suffocates(JinericBlockSettings::never)
-				.blockVision(JinericBlockSettings::never);
+				.nonOpaque();
 	}
 
 	public static LeavesBlock JinericLeavesBlock(BlockSoundGroup soundGroup) {

@@ -1,8 +1,0 @@
-{
-    "type": "minecraft:refining",
-    "ingredient": {
-        "item": "jineric:rhyolite_wall"
-    },
-    "result": "jineric:smooth_rhyolite_wall",
-    "experience": 0.2
-}

@@ -4,6 +4,7 @@ import jingy.jineric.base.JinericMain;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.ingame.AbstractFurnaceScreen;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -14,5 +15,10 @@ public class RefineryScreen extends AbstractFurnaceScreen<RefineryScreenHandler>
 
    public RefineryScreen(RefineryScreenHandler handler, PlayerInventory inventory, Text title) {
       super(handler, new RefineryRecipeBookScreen(), inventory, title, TEXTURE);
+   }
+
+   @Override
+   public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
+      super.render(matrices, mouseX, mouseY, delta);
    }
 }

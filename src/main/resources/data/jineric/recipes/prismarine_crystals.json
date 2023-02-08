@@ -1,15 +1,13 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#"
-  ],
-  "key": {
-    "#": {
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
       "item": "jineric:prismarine_crystal_block"
     }
-  },
+  ],
   "result": {
-    "item": "minecraft:prismarine_crystals",
-    "count": 9
+    "count": 9,
+    "item": "minecraft:prismarine_crystals"
   }
 }

@@ -1,8 +1,0 @@
-{
-   "parent": "jineric:block/template_alt_wall_side_t",
-   "textures": {
-	  "bottom": "jineric:block/wall/smooth_stone/smooth_stone_wall_bottom",
-	  "top": "jineric:block/wall/smooth_stone/smooth_stone_wall_top",
-	  "side": "jineric:block/wall/smooth_stone/smooth_stone_wall_short_side"
-   }
-}

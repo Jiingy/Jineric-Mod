@@ -4,7 +4,7 @@
       "model": "jineric:block/tuff_brick_slab"
     },
     "type=double": {
-      "model": "jineric:block/tuff_bricks"
+      "model": "jineric:block/tuff_brick_slab_double"
     },
     "type=top": {
       "model": "jineric:block/tuff_brick_slab_top"

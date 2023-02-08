@@ -2,7 +2,7 @@
   "parent": "minecraft:block/inner_stairs",
   "textures": {
     "bottom": "jineric:block/tuff_bricks",
-    "top": "jineric:block/tuff_bricks",
-    "side": "jineric:block/tuff_bricks"
+    "side": "jineric:block/tuff_bricks",
+    "top": "jineric:block/tuff_bricks"
   }
 }

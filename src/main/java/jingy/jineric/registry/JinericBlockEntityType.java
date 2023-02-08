@@ -2,10 +2,10 @@ package jingy.jineric.registry;
 
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.JinericBlocks;
+import jingy.jineric.block.entity.RedstoneCampfireBlockEntity;
 import jingy.jineric.block.entity.RefineryBlockEntity;
 import jingy.jineric.block.entity.ShulkerChestBlockEntity;
-import jingy.jineric.block.entity.custom.RedstoneCampfireBlockEntity;
-import jingy.jineric.block.entity.custom.chest.*;
+import jingy.jineric.block.entity.chests.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;

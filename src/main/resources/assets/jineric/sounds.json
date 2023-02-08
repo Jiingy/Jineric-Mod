@@ -1,11 +1,28 @@
 {
-  "soul_sandstone": {
+  "block.soul_sandstone.break": {
     "sounds": [
-      "jineric:soul_sandstone_1",
-      "jineric:soul_sandstone_2",
-      "jineric:soul_sandstone_3",
-      "jineric:soul_sandstone_4",
-      "jineric:soul_sandstone_5"
+      "jineric:block/soul_sandstone/break1",
+      "jineric:block/soul_sandstone/break2",
+      "jineric:block/soul_sandstone/break3",
+      "jineric:block/soul_sandstone/break4",
+      "jineric:block/soul_sandstone/break5"
+    ]
+  },
+  "block.soul_sandstone.place": {
+    "sounds": [
+      "jineric:block/soul_sandstone/place1",
+      "jineric:block/soul_sandstone/place2",
+      "jineric:block/soul_sandstone/place3",
+      "jineric:block/soul_sandstone/place4"
+    ]
+  },
+  "block.soul_sandstone.step": {
+    "sounds": [
+      "jineric:block/soul_sandstone/step1",
+      "jineric:block/soul_sandstone/step2",
+      "jineric:block/soul_sandstone/step3",
+      "jineric:block/soul_sandstone/step4",
+      "jineric:block/soul_sandstone/step5"
     ]
   }
 }

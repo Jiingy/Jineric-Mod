@@ -1,15 +1,13 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#"
-  ],
-  "key": {
-    "#": {
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
       "item": "jineric:rotten_flesh_block"
     }
-  },
+  ],
   "result": {
-    "item": "minecraft:rotten_flesh",
-    "count": 9
+    "count": 9,
+    "item": "minecraft:rotten_flesh"
   }
 }

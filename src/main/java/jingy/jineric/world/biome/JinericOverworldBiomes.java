@@ -1,7 +1,6 @@
 package jingy.jineric.world.biome;
 
 import jingy.jineric.world.feature.JinericTreePlacedFeature;
-import jingy.jineric.world.gen.JinericDefaultBiomeFeatures;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeMoodSound;
@@ -77,7 +76,7 @@ public class JinericOverworldBiomes extends OverworldBiomeCreator {
 
       GenerationSettings.Builder generationSettings = new GenerationSettings.Builder();
       addBasicFeatures(generationSettings);
-      JinericDefaultBiomeFeatures.addForestFlowers(generationSettings);
+//      JinericDefaultBiomeFeatures.addForestFlowers(generationSettings);
 //      DefaultBiomeFeatures.addDefaultOres(generationSettings);
 //      DefaultBiomeFeatures.addDefaultDisks(generationSettings);
 //      DefaultBiomeFeatures.addDefaultGrass(generationSettings);
