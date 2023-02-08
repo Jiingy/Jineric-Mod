@@ -75,7 +75,7 @@ public class JinericBlocks {
 	public static final Block CRACKED_STONE_BRICK_SLAB  = register("cracked_stone_brick_slab", new SlabBlock(FabricBlockSettings.copy(STONE)));
 	public static final Block CRACKED_STONE_BRICK_WALL = register("cracked_stone_brick_wall", new WallBlock(FabricBlockSettings.copy(STONE)));
 	public static final Block STONE_PILLAR = register("stone_pillar", new PillarBlock(FabricBlockSettings.copy(STONE)));
-	public static final Block STONE_TILES = register("stone_tiles", new Block(FabricBlockSettings.copy(DEEPSLATE_TILES)));
+	public static final Block STONE_TILES = register("stone_tiles", new Block(FabricBlockSettings.copy(STONE_BRICKS).sounds(BlockSoundGroup.DEEPSLATE_TILES)));
 	public static final Block STONE_TILE_STAIRS = register("stone_tile_stairs", new StairsBlock(STONE_TILES.getDefaultState(), FabricBlockSettings.copy(STONE_TILES)));
 	public static final Block STONE_TILE_SLAB = register("stone_tile_slab", new SlabBlock(FabricBlockSettings.copy(STONE_TILES)));
 	public static final Block STONE_TILE_WALL = register("stone_tile_wall", new WallBlock(FabricBlockSettings.copy(STONE_TILES)));
