@@ -16,11 +16,10 @@ public abstract class EnchantmentMixin {
    @Inject(method = "isAcceptableItem", at = @At("HEAD"), cancellable = true)
    private void jineric$allowOnMoreItems(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
       //Allows for LuckEnchantment to be put on more items
-      if ((Object) this instanceof LuckEnchantment) {
+      if ((Enchantment)(Object)this instanceof LuckEnchantment) {
          if (stack.isOf(Items.BOW)
                  || stack.isOf(Items.CROSSBOW)
                  || stack.isOf(Items.TRIDENT)
-                 || stack.isOf(Items.SHEARS)
                  || stack.getItem() instanceof AxeItem){
             cir.setReturnValue(true);
          }
