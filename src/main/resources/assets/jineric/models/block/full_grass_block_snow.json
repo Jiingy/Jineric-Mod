@@ -1,7 +1,31 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "block/block",
   "textures": {
-    "particle": "minecraft:block/grass_block_top",
-    "all": "minecraft:block/grass_block_top"
-  }
+    "particle": "jineric:block/full_grass_block",
+    "end": "jineric:block/full_grass_block",
+    "side": "jineric:block/full_grass_block",
+    "overlay": "jineric:block/full_grass_block_side_overlay"
+  },
+  "elements": [
+    {   "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "down":  { "uv": [ 0, 0, 16, 16 ], "texture": "#end", "cullface": "down" },
+        "up":    { "uv": [ 0, 0, 16, 16 ], "texture": "#end",    "cullface": "up", "tintindex": 0 },
+        "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#side",   "cullface": "north", "tintindex": 0 },
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#side",   "cullface": "south", "tintindex": 0 },
+        "west":  { "uv": [ 0, 0, 16, 16 ], "texture": "#side",   "cullface": "west", "tintindex": 0 },
+        "east":  { "uv": [ 0, 0, 16, 16 ], "texture": "#side",   "cullface": "east", "tintindex": 0 }
+      }
+    },
+    {   "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#overlay", "cullface": "north" },
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#overlay", "cullface": "south" },
+        "west":  { "uv": [ 0, 0, 16, 16 ], "texture": "#overlay", "cullface": "west" },
+        "east":  { "uv": [ 0, 0, 16, 16 ], "texture": "#overlay", "cullface": "east" }
+      }
+    }
+  ]
 }
