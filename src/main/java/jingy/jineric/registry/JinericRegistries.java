@@ -8,9 +8,6 @@ import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 
 public class JinericRegistries {
-
-
-   //TODO: READD VOIDED CODE
    public static void registerJinericMod() {
       registerIsFuel();
       registerCompostable();

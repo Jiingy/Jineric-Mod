@@ -226,11 +226,9 @@ public class JinericItemGroups {
 				entries.add(JinericItems.TUFF_TILE_STAIRS);
 				entries.add(JinericItems.TUFF_TILE_WALL);
 				entries.add(JinericItems.SHULKER_CHEST);
-				entries.add(JinericItems.WARPED_NETHER_WART);
 				entries.add(JinericItems.GOLDEN_POTATO);
 				entries.add(JinericItems.GOLDEN_SWEET_BERRIES);
 				entries.add(JinericItems.GOLDEN_BEETROOT);
-				entries.add(JinericItems.DRIED_BAMBOO);
 				entries.add(JinericItems.MANX_LOAGHTAN_SPAWN_EGG);
 				entries.add(JinericItems.SALT);
 				entries.add(JinericItems.SALT_BLOCK);
@@ -438,6 +436,7 @@ public class JinericItemGroups {
 		});
 
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register((entries -> {
+			entries.addBefore(Items.GRASS_BLOCK, JinericItems.FULL_GRASS_BLOCK);
 //			entries.addAfter(Items.PACKED_ICE, JinericItems.PACKED_ICE_STAIRS);
 //			entries.addAfter(JinericItems.PACKED_ICE_STAIRS, JinericItems.PACKED_ICE_SLAB);
 //			entries.addAfter(JinericItems.PACKED_ICE_SLAB, JinericItems.PACKED_ICE_WALL);
@@ -483,6 +482,7 @@ public class JinericItemGroups {
 		});
 
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register((entries -> {
+			entries.addAfter(Items.REDSTONE_TORCH, JinericItems.REDSTONE_LANTERN);
 			entries.addBefore(Items.BELL, JinericItems.REDSTONE_CAMPFIRE);
 		}));
 

@@ -1,35 +1,11 @@
 {
   "replace": false,
   "values": [
+    "#jineric:wooden_chests",
+    "#jineric:wooden_bookshelves",
+    "#jineric:wooden_ladders",
     "jineric:soul_jack_o_lantern",
-    "jineric:paper_block",
     "jineric:stick_block",
-
-    "jineric:spruce_chest",
-    "jineric:birch_chest",
-    "jineric:jungle_chest",
-    "jineric:acacia_chest",
-    "jineric:dark_oak_chest",
-    "jineric:mangrove_chest",
-    "jineric:crimson_chest",
-    "jineric:warped_chest",
-
-    "minecraft:bookshelf",
-    "jineric:spruce_bookshelf",
-    "jineric:birch_bookshelf",
-    "jineric:jungle_bookshelf",
-    "jineric:acacia_bookshelf",
-    "jineric:dark_oak_bookshelf",
-    "jineric:crimson_bookshelf",
-    "jineric:warped_bookshelf",
-    "jineric:mangrove_bookshelf",
-
-    "jineric:acacia_ladder",
-    "jineric:birch_ladder",
-    "jineric:dark_oak_ladder",
-    "jineric:spruce_ladder",
-    "jineric:crimson_ladder",
-    "jineric:jungle_ladder",
-    "jineric:warped_ladder"
+    "jineric:redstone_campfire"
   ]
 }

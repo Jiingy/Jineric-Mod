@@ -11,8 +11,6 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
-
-//CHANGED HERE HandledScreen<ShulkerChestScreenHandler>
 public class ShulkerChestScreen extends HandledScreen<ShulkerChestScreenHandler>  {
 	private static final Identifier TEXTURE = new Identifier("jineric", "textures/gui/container/shulker_chest_gui.png");
 //	private final int rows;

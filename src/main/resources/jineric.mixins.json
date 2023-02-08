@@ -4,21 +4,24 @@
    "package": "jingy.jineric.mixin",
    "compatibilityLevel": "JAVA_17",
    "mixins": [
+	  "BellBlockShapeMixin",
 	  "BlockEntityTypeMixin",
+	  "BlockMixin",
 	  "BrewingRecipeRegistryMixin",
 	  "DefaultAttributeRegistryMixin",
 	  "EatGrassGoalMixin",
 	  "EnchantingTableBlockMixin",
 	  "EnchantmentMixin",
+	  "LivingEntityFastFallingMixin",
 	  "PointedDripstoneBlockMixin",
 	  "SmokerBlockMixin",
+	  "SpreadableBlockMixin",
 	  "TurtleEntityMixin",
 	  "WallBlockMixin",
-	  "access.MaterialRulesDataAccess",
 	  "access.SignTypeAccess"
    ],
    "client": [
-	  "EntityRenderersMixin",
+	  "ChestBlockEntityRendererMixin",
 	  "LivingEntityMixin",
 	  "access.ElytraFeatureRendererAccess"
    ],

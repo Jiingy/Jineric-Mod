@@ -19,15 +19,18 @@ import net.minecraft.world.World;
 
 public class ShulkerChestBlockEntity extends JinericChestBlockEntity {
    private final ChestLidAnimator lidAnimator = new ChestLidAnimator();
+//   @Nullable
+//   private final DyeColor color;
 
-   public ShulkerChestBlockEntity(BlockPos blockPos, BlockState blockState) {
+   public ShulkerChestBlockEntity(
+//           @Nullable DyeColor color,
+           BlockPos blockPos, BlockState blockState) {
       super(JinericChestType.SHULKER, blockPos, blockState);
+//      this.color = color;
       this.setInvStackList(DefaultedList.ofSize(this.size(), ItemStack.EMPTY));
    }
 
    private final ViewerCountManager stateManager = new ViewerCountManager() {
-
-
 
       @Override
       protected void onContainerOpen(World world, BlockPos pos, BlockState state) {

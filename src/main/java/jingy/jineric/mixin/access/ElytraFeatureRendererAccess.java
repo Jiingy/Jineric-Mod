@@ -14,6 +14,4 @@ public interface ElytraFeatureRendererAccess<T extends LivingEntity> {
 
    @Accessor("SKIN")
    Identifier getElytraTexture();
-
-   //TODO: Frost elytra does not display, remove capes when equipped, or show over vanilla capes
 }

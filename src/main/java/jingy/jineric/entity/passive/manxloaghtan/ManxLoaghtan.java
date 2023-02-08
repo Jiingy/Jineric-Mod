@@ -55,9 +55,7 @@ public class ManxLoaghtan extends AnimalEntity implements Shearable {
    private static final Map<DyeColor, float[]> COLORS = Maps.newEnumMap(
            (Map) Arrays.stream(DyeColor.values()).collect(Collectors.toMap(dyeColor -> dyeColor, ManxLoaghtan::getDyedColor))
    );
-
    private int eatGrassTimer;
-   //TODO: See if mixin to add full grass block is possible for eatGrassGoal
    private EatGrassGoal eatGrassGoal;
    private int headAngle;
 

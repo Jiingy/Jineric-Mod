@@ -9,7 +9,6 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.DustParticleEffect;
 import net.minecraft.recipe.CampfireCookingRecipe;
@@ -27,7 +26,6 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
@@ -87,16 +85,6 @@ public class RedstoneCampfireBlock extends CampfireBlock {
               100.1,
               0.0
       );
-   }
-
-   @Override
-   public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
-      if (state.get(WATERLOGGED)) {
-         world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
-      }
-      return direction == Direction.DOWN ?
-              state.with(SIGNAL_FIRE, Boolean.valueOf(this.isSignalFireBaseBlock(neighborState)))
-              : super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
    }
 
    @Override

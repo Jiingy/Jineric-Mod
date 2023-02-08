@@ -1,0 +1,17 @@
+{
+   "type": "minecraft:crafting_shaped",
+   "category": "building",
+   "key": {
+	  "#": {
+		 "item": "minecraft:stone_bricks"
+	  }
+   },
+   "pattern": [
+	  "##",
+	  "##"
+   ],
+   "result": {
+	  "item": "jineric:stone_tiles",
+	  "count": 4
+   }
+}

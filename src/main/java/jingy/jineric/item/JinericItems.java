@@ -306,11 +306,9 @@ public class JinericItems {
 //	public static final Item SMOOTH_CALCITE_WALL = register("smooth_calcite_wall", new BlockItem(JinericBlocks.SMOOTH_CALCITE_WALL, new FabricItemSettings()));
 //MISC
 	public static final Item SHULKER_CHEST = register("shulker_chest", new BlockItem(JinericBlocks.SHULKER_CHEST, new FabricItemSettings()));
-	public static final Item WARPED_NETHER_WART = register("warped_nether_wart", new Item(new FabricItemSettings()));
 	public static final Item GOLDEN_POTATO = register("golden_potato", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(6).saturationModifier(14.4f).build())));
 	public static final Item GOLDEN_SWEET_BERRIES = register("golden_sweet_berries", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(5).saturationModifier(8f).build())));
 	public static final Item GOLDEN_BEETROOT = register("golden_beetroot", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(5f).build())));
-	public static final Item DRIED_BAMBOO = register("dried_bamboo", new Item(new FabricItemSettings()));
 	public static final Item MANX_LOAGHTAN_SPAWN_EGG = register("manx_loaghtan_spawn_egg", new SpawnEggItem(JinericEntities.MANX_LOAGHTAN, 0x3f4052, 0x12101d, new FabricItemSettings()));
 	public static final Item SALT = register("salt", new Item(new FabricItemSettings()));
 	public static final Item SALT_BLOCK = register("salt_block", new BlockItem(JinericBlocks.SALT_BLOCK, new FabricItemSettings()));

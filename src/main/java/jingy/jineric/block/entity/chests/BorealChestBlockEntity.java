@@ -7,8 +7,6 @@ import net.minecraft.util.math.BlockPos;
 
 public class BorealChestBlockEntity extends JinericChestBlockEntity {
    public BorealChestBlockEntity(BlockPos blockPos, BlockState blockState) {
-      //TODO: FIX WHEN READDING BOREAL
-
       super(JinericChestType.ACACIA, blockPos, blockState);
    }
 }

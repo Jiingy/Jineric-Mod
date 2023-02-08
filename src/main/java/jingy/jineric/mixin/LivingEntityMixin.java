@@ -50,4 +50,31 @@ public abstract class LivingEntityMixin extends Entity {
 		}
 		return p;
 	}
+
+//	@Inject(
+////			method = "travel",
+////			slice = @Slice(from = @At(
+////					value = "INVOKE",
+////					target = "net/minecraft/entity/LivingEntity.getVelocity ()Lnet/minecraft/util/math/Vec3d;")),
+////			at = @At(value = "RETURN")
+//			method = "travel",
+//			at = @At(
+//					value = "INVOKE",
+//					target = "net/minecraft/entity/LivingEntity.getVelocity()Lnet/minecraft/util/math/Vec3d;",
+//					shift = At.Shift.BEFORE
+//			),
+//			slice = @Slice(
+//					from = @At(
+//							value = "INVOKE",
+//							target = "net/minecraft/entity/LivingEntity.isLogicalSideForUpdatingMovement ()Z"
+//					),
+//					to = @At(
+//							value = "INVOKE",
+//							target = "net/minecraft/entity/LivingEntity.hasStatusEffect (Lnet/minecraft/entity/effect/StatusEffect;)Z"
+//					)
+//			)
+//	)
+//	private void jineric$modifyFallSpeed(Vec3d movementInput, CallbackInfo ci) {
+//		if ()
+//	}
 }
