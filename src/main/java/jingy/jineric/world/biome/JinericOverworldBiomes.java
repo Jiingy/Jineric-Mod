@@ -22,11 +22,10 @@ public class JinericOverworldBiomes extends OverworldBiomeCreator {
            GenerationSettings.Builder generationSettings,
            @Nullable MusicSound music
    ) {
-      return createBiome(precipitation, temperature, downfall, 4159204, 329011, spawnSettings, generationSettings, music);
+      return createBiome(temperature, downfall, 4159204, 329011, spawnSettings, generationSettings, music);
    }
 
    private static Biome createBiome(
-           Biome.Precipitation precipitation,
            float temperature,
            float downfall,
            int waterColor,
@@ -36,7 +35,7 @@ public class JinericOverworldBiomes extends OverworldBiomeCreator {
            @Nullable MusicSound music
    ) {
       return (new Biome.Builder())
-              .precipitation(precipitation)
+              .precipitation(true)
               .temperature(temperature)
               .downfall(downfall)
               .effects(
@@ -105,7 +104,6 @@ public class JinericOverworldBiomes extends OverworldBiomeCreator {
 
 
       return createBiome(
-              cold ? Biome.Precipitation.SNOW : Biome.Precipitation.RAIN,
               f,
               cold ? 0.4F : 0.8F,
               cold ? 4020182 : 4159204,

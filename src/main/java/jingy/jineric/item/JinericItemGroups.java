@@ -20,7 +20,7 @@ public class JinericItemGroups {
 	public static final ItemGroup MOD_ITEMS = FabricItemGroup.builder(new Identifier(JinericMain.MOD_ID, "mod_items"))
 			.displayName(Text.literal("Jineric Mod Items"))
 			.icon(() -> new ItemStack(JinericItems.PRISMARINE_CRYSTAL_BLOCK))
-			.entries((enabledFeatures, entries, operatorEnabled) -> {
+			.entries((enabledFeatures, entries) -> {
 				entries.add(JinericItems.POLISHED_STONE);
 				entries.add(JinericItems.POLISHED_STONE_STAIRS);
 				entries.add(JinericItems.POLISHED_STONE_SLAB);

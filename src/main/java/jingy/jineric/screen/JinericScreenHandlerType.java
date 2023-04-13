@@ -16,7 +16,8 @@ public class JinericScreenHandlerType<T extends ScreenHandler> {
    public static ScreenHandlerType<RefineryScreenHandler> REFINERY;
 
    public static void registerScreenHandlers() {
-      SHULKER_CHEST = Registry.register(Registries.SCREEN_HANDLER, SHULKER_CHEST_SCREEN_ID, new ScreenHandlerType<>(ShulkerChestScreenHandler::new));
-      REFINERY = Registry.register(Registries.SCREEN_HANDLER, REFINERY_SCREEN_ID, new ScreenHandlerType<>(RefineryScreenHandler::new));
+//      SHULKER_CHEST = Registry.register(Registries.SCREEN_HANDLER, SHULKER_CHEST_SCREEN_ID, new ScreenHandlerType<>(ShulkerChestScreenHandler::new, null));
+      SHULKER_CHEST = Registry.register(Registries.SCREEN_HANDLER, SHULKER_CHEST_SCREEN_ID, new ScreenHandlerType<>(ShulkerChestScreenHandler::new, null));
+      REFINERY = Registry.register(Registries.SCREEN_HANDLER, REFINERY_SCREEN_ID, new ScreenHandlerType<>(RefineryScreenHandler::new, null));
    }
 }

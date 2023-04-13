@@ -62,7 +62,7 @@ public class ShulkerChestBlockEntity extends JinericChestBlockEntity {
 
       @Override
       protected void onViewerCountUpdate(World world, BlockPos pos, BlockState state, int oldViewerCount, int newViewerCount) {
-         ShulkerChestBlockEntity.this.onInvOpenOrClose(world, pos, state, oldViewerCount, newViewerCount);
+         ShulkerChestBlockEntity.this.onViewerCountUpdate(world, pos, state, oldViewerCount, newViewerCount);
       }
 
       @Override

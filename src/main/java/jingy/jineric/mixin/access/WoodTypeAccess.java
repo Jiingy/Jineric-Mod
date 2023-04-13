@@ -1,19 +1,20 @@
 package jingy.jineric.mixin.access;
 
-import net.minecraft.util.SignType;
+import net.minecraft.block.BlockSetType;
+import net.minecraft.block.WoodType;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
-@Mixin(SignType.class)
-public interface SignTypeAccess {
+@Mixin(WoodType.class)
+public interface WoodTypeAccess {
 
    @Invoker("<init>")
-   static SignType jineric$newSignType(String name) {
+   static WoodType jineric$newSignType(String name, BlockSetType blockSetType) {
       throw new Error("Mixin did not apply!");
    }
 
    @Invoker("register")
-   static SignType jineric$registerNew(SignType signType) {
+   static WoodType jineric$registerNew(WoodType signType) {
       throw new Error("Mixin did not apply!");
    }
 }
