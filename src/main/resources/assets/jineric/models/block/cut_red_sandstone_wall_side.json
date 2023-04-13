@@ -1,7 +1,8 @@
 {
-  "parent": "minecraft:block/template_wall_side",
+  "parent": "jineric:block/template_edge_texture_wall_side",
   "textures": {
-    "wall": "minecraft:block/cut_red_sandstone",
-    "top": "minecraft:block/red_sandstone_top"
+    "bottom": "minecraft:block/red_sandstone_top",
+    "top": "minecraft:block/red_sandstone_top",
+    "side": "jineric:block/wall/cut_red_sandstone/cut_red_sandstone_wall_low_side"
   }
 }

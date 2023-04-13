@@ -3,10 +3,9 @@
   "id": "jineric",
   "name": "Jineric Mod",
   "version": "${version}",
-  "environment": "*",
   "description": "A gameplay focussed mod made to improve the vanilla experience",
   "authors": [
-    "Jingy"
+    "Jiingy"
   ],
   "contact": {
     "homepage": "",
@@ -25,14 +24,17 @@
       "jingy.jineric.base.JinericClientMain"
     ],
     "preLaunch": [
-      "jingy.jineric.data.JinericPreLaunch"
+      "jingy.jineric.base.plugins.JinericPreLaunch"
+    ],
+    "emi": [
+      "jingy.jineric.base.plugins.JinericEmiPlugin"
     ]
   },
   "mixins": [
     "jineric.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14.10",
+    "fabricloader": ">=0.14",
     "fabric": "*",
     "minecraft": "~1.19.3",
     "java": ">=17"
@@ -42,6 +44,11 @@
     "another-mod": "*"
   },
   "custom": {
+    "modmenu": {
+      "inks": {
+        "modmenu.discord": "https://discord.gg/VPqDtBc"
+      }
+    },
     "loom:injected_interfaces": {
       "net/minecraft/class_1481": ["net/minecraft/class_5146"]
     }

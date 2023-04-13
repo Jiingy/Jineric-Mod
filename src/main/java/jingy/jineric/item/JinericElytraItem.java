@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
-public class JinericElytraItem extends ElytraItem implements FabricElytraItem, Wearable {
+public class JinericElytraItem extends ElytraItem implements FabricElytraItem {
    public JinericElytraItem(Item.Settings settings) {
       super(settings);
       DispenserBlock.registerBehavior(this, ArmorItem.DISPENSER_BEHAVIOR);

@@ -17,7 +17,7 @@ public abstract class ChestBlockEntityRendererMixin {
    @WrapOperation(
            method = "render(Lnet/minecraft/block/entity/BlockEntity;FLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;II)V",
            at = @At(value = "INVOKE",
-           target = "net/minecraft/client/render/TexturedRenderLayers.getChestTexture (Lnet/minecraft/block/entity/BlockEntity;Lnet/minecraft/block/enums/ChestType;Z)Lnet/minecraft/client/util/SpriteIdentifier;")
+           target = "Lnet/minecraft/client/render/TexturedRenderLayers;getChestTextureId(Lnet/minecraft/block/entity/BlockEntity;Lnet/minecraft/block/enums/ChestType;Z)Lnet/minecraft/client/util/SpriteIdentifier;")
    )
    private SpriteIdentifier jineric$getJinericChestTexture(BlockEntity blockEntity, ChestType type, boolean christmas, Operation<SpriteIdentifier> original) {
       if (blockEntity instanceof JinericChestBlockEntity) {

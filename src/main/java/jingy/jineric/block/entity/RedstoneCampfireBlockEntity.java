@@ -51,7 +51,10 @@ public class RedstoneCampfireBlockEntity extends BlockEntity implements Clearabl
             redstoneCampfire.cookingTimes[i]++;
             if (redstoneCampfire.cookingTimes[i] >= redstoneCampfire.cookingTotalTimes[i]) {
                Inventory inventory = new SimpleInventory(itemStack);
-               ItemStack itemStack2 = (ItemStack)redstoneCampfire.matchGetter.getFirstMatch(inventory, world).map(recipe -> recipe.craft(inventory)).orElse(itemStack);
+               ItemStack itemStack2 = (ItemStack)redstoneCampfire.matchGetter
+                       .getFirstMatch(inventory, world)
+                       .map(recipe -> recipe.craft(inventory, world.getRegistryManager()))
+                       .orElse(itemStack);
                if (itemStack2.isItemEnabled(world.getEnabledFeatures())) {
                   ItemScatterer.spawn(world, (double)pos.getX(), (double)pos.getY(), (double)pos.getZ(), itemStack2);
                   redstoneCampfire.itemsBeingCooked.set(i, ItemStack.EMPTY);

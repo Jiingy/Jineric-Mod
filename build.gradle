@@ -15,7 +15,7 @@ tasks.withType(JavaCompile).configureEach { it.options.release = 17 }
 
 group = project.maven_group
 archivesBaseName = project.mod_id
-version = project.mod_version
+version = project.version
 
 /* Dependencies */
 repositories {
@@ -23,6 +23,10 @@ repositories {
 	maven { url "https://api.modrinth.com/maven" }
 	maven { url = 'https://maven.minecraftforge.net/' }
 	maven { url "https://jitpack.io" }
+	maven {
+		name = "TerraformersMC"
+		url = "https://maven.terraformersmc.com/"
+	}
 }
 
 dependencies {
@@ -32,6 +36,8 @@ dependencies {
 
 	// api
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	modCompileOnly "dev.emi:emi:${emi_version}:api"
+	modLocalRuntime "dev.emi:emi:${emi_version}"
 
 	// mixin extras
 	implementation("com.github.LlamaLad7:MixinExtras:0.1.1")
