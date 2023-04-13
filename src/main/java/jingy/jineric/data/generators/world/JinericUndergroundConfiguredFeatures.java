@@ -24,19 +24,21 @@ public class JinericUndergroundConfiguredFeatures {
    public static final RegistryKey<ConfiguredFeature<?, ?>> FULL_GRASS_VEGETATION = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, JinericMain.id("full_grass_vegetation"));
    public static final RegistryKey<ConfiguredFeature<?, ?>> FULL_GRASS_PATCH_BONEMEAL = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, JinericMain.id("full_grass_patch_bonemeal"));
 
-   protected static ConfiguredFeature createFullGrassVegetation() {
+   protected static ConfiguredFeature<?, ?> createFullGrassVegetation() {
       return new ConfiguredFeature<>(Feature.SIMPLE_BLOCK,
               new SimpleBlockFeatureConfig(
                       new WeightedBlockStateProvider(
                               DataPool.<BlockState>builder()
-                                      .add(Blocks.GRASS.getDefaultState(), 50)
+                                      .add(Blocks.GRASS.getDefaultState(), 40)
                                       .add(Blocks.TALL_GRASS.getDefaultState(), 10)
+                                      .add(Blocks.POPPY.getDefaultState(), 5)
+                                      .add(Blocks.DANDELION.getDefaultState(), 5)
                       )
               )
       );
    }
 
-   protected static ConfiguredFeature createFullGrassPatchFeature(Registerable<ConfiguredFeature<?, ?>> registry) {
+   protected static ConfiguredFeature<?, ?> createFullGrassPatchFeature(Registerable<ConfiguredFeature<?, ?>> registry) {
       RegistryEntryLookup<ConfiguredFeature<?, ?>> registryEntryLookup = registry.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
       return new ConfiguredFeature<>(Feature.VEGETATION_PATCH,
               new VegetationPatchFeatureConfig(
