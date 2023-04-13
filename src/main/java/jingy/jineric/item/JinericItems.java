@@ -1,18 +1,13 @@
 package jingy.jineric.item;
 
 import jingy.jineric.block.JinericBlocks;
-import jingy.jineric.registry.JinericEntities;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
-import net.minecraft.item.SpawnEggItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-
-import static net.minecraft.entity.EquipmentSlot.CHEST;
-import static net.minecraft.util.Rarity.RARE;
 
 //@SuppressWarnings("unused")
 public class JinericItems {
@@ -214,11 +209,12 @@ public class JinericItems {
 	public static final Item SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", new BlockItem(JinericBlocks.SOUL_JACK_O_LANTERN, new FabricItemSettings()));
 	public static final Item NETHERITE_HORSE_ARMOR = register("netherite_horse_armor", new JinericHorseArmorItem(15, "netherite", new FabricItemSettings().fireproof().maxCount(1)));
 
-//WIP ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- WIP -----------------------------------------------------
+//WIP ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+	public static final Item RED_NETHER_BRICK_FENCE = register("red_nether_brick_fence", new BlockItem(JinericBlocks.RED_NETHER_BRICK_FENCE, new FabricItemSettings()));
 	public static final Item TUMBLEWEED = register("tumbleweed", new BlockItem(JinericBlocks.TUMBLEWEED, new FabricItemSettings()));
 
-//UNKNOWN ---------------------------------------------------------------------------------------------------------- UNKNOWN ---------------------------------------------------------------------------------------------------------------- UNKNOWN -----------------------------------------------------
+//UNKNOWN ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	public static final Item REFINERY = register("refinery", new BlockItem(JinericBlocks.REFINERY, new FabricItemSettings()));
 	//BOREAL
 //	public static final Item BOREAL_WOOD = register("boreal_wood", new BlockItem(JinericBlocks.BOREAL_WOOD, new FabricItemSettings()));
@@ -304,15 +300,16 @@ public class JinericItems {
 //	public static final Item SMOOTH_CALCITE_STAIRS = register("smooth_calcite_stairs", new BlockItem(JinericBlocks.SMOOTH_CALCITE_STAIRS, new FabricItemSettings()));
 //	public static final Item SMOOTH_CALCITE_SLAB = register("smooth_calcite_slab", new BlockItem(JinericBlocks.SMOOTH_CALCITE_SLAB, new FabricItemSettings()));
 //	public static final Item SMOOTH_CALCITE_WALL = register("smooth_calcite_wall", new BlockItem(JinericBlocks.SMOOTH_CALCITE_WALL, new FabricItemSettings()));
+
 //MISC
 	public static final Item SHULKER_CHEST = register("shulker_chest", new BlockItem(JinericBlocks.SHULKER_CHEST, new FabricItemSettings()));
 	public static final Item GOLDEN_POTATO = register("golden_potato", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(6).saturationModifier(14.4f).build())));
 	public static final Item GOLDEN_SWEET_BERRIES = register("golden_sweet_berries", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(5).saturationModifier(8f).build())));
 	public static final Item GOLDEN_BEETROOT = register("golden_beetroot", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(5f).build())));
-	public static final Item MANX_LOAGHTAN_SPAWN_EGG = register("manx_loaghtan_spawn_egg", new SpawnEggItem(JinericEntities.MANX_LOAGHTAN, 0x3f4052, 0x12101d, new FabricItemSettings()));
-	public static final Item SALT = register("salt", new Item(new FabricItemSettings()));
-	public static final Item SALT_BLOCK = register("salt_block", new BlockItem(JinericBlocks.SALT_BLOCK, new FabricItemSettings()));
-	public static final Item FROZEN_ELYTRA = register("frozen_elytra", new JinericElytraItem(new FabricItemSettings().maxDamage(432).equipmentSlot(item -> CHEST).rarity(RARE)));
+//	public static final Item MANX_LOAGHTAN_SPAWN_EGG = register("manx_loaghtan_spawn_egg", new SpawnEggItem(JinericEntities.MANX_LOAGHTAN, 0x3f4052, 0x12101d, new FabricItemSettings()));
+//	public static final Item SALT = register("salt", new Item(new FabricItemSettings()));
+//	public static final Item SALT_BLOCK = register("salt_block", new BlockItem(JinericBlocks.SALT_BLOCK, new FabricItemSettings()));
+//	public static final Item FROZEN_ELYTRA = register("frozen_elytra", new JinericElytraItem(new FabricItemSettings().maxDamage(432).equipmentSlot(item -> CHEST).rarity(RARE)));
 	public static final Item REDSTONE_LANTERN = register("redstone_lantern", new BlockItem(JinericBlocks.REDSTONE_LANTERN, new FabricItemSettings()));
 	public static final Item REDSTONE_CAMPFIRE = register("redstone_campfire", new BlockItem(JinericBlocks.REDSTONE_CAMPFIRE, new FabricItemSettings()));
 

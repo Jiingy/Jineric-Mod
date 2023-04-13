@@ -3,6 +3,7 @@ package jingy.jineric.item;
 import jingy.jineric.base.JinericMain;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
@@ -144,6 +145,7 @@ public class JinericItemGroups {
 				entries.add(JinericItems.CRACKED_NETHER_BRICK_STAIRS);
 				entries.add(JinericItems.CRACKED_NETHER_BRICK_SLAB);
 				entries.add(JinericItems.CRACKED_NETHER_BRICK_WALL);
+				entries.add(JinericItems.RED_NETHER_BRICK_FENCE);
 				entries.add(JinericItems.CRACKED_POLISHED_BLACKSTONE_BRICK_STAIRS);
 				entries.add(JinericItems.CRACKED_POLISHED_BLACKSTONE_BRICK_SLAB);
 				entries.add(JinericItems.CRACKED_POLISHED_BLACKSTONE_BRICK_WALL);
@@ -229,10 +231,10 @@ public class JinericItemGroups {
 				entries.add(JinericItems.GOLDEN_POTATO);
 				entries.add(JinericItems.GOLDEN_SWEET_BERRIES);
 				entries.add(JinericItems.GOLDEN_BEETROOT);
-				entries.add(JinericItems.MANX_LOAGHTAN_SPAWN_EGG);
-				entries.add(JinericItems.SALT);
-				entries.add(JinericItems.SALT_BLOCK);
-				entries.add(JinericItems.FROZEN_ELYTRA);
+//				entries.add(JinericItems.MANX_LOAGHTAN_SPAWN_EGG);
+//				entries.add(JinericItems.SALT);
+//				entries.add(JinericItems.SALT_BLOCK);
+//				entries.add(JinericItems.FROZEN_ELYTRA);
 				entries.add(JinericItems.REDSTONE_LANTERN);
 				entries.add(JinericItems.REDSTONE_CAMPFIRE);
 //				entries.add(JinericItems.);
@@ -404,6 +406,7 @@ public class JinericItemGroups {
 			entries.addAfter(Items.CRACKED_NETHER_BRICKS, JinericItems.CRACKED_NETHER_BRICK_STAIRS);
 			entries.addAfter(JinericItems.CRACKED_NETHER_BRICK_STAIRS, JinericItems.CRACKED_NETHER_BRICK_SLAB);
 			entries.addAfter(JinericItems.CRACKED_NETHER_BRICK_SLAB, JinericItems.CRACKED_NETHER_BRICK_WALL);
+			entries.addAfter(Blocks.RED_NETHER_BRICK_WALL, JinericItems.RED_NETHER_BRICK_FENCE);
 			entries.addAfter(Items.CRACKED_POLISHED_BLACKSTONE_BRICKS, JinericItems.CRACKED_POLISHED_BLACKSTONE_BRICK_STAIRS);
 			entries.addAfter(JinericItems.CRACKED_POLISHED_BLACKSTONE_BRICK_STAIRS, JinericItems.CRACKED_POLISHED_BLACKSTONE_BRICK_SLAB);
 			entries.addAfter(JinericItems.CRACKED_POLISHED_BLACKSTONE_BRICK_SLAB, JinericItems.CRACKED_POLISHED_BLACKSTONE_BRICK_WALL);
@@ -488,6 +491,12 @@ public class JinericItemGroups {
 
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register((entries -> {
 			entries.addAfter(Items.DIAMOND_HORSE_ARMOR, JinericItems.NETHERITE_HORSE_ARMOR);
+		}));
+
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register((entries -> {
+			entries.addAfter(Items.BEETROOT, JinericItems.GOLDEN_BEETROOT);
+			entries.addAfter(Items.POISONOUS_POTATO, JinericItems.GOLDEN_POTATO);
+			entries.addAfter(Items.SWEET_BERRIES, JinericItems.GOLDEN_SWEET_BERRIES);
 		}));
 	}
 }
