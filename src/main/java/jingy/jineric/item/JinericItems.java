@@ -50,7 +50,7 @@ public class JinericItems {
 	public static final Item SMOOTH_DRIPSTONE_STAIRS = register("smooth_dripstone_stairs", new BlockItem(JinericBlocks.SMOOTH_DRIPSTONE_STAIRS, new FabricItemSettings()));
 	public static final Item SMOOTH_DRIPSTONE_SLAB = register("smooth_dripstone_slab", new BlockItem(JinericBlocks.SMOOTH_DRIPSTONE_SLAB, new FabricItemSettings()));
 	public static final Item SMOOTH_DRIPSTONE_WALL = register("smooth_dripstone_wall", new BlockItem(JinericBlocks.SMOOTH_DRIPSTONE_WALL, new FabricItemSettings()));
-	public static final Item CHISELED_DRIPSTONE_BRICKS = register("chiseled_dripstone_bricks", new BlockItem(JinericBlocks.CHISELED_DRIPSTONE_BRICKS, new FabricItemSettings()));
+	public static final Item CHISELED_DRIPSTONE = register("chiseled_dripstone", new BlockItem(JinericBlocks.CHISELED_DRIPSTONE, new FabricItemSettings()));
 	public static final Item DRIPSTONE_PILLAR = register("dripstone_pillar", new BlockItem(JinericBlocks.DRIPSTONE_PILLAR, new FabricItemSettings()));
 	public static final Item FULL_GRASS_BLOCK = register("full_grass_block", new BlockItem(JinericBlocks.FULL_GRASS_BLOCK, new FabricItemSettings()));
 

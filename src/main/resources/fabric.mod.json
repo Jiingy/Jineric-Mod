@@ -8,7 +8,8 @@
     "Jiingy"
   ],
   "contact": {
-    "homepage": "",
+    "homepage": "https://modrinth.com/mod/jineric-mod",
+    "issues": "https://github.com/Jiingy/Jineric-Mod/issues",
     "sources": "https://github.com/Jiingy/Jineric-Mod"
   },
   "license": "MIT",

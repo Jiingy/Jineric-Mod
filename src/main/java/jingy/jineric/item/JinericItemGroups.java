@@ -56,7 +56,7 @@ public class JinericItemGroups {
 				entries.add(JinericItems.SMOOTH_DRIPSTONE_STAIRS);
 				entries.add(JinericItems.SMOOTH_DRIPSTONE_SLAB);
 				entries.add(JinericItems.SMOOTH_DRIPSTONE_WALL);
-				entries.add(JinericItems.CHISELED_DRIPSTONE_BRICKS);
+				entries.add(JinericItems.CHISELED_DRIPSTONE);
 				entries.add(JinericItems.DRIPSTONE_PILLAR);
 				entries.add(JinericItems.FULL_GRASS_BLOCK);
 				entries.add(JinericItems.SMOOTH_SANDSTONE_WALL);
@@ -340,8 +340,8 @@ public class JinericItemGroups {
 			entries.addAfter(JinericItems.CRACKED_DRIPSTONE_BRICK_STAIRS, JinericItems.CRACKED_DRIPSTONE_BRICK_SLAB);
 			entries.addAfter(JinericItems.CRACKED_DRIPSTONE_BRICK_SLAB, JinericItems.CRACKED_DRIPSTONE_BRICK_WALL);
 			entries.addAfter(JinericItems.CRACKED_DRIPSTONE_BRICK_WALL, JinericItems.DRIPSTONE_PILLAR);
-			entries.addAfter(JinericItems.DRIPSTONE_PILLAR, JinericItems.CHISELED_DRIPSTONE_BRICKS);
-			entries.addAfter(JinericItems.CHISELED_DRIPSTONE_BRICKS, JinericItems.DRIPSTONE_TILES);
+			entries.addAfter(JinericItems.DRIPSTONE_PILLAR, JinericItems.CHISELED_DRIPSTONE);
+			entries.addAfter(JinericItems.CHISELED_DRIPSTONE, JinericItems.DRIPSTONE_TILES);
 			entries.addAfter(JinericItems.DRIPSTONE_TILES, JinericItems.DRIPSTONE_TILE_STAIRS);
 			entries.addAfter(JinericItems.DRIPSTONE_TILE_STAIRS, JinericItems.DRIPSTONE_TILE_SLAB);
 			entries.addAfter(JinericItems.DRIPSTONE_TILE_SLAB, JinericItems.DRIPSTONE_TILE_WALL);

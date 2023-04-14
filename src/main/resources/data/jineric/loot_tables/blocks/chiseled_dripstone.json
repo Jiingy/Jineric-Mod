@@ -6,7 +6,7 @@
             "entries": [
                 {
                     "type": "minecraft:item",
-                    "name": "jineric:chiseled_dripstone_bricks"
+                    "name": "jineric:chiseled_dripstone"
                 }
             ]
         }
