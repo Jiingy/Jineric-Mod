@@ -7,10 +7,6 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 
 public class JinericSoundEvents {
-
-   public static final SoundEvent BLOCK_SOUL_SANDSTONE_BREAK = register("block.soul_sandstone.break");
-//   public static SoundEvent BLOCK_SOUL_SANDSTONE_FALL = register("block.soul_sandstone.fall");
-//   public static SoundEvent BLOCK_SOUL_SANDSTONE_HIT = register("block.soul_sandstone.hit");
    public static SoundEvent BLOCK_SOUL_SANDSTONE_PLACE = register("block.soul_sandstone.place");
    public static SoundEvent BLOCK_SOUL_SANDSTONE_STEP = register("block.soul_sandstone.step");
 
