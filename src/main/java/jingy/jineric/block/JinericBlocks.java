@@ -174,8 +174,7 @@ public class JinericBlocks {
 	public static final Block SMOOTH_DRIPSTONE_SLAB  = register("smooth_dripstone_slab", new SlabBlock(FabricBlockSettings.copy(SMOOTH_DRIPSTONE)));
 	public static final Block SMOOTH_DRIPSTONE_STAIRS = register("smooth_dripstone_stairs", new StairsBlock(SMOOTH_DRIPSTONE.getDefaultState(), FabricBlockSettings.copy(SMOOTH_DRIPSTONE)));
 	public static final Block SMOOTH_DRIPSTONE_WALL = register("smooth_dripstone_wall", new WallBlock(FabricBlockSettings.copy(SMOOTH_DRIPSTONE)));
-	//TODO: RENAME TO CHISELED_DRIPSTONE
-	public static final Block CHISELED_DRIPSTONE_BRICKS = register("chiseled_dripstone_bricks", new Block(FabricBlockSettings.copy(DRIPSTONE_BRICKS)));
+	public static final Block CHISELED_DRIPSTONE = register("chiseled_dripstone", new Block(FabricBlockSettings.copy(DRIPSTONE_BRICKS)));
 	public static final Block DRIPSTONE_PILLAR = register("dripstone_pillar", new PillarBlock(FabricBlockSettings.copy(DRIPSTONE_BLOCK)));
 
 	//OBSIDIAN

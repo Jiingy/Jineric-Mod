@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:chiseled_dripstone_bricks_from_dripstone_bricks_stonecutting"
+        "recipe": "minecraft:chiseled_dripstone_from_dripstone_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:chiseled_dripstone_bricks_from_dripstone_bricks_stonecutting"
+      "minecraft:chiseled_dripstone_from_dripstone_bricks_stonecutting"
     ]
   }
 }
