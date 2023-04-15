@@ -11,10 +11,8 @@ import net.minecraft.client.render.entity.model.TurtleEntityModel;
 public class JinericEntityModels {
 
    public static void register() {
-      //TexturedModelData.of(TurtleEntityModel.getModelData(0, new Dilation(0.5F)), 128, 64)
       EntityModelLayerRegistry.TexturedModelDataProvider turtleSaddle = () -> TexturedModelData.of(TurtleEntityModel.getModelData(0, new Dilation(0.5F)), 128, 64);
       EntityModelLayerRegistry.registerModelLayer(jingy.jineric.client.render.entity.model.JinericEntityModelLayer.TURTLE_SADDLE, turtleSaddle);
-//		EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayer.TURTLE_SADDLE, TurtleEntityModel::getTexturedModelData);
       EntityModelLayerRegistry.registerModelLayer(jingy.jineric.client.render.entity.model.JinericEntityModelLayer.MANX_LOAGHTAN, ManxLoaghtanModel::getTexturedModelData);
       EntityModelLayerRegistry.registerModelLayer(jingy.jineric.client.render.entity.model.JinericEntityModelLayer.MANX_LOAGHTAN_WOOL, ManxLoaghtanWoolModel::getTexturedModelData);
       EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayers.ACACIA_CHEST, ChestBlockEntityRenderer::getSingleTexturedModelData);

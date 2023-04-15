@@ -15,9 +15,9 @@ public class JinericTextureRenderLayers extends TexturedRenderLayers {
    public static final SpriteIdentifier ACACIA_CHEST = createChestTextureId("acacia_chest");
    public static final SpriteIdentifier ACACIA_CHEST_LEFT = createChestTextureId("acacia_left");
    public static final SpriteIdentifier ACACIA_CHEST_RIGHT = createChestTextureId("acacia_right");
-   public static final SpriteIdentifier BOREAL_CHEST = createChestTextureId("boreal_chest");
-   public static final SpriteIdentifier BOREAL_CHEST_LEFT = createChestTextureId("boreal_left");
-   public static final SpriteIdentifier BOREAL_CHEST_RIGHT = createChestTextureId("boreal_right");
+//   public static final SpriteIdentifier BOREAL_CHEST = createChestTextureId("boreal_chest");
+//   public static final SpriteIdentifier BOREAL_CHEST_LEFT = createChestTextureId("boreal_left");
+//   public static final SpriteIdentifier BOREAL_CHEST_RIGHT = createChestTextureId("boreal_right");
    public static final SpriteIdentifier BIRCH_CHEST = createChestTextureId("birch_chest");
    public static final SpriteIdentifier BIRCH_CHEST_LEFT = createChestTextureId("birch_left");
    public static final SpriteIdentifier BIRCH_CHEST_RIGHT = createChestTextureId("birch_right");

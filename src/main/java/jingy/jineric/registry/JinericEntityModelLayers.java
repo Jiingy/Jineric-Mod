@@ -42,10 +42,7 @@ public class JinericEntityModelLayers extends EntityModelLayers {
    public static final EntityModelLayer MANGROVE_CHEST = new EntityModelLayer(new Identifier(JinericMain.MOD_ID, "mangrove_chest"), "main");
    public static final EntityModelLayer DOUBLE_MANGROVE_CHEST_LEFT = new EntityModelLayer(new Identifier(JinericMain.MOD_ID, "double_mangrove_chest_left"), "main");
    public static final EntityModelLayer DOUBLE_MANGROVE_CHEST_RIGHT = new EntityModelLayer(new Identifier(JinericMain.MOD_ID, "double_mangrove_chest_right"), "main");
-
    public static final EntityModelLayer SHULKER_CHEST = new EntityModelLayer(new Identifier(JinericMain.MOD_ID, "shulker_chest"), "main");
-
    public static final EntityModelLayer FROZEN_ELYTRA = new EntityModelLayer(new Identifier(JinericMain.MOD_ID, "frozen_elytra"), "main");
-
    public static final EntityModelLayer TURTLE_SADDLE = new EntityModelLayer(new Identifier(JinericMain.MOD_ID, "turtle"), "saddle");
 }
