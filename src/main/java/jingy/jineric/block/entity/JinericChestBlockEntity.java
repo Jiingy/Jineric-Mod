@@ -1,43 +1,52 @@
 package jingy.jineric.block.entity;
 
-import jingy.jineric.block.enums.JinericChestType;
+import jingy.jineric.registry.JinericBlockEntityType;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.WoodType;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.entity.ChestBlockEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 
-public class JinericChestBlockEntity extends ChestBlockEntity {
-   private final JinericChestType type;
+import static net.minecraft.block.WoodType.*;
 
-   public JinericChestBlockEntity(JinericChestType type, BlockPos blockPos, BlockState blockState) {
-      super(type.getBlockEntityType(), blockPos, blockState);
-      this.type = type;
+public class JinericChestBlockEntity extends ChestBlockEntity {
+   public JinericChestBlockEntity(BlockEntityType<?> type, BlockPos blockPos, BlockState blockState) {
+      super(type, blockPos, blockState);
       this.setInvStackList(DefaultedList.ofSize(this.size(), ItemStack.EMPTY));
    }
 
-   public JinericChestType getChestType() {
-      return type;
+   public JinericChestBlockEntity(BlockPos blockPos, BlockState state) {
+      super(JinericBlockEntityType.JINERIC_CHEST, blockPos, state);
    }
 
    @Override
    public int size() {
-      return type.size;
+      return 27;
    }
 
-   public Text getChestTypeKey() {
-      return switch (getChestType()) {
-         case ACACIA -> Text.translatable("container.chestAcaciaDouble");
-         case BIRCH -> Text.translatable("container.chestBirchDouble");
-         case CRIMSON -> Text.translatable("container.chestCrimsonDouble");
-         case DARK_OAK -> Text.translatable("container.chestDarkOakDouble");
-         case JUNGLE -> Text.translatable("container.chestJungleDouble");
-         case SPRUCE -> Text.translatable("container.chestSpruceDouble");
-         case WARPED -> Text.translatable("container.chestWarpedDouble");
-         case MANGROVE -> Text.translatable("container.chestMangroveDouble");
-         case SHULKER -> null;
-      };
+   public Text getChestTypeKey(WoodType woodType) {
+      if (woodType == ACACIA) {
+         return Text.translatable("container.chestAcaciaDouble");
+      } else if (woodType == BIRCH) {
+         return Text.translatable("container.chestBirchDouble");
+      } else if (woodType == CRIMSON) {
+         return Text.translatable("container.chestCrimsonDouble");
+      } else if (woodType == DARK_OAK) {
+         return Text.translatable("container.chestDarkOakDouble");
+      } else if (woodType == JUNGLE) {
+         return Text.translatable("container.chestJungleDouble");
+      } else if (woodType == SPRUCE) {
+         return Text.translatable("container.chestSpruceDouble");
+      } else if (woodType == WARPED) {
+         return Text.translatable("container.chestWarpedDouble");
+      } else if (woodType == MANGROVE) {
+         return Text.translatable("container.chestMangroveDouble");
+      } else {
+         return Text.literal("No Display Name Set");
+      }
    }
 
    @Override

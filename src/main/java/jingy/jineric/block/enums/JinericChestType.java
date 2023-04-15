@@ -1,19 +1,15 @@
 package jingy.jineric.block.enums;
 
 import jingy.jineric.base.JinericMain;
-import jingy.jineric.registry.JinericBlockEntityType;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.block.entity.ChestBlockEntity;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
 
 public enum JinericChestType {
 
    ACACIA(27, 9,
            new Identifier(JinericMain.MOD_ID, "entity/chest/acacia_chest"),
            new Identifier(JinericMain.MOD_ID, "entity/chest/acacia_left"),
-           new Identifier(JinericMain.MOD_ID, "entity/chest/acacia_right")),
+           new Identifier(JinericMain.MOD_ID, "entity/chest/acacia_right")
+   ),
 
    BIRCH(27, 9,
            new Identifier(JinericMain.MOD_ID, "entity/chest/birch_chest"),
@@ -74,35 +70,35 @@ public enum JinericChestType {
       this.textureRight = null;
    }
 
-   public int getRowCount() {
-      return this.size / this.rowLength;
-   }
+//   public int getRowCount() {
+//      return this.size / this.rowLength;
+//   }
 
-   public ChestBlockEntity getEntity(BlockPos pos, BlockState state) {
-      return switch (this) {
-         case ACACIA -> JinericBlockEntityType.ACACIA_CHEST.instantiate(pos, state);
-         case BIRCH -> JinericBlockEntityType.BIRCH_CHEST.instantiate(pos, state);
-         case CRIMSON -> JinericBlockEntityType.CRIMSON_CHEST.instantiate(pos, state);
-         case DARK_OAK -> JinericBlockEntityType.DARK_OAK_CHEST.instantiate(pos, state);
-         case JUNGLE -> JinericBlockEntityType.JUNGLE_CHEST.instantiate(pos, state);
-         case SPRUCE -> JinericBlockEntityType.SPRUCE_CHEST.instantiate(pos, state);
-         case WARPED -> JinericBlockEntityType.WARPED_CHEST.instantiate(pos, state);
-         case MANGROVE -> JinericBlockEntityType.MANGROVE_CHEST.instantiate(pos, state);
-         case SHULKER -> JinericBlockEntityType.SHULKER_CHEST.instantiate(pos, state);
-      };
-   }
+//   public ChestBlockEntity getEntity(BlockPos pos, BlockState state) {
+//      return switch (this) {
+//         case ACACIA -> JinericBlockEntityType.ACACIA_CHEST.instantiate(pos, state);
+//         case BIRCH -> JinericBlockEntityType.BIRCH_CHEST.instantiate(pos, state);
+//         case CRIMSON -> JinericBlockEntityType.CRIMSON_CHEST.instantiate(pos, state);
+//         case DARK_OAK -> JinericBlockEntityType.DARK_OAK_CHEST.instantiate(pos, state);
+//         case JUNGLE -> JinericBlockEntityType.JUNGLE_CHEST.instantiate(pos, state);
+//         case SPRUCE -> JinericBlockEntityType.SPRUCE_CHEST.instantiate(pos, state);
+//         case WARPED -> JinericBlockEntityType.WARPED_CHEST.instantiate(pos, state);
+//         case MANGROVE -> JinericBlockEntityType.MANGROVE_CHEST.instantiate(pos, state);
+//         case SHULKER -> JinericBlockEntityType.SHULKER_CHEST.instantiate(pos, state);
+//      };
+//   }
 
-   public BlockEntityType<? extends ChestBlockEntity> getBlockEntityType() {
-      return switch (this) {
-         case ACACIA -> JinericBlockEntityType.ACACIA_CHEST;
-         case BIRCH -> JinericBlockEntityType.BIRCH_CHEST;
-         case CRIMSON -> JinericBlockEntityType.CRIMSON_CHEST;
-         case DARK_OAK -> JinericBlockEntityType.DARK_OAK_CHEST;
-         case JUNGLE -> JinericBlockEntityType.JUNGLE_CHEST;
-         case SPRUCE -> JinericBlockEntityType.SPRUCE_CHEST;
-         case WARPED -> JinericBlockEntityType.WARPED_CHEST;
-         case MANGROVE -> JinericBlockEntityType.MANGROVE_CHEST;
-         case SHULKER -> JinericBlockEntityType.SHULKER_CHEST;
-      };
-   }
+//   public BlockEntityType<? extends ChestBlockEntity> getBlockEntityType() {
+//      return switch (this) {
+//         case ACACIA -> JinericBlockEntityType.ACACIA_CHEST;
+//         case BIRCH -> JinericBlockEntityType.BIRCH_CHEST;
+//         case CRIMSON -> JinericBlockEntityType.CRIMSON_CHEST;
+//         case DARK_OAK -> JinericBlockEntityType.DARK_OAK_CHEST;
+//         case JUNGLE -> JinericBlockEntityType.JUNGLE_CHEST;
+//         case SPRUCE -> JinericBlockEntityType.SPRUCE_CHEST;
+//         case WARPED -> JinericBlockEntityType.WARPED_CHEST;
+//         case MANGROVE -> JinericBlockEntityType.MANGROVE_CHEST;
+//         case SHULKER -> JinericBlockEntityType.SHULKER_CHEST;
+//      };
+//   }
 }

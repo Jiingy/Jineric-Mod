@@ -2,8 +2,11 @@ package jingy.jineric.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import jingy.jineric.block.JinericChestBlock;
 import jingy.jineric.block.entity.JinericChestBlockEntity;
 import jingy.jineric.client.render.JinericTextureRenderLayers;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.WoodType;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.enums.ChestType;
 import net.minecraft.client.render.block.entity.ChestBlockEntityRenderer;
@@ -20,8 +23,10 @@ public abstract class ChestBlockEntityRendererMixin {
            target = "Lnet/minecraft/client/render/TexturedRenderLayers;getChestTextureId(Lnet/minecraft/block/entity/BlockEntity;Lnet/minecraft/block/enums/ChestType;Z)Lnet/minecraft/client/util/SpriteIdentifier;")
    )
    private SpriteIdentifier jineric$getJinericChestTexture(BlockEntity blockEntity, ChestType type, boolean christmas, Operation<SpriteIdentifier> original) {
+      BlockState blockState = blockEntity.getCachedState();
+      WoodType woodType = JinericChestBlock.getWoodType(blockState.getBlock());
       if (blockEntity instanceof JinericChestBlockEntity) {
-         return JinericTextureRenderLayers.getChestTexture(blockEntity, type, christmas);
+         return JinericTextureRenderLayers.getChestTexture(blockEntity, type, christmas, woodType);
       } else {
          return original.call(blockEntity, type, christmas);
       }

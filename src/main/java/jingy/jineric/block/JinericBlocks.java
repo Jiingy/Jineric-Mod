@@ -1,7 +1,7 @@
 package jingy.jineric.block;
 
 import jingy.jineric.base.JinericMain;
-import jingy.jineric.block.enums.JinericChestType;
+import jingy.jineric.registry.JinericBlockEntityType;
 import jingy.jineric.registry.JinericBlockSettings;
 import jingy.jineric.sound.JinericSoundGroups;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -280,16 +280,16 @@ public class JinericBlocks {
 	public static final Block WAXED_OXIDIZED_CUT_COPPER_WALL = register("waxed_oxidized_cut_copper_wall", new OxidizableCopperWallBlock(Oxidizable.OxidationLevel.OXIDIZED, FabricBlockSettings.copy(OXIDIZED_CUT_COPPER)));
 
 //CHESTS
-	public static final Block ACACIA_CHEST = register("acacia_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.ACACIA));
-	public static final Block BIRCH_CHEST = register("birch_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.BIRCH));
-//	public static final Block BOREAL_CHEST = register("boreal_chest", new FabricBlockSettingsBase(FabricBlockSettings.copy(CHEST), JinericChestType.BOREAL));
-	public static final Block CRIMSON_CHEST = register("crimson_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.CRIMSON)	);
-	public static final Block DARK_OAK_CHEST = register("dark_oak_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.DARK_OAK));
-	public static final Block JUNGLE_CHEST = register("jungle_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.JUNGLE));
-	public static final Block SHULKER_CHEST = register("shulker_chest", new ShulkerChestBlock(FabricBlockSettings.of(Material.STONE), JinericChestType.SHULKER));
-	public static final Block SPRUCE_CHEST = register("spruce_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.SPRUCE));
-	public static final Block WARPED_CHEST = register("warped_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.WARPED));
-	public static final Block MANGROVE_CHEST = register("mangrove_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), JinericChestType.MANGROVE));
+	public static final Block ACACIA_CHEST = register("acacia_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.ACACIA));
+	public static final Block BIRCH_CHEST = register("birch_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.BIRCH));
+////	public static final Block BOREAL_CHEST = register("boreal_chest", new FabricBlockSettingsBase(FabricBlockSettings.copy(CHEST), JinericChestType.BOREAL));
+	public static final Block CRIMSON_CHEST = register("crimson_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.CRIMSON)	);
+	public static final Block DARK_OAK_CHEST = register("dark_oak_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.DARK_OAK));
+	public static final Block JUNGLE_CHEST = register("jungle_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.JUNGLE));
+//	public static final Block SHULKER_CHEST = register("shulker_chest", new ShulkerChestBlock(FabricBlockSettings.of(Material.STONE), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.SHULKER));
+	public static final Block SPRUCE_CHEST = register("spruce_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.SPRUCE));
+	public static final Block WARPED_CHEST = register("warped_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.WARPED));
+	public static final Block MANGROVE_CHEST = register("mangrove_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.MANGROVE));
 
 	public static final Block REFINERY = register("refinery", new RefineryBlock(FabricBlockSettings.copy(FURNACE).luminance(state -> 13)));
 

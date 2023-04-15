@@ -188,10 +188,10 @@ public class JinericItems {
 	public static final Item CRIMSON_BOOKSHELF = register("crimson_bookshelf", new BlockItem(JinericBlocks.CRIMSON_BOOKSHELF, new FabricItemSettings()));
 	public static final Item WARPED_BOOKSHELF = register("warped_bookshelf", new BlockItem(JinericBlocks.WARPED_BOOKSHELF, new FabricItemSettings()));
 //CHESTS
-	public static final Item SPRUCE_CHEST = register("spruce_chest", new BlockItem(JinericBlocks.SPRUCE_CHEST, new FabricItemSettings()));
-	public static final Item BIRCH_CHEST = register("birch_chest", new BlockItem(JinericBlocks.BIRCH_CHEST, new FabricItemSettings()));
-	public static final Item JUNGLE_CHEST = register("jungle_chest", new BlockItem(JinericBlocks.JUNGLE_CHEST, new FabricItemSettings()));
 	public static final Item ACACIA_CHEST = register("acacia_chest", new BlockItem(JinericBlocks.ACACIA_CHEST, new FabricItemSettings()));
+	public static final Item BIRCH_CHEST = register("birch_chest", new BlockItem(JinericBlocks.BIRCH_CHEST, new FabricItemSettings()));
+	public static final Item SPRUCE_CHEST = register("spruce_chest", new BlockItem(JinericBlocks.SPRUCE_CHEST, new FabricItemSettings()));
+	public static final Item JUNGLE_CHEST = register("jungle_chest", new BlockItem(JinericBlocks.JUNGLE_CHEST, new FabricItemSettings()));
 	public static final Item DARK_OAK_CHEST = register("dark_oak_chest", new BlockItem(JinericBlocks.DARK_OAK_CHEST, new FabricItemSettings()));
 	public static final Item MANGROVE_CHEST = register("mangrove_chest", new BlockItem(JinericBlocks.MANGROVE_CHEST, new FabricItemSettings()));
 	public static final Item CRIMSON_CHEST = register("crimson_chest", new BlockItem(JinericBlocks.CRIMSON_CHEST, new FabricItemSettings()));
@@ -302,7 +302,7 @@ public class JinericItems {
 //	public static final Item SMOOTH_CALCITE_WALL = register("smooth_calcite_wall", new BlockItem(JinericBlocks.SMOOTH_CALCITE_WALL, new FabricItemSettings()));
 
 //MISC
-	public static final Item SHULKER_CHEST = register("shulker_chest", new BlockItem(JinericBlocks.SHULKER_CHEST, new FabricItemSettings()));
+//	public static final Item SHULKER_CHEST = register("shulker_chest", new BlockItem(JinericBlocks.SHULKER_CHEST, new FabricItemSettings()));
 	public static final Item GOLDEN_POTATO = register("golden_potato", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(6).saturationModifier(14.4f).build())));
 	public static final Item GOLDEN_SWEET_BERRIES = register("golden_sweet_berries", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(5).saturationModifier(8f).build())));
 	public static final Item GOLDEN_BEETROOT = register("golden_beetroot", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(5f).build())));
