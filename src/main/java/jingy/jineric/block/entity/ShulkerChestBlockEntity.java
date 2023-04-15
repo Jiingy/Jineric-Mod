@@ -1,8 +1,9 @@
 package jingy.jineric.block.entity;
 
-import jingy.jineric.block.enums.JinericChestType;
+import jingy.jineric.registry.JinericBlockEntityType;
 import jingy.jineric.screen.ShulkerChestScreenHandler;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.entity.ChestBlockEntity;
 import net.minecraft.block.entity.ChestLidAnimator;
 import net.minecraft.block.entity.ViewerCountManager;
 import net.minecraft.entity.player.PlayerEntity;
@@ -17,15 +18,16 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class ShulkerChestBlockEntity extends JinericChestBlockEntity {
+public class ShulkerChestBlockEntity extends ChestBlockEntity {
    private final ChestLidAnimator lidAnimator = new ChestLidAnimator();
+
 //   @Nullable
 //   private final DyeColor color;
 
    public ShulkerChestBlockEntity(
 //           @Nullable DyeColor color,
            BlockPos blockPos, BlockState blockState) {
-      super(JinericChestType.SHULKER, blockPos, blockState);
+      super(JinericBlockEntityType.JINERIC_CHEST, blockPos, blockState);
 //      this.color = color;
       this.setInvStackList(DefaultedList.ofSize(this.size(), ItemStack.EMPTY));
    }
