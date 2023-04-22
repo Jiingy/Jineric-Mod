@@ -9,6 +9,7 @@ public class JinericBlockEntityRenderer {
    public static void register() {
       BlockEntityRendererFactories.register(JinericBlockEntityType.REDSTONE_CAMPFIRE, RedstoneCampfireBlockEntityRenderer::new);
       BlockEntityRendererFactories.register(JinericBlockEntityType.JINERIC_CHEST, ChestBlockEntityRenderer::new);
+      BlockEntityRendererFactories.register(JinericBlockEntityType.JINERIC_TRAPPED_CHEST, ChestBlockEntityRenderer::new);
       BlockEntityRendererFactories.register(JinericBlockEntityType.REDSTONE_CAMPFIRE, RedstoneCampfireBlockEntityRenderer::new);
    }
 }
