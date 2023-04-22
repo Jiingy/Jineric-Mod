@@ -188,6 +188,14 @@ public class JinericItemGroups {
 				entries.add(JinericItems.MANGROVE_CHEST);
 				entries.add(JinericItems.CRIMSON_CHEST);
 				entries.add(JinericItems.WARPED_CHEST);
+				entries.add(JinericItems.TRAPPED_SPRUCE_CHEST);
+				entries.add(JinericItems.TRAPPED_BIRCH_CHEST);
+				entries.add(JinericItems.TRAPPED_JUNGLE_CHEST);
+				entries.add(JinericItems.TRAPPED_ACACIA_CHEST);
+				entries.add(JinericItems.TRAPPED_DARK_OAK_CHEST);
+				entries.add(JinericItems.TRAPPED_MANGROVE_CHEST);
+				entries.add(JinericItems.TRAPPED_CRIMSON_CHEST);
+				entries.add(JinericItems.TRAPPED_WARPED_CHEST);
 				entries.add(JinericItems.SPRUCE_LADDER);
 				entries.add(JinericItems.BIRCH_LADDER);
 				entries.add(JinericItems.JUNGLE_LADDER);

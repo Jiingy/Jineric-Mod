@@ -27,6 +27,19 @@ public class JinericBlockEntityType<T extends BlockEntity> {
                    JinericBlocks.WARPED_CHEST,
                    JinericBlocks.MANGROVE_CHEST
            ).build();
+   public static final BlockEntityType<JinericChestBlockEntity> JINERIC_TRAPPED_CHEST =
+           FabricBlockEntityTypeBuilder.create(
+                   JinericChestBlockEntity::new,
+                   JinericBlocks.TRAPPED_ACACIA_CHEST,
+                   JinericBlocks.TRAPPED_BIRCH_CHEST,
+                   JinericBlocks.TRAPPED_BIRCH_CHEST,
+                   JinericBlocks.TRAPPED_CRIMSON_CHEST,
+                   JinericBlocks.TRAPPED_DARK_OAK_CHEST,
+                   JinericBlocks.TRAPPED_JUNGLE_CHEST,
+                   JinericBlocks.TRAPPED_SPRUCE_CHEST,
+                   JinericBlocks.TRAPPED_WARPED_CHEST,
+                   JinericBlocks.TRAPPED_MANGROVE_CHEST
+           ).build();
 
    public static final BlockEntityType<RefineryBlockEntity> REFINERY =
            FabricBlockEntityTypeBuilder.create(RefineryBlockEntity::new, JinericBlocks.REFINERY).build();
@@ -36,7 +49,7 @@ public class JinericBlockEntityType<T extends BlockEntity> {
 
    public static void registerBlockEntities() {
       Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "jineric_chest"), JINERIC_CHEST);
-//      Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "boreal_chest"), BOREAL_CHEST);
+      Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "jineric_trapped_chest"), JINERIC_TRAPPED_CHEST);
 //      Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "shulker_chest"), SHULKER_CHEST);
       Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "refinery"), REFINERY);
       Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "campfire"), REDSTONE_CAMPFIRE);

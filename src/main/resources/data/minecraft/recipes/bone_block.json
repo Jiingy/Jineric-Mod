@@ -1,17 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "###",
-    "###",
-    "###"
-  ],
+  "group": "bone_block",
+  "category": "misc",
   "key": {
     "#": {
       "item": "minecraft:bone"
     }
   },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
   "result": {
-    "item": "minecraft:bone_block",
-    "count": 1
-  }
+    "item": "minecraft:bone_block"
+  },
+  "show_notification": true
 }

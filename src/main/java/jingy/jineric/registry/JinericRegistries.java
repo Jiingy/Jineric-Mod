@@ -56,6 +56,14 @@ public class JinericRegistries {
       registry.add(JinericItems.MANGROVE_CHEST, 300);
       registry.add(JinericItems.CRIMSON_CHEST, 300);
       registry.add(JinericItems.WARPED_CHEST, 300);
+      registry.add(JinericItems.TRAPPED_SPRUCE_CHEST, 300);
+      registry.add(JinericItems.TRAPPED_BIRCH_CHEST, 300);
+      registry.add(JinericItems.TRAPPED_JUNGLE_CHEST, 300);
+      registry.add(JinericItems.TRAPPED_ACACIA_CHEST, 300);
+      registry.add(JinericItems.TRAPPED_DARK_OAK_CHEST, 300);
+      registry.add(JinericItems.TRAPPED_MANGROVE_CHEST, 300);
+      registry.add(JinericItems.TRAPPED_CRIMSON_CHEST, 300);
+      registry.add(JinericItems.TRAPPED_WARPED_CHEST, 300);
    }
 
    private static void registerCompostable() {

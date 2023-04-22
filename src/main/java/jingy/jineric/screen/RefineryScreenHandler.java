@@ -8,7 +8,6 @@ import net.minecraft.screen.AbstractFurnaceScreenHandler;
 import net.minecraft.screen.PropertyDelegate;
 
 public class RefineryScreenHandler extends AbstractFurnaceScreenHandler {
-
    public RefineryScreenHandler(int syncId, PlayerInventory playerInventory) {
       super(JinericScreenHandlerType.REFINERY, JinericRecipeType.REFINING_RECIPE_TYPE, RecipeBookCategory.FURNACE, syncId, playerInventory);
    }

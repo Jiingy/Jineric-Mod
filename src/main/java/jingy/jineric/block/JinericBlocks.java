@@ -80,7 +80,7 @@ public class JinericBlocks {
 	public static final Block STONE_TILE_SLAB = register("stone_tile_slab", new SlabBlock(FabricBlockSettings.copy(STONE_TILES)));
 	public static final Block STONE_TILE_WALL = register("stone_tile_wall", new WallBlock(FabricBlockSettings.copy(STONE_TILES)));
 
-	//DEEPSLATE
+//DEEPSLATE
 	public static final Block CRACKED_DEEPSLATE_BRICK_STAIRS = register("cracked_deepslate_brick_stairs", new StairsBlock(CRACKED_DEEPSLATE_BRICKS.getDefaultState(), FabricBlockSettings.copy(CRACKED_DEEPSLATE_BRICKS)));
 	public static final Block CRACKED_DEEPSLATE_BRICK_SLAB = register("cracked_deepslate_brick_slab", new SlabBlock(FabricBlockSettings.copy(CRACKED_DEEPSLATE_BRICKS)));
 	public static final Block CRACKED_DEEPSLATE_BRICK_WALL = register("cracked_deepslate_brick_wall", new WallBlock(FabricBlockSettings.copy(CRACKED_DEEPSLATE_BRICKS)));
@@ -92,7 +92,7 @@ public class JinericBlocks {
 	public static final Block SMOOTH_DEEPSLATE_SLAB = register("smooth_deepslate_slab", new SlabBlock(FabricBlockSettings.copy(SMOOTH_DEEPSLATE)));
 	public static final Block SMOOTH_DEEPSLATE_WALL = register("smooth_deepslate_wall", new WallBlock(FabricBlockSettings.copy(SMOOTH_DEEPSLATE)));
 
-	//DIORITE, GRANITE, ANDESITE BLOCKS
+//DIORITE, GRANITE, ANDESITE
 	public static final Block POLISHED_GRANITE_WALL = register("polished_granite_wall", new WallBlock(FabricBlockSettings.copy(POLISHED_GRANITE)));
 	public static final Block POLISHED_DIORITE_WALL = register("polished_diorite_wall", new WallBlock(FabricBlockSettings.copy(POLISHED_DIORITE)));
 	public static final Block POLISHED_ANDESITE_WALL = register("polished_andesite_wall", new WallBlock(FabricBlockSettings.copy(POLISHED_ANDESITE)));
@@ -177,12 +177,12 @@ public class JinericBlocks {
 	public static final Block CHISELED_DRIPSTONE = register("chiseled_dripstone", new Block(FabricBlockSettings.copy(DRIPSTONE_BRICKS)));
 	public static final Block DRIPSTONE_PILLAR = register("dripstone_pillar", new PillarBlock(FabricBlockSettings.copy(DRIPSTONE_BLOCK)));
 
-	//OBSIDIAN
+//OBSIDIAN
 	public static final Block OBSIDIAN_STAIRS = register("obsidian_stairs", new StairsBlock(OBSIDIAN.getDefaultState(), JinericBlockSettings.obsidianSettings().nonOpaque()));
 	public static final Block OBSIDIAN_SLAB  = register("obsidian_slab", new SlabBlock(JinericBlockSettings.obsidianSettings().nonOpaque()));
 	public static final Block OBSIDIAN_WALL = register("obsidian_wall", new WallBlock(JinericBlockSettings.obsidianSettings().nonOpaque()));
 
-	//NETHER
+//NETHER
 	public static final Block QUARTZ_WALL = register("quartz_wall", new WallBlock(FabricBlockSettings.copy(QUARTZ_BLOCK)));
 	public static final Block SMOOTH_QUARTZ_WALL = register("smooth_quartz_wall", new WallBlock(FabricBlockSettings.copy(SMOOTH_QUARTZ)));
 	public static final Block QUARTZ_BRICK_SLAB = register("quartz_brick_slab", new SlabBlock(FabricBlockSettings.copy(QUARTZ_BRICKS)));
@@ -199,7 +199,7 @@ public class JinericBlocks {
 	public static final Block CRACKED_NETHER_BRICK_STAIRS = register("cracked_nether_brick_stairs", new StairsBlock(CRACKED_NETHER_BRICKS.getDefaultState(), Block.Settings.copy(CRACKED_NETHER_BRICKS)));
 	public static final Block CRACKED_NETHER_BRICK_WALL = register("cracked_nether_brick_wall", new WallBlock(Block.Settings.copy(CRACKED_NETHER_BRICKS)));
 
-	//END
+//END
 	public static final Block PURPUR_WALL = register("purpur_wall", new WallBlock(FabricBlockSettings.copy(PURPUR_BLOCK)));
 
 //RHYOLITE
@@ -209,18 +209,10 @@ public class JinericBlocks {
 //	public static final Block RHYOLITE_WALL = register("rhyolite_wall", new WallBlock(FabricBlockSettings.copy(RHYOLITE)));
 
 	//COBBLED
-//	public static final Block COBBLED_RHYOLITE = register(
-//			"cobbled_rhyolite", new Block(FabricBlockSettings.copy(RHYOLITE))
-//	);
-//	public static final Block COBBLED_RHYOLITE_STAIRS = register(
-//			"cobbled_rhyolite_stairs", new StairsBlock(RHYOLITE.getDefaultState(), FabricBlockSettings.copy(RHYOLITE))
-//	);
-//	public static final Block COBBLED_RHYOLITE_SLAB  = register(
-//			"cobbled_rhyolite_slab", new SlabBlock(FabricBlockSettings.copy(RHYOLITE))
-//	);
-//	public static final Block COBBLED_RHYOLITE_WALL = register(
-//			"cobbled_rhyolite_wall", new WallBlock(FabricBlockSettings.copy(RHYOLITE))
-//	);
+//	public static final Block COBBLED_RHYOLITE = register("cobbled_rhyolite", new Block(FabricBlockSettings.copy(RHYOLITE)));
+//	public static final Block COBBLED_RHYOLITE_STAIRS = register("cobbled_rhyolite_stairs", new StairsBlock(RHYOLITE.getDefaultState(), FabricBlockSettings.copy(RHYOLITE)));
+//	public static final Block COBBLED_RHYOLITE_SLAB  = register("cobbled_rhyolite_slab", new SlabBlock(FabricBlockSettings.copy(RHYOLITE)));
+//	public static final Block COBBLED_RHYOLITE_WALL = register("cobbled_rhyolite_wall", new WallBlock(FabricBlockSettings.copy(RHYOLITE)));
 //	public static final Block SMOOTH_RHYOLITE = register("smooth_rhyolite", new Block(FabricBlockSettings.copy(RHYOLITE)));
 //	public static final Block SMOOTH_RHYOLITE_STAIRS = register("smooth_rhyolite_stairs", new StairsBlock(SMOOTH_RHYOLITE.getDefaultState(), FabricBlockSettings.copy(SMOOTH_RHYOLITE)));
 //	public static final Block SMOOTH_RHYOLITE_SLAB  = register("smooth_rhyolite_slab", new SlabBlock(FabricBlockSettings.copy(SMOOTH_RHYOLITE)));
@@ -252,7 +244,7 @@ public class JinericBlocks {
 	public static final Block PRISMARINE_CRYSTAL_BLOCK = register("prismarine_crystal_block", new Block(FabricBlockSettings.copy(SEA_LANTERN).luminance(state -> 4).requiresTool()));
 //	public static final Block GUNPOWDER_BLOCK = register("gunpowder_block", new Block(FabricBlockSettings.copy(SAND)));
 	public static final Block BLAZE_ROD_BLOCK = register("blaze_rod_block", new Block(FabricBlockSettings.copy(CHARCOAL_BLOCK)));
-	public static final Block EGG_BLOCK = register("egg_block", new Block(FabricBlockSettings.copy(GLOWSTONE).sounds(BlockSoundGroup.CALCITE).strength(0.50F)));
+	public static final Block EGG_BLOCK = register("egg_block", new Block(FabricBlockSettings.copy(CALCITE).sounds(BlockSoundGroup.CALCITE).strength(0.50F)));
 	public static final Block STICK_BLOCK = register("stick_block", new PillarBlock(FabricBlockSettings.copy(OAK_PLANKS)));
 	public static final Block PAPER_BLOCK = register("paper_block", new Block(FabricBlockSettings.copy(AZALEA_LEAVES).sounds(BlockSoundGroup.AZALEA_LEAVES)));
 
@@ -282,14 +274,22 @@ public class JinericBlocks {
 //CHESTS
 	public static final Block ACACIA_CHEST = register("acacia_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.ACACIA));
 	public static final Block BIRCH_CHEST = register("birch_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.BIRCH));
-////	public static final Block BOREAL_CHEST = register("boreal_chest", new FabricBlockSettingsBase(FabricBlockSettings.copy(CHEST), JinericChestType.BOREAL));
-	public static final Block CRIMSON_CHEST = register("crimson_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.CRIMSON)	);
+	public static final Block CRIMSON_CHEST = register("crimson_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.CRIMSON));
 	public static final Block DARK_OAK_CHEST = register("dark_oak_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.DARK_OAK));
 	public static final Block JUNGLE_CHEST = register("jungle_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.JUNGLE));
 //	public static final Block SHULKER_CHEST = register("shulker_chest", new ShulkerChestBlock(FabricBlockSettings.of(Material.STONE), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.SHULKER));
 	public static final Block SPRUCE_CHEST = register("spruce_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.SPRUCE));
 	public static final Block WARPED_CHEST = register("warped_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.WARPED));
 	public static final Block MANGROVE_CHEST = register("mangrove_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.MANGROVE));
+	public static final Block TRAPPED_ACACIA_CHEST = register("trapped_acacia_chest", new JinericTrappedChestBlock(FabricBlockSettings.copy(CHEST), WoodType.ACACIA));
+	public static final Block TRAPPED_BIRCH_CHEST = register("trapped_birch_chest", new JinericTrappedChestBlock(FabricBlockSettings.copy(CHEST), WoodType.BIRCH));
+	public static final Block TRAPPED_CRIMSON_CHEST = register("trapped_crimson_chest", new JinericTrappedChestBlock(FabricBlockSettings.copy(CHEST), WoodType.CRIMSON));
+	public static final Block TRAPPED_DARK_OAK_CHEST = register("trapped_dark_oak_chest", new JinericTrappedChestBlock(FabricBlockSettings.copy(CHEST), WoodType.DARK_OAK));
+	public static final Block TRAPPED_JUNGLE_CHEST = register("trapped_jungle_chest", new JinericTrappedChestBlock(FabricBlockSettings.copy(CHEST), WoodType.JUNGLE));
+	public static final Block TRAPPED_SPRUCE_CHEST = register("trapped_spruce_chest", new JinericTrappedChestBlock(FabricBlockSettings.copy(CHEST), WoodType.SPRUCE));
+	public static final Block TRAPPED_WARPED_CHEST = register("trapped_warped_chest", new JinericTrappedChestBlock(FabricBlockSettings.copy(CHEST), WoodType.WARPED));
+	public static final Block TRAPPED_MANGROVE_CHEST = register("trapped_mangrove_chest", new JinericTrappedChestBlock(FabricBlockSettings.copy(CHEST), WoodType.MANGROVE));
+
 
 	public static final Block REFINERY = register("refinery", new RefineryBlock(FabricBlockSettings.copy(FURNACE).luminance(state -> 13)));
 
@@ -335,27 +335,6 @@ public class JinericBlocks {
 	public static final Block MANGROVE_LADDER = register("mangrove_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER)));
 	public static final Block WARPED_LADDER = register("warped_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER)));
 	public static final Block CRIMSON_LADDER = register("crimson_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER)));
-
-	/*
-	//DRIED BAMBOO
-	public static final Block DRIED_BAMBOO_WOOD = register("dried_bamboo_wood", new PillarBlock(FabricBlockSettings.copy(OAK_WOOD)));
-	public static final Block DRIED_BAMBOO_LOG = register("dried_bamboo_log", new PillarBlock(FabricBlockSettings.copy(OAK_LOG)));
-	public static final Block STRIPPED_DRIED_BAMBOO_WOOD = register("stripped_dried_bamboo_wood", new PillarBlock(FabricBlockSettings.copy(OAK_WOOD)));
-	public static final Block STRIPPED_DRIED_BAMBOO_LOG = register("stripped_dried_bamboo_log", new PillarBlock(FabricBlockSettings.copy(OAK_LOG)));
-	public static final Block DRIED_BAMBOO_PLANKS = register("dried_bamboo_planks", new Block(FabricBlockSettings.copy(OAK_PLANKS)));
-	public static final Block DRIED_BAMBOO_STAIRS = register("dried_bamboo_stairs", new StairsBlock(OAK_STAIRS.getDefaultState(), FabricBlockSettings.copy(OAK_STAIRS)));
-	public static final Block DRIED_BAMBOO_SLAB = register("dried_bamboo_slab", new SlabBlock(FabricBlockSettings.copy(OAK_SLAB)));
-	public static final Block DRIED_BAMBOO_FENCE = register("dried_bamboo_fence", new FenceBlock(FabricBlockSettings.copy(OAK_FENCE)));
-	//public static final Block DRIED_BAMBOO_SIGN = register("dried_bamboo_sign", new SignBlock(FabricBlockSettings.copy(OAK_SIGN), JinericSignType.BOREAL));
-	//public static final Block DRIED_BAMBOO_WALL_SIGN = register("dried_bamboo_wall_sign", new JinericWallSignBlock(FabricBlockSettings.copy(OAK_SIGN), JinericSignType.BOREAL));
-	public static final Block DRIED_BAMBOO_BUTTON = register("dried_bamboo_button", new JinericWoodenButtonBlock(Boolean.getBoolean(String.valueOf(POWERED)), FabricBlockSettings.copy((OAK_BUTTON))));
-	public static final Block DRIED_BAMBOO_PRESSURE_PLATE = register("dried_bamboo_pressure_plate", new JinericWoodenPressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, AbstractFabricBlockSettings.copy(OAK_PRESSURE_PLATE)));
-	public static final Block DRIED_BAMBOO_DOOR = register("dried_bamboo_door", new DoorBlock(FabricBlockSettings.copy(OAK_DOOR)));
-	public static final Block DRIED_BAMBOO_TRAPDOOR = register("dried_bamboo_trapdoor", new JinericWoodenTrapdoorBlock(OAK_TRAPDOOR.getDefaultState(), FabricBlockSettings.copy(OAK_TRAPDOOR).sounds(BlockSoundGroup.WOOD)));
-	public static final Block DRIED_BAMBOO_FENCE_GATE = register("dried_bamboo_fence_gate", new FenceGateBlock(FabricBlockSettings.copy(OAK_FENCE_GATE)));
-	public static final Block DRIED_BAMBOO_SAPLING = register("dried_bamboo_sapling", new JinericSaplingBlock(new BorealSaplingGenerator(), FabricBlockSettings.copy(OAK_SAPLING)));
-	public static final Block DRIED_BAMBOO_LEAVES = register("dried_bamboo_leaves", new LeavesBlock(JinericBlockSettings.JinericLeavesBlock(BlockSoundGroup.GRASS)));
-*/
 
 	//ICE SLIPPERINESS
 	public static boolean isSlipperyBlock(BlockState state) {

@@ -1,11 +1,8 @@
 package jingy.jineric.world.biome;
 
 public class JinericBiomes {
-
-   //TODO: FIX
 //
 //   public static final List<RegistryObject<Biome>> BIOMES = new ArrayList<>();
-//
 //   public static RegistryKey<Biome> BOREAL_FOREST = createBiome("boreal_forest", JinericOverworldBiomes.createBorealForest(false));
 //
 //
