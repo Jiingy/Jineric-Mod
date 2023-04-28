@@ -1,7 +1,0 @@
-{
-  "parent": "jineric:block/chest_template",
-  "textures": {
-    "0": "jineric:entity/chest/shulker_chest",
-    "particle": "minecraft:block/shulker_box"
-  }
-}
