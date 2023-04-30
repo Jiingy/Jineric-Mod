@@ -10,7 +10,7 @@ public class JinericRecipeType {
    // RECIPE TYPES
    public static RecipeType<RefiningRecipe> REFINING_RECIPE_TYPE;
 
-   public static void register() {
+   public static void registerRecipeTypes() {
       REFINING_RECIPE_TYPE = Registry.register(
               Registries.RECIPE_TYPE,
               new Identifier(JinericMain.MOD_ID, "refining"),

@@ -14,8 +14,4 @@ public class JinericSoundEvents {
       Identifier id = new Identifier(JinericMain.MOD_ID, name);
       return Registry.register(Registries.SOUND_EVENT, id, SoundEvent.of(id));
    }
-
-   public static void init() {
-
-   }
 }

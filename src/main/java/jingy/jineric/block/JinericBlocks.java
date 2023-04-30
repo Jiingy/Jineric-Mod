@@ -344,8 +344,4 @@ public class JinericBlocks {
 	private static Block register(String id, Block block) {
 		return Registry.register(Registries.BLOCK, new Identifier(JinericMain.MOD_ID, id), block);
 	}
-
-	public static void blockRegistry() {
-
-	}
 }

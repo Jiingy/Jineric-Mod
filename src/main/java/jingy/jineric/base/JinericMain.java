@@ -1,17 +1,14 @@
 package jingy.jineric.base;
 
-import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.entity.JinericPaintingMotive;
 import jingy.jineric.entity.effect.JinericStatusEffects;
 import jingy.jineric.item.JinericItemGroups;
-import jingy.jineric.item.JinericItems;
-import jingy.jineric.potion.JinericPotions;
 import jingy.jineric.recipe.JinericRecipeType;
 import jingy.jineric.recipe.RefiningRecipe;
 import jingy.jineric.registry.JinericBlockEntityType;
 import jingy.jineric.registry.JinericRegistries;
 import jingy.jineric.screen.JinericScreenHandlerType;
-import jingy.jineric.sound.JinericSoundEvents;
+import jingy.jineric.stat.JinericStats;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
@@ -30,17 +27,13 @@ public class JinericMain implements ModInitializer {
 	public void onInitialize() {
 	LOGGER.info("Jineric Mod Main - Starting initialization");
 		JinericRegistries.registerJinericMod();
-		JinericPaintingMotive.init();
-		JinericBlocks.blockRegistry();
-		JinericItems.itemRegistry();
-		JinericItemGroups.onInitialize();
-//		JinericSoundGroups.register();
-		JinericSoundEvents.init();
-		JinericPotions.registerPotions();
+		JinericItemGroups.registerItemGroups();
+		JinericPaintingMotive.registerPaintingMotives();
+		JinericStats.registerStats();
 		JinericBlockEntityType.registerBlockEntities();
-		RefiningRecipe.register();
-		JinericRecipeType.register();
-		JinericStatusEffects.registerStatusEffect();
+		RefiningRecipe.registerRefiningRecipe();
+		JinericRecipeType.registerRecipeTypes();
+		JinericStatusEffects.registerStatusEffects();
 		JinericScreenHandlerType.registerScreenHandlers();
 
 		System.out.println("Jineric Mod Main - Finished initialization");

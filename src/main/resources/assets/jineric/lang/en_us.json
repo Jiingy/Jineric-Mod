@@ -99,7 +99,6 @@
   "block.jineric.tuff_slab": "Tuff Slab",
   "block.jineric.tuff_stairs": "Tuff Stairs",
   "block.jineric.tuff_wall": "Tuff Wall",
-
   "block.jineric.cobbled_dripstone": "Cobbled Dripstone",
   "block.jineric.cobbled_dripstone_slab": "Cobbled Dripstone Slab",
   "block.jineric.cobbled_dripstone_stairs": "Cobbled Dripstone Stairs",
@@ -271,5 +270,7 @@
   "container.borealChestDouble": "Large Boreal Chest",
 
   "gui.recipebook.toggleRecipes.refinable": "Showing Refinable",
-  "container.refinery": "Refinery"
+  "container.refinery": "Refinery",
+
+  "stat.jineric.interact_with_refinery": "Interactions with Refinery"
 }

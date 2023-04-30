@@ -2,6 +2,7 @@ package jingy.jineric.block;
 
 import jingy.jineric.block.entity.RefineryBlockEntity;
 import jingy.jineric.registry.JinericBlockEntityType;
+import jingy.jineric.stat.JinericStats;
 import net.minecraft.block.AbstractFurnaceBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -39,7 +40,7 @@ public class RefineryBlock extends AbstractFurnaceBlock {
       BlockEntity blockEntity = world.getBlockEntity(pos);
       if (blockEntity instanceof RefineryBlockEntity) {
          player.openHandledScreen((NamedScreenHandlerFactory) blockEntity);
-         //player.incrementStat(Stats.INTERACT_WITH_REFINERY);
+         player.incrementStat(JinericStats.INTERACT_WITH_REFINERY);
       }
    }
 

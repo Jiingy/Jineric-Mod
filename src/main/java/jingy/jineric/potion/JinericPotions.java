@@ -21,16 +21,7 @@ public class JinericPotions {
    public static final Potion LONG_DARKNESS = register("long_darkness", new Potion(new StatusEffectInstance(
            StatusEffects.DARKNESS, 5760)));
 
-//   public static final Potion THORNS = register("thorns", new Potion(new StatusEffectInstance(
-//           ThornsStatusEffect.THORNS, 2160)));
-
-//   public static final Potion LONG_THORNS = register("long_thorns", new Potion(new StatusEffectInstance(
-//           ThornsStatusEffect.THORNS, 5760)));
-
    public static Potion register(String name, Potion potion) {
       return Registry.register(Registries.POTION, new Identifier(JinericMain.MOD_ID, name), potion);
-   }
-
-   public static void registerPotions() {
    }
 }
