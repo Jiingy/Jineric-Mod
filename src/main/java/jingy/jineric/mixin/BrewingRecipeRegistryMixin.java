@@ -14,16 +14,19 @@ import static net.minecraft.recipe.BrewingRecipeRegistry.registerPotionRecipe;
 @Mixin(BrewingRecipeRegistry.class)
 public abstract class BrewingRecipeRegistryMixin {
 
+
+
    @Inject(at = @At("HEAD"), method = "registerDefaults()V")
    private static void jineric$registerDefaults(CallbackInfo ci) {
-      //POSITIVE
+      //DARKNESS
+      registerPotionRecipe(Potions.NIGHT_VISION, Items.FERMENTED_SPIDER_EYE, JinericPotions.DARKNESS);
+      registerPotionRecipe(JinericPotions.DARKNESS, Items.REDSTONE, JinericPotions.LONG_DARKNESS);
+      registerPotionRecipe(Potions.LONG_NIGHT_VISION, Items.FERMENTED_SPIDER_EYE, JinericPotions.LONG_DARKNESS);
+      //GLOWING
       registerPotionRecipe(Potions.AWKWARD, Items.GLOW_BERRIES, JinericPotions.GLOWING);
       registerPotionRecipe(JinericPotions.GLOWING, Items.REDSTONE, JinericPotions.LONG_GLOWING);
-
-
-
-      //POSITIVE -> NEGATIVE
-      registerPotionRecipe(Potions.NIGHT_VISION, Items.FERMENTED_SPIDER_EYE, JinericPotions.DARKNESS);
-      registerPotionRecipe(Potions.LONG_NIGHT_VISION, Items.FERMENTED_SPIDER_EYE, JinericPotions.LONG_DARKNESS);
+      //INVISIBILITY
+      registerPotionRecipe(JinericPotions.GLOWING, Items.FERMENTED_SPIDER_EYE, Potions.INVISIBILITY);
+      registerPotionRecipe(JinericPotions.LONG_GLOWING, Items.FERMENTED_SPIDER_EYE, Potions.LONG_INVISIBILITY);
    }
 }
