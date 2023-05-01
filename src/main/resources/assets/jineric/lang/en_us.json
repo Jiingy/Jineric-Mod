@@ -272,5 +272,12 @@
   "gui.recipebook.toggleRecipes.refinable": "Showing Refinable",
   "container.refinery": "Refinery",
 
-  "stat.jineric.interact_with_refinery": "Interactions with Refinery"
+  "stat.jineric.interact_with_refinery": "Interactions with Refinery",
+
+  "painting.jineric.peaceful_farm.title": "Peaceful Farm",
+  "painting.jineric.peaceful_farm.author": "Adam",
+  "painting.jineric.key_gen.title": "Key Gen",
+  "painting.jineric.key_gen.author": "Jingy",
+  "painting.jineric.kromer.title": "Kromer",
+  "painting.jineric.kromer.author": "Jingy"
 }
