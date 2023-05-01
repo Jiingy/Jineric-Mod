@@ -41,7 +41,7 @@ public class RefiningRecipe extends AbstractCookingRecipe {
       return CookingRecipeCategory.BLOCKS;
    }
 
-   public static void register() {
+   public static void registerRefiningRecipe() {
       REFINING_RECIPE_SERIALIZER = Registry.register(
               Registries.RECIPE_SERIALIZER,
               new Identifier(JinericMain.MOD_ID, "refining"),

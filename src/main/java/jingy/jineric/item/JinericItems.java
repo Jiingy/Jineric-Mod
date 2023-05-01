@@ -1,5 +1,6 @@
 package jingy.jineric.item;
 
+import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.JinericBlocks;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.BlockItem;
@@ -322,12 +323,7 @@ public class JinericItems {
 //	public static final Item SMOOTH_CALCITE_WALL = register("smooth_calcite_wall", new BlockItem(JinericBlocks.SMOOTH_CALCITE_WALL, new FabricItemSettings()));
 
 	private static Item register(String name, Item item) {
-		return Registry.register(Registries.ITEM, new Identifier("jineric", name), item);
-	}
-
-	//TODO: Check if necessary
-	public static void itemRegistry() {
-
+		return Registry.register(Registries.ITEM, new Identifier(JinericMain.MOD_ID, name), item);
 	}
 }
 
