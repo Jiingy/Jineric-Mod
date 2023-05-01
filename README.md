@@ -1,5 +1,4 @@
-### Jineric Mod
-This is a mod focussed on adding vanilla styled features to enhance and expand the player's experience
+# Jineric Mod
+Jineric mod is made to enhance the gameplay experience by expanding upon vanilla features, or adding new ones! Generally, most additions are intended to stay within the design philosophy of currently existing features. 
 
-#### Extra Comments
-As of now, there is no current theme or plan, I just add whatever I think may be cool to have in the game
+If you find any bugs, please report them so that I can fix it ASAP!
