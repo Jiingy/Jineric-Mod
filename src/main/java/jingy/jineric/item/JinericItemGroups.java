@@ -245,6 +245,7 @@ public class JinericItemGroups {
 //				entries.add(JinericItems.FROZEN_ELYTRA);
 				entries.add(JinericItems.REDSTONE_LANTERN);
 				entries.add(JinericItems.REDSTONE_CAMPFIRE);
+				entries.add(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE);
 //				entries.add(JinericItems.);
 //				entries.add(JinericItems.POLISHED_CALCITE);
 //				entries.add(JinericItems.POLISHED_CALCITE_STAIRS);

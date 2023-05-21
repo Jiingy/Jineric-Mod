@@ -18,6 +18,7 @@
 	  "SpreadableBlockMixin",
 	  "TurtleEntityMixin",
 	  "WallBlockMixin",
+	  "access.SmithingTemplateItemAccess",
 	  "access.WoodTypeAccess"
    ],
    "client": [
