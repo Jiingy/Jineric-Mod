@@ -1,15 +1,6 @@
 {
    "replace": false,
    "values": [
-	  "minecraft:chest",
-	  "jineric:warped_chest",
-	  "jineric:crimson_chest",
-	  "jineric:mangrove_chest",
-	  "jineric:dark_oak_chest",
-	  "jineric:acacia_chest",
-	  "jineric:jungle_chest",
-	  "jineric:birch_chest",
-	  "jineric:spruce_chest",
 	  "jineric:trapped_warped_chest",
 	  "jineric:trapped_crimson_chest",
 	  "jineric:trapped_mangrove_chest",
