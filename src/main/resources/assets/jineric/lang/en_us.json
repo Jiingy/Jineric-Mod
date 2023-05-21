@@ -299,6 +299,12 @@
   "gui.recipebook.toggleRecipes.refinable": "Showing Refinable",
   "container.refinery": "Refinery",
 
+  "item.jineric.smithing_template.iron_upgrade.additions_slot_description": "Put an Iron Ingot here",
+  "item.jineric.smithing_template.iron_upgrade.applies_to": "Stone Tools",
+  "item.jineric.smithing_template.iron_upgrade.base_slot_description": "Put a Stone weapon or tool here",
+  "item.jineric.smithing_template.iron_upgrade.ingredients": "Iron Ingot",
+  "upgrade.jineric.iron_upgrade": "Iron Upgrade",
+
   "stat.jineric.interact_with_refinery": "Interactions with Refinery",
 
   "painting.jineric.peaceful_farm.title": "Peaceful Farm",
