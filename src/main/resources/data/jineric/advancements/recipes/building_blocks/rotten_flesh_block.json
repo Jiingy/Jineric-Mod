@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:rotten_flesh_block"
+        "recipe": "jineric:rotten_flesh_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:rotten_flesh_block"
+      "jineric:rotten_flesh_block"
     ]
   }
 }

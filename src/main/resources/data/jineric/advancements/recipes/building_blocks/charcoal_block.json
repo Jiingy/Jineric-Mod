@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:charcoal_block"
+        "recipe": "jineric:charcoal_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:charcoal_block"
+      "jineric:charcoal_block"
     ]
   }
 }

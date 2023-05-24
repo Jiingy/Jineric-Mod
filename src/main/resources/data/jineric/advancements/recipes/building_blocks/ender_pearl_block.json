@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:ender_pearl_block"
+        "recipe": "jineric:ender_pearl_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:ender_pearl_block"
+      "jineric:ender_pearl_block"
     ]
   }
 }
