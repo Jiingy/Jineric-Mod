@@ -233,7 +233,6 @@ public class JinericBlocks {
 
 	// --- MISCELLANEOUS ---
 //PACKED ITEM BLOCKS
-	public static final Block SALT_BLOCK = register("salt_block", new FallingBlock(FabricBlockSettings.copy(CLAY).sounds(BlockSoundGroup.SAND))	);
 	public static final Block SUGAR_BLOCK = register("sugar_block", new FallingBlock(FabricBlockSettings.copy(CLAY).sounds(BlockSoundGroup.SAND)));
 	public static final Block ROTTEN_FLESH_BLOCK = register("rotten_flesh_block", new Block(FabricBlockSettings.copy(HONEYCOMB_BLOCK).sounds(BlockSoundGroup.HONEY)));
 	public static final Block FLINT_BLOCK = register("flint_block", new Block(FabricBlockSettings.copy(STONE)));
@@ -335,6 +334,7 @@ public class JinericBlocks {
 	public static final Block MANGROVE_LADDER = register("mangrove_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER)));
 	public static final Block WARPED_LADDER = register("warped_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER)));
 	public static final Block CRIMSON_LADDER = register("crimson_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER)));
+//	public static final Block SALT_BLOCK = register("salt_block", new FallingBlock(FabricBlockSettings.copy(CLAY).sounds(BlockSoundGroup.SAND)));
 
 	//ICE SLIPPERINESS
 	public static boolean isSlipperyBlock(BlockState state) {
