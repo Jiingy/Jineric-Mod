@@ -37,6 +37,7 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
       offerIronUpgradeRecipe(exporter, Items.STONE_PICKAXE, RecipeCategory.TOOLS, Items.IRON_PICKAXE);
       offerIronUpgradeRecipe(exporter, Items.STONE_HOE, RecipeCategory.TOOLS, Items.IRON_HOE);
       offerIronUpgradeRecipe(exporter, Items.STONE_SHOVEL, RecipeCategory.TOOLS, Items.IRON_SHOVEL);
+      offerNetheriteUpgradeRecipe(exporter, Items.DIAMOND_HORSE_ARMOR, RecipeCategory.COMBAT, JinericItems.NETHERITE_HORSE_ARMOR);
 
       offerTrappedChestReipce(exporter, JinericItems.TRAPPED_SPRUCE_CHEST, JinericItems.SPRUCE_CHEST);
       offerTrappedChestReipce(exporter, JinericItems.TRAPPED_BIRCH_CHEST, JinericItems.BIRCH_CHEST);
@@ -75,15 +76,16 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
    public static CraftingRecipeJsonBuilder createCustomFenceRecipe(ItemConvertible output, Ingredient input) {
       return ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, output)
               .input('#', input)
-              .input('X', (ItemConvertible) Items.NETHER_BRICK)
+              .input('X', Items.NETHER_BRICK)
               .pattern("#X#")
               .pattern("#X#");
    }
 
    public static void offerIronUpgradeRecipe(Consumer<RecipeJsonProvider> exporter, Item input, RecipeCategory category, Item result) {
       SmithingTransformRecipeJsonBuilder.create(
-                      Ingredient.ofItems(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE), Ingredient.ofItems(input), Ingredient.ofItems(Items.IRON_INGOT), category, result
-              )
+              Ingredient.ofItems(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE),
+                      Ingredient.ofItems(input),
+                      Ingredient.ofItems(Items.IRON_INGOT), category, result)
               .criterion("has_iron_ingot", conditionsFromItem(Items.IRON_INGOT))
               .offerTo(exporter, getItemPath(result) + "_smithing");
    }
