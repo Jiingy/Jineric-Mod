@@ -45,7 +45,10 @@ public abstract class EatGrassGoalMixin extends Goal {
 
    @ModifyArg(
            method = "tick",
-           at = @At(value = "INVOKE", target = "Lnet/minecraft/block/Block;getRawIdFromState(Lnet/minecraft/block/BlockState;)I")
+           at = @At(
+                   value = "INVOKE",
+                   target = "Lnet/minecraft/block/Block;getRawIdFromState(Lnet/minecraft/block/BlockState;)I"
+           )
    )
    private BlockState jineric$FullGrassRawIdFromState(@Nullable BlockState state) {
       return JinericBlocks.FULL_GRASS_BLOCK.getDefaultState();

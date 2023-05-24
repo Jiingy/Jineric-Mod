@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:bone_meal_block"
+        "recipe": "jineric:bone_meal_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:bone_meal_block"
+      "jineric:bone_meal_block"
     ]
   }
 }

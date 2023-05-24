@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_blaze_rod": {
+    "has_iron_axe": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:blaze_rod"
+              "minecraft:iron_axe"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "jineric:blaze_rod_block"
+        "recipe": "minecraft:iron_axe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_blaze_rod",
+      "has_iron_axe",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "jineric:blaze_rod_block"
+      "minecraft:iron_axe"
     ]
   }
 }

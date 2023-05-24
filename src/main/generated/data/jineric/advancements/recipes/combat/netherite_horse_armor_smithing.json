@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_blaze_rod": {
+    "has_netherite_ingot": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:blaze_rod"
+              "minecraft:netherite_ingot"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "jineric:blaze_rod_block"
+        "recipe": "minecraft:netherite_horse_armor_smithing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_blaze_rod",
+      "has_netherite_ingot",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "jineric:blaze_rod_block"
+      "minecraft:netherite_horse_armor_smithing"
     ]
   }
 }

@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:prismarine_crystal_block"
+        "recipe": "jineric:prismarine_crystal_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:prismarine_crystal_block"
+      "jineric:prismarine_crystal_block"
     ]
   }
 }
