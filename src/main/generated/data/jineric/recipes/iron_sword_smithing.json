@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:iron_ingot"
+  },
+  "base": {
+    "item": "minecraft:stone_sword"
+  },
+  "result": {
+    "item": "minecraft:iron_sword"
+  },
+  "template": {
+    "item": "jineric:iron_upgrade_smithing_template"
+  }
+}

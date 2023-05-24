@@ -6,10 +6,8 @@ import jingy.jineric.tag.JinericItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.block.Blocks;
-import net.minecraft.data.server.recipe.CraftingRecipeJsonBuilder;
-import net.minecraft.data.server.recipe.RecipeJsonProvider;
-import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
-import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.*;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
@@ -33,6 +31,13 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
       // offerStonecuttingRecipe(exporter, building, JinericBlocks._SLAB, JinericBlocks.);
       // offerStonecuttingRecipe(exporter, building, JinericBlocks._STAIRS, JinericBlocks.);
       // offerStonecuttingRecipe(exporter, building, JinericBlocks._WALL, JinericBlocks.);
+
+      offerIronUpgradeRecipe(exporter, Items.STONE_SWORD, RecipeCategory.COMBAT, Items.IRON_SWORD);
+      offerIronUpgradeRecipe(exporter, Items.STONE_AXE, RecipeCategory.TOOLS, Items.IRON_AXE);
+      offerIronUpgradeRecipe(exporter, Items.STONE_PICKAXE, RecipeCategory.TOOLS, Items.IRON_PICKAXE);
+      offerIronUpgradeRecipe(exporter, Items.STONE_HOE, RecipeCategory.TOOLS, Items.IRON_HOE);
+      offerIronUpgradeRecipe(exporter, Items.STONE_SHOVEL, RecipeCategory.TOOLS, Items.IRON_SHOVEL);
+
       offerTrappedChestReipce(exporter, JinericItems.TRAPPED_SPRUCE_CHEST, JinericItems.SPRUCE_CHEST);
       offerTrappedChestReipce(exporter, JinericItems.TRAPPED_BIRCH_CHEST, JinericItems.BIRCH_CHEST);
       offerTrappedChestReipce(exporter, JinericItems.TRAPPED_JUNGLE_CHEST, JinericItems.JUNGLE_CHEST);
@@ -73,5 +78,13 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
               .input('X', (ItemConvertible) Items.NETHER_BRICK)
               .pattern("#X#")
               .pattern("#X#");
+   }
+
+   public static void offerIronUpgradeRecipe(Consumer<RecipeJsonProvider> exporter, Item input, RecipeCategory category, Item result) {
+      SmithingTransformRecipeJsonBuilder.create(
+                      Ingredient.ofItems(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE), Ingredient.ofItems(input), Ingredient.ofItems(Items.IRON_INGOT), category, result
+              )
+              .criterion("has_iron_ingot", conditionsFromItem(Items.IRON_INGOT))
+              .offerTo(exporter, getItemPath(result) + "_smithing");
    }
 }

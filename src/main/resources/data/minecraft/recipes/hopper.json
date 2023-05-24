@@ -6,7 +6,7 @@
 		 "item": "minecraft:iron_ingot"
 	  },
 	  "%": {
-		 "tag": "jineric:chests"
+		 "tag": "jineric:wooden_chests"
 	  }
    },
    "pattern": [

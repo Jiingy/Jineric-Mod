@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "tag": "jineric:chests"
+      "tag": "jineric:wooden_chests"
     },
     {
       "item": "minecraft:minecart"

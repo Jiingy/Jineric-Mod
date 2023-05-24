@@ -256,6 +256,10 @@ public class JinericItems {
 	public static final Item NETHERITE_HORSE_ARMOR = register("netherite_horse_armor", new JinericHorseArmorItem(15, "netherite", new FabricItemSettings().fireproof().maxCount(1)));
 
 //WIP OR UNKNOWN ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//	public static final Item STONE_UPGRADE_SMITHING_TEMPLATE = register("stone_upgrade_smithing_template", JinericSmithingTemplateItem.createStoneUpgrade());
+	public static final Item IRON_UPGRADE_SMITHING_TEMPLATE = register("iron_upgrade_smithing_template", JinericSmithingTemplateItem.createIronUpgrade());
+
 	public static final Item REFINERY = register("refinery", new BlockItem(JinericBlocks.REFINERY, new FabricItemSettings()));
 	public static final Item FIREWEED = register("fireweed", new BlockItem(JinericBlocks.FIREWEED, new FabricItemSettings()));
 	public static final Item TUMBLEWEED = register("tumbleweed", new BlockItem(JinericBlocks.TUMBLEWEED, new FabricItemSettings()));
