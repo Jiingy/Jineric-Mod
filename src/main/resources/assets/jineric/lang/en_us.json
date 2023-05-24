@@ -2,7 +2,6 @@
   "item.jineric.golden_potato": "Golden Potato",
   "item.jineric.golden_sweet_berries": "Golden Sweet Berries",
   "item.jineric.golden_beetroot": "Golden Beetroot",
-  "item.jineric.salt": "Salt",
   "item.jineric.frozen_elytra": "Frozen Elytra",
   "item.jineric.manx_loaghtan_spawn_egg": "Manx Loaghtan Spawn Egg",
   "item.jineric.netherite_horse_armor": "Netherite Horse Armor",
@@ -186,7 +185,6 @@
   "block.jineric.cracked_nether_brick_wall": "Cracked Nether Brick Wall",
 
   "block.jineric.soul_jack_o_lantern": "Soul Jack o'Lantern",
-  "block.jineric.salt_block": "Block of Salt",
   "block.jineric.sugar_block": "Block of Sugar",
   "block.jineric.rotten_flesh_block": "Block of Rotten Flesh",
   "block.jineric.flint_block": "Block of Flint",
@@ -304,6 +302,9 @@
   "item.jineric.smithing_template.iron_upgrade.base_slot_description": "Put a Stone weapon or tool here",
   "item.jineric.smithing_template.iron_upgrade.ingredients": "Iron Ingot",
   "upgrade.jineric.iron_upgrade": "Iron Upgrade",
+
+  "tag.jineric.wooden_chests": "Wooden Chests",
+  "tag.jineric.wooden_trapped_chests": "Wooden Trapped Chests",
 
   "stat.jineric.interact_with_refinery": "Interactions with Refinery",
 
