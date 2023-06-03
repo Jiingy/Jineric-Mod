@@ -1,0 +1,10 @@
+{
+   "parent": "item/generated",
+   "textures": {
+	  "layer0": "item/bundle",
+	  "layer1": "jineric:item/bundle_string"
+   },
+   "overrides": [
+	  { "predicate": { "filled": 0.0000001 }, "model": "item/bundle_filled" }
+   ]
+}

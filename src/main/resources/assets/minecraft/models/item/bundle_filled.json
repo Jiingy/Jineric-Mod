@@ -1,0 +1,7 @@
+{
+   "parent": "item/bundle",
+   "textures": {
+	  "layer0": "item/bundle_filled",
+	  "layer1": "jineric:item/bundle_filled_string"
+   }
+}
