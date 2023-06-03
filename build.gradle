@@ -13,7 +13,7 @@ def ENV = System.getenv()
 sourceCompatibility = targetCompatibility = JavaVersion.VERSION_17
 tasks.withType(JavaCompile).configureEach { it.options.release = 17 }
 
-group = project.maven_group
+//group = project.maven_group
 archivesBaseName = project.mod_id
 version = project.version
 
@@ -36,8 +36,8 @@ dependencies {
 
 	// api
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	modCompileOnly "dev.emi:emi:${emi_version}:api"
-	modLocalRuntime "dev.emi:emi:${emi_version}"
+//	modCompileOnly "dev.emi:emi:${emi_version}:api"
+//	modLocalRuntime "dev.emi:emi:${emi_version}"
 
 	// mixin extras
 	implementation("com.github.LlamaLad7:MixinExtras:0.1.1")

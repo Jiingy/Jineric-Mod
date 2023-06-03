@@ -28,6 +28,7 @@ public class JinericMain implements ModInitializer {
 	LOGGER.info("Jineric Mod Main - Starting initialization");
 		JinericRegistries.registerJinericMod();
 		JinericItemGroups.registerItemGroups();
+		JinericItemGroups.registerJinericItemGroups();
 		JinericPaintingVariant.registerPaintingMotives();
 		JinericStats.registerStats();
 		JinericBlockEntityType.registerBlockEntities();
