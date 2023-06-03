@@ -162,6 +162,10 @@ public class JinericItems {
 	public static final Item CALCITE_STAIRS = register("calcite_stairs", new BlockItem(JinericBlocks.CALCITE_STAIRS, new FabricItemSettings()));
 	public static final Item CALCITE_SLAB = register("calcite_slab", new BlockItem(JinericBlocks.CALCITE_SLAB, new FabricItemSettings()));
 	public static final Item CALCITE_WALL = register("calcite_wall", new BlockItem(JinericBlocks.CALCITE_WALL, new FabricItemSettings()));
+	public static final Item SNOW_BRICKS = register("snow_bricks", new BlockItem(JinericBlocks.SNOW_BRICKS, new FabricItemSettings()));
+	public static final Item SNOW_BRICK_STAIRS = register("snow_brick_stairs", new BlockItem(JinericBlocks.SNOW_BRICK_STAIRS, new FabricItemSettings()));
+	public static final Item SNOW_BRICK_SLAB = register("snow_brick_slab", new BlockItem(JinericBlocks.SNOW_BRICK_SLAB, new FabricItemSettings()));
+	public static final Item SNOW_BRICK_WALL = register("snow_brick_wall", new BlockItem(JinericBlocks.SNOW_BRICK_WALL, new FabricItemSettings()));
 	public static final Item SNOW_WALL = register("snow_wall", new BlockItem(JinericBlocks.SNOW_WALL, new FabricItemSettings()));
 	public static final Item PACKED_ICE_STAIRS = register("packed_ice_stairs", new BlockItem(JinericBlocks.PACKED_ICE_STAIRS, new FabricItemSettings()));
 	public static final Item PACKED_ICE_SLAB = register("packed_ice_slab", new BlockItem(JinericBlocks.PACKED_ICE_SLAB, new FabricItemSettings()));

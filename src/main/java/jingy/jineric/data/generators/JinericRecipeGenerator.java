@@ -6,7 +6,10 @@ import jingy.jineric.tag.JinericItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.block.Blocks;
-import net.minecraft.data.server.recipe.*;
+import net.minecraft.data.server.recipe.RecipeJsonProvider;
+import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.SmithingTransformRecipeJsonBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
@@ -48,7 +51,6 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
       offerTrappedChestReipce(exporter, JinericItems.TRAPPED_CRIMSON_CHEST, JinericItems.CRIMSON_CHEST);
       offerTrappedChestReipce(exporter, JinericItems.TRAPPED_WARPED_CHEST, JinericItems.WARPED_CHEST);
 
-
       offerStonecuttingRecipe(exporter, building, JinericBlocks.SMOOTH_BASALT_SLAB, Blocks.SMOOTH_BASALT);
       offerStonecuttingRecipe(exporter, building, JinericBlocks.SMOOTH_BASALT_STAIRS, Blocks.SMOOTH_BASALT);
       offerStonecuttingRecipe(exporter, building, JinericBlocks.SMOOTH_BASALT_WALL, Blocks.SMOOTH_BASALT);
@@ -61,7 +63,17 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
       offerStonecuttingRecipe(exporter, building, JinericBlocks.CRACKED_POLISHED_BLACKSTONE_BRICK_SLAB, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS);
       offerStonecuttingRecipe(exporter, building, JinericBlocks.CRACKED_POLISHED_BLACKSTONE_BRICK_STAIRS, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS);
       offerStonecuttingRecipe(exporter, building, JinericBlocks.CRACKED_POLISHED_BLACKSTONE_BRICK_WALL, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS);
-      createCustomFenceRecipe(JinericBlocks.RED_NETHER_BRICK_FENCE, Ingredient.ofItems(Blocks.RED_NETHER_BRICKS));
+      offerCustomFenceRecipe(exporter, JinericBlocks.RED_NETHER_BRICK_FENCE, Items.NETHER_BRICK, Blocks.RED_NETHER_BRICKS);
+
+      ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, JinericBlocks.SNOW_BRICKS, 4).input('#', Blocks.SNOW_BLOCK).pattern("##").pattern("##").criterion("has_snow", conditionsFromItem(Blocks.SNOW)).offerTo(exporter);
+      createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, JinericBlocks.SNOW_BRICK_SLAB, Ingredient.ofItems(JinericBlocks.SNOW_BRICKS)).criterion("has_snow_bricks", conditionsFromItem(JinericBlocks.SNOW_BRICKS)).offerTo(exporter);
+      createStairsRecipe(JinericBlocks.SNOW_BRICK_STAIRS, Ingredient.ofItems(JinericBlocks.SNOW_BRICKS)).criterion("has_snow_bricks", conditionsFromItem(JinericBlocks.SNOW_BRICKS)).offerTo(exporter);
+      offerWallRecipe(exporter, RecipeCategory.DECORATIONS, JinericBlocks.SNOW_BRICK_WALL, JinericBlocks.SNOW_BRICKS);
+      offerStonecuttingRecipe(exporter, building, JinericBlocks.SNOW_BRICK_STAIRS, JinericBlocks.SNOW_BRICKS);
+      offerStonecuttingRecipe(exporter, building, JinericBlocks.SNOW_BRICK_SLAB, JinericBlocks.SNOW_BRICKS);
+      offerStonecuttingRecipe(exporter, building, JinericBlocks.SNOW_BRICK_WALL, JinericBlocks.SNOW_BRICKS);
+
+      offerRefineryRecipe(exporter, JinericBlocks.REFINERY);
    }
 
    public static void offerTrappedChestReipce(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
@@ -88,5 +100,14 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
                       Ingredient.ofItems(Items.IRON_INGOT), category, result)
               .criterion("has_iron_ingot", conditionsFromItem(Items.IRON_INGOT))
               .offerTo(exporter, getItemPath(result) + "_smithing");
+   }
+
+      public static void offerRefineryRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output) {
+      ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, output, 1)
+              .input('P', Blocks.POLISHED_DEEPSLATE).input('T', Blocks.DEEPSLATE_TILES).input('F', Blocks.FURNACE)
+              .pattern("PPP")
+              .pattern("PFP")
+              .pattern("TTT")
+              .criterion("has_furnace", conditionsFromItem(Items.FURNACE)).offerTo(exporter);
    }
 }
