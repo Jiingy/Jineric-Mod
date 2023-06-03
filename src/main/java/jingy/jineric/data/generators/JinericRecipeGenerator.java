@@ -29,7 +29,6 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
       // - SLAB STONECUTTING RECIPES NEED 2 OUTPUT
       // - STAIRS NEED .offerTo(exporter);
       RecipeCategory building = RecipeCategory.BUILDING_BLOCKS;
-      RecipeCategory misc = RecipeCategory.MISC;
       // offerStonecuttingRecipe(exporter, building, JinericBlocks., JinericBlocks.);
       // offerStonecuttingRecipe(exporter, building, JinericBlocks._SLAB, JinericBlocks.);
       // offerStonecuttingRecipe(exporter, building, JinericBlocks._STAIRS, JinericBlocks.);
@@ -85,12 +84,14 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
               .offerTo(exporter);
    }
 
-   public static CraftingRecipeJsonBuilder createCustomFenceRecipe(ItemConvertible output, Ingredient input) {
-      return ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, output)
-              .input('#', input)
-              .input('X', Items.NETHER_BRICK)
+   public static void offerCustomFenceRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible innerInput, ItemConvertible outerInput) {
+      ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, output, 3)
+              .input('#', outerInput)
+              .input('X', innerInput)
               .pattern("#X#")
-              .pattern("#X#");
+              .pattern("#X#")
+              .criterion(hasItem(outerInput), conditionsFromItem(outerInput))
+              .offerTo(exporter);
    }
 
    public static void offerIronUpgradeRecipe(Consumer<RecipeJsonProvider> exporter, Item input, RecipeCategory category, Item result) {
