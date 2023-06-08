@@ -252,9 +252,9 @@ public class JinericItems {
 //REDSTONE
 	public static final Item REDSTONE_LANTERN = register("redstone_lantern", new BlockItem(JinericBlocks.REDSTONE_LANTERN, new FabricItemSettings()));
 //FOOD
-	public static final Item GOLDEN_POTATO = register("golden_potato", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(6).saturationModifier(14.4f).build())));
-	public static final Item GOLDEN_SWEET_BERRIES = register("golden_sweet_berries", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(5).saturationModifier(8f).build())));
-	public static final Item GOLDEN_BEETROOT = register("golden_beetroot", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(5f).build())));
+	public static final Item GOLDEN_POTATO = register("golden_potato", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.6f).build())));
+	public static final Item GOLDEN_SWEET_BERRIES = register("golden_sweet_berries", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.2f).build())));
+	public static final Item GOLDEN_BEETROOT = register("golden_beetroot", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(1.2f).build())));
 //MISC JINERIC
 	public static final Item SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", new BlockItem(JinericBlocks.SOUL_JACK_O_LANTERN, new FabricItemSettings()));
 	public static final Item NETHERITE_HORSE_ARMOR = register("netherite_horse_armor", new JinericHorseArmorItem(15, "netherite", new FabricItemSettings().fireproof().maxCount(1)));
