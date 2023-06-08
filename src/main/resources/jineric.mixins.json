@@ -22,7 +22,6 @@
 	  "SpreadableBlockMixin",
 	  "TurtleEntityMixin",
 	  "WallBlockMixin",
-	  "access.CookingRecipeJsonBuilderAccess",
 	  "access.GetBundleOccupancyAccess",
 	  "access.SmithingTemplateItemAccess",
 	  "access.WoodTypeAccess"
