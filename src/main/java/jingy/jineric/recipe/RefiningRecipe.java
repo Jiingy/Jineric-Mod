@@ -13,12 +13,7 @@ public class RefiningRecipe extends AbstractCookingRecipe {
    public static CookingRecipeSerializer<RefiningRecipe> REFINING_RECIPE_SERIALIZER;
 
    public RefiningRecipe(Identifier id, String group, CookingRecipeCategory category, Ingredient input, ItemStack output, float experience, int cookTime) {
-      super(JinericRecipeType.REFINING_RECIPE_TYPE, id, group, category, input, output, experience, cookTime);
-   }
-
-   @Override
-   public boolean isIgnoredInRecipeBook() {
-      return true;
+      super(JinericRecipeType.REFINING, id, group, category, input, output, experience, cookTime);
    }
 
    @Override
@@ -28,17 +23,12 @@ public class RefiningRecipe extends AbstractCookingRecipe {
 
    @Override
    public RecipeType<?> getType() {
-      return JinericRecipeType.REFINING_RECIPE_TYPE;
+      return JinericRecipeType.REFINING;
    }
 
    @Override
    public RecipeSerializer<?> getSerializer() {
       return RefiningRecipe.REFINING_RECIPE_SERIALIZER;
-   }
-
-   @Override
-   public CookingRecipeCategory getCategory() {
-      return CookingRecipeCategory.BLOCKS;
    }
 
    public static void registerRefiningRecipe() {

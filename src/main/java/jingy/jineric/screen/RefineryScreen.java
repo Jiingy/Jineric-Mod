@@ -19,7 +19,6 @@ public class RefineryScreen extends AbstractFurnaceScreen<RefineryScreenHandler>
 
    @Override
    public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-      drawTextWithShadow(matrices, textRenderer, "Ignore all non-block recipes", x + 10, y - 10, 0xFFFFFF);
       super.render(matrices, mouseX, mouseY, delta);
    }
 }

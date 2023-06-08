@@ -17,17 +17,21 @@
 	  "LadderWithTrapdoorClimbingFixMixin",
 	  "LivingEntityFastFallingMixin",
 	  "PointedDripstoneBlockMixin",
+	  "RecipeBookOptionsMixin",
 	  "SmokerBlockMixin",
 	  "SpreadableBlockMixin",
 	  "TurtleEntityMixin",
 	  "WallBlockMixin",
+	  "access.CookingRecipeJsonBuilderAccess",
 	  "access.GetBundleOccupancyAccess",
 	  "access.SmithingTemplateItemAccess",
 	  "access.WoodTypeAccess"
    ],
    "client": [
 	  "ChestBlockEntityRendererMixin",
+	  "ClientRecipeBookMixin",
 	  "LivingEntityMixin",
+	  "RecipeBookGroupMixin",
 	  "access.ElytraFeatureRendererAccess"
    ],
    "injectors": {

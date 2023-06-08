@@ -27,9 +27,12 @@
     "preLaunch": [
       "jingy.jineric.base.plugins.JinericPreLaunch"
     ],
+    "mm:early_risers": [
+      "jingy.jineric.base.plugins.EarlyRiser"
+    ],
     "emi": [
       "jingy.jineric.base.plugins.JinericEmiPlugin"
-    ]
+      ]
   },
   "mixins": [
     "jineric.mixins.json"

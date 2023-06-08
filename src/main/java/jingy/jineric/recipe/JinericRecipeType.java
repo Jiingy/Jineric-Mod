@@ -8,10 +8,10 @@ import net.minecraft.util.Identifier;
 
 public class JinericRecipeType {
    // RECIPE TYPES
-   public static RecipeType<RefiningRecipe> REFINING_RECIPE_TYPE;
+   public static RecipeType<RefiningRecipe> REFINING;
 
    public static void registerRecipeTypes() {
-      REFINING_RECIPE_TYPE = Registry.register(
+      REFINING = Registry.register(
               Registries.RECIPE_TYPE,
               new Identifier(JinericMain.MOD_ID, "refining"),
               new RecipeType<RefiningRecipe>() {
