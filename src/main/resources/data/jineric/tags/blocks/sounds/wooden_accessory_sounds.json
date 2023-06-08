@@ -1,0 +1,10 @@
+{
+   "replace": false,
+   "values": [
+	  "#jineric:wooden_torches",
+	  "#minecraft:wooden_buttons",
+	  "#minecraft:wooden_pressure_plates",
+	  "#minecraft:signs",
+	  "#jineric:wooden_ladders"
+   ]
+}

@@ -1,0 +1,9 @@
+{
+   "replace": false,
+   "values": [
+	  "jineric:warped_chest",
+	  "jineric:crimson_chest",
+	  "jineric:trapped_warped_chest",
+	  "jineric:trapped_crimson_chest"
+   ]
+}
