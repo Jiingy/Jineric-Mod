@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(BellBlock.class)
 public abstract class BellBlockShapeMixin {
+
    @Shadow @Final
    private static VoxelShape NORTH_SOUTH_WALLS_SHAPE;
    @Shadow @Final

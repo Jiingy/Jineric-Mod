@@ -6,6 +6,8 @@ import jingy.jineric.item.JinericItems;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.color.world.GrassColors;
+import net.minecraft.item.DyeableItem;
+import net.minecraft.item.Items;
 
 public class ColorProviders {
 
@@ -34,5 +36,6 @@ public class ColorProviders {
               GrassColors.getColor(0.5D, 1.0D)), JinericItems.FULL_GRASS_BLOCK);
       ColorProviderRegistry.ITEM.register((((stack, tintIndex) ->
               tintIndex > 0 ? -1 : GrassColors.getColor(0.5D, 1.0D))), JinericItems.JUNGLE_LADDER);
+      ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex > 0 ? -1 : ((DyeableItem)stack.getItem()).getColor(stack), Items.BUNDLE);
    }
 }
