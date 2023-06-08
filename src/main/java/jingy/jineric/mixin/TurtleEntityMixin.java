@@ -78,7 +78,7 @@ public abstract class TurtleEntityMixin extends AnimalEntity implements Saddleab
    public void saddle(@Nullable SoundCategory sound) {
       this.jineric$saddledComponent.setSaddled(true);
       if (sound != null) {
-         this.world.playSoundFromEntity((PlayerEntity)null, this, SoundEvents.ENTITY_STRIDER_SADDLE, sound, 0.5F, 1.0F);
+         this.getWorld().playSoundFromEntity((PlayerEntity)null, this, SoundEvents.ENTITY_STRIDER_SADDLE, sound, 0.5F, 1.0F);
       }
    }
 
@@ -89,7 +89,7 @@ public abstract class TurtleEntityMixin extends AnimalEntity implements Saddleab
 
    @Override
    public void onTrackedDataSet(TrackedData<?> data) {
-      if (BOOST_TIME.equals(data) && this.world.isClient) {
+      if (BOOST_TIME.equals(data) && this.getWorld().isClient) {
          this.jineric$saddledComponent.boost();
       }
 
@@ -100,11 +100,11 @@ public abstract class TurtleEntityMixin extends AnimalEntity implements Saddleab
    public ActionResult interactMob(PlayerEntity player, Hand hand) {
       boolean bl = this.isBreedingItem(player.getStackInHand(hand));
       if (!bl && this.isSaddled() && !this.hasPassengers() && !player.shouldCancelInteraction()) {
-         if (!this.world.isClient) {
+         if (!this.getWorld().isClient) {
             player.startRiding(this);
          }
 
-         return ActionResult.success(this.world.isClient);
+         return ActionResult.success(this.getWorld().isClient);
       } else {
          ActionResult actionResult = super.interactMob(player, hand);
          if (!actionResult.isAccepted()) {

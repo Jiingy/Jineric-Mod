@@ -51,8 +51,8 @@ dependencies {
 
 	// api
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	modCompileOnly "dev.emi:emi:${emi_version}:api"
-	modLocalRuntime "dev.emi:emi:${emi_version}"
+//	modCompileOnly "dev.emi:emi:${emi_version}:api"
+//	modLocalRuntime "dev.emi:emi:${emi_version}"
 
 	// mixin extras
 	implementation("com.github.LlamaLad7:MixinExtras:0.1.1")
