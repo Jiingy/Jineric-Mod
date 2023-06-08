@@ -13,7 +13,7 @@ import net.minecraft.util.math.BlockPos;
 
 public class RefineryBlockEntity extends AbstractFurnaceBlockEntity {
    public RefineryBlockEntity(BlockPos blockPos, BlockState state) {
-      super(JinericBlockEntityType.REFINERY, blockPos, state, JinericRecipeType.REFINING_RECIPE_TYPE);
+      super(JinericBlockEntityType.REFINERY, blockPos, state, JinericRecipeType.REFINING);
    }
    @Override
    protected Text getContainerName() {

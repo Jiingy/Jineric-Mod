@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "jineric:refinery",
     "jineric:bone_meal_block",
     "jineric:calcite_stairs",
     "jineric:calcite_slab",

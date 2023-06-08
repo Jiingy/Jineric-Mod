@@ -3,6 +3,10 @@
   "values": [
     "jineric:snow_wall",
     "jineric:sugar_block",
-    "jineric:full_grass_block"
+    "jineric:full_grass_block",
+    "jineric:snow_bricks",
+    "jineric:snow_brick_stairs",
+    "jineric:snow_brick_slab",
+    "jineric:snow_brick_wall"
   ]
 }

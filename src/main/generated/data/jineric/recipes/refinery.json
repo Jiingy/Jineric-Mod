@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "minecraft:furnace"
+    },
+    "P": {
+      "item": "minecraft:polished_deepslate"
+    },
+    "T": {
+      "item": "minecraft:deepslate_tiles"
+    }
+  },
+  "pattern": [
+    "PPP",
+    "PFP",
+    "TTT"
+  ],
+  "result": {
+    "item": "jineric:refinery"
+  },
+  "show_notification": true
+}

@@ -24,13 +24,16 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
    public void generate(Consumer<RecipeJsonProvider> exporter) {
       //--- REMINDERS ---
       // - SLAB STONECUTTING RECIPES NEED 2 OUTPUT
-      // - STAIRS NEED .offerTo(exporter);
       RecipeCategory building = RecipeCategory.BUILDING_BLOCKS;
-      RecipeCategory misc = RecipeCategory.MISC;
       // offerStonecuttingRecipe(exporter, building, JinericBlocks., JinericBlocks.);
       // offerStonecuttingRecipe(exporter, building, JinericBlocks._SLAB, JinericBlocks.);
       // offerStonecuttingRecipe(exporter, building, JinericBlocks._STAIRS, JinericBlocks.);
       // offerStonecuttingRecipe(exporter, building, JinericBlocks._WALL, JinericBlocks.);
+
+//      offerRefining(exporter, Items.DRIPSTONE_BLOCK, RecipeCategory.BUILDING_BLOCKS, JinericItems.SMOOTH_DRIPSTONE, 0.2F);
+//      offerRefining(exporter, JinericItems.DRIPSTONE_STAIRS, RecipeCategory.BUILDING_BLOCKS, JinericItems.SMOOTH_DRIPSTONE_STAIRS, 0.2F);
+//      offerRefining(exporter, JinericItems.DRIPSTONE_SLAB, RecipeCategory.BUILDING_BLOCKS, JinericItems.SMOOTH_DRIPSTONE_SLAB, 0.2F);
+//      offerRefining(exporter, JinericItems.DRIPSTONE_WALL, RecipeCategory.BUILDING_BLOCKS, JinericItems.SMOOTH_DRIPSTONE_WALL, 0.2F);
 
       offerIronUpgradeRecipe(exporter, Items.STONE_SWORD, RecipeCategory.COMBAT, Items.IRON_SWORD);
       offerIronUpgradeRecipe(exporter, Items.STONE_AXE, RecipeCategory.TOOLS, Items.IRON_AXE);
@@ -48,7 +51,6 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
       offerTrappedChestReipce(exporter, JinericItems.TRAPPED_CRIMSON_CHEST, JinericItems.CRIMSON_CHEST);
       offerTrappedChestReipce(exporter, JinericItems.TRAPPED_WARPED_CHEST, JinericItems.WARPED_CHEST);
 
-
       offerStonecuttingRecipe(exporter, building, JinericBlocks.SMOOTH_BASALT_SLAB, Blocks.SMOOTH_BASALT);
       offerStonecuttingRecipe(exporter, building, JinericBlocks.SMOOTH_BASALT_STAIRS, Blocks.SMOOTH_BASALT);
       offerStonecuttingRecipe(exporter, building, JinericBlocks.SMOOTH_BASALT_WALL, Blocks.SMOOTH_BASALT);
@@ -61,7 +63,17 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
       offerStonecuttingRecipe(exporter, building, JinericBlocks.CRACKED_POLISHED_BLACKSTONE_BRICK_SLAB, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS);
       offerStonecuttingRecipe(exporter, building, JinericBlocks.CRACKED_POLISHED_BLACKSTONE_BRICK_STAIRS, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS);
       offerStonecuttingRecipe(exporter, building, JinericBlocks.CRACKED_POLISHED_BLACKSTONE_BRICK_WALL, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS);
-      createCustomFenceRecipe(JinericBlocks.RED_NETHER_BRICK_FENCE, Ingredient.ofItems(Blocks.RED_NETHER_BRICKS));
+      offerFenceRecipe(exporter, RecipeCategory.MISC, JinericBlocks.RED_NETHER_BRICK_FENCE, Blocks.RED_NETHER_BRICKS);
+
+      ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, JinericBlocks.SNOW_BRICKS, 4).input('#', Blocks.SNOW_BLOCK).pattern("##").pattern("##").criterion("has_snow", conditionsFromItem(Blocks.SNOW)).offerTo(exporter);
+      createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, JinericBlocks.SNOW_BRICK_SLAB, Ingredient.ofItems(JinericBlocks.SNOW_BRICKS)).criterion("has_snow_bricks", conditionsFromItem(JinericBlocks.SNOW_BRICKS)).offerTo(exporter);
+      createStairsRecipe(JinericBlocks.SNOW_BRICK_STAIRS, Ingredient.ofItems(JinericBlocks.SNOW_BRICKS)).criterion("has_snow_bricks", conditionsFromItem(JinericBlocks.SNOW_BRICKS)).offerTo(exporter);
+      offerWallRecipe(exporter, RecipeCategory.DECORATIONS, JinericBlocks.SNOW_BRICK_WALL, JinericBlocks.SNOW_BRICKS);
+      offerStonecuttingRecipe(exporter, building, JinericBlocks.SNOW_BRICK_STAIRS, JinericBlocks.SNOW_BRICKS);
+      offerStonecuttingRecipe(exporter, building, JinericBlocks.SNOW_BRICK_SLAB, JinericBlocks.SNOW_BRICKS);
+      offerStonecuttingRecipe(exporter, building, JinericBlocks.SNOW_BRICK_WALL, JinericBlocks.SNOW_BRICKS);
+
+      offerRefinery(exporter, JinericBlocks.REFINERY);
    }
 
    public static void offerTrappedChestReipce(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
@@ -73,12 +85,12 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
               .offerTo(exporter);
    }
 
-   public static CraftingRecipeJsonBuilder createCustomFenceRecipe(ItemConvertible output, Ingredient input) {
-      return ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, output)
-              .input('#', input)
-              .input('X', Items.NETHER_BRICK)
-              .pattern("#X#")
-              .pattern("#X#");
+   public static void offerFenceRecipe(Consumer<RecipeJsonProvider> exporter, RecipeCategory category, ItemConvertible output, ItemConvertible input) {
+      createFenceRecipe(category, output, Ingredient.ofItems(input)).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
+   }
+
+   public static CraftingRecipeJsonBuilder createFenceRecipe(RecipeCategory category, ItemConvertible output, Ingredient outerInput) {
+      return ShapedRecipeJsonBuilder.create(category, output, 6).input('#', Items.NETHER_BRICK).input('%', outerInput).pattern("%#%").pattern("%#%");
    }
 
    public static void offerIronUpgradeRecipe(Consumer<RecipeJsonProvider> exporter, Item input, RecipeCategory category, Item result) {
@@ -89,4 +101,23 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
               .criterion("has_iron_ingot", conditionsFromItem(Items.IRON_INGOT))
               .offerTo(exporter, getItemPath(result) + "_smithing");
    }
+
+   public static void offerRefinery(Consumer<RecipeJsonProvider> exporter, ItemConvertible output) {
+      ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, output, 1)
+              .input('P', Blocks.POLISHED_DEEPSLATE).input('T', Blocks.DEEPSLATE_TILES).input('F', Blocks.FURNACE)
+              .pattern("PPP")
+              .pattern("PFP")
+              .pattern("TTT")
+              .criterion("has_furnace", conditionsFromItem(Items.FURNACE)).offerTo(exporter);
+   }
+//
+//   public static void offerRefining(Consumer<RecipeJsonProvider> exporter, Item input, RecipeCategory category, ItemConvertible output, float xp) {
+//      createRefining(Ingredient.ofItems(input), category, output, xp, 100, RefiningRecipe.REFINING_RECIPE_SERIALIZER)
+//              .criterion(hasItem(input), conditionsFromItem(input))
+//              .offerTo(exporter, getItemPath(output) + "_from_refining");
+//   }
+//
+//   public static CookingRecipeJsonBuilder createRefining(Ingredient input, RecipeCategory category, ItemConvertible output, float experience, int cookingTime, RecipeSerializer<? extends AbstractCookingRecipe> serializer) {
+//      return CookingRecipeJsonBuilderAccess.invokeInit(category, CookingRecipeJsonBuilderAccess.getBlastingRecipeCategory(output), output, input, experience, cookingTime, serializer);
+//   }
 }

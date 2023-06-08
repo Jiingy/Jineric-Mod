@@ -162,6 +162,10 @@ public class JinericItems {
 	public static final Item CALCITE_STAIRS = register("calcite_stairs", new BlockItem(JinericBlocks.CALCITE_STAIRS, new FabricItemSettings()));
 	public static final Item CALCITE_SLAB = register("calcite_slab", new BlockItem(JinericBlocks.CALCITE_SLAB, new FabricItemSettings()));
 	public static final Item CALCITE_WALL = register("calcite_wall", new BlockItem(JinericBlocks.CALCITE_WALL, new FabricItemSettings()));
+	public static final Item SNOW_BRICKS = register("snow_bricks", new BlockItem(JinericBlocks.SNOW_BRICKS, new FabricItemSettings()));
+	public static final Item SNOW_BRICK_STAIRS = register("snow_brick_stairs", new BlockItem(JinericBlocks.SNOW_BRICK_STAIRS, new FabricItemSettings()));
+	public static final Item SNOW_BRICK_SLAB = register("snow_brick_slab", new BlockItem(JinericBlocks.SNOW_BRICK_SLAB, new FabricItemSettings()));
+	public static final Item SNOW_BRICK_WALL = register("snow_brick_wall", new BlockItem(JinericBlocks.SNOW_BRICK_WALL, new FabricItemSettings()));
 	public static final Item SNOW_WALL = register("snow_wall", new BlockItem(JinericBlocks.SNOW_WALL, new FabricItemSettings()));
 	public static final Item PACKED_ICE_STAIRS = register("packed_ice_stairs", new BlockItem(JinericBlocks.PACKED_ICE_STAIRS, new FabricItemSettings()));
 	public static final Item PACKED_ICE_SLAB = register("packed_ice_slab", new BlockItem(JinericBlocks.PACKED_ICE_SLAB, new FabricItemSettings()));
@@ -248,9 +252,9 @@ public class JinericItems {
 //REDSTONE
 	public static final Item REDSTONE_LANTERN = register("redstone_lantern", new BlockItem(JinericBlocks.REDSTONE_LANTERN, new FabricItemSettings()));
 //FOOD
-	public static final Item GOLDEN_POTATO = register("golden_potato", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(6).saturationModifier(14.4f).build())));
-	public static final Item GOLDEN_SWEET_BERRIES = register("golden_sweet_berries", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(5).saturationModifier(8f).build())));
-	public static final Item GOLDEN_BEETROOT = register("golden_beetroot", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(5f).build())));
+	public static final Item GOLDEN_POTATO = register("golden_potato", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.6f).build())));
+	public static final Item GOLDEN_SWEET_BERRIES = register("golden_sweet_berries", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.2f).build())));
+	public static final Item GOLDEN_BEETROOT = register("golden_beetroot", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(1.2f).build())));
 //MISC JINERIC
 	public static final Item SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", new BlockItem(JinericBlocks.SOUL_JACK_O_LANTERN, new FabricItemSettings()));
 	public static final Item NETHERITE_HORSE_ARMOR = register("netherite_horse_armor", new JinericHorseArmorItem(15, "netherite", new FabricItemSettings().fireproof().maxCount(1)));
