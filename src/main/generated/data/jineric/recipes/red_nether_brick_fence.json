@@ -3,18 +3,18 @@
   "category": "misc",
   "key": {
     "#": {
-      "item": "minecraft:red_nether_bricks"
-    },
-    "X": {
       "item": "minecraft:nether_brick"
+    },
+    "%": {
+      "item": "minecraft:red_nether_bricks"
     }
   },
   "pattern": [
-    "#X#",
-    "#X#"
+    "%#%",
+    "%#%"
   ],
   "result": {
-    "count": 3,
+    "count": 6,
     "item": "jineric:red_nether_brick_fence"
   },
   "show_notification": true
