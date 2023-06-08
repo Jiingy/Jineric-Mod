@@ -52,7 +52,7 @@ public class JinericBlockSettings extends Blocks {
 
 	public static FabricBlockSettings snowBrickSettings() {
 		return FabricBlockSettings
-				.of(Material.SNOW_BLOCK)
+				.copyOf(SNOW_BLOCK)
 				.strength(0.5F)
 				.sounds(BlockSoundGroup.SNOW)
 				.requiresTool()
