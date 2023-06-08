@@ -1,21 +1,29 @@
 plugins {
 	id 'java-library'
 	id 'idea'
-	id 'fabric-loom' version '1.0-SNAPSHOT'
+	id 'fabric-loom' version '1.2-SNAPSHOT'
 	id "maven-publish"
 	id 'io.github.juuxel.loom-quiltflower' version '1.8.0'
 	id "com.modrinth.minotaur" version "1.1.0"
 }
 
-/* Setup */
-def ENV = System.getenv()
+/* Data Generation */
+def dataOutput = 'src/main/generated'
+loom {
+	accessWidenerPath = file("src/main/resources/jineric.accesswidener")
+	runs {
+		datagenClient {
+			inherit client
+			name "Data Generation"
+			vmArg "-Dfabric-api.datagen"
+			vmArg "-Dfabric-api.datagen.output-dir=${file(dataOutput)}"
 
-sourceCompatibility = targetCompatibility = JavaVersion.VERSION_17
-tasks.withType(JavaCompile).configureEach { it.options.release = 17 }
+			runDir "build/datagen"
+		}
+	}
+}
 
-//group = project.maven_group
-archivesBaseName = project.mod_id
-version = project.version
+sourceSets { main { resources { srcDirs += dataOutput } } }
 
 /* Dependencies */
 repositories {
@@ -28,6 +36,13 @@ repositories {
 		url = "https://maven.terraformersmc.com/"
 	}
 }
+
+tasks.withType(JavaCompile).configureEach { it.options.release = 17 }
+sourceCompatibility = targetCompatibility = JavaVersion.VERSION_17
+
+group = project.maven_group
+archivesBaseName = project.archives_base_name
+version = project.version
 
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
@@ -43,6 +58,8 @@ dependencies {
 	implementation("com.github.LlamaLad7:MixinExtras:0.1.1")
 	include "com.github.LlamaLad7:MixinExtras:0.1.1"
 	annotationProcessor("com.github.LlamaLad7:MixinExtras:0.1.1")
+
+	include implementation ('com.github.Chocohead:Fabric-ASM:v2.3')
 }
 
 /* Resource Processing */
@@ -56,9 +73,9 @@ processResources {
 
 	filesMatching("fabric.mod.json") {
 		expand(
-			"version": project.version,
-			"mod_id": project.mod_id,
-			"mod_name": project.name,
+				"version": project.version,
+				"mod_id": project.mod_id,
+				"mod_name": project.name,
 //			"mod_description": project.description,
 //			"main_class": project.main_class
 		)
@@ -70,24 +87,6 @@ jar {
 		rename { "${it}_${project.archivesBaseName}"}
 	}
 }
-
-/* Data Generation */
-def dataOutput = 'src/main/generated'
-loom {
-	runs {
-		datagenClient {
-			inherit client
-			name "Data Generation"
-			vmArg "-Dfabric-api.datagen"
-			vmArg "-Dfabric-api.datagen.output-dir=${file(dataOutput)}"
-
-			runDir "build/datagen"
-		}
-	}
-	accessWidenerPath = file("src/main/resources/jineric.accesswidener")
-}
-
-sourceSets { main { resources { srcDirs += dataOutput } } }
 
 /* Publishing */
 java { withSourcesJar() }

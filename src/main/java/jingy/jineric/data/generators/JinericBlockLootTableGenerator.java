@@ -34,6 +34,12 @@ public class JinericBlockLootTableGenerator extends FabricBlockLootTableProvider
       addDrop(JinericBlocks.TRAPPED_MANGROVE_CHEST, this::nameableContainerDrops);
       addDrop(JinericBlocks.TRAPPED_CRIMSON_CHEST, this::nameableContainerDrops);
       addDrop(JinericBlocks.TRAPPED_WARPED_CHEST, this::nameableContainerDrops);
+
+      addDrop(JinericBlocks.SNOW_BRICKS);
+      addDrop(JinericBlocks.SNOW_BRICK_STAIRS);
+      addDrop(JinericBlocks.SNOW_BRICK_SLAB);
+      addDrop(JinericBlocks.SNOW_BRICK_WALL);
+      addDrop(JinericBlocks.REFINERY);
    }
 
    public void addBlockSetDrops(Block block, Block stairBlock, Block slabBlock, Block wallBlock) {

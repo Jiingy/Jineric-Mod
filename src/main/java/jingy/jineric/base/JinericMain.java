@@ -1,5 +1,6 @@
 package jingy.jineric.base;
 
+import jingy.jineric.block.JinericCauldronBehaviors;
 import jingy.jineric.entity.JinericPaintingVariant;
 import jingy.jineric.entity.effect.JinericStatusEffects;
 import jingy.jineric.item.JinericItemGroups;
@@ -36,6 +37,7 @@ public class JinericMain implements ModInitializer {
 		JinericRecipeType.registerRecipeTypes();
 		JinericStatusEffects.registerStatusEffects();
 		JinericScreenHandlerType.registerScreenHandlers();
+		JinericCauldronBehaviors.registerCauldronBehaviors();
 
 		System.out.println("Jineric Mod Main - Finished initialization");
 	}

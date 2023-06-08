@@ -14,8 +14,6 @@ import static net.minecraft.recipe.BrewingRecipeRegistry.registerPotionRecipe;
 @Mixin(BrewingRecipeRegistry.class)
 public abstract class BrewingRecipeRegistryMixin {
 
-
-
    @Inject(at = @At("HEAD"), method = "registerDefaults()V")
    private static void jineric$registerDefaults(CallbackInfo ci) {
       //DARKNESS

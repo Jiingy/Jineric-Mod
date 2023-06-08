@@ -1,6 +1,6 @@
 package jingy.jineric.registry;
 
-import jingy.jineric.sound.JinericSoundGroups;
+import jingy.jineric.sound.JinericBlockSoundGroup;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.entity.EntityType;
@@ -18,9 +18,9 @@ public class JinericBlockSettings extends Blocks {
 				.copyOf(STONE)
 				.requiresTool()
 				.strength(0.8f, 4f)
-				.sounds(JinericSoundGroups.SOUL_SANDSTONE)
+				.sounds(JinericBlockSoundGroup.SOUL_SANDSTONE)
 				.mapColor(MapColor.BROWN)
-				.sounds(JinericSoundGroups.SOUL_SANDSTONE);
+				.sounds(JinericBlockSoundGroup.SOUL_SANDSTONE);
 	}
 
 	public static FabricBlockSettings obsidianSettings() {
@@ -48,6 +48,16 @@ public class JinericBlockSettings extends Blocks {
 				.suffocates(JinericBlockSettings::never)
 				.blockVision(JinericBlockSettings::never)
 		);
+	}
+
+	public static FabricBlockSettings snowBrickSettings() {
+		return FabricBlockSettings
+				.of(Material.SNOW_BLOCK)
+				.strength(0.5F)
+				.sounds(BlockSoundGroup.SNOW)
+				.requiresTool()
+				.mapColor(MapColor.WHITE)
+				.hardness(0.4F);
 	}
 
 	private static boolean always(BlockState state, BlockView blockView, BlockPos blockPos, EntityType<?> entityType) {

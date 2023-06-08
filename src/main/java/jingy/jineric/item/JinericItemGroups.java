@@ -241,6 +241,7 @@ public class JinericItemGroups {
 							entries.add(JinericItems.TUFF_TILE_SLAB);
 							entries.add(JinericItems.TUFF_TILE_STAIRS);
 							entries.add(JinericItems.TUFF_TILE_WALL);
+
 //				entries.add(JinericItems.SHULKER_CHEST);
 							entries.add(JinericItems.GOLDEN_POTATO);
 							entries.add(JinericItems.GOLDEN_SWEET_BERRIES);

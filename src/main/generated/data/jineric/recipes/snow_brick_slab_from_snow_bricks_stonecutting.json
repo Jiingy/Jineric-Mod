@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "jineric:snow_bricks"
+  },
+  "result": "jineric:snow_brick_slab"
+}

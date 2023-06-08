@@ -1,6 +1,7 @@
 {
    "replace": false,
    "values": [
+	  "minecraft:ladder",
 	  "jineric:spruce_ladder",
 	  "jineric:birch_ladder",
 	  "jineric:jungle_ladder",
