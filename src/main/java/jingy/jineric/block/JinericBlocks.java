@@ -10,7 +10,10 @@ import net.minecraft.block.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
+
+import java.util.function.ToIntFunction;
 
 import static net.minecraft.block.Blocks.*;
 
@@ -295,10 +298,11 @@ public class JinericBlocks {
 	public static final Block TRAPPED_MANGROVE_CHEST = register("trapped_mangrove_chest", new JinericTrappedChestBlock(FabricBlockSettings.copy(TRAPPED_CHEST).sounds(BlockSoundGroup.NETHER_WOOD), WoodType.MANGROVE));
 
 
-	public static final Block REFINERY = register("refinery", new RefineryBlock(FabricBlockSettings.copy(FURNACE).luminance(state -> 13).sounds(BlockSoundGroup.DEEPSLATE)));
+	public static final Block REFINERY = register("refinery", new RefineryBlock(FabricBlockSettings.copy(FURNACE).luminance(createLightLevelFromLitBlockState(13)).sounds(BlockSoundGroup.DEEPSLATE)));
 
 //REDSTONE
 	public static final Block REDSTONE_LANTERN = register("redstone_lantern", new RedstoneLanternBlock(FabricBlockSettings.copy(LANTERN).luminance(state -> 7)));
+	//TODO: Change redundant usage of JinericBlockSettings.redstoneCampfireSettings()
 	public static final Block REDSTONE_CAMPFIRE = register("redstone_campfire", new RedstoneCampfireBlock(false, 1, JinericBlockSettings.redstoneCampfireSettings()));
 
 //WOOD
@@ -344,6 +348,10 @@ public class JinericBlocks {
 	//ICE SLIPPERINESS
 	public static boolean isSlipperyBlock(BlockState state) {
 		return state.isIn(JinericBlockTags.IS_SLIPPERY);
+	}
+
+	private static ToIntFunction<BlockState> createLightLevelFromLitBlockState(int litLevel) {
+		return state -> state.get(Properties.LIT) ? litLevel : 0;
 	}
 
 	private static Block register(String id, Block block) {
