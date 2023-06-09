@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_magenta_terracotta": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:magenta_terracotta"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "jineric:magenta_glazed_terracotta_refining_magenta_terracotta"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_magenta_terracotta",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "jineric:magenta_glazed_terracotta_refining_magenta_terracotta"
+    ]
+  }
+}

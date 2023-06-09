@@ -1,0 +1,11 @@
+{
+  "type": "jineric:refining",
+  "category": "blocks",
+  "cookingtime": 100,
+  "experience": 0.2,
+  "group": "tuff_bricks",
+  "ingredient": {
+    "item": "jineric:tuff_brick_stairs"
+  },
+  "result": "jineric:cracked_tuff_brick_stairs"
+}
