@@ -17,7 +17,7 @@ public class EarlyRiser implements Runnable {
       String recipeBookGroup = remapper.mapClassName("intermediary", "net.minecraft.class_314");
       String itemStack = "[L" + remapper.mapClassName("intermediary", "net.minecraft.class_1799") + ";";
       ClassTinkerers.enumBuilder(recipeBookGroup, itemStack).addEnum("JINERIC_REFINERY_SEARCH", () -> new Object[] {new ItemStack[]{new ItemStack(Items.COMPASS)}}).build();
-      ClassTinkerers.enumBuilder(recipeBookGroup, itemStack).addEnum("JINERIC_REFINERY_STONES", () -> new Object[] {new ItemStack[]{new ItemStack(Items.STONE)}}).build();
+      ClassTinkerers.enumBuilder(recipeBookGroup, itemStack).addEnum("JINERIC_REFINERY_BUILDING", () -> new Object[] {new ItemStack[]{new ItemStack(Items.STONE)}}).build();
       ClassTinkerers.enumBuilder(recipeBookGroup, itemStack).addEnum("JINERIC_REFINERY_MISC", () -> new Object[] {new ItemStack[]{new ItemStack(Items.CYAN_GLAZED_TERRACOTTA)}}).build();
 
    }

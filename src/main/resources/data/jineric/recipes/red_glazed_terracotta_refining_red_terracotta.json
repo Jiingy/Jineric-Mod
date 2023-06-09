@@ -1,0 +1,10 @@
+{
+  "type": "jineric:refining",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.2,
+  "ingredient": {
+    "item": "minecraft:red_terracotta"
+  },
+  "result": "minecraft:red_glazed_terracotta"
+}

@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ClientRecipeBook.class)
 public abstract class ClientRecipeBookMixin {
-   private static final RecipeBookGroup JINERIC_REFINERY_STONES = ClassTinkerers.getEnum(RecipeBookGroup.class, "JINERIC_REFINERY_STONES");
+   private static final RecipeBookGroup JINERIC_REFINERY_BUILDING = ClassTinkerers.getEnum(RecipeBookGroup.class, "JINERIC_REFINERY_BUILDING");
    private static final RecipeBookGroup JINERIC_REFINERY_MISC = ClassTinkerers.getEnum(RecipeBookGroup.class, "JINERIC_REFINERY_MISC");
 
    @Inject(
@@ -31,7 +31,7 @@ public abstract class ClientRecipeBookMixin {
          CookingRecipeCategory cookingRecipeCategory = abstractCookingRecipe.getCategory();
          if (recipeType == JinericRecipeType.REFINING) {
             if (cookingRecipeCategory == CookingRecipeCategory.BLOCKS) {
-               cir.setReturnValue(JINERIC_REFINERY_STONES);
+               cir.setReturnValue(JINERIC_REFINERY_BUILDING);
             } else {
                cir.setReturnValue(JINERIC_REFINERY_MISC);
             }
