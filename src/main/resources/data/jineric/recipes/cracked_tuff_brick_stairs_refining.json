@@ -1,9 +1,0 @@
-{
-   "type": "jineric:refining",
-   "category": "blocks",
-   "experience": 0.2,
-   "ingredient": {
-	  "item": "jineric:tuff_brick_stairs"
-   },
-   "result": "jineric:cracked_tuff_brick_stairs"
-}

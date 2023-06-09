@@ -1,9 +1,0 @@
-{
-   "type": "jineric:refining",
-   "category": "blocks",
-   "experience": 0.2,
-   "ingredient": {
-      "item": "minecraft:purple_terracotta"
-   },
-   "result": "minecraft:purple_glazed_terracotta"
-}
