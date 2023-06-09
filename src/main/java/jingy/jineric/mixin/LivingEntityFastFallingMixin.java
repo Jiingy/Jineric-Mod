@@ -31,7 +31,7 @@ public abstract class LivingEntityFastFallingMixin extends Entity {
    private double jineric$alterTravel(double constant, Vec3d movementInput) {
       boolean bl = getVelocity().y <= 0.0;
       if (bl && hasStatusEffect(JinericStatusEffects.FAST_FALLING)) {
-         return 0.24;
+         return 0.64;
       } else {
          return constant;
       }
