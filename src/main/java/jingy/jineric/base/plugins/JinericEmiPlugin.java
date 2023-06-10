@@ -9,3 +9,7 @@
 //
 //   }
 //}
+
+//    "emi": [
+//      "jingy.jineric.base.plugins.JinericEmiPlugin"
+//      ]

@@ -4,6 +4,8 @@ import com.chocohead.mm.api.ClassTinkerers;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import jingy.jineric.recipe.JinericRecipeBookGroup;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.recipebook.RecipeBookGroup;
 import net.minecraft.recipe.book.RecipeBookCategory;
 import org.spongepowered.asm.mixin.Final;
@@ -18,6 +20,7 @@ import java.util.Map;
 
 import static net.minecraft.client.recipebook.RecipeBookGroup.*;
 
+@Environment(value= EnvType.CLIENT)
 @Mixin(RecipeBookGroup.class)
 public class RecipeBookGroupMixin {
 
