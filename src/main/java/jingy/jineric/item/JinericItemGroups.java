@@ -26,7 +26,7 @@ public class JinericItemGroups {
 		Registry.register(Registries.ITEM_GROUP, MOD_ITEMS, FabricItemGroup.builder()
 						.displayName(Text.literal("Jineric Mod Items"))
 						.icon(() -> new ItemStack(JinericItems.PRISMARINE_CRYSTAL_BLOCK))
-						.entries((displayContext, entries) -> {
+						.entries((context, entries) -> {
 							entries.add(JinericItems.POLISHED_STONE);
 							entries.add(JinericItems.POLISHED_STONE_STAIRS);
 							entries.add(JinericItems.POLISHED_STONE_SLAB);
@@ -253,7 +253,6 @@ public class JinericItemGroups {
 							entries.add(JinericItems.REDSTONE_LANTERN);
 							entries.add(JinericItems.REDSTONE_CAMPFIRE);
 							entries.add(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE);
-//				entries.add(JinericItems.);
 //				entries.add(JinericItems.POLISHED_CALCITE);
 //				entries.add(JinericItems.POLISHED_CALCITE_STAIRS);
 //				entries.add(JinericItems.POLISHED_CALCITE_SLAB);
