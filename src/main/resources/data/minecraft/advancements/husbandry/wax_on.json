@@ -3,37 +3,45 @@
   "criteria": {
     "wax_on": {
       "conditions": {
-        "item": {
-          "items": [
-            "minecraft:honeycomb"
-          ]
-        },
-        "location": {
-          "block": {
-            "blocks": [
-              "minecraft:copper_block",
-              "minecraft:exposed_copper",
-              "minecraft:weathered_copper",
-              "minecraft:oxidized_copper",
-              "minecraft:cut_copper",
-              "minecraft:exposed_cut_copper",
-              "minecraft:weathered_cut_copper",
-              "minecraft:oxidized_cut_copper",
-              "minecraft:cut_copper_slab",
-              "minecraft:exposed_cut_copper_slab",
-              "minecraft:weathered_cut_copper_slab",
-              "minecraft:oxidized_cut_copper_slab",
-              "minecraft:cut_copper_stairs",
-              "minecraft:exposed_cut_copper_stairs",
-              "minecraft:weathered_cut_copper_stairs",
-              "minecraft:oxidized_cut_copper_stairs",
-              "jineric:cut_copper_wall",
-              "jineric:exposed_cut_copper_wall",
-              "jineric:weathered_cut_copper_wall",
-              "jineric:oxidized_cut_copper_wall"
-            ]
+        "location": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "minecraft:waxed_copper_block",
+                  "minecraft:waxed_exposed_copper",
+                  "minecraft:waxed_weathered_copper",
+                  "minecraft:waxed_oxidized_copper",
+                  "minecraft:waxed_cut_copper",
+                  "minecraft:waxed_exposed_cut_copper",
+                  "minecraft:waxed_weathered_cut_copper",
+                  "minecraft:waxed_oxidized_cut_copper",
+                  "minecraft:waxed_cut_copper_slab",
+                  "minecraft:waxed_exposed_cut_copper_slab",
+                  "minecraft:waxed_weathered_cut_copper_slab",
+                  "minecraft:waxed_oxidized_cut_copper_slab",
+                  "minecraft:waxed_cut_copper_stairs",
+                  "minecraft:waxed_exposed_cut_copper_stairs",
+                  "minecraft:waxed_weathered_cut_copper_stairs",
+                  "minecraft:waxed_oxidized_cut_copper_stairs",
+                  "jineric:waxed_cut_copper_wall",
+                  "jineric:waxed_exposed_cut_copper_wall",
+                  "jineric:waxed_weathered_cut_copper_wall",
+                  "jineric:waxed_oxidized_cut_copper_wall"
+                ]
+              }
+            }
+          },
+          {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "items": [
+                "minecraft:honeycomb"
+              ]
+            }
           }
-        }
+        ]
       },
       "trigger": "minecraft:item_used_on_block"
     }
@@ -57,5 +65,6 @@
     [
       "wax_on"
     ]
-  ]
+  ],
+  "sends_telemetry_event": true
 }

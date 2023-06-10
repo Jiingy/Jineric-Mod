@@ -24,6 +24,7 @@ public class JinericMain implements ModInitializer {
 		return new Identifier(MOD_ID, path);
 	}
 
+	// TODO: FIX EMI PLUGIN
 	@Override
 	public void onInitialize() {
 	LOGGER.info("Jineric Mod Main - Starting initialization");

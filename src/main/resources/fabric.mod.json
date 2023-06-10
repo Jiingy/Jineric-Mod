@@ -14,6 +14,7 @@
   },
   "license": "MIT",
   "icon": "assets/jineric/icon.png",
+  "environment": "*",
   "entrypoints": {
     "fabric-datagen": [
       "jingy.jineric.data.JinericDataGeneration"
@@ -29,10 +30,7 @@
     ],
     "mm:early_risers": [
       "jingy.jineric.base.plugins.EarlyRiser"
-    ],
-    "emi": [
-      "jingy.jineric.base.plugins.JinericEmiPlugin"
-      ]
+    ]
   },
   "mixins": [
     "jineric.mixins.json"
@@ -40,7 +38,7 @@
   "depends": {
     "fabricloader": ">=0.14",
     "fabric": "*",
-    "minecraft": ">1.19.3",
+    "minecraft": ">=1.20",
     "java": ">=17"
   },
   "accessWidener": "jineric.accesswidener",
