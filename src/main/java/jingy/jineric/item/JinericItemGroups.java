@@ -3,7 +3,6 @@ package jingy.jineric.item;
 import jingy.jineric.base.JinericMain;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
@@ -17,13 +16,13 @@ import net.minecraft.util.Identifier;
 
 @SuppressWarnings("all")
 public class JinericItemGroups {
+	public static final Identifier MOD_ITEMS_ID = new Identifier(JinericMain.MOD_ID, "mod_items");
 
-	private static final RegistryKey<ItemGroup> MOD_ITEMS = RegistryKey.of(
-			RegistryKeys.ITEM_GROUP, new Identifier(JinericMain.MOD_ID, "mod_items")
-	);
+	private static final RegistryKey<ItemGroup> MOD_ITEMS_KEY =
+			RegistryKey.of(RegistryKeys.ITEM_GROUP, MOD_ITEMS_ID);
 
 	public static void registerJinericItemGroups() {
-		Registry.register(Registries.ITEM_GROUP, MOD_ITEMS, FabricItemGroup.builder()
+		Registry.register(Registries.ITEM_GROUP, MOD_ITEMS_KEY, FabricItemGroup.builder()
 						.displayName(Text.literal("Jineric Mod Items"))
 						.icon(() -> new ItemStack(JinericItems.PRISMARINE_CRYSTAL_BLOCK))
 						.entries((context, entries) -> {
@@ -241,36 +240,16 @@ public class JinericItemGroups {
 							entries.add(JinericItems.TUFF_TILE_SLAB);
 							entries.add(JinericItems.TUFF_TILE_STAIRS);
 							entries.add(JinericItems.TUFF_TILE_WALL);
-
-//				entries.add(JinericItems.SHULKER_CHEST);
 							entries.add(JinericItems.GOLDEN_POTATO);
 							entries.add(JinericItems.GOLDEN_SWEET_BERRIES);
 							entries.add(JinericItems.GOLDEN_BEETROOT);
-//				entries.add(JinericItems.MANX_LOAGHTAN_SPAWN_EGG);
-//				entries.add(JinericItems.SALT);
-//				entries.add(JinericItems.SALT_BLOCK);
 //				entries.add(JinericItems.FROZEN_ELYTRA);
 							entries.add(JinericItems.REDSTONE_LANTERN);
 							entries.add(JinericItems.REDSTONE_CAMPFIRE);
 							entries.add(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE);
-//				entries.add(JinericItems.POLISHED_CALCITE);
-//				entries.add(JinericItems.POLISHED_CALCITE_STAIRS);
-//				entries.add(JinericItems.POLISHED_CALCITE_SLAB);
-//				entries.add(JinericItems.POLISHED_CALCITE_WALL);
-//				entries.add(JinericItems.CALCITE_BRICKS);
-//				entries.add(JinericItems.CALCITE_BRICK_STAIRS);
-//				entries.add(JinericItems.CALCITE_BRICK_SLAB);
-//				entries.add(JinericItems.CALCITE_BRICK_WALL);
-//				entries.add(JinericItems.SMOOTH_CALCITE);
-//				entries.add(JinericItems.SMOOTH_CALCITE_STAIRS);
-//				entries.add(JinericItems.SMOOTH_CALCITE_SLAB);
-//				entries.add(JinericItems.SMOOTH_CALCITE_WALL);
 				}).build()
 		);
 	}
-
-//	public static final Identifier MOD_ITEMS_ID = new Identifier("jineric:mod_items");
-//	public static final Map<ItemGroup, Identifier> GROUP_ID_MAP = new ImmutableMap.Builder<ItemGroup, Identifier>().put(MOD_ITEMS, MOD_ITEMS_ID).build();
 
 	public static void registerItemGroups() {
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register((entries) -> {
@@ -423,7 +402,7 @@ public class JinericItemGroups {
 			entries.addAfter(Items.CRACKED_NETHER_BRICKS, JinericItems.CRACKED_NETHER_BRICK_STAIRS);
 			entries.addAfter(JinericItems.CRACKED_NETHER_BRICK_STAIRS, JinericItems.CRACKED_NETHER_BRICK_SLAB);
 			entries.addAfter(JinericItems.CRACKED_NETHER_BRICK_SLAB, JinericItems.CRACKED_NETHER_BRICK_WALL);
-			entries.addAfter(Blocks.RED_NETHER_BRICK_WALL, JinericItems.RED_NETHER_BRICK_FENCE);
+			entries.addAfter(Items.RED_NETHER_BRICK_WALL, JinericItems.RED_NETHER_BRICK_FENCE);
 			entries.addAfter(Items.CRACKED_POLISHED_BLACKSTONE_BRICKS, JinericItems.CRACKED_POLISHED_BLACKSTONE_BRICK_STAIRS);
 			entries.addAfter(JinericItems.CRACKED_POLISHED_BLACKSTONE_BRICK_STAIRS, JinericItems.CRACKED_POLISHED_BLACKSTONE_BRICK_SLAB);
 			entries.addAfter(JinericItems.CRACKED_POLISHED_BLACKSTONE_BRICK_SLAB, JinericItems.CRACKED_POLISHED_BLACKSTONE_BRICK_WALL);
@@ -457,10 +436,10 @@ public class JinericItemGroups {
 
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register((entries -> {
 			entries.addBefore(Items.GRASS_BLOCK, JinericItems.FULL_GRASS_BLOCK);
+			//TODO: WORK OUT BLOCK SETS
 //			entries.addAfter(Items.PACKED_ICE, JinericItems.PACKED_ICE_STAIRS);
 //			entries.addAfter(JinericItems.PACKED_ICE_STAIRS, JinericItems.PACKED_ICE_SLAB);
 //			entries.addAfter(JinericItems.PACKED_ICE_SLAB, JinericItems.PACKED_ICE_WALL);
-			//TODO: WORK OUT OBSIDIAN
 //			entries.addAfter(Items.OBSIDIAN, JinericItems.OBSIDIAN_STAIRS);
 //			entries.addAfter(JinericItems.OBSIDIAN_STAIRS, JinericItems.OBSIDIAN_SLAB);
 //			entries.addAfter(JinericItems.OBSIDIAN_SLAB, JinericItems.OBSIDIAN_WALL);
