@@ -15,7 +15,7 @@ public class JinericBlockSettings extends Blocks {
 
 	public static FabricBlockSettings soulSandstoneSettings() {
 		return FabricBlockSettings
-				.of(Material.STONE)
+				.copyOf(STONE)
 				.requiresTool()
 				.strength(0.8f, 4f)
 				.sounds(JinericBlockSoundGroup.SOUL_SANDSTONE)
@@ -24,14 +24,13 @@ public class JinericBlockSettings extends Blocks {
 	}
 
 	public static FabricBlockSettings obsidianSettings() {
-		return FabricBlockSettings
-				.of(JinericBlockMaterials.OBSIDIAN, MapColor.BLACK)
+		return FabricBlockSettings.copyOf(OBSIDIAN)
 				.requiresTool()
 				.strength(50.0F, 1200.0F).sounds(BlockSoundGroup.STONE);
 	}
 	public static FabricBlockSettings redstoneCampfireSettings() {
 		return FabricBlockSettings
-				.of(Material.WOOD, MapColor.BROWN)
+				.copyOf(OAK_WOOD)
 				.strength(2.0F)
 				.sounds(BlockSoundGroup.WOOD)
 				.luminance(createLightLevelFromLitBlockState(7))
@@ -40,7 +39,7 @@ public class JinericBlockSettings extends Blocks {
 
 	public static LeavesBlock JinericLeavesBlock(BlockSoundGroup soundGroup) {
 		return new LeavesBlock(
-				AbstractBlock.Settings.of(Material.LEAVES)
+				AbstractBlock.Settings.copy(OAK_LEAVES)
 				.strength(0.2F)
 				.ticksRandomly()
 				.sounds(soundGroup)
@@ -53,7 +52,7 @@ public class JinericBlockSettings extends Blocks {
 
 	public static FabricBlockSettings snowBrickSettings() {
 		return FabricBlockSettings
-				.of(Material.SNOW_BLOCK)
+				.copyOf(SNOW_BLOCK)
 				.strength(0.5F)
 				.sounds(BlockSoundGroup.SNOW)
 				.requiresTool()

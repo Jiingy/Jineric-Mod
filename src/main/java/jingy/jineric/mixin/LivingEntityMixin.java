@@ -26,11 +26,11 @@ public abstract class LivingEntityMixin extends Entity {
 	protected void jineric$handleSoulSpeedForSlabsAndFences(CallbackInfoReturnable<Boolean> cir) {
 		// check feet pos block
 		BlockPos pos = getBlockPos();
-		if (world.getBlockState(pos).isIn(BlockTags.SOUL_SPEED_BLOCKS)) {
+		if (getWorld().getBlockState(pos).isIn(BlockTags.SOUL_SPEED_BLOCKS)) {
 			cir.setReturnValue(true);
 		}
 		// check head pos block
-		if (world.getBlockState(pos.up()).isIn(BlockTags.SOUL_SPEED_BLOCKS)) {
+		if (getWorld().getBlockState(pos.up()).isIn(BlockTags.SOUL_SPEED_BLOCKS)) {
 			cir.setReturnValue(true);
 		}
 	}
@@ -42,7 +42,7 @@ public abstract class LivingEntityMixin extends Entity {
 	@SuppressWarnings("InvalidInjectorMethodSignature")
 	public float jineric$setSlipperiness(float p) {
 		BlockPos pos = getBlockPos();
-		BlockState state = world.getBlockState(pos);
+		BlockState state = getWorld().getBlockState(pos);
 		if (isOnGround() && JinericBlocks.isSlipperyBlock(state)) {
 			// if Y is a perfect integer, we're on a full block.
 			// Otherwise, get friction from the block the entity is in, not on.
