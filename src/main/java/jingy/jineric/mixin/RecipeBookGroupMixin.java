@@ -25,7 +25,7 @@ import static net.minecraft.client.recipebook.RecipeBookGroup.*;
 public class RecipeBookGroupMixin {
 
    private static final RecipeBookGroup JINERIC_REFINERY_SEARCH = ClassTinkerers.getEnum(RecipeBookGroup.class, "JINERIC_REFINERY_SEARCH");
-   private static final RecipeBookGroup JINERIC_REFINERY_STONES = ClassTinkerers.getEnum(RecipeBookGroup.class, "JINERIC_REFINERY_STONES");
+   private static final RecipeBookGroup JINERIC_REFINERY_BUILDING = ClassTinkerers.getEnum(RecipeBookGroup.class, "JINERIC_REFINERY_BUILDING");
    private static final RecipeBookGroup JINERIC_REFINERY_MISC = ClassTinkerers.getEnum(RecipeBookGroup.class, "JINERIC_REFINERY_MISC");
 
    @Final
@@ -47,7 +47,7 @@ public class RecipeBookGroupMixin {
            SMOKER_SEARCH,
            ImmutableList.of(SMOKER_FOOD),
            JINERIC_REFINERY_SEARCH,
-           ImmutableList.of(JINERIC_REFINERY_STONES, JINERIC_REFINERY_MISC)
+           ImmutableList.of(JINERIC_REFINERY_BUILDING, JINERIC_REFINERY_MISC)
    );
 
    @Inject(method = "getGroups", at = @At("HEAD"), cancellable = true)

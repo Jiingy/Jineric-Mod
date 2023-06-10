@@ -1,0 +1,11 @@
+{
+  "type": "jineric:refining",
+  "category": "blocks",
+  "cookingtime": 100,
+  "experience": 0.2,
+  "group": "cobbled_tuff",
+  "ingredient": {
+    "item": "jineric:cobbled_tuff_wall"
+  },
+  "result": "jineric:tuff_wall"
+}

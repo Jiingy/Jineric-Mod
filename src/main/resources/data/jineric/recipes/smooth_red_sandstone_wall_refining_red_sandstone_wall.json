@@ -1,0 +1,11 @@
+{
+  "type": "jineric:refining",
+  "category": "blocks",
+  "cookingtime": 100,
+  "experience": 0.2,
+  "group": "red_sandstone",
+  "ingredient": {
+    "item": "minecraft:red_sandstone_wall"
+  },
+  "result": "jineric:smooth_red_sandstone_wall"
+}

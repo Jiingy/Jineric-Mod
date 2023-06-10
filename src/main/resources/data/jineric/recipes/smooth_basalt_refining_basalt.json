@@ -1,0 +1,11 @@
+{
+  "type": "jineric:refining",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.2,
+  "group": "basalt",
+  "ingredient": {
+    "item": "minecraft:basalt"
+  },
+  "result": "minecraft:smooth_basalt"
+}

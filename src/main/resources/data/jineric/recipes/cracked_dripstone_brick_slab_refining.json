@@ -1,9 +1,0 @@
-{
-   "type": "jineric:refining",
-   "category": "blocks",
-   "experience": 0.2,
-   "ingredient": {
-	  "item": "jineric:dripstone_brick_slab"
-   },
-   "result": "jineric:cracked_dripstone_brick_slab"
-}
