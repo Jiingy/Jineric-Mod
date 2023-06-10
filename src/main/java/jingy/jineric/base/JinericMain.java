@@ -29,7 +29,7 @@ public class JinericMain implements ModInitializer {
 	public void onInitialize() {
 	LOGGER.info("Jineric Mod Main - Starting initialization");
 		JinericRegistries.registerJinericMod();
-//		JinericItemGroups.registerItemGroups();
+		JinericItemGroups.registerItemGroups();
 		JinericItemGroups.registerJinericItemGroups();
 		JinericPaintingVariant.registerPaintingMotives();
 		JinericStats.registerStats();
