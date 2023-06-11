@@ -1,7 +1,6 @@
 package jingy.jineric.base;
 
 import jingy.jineric.client.render.JinericElytraFeatureRenderer;
-import jingy.jineric.client.render.entity.model.JinericEntityModelLayer;
 import jingy.jineric.client.render.entity.model.TurtleSaddleModel;
 import jingy.jineric.registry.*;
 import net.fabricmc.api.ClientModInitializer;
@@ -39,7 +38,7 @@ public class JinericClientMain implements ClientModInitializer {
 		LivingEntityFeatureRendererRegistrationCallback.EVENT.register(((entityType, entityRenderer, registrationHelper, context) -> {
 			if (entityRenderer instanceof TurtleEntityRenderer turtleEntityRenderer) {
 				registrationHelper.register(new SaddleFeatureRenderer(
-						turtleEntityRenderer, new TurtleSaddleModel(context.getPart(JinericEntityModelLayer.TURTLE_SADDLE)),new Identifier(JinericMain.MOD_ID, "textures/entity/turtle/big_sea_turtle_saddle.png"))
+						turtleEntityRenderer, new TurtleSaddleModel(context.getPart(JinericEntityModelLayers.TURTLE_SADDLE)),new Identifier(JinericMain.MOD_ID, "textures/entity/turtle/big_sea_turtle_saddle.png"))
 				);
 
 			}

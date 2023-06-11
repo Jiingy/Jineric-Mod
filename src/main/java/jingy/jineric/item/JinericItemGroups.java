@@ -135,6 +135,10 @@ public class JinericItemGroups {
 							entries.add(JinericItems.CALCITE_STAIRS);
 							entries.add(JinericItems.CALCITE_SLAB);
 							entries.add(JinericItems.CALCITE_WALL);
+							entries.add(JinericItems.SNOW_BRICKS);
+							entries.add(JinericItems.SNOW_BRICK_STAIRS);
+							entries.add(JinericItems.SNOW_BRICK_SLAB);
+							entries.add(JinericItems.SNOW_BRICK_WALL);
 							entries.add(JinericItems.SNOW_WALL);
 							entries.add(JinericItems.PACKED_ICE_STAIRS);
 							entries.add(JinericItems.PACKED_ICE_SLAB);
