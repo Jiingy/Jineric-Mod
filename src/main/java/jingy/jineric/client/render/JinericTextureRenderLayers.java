@@ -12,7 +12,6 @@ import net.minecraft.client.util.SpriteIdentifier;
 import net.minecraft.util.Identifier;
 
 public class JinericTextureRenderLayers extends TexturedRenderLayers {
-
    public static final SpriteIdentifier ACACIA_CHEST = createChestTextureId("acacia_chest");
    public static final SpriteIdentifier ACACIA_CHEST_LEFT = createChestTextureId("acacia_left");
    public static final SpriteIdentifier ACACIA_CHEST_RIGHT = createChestTextureId("acacia_right");
