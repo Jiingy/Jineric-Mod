@@ -19,16 +19,20 @@ public abstract class RecipeBookOptionsMixin {
    @Mutable
    @Final
    @Shadow
-   private static Map<RecipeBookCategory, Pair<String, String>> CATEGORY_OPTION_NAMES = ImmutableMap.of(
-           RecipeBookCategory.CRAFTING,
-           Pair.of("isGuiOpen", "isFilteringCraftable"),
-           RecipeBookCategory.FURNACE,
-           Pair.of("isFurnaceGuiOpen", "isFurnaceFilteringCraftable"),
-           RecipeBookCategory.BLAST_FURNACE,
-           Pair.of("isBlastingFurnaceGuiOpen", "isBlastingFurnaceFilteringCraftable"),
-           RecipeBookCategory.SMOKER,
-           Pair.of("isSmokerGuiOpen", "isSmokerFilteringCraftable"),
-           JINERIC_REFINERY,
-           Pair.of("isRefineryGuiOpen", "isRefineryFilteringCraftable")
-   );
+   private static Map<RecipeBookCategory, Pair<String, String>> CATEGORY_OPTION_NAMES;
+
+   static {
+      CATEGORY_OPTION_NAMES = ImmutableMap.of(
+              RecipeBookCategory.CRAFTING,
+              Pair.of("isGuiOpen", "isFilteringCraftable"),
+              RecipeBookCategory.FURNACE,
+              Pair.of("isFurnaceGuiOpen", "isFurnaceFilteringCraftable"),
+              RecipeBookCategory.BLAST_FURNACE,
+              Pair.of("isBlastingFurnaceGuiOpen", "isBlastingFurnaceFilteringCraftable"),
+              RecipeBookCategory.SMOKER,
+              Pair.of("isSmokerGuiOpen", "isSmokerFilteringCraftable"),
+              JINERIC_REFINERY,
+              Pair.of("isRefineryGuiOpen", "isRefineryFilteringCraftable")
+      );
+   }
 }
