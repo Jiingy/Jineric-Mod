@@ -140,7 +140,6 @@ public class JinericItemGroups {
 							entries.add(JinericItems.SNOW_BRICK_SLAB);
 							entries.add(JinericItems.SNOW_BRICK_WALL);
 							entries.add(JinericItems.SNOW_WALL);
-							entries.add(JinericItems.SNOW_WALL);
 							entries.add(JinericItems.PACKED_ICE_STAIRS);
 							entries.add(JinericItems.PACKED_ICE_SLAB);
 							entries.add(JinericItems.PACKED_ICE_WALL);
