@@ -14,6 +14,7 @@ public class JinericDataGeneration implements DataGeneratorEntrypoint {
 
    @Override
    public void onInitializeDataGenerator(FabricDataGenerator generator) {
+      //TODO: RENAME "pack" TO BE MORE SPECIFIC
       FabricDataGenerator.Pack pack = generator.createPack();
       pack.addProvider(JinericRecipeGenerator::new);
       pack.addProvider(JinericModelGenerator::new);
