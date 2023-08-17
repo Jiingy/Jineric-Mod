@@ -28,5 +28,6 @@
     "recipes": [
       "jineric:trapped_mangrove_chest"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

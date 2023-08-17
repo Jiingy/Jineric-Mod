@@ -30,5 +30,6 @@
     "recipes": [
       "minecraft:snow_brick_slab_from_snow_bricks_stonecutting"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

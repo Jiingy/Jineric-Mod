@@ -28,5 +28,6 @@
     "recipes": [
       "jineric:trapped_birch_chest"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }
