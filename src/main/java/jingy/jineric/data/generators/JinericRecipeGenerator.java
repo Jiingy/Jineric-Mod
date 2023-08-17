@@ -25,9 +25,7 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
    public JinericRecipeGenerator(FabricDataOutput output) {
       super(output);
    }
-
-
-
+   
    @Override
    public void generate(Consumer<RecipeJsonProvider> exporter) {
       RecipeCategory blocks = RecipeCategory.BUILDING_BLOCKS;
@@ -35,6 +33,11 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
       Item cookingNone = Items.AIR;
       CookingRecipeCategory cookingBlocks = CookingRecipeCategory.BLOCKS;
       CookingRecipeCategory cookingMisc = CookingRecipeCategory.MISC;
+
+      offerRefining(exporter, Items.SMOOTH_QUARTZ, Items.QUARTZ_BLOCK, blocks, cookingBlocks, 0.2F, Items.SMOOTH_QUARTZ);
+      offerRefining(exporter, Items.SMOOTH_QUARTZ_STAIRS, Items.QUARTZ_STAIRS, blocks, cookingBlocks, 0.2F, Items.SMOOTH_QUARTZ);
+      offerRefining(exporter, Items.SMOOTH_QUARTZ_SLAB, Items.QUARTZ_SLAB, blocks, cookingBlocks, 0.2F, Items.SMOOTH_QUARTZ);
+      offerRefining(exporter, JinericItems.SMOOTH_QUARTZ_WALL, JinericItems.QUARTZ_WALL, blocks, cookingBlocks, 0.2F, Items.SMOOTH_QUARTZ);
 
       offerCrackingRecipe(exporter, JinericItems.CRACKED_DRIPSTONE_TILES, JinericItems.DRIPSTONE_TILES);
       offerRefining(exporter, JinericItems.CRACKED_DRIPSTONE_TILES, JinericItems.DRIPSTONE_TILES, blocks, cookingBlocks, 0.2F, JinericItems.CRACKED_DRIPSTONE_TILES);
