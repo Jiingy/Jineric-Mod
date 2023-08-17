@@ -25,7 +25,7 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
    public JinericRecipeGenerator(FabricDataOutput output) {
       super(output);
    }
-   
+
    @Override
    public void generate(Consumer<RecipeJsonProvider> exporter) {
       RecipeCategory blocks = RecipeCategory.BUILDING_BLOCKS;

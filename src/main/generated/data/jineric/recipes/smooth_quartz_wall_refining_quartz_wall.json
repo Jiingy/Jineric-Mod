@@ -1,0 +1,11 @@
+{
+  "type": "jineric:refining",
+  "category": "blocks",
+  "cookingtime": 100,
+  "experience": 0.2,
+  "group": "smooth_quartz",
+  "ingredient": {
+    "item": "jineric:quartz_wall"
+  },
+  "result": "jineric:smooth_quartz_wall"
+}
