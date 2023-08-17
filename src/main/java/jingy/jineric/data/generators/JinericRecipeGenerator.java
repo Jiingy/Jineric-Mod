@@ -26,13 +26,51 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
       super(output);
    }
 
+
+
    @Override
    public void generate(Consumer<RecipeJsonProvider> exporter) {
-      RecipeCategory building = RecipeCategory.BUILDING_BLOCKS;
+      RecipeCategory blocks = RecipeCategory.BUILDING_BLOCKS;
       RecipeCategory misc = RecipeCategory.MISC;
+      Item cookingNone = Items.AIR;
       CookingRecipeCategory cookingBlocks = CookingRecipeCategory.BLOCKS;
       CookingRecipeCategory cookingMisc = CookingRecipeCategory.MISC;
-      Item noGroup = Items.AIR;
+
+      offerCrackingRecipe(exporter, JinericItems.CRACKED_DRIPSTONE_TILES, JinericItems.DRIPSTONE_TILES);
+      offerRefining(exporter, JinericItems.CRACKED_DRIPSTONE_TILES, JinericItems.DRIPSTONE_TILES, blocks, cookingBlocks, 0.2F, JinericItems.CRACKED_DRIPSTONE_TILES);
+      offerRefining(exporter, JinericItems.CRACKED_DRIPSTONE_TILE_STAIRS, JinericItems.DRIPSTONE_TILE_STAIRS, blocks, cookingBlocks, 0.2F, JinericItems.CRACKED_DRIPSTONE_TILES);
+      offerRefining(exporter, JinericItems.CRACKED_DRIPSTONE_TILE_SLAB, JinericItems.DRIPSTONE_TILE_SLAB, blocks, cookingBlocks, 0.2F, JinericItems.CRACKED_DRIPSTONE_TILES);
+      offerRefining(exporter, JinericItems.CRACKED_DRIPSTONE_TILE_WALL, JinericItems.DRIPSTONE_TILE_WALL, blocks, cookingBlocks, 0.2F, JinericItems.CRACKED_DRIPSTONE_TILES);
+      offerStonecuttingRecipe(exporter, blocks, JinericBlocks.CRACKED_DRIPSTONE_TILE_SLAB, JinericBlocks.CRACKED_DRIPSTONE_TILES);
+      offerStonecuttingRecipe(exporter, blocks, JinericBlocks.CRACKED_DRIPSTONE_TILE_STAIRS, JinericBlocks.CRACKED_DRIPSTONE_TILES);
+      offerStonecuttingRecipe(exporter, blocks, JinericBlocks.CRACKED_DRIPSTONE_TILE_WALL, JinericBlocks.CRACKED_DRIPSTONE_TILES);
+      createSlabRecipe(blocks, JinericBlocks.CRACKED_DRIPSTONE_TILE_SLAB, Ingredient.ofItems(JinericBlocks.CRACKED_DRIPSTONE_TILES)).criterion("has_cracked_dripstone_tiles", conditionsFromItem(JinericBlocks.CRACKED_DRIPSTONE_TILES)).offerTo(exporter);
+      createStairsRecipe(JinericBlocks.CRACKED_DRIPSTONE_TILE_STAIRS, Ingredient.ofItems(JinericBlocks.CRACKED_DRIPSTONE_TILES)).criterion("has_cracked_dripstone_tiles", conditionsFromItem(JinericBlocks.CRACKED_DRIPSTONE_TILES)).offerTo(exporter);
+      offerWallRecipe(exporter, RecipeCategory.DECORATIONS, JinericBlocks.CRACKED_DRIPSTONE_TILE_WALL, JinericBlocks.CRACKED_DRIPSTONE_TILES);
+
+      offerCrackingRecipe(exporter, JinericItems.CRACKED_TUFF_TILES, JinericItems.TUFF_TILES);
+      offerRefining(exporter, JinericItems.CRACKED_TUFF_TILES, JinericItems.TUFF_TILES, blocks, cookingBlocks, 0.2F, JinericItems.CRACKED_TUFF_TILES);
+      offerRefining(exporter, JinericItems.CRACKED_TUFF_TILE_STAIRS, JinericItems.TUFF_TILE_STAIRS, blocks, cookingBlocks, 0.2F, JinericItems.CRACKED_TUFF_TILES);
+      offerRefining(exporter, JinericItems.CRACKED_TUFF_TILE_SLAB, JinericItems.TUFF_TILE_SLAB, blocks, cookingBlocks, 0.2F, JinericItems.CRACKED_TUFF_TILES);
+      offerRefining(exporter, JinericItems.CRACKED_TUFF_TILE_WALL, JinericItems.TUFF_TILE_WALL, blocks, cookingBlocks, 0.2F, JinericItems.CRACKED_TUFF_TILES);
+      offerStonecuttingRecipe(exporter, blocks, JinericBlocks.CRACKED_TUFF_TILE_SLAB, JinericBlocks.CRACKED_TUFF_TILES);
+      offerStonecuttingRecipe(exporter, blocks, JinericBlocks.CRACKED_TUFF_TILE_STAIRS, JinericBlocks.CRACKED_TUFF_TILES);
+      offerStonecuttingRecipe(exporter, blocks, JinericBlocks.CRACKED_TUFF_TILE_WALL, JinericBlocks.CRACKED_TUFF_TILES);
+      createSlabRecipe(blocks, JinericBlocks.CRACKED_TUFF_TILE_SLAB, Ingredient.ofItems(JinericBlocks.CRACKED_TUFF_TILES)).criterion("has_cracked_tuff_tiles", conditionsFromItem(JinericBlocks.CRACKED_TUFF_TILES)).offerTo(exporter);
+      createStairsRecipe(JinericBlocks.CRACKED_TUFF_TILE_STAIRS, Ingredient.ofItems(JinericBlocks.CRACKED_TUFF_TILES)).criterion("has_cracked_tuff_tiles", conditionsFromItem(JinericBlocks.CRACKED_TUFF_TILES)).offerTo(exporter);
+      offerWallRecipe(exporter, RecipeCategory.DECORATIONS, JinericBlocks.CRACKED_TUFF_TILE_WALL, JinericBlocks.CRACKED_TUFF_TILES);
+
+      offerCrackingRecipe(exporter, JinericItems.CRACKED_STONE_TILES, JinericItems.STONE_TILES);
+      offerRefining(exporter, JinericItems.CRACKED_STONE_TILES, JinericItems.STONE_TILES, blocks, cookingBlocks, 0.2F, JinericItems.CRACKED_STONE_TILES);
+      offerRefining(exporter, JinericItems.CRACKED_STONE_TILE_STAIRS, JinericItems.STONE_TILE_STAIRS, blocks, cookingBlocks, 0.2F, JinericItems.CRACKED_STONE_TILES);
+      offerRefining(exporter, JinericItems.CRACKED_STONE_TILE_SLAB, JinericItems.STONE_TILE_SLAB, blocks, cookingBlocks, 0.2F, JinericItems.CRACKED_STONE_TILES);
+      offerRefining(exporter, JinericItems.CRACKED_STONE_TILE_WALL, JinericItems.STONE_TILE_WALL, blocks, cookingBlocks, 0.2F, JinericItems.CRACKED_STONE_TILES);
+      offerStonecuttingRecipe(exporter, blocks, JinericBlocks.CRACKED_STONE_TILE_SLAB, JinericBlocks.CRACKED_STONE_TILES);
+      offerStonecuttingRecipe(exporter, blocks, JinericBlocks.CRACKED_STONE_TILE_STAIRS, JinericBlocks.CRACKED_STONE_TILES);
+      offerStonecuttingRecipe(exporter, blocks, JinericBlocks.CRACKED_STONE_TILE_WALL, JinericBlocks.CRACKED_STONE_TILES);
+      createSlabRecipe(blocks, JinericBlocks.CRACKED_STONE_TILE_SLAB, Ingredient.ofItems(JinericBlocks.CRACKED_STONE_TILES)).criterion("has_cracked_stone_tiles", conditionsFromItem(JinericBlocks.CRACKED_STONE_TILES)).offerTo(exporter);
+      createStairsRecipe(JinericBlocks.CRACKED_STONE_TILE_STAIRS, Ingredient.ofItems(JinericBlocks.CRACKED_STONE_TILES)).criterion("has_cracked_stone_tiles", conditionsFromItem(JinericBlocks.CRACKED_STONE_TILES)).offerTo(exporter);
+      offerWallRecipe(exporter, RecipeCategory.DECORATIONS, JinericBlocks.CRACKED_STONE_TILE_WALL, JinericBlocks.CRACKED_STONE_TILES);
 
       offerIronUpgradeRecipe(exporter, Items.STONE_SWORD, RecipeCategory.COMBAT, Items.IRON_SWORD);
       offerIronUpgradeRecipe(exporter, Items.STONE_AXE, RecipeCategory.TOOLS, Items.IRON_AXE);
@@ -50,27 +88,27 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
       offerTrappedChestReipce(exporter, JinericItems.TRAPPED_CRIMSON_CHEST, JinericItems.CRIMSON_CHEST);
       offerTrappedChestReipce(exporter, JinericItems.TRAPPED_WARPED_CHEST, JinericItems.WARPED_CHEST);
 
-      offerStonecuttingRecipe(exporter, building, JinericBlocks.SMOOTH_BASALT_SLAB, Blocks.SMOOTH_BASALT);
-      offerStonecuttingRecipe(exporter, building, JinericBlocks.SMOOTH_BASALT_STAIRS, Blocks.SMOOTH_BASALT);
-      offerStonecuttingRecipe(exporter, building, JinericBlocks.SMOOTH_BASALT_WALL, Blocks.SMOOTH_BASALT);
-      offerStonecuttingRecipe(exporter, building, JinericBlocks.CRACKED_DEEPSLATE_TILE_SLAB, Blocks.CRACKED_DEEPSLATE_TILES);
-      offerStonecuttingRecipe(exporter, building, JinericBlocks.CRACKED_DEEPSLATE_TILE_STAIRS, Blocks.CRACKED_DEEPSLATE_TILES);
-      offerStonecuttingRecipe(exporter, building, JinericBlocks.CRACKED_DEEPSLATE_TILE_WALL, Blocks.CRACKED_DEEPSLATE_TILES);
-      offerStonecuttingRecipe(exporter, building, JinericBlocks.CRACKED_DEEPSLATE_BRICK_SLAB, Blocks.CRACKED_DEEPSLATE_BRICKS);
-      offerStonecuttingRecipe(exporter, building, JinericBlocks.CRACKED_DEEPSLATE_BRICK_STAIRS, Blocks.CRACKED_DEEPSLATE_BRICKS);
-      offerStonecuttingRecipe(exporter, building, JinericBlocks.CRACKED_DEEPSLATE_BRICK_WALL, Blocks.CRACKED_DEEPSLATE_BRICKS);
-      offerStonecuttingRecipe(exporter, building, JinericBlocks.CRACKED_POLISHED_BLACKSTONE_BRICK_SLAB, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS);
-      offerStonecuttingRecipe(exporter, building, JinericBlocks.CRACKED_POLISHED_BLACKSTONE_BRICK_STAIRS, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS);
-      offerStonecuttingRecipe(exporter, building, JinericBlocks.CRACKED_POLISHED_BLACKSTONE_BRICK_WALL, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS);
+      offerStonecuttingRecipe(exporter, blocks, JinericBlocks.SMOOTH_BASALT_SLAB, Blocks.SMOOTH_BASALT);
+      offerStonecuttingRecipe(exporter, blocks, JinericBlocks.SMOOTH_BASALT_STAIRS, Blocks.SMOOTH_BASALT);
+      offerStonecuttingRecipe(exporter, blocks, JinericBlocks.SMOOTH_BASALT_WALL, Blocks.SMOOTH_BASALT);
+      offerStonecuttingRecipe(exporter, blocks, JinericBlocks.CRACKED_DEEPSLATE_TILE_SLAB, Blocks.CRACKED_DEEPSLATE_TILES);
+      offerStonecuttingRecipe(exporter, blocks, JinericBlocks.CRACKED_DEEPSLATE_TILE_STAIRS, Blocks.CRACKED_DEEPSLATE_TILES);
+      offerStonecuttingRecipe(exporter, blocks, JinericBlocks.CRACKED_DEEPSLATE_TILE_WALL, Blocks.CRACKED_DEEPSLATE_TILES);
+      offerStonecuttingRecipe(exporter, blocks, JinericBlocks.CRACKED_DEEPSLATE_BRICK_SLAB, Blocks.CRACKED_DEEPSLATE_BRICKS);
+      offerStonecuttingRecipe(exporter, blocks, JinericBlocks.CRACKED_DEEPSLATE_BRICK_STAIRS, Blocks.CRACKED_DEEPSLATE_BRICKS);
+      offerStonecuttingRecipe(exporter, blocks, JinericBlocks.CRACKED_DEEPSLATE_BRICK_WALL, Blocks.CRACKED_DEEPSLATE_BRICKS);
+      offerStonecuttingRecipe(exporter, blocks, JinericBlocks.CRACKED_POLISHED_BLACKSTONE_BRICK_SLAB, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS);
+      offerStonecuttingRecipe(exporter, blocks, JinericBlocks.CRACKED_POLISHED_BLACKSTONE_BRICK_STAIRS, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS);
+      offerStonecuttingRecipe(exporter, blocks, JinericBlocks.CRACKED_POLISHED_BLACKSTONE_BRICK_WALL, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS);
       offerFenceRecipe(exporter, RecipeCategory.MISC, JinericBlocks.RED_NETHER_BRICK_FENCE, Blocks.RED_NETHER_BRICKS);
 
-      ShapedRecipeJsonBuilder.create(building, JinericBlocks.SNOW_BRICKS, 4).input('#', Blocks.SNOW_BLOCK).pattern("##").pattern("##").criterion("has_snow", conditionsFromItem(Blocks.SNOW)).offerTo(exporter);
-      createSlabRecipe(building, JinericBlocks.SNOW_BRICK_SLAB, Ingredient.ofItems(JinericBlocks.SNOW_BRICKS)).criterion("has_snow_bricks", conditionsFromItem(JinericBlocks.SNOW_BRICKS)).offerTo(exporter);
+      ShapedRecipeJsonBuilder.create(blocks, JinericBlocks.SNOW_BRICKS, 4).input('#', Blocks.SNOW_BLOCK).pattern("##").pattern("##").criterion("has_snow", conditionsFromItem(Blocks.SNOW)).offerTo(exporter);
+      createSlabRecipe(blocks, JinericBlocks.SNOW_BRICK_SLAB, Ingredient.ofItems(JinericBlocks.SNOW_BRICKS)).criterion("has_snow_bricks", conditionsFromItem(JinericBlocks.SNOW_BRICKS)).offerTo(exporter);
       createStairsRecipe(JinericBlocks.SNOW_BRICK_STAIRS, Ingredient.ofItems(JinericBlocks.SNOW_BRICKS)).criterion("has_snow_bricks", conditionsFromItem(JinericBlocks.SNOW_BRICKS)).offerTo(exporter);
       offerWallRecipe(exporter, RecipeCategory.DECORATIONS, JinericBlocks.SNOW_BRICK_WALL, JinericBlocks.SNOW_BRICKS);
-      offerStonecuttingRecipe(exporter, building, JinericBlocks.SNOW_BRICK_STAIRS, JinericBlocks.SNOW_BRICKS);
-      offerStonecuttingRecipe(exporter, building, JinericBlocks.SNOW_BRICK_SLAB, JinericBlocks.SNOW_BRICKS);
-      offerStonecuttingRecipe(exporter, building, JinericBlocks.SNOW_BRICK_WALL, JinericBlocks.SNOW_BRICKS);
+      offerStonecuttingRecipe(exporter, blocks, JinericBlocks.SNOW_BRICK_STAIRS, JinericBlocks.SNOW_BRICKS);
+      offerStonecuttingRecipe(exporter, blocks, JinericBlocks.SNOW_BRICK_SLAB, JinericBlocks.SNOW_BRICKS);
+      offerStonecuttingRecipe(exporter, blocks, JinericBlocks.SNOW_BRICK_WALL, JinericBlocks.SNOW_BRICKS);
 
       offerRefinery(exporter, JinericBlocks.REFINERY);
    }
@@ -111,7 +149,7 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
               .offerTo(exporter);
    }
 
-   public static void offerRefining(Consumer<RecipeJsonProvider> exporter, Item input, ItemConvertible output, RecipeCategory category, CookingRecipeCategory cookingCategory, float xp, Item group) {
+   public static void offerRefining(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, Item input, RecipeCategory category, CookingRecipeCategory cookingCategory, float xp, Item group) {
       Identifier outId = new Identifier(output.toString());
       createRefining(Ingredient.ofItems(input), category, cookingCategory, output, xp, 100, RefiningRecipe.REFINING_RECIPE_SERIALIZER)
               .group(group == Items.AIR ? null : group.toString())

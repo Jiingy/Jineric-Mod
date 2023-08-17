@@ -59,7 +59,7 @@ dependencies {
 	include "com.github.LlamaLad7:MixinExtras:0.1.1"
 	annotationProcessor("com.github.LlamaLad7:MixinExtras:0.1.1")
 
-	include implementation ('com.github.Chocohead:Fabric-ASM:v2.3')
+	include(implementation ('com.github.Chocohead:Fabric-ASM:v2.3'))
 }
 
 /* Resource Processing */

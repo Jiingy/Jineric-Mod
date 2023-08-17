@@ -39,6 +39,18 @@ public class JinericBlockLootTableGenerator extends FabricBlockLootTableProvider
       addDrop(JinericBlocks.SNOW_BRICK_STAIRS);
       addDrop(JinericBlocks.SNOW_BRICK_SLAB);
       addDrop(JinericBlocks.SNOW_BRICK_WALL);
+      addDrop(JinericBlocks.CRACKED_DRIPSTONE_TILES);
+      addDrop(JinericBlocks.CRACKED_DRIPSTONE_TILE_STAIRS);
+      addDrop(JinericBlocks.CRACKED_DRIPSTONE_TILE_SLAB);
+      addDrop(JinericBlocks.CRACKED_DRIPSTONE_TILE_WALL);
+      addDrop(JinericBlocks.CRACKED_TUFF_TILES);
+      addDrop(JinericBlocks.CRACKED_TUFF_TILE_STAIRS);
+      addDrop(JinericBlocks.CRACKED_TUFF_TILE_SLAB);
+      addDrop(JinericBlocks.CRACKED_TUFF_TILE_WALL);
+      addDrop(JinericBlocks.CRACKED_STONE_TILES);
+      addDrop(JinericBlocks.CRACKED_STONE_TILE_STAIRS);
+      addDrop(JinericBlocks.CRACKED_STONE_TILE_SLAB);
+      addDrop(JinericBlocks.CRACKED_STONE_TILE_WALL);
       addDrop(JinericBlocks.REFINERY);
    }
 

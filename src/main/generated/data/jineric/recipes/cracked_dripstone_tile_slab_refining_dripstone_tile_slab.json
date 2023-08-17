@@ -1,0 +1,11 @@
+{
+  "type": "jineric:refining",
+  "category": "blocks",
+  "cookingtime": 100,
+  "experience": 0.2,
+  "group": "cracked_dripstone_tiles",
+  "ingredient": {
+    "item": "jineric:dripstone_tile_slab"
+  },
+  "result": "jineric:cracked_dripstone_tile_slab"
+}

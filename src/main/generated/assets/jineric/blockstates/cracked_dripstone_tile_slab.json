@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "jineric:block/cracked_dripstone_tile_slab"
+    },
+    "type=double": {
+      "model": "jineric:block/cracked_dripstone_tile_slab_double"
+    },
+    "type=top": {
+      "model": "jineric:block/cracked_dripstone_tile_slab_top"
+    }
+  }
+}

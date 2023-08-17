@@ -5,6 +5,7 @@
     "jineric:smooth_stone_wall",
     "jineric:polished_stone_wall",
     "jineric:stone_tile_wall",
+    "jineric:cracked_stone_tile_wall",
     "jineric:polished_granite_wall",
     "jineric:polished_andesite_wall",
     "jineric:polished_diorite_wall",
@@ -43,6 +44,7 @@
     "jineric:tuff_brick_wall",
     "jineric:cracked_tuff_brick_wall",
     "jineric:tuff_tile_wall",
+    "jineric:cracked_tuff_tile_wall",
     "jineric:cut_copper_wall",
     "jineric:exposed_cut_copper_wall",
     "jineric:weathered_cut_copper_wall",
@@ -58,6 +60,7 @@
     "jineric:smooth_dripstone_wall",
     "jineric:polished_dripstone_wall",
     "jineric:dripstone_tile_wall",
+    "jineric:cracked_dripstone_tile_wall",
     "jineric:purpur_wall"
   ]
 }
