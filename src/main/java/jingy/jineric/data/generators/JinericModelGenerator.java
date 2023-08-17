@@ -12,25 +12,17 @@ public class JinericModelGenerator extends FabricModelProvider {
       super(output);
    }
 
-
    @Override
    public void generateBlockStateModels(BlockStateModelGenerator blockModelGenerator) {
-      //SNOW BRICKS
-      registerSimpleBlockSet(
-              JinericBlocks.SNOW_BRICKS,
-              JinericBlocks.SNOW_BRICK_STAIRS,
-              JinericBlocks.SNOW_BRICK_SLAB,
-              JinericBlocks.SNOW_BRICK_WALL,
-              blockModelGenerator
-      );
+      registerSimpleBlockSet(JinericBlocks.SNOW_BRICKS, JinericBlocks.SNOW_BRICK_STAIRS, JinericBlocks.SNOW_BRICK_SLAB, JinericBlocks.SNOW_BRICK_WALL, blockModelGenerator);
+      registerSimpleBlockSet(JinericBlocks.CRACKED_DRIPSTONE_TILES, JinericBlocks.CRACKED_DRIPSTONE_TILE_STAIRS, JinericBlocks.CRACKED_DRIPSTONE_TILE_SLAB, JinericBlocks.CRACKED_DRIPSTONE_TILE_WALL, blockModelGenerator);
+      registerSimpleBlockSet(JinericBlocks.CRACKED_TUFF_TILES, JinericBlocks.CRACKED_TUFF_TILE_STAIRS, JinericBlocks.CRACKED_TUFF_TILE_SLAB, JinericBlocks.CRACKED_TUFF_TILE_WALL, blockModelGenerator);
+      registerSimpleBlockSet(JinericBlocks.CRACKED_STONE_TILES, JinericBlocks.CRACKED_STONE_TILE_STAIRS, JinericBlocks.CRACKED_STONE_TILE_SLAB, JinericBlocks.CRACKED_STONE_TILE_WALL, blockModelGenerator);
    }
 
    @Override
    public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-//      itemModelGenerator.register(JinericItems.SNOW_BRICKS, JinericItems.SNOW_BRICKS, Models.GENERATED);
-//      itemModelGenerator.register(JinericItems.SNOW_BRICK_STAIRS, JinericItems.SNOW_BRICKS, Models.STAIRS);
-//      itemModelGenerator.register(JinericItems.SNOW_BRICK_SLAB, JinericItems.SNOW_BRICKS, Models.SLAB);
-//      itemModelGenerator.register(JinericItems.SNOW_BRICK_WALL, JinericItems.SNOW_BRICKS, Models.WALL_INVENTORY);
+      //NOTE: DOES NOT NEED TO BE USED FOR ITEMS FOR BLOCKS
    }
 
    public void registerSimpleBlockSet(Block blockTexture, Block stairBlock, Block slabBlock, Block wallBlock, BlockStateModelGenerator blockStateModelGenerator) {
@@ -53,7 +45,6 @@ public class JinericModelGenerator extends FabricModelProvider {
    }
    public void registerSlab(Block slabBlock, Block slabBlockTexture, BlockStateModelGenerator blockStateModelGenerator) {
       TextureMap slabTextureMap = TextureMap.all(TextureMap.getId(slabBlockTexture));
-//      TextureMap slabTextureMapSide = TextureMap.sideEnd(TextureMap.getSubId(slabBlock, "_side"), slabTextureMap.getTexture(TextureKey.TOP));
       TextureMap slabTextureMapSide = TextureMap.sideEnd(slabTextureMap.getTexture(TextureKey.SIDE), slabTextureMap.getTexture(TextureKey.TOP));
       Identifier bottomModelId = Models.SLAB.upload(slabBlock, slabTextureMapSide, blockStateModelGenerator.modelCollector);
       Identifier topModelId = Models.SLAB_TOP.upload(slabBlock, slabTextureMapSide, blockStateModelGenerator.modelCollector);

@@ -79,10 +79,14 @@ public class JinericBlocks {
 	public static final Block CRACKED_STONE_BRICK_SLAB  = register("cracked_stone_brick_slab", new SlabBlock(FabricBlockSettings.copy(STONE)));
 	public static final Block CRACKED_STONE_BRICK_WALL = register("cracked_stone_brick_wall", new WallBlock(FabricBlockSettings.copy(STONE)));
 	public static final Block STONE_PILLAR = register("stone_pillar", new PillarBlock(FabricBlockSettings.copy(STONE)));
-	public static final Block STONE_TILES = register("stone_tiles", new Block(FabricBlockSettings.copy(STONE_BRICKS).sounds(BlockSoundGroup.DEEPSLATE_TILES)));
+	public static final Block STONE_TILES = register("stone_tiles", new Block(FabricBlockSettings.copy(STONE_BRICKS).sounds(BlockSoundGroup.STONE)));
 	public static final Block STONE_TILE_STAIRS = register("stone_tile_stairs", new StairsBlock(STONE_TILES.getDefaultState(), FabricBlockSettings.copy(STONE_TILES)));
 	public static final Block STONE_TILE_SLAB = register("stone_tile_slab", new SlabBlock(FabricBlockSettings.copy(STONE_TILES)));
 	public static final Block STONE_TILE_WALL = register("stone_tile_wall", new WallBlock(FabricBlockSettings.copy(STONE_TILES)));
+	public static final Block CRACKED_STONE_TILES = register("cracked_stone_tiles", new Block(FabricBlockSettings.copy(STONE_TILES).sounds(BlockSoundGroup.STONE)));
+	public static final Block CRACKED_STONE_TILE_STAIRS = register("cracked_stone_tile_stairs", new StairsBlock(CRACKED_STONE_TILES.getDefaultState(), FabricBlockSettings.copy(CRACKED_STONE_TILES)));
+	public static final Block CRACKED_STONE_TILE_SLAB = register("cracked_stone_tile_slab", new SlabBlock(FabricBlockSettings.copy(CRACKED_STONE_TILES)));
+	public static final Block CRACKED_STONE_TILE_WALL = register("cracked_stone_tile_wall", new WallBlock(FabricBlockSettings.copy(CRACKED_STONE_TILES)));
 
 //DEEPSLATE
 	public static final Block CRACKED_DEEPSLATE_BRICK_STAIRS = register("cracked_deepslate_brick_stairs", new StairsBlock(CRACKED_DEEPSLATE_BRICKS.getDefaultState(), FabricBlockSettings.copy(CRACKED_DEEPSLATE_BRICKS)));
@@ -131,7 +135,10 @@ public class JinericBlocks {
 	public static final Block TUFF_TILE_STAIRS = register("tuff_tile_stairs", new StairsBlock(TUFF_TILES.getDefaultState(), Block.Settings.copy(TUFF_TILES)));
 	public static final Block TUFF_TILE_SLAB = register("tuff_tile_slab", new SlabBlock(Block.Settings.copy(TUFF_TILES)));
 	public static final Block TUFF_TILE_WALL = register("tuff_tile_wall", new WallBlock(Block.Settings.copy(TUFF_TILES)));
-
+	public static final Block CRACKED_TUFF_TILES = register("cracked_tuff_tiles", new Block(Block.Settings.copy(TUFF_TILES)));
+	public static final Block CRACKED_TUFF_TILE_STAIRS = register("cracked_tuff_tile_stairs", new StairsBlock(CRACKED_TUFF_TILES.getDefaultState(), Block.Settings.copy(CRACKED_TUFF_TILES)));
+	public static final Block CRACKED_TUFF_TILE_SLAB = register("cracked_tuff_tile_slab", new SlabBlock(Block.Settings.copy(CRACKED_TUFF_TILES)));
+	public static final Block CRACKED_TUFF_TILE_WALL = register("cracked_tuff_tile_wall", new WallBlock(Block.Settings.copy(CRACKED_TUFF_TILES)));
 
 	//CALCITE
 	public static final Block CALCITE_STAIRS = register("calcite_stairs", new StairsBlock(CALCITE.getDefaultState(), FabricBlockSettings.copy(CALCITE)));
@@ -174,6 +181,10 @@ public class JinericBlocks {
 	public static final Block DRIPSTONE_TILE_SLAB = register("dripstone_tile_slab", new SlabBlock(FabricBlockSettings.copy(DRIPSTONE_TILES)));
 	public static final Block DRIPSTONE_TILE_STAIRS = register("dripstone_tile_stairs", new StairsBlock(DRIPSTONE_TILES.getDefaultState(), FabricBlockSettings.copy(DRIPSTONE_TILES)));
 	public static final Block DRIPSTONE_TILE_WALL = register("dripstone_tile_wall", new WallBlock(FabricBlockSettings.copy(DRIPSTONE_TILES)));
+	public static final Block CRACKED_DRIPSTONE_TILES = register("cracked_dripstone_tiles", new Block(FabricBlockSettings.copy(DRIPSTONE_TILES)));
+	public static final Block CRACKED_DRIPSTONE_TILE_SLAB = register("cracked_dripstone_tile_slab", new SlabBlock(FabricBlockSettings.copy(CRACKED_DRIPSTONE_TILES)));
+	public static final Block CRACKED_DRIPSTONE_TILE_STAIRS = register("cracked_dripstone_tile_stairs", new StairsBlock(CRACKED_DRIPSTONE_TILES.getDefaultState(), FabricBlockSettings.copy(CRACKED_DRIPSTONE_TILES)));
+	public static final Block CRACKED_DRIPSTONE_TILE_WALL = register("cracked_dripstone_tile_wall", new WallBlock(FabricBlockSettings.copy(CRACKED_DRIPSTONE_TILES)));
 	public static final Block SMOOTH_DRIPSTONE = register("smooth_dripstone", new Block(FabricBlockSettings.copy(DRIPSTONE_BLOCK)));
 	public static final Block SMOOTH_DRIPSTONE_SLAB  = register("smooth_dripstone_slab", new SlabBlock(FabricBlockSettings.copy(SMOOTH_DRIPSTONE)));
 	public static final Block SMOOTH_DRIPSTONE_STAIRS = register("smooth_dripstone_stairs", new StairsBlock(SMOOTH_DRIPSTONE.getDefaultState(), FabricBlockSettings.copy(SMOOTH_DRIPSTONE)));

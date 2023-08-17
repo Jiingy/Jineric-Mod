@@ -2,7 +2,6 @@ package jingy.jineric.item;
 
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.JinericBlocks;
-import jingy.jineric.registry.ColoredBlocks;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.FoodComponent;
@@ -21,10 +20,6 @@ public class JinericItems {
 	public static final Item POLISHED_STONE_STAIRS = register("polished_stone_stairs", new BlockItem(JinericBlocks.POLISHED_STONE_STAIRS, new FabricItemSettings()));
 	public static final Item POLISHED_STONE_SLAB = register("polished_stone_slab", new BlockItem(JinericBlocks.POLISHED_STONE_SLAB, new FabricItemSettings()));
 	public static final Item POLISHED_STONE_WALL = register("polished_stone_wall", new BlockItem(JinericBlocks.POLISHED_STONE_WALL, new FabricItemSettings()));
-	public static final Item STONE_TILES = register("stone_tiles", new BlockItem(JinericBlocks.STONE_TILES, new FabricItemSettings()));
-	public static final Item STONE_TILE_STAIRS = register("stone_tile_stairs", new BlockItem(JinericBlocks.STONE_TILE_STAIRS, new FabricItemSettings()));
-	public static final Item STONE_TILE_SLAB = register("stone_tile_slab", new BlockItem(JinericBlocks.STONE_TILE_SLAB, new FabricItemSettings()));
-	public static final Item STONE_TILE_WALL = register("stone_tile_wall", new BlockItem(JinericBlocks.STONE_TILE_WALL, new FabricItemSettings()));
 	public static final Item DRIPSTONE_STAIRS = register("dripstone_stairs", new BlockItem(JinericBlocks.DRIPSTONE_STAIRS, new FabricItemSettings()));
 	public static final Item DRIPSTONE_SLAB = register("dripstone_slab", new BlockItem(JinericBlocks.DRIPSTONE_SLAB, new FabricItemSettings()));
 	public static final Item DRIPSTONE_WALL = register("dripstone_wall", new BlockItem(JinericBlocks.DRIPSTONE_WALL, new FabricItemSettings()));
@@ -48,13 +43,16 @@ public class JinericItems {
 	public static final Item DRIPSTONE_TILE_SLAB = register("dripstone_tile_slab", new BlockItem(JinericBlocks.DRIPSTONE_TILE_SLAB, new FabricItemSettings()));
 	public static final Item DRIPSTONE_TILE_STAIRS = register("dripstone_tile_stairs", new BlockItem(JinericBlocks.DRIPSTONE_TILE_STAIRS, new FabricItemSettings()));
 	public static final Item DRIPSTONE_TILE_WALL = register("dripstone_tile_wall", new BlockItem(JinericBlocks.DRIPSTONE_TILE_WALL, new FabricItemSettings()));
+	public static final Item CRACKED_DRIPSTONE_TILES = register("cracked_dripstone_tiles", new BlockItem(JinericBlocks.CRACKED_DRIPSTONE_TILES, new FabricItemSettings()));
+	public static final Item CRACKED_DRIPSTONE_TILE_SLAB = register("cracked_dripstone_tile_slab", new BlockItem(JinericBlocks.CRACKED_DRIPSTONE_TILE_SLAB, new FabricItemSettings()));
+	public static final Item CRACKED_DRIPSTONE_TILE_STAIRS = register("cracked_dripstone_tile_stairs", new BlockItem(JinericBlocks.CRACKED_DRIPSTONE_TILE_STAIRS, new FabricItemSettings()));
+	public static final Item CRACKED_DRIPSTONE_TILE_WALL = register("cracked_dripstone_tile_wall", new BlockItem(JinericBlocks.CRACKED_DRIPSTONE_TILE_WALL, new FabricItemSettings()));
 	public static final Item SMOOTH_DRIPSTONE = register("smooth_dripstone", new BlockItem(JinericBlocks.SMOOTH_DRIPSTONE, new FabricItemSettings()));
 	public static final Item SMOOTH_DRIPSTONE_STAIRS = register("smooth_dripstone_stairs", new BlockItem(JinericBlocks.SMOOTH_DRIPSTONE_STAIRS, new FabricItemSettings()));
 	public static final Item SMOOTH_DRIPSTONE_SLAB = register("smooth_dripstone_slab", new BlockItem(JinericBlocks.SMOOTH_DRIPSTONE_SLAB, new FabricItemSettings()));
 	public static final Item SMOOTH_DRIPSTONE_WALL = register("smooth_dripstone_wall", new BlockItem(JinericBlocks.SMOOTH_DRIPSTONE_WALL, new FabricItemSettings()));
 	public static final Item CHISELED_DRIPSTONE = register("chiseled_dripstone", new BlockItem(JinericBlocks.CHISELED_DRIPSTONE, new FabricItemSettings()));
 	public static final Item DRIPSTONE_PILLAR = register("dripstone_pillar", new BlockItem(JinericBlocks.DRIPSTONE_PILLAR, new FabricItemSettings()));
-	public static final Item FULL_GRASS_BLOCK = register("full_grass_block", new BlockItem(JinericBlocks.FULL_GRASS_BLOCK, new FabricItemSettings()));
 
 //TUFF
 	public static final Item COBBLED_TUFF = register("cobbled_tuff", new BlockItem(JinericBlocks.COBBLED_TUFF, new FabricItemSettings()));
@@ -83,6 +81,10 @@ public class JinericItems {
 	public static final Item TUFF_TILE_SLAB = register("tuff_tile_slab", new BlockItem(JinericBlocks.TUFF_TILE_SLAB, new FabricItemSettings()));
 	public static final Item TUFF_TILE_STAIRS = register("tuff_tile_stairs", new BlockItem(JinericBlocks.TUFF_TILE_STAIRS, new FabricItemSettings()));
 	public static final Item TUFF_TILE_WALL = register("tuff_tile_wall", new BlockItem(JinericBlocks.TUFF_TILE_WALL, new FabricItemSettings()));
+	public static final Item CRACKED_TUFF_TILES = register("cracked_tuff_tiles", new BlockItem(JinericBlocks.CRACKED_TUFF_TILES, new FabricItemSettings()));
+	public static final Item CRACKED_TUFF_TILE_SLAB = register("cracked_tuff_tile_slab", new BlockItem(JinericBlocks.CRACKED_TUFF_TILE_SLAB, new FabricItemSettings()));
+	public static final Item CRACKED_TUFF_TILE_STAIRS = register("cracked_tuff_tile_stairs", new BlockItem(JinericBlocks.CRACKED_TUFF_TILE_STAIRS, new FabricItemSettings()));
+	public static final Item CRACKED_TUFF_TILE_WALL = register("cracked_tuff_tile_wall", new BlockItem(JinericBlocks.CRACKED_TUFF_TILE_WALL, new FabricItemSettings()));
 
 //SANDSTONE
 	public static final Item SMOOTH_SANDSTONE_WALL = register("smooth_sandstone_wall", new BlockItem(JinericBlocks.SMOOTH_SANDSTONE_WALL, new FabricItemSettings()));
@@ -139,6 +141,14 @@ public class JinericItems {
 	public static final Item CRACKED_STONE_BRICK_STAIRS = register("cracked_stone_brick_stairs", new BlockItem(JinericBlocks.CRACKED_STONE_BRICK_STAIRS, new FabricItemSettings()));
 	public static final Item CRACKED_STONE_BRICK_SLAB = register("cracked_stone_brick_slab", new BlockItem(JinericBlocks.CRACKED_STONE_BRICK_SLAB, new FabricItemSettings()));
 	public static final Item CRACKED_STONE_BRICK_WALL = register("cracked_stone_brick_wall", new BlockItem(JinericBlocks.CRACKED_STONE_BRICK_WALL, new FabricItemSettings()));
+	public static final Item STONE_TILES = register("stone_tiles", new BlockItem(JinericBlocks.STONE_TILES, new FabricItemSettings()));
+	public static final Item STONE_TILE_STAIRS = register("stone_tile_stairs", new BlockItem(JinericBlocks.STONE_TILE_STAIRS, new FabricItemSettings()));
+	public static final Item STONE_TILE_SLAB = register("stone_tile_slab", new BlockItem(JinericBlocks.STONE_TILE_SLAB, new FabricItemSettings()));
+	public static final Item STONE_TILE_WALL = register("stone_tile_wall", new BlockItem(JinericBlocks.STONE_TILE_WALL, new FabricItemSettings()));
+	public static final Item CRACKED_STONE_TILES = register("cracked_stone_tiles", new BlockItem(JinericBlocks.CRACKED_STONE_TILES, new FabricItemSettings()));
+	public static final Item CRACKED_STONE_TILE_STAIRS = register("cracked_stone_tile_stairs", new BlockItem(JinericBlocks.CRACKED_STONE_TILE_STAIRS, new FabricItemSettings()));
+	public static final Item CRACKED_STONE_TILE_SLAB = register("cracked_stone_tile_slab", new BlockItem(JinericBlocks.CRACKED_STONE_TILE_SLAB, new FabricItemSettings()));
+	public static final Item CRACKED_STONE_TILE_WALL = register("cracked_stone_tile_wall", new BlockItem(JinericBlocks.CRACKED_STONE_TILE_WALL, new FabricItemSettings()));
 	public static final Item STONE_PILLAR = register("stone_pillar", new BlockItem(JinericBlocks.STONE_PILLAR, new FabricItemSettings()));
 	public static final Item CRACKED_DEEPSLATE_BRICK_STAIRS = register("cracked_deepslate_brick_stairs", new BlockItem(JinericBlocks.CRACKED_DEEPSLATE_BRICK_STAIRS, new FabricItemSettings()));
 	public static final Item CRACKED_DEEPSLATE_BRICK_SLAB = register("cracked_deepslate_brick_slab", new BlockItem(JinericBlocks.CRACKED_DEEPSLATE_BRICK_SLAB, new FabricItemSettings()));
@@ -174,6 +184,7 @@ public class JinericItems {
 	public static final Item OBSIDIAN_STAIRS = register("obsidian_stairs", new BlockItem(JinericBlocks.OBSIDIAN_STAIRS, new FabricItemSettings()));
 	public static final Item OBSIDIAN_SLAB = register("obsidian_slab", new BlockItem(JinericBlocks.OBSIDIAN_SLAB, new FabricItemSettings()));
 	public static final Item OBSIDIAN_WALL = register("obsidian_wall", new BlockItem(JinericBlocks.OBSIDIAN_WALL, new FabricItemSettings()));
+	public static final Item FULL_GRASS_BLOCK = register("full_grass_block", new BlockItem(JinericBlocks.FULL_GRASS_BLOCK, new FabricItemSettings()));
 	//NETHER
 	public static final Item QUARTZ_WALL = register("quartz_wall", new BlockItem(JinericBlocks.QUARTZ_WALL, new FabricItemSettings()));
 	public static final Item SMOOTH_QUARTZ_WALL = register("smooth_quartz_wall", new BlockItem(JinericBlocks.SMOOTH_QUARTZ_WALL, new FabricItemSettings()));
