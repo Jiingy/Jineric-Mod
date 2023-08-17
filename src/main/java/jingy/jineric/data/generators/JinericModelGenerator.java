@@ -16,6 +16,7 @@ public class JinericModelGenerator extends FabricModelProvider {
    public void generateBlockStateModels(BlockStateModelGenerator blockModelGenerator) {
       registerSimpleBlockSet(JinericBlocks.SNOW_BRICKS, JinericBlocks.SNOW_BRICK_STAIRS, JinericBlocks.SNOW_BRICK_SLAB, JinericBlocks.SNOW_BRICK_WALL, blockModelGenerator);
       registerSimpleBlockSet(JinericBlocks.CRACKED_DRIPSTONE_TILES, JinericBlocks.CRACKED_DRIPSTONE_TILE_STAIRS, JinericBlocks.CRACKED_DRIPSTONE_TILE_SLAB, JinericBlocks.CRACKED_DRIPSTONE_TILE_WALL, blockModelGenerator);
+      registerSimpleBlockSet(JinericBlocks.CRACKED_DRIPSTONE_BRICKS, JinericBlocks.CRACKED_DRIPSTONE_BRICK_STAIRS, JinericBlocks.CRACKED_DRIPSTONE_BRICK_SLAB, JinericBlocks.CRACKED_DRIPSTONE_BRICK_WALL, blockModelGenerator);
       registerSimpleBlockSet(JinericBlocks.CRACKED_TUFF_TILES, JinericBlocks.CRACKED_TUFF_TILE_STAIRS, JinericBlocks.CRACKED_TUFF_TILE_SLAB, JinericBlocks.CRACKED_TUFF_TILE_WALL, blockModelGenerator);
       registerSimpleBlockSet(JinericBlocks.CRACKED_STONE_TILES, JinericBlocks.CRACKED_STONE_TILE_STAIRS, JinericBlocks.CRACKED_STONE_TILE_SLAB, JinericBlocks.CRACKED_STONE_TILE_WALL, blockModelGenerator);
    }
@@ -30,10 +31,6 @@ public class JinericModelGenerator extends FabricModelProvider {
       registerStairs(stairBlock, blockTexture, blockStateModelGenerator);
       registerSlab(slabBlock, blockTexture, blockStateModelGenerator);
       registerWall(wallBlock, blockTexture, blockStateModelGenerator);
-   }
-
-   private static TextureMap getBlock(Block block) {
-      return TextureMap.all(block);
    }
 
    public void registerStairs(Block stairsBlock, Block stairsBlockTexture, BlockStateModelGenerator blockStateModelGenerator) {

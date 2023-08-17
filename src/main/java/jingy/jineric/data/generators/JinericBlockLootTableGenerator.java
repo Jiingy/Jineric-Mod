@@ -3,9 +3,9 @@ package jingy.jineric.data.generators;
 import jingy.jineric.block.JinericBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-import net.minecraft.block.Block;
 
 public class JinericBlockLootTableGenerator extends FabricBlockLootTableProvider {
+   //TODO: Add convenient way to add a simple block set's loot table
    public JinericBlockLootTableGenerator(FabricDataOutput dataGenerator) {
       super(dataGenerator);
    }
@@ -13,9 +13,15 @@ public class JinericBlockLootTableGenerator extends FabricBlockLootTableProvider
    @Override
    public void generate() {
       nameableContainersGen();
+      genSimpleBlockSets();
+      genUniqueBlocks();
    }
 
-   public void nameableContainersGen() {
+   private void genUniqueBlocks() {
+      addDrop(JinericBlocks.REFINERY);
+   }
+
+   private void nameableContainersGen() {
       //Chests
       addDrop(JinericBlocks.SPRUCE_CHEST, this::nameableContainerDrops);
       addDrop(JinericBlocks.BIRCH_CHEST, this::nameableContainerDrops);
@@ -34,7 +40,9 @@ public class JinericBlockLootTableGenerator extends FabricBlockLootTableProvider
       addDrop(JinericBlocks.TRAPPED_MANGROVE_CHEST, this::nameableContainerDrops);
       addDrop(JinericBlocks.TRAPPED_CRIMSON_CHEST, this::nameableContainerDrops);
       addDrop(JinericBlocks.TRAPPED_WARPED_CHEST, this::nameableContainerDrops);
+   }
 
+   private void genSimpleBlockSets() {
       addDrop(JinericBlocks.SNOW_BRICKS);
       addDrop(JinericBlocks.SNOW_BRICK_STAIRS);
       addDrop(JinericBlocks.SNOW_BRICK_SLAB);
@@ -43,6 +51,10 @@ public class JinericBlockLootTableGenerator extends FabricBlockLootTableProvider
       addDrop(JinericBlocks.CRACKED_DRIPSTONE_TILE_STAIRS);
       addDrop(JinericBlocks.CRACKED_DRIPSTONE_TILE_SLAB);
       addDrop(JinericBlocks.CRACKED_DRIPSTONE_TILE_WALL);
+      addDrop(JinericBlocks.CRACKED_DRIPSTONE_BRICKS);
+      addDrop(JinericBlocks.CRACKED_DRIPSTONE_BRICK_STAIRS);
+      addDrop(JinericBlocks.CRACKED_DRIPSTONE_BRICK_SLAB);
+      addDrop(JinericBlocks.CRACKED_DRIPSTONE_BRICK_WALL);
       addDrop(JinericBlocks.CRACKED_TUFF_TILES);
       addDrop(JinericBlocks.CRACKED_TUFF_TILE_STAIRS);
       addDrop(JinericBlocks.CRACKED_TUFF_TILE_SLAB);
@@ -51,13 +63,5 @@ public class JinericBlockLootTableGenerator extends FabricBlockLootTableProvider
       addDrop(JinericBlocks.CRACKED_STONE_TILE_STAIRS);
       addDrop(JinericBlocks.CRACKED_STONE_TILE_SLAB);
       addDrop(JinericBlocks.CRACKED_STONE_TILE_WALL);
-      addDrop(JinericBlocks.REFINERY);
-   }
-
-   public void addBlockSetDrops(Block block, Block stairBlock, Block slabBlock, Block wallBlock) {
-      addDrop(block);
-      addDrop(stairBlock);
-      addDrop(slabBlock);
-      addDrop(wallBlock);
    }
 }
