@@ -3,12 +3,14 @@
   "values": [
     "jineric:polished_stone_stairs",
     "jineric:stone_tile_stairs",
+    "jineric:cracked_stone_tile_stairs",
     "jineric:dripstone_stairs",
     "jineric:cobbled_dripstone_stairs",
     "jineric:dripstone_brick_stairs",
     "jineric:cracked_dripstone_brick_stairs",
     "jineric:polished_dripstone_stairs",
     "jineric:dripstone_tile_stairs",
+    "jineric:cracked_dripstone_tile_stairs",
     "jineric:smooth_dripstone_stairs",
     "jineric:cut_sandstone_stairs",
     "jineric:polished_sandstone_stairs",
@@ -40,6 +42,7 @@
     "jineric:tuff_brick_stairs",
     "jineric:cracked_tuff_brick_stairs",
     "jineric:tuff_tile_stairs",
+    "jineric:cracked_tuff_tile_stairs",
     "jineric:snow_brick_stairs"
   ]
 }
