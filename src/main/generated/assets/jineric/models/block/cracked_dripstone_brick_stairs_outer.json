@@ -2,7 +2,7 @@
   "parent": "minecraft:block/outer_stairs",
   "textures": {
     "bottom": "jineric:block/cracked_dripstone_bricks",
-    "top": "jineric:block/cracked_dripstone_bricks",
-    "side": "jineric:block/cracked_dripstone_bricks"
+    "side": "jineric:block/cracked_dripstone_bricks",
+    "top": "jineric:block/cracked_dripstone_bricks"
   }
 }
