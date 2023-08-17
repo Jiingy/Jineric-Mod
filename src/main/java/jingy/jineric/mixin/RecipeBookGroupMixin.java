@@ -8,10 +8,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.recipebook.RecipeBookGroup;
 import net.minecraft.recipe.book.RecipeBookCategory;
-import org.spongepowered.asm.mixin.Final;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Mutable;
-import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -23,25 +20,16 @@ import static net.minecraft.client.recipebook.RecipeBookGroup.*;
 
 @Mixin(RecipeBookGroup.class)
 public abstract class RecipeBookGroupMixin {
+   @Final @Shadow public static RecipeBookGroup CRAFTING_SEARCH;
+   @Final @Shadow public static RecipeBookGroup FURNACE_SEARCH;
+   @Final @Shadow public static RecipeBookGroup BLAST_FURNACE_SEARCH;
+   @Final @Shadow public static RecipeBookGroup SMOKER_SEARCH;
+   @Shadow @Mutable @Final public static Map<RecipeBookGroup, List<RecipeBookGroup>> SEARCH_MAP;
 
-   private static final RecipeBookGroup JINERIC_REFINERY_SEARCH = ClassTinkerers.getEnum(RecipeBookGroup.class, "JINERIC_REFINERY_SEARCH");
-   private static final RecipeBookGroup JINERIC_REFINERY_BUILDING = ClassTinkerers.getEnum(RecipeBookGroup.class, "JINERIC_REFINERY_BUILDING");
-   private static final RecipeBookGroup JINERIC_REFINERY_MISC = ClassTinkerers.getEnum(RecipeBookGroup.class, "JINERIC_REFINERY_MISC");
-
-   @Final
-   @Shadow private static RecipeBookGroup CRAFTING_SEARCH;
-   @Final
-   @Shadow private static RecipeBookGroup FURNACE_SEARCH;
-   @Final
-   @Shadow private static RecipeBookGroup BLAST_FURNACE_SEARCH;
-   @Final
-   @Shadow private static RecipeBookGroup SMOKER_SEARCH;
-   private static final RecipeBookCategory JINERIC_REFINERY = ClassTinkerers.getEnum(RecipeBookCategory.class, "JINERIC_REFINERY");
-
-   @Shadow
-   @Mutable
-   @Final
-   private static Map<RecipeBookGroup, List<RecipeBookGroup>> SEARCH_MAP;
+   @Unique private static final RecipeBookCategory JINERIC_REFINERY = ClassTinkerers.getEnum(RecipeBookCategory.class, "JINERIC_REFINERY");
+   @Unique private static final RecipeBookGroup JINERIC_REFINERY_SEARCH = ClassTinkerers.getEnum(RecipeBookGroup.class, "JINERIC_REFINERY_SEARCH");
+   @Unique private static final RecipeBookGroup JINERIC_REFINERY_BUILDING = ClassTinkerers.getEnum(RecipeBookGroup.class, "JINERIC_REFINERY_BUILDING");
+   @Unique private static final RecipeBookGroup JINERIC_REFINERY_MISC = ClassTinkerers.getEnum(RecipeBookGroup.class, "JINERIC_REFINERY_MISC");
 
    static {
       if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
