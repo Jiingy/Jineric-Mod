@@ -1,7 +1,6 @@
 package jingy.jineric.item;
 
 import jingy.jineric.base.JinericMain;
-import jingy.jineric.registry.ColoredBlocks;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.ItemGroup;
@@ -29,7 +28,6 @@ public class JinericItemGroups {
 						.displayName(Text.literal("Jineric Mod Items"))
 						.icon(() -> new ItemStack(JinericItems.PRISMARINE_CRYSTAL_BLOCK))
 						.entries((context, entries) -> {
-							entries.add(ColoredBlocks.getColoredItem("randomcolor", "wool"));
 							entries.add(JinericItems.POLISHED_STONE);
 							entries.add(JinericItems.POLISHED_STONE_STAIRS);
 							entries.add(JinericItems.POLISHED_STONE_SLAB);
