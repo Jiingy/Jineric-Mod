@@ -1,7 +1,6 @@
 package jingy.jineric.item;
 
 import jingy.jineric.base.JinericMain;
-import jingy.jineric.registry.ColoredBlocks;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.ItemGroup;
@@ -29,7 +28,6 @@ public class JinericItemGroups {
 						.displayName(Text.literal("Jineric Mod Items"))
 						.icon(() -> new ItemStack(JinericItems.PRISMARINE_CRYSTAL_BLOCK))
 						.entries((context, entries) -> {
-							entries.add(ColoredBlocks.getColoredItem("randomcolor", "wool"));
 							entries.add(JinericItems.POLISHED_STONE);
 							entries.add(JinericItems.POLISHED_STONE_STAIRS);
 							entries.add(JinericItems.POLISHED_STONE_SLAB);
@@ -199,6 +197,8 @@ public class JinericItemGroups {
 							entries.add(JinericItems.ACACIA_BOOKSHELF);
 							entries.add(JinericItems.DARK_OAK_BOOKSHELF);
 							entries.add(JinericItems.MANGROVE_BOOKSHELF);
+							entries.add(JinericItems.CHERRY_BOOKSHELF);
+							entries.add(JinericItems.BAMBOO_BOOKSHELF);
 							entries.add(JinericItems.CRIMSON_BOOKSHELF);
 							entries.add(JinericItems.WARPED_BOOKSHELF);
 							entries.add(JinericItems.SPRUCE_CHEST);
@@ -207,6 +207,8 @@ public class JinericItemGroups {
 							entries.add(JinericItems.ACACIA_CHEST);
 							entries.add(JinericItems.DARK_OAK_CHEST);
 							entries.add(JinericItems.MANGROVE_CHEST);
+							entries.add(JinericItems.CHERRY_CHEST);
+							entries.add(JinericItems.BAMBOO_CHEST);
 							entries.add(JinericItems.CRIMSON_CHEST);
 							entries.add(JinericItems.WARPED_CHEST);
 							entries.add(JinericItems.TRAPPED_SPRUCE_CHEST);
@@ -223,6 +225,8 @@ public class JinericItemGroups {
 							entries.add(JinericItems.ACACIA_LADDER);
 							entries.add(JinericItems.DARK_OAK_LADDER);
 							entries.add(JinericItems.MANGROVE_LADDER);
+							entries.add(JinericItems.CHERRY_LADDER);
+							entries.add(JinericItems.BAMBOO_LADDER);
 							entries.add(JinericItems.WARPED_LADDER);
 							entries.add(JinericItems.CRIMSON_LADDER);
 							entries.add(JinericItems.SOUL_JACK_O_LANTERN);
@@ -487,7 +491,9 @@ public class JinericItemGroups {
 			entries.addAfter(JinericItems.ACACIA_LADDER, JinericItems.DARK_OAK_LADDER);
 			entries.addAfter(JinericItems.DARK_OAK_LADDER, JinericItems.MANGROVE_LADDER);
 			entries.addAfter(JinericItems.MANGROVE_LADDER, JinericItems.CRIMSON_LADDER);
-			entries.addAfter(JinericItems.CRIMSON_LADDER, JinericItems.WARPED_LADDER);
+			entries.addAfter(JinericItems.CRIMSON_LADDER, JinericItems.CHERRY_LADDER);
+			entries.addAfter(JinericItems.CHERRY_LADDER, JinericItems.BAMBOO_LADDER);
+			entries.addAfter(JinericItems.BAMBOO_LADDER, JinericItems.WARPED_LADDER);
 			//BOOKSHELVES
 			entries.addAfter(Items.BOOKSHELF, JinericItems.SPRUCE_BOOKSHELF);
 			entries.addAfter(JinericItems.SPRUCE_BOOKSHELF, JinericItems.BIRCH_BOOKSHELF);
@@ -495,7 +501,9 @@ public class JinericItemGroups {
 			entries.addAfter(JinericItems.JUNGLE_BOOKSHELF, JinericItems.ACACIA_BOOKSHELF);
 			entries.addAfter(JinericItems.ACACIA_BOOKSHELF, JinericItems.DARK_OAK_BOOKSHELF);
 			entries.addAfter(JinericItems.DARK_OAK_BOOKSHELF, JinericItems.MANGROVE_BOOKSHELF);
-			entries.addAfter(JinericItems.MANGROVE_BOOKSHELF, JinericItems.CRIMSON_BOOKSHELF);
+			entries.addAfter(JinericItems.MANGROVE_BOOKSHELF, JinericItems.CHERRY_BOOKSHELF);
+			entries.addAfter(JinericItems.CHERRY_BOOKSHELF, JinericItems.BAMBOO_BOOKSHELF);
+			entries.addAfter(JinericItems.BAMBOO_BOOKSHELF, JinericItems.CRIMSON_BOOKSHELF);
 			entries.addAfter(JinericItems.CRIMSON_BOOKSHELF, JinericItems.WARPED_BOOKSHELF);
 			//CHESTS
 			entries.addAfter(Items.CHEST, JinericItems.SPRUCE_CHEST);

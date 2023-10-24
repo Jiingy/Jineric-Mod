@@ -18,6 +18,8 @@ public class JinericBlockRenderLayerMap {
       BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.SPRUCE_LADDER, RenderLayer.getCutout());
       BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BIRCH_LADDER, RenderLayer.getCutout());
       BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.MANGROVE_LADDER, RenderLayer.getCutout());
+      BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.CHERRY_LADDER, RenderLayer.getCutout());
+      BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BAMBOO_LADDER, RenderLayer.getCutout());
       BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.JUNGLE_LADDER, RenderLayer.getCutoutMipped());
       BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.ACACIA_LADDER, RenderLayer.getCutout());
       BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.WARPED_LADDER, RenderLayer.getCutout());

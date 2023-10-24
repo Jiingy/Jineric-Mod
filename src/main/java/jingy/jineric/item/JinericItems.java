@@ -233,11 +233,15 @@ public class JinericItems {
 	public static final Item ACACIA_BOOKSHELF = register("acacia_bookshelf", new BlockItem(JinericBlocks.ACACIA_BOOKSHELF, new FabricItemSettings()));
 	public static final Item DARK_OAK_BOOKSHELF = register("dark_oak_bookshelf", new BlockItem(JinericBlocks.DARK_OAK_BOOKSHELF, new FabricItemSettings()));
 	public static final Item MANGROVE_BOOKSHELF = register("mangrove_bookshelf", new BlockItem(JinericBlocks.MANGROVE_BOOKSHELF, new FabricItemSettings()));
+	public static final Item CHERRY_BOOKSHELF = register("cherry_bookshelf", new BlockItem(JinericBlocks.CHERRY_BOOKSHELF, new FabricItemSettings()));
+	public static final Item BAMBOO_BOOKSHELF = register("bamboo_bookshelf", new BlockItem(JinericBlocks.BAMBOO_BOOKSHELF, new FabricItemSettings()));
 	public static final Item CRIMSON_BOOKSHELF = register("crimson_bookshelf", new BlockItem(JinericBlocks.CRIMSON_BOOKSHELF, new FabricItemSettings()));
 	public static final Item WARPED_BOOKSHELF = register("warped_bookshelf", new BlockItem(JinericBlocks.WARPED_BOOKSHELF, new FabricItemSettings()));
 //CHESTS
 	public static final Item ACACIA_CHEST = register("acacia_chest", new BlockItem(JinericBlocks.ACACIA_CHEST, new FabricItemSettings()));
+	public static final Item BAMBOO_CHEST = register("bamboo_chest", new BlockItem(JinericBlocks.BAMBOO_CHEST, new FabricItemSettings()));
 	public static final Item BIRCH_CHEST = register("birch_chest", new BlockItem(JinericBlocks.BIRCH_CHEST, new FabricItemSettings()));
+	public static final Item CHERRY_CHEST = register("cherry_chest", new BlockItem(JinericBlocks.CHERRY_CHEST, new FabricItemSettings()));
 	public static final Item SPRUCE_CHEST = register("spruce_chest", new BlockItem(JinericBlocks.SPRUCE_CHEST, new FabricItemSettings()));
 	public static final Item JUNGLE_CHEST = register("jungle_chest", new BlockItem(JinericBlocks.JUNGLE_CHEST, new FabricItemSettings()));
 	public static final Item DARK_OAK_CHEST = register("dark_oak_chest", new BlockItem(JinericBlocks.DARK_OAK_CHEST, new FabricItemSettings()));
@@ -259,6 +263,8 @@ public class JinericItems {
 	public static final Item ACACIA_LADDER = register("acacia_ladder", new BlockItem(JinericBlocks.ACACIA_LADDER, new FabricItemSettings()));
 	public static final Item DARK_OAK_LADDER = register("dark_oak_ladder", new BlockItem(JinericBlocks.DARK_OAK_LADDER, new FabricItemSettings()));
 	public static final Item MANGROVE_LADDER = register("mangrove_ladder", new BlockItem(JinericBlocks.MANGROVE_LADDER, new FabricItemSettings()));
+	public static final Item CHERRY_LADDER = register("cherry_ladder", new BlockItem(JinericBlocks.CHERRY_LADDER, new FabricItemSettings()));
+	public static final Item BAMBOO_LADDER = register("bamboo_ladder", new BlockItem(JinericBlocks.BAMBOO_LADDER, new FabricItemSettings()));
 	public static final Item WARPED_LADDER = register("warped_ladder", new BlockItem(JinericBlocks.WARPED_LADDER, new FabricItemSettings()));
 	public static final Item CRIMSON_LADDER = register("crimson_ladder", new BlockItem(JinericBlocks.CRIMSON_LADDER, new FabricItemSettings()));
 //REDSTONE

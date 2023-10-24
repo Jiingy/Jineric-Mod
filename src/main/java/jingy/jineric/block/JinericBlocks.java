@@ -291,7 +291,9 @@ public class JinericBlocks {
 
 //CHESTS
 	public static final Block ACACIA_CHEST = register("acacia_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.ACACIA));
+	public static final Block BAMBOO_CHEST = register("bamboo_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.BAMBOO));
 	public static final Block BIRCH_CHEST = register("birch_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.BIRCH));
+	public static final Block CHERRY_CHEST = register("cherry_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.CHERRY));
 	public static final Block CRIMSON_CHEST = register("crimson_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST).sounds(BlockSoundGroup.NETHER_WOOD), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.CRIMSON));
 	public static final Block DARK_OAK_CHEST = register("dark_oak_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.DARK_OAK));
 	public static final Block JUNGLE_CHEST = register("jungle_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.JUNGLE));
@@ -317,14 +319,17 @@ public class JinericBlocks {
 	public static final Block REDSTONE_CAMPFIRE = register("redstone_campfire", new RedstoneCampfireBlock(false, 1, JinericBlockSettings.redstoneCampfireSettings()));
 
 //WOOD
-	public static final Block SPRUCE_BOOKSHELF = register("spruce_bookshelf",new Block(FabricBlockSettings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF)));
-	public static final Block BIRCH_BOOKSHELF = register("birch_bookshelf",new Block(FabricBlockSettings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF)));
-	public static final Block JUNGLE_BOOKSHELF = register("jungle_bookshelf",new Block(FabricBlockSettings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF)));
+	// BOOKSHELVES
 	public static final Block ACACIA_BOOKSHELF = register("acacia_bookshelf",new Block(FabricBlockSettings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF)));
-	public static final Block DARK_OAK_BOOKSHELF = register("dark_oak_bookshelf",new Block(FabricBlockSettings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF)));
+	public static final Block BAMBOO_BOOKSHELF = register("bamboo_bookshelf",new Block(FabricBlockSettings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF)));
+	public static final Block BIRCH_BOOKSHELF = register("birch_bookshelf",new Block(FabricBlockSettings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF)));
+	public static final Block CHERRY_BOOKSHELF = register("cherry_bookshelf",new Block(FabricBlockSettings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF)));
 	public static final Block CRIMSON_BOOKSHELF = register("crimson_bookshelf",new Block(FabricBlockSettings.copy(BOOKSHELF).sounds(BlockSoundGroup.NETHER_WOOD)));
-	public static final Block WARPED_BOOKSHELF = register("warped_bookshelf",new Block(FabricBlockSettings.copy(BOOKSHELF).sounds(BlockSoundGroup.NETHER_WOOD)));
+	public static final Block DARK_OAK_BOOKSHELF = register("dark_oak_bookshelf",new Block(FabricBlockSettings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF)));
+	public static final Block JUNGLE_BOOKSHELF = register("jungle_bookshelf",new Block(FabricBlockSettings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF)));
 	public static final Block MANGROVE_BOOKSHELF = register("mangrove_bookshelf",new Block(FabricBlockSettings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF)));
+	public static final Block SPRUCE_BOOKSHELF = register("spruce_bookshelf",new Block(FabricBlockSettings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF)));
+	public static final Block WARPED_BOOKSHELF = register("warped_bookshelf",new Block(FabricBlockSettings.copy(BOOKSHELF).sounds(BlockSoundGroup.NETHER_WOOD)));
 
 	//BOREAL
 //	public static final Block BOREAL_WOOD = register("boreal_wood",	new PillarBlock(FabricBlockSettings.copy(OAK_WOOD))	);
@@ -346,8 +351,11 @@ public class JinericBlocks {
 //	public static final Block BOREAL_FENCE_GATE = register("boreal_fence_gate", new FenceGateBlock(FabricBlockSettings.copy(OAK_FENCE_GATE)));
 //	public static final Block BOREAL_SAPLING = register("boreal_sapling", new JinericSaplingBlock(new BorealSaplingGenerator(), FabricBlockSettings.copy(OAK_SAPLING)));
 //	public static final Block BOREAL_LEAVES = register("boreal_leaves", JinericBlockSettings.JinericLeavesBlock(BlockSoundGroup.GRASS));
+	// LADDERS
 	public static final Block ACACIA_LADDER = register("acacia_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD)));
+	public static final Block BAMBOO_LADDER = register("bamboo_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD)));
 	public static final Block BIRCH_LADDER = register("birch_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD)));
+	public static final Block CHERRY_LADDER = register("cherry_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD)));
 	public static final Block DARK_OAK_LADDER = register("dark_oak_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD)));
 	public static final Block SPRUCE_LADDER = register("spruce_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD)));
 	public static final Block JUNGLE_LADDER = register("jungle_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD)));

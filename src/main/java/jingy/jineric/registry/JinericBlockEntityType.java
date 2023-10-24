@@ -25,7 +25,9 @@ public class JinericBlockEntityType<T extends BlockEntity> {
                    JinericBlocks.JUNGLE_CHEST,
                    JinericBlocks.SPRUCE_CHEST,
                    JinericBlocks.WARPED_CHEST,
-                   JinericBlocks.MANGROVE_CHEST
+                   JinericBlocks.MANGROVE_CHEST,
+                   JinericBlocks.CHERRY_CHEST,
+                   JinericBlocks.BAMBOO_CHEST
            ).build();
    public static final BlockEntityType<JinericChestBlockEntity> JINERIC_TRAPPED_CHEST =
            FabricBlockEntityTypeBuilder.create(

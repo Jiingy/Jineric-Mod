@@ -43,6 +43,12 @@ public class JinericTextureRenderLayers extends TexturedRenderLayers {
    public static final SpriteIdentifier MANGROVE_CHEST = createChestTextureId("mangrove_chest");
    public static final SpriteIdentifier MANGROVE_CHEST_LEFT = createChestTextureId("mangrove_left");
    public static final SpriteIdentifier MANGROVE_CHEST_RIGHT = createChestTextureId("mangrove_right");
+   public static final SpriteIdentifier CHERRY_CHEST = createChestTextureId("cherry_chest");
+   public static final SpriteIdentifier CHERRY_CHEST_LEFT = createChestTextureId("cherry_left");
+   public static final SpriteIdentifier CHERRY_CHEST_RIGHT = createChestTextureId("cherry_right");
+   public static final SpriteIdentifier BAMBOO_CHEST = createChestTextureId("bamboo_chest");
+   public static final SpriteIdentifier BAMBOO_CHEST_LEFT = createChestTextureId("bamboo_left");
+   public static final SpriteIdentifier BAMBOO_CHEST_RIGHT = createChestTextureId("bamboo_right");
    public static final SpriteIdentifier TRAPPED_BIRCH_CHEST = createChestTextureId("trapped_birch_chest");
    public static final SpriteIdentifier TRAPPED_BIRCH_CHEST_LEFT = createChestTextureId("trapped_birch_left");
    public static final SpriteIdentifier TRAPPED_BIRCH_CHEST_RIGHT = createChestTextureId("trapped_birch_right");
@@ -127,6 +133,12 @@ public class JinericTextureRenderLayers extends TexturedRenderLayers {
          }
          else if (woodType == WoodType.MANGROVE) {
             return getChestTexture(chestType, MANGROVE_CHEST, MANGROVE_CHEST_LEFT, MANGROVE_CHEST_RIGHT);
+         }
+         else if (woodType == WoodType.CHERRY) {
+            return getChestTexture(chestType, CHERRY_CHEST, CHERRY_CHEST_LEFT, CHERRY_CHEST_RIGHT);
+         }
+         else if (woodType == WoodType.BAMBOO) {
+            return getChestTexture(chestType, BAMBOO_CHEST, BAMBOO_CHEST_LEFT, BAMBOO_CHEST_RIGHT);
          }
       }
       return null;

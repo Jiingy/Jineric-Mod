@@ -44,6 +44,10 @@ public class JinericChestBlockEntity extends ChestBlockEntity {
          return Text.translatable("container.chestWarpedDouble");
       } else if (woodType == MANGROVE) {
          return Text.translatable("container.chestMangroveDouble");
+      } else if (woodType == CHERRY) {
+         return Text.translatable("container.chestCherryDouble");
+      } else if (woodType == BAMBOO) {
+         return Text.translatable("container.chestBambooDouble");
       } else {
          return Text.literal("No Display Name Set");
       }
