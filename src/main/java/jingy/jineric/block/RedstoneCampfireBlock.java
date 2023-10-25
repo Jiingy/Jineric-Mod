@@ -12,6 +12,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.DustParticleEffect;
 import net.minecraft.recipe.CampfireCookingRecipe;
+import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.stat.Stats;
 import net.minecraft.state.StateManager;
@@ -45,12 +46,12 @@ public class RedstoneCampfireBlock extends CampfireBlock {
       BlockEntity blockEntity = world.getBlockEntity(pos);
       if (blockEntity instanceof RedstoneCampfireBlockEntity redstoneCampfireBlock) {
          ItemStack itemStack = player.getStackInHand(hand);
-         Optional<CampfireCookingRecipe> optional = redstoneCampfireBlock.getRecipeFor(itemStack);
+         Optional<RecipeEntry<CampfireCookingRecipe>> optional = redstoneCampfireBlock.getRecipeFor(itemStack);
          if (optional.isPresent()) {
             if (!world.isClient
                     && redstoneCampfireBlock.addItem(player, player.getAbilities().creativeMode
-                    ? itemStack.copy() : itemStack, ((CampfireCookingRecipe)optional.get()).getCookTime()
-            )) {
+                    ? itemStack.copy() : itemStack, ((CampfireCookingRecipe)((RecipeEntry<?>)optional.get()).value()).getCookingTime())
+            ) {
                world.updateNeighborsAlways(pos, this);
                player.incrementStat(Stats.INTERACT_WITH_CAMPFIRE);
                return ActionResult.SUCCESS;
@@ -125,11 +126,11 @@ public class RedstoneCampfireBlock extends CampfireBlock {
    @Override
    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
       if (world.isClient) {
-         return state.get(LIT) ? checkType(type, JinericBlockEntityType.REDSTONE_CAMPFIRE, RedstoneCampfireBlockEntity::clientTick) : null;
+         return state.get(LIT) ? validateTicker(type, JinericBlockEntityType.REDSTONE_CAMPFIRE, RedstoneCampfireBlockEntity::clientTick) : null;
       } else {
          return state.get(LIT)
-                 ? checkType(type, JinericBlockEntityType.REDSTONE_CAMPFIRE, RedstoneCampfireBlockEntity::litServerTick)
-                 : checkType(type, JinericBlockEntityType.REDSTONE_CAMPFIRE, RedstoneCampfireBlockEntity::unlitServerTick);
+                 ? validateTicker(type, JinericBlockEntityType.REDSTONE_CAMPFIRE, RedstoneCampfireBlockEntity::litServerTick)
+                 : validateTicker(type, JinericBlockEntityType.REDSTONE_CAMPFIRE, RedstoneCampfireBlockEntity::unlitServerTick);
       }
    }
 }

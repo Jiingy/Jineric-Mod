@@ -32,7 +32,7 @@ public class RefineryBlock extends AbstractFurnaceBlock {
    @Nullable
    @Override
    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-      return RefineryBlock.checkType(world, type, JinericBlockEntityType.REFINERY);
+      return RefineryBlock.validateTicker(world, type, JinericBlockEntityType.REFINERY);
    }
 
    @Override

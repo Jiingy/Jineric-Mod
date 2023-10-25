@@ -15,6 +15,7 @@ import net.minecraft.nbt.NbtElement;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.recipe.CampfireCookingRecipe;
+import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.recipe.RecipeManager;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.state.property.Properties;
@@ -51,10 +52,9 @@ public class RedstoneCampfireBlockEntity extends BlockEntity implements Clearabl
             redstoneCampfire.cookingTimes[i]++;
             if (redstoneCampfire.cookingTimes[i] >= redstoneCampfire.cookingTotalTimes[i]) {
                Inventory inventory = new SimpleInventory(itemStack);
-               ItemStack itemStack2 = (ItemStack)redstoneCampfire.matchGetter
-                       .getFirstMatch(inventory, world)
-                       .map(recipe -> recipe.craft(inventory, world.getRegistryManager()))
-                       .orElse(itemStack);
+               ItemStack itemStack2 = redstoneCampfire.matchGetter.getFirstMatch(inventory, world).map(
+                       (recipeEntry) -> recipeEntry.value().craft(inventory, world.getRegistryManager())
+               ).orElse(itemStack);
                if (itemStack2.isItemEnabled(world.getEnabledFeatures())) {
                   ItemScatterer.spawn(world, (double)pos.getX(), (double)pos.getY(), (double)pos.getZ(), itemStack2);
                   redstoneCampfire.itemsBeingCooked.set(i, ItemStack.EMPTY);
@@ -183,10 +183,10 @@ public class RedstoneCampfireBlockEntity extends BlockEntity implements Clearabl
       return nbtCompound;
    }
 
-   public Optional<CampfireCookingRecipe> getRecipeFor(ItemStack stack) {
+   public Optional<RecipeEntry<CampfireCookingRecipe>> getRecipeFor(ItemStack stack) {
       return this.itemsBeingCooked.stream().noneMatch(ItemStack::isEmpty)
               ? Optional.empty()
-              : this.matchGetter.getFirstMatch(new SimpleInventory(stack), this.world);
+              : this.matchGetter.getFirstMatch(new SimpleInventory(new ItemStack[]{stack}), this.world);
    }
 
    public boolean addItem(@Nullable Entity user, ItemStack stack, int cookTime) {
