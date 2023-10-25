@@ -2,14 +2,11 @@ package jingy.jineric.registry;
 
 import jingy.jineric.sound.JinericBlockSoundGroup;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.*;
-import net.minecraft.entity.EntityType;
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.LeavesBlock;
+import net.minecraft.block.MapColor;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.BlockView;
-
-import java.util.function.ToIntFunction;
 
 public class JinericBlockSettings extends Blocks {
 
@@ -44,9 +41,9 @@ public class JinericBlockSettings extends Blocks {
 				.ticksRandomly()
 				.sounds(soundGroup)
 				.nonOpaque()
-				.allowsSpawning(JinericBlockSettings::canSpawnOnLeaves)
-				.suffocates(JinericBlockSettings::never)
-				.blockVision(JinericBlockSettings::never)
+				.allowsSpawning(Blocks::canSpawnOnLeaves)
+				.suffocates(Blocks::never)
+				.blockVision(Blocks::never)
 		);
 	}
 
@@ -58,21 +55,5 @@ public class JinericBlockSettings extends Blocks {
 				.requiresTool()
 				.mapColor(MapColor.WHITE)
 				.hardness(0.4F);
-	}
-
-	private static boolean always(BlockState state, BlockView blockView, BlockPos blockPos, EntityType<?> entityType) {
-		return true;
-	}
-
-	private static boolean never(BlockState state, BlockView blockView, BlockPos blockPos) {
-		return false;
-	}
-
-	private static ToIntFunction<BlockState> createLightLevelFromLitBlockState(int litLevel) {
-		return state -> state.get(Properties.LIT) ? litLevel : 0;
-	}
-
-	private static Boolean canSpawnOnLeaves(BlockState state, BlockView world, BlockPos pos, EntityType<?> type) {
-		return type == EntityType.OCELOT || type == EntityType.PARROT;
 	}
 }

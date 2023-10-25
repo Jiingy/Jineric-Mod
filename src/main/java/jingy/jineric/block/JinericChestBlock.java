@@ -116,6 +116,6 @@ public class JinericChestBlock extends ChestBlock {
    @Nullable
    @Override
    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-      return world.isClient ? checkType(type, this.getExpectedEntityType(), JinericChestBlockEntity::clientTick) : null;
+      return world.isClient ? validateTicker(type, this.getExpectedEntityType(), JinericChestBlockEntity::clientTick) : null;
    }
 }
