@@ -4,8 +4,8 @@ import jingy.jineric.block.JinericCauldronBehaviors;
 import jingy.jineric.entity.JinericPaintingVariant;
 import jingy.jineric.entity.effect.JinericStatusEffects;
 import jingy.jineric.item.JinericItemGroups;
-import jingy.jineric.recipe.JinericRecipeType;
-import jingy.jineric.recipe.RefiningRecipe;
+import jingy.jineric.recipe.JinericRecipeSerializers;
+import jingy.jineric.recipe.JinericRecipeTypes;
 import jingy.jineric.registry.JinericBlockEntityType;
 import jingy.jineric.registry.JinericRegistries;
 import jingy.jineric.screen.JinericScreenHandlerType;
@@ -34,11 +34,11 @@ public class JinericMain implements ModInitializer {
 		JinericPaintingVariant.registerPaintingMotives();
 		JinericStats.registerStats();
 		JinericBlockEntityType.registerBlockEntities();
-		RefiningRecipe.registerRefiningRecipe();
-		JinericRecipeType.registerRecipeTypes();
 		JinericStatusEffects.registerStatusEffects();
 		JinericScreenHandlerType.registerScreenHandlers();
 		JinericCauldronBehaviors.registerCauldronBehaviors();
+		JinericRecipeTypes.registerRecipeTypes();
+		JinericRecipeSerializers.registerRefiningRecipe();
 
 		System.out.println("Jineric Mod Main - Finished initialization");
 	}

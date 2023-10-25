@@ -1,6 +1,6 @@
 package jingy.jineric.block.entity;
 
-import jingy.jineric.recipe.JinericRecipeType;
+import jingy.jineric.recipe.JinericRecipeTypes;
 import jingy.jineric.registry.JinericBlockEntityType;
 import jingy.jineric.screen.RefineryScreenHandler;
 import net.minecraft.block.BlockState;
@@ -13,7 +13,7 @@ import net.minecraft.util.math.BlockPos;
 
 public class RefineryBlockEntity extends AbstractFurnaceBlockEntity {
    public RefineryBlockEntity(BlockPos blockPos, BlockState state) {
-      super(JinericBlockEntityType.REFINERY, blockPos, state, JinericRecipeType.REFINING);
+      super(JinericBlockEntityType.REFINERY, blockPos, state, JinericRecipeTypes.REFINING);
    }
    @Override
    protected Text getContainerName() {
