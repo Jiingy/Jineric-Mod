@@ -3,7 +3,7 @@ package jingy.jineric.data.generators;
 import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.item.JinericItems;
 import jingy.jineric.mixin.access.CookingRecipeJsonBuilderAccess;
-import jingy.jineric.recipe.RefiningRecipe;
+import jingy.jineric.recipe.JinericRecipeSerializers;
 import jingy.jineric.tag.JinericItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -154,7 +154,7 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
 
    public static void offerRefining(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, Item input, RecipeCategory category, CookingRecipeCategory cookingCategory, float xp, Item group) {
       Identifier outId = new Identifier(output.toString());
-      createRefining(Ingredient.ofItems(input), category, cookingCategory, output, xp, 100, RefiningRecipe.REFINING_RECIPE_SERIALIZER)
+      createRefining(Ingredient.ofItems(input), category, cookingCategory, output, xp, 100, JinericRecipeSerializers.REFINING)
               .group(group == Items.AIR ? null : group.toString())
               .criterion(hasItem(input), conditionsFromItem(input))
               .offerTo(exporter, outId + "_refining_" + input);

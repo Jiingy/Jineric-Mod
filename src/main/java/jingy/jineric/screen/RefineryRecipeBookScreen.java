@@ -21,7 +21,6 @@ public class RefineryRecipeBookScreen extends AbstractFurnaceRecipeBookScreen {
       return TOGGLE_REFINABLE_RECIPES_TEXT;
    }
 
-   @Override
    protected void setBookButtonTexture() {
       this.toggleCraftableButton.setTextureUV(152, 182, 28, 18, REFINERY_TEXTURE);
    }

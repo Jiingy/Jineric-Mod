@@ -11,10 +11,12 @@ import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public class RefineryScreen extends AbstractFurnaceScreen<RefineryScreenHandler> {
+   private static final Identifier LIT_PROGRESS_TEXTURE = JinericMain.id("container/refinery/lit_progress");
+   private static final Identifier BURN_PROGRESS_TEXTURE = JinericMain.id("container/refinery/burn_progress");
    private static final Identifier TEXTURE = JinericMain.id("textures/gui/container/refinery.png");
 
    public RefineryScreen(RefineryScreenHandler handler, PlayerInventory inventory, Text title) {
-      super(handler, new RefineryRecipeBookScreen(), inventory, title, TEXTURE);
+      super(handler, new RefineryRecipeBookScreen(), inventory, title, TEXTURE, LIT_PROGRESS_TEXTURE, BURN_PROGRESS_TEXTURE);
    }
 
    @Override
