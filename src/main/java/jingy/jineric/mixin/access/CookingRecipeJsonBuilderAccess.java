@@ -13,6 +13,7 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 @Mixin(CookingRecipeJsonBuilder.class)
 public interface CookingRecipeJsonBuilderAccess {
 
+   //TODO: ADD SPECIFIC FAIL MESSAGE FOR THROWN ERRORS
    @Invoker("<init>")
    static CookingRecipeJsonBuilder invokeInit(
            RecipeCategory category,
