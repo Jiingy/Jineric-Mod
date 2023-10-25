@@ -11,6 +11,6 @@ public interface GetBundleOccupancyAccess {
    //TODO: ADD SPECIFIC FAIL MESSAGE FOR THROWN ERRORS
    @Invoker("getBundleOccupancy")
    static int getBundleOccupancy(ItemStack stack) {
-      throw new AssertionError();
+      throw new IllegalStateException("Could not invoke getBundleOccupancy() in BundleItem!");
    }
 }

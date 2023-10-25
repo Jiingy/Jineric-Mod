@@ -15,15 +15,7 @@ public interface CookingRecipeJsonBuilderAccess {
 
    //TODO: ADD SPECIFIC FAIL MESSAGE FOR THROWN ERRORS
    @Invoker("<init>")
-   static CookingRecipeJsonBuilder invokeInit(
-           RecipeCategory category,
-           CookingRecipeCategory cookingCategory,
-           ItemConvertible output,
-           Ingredient input,
-           float experience,
-           int cookingTime,
-           RecipeSerializer<? extends AbstractCookingRecipe> serializer
-   ) {
-      throw new IllegalStateException("Mixin not applied!");
+   static CookingRecipeJsonBuilder invokeInit(RecipeCategory category, CookingRecipeCategory cookingCategory, ItemConvertible output, Ingredient input, float experience, int cookingTime, RecipeSerializer<? extends AbstractCookingRecipe> serializer) {
+      throw new IllegalStateException("Could not invoke <init> in CookingRecipeJsonBuilder!");
    }
 }
