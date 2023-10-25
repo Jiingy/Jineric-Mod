@@ -19,15 +19,13 @@ import net.minecraft.recipe.book.CookingRecipeCategory;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.util.Identifier;
 
-import java.util.function.Consumer;
-
 public class JinericRecipeGenerator extends FabricRecipeProvider {
    public JinericRecipeGenerator(FabricDataOutput output) {
       super(output);
    }
 
    @Override
-   public void generate(Consumer<RecipeJsonProvider> exporter) {
+   public void generate(RecipeExporter exporter) {
       RecipeCategory blocks = RecipeCategory.BUILDING_BLOCKS;
       RecipeCategory misc = RecipeCategory.MISC;
       Item cookingNone = Items.AIR;
@@ -116,7 +114,7 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
       offerRefinery(exporter, JinericBlocks.REFINERY);
    }
 
-   public static void offerTrappedChestReipce(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
+   public static void offerTrappedChestReipce(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
       ShapelessRecipeJsonBuilder.create(RecipeCategory.REDSTONE, output)
               .input(Blocks.TRIPWIRE_HOOK)
               .input(input)
@@ -125,7 +123,7 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
               .offerTo(exporter);
    }
 
-   public static void offerFenceRecipe(Consumer<RecipeJsonProvider> exporter, RecipeCategory category, ItemConvertible output, ItemConvertible input) {
+   public static void offerFenceRecipe(RecipeExporter exporter, RecipeCategory category, ItemConvertible output, ItemConvertible input) {
       createFenceRecipe(category, output, Ingredient.ofItems(input)).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
    }
 
@@ -133,7 +131,7 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
       return ShapedRecipeJsonBuilder.create(category, output, 6).input('#', Items.NETHER_BRICK).input('%', outerInput).pattern("%#%").pattern("%#%");
    }
 
-   public static void offerIronUpgradeRecipe(Consumer<RecipeJsonProvider> exporter, Item input, RecipeCategory category, Item result) {
+   public static void offerIronUpgradeRecipe(RecipeExporter exporter, Item input, RecipeCategory category, Item result) {
       SmithingTransformRecipeJsonBuilder.create(
               Ingredient.ofItems(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE),
                       Ingredient.ofItems(input),
@@ -142,7 +140,7 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
               .offerTo(exporter, getItemPath(result) + "_smithing");
    }
 
-   public static void offerRefinery(Consumer<RecipeJsonProvider> exporter, ItemConvertible output) {
+   public static void offerRefinery(RecipeExporter exporter, ItemConvertible output) {
       ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, output, 1)
               .input('P', Blocks.POLISHED_DEEPSLATE).input('T', Blocks.DEEPSLATE_TILES).input('F', Blocks.FURNACE)
               .pattern("PPP")
@@ -152,7 +150,7 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
               .offerTo(exporter);
    }
 
-   public static void offerRefining(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, Item input, RecipeCategory category, CookingRecipeCategory cookingCategory, float xp, Item group) {
+   public static void offerRefining(RecipeExporter exporter, ItemConvertible output, Item input, RecipeCategory category, CookingRecipeCategory cookingCategory, float xp, Item group) {
       Identifier outId = new Identifier(output.toString());
       createRefining(Ingredient.ofItems(input), category, cookingCategory, output, xp, 100, JinericRecipeSerializers.REFINING)
               .group(group == Items.AIR ? null : group.toString())
