@@ -18,6 +18,8 @@
         {"type": "single", "resource": "jineric:entity/chest/trapped_acacia_chest"},
         {"type": "single", "resource": "jineric:entity/chest/trapped_dark_oak_chest"},
         {"type": "single", "resource": "jineric:entity/chest/trapped_mangrove_chest"},
+        {"type": "single", "resource": "jineric:entity/chest/trapped_cherry_chest"},
+        {"type": "single", "resource": "jineric:entity/chest/trapped_bamboo_chest"},
         {"type": "single", "resource": "jineric:entity/chest/trapped_crimson_chest"},
         {"type": "single", "resource": "jineric:entity/chest/trapped_warped_chest"},
 
