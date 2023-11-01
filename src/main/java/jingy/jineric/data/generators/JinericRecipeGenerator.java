@@ -86,6 +86,8 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
       offerTrappedChestReipce(exporter, JinericItems.TRAPPED_ACACIA_CHEST, JinericItems.ACACIA_CHEST);
       offerTrappedChestReipce(exporter, JinericItems.TRAPPED_DARK_OAK_CHEST, JinericItems.DARK_OAK_CHEST);
       offerTrappedChestReipce(exporter, JinericItems.TRAPPED_MANGROVE_CHEST, JinericItems.MANGROVE_CHEST);
+      offerTrappedChestReipce(exporter, JinericItems.TRAPPED_CHERRY_CHEST, JinericItems.CHERRY_CHEST);
+      offerTrappedChestReipce(exporter, JinericItems.TRAPPED_BAMBOO_CHEST, JinericItems.BAMBOO_CHEST);
       offerTrappedChestReipce(exporter, JinericItems.TRAPPED_CRIMSON_CHEST, JinericItems.CRIMSON_CHEST);
       offerTrappedChestReipce(exporter, JinericItems.TRAPPED_WARPED_CHEST, JinericItems.WARPED_CHEST);
 
