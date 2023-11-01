@@ -8,7 +8,6 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 @Mixin(BundleItem.class)
 public interface GetBundleOccupancyAccess {
 
-   //TODO: ADD SPECIFIC FAIL MESSAGE FOR THROWN ERRORS
    @Invoker("getBundleOccupancy")
    static int getBundleOccupancy(ItemStack stack) {
       throw new IllegalStateException("Could not invoke getBundleOccupancy() in BundleItem!");
