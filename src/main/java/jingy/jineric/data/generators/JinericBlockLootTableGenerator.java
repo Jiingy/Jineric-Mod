@@ -29,6 +29,8 @@ public class JinericBlockLootTableGenerator extends FabricBlockLootTableProvider
       addDrop(JinericBlocks.ACACIA_CHEST, this::nameableContainerDrops);
       addDrop(JinericBlocks.DARK_OAK_CHEST, this::nameableContainerDrops);
       addDrop(JinericBlocks.MANGROVE_CHEST, this::nameableContainerDrops);
+      addDrop(JinericBlocks.CHERRY_CHEST, this::nameableContainerDrops);
+      addDrop(JinericBlocks.BAMBOO_CHEST, this::nameableContainerDrops);
       addDrop(JinericBlocks.CRIMSON_CHEST, this::nameableContainerDrops);
       addDrop(JinericBlocks.WARPED_CHEST, this::nameableContainerDrops);
       //Trapped Chests
@@ -38,6 +40,8 @@ public class JinericBlockLootTableGenerator extends FabricBlockLootTableProvider
       addDrop(JinericBlocks.TRAPPED_ACACIA_CHEST, this::nameableContainerDrops);
       addDrop(JinericBlocks.TRAPPED_DARK_OAK_CHEST, this::nameableContainerDrops);
       addDrop(JinericBlocks.TRAPPED_MANGROVE_CHEST, this::nameableContainerDrops);
+      addDrop(JinericBlocks.TRAPPED_CHERRY_CHEST, this::nameableContainerDrops);
+      addDrop(JinericBlocks.TRAPPED_BAMBOO_CHEST, this::nameableContainerDrops);
       addDrop(JinericBlocks.TRAPPED_CRIMSON_CHEST, this::nameableContainerDrops);
       addDrop(JinericBlocks.TRAPPED_WARPED_CHEST, this::nameableContainerDrops);
    }
