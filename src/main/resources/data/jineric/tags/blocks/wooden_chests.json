@@ -11,17 +11,6 @@
 	  "jineric:cherry_chest",
 	  "jineric:bamboo_chest",
 	  "jineric:crimson_chest",
-	  "jineric:warped_chest",
-	  "minecraft:trapped_chest",
-	  "jineric:trapped_spruce_chest",
-	  "jineric:trapped_birch_chest",
-	  "jineric:trapped_jungle_chest",
-	  "jineric:trapped_acacia_chest",
-	  "jineric:trapped_dark_oak_chest",
-	  "jineric:trapped_mangrove_chest",
-	  "jineric:trapped_cherry_chest",
-	  "jineric:trapped_bamboo_chest",
-	  "jineric:trapped_crimson_chest",
-	  "jineric:trapped_warped_chest"
+	  "jineric:warped_chest"
    ]
 }
