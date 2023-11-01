@@ -19,7 +19,7 @@ public class JinericMain implements ModInitializer {
 	public static final Logger LOGGER = LogManager.getLogger("Jineric Mod");
 	public static final String MOD_ID = "jineric";
 
-	public static Identifier id(String path) {
+	public static Identifier jinericId(String path) {
 		return new Identifier(MOD_ID, path);
 	}
 

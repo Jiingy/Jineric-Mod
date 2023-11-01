@@ -13,7 +13,7 @@ public class JinericItemTags {
    public static final TagKey<Item> WOODEN_TRAPPED_CHESTS = registerItemTag("wooden_trapped_chests");
 
    private static TagKey<Item> registerItemTag(String id) {
-      return TagKey.of(Registries.ITEM.getKey(), JinericMain.id(id));
+      return TagKey.of(Registries.ITEM.getKey(), JinericMain.jinericId(id));
    }
 
    private JinericItemTags() {

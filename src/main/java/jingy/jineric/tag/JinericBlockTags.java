@@ -17,7 +17,7 @@ public class JinericBlockTags {
    public static final TagKey<Block> FULL_GRASSY_BLOCKS = registerBlockTag("full_grassy_blocks");
 
    private static TagKey<Block> registerBlockTag(String id) {
-      return TagKey.of(Registries.BLOCK.getKey(), JinericMain.id(id));
+      return TagKey.of(Registries.BLOCK.getKey(), JinericMain.jinericId(id));
    }
 
    private JinericBlockTags() {
