@@ -17,30 +17,30 @@ public class JinericBlockEntityType<T extends BlockEntity> {
    public static final BlockEntityType<JinericChestBlockEntity> JINERIC_CHEST =
            FabricBlockEntityTypeBuilder.create(
                    JinericChestBlockEntity::new,
-                   JinericBlocks.ACACIA_CHEST,
-                   JinericBlocks.BIRCH_CHEST,
-                   JinericBlocks.BIRCH_CHEST,
-                   JinericBlocks.CRIMSON_CHEST,
-                   JinericBlocks.DARK_OAK_CHEST,
-                   JinericBlocks.JUNGLE_CHEST,
                    JinericBlocks.SPRUCE_CHEST,
-                   JinericBlocks.WARPED_CHEST,
+                   JinericBlocks.BIRCH_CHEST,
+                   JinericBlocks.JUNGLE_CHEST,
+                   JinericBlocks.ACACIA_CHEST,
+                   JinericBlocks.DARK_OAK_CHEST,
                    JinericBlocks.MANGROVE_CHEST,
                    JinericBlocks.CHERRY_CHEST,
-                   JinericBlocks.BAMBOO_CHEST
+                   JinericBlocks.BAMBOO_CHEST,
+                   JinericBlocks.CRIMSON_CHEST,
+                   JinericBlocks.WARPED_CHEST
            ).build();
    public static final BlockEntityType<JinericChestBlockEntity> JINERIC_TRAPPED_CHEST =
            FabricBlockEntityTypeBuilder.create(
                    JinericChestBlockEntity::new,
-                   JinericBlocks.TRAPPED_ACACIA_CHEST,
-                   JinericBlocks.TRAPPED_BIRCH_CHEST,
-                   JinericBlocks.TRAPPED_BIRCH_CHEST,
-                   JinericBlocks.TRAPPED_CRIMSON_CHEST,
-                   JinericBlocks.TRAPPED_DARK_OAK_CHEST,
-                   JinericBlocks.TRAPPED_JUNGLE_CHEST,
                    JinericBlocks.TRAPPED_SPRUCE_CHEST,
-                   JinericBlocks.TRAPPED_WARPED_CHEST,
-                   JinericBlocks.TRAPPED_MANGROVE_CHEST
+                   JinericBlocks.TRAPPED_BIRCH_CHEST,
+                   JinericBlocks.TRAPPED_JUNGLE_CHEST,
+                   JinericBlocks.TRAPPED_ACACIA_CHEST,
+                   JinericBlocks.TRAPPED_DARK_OAK_CHEST,
+                   JinericBlocks.TRAPPED_MANGROVE_CHEST,
+                   JinericBlocks.TRAPPED_CHERRY_CHEST,
+                   JinericBlocks.TRAPPED_BAMBOO_CHEST,
+                   JinericBlocks.TRAPPED_CRIMSON_CHEST,
+                   JinericBlocks.TRAPPED_WARPED_CHEST
            ).build();
 
    public static final BlockEntityType<RefineryBlockEntity> REFINERY =
