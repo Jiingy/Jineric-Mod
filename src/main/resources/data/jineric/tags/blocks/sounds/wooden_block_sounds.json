@@ -10,6 +10,7 @@
 	  "#minecraft:wooden_fences",
 	  "#minecraft:fence_gates",
 	  "#jineric:wooden_bookshelves",
-	  "#jineric:wooden_chests"
+	  "#jineric:wooden_chests",
+	  "#jineric:wooden_trapped_chests"
    ]
 }
