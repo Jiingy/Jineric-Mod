@@ -19,8 +19,6 @@ import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 
 public class JinericUndergroundConfiguredFeatures {
 
-   //TODO: FIX
-   //FULL GRASS REPLACE GRASS
    public static final RegistryKey<ConfiguredFeature<?, ?>> FULL_GRASS_VEGETATION = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, JinericMain.jinericId("full_grass_vegetation"));
    public static final RegistryKey<ConfiguredFeature<?, ?>> FULL_GRASS_PATCH_BONEMEAL = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, JinericMain.jinericId("full_grass_patch_bonemeal"));
 

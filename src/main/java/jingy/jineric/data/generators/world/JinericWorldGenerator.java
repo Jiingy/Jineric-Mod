@@ -10,8 +10,6 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 
 import java.util.concurrent.CompletableFuture;
 
-
-@SuppressWarnings("UnstableApiUsage")
 public class JinericWorldGenerator extends FabricDynamicRegistryProvider {
    public JinericWorldGenerator(FabricDataOutput generator, CompletableFuture<RegistryWrapper.WrapperLookup> registries) {
       super(generator, registries);
