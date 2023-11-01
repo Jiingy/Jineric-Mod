@@ -6,13 +6,12 @@ import jingy.jineric.block.entity.JinericChestBlockEntity;
 import jingy.jineric.block.entity.RedstoneCampfireBlockEntity;
 import jingy.jineric.block.entity.RefineryBlockEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
-import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
-public class JinericBlockEntityType<T extends BlockEntity> {
+public class JinericBlockEntityType {
 
    public static final BlockEntityType<JinericChestBlockEntity> JINERIC_CHEST =
            FabricBlockEntityTypeBuilder.create(
