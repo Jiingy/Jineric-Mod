@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "jineric:block/cherry_ladder",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "jineric:block/cherry_ladder"
+    },
+    "facing=south": {
+      "model": "jineric:block/cherry_ladder",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "jineric:block/cherry_ladder",
+      "y": 270
+    }
+  }
+}

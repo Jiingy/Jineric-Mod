@@ -1,0 +1,7 @@
+{
+  "parent": "jineric:block/chest_template",
+  "textures": {
+    "0": "jineric:entity/chest/trapped_bamboo_chest",
+    "particle": "jineric:entity/chest/bamboo_chest_particle"
+  }
+}
