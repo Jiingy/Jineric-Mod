@@ -3,6 +3,7 @@ package jingy.jineric.registry;
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.block.entity.JinericChestBlockEntity;
+import jingy.jineric.block.entity.JinericTrappedChestBlockEntity;
 import jingy.jineric.block.entity.RedstoneCampfireBlockEntity;
 import jingy.jineric.block.entity.RefineryBlockEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
@@ -27,9 +28,9 @@ public class JinericBlockEntityType {
                    JinericBlocks.CRIMSON_CHEST,
                    JinericBlocks.WARPED_CHEST
            ).build();
-   public static final BlockEntityType<JinericChestBlockEntity> JINERIC_TRAPPED_CHEST =
+   public static final BlockEntityType<JinericTrappedChestBlockEntity> JINERIC_TRAPPED_CHEST =
            FabricBlockEntityTypeBuilder.create(
-                   JinericChestBlockEntity::new,
+                   JinericTrappedChestBlockEntity::new,
                    JinericBlocks.TRAPPED_SPRUCE_CHEST,
                    JinericBlocks.TRAPPED_BIRCH_CHEST,
                    JinericBlocks.TRAPPED_JUNGLE_CHEST,
