@@ -12,7 +12,6 @@
 	  "CatsSitOnJinericChestsMixin",
 	  "DefaultAttributeRegistryMixin",
 	  "EatGrassGoalMixin",
-	  "EnchantingTableBlockMixin",
 	  "EnchantmentMixin",
 	  "LadderWithTrapdoorClimbingFixMixin",
 	  "LivingEntityFastFallingMixin",
