@@ -290,26 +290,27 @@ public class JinericBlocks {
 	public static final Block WAXED_OXIDIZED_CUT_COPPER_WALL = register("waxed_oxidized_cut_copper_wall", new OxidizableCopperWallBlock(Oxidizable.OxidationLevel.OXIDIZED, FabricBlockSettings.copy(OXIDIZED_CUT_COPPER)));
 
 //CHESTS
-	public static final Block ACACIA_CHEST = register("acacia_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.ACACIA));
-	public static final Block BAMBOO_CHEST = register("bamboo_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.BAMBOO));
-	public static final Block BIRCH_CHEST = register("birch_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.BIRCH));
-	public static final Block CHERRY_CHEST = register("cherry_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.CHERRY));
-	public static final Block CRIMSON_CHEST = register("crimson_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST).sounds(BlockSoundGroup.NETHER_WOOD), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.CRIMSON));
-	public static final Block DARK_OAK_CHEST = register("dark_oak_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.DARK_OAK));
-	public static final Block JUNGLE_CHEST = register("jungle_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.JUNGLE));
-//	public static final Block SHULKER_CHEST = register("shulker_chest", new ShulkerChestBlock(FabricBlockSettings.of(Material.STONE), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.SHULKER));
 	public static final Block SPRUCE_CHEST = register("spruce_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.SPRUCE));
-	public static final Block WARPED_CHEST = register("warped_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST).sounds(BlockSoundGroup.NETHER_WOOD), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.WARPED));
+	public static final Block BIRCH_CHEST = register("birch_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.BIRCH));
+	public static final Block JUNGLE_CHEST = register("jungle_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.JUNGLE));
+	public static final Block ACACIA_CHEST = register("acacia_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.ACACIA));
+	public static final Block DARK_OAK_CHEST = register("dark_oak_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.DARK_OAK));
 	public static final Block MANGROVE_CHEST = register("mangrove_chest", new JinericChestBlock(FabricBlockSettings.copy(TRAPPED_CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.MANGROVE));
-	public static final Block TRAPPED_ACACIA_CHEST = register("trapped_acacia_chest", new JinericTrappedChestBlock(FabricBlockSettings.copy(TRAPPED_CHEST), WoodType.ACACIA));
-	public static final Block TRAPPED_BIRCH_CHEST = register("trapped_birch_chest", new JinericTrappedChestBlock(FabricBlockSettings.copy(TRAPPED_CHEST), WoodType.BIRCH));
-	public static final Block TRAPPED_CRIMSON_CHEST = register("trapped_crimson_chest", new JinericTrappedChestBlock(FabricBlockSettings.copy(TRAPPED_CHEST), WoodType.CRIMSON));
-	public static final Block TRAPPED_DARK_OAK_CHEST = register("trapped_dark_oak_chest", new JinericTrappedChestBlock(FabricBlockSettings.copy(TRAPPED_CHEST), WoodType.DARK_OAK));
-	public static final Block TRAPPED_JUNGLE_CHEST = register("trapped_jungle_chest", new JinericTrappedChestBlock(FabricBlockSettings.copy(TRAPPED_CHEST), WoodType.JUNGLE));
+	public static final Block CHERRY_CHEST = register("cherry_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.CHERRY));
+	public static final Block BAMBOO_CHEST = register("bamboo_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.BAMBOO));
+	public static final Block CRIMSON_CHEST = register("crimson_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST).sounds(BlockSoundGroup.NETHER_WOOD), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.CRIMSON));
+	//	public static final Block SHULKER_CHEST = register("shulker_chest", new ShulkerChestBlock(FabricBlockSettings.of(Material.STONE), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.SHULKER));
+	public static final Block WARPED_CHEST = register("warped_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST).sounds(BlockSoundGroup.NETHER_WOOD), () -> JinericBlockEntityType.JINERIC_CHEST, WoodType.WARPED));
 	public static final Block TRAPPED_SPRUCE_CHEST = register("trapped_spruce_chest", new JinericTrappedChestBlock(FabricBlockSettings.copy(TRAPPED_CHEST), WoodType.SPRUCE));
-	public static final Block TRAPPED_WARPED_CHEST = register("trapped_warped_chest", new JinericTrappedChestBlock(FabricBlockSettings.copy(TRAPPED_CHEST).sounds(BlockSoundGroup.NETHER_WOOD), WoodType.WARPED));
+	public static final Block TRAPPED_BIRCH_CHEST = register("trapped_birch_chest", new JinericTrappedChestBlock(FabricBlockSettings.copy(TRAPPED_CHEST), WoodType.BIRCH));
+	public static final Block TRAPPED_JUNGLE_CHEST = register("trapped_jungle_chest", new JinericTrappedChestBlock(FabricBlockSettings.copy(TRAPPED_CHEST), WoodType.JUNGLE));
+	public static final Block TRAPPED_ACACIA_CHEST = register("trapped_acacia_chest", new JinericTrappedChestBlock(FabricBlockSettings.copy(TRAPPED_CHEST), WoodType.ACACIA));
+	public static final Block TRAPPED_DARK_OAK_CHEST = register("trapped_dark_oak_chest", new JinericTrappedChestBlock(FabricBlockSettings.copy(TRAPPED_CHEST), WoodType.DARK_OAK));
 	public static final Block TRAPPED_MANGROVE_CHEST = register("trapped_mangrove_chest", new JinericTrappedChestBlock(FabricBlockSettings.copy(TRAPPED_CHEST).sounds(BlockSoundGroup.NETHER_WOOD), WoodType.MANGROVE));
-
+	public static final Block TRAPPED_CHERRY_CHEST = register("trapped_cherry_chest", new JinericTrappedChestBlock(FabricBlockSettings.copy(TRAPPED_CHEST), WoodType.CHERRY));
+	public static final Block TRAPPED_BAMBOO_CHEST = register("trapped_bamboo_chest", new JinericTrappedChestBlock(FabricBlockSettings.copy(TRAPPED_CHEST), WoodType.BAMBOO));
+	public static final Block TRAPPED_CRIMSON_CHEST = register("trapped_crimson_chest", new JinericTrappedChestBlock(FabricBlockSettings.copy(TRAPPED_CHEST), WoodType.CRIMSON));
+	public static final Block TRAPPED_WARPED_CHEST = register("trapped_warped_chest", new JinericTrappedChestBlock(FabricBlockSettings.copy(TRAPPED_CHEST).sounds(BlockSoundGroup.NETHER_WOOD), WoodType.WARPED));
 
 	public static final Block REFINERY = register("refinery", new RefineryBlock(FabricBlockSettings.copy(FURNACE).luminance(createLightLevelFromLitBlockState(13)).sounds(BlockSoundGroup.DEEPSLATE)));
 

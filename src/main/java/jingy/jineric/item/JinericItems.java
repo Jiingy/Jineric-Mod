@@ -238,22 +238,24 @@ public class JinericItems {
 	public static final Item CRIMSON_BOOKSHELF = register("crimson_bookshelf", new BlockItem(JinericBlocks.CRIMSON_BOOKSHELF, new FabricItemSettings()));
 	public static final Item WARPED_BOOKSHELF = register("warped_bookshelf", new BlockItem(JinericBlocks.WARPED_BOOKSHELF, new FabricItemSettings()));
 //CHESTS
-	public static final Item ACACIA_CHEST = register("acacia_chest", new BlockItem(JinericBlocks.ACACIA_CHEST, new FabricItemSettings()));
-	public static final Item BAMBOO_CHEST = register("bamboo_chest", new BlockItem(JinericBlocks.BAMBOO_CHEST, new FabricItemSettings()));
 	public static final Item BIRCH_CHEST = register("birch_chest", new BlockItem(JinericBlocks.BIRCH_CHEST, new FabricItemSettings()));
-	public static final Item CHERRY_CHEST = register("cherry_chest", new BlockItem(JinericBlocks.CHERRY_CHEST, new FabricItemSettings()));
 	public static final Item SPRUCE_CHEST = register("spruce_chest", new BlockItem(JinericBlocks.SPRUCE_CHEST, new FabricItemSettings()));
 	public static final Item JUNGLE_CHEST = register("jungle_chest", new BlockItem(JinericBlocks.JUNGLE_CHEST, new FabricItemSettings()));
+	public static final Item ACACIA_CHEST = register("acacia_chest", new BlockItem(JinericBlocks.ACACIA_CHEST, new FabricItemSettings()));
 	public static final Item DARK_OAK_CHEST = register("dark_oak_chest", new BlockItem(JinericBlocks.DARK_OAK_CHEST, new FabricItemSettings()));
 	public static final Item MANGROVE_CHEST = register("mangrove_chest", new BlockItem(JinericBlocks.MANGROVE_CHEST, new FabricItemSettings()));
+	public static final Item CHERRY_CHEST = register("cherry_chest", new BlockItem(JinericBlocks.CHERRY_CHEST, new FabricItemSettings()));
+	public static final Item BAMBOO_CHEST = register("bamboo_chest", new BlockItem(JinericBlocks.BAMBOO_CHEST, new FabricItemSettings()));
 	public static final Item CRIMSON_CHEST = register("crimson_chest", new BlockItem(JinericBlocks.CRIMSON_CHEST, new FabricItemSettings()));
 	public static final Item WARPED_CHEST = register("warped_chest", new BlockItem(JinericBlocks.WARPED_CHEST, new FabricItemSettings()));
-	public static final Item TRAPPED_ACACIA_CHEST = register("trapped_acacia_chest", new BlockItem(JinericBlocks.TRAPPED_ACACIA_CHEST, new FabricItemSettings()));
-	public static final Item TRAPPED_BIRCH_CHEST = register("trapped_birch_chest", new BlockItem(JinericBlocks.TRAPPED_BIRCH_CHEST, new FabricItemSettings()));
 	public static final Item TRAPPED_SPRUCE_CHEST = register("trapped_spruce_chest", new BlockItem(JinericBlocks.TRAPPED_SPRUCE_CHEST, new FabricItemSettings()));
+	public static final Item TRAPPED_BIRCH_CHEST = register("trapped_birch_chest", new BlockItem(JinericBlocks.TRAPPED_BIRCH_CHEST, new FabricItemSettings()));
 	public static final Item TRAPPED_JUNGLE_CHEST = register("trapped_jungle_chest", new BlockItem(JinericBlocks.TRAPPED_JUNGLE_CHEST, new FabricItemSettings()));
+	public static final Item TRAPPED_ACACIA_CHEST = register("trapped_acacia_chest", new BlockItem(JinericBlocks.TRAPPED_ACACIA_CHEST, new FabricItemSettings()));
 	public static final Item TRAPPED_DARK_OAK_CHEST = register("trapped_dark_oak_chest", new BlockItem(JinericBlocks.TRAPPED_DARK_OAK_CHEST, new FabricItemSettings()));
 	public static final Item TRAPPED_MANGROVE_CHEST = register("trapped_mangrove_chest", new BlockItem(JinericBlocks.TRAPPED_MANGROVE_CHEST, new FabricItemSettings()));
+	public static final Item TRAPPED_CHERRY_CHEST = register("trapped_cherry_chest", new BlockItem(JinericBlocks.TRAPPED_CHERRY_CHEST, new FabricItemSettings()));
+	public static final Item TRAPPED_BAMBOO_CHEST = register("trapped_bamboo_chest", new BlockItem(JinericBlocks.TRAPPED_BAMBOO_CHEST, new FabricItemSettings()));
 	public static final Item TRAPPED_CRIMSON_CHEST = register("trapped_crimson_chest", new BlockItem(JinericBlocks.TRAPPED_CRIMSON_CHEST, new FabricItemSettings()));
 	public static final Item TRAPPED_WARPED_CHEST = register("trapped_warped_chest", new BlockItem(JinericBlocks.TRAPPED_WARPED_CHEST, new FabricItemSettings()));
 //LADDERS

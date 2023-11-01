@@ -217,6 +217,8 @@ public class JinericItemGroups {
 							entries.add(JinericItems.TRAPPED_ACACIA_CHEST);
 							entries.add(JinericItems.TRAPPED_DARK_OAK_CHEST);
 							entries.add(JinericItems.TRAPPED_MANGROVE_CHEST);
+							entries.add(JinericItems.TRAPPED_CHERRY_CHEST);
+							entries.add(JinericItems.TRAPPED_BAMBOO_CHEST);
 							entries.add(JinericItems.TRAPPED_CRIMSON_CHEST);
 							entries.add(JinericItems.TRAPPED_WARPED_CHEST);
 							entries.add(JinericItems.SPRUCE_LADDER);
@@ -227,8 +229,8 @@ public class JinericItemGroups {
 							entries.add(JinericItems.MANGROVE_LADDER);
 							entries.add(JinericItems.CHERRY_LADDER);
 							entries.add(JinericItems.BAMBOO_LADDER);
-							entries.add(JinericItems.WARPED_LADDER);
 							entries.add(JinericItems.CRIMSON_LADDER);
+							entries.add(JinericItems.WARPED_LADDER);
 							entries.add(JinericItems.SOUL_JACK_O_LANTERN);
 							entries.add(JinericItems.NETHERITE_HORSE_ARMOR);
 							entries.add(JinericItems.TUMBLEWEED);
@@ -490,10 +492,10 @@ public class JinericItemGroups {
 			entries.addAfter(JinericItems.JUNGLE_LADDER, JinericItems.ACACIA_LADDER);
 			entries.addAfter(JinericItems.ACACIA_LADDER, JinericItems.DARK_OAK_LADDER);
 			entries.addAfter(JinericItems.DARK_OAK_LADDER, JinericItems.MANGROVE_LADDER);
-			entries.addAfter(JinericItems.MANGROVE_LADDER, JinericItems.CRIMSON_LADDER);
-			entries.addAfter(JinericItems.CRIMSON_LADDER, JinericItems.CHERRY_LADDER);
+			entries.addAfter(JinericItems.MANGROVE_LADDER, JinericItems.CHERRY_LADDER);
 			entries.addAfter(JinericItems.CHERRY_LADDER, JinericItems.BAMBOO_LADDER);
-			entries.addAfter(JinericItems.BAMBOO_LADDER, JinericItems.WARPED_LADDER);
+			entries.addAfter(JinericItems.BAMBOO_LADDER, JinericItems.CRIMSON_LADDER);
+			entries.addAfter(JinericItems.CRIMSON_LADDER, JinericItems.WARPED_LADDER);
 			//BOOKSHELVES
 			entries.addAfter(Items.BOOKSHELF, JinericItems.SPRUCE_BOOKSHELF);
 			entries.addAfter(JinericItems.SPRUCE_BOOKSHELF, JinericItems.BIRCH_BOOKSHELF);
@@ -512,7 +514,9 @@ public class JinericItemGroups {
 			entries.addAfter(JinericItems.JUNGLE_CHEST, JinericItems.ACACIA_CHEST);
 			entries.addAfter(JinericItems.ACACIA_CHEST, JinericItems.DARK_OAK_CHEST);
 			entries.addAfter(JinericItems.DARK_OAK_CHEST, JinericItems.MANGROVE_CHEST);
-			entries.addAfter(JinericItems.MANGROVE_CHEST, JinericItems.CRIMSON_CHEST);
+			entries.addAfter(JinericItems.MANGROVE_CHEST, JinericItems.CHERRY_CHEST);
+			entries.addAfter(JinericItems.CHERRY_CHEST, JinericItems.BAMBOO_CHEST);
+			entries.addAfter(JinericItems.BAMBOO_CHEST, JinericItems.CRIMSON_CHEST);
 			entries.addAfter(JinericItems.CRIMSON_CHEST, JinericItems.WARPED_CHEST);
 		});
 
