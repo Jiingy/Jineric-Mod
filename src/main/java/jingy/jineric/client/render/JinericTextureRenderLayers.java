@@ -71,6 +71,12 @@ public class JinericTextureRenderLayers extends TexturedRenderLayers {
    public static final SpriteIdentifier TRAPPED_MANGROVE_CHEST = createChestTextureId("trapped_mangrove_chest");
    public static final SpriteIdentifier TRAPPED_MANGROVE_CHEST_LEFT = createChestTextureId("trapped_mangrove_left");
    public static final SpriteIdentifier TRAPPED_MANGROVE_CHEST_RIGHT = createChestTextureId("trapped_mangrove_right");
+   public static final SpriteIdentifier TRAPPED_CHERRY_CHEST = createChestTextureId("trapped_cherry_chest");
+   public static final SpriteIdentifier TRAPPED_CHERRY_CHEST_LEFT = createChestTextureId("trapped_cherry_left");
+   public static final SpriteIdentifier TRAPPED_CHERRY_CHEST_RIGHT = createChestTextureId("trapped_cherry_right");
+   public static final SpriteIdentifier TRAPPED_BAMBOO_CHEST = createChestTextureId("trapped_bamboo_chest");
+   public static final SpriteIdentifier TRAPPED_BAMBOO_CHEST_LEFT = createChestTextureId("trapped_bamboo_left");
+   public static final SpriteIdentifier TRAPPED_BAMBOO_CHEST_RIGHT = createChestTextureId("trapped_bamboo_right");
 
    private static SpriteIdentifier createChestTextureId(String variant) {
       return new SpriteIdentifier(CHEST_ATLAS_TEXTURE, new Identifier(JinericMain.MOD_ID, "entity/chest/" + variant));
@@ -84,29 +90,35 @@ public class JinericTextureRenderLayers extends TexturedRenderLayers {
          return SHULKER;
       }
       else if (blockEntity instanceof JinericTrappedChestBlockEntity) {
-         if (woodType == WoodType.ACACIA) {
-            return getChestTexture(chestType, TRAPPED_ACACIA_CHEST, TRAPPED_ACACIA_CHEST_LEFT, TRAPPED_ACACIA_CHEST_RIGHT);
+         if (woodType == WoodType.SPRUCE) {
+            return getChestTexture(chestType, TRAPPED_SPRUCE_CHEST, TRAPPED_SPRUCE_CHEST_LEFT, TRAPPED_SPRUCE_CHEST_RIGHT);
          }
          else if (woodType == WoodType.BIRCH) {
             return getChestTexture(chestType, TRAPPED_BIRCH_CHEST, TRAPPED_BIRCH_CHEST_LEFT, TRAPPED_BIRCH_CHEST_RIGHT);
          }
-         else if (woodType == WoodType.CRIMSON) {
-            return getChestTexture(chestType, TRAPPED_CRIMSON_CHEST, TRAPPED_CRIMSON_CHEST_LEFT, TRAPPED_CRIMSON_CHEST_RIGHT);
-         }
-         else if (woodType == WoodType.DARK_OAK) {
-            return getChestTexture(chestType, TRAPPED_DARK_OAK_CHEST, TRAPPED_DARK_OAK_CHEST_LEFT, TRAPPED_DARK_OAK_CHEST_RIGHT);
+         else if (woodType == WoodType.ACACIA) {
+            return getChestTexture(chestType, TRAPPED_ACACIA_CHEST, TRAPPED_ACACIA_CHEST_LEFT, TRAPPED_ACACIA_CHEST_RIGHT);
          }
          else if (woodType == WoodType.JUNGLE) {
             return getChestTexture(chestType, TRAPPED_JUNGLE_CHEST, TRAPPED_JUNGLE_CHEST_LEFT, TRAPPED_JUNGLE_CHEST_RIGHT);
          }
-         else if (woodType == WoodType.SPRUCE) {
-            return getChestTexture(chestType, TRAPPED_SPRUCE_CHEST, TRAPPED_SPRUCE_CHEST_LEFT, TRAPPED_SPRUCE_CHEST_RIGHT);
-         }
-         else if (woodType == WoodType.WARPED) {
-            return getChestTexture(chestType, TRAPPED_WARPED_CHEST, TRAPPED_WARPED_CHEST_LEFT, TRAPPED_WARPED_CHEST_RIGHT);
+         else if (woodType == WoodType.DARK_OAK) {
+            return getChestTexture(chestType, TRAPPED_DARK_OAK_CHEST, TRAPPED_DARK_OAK_CHEST_LEFT, TRAPPED_DARK_OAK_CHEST_RIGHT);
          }
          else if (woodType == WoodType.MANGROVE) {
             return getChestTexture(chestType, TRAPPED_MANGROVE_CHEST, TRAPPED_MANGROVE_CHEST_LEFT, TRAPPED_MANGROVE_CHEST_RIGHT);
+         }
+         else if (woodType == WoodType.CHERRY) {
+            return getChestTexture(chestType, TRAPPED_CHERRY_CHEST, TRAPPED_CHERRY_CHEST_LEFT, TRAPPED_CHERRY_CHEST_RIGHT);
+         }
+         else if (woodType == WoodType.BAMBOO) {
+            return getChestTexture(chestType, TRAPPED_BAMBOO_CHEST, TRAPPED_BAMBOO_CHEST_LEFT, TRAPPED_BAMBOO_CHEST_RIGHT);
+         }
+         else if (woodType == WoodType.CRIMSON) {
+            return getChestTexture(chestType, TRAPPED_CRIMSON_CHEST, TRAPPED_CRIMSON_CHEST_LEFT, TRAPPED_CRIMSON_CHEST_RIGHT);
+         }
+         else if (woodType == WoodType.WARPED) {
+            return getChestTexture(chestType, TRAPPED_WARPED_CHEST, TRAPPED_WARPED_CHEST_LEFT, TRAPPED_WARPED_CHEST_RIGHT);
          }
       }
       else if (blockEntity instanceof JinericChestBlockEntity) {
