@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_snow": {
+    "has_snow_block": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:snow"
+              "minecraft:snow_block"
             ]
           }
         ]
@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_snow",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_snow_block"
     ]
   ],
   "rewards": {

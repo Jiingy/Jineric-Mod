@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_tuff_tile_wall",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_tuff_tile_wall"
     ]
   ],
   "rewards": {
