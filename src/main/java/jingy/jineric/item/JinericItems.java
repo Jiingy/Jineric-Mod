@@ -295,26 +295,30 @@ public class JinericItems {
 //	public static final Item SALT_BLOCK = register("salt_block", new BlockItem(JinericBlocks.SALT_BLOCK, new FabricItemSettings()));
 //	public static final Item FROZEN_ELYTRA = register("frozen_elytra", new JinericElytraItem(new FabricItemSettings().maxDamage(432).equipmentSlot(item -> CHEST).rarity(RARE)));
 
-	//BOREAL
-//	public static final Item BOREAL_WOOD = register("boreal_wood", new BlockItem(JinericBlocks.BOREAL_WOOD, new FabricItemSettings()));
-//	public static final Item BOREAL_LOG = register("boreal_log", new BlockItem(JinericBlocks.BOREAL_LOG, new FabricItemSettings()));
-//	public static final Item STRIPPED_BOREAL_WOOD = register("stripped_boreal_wood", new BlockItem(JinericBlocks.STRIPPED_BOREAL_WOOD, new FabricItemSettings()));
-//	public static final Item STRIPPED_BOREAL_LOG = register("stripped_boreal_log", new BlockItem(JinericBlocks.STRIPPED_BOREAL_LOG, new FabricItemSettings()));
-//	public static final Item BOREAL_PLANKS = register("boreal_planks", new BlockItem(JinericBlocks.BOREAL_PLANKS, new FabricItemSettings()));
-//	public static final Item BOREAL_STAIRS = register("boreal_stairs", new BlockItem(JinericBlocks.BOREAL_STAIRS, new FabricItemSettings()));
-//	public static final Item BOREAL_SLAB = register("boreal_slab", new BlockItem(JinericBlocks.BOREAL_SLAB, new FabricItemSettings()));
-//	public static final Item BOREAL_FENCE = register("boreal_fence", new BlockItem(JinericBlocks.BOREAL_FENCE, new FabricItemSettings()));
-//	public static final Item BOREAL_FENCE_GATE = register("boreal_fence_gate", new BlockItem(JinericBlocks.BOREAL_FENCE_GATE, new FabricItemSettings()));
-//	public static final Item BOREAL_BOOKSHELF = register("boreal_bookshelf", new BlockItem(JinericBlocks.BOREAL_BOOKSHELF, new FabricItemSettings()));
-//	public static final Item BOREAL_SIGN = register("boreal_sign", new SignItem(new FabricItemSettings().maxCount(16), JinericBlocks.BOREAL_SIGN, JinericBlocks.BOREAL_WALL_SIGN));
-//	public static final Item BOREAL_LADDER = register("boreal_ladder", new BlockItem(JinericBlocks.BOREAL_LADDER, new FabricItemSettings()));
-//	public static final Item BOREAL_CHEST = register("boreal_chest", new BlockItem(JinericBlocks.BOREAL_CHEST, new FabricItemSettings()));
-//	public static final Item BOREAL_BUTTON = register("boreal_button", new BlockItem(JinericBlocks.BOREAL_BUTTON, new FabricItemSettings()));
-//	public static final Item BOREAL_PRESSURE_PLATE = register("boreal_pressure_plate", new BlockItem(JinericBlocks.BOREAL_PRESSURE_PLATE, new FabricItemSettings()));
-//	public static final Item BOREAL_DOOR = register("boreal_door", new BlockItem(JinericBlocks.BOREAL_DOOR, new FabricItemSettings()));
-//	public static final Item BOREAL_TRAPDOOR = register("boreal_trapdoor", new BlockItem(JinericBlocks.BOREAL_TRAPDOOR, new FabricItemSettings()));
-//	public static final Item BOREAL_SAPLING = register("boreal_sapling", new BlockItem(JinericBlocks.BOREAL_SAPLING, new FabricItemSettings()));
-//	public static final Item BOREAL_LEAVES = register("boreal_leaves", new BlockItem(JinericBlocks.BOREAL_LEAVES, new FabricItemSettings()));
+	// VERTRAUT
+	public static final Item VERTRAUT_LOG = register("vertraut_log", new BlockItem(JinericBlocks.VERTRAUT_LOG, new FabricItemSettings()));
+	public static final Item VERTRAUT_WOOD = register("vertraut_wood", new BlockItem(JinericBlocks.VERTRAUT_WOOD, new FabricItemSettings()));
+	public static final Item STRIPPED_VERTRAUT_LOG = register("stripped_vertraut_log", new BlockItem(JinericBlocks.STRIPPED_VERTRAUT_LOG, new FabricItemSettings()));
+	public static final Item STRIPPED_VERTRAUT_WOOD = register("stripped_vertraut_wood", new BlockItem(JinericBlocks.STRIPPED_VERTRAUT_WOOD, new FabricItemSettings()));
+	public static final Item VERTRAUT_PLANKS = register("vertraut_planks", new BlockItem(JinericBlocks.VERTRAUT_PLANKS, new FabricItemSettings()));
+	public static final Item VERTRAUT_STAIRS = register("vertraut_stairs", new BlockItem(JinericBlocks.VERTRAUT_STAIRS, new FabricItemSettings()));
+	public static final Item VERTRAUT_SLAB = register("vertraut_slab", new BlockItem(JinericBlocks.VERTRAUT_SLAB, new FabricItemSettings()));
+	public static final Item VERTRAUT_FENCE = register("vertraut_fence", new BlockItem(JinericBlocks.VERTRAUT_FENCE, new FabricItemSettings()));
+	public static final Item VERTRAUT_FENCE_GATE = register("vertraut_fence_gate", new BlockItem(JinericBlocks.VERTRAUT_FENCE_GATE, new FabricItemSettings()));
+	public static final Item VERTRAUT_DOOR = register("vertraut_door", new BlockItem(JinericBlocks.VERTRAUT_DOOR, new FabricItemSettings()));
+	public static final Item VERTRAUT_TRAPDOOR = register("vertraut_trapdoor", new BlockItem(JinericBlocks.VERTRAUT_TRAPDOOR, new FabricItemSettings()));
+	public static final Item VERTRAUT_PRESSURE_PLATE = register("vertraut_pressure_plate", new BlockItem(JinericBlocks.VERTRAUT_PRESSURE_PLATE, new FabricItemSettings()));
+	public static final Item VERTRAUT_BUTTON = register("vertraut_button", new BlockItem(JinericBlocks.VERTRAUT_BUTTON, new FabricItemSettings()));
+	public static final Item VERTRAUT_LEAVES = register("vertraut_leaves", new BlockItem(JinericBlocks.VERTRAUT_LEAVES, new FabricItemSettings()));
+	//	public static final Item VERTRAUT_SAPLING = register("vertraut_sapling", new BlockItem(JinericBlocks.VERTRAUT_SAPLING, new FabricItemSettings()));
+	public static final Item VERTRAUT_LADDER = register("vertraut_ladder", new BlockItem(JinericBlocks.VERTRAUT_LADDER, new FabricItemSettings()));
+	public static final Item VERTRAUT_BOOKSHELF = register("vertraut_bookshelf", new BlockItem(JinericBlocks.VERTRAUT_BOOKSHELF, new FabricItemSettings()));
+//	public static final Item VERTRAUT_SIGN = register("vertraut_sign", new SignItem(new FabricItemSettings().maxCount(16), JinericBlocks.VERTRAUT_SIGN, JinericBlocks.VERTRAUT_WALL_SIGN));
+//	public static final Item VERTRAUT_HANGING_SIGN = register("vertraut_hanging_sign", new HangingSignItem(JinericBlocks.VERTRAUT_HANGING_SIGN, JinericBlocks.VERTRAUT_WALL_HANGING_SIGN, new FabricItemSettings().maxCount(16)));
+	public static final Item VERTRAUT_CHEST = register("vertraut_chest", new BlockItem(JinericBlocks.VERTRAUT_CHEST, new FabricItemSettings()));
+	//	public static final Item VERTRAUT_BOAT = register("vertraut_boat", new BoatItem(false, ))
+	public static final Item VERTRAUT_TRAPPED_CHEST = register("vertraut_trapped_chest", new BlockItem(JinericBlocks.TRAPPED_VERTRAUT_CHEST, new FabricItemSettings()));
+
 	//RHYOLITE
 //	public static final Item RHYOLITE = register("rhyolite", new BlockItem(JinericBlocks.RHYOLITE, new FabricItemSettings()));
 //	public static final Item RHYOLITE_STAIRS = register("rhyolite_stairs", new BlockItem(JinericBlocks.RHYOLITE_STAIRS, new FabricItemSettings()));

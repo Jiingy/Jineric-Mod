@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_left_open",
+  "textures": {
+    "bottom": "jineric:block/vertraut_door_bottom",
+    "top": "jineric:block/vertraut_door_top"
+  }
+}
