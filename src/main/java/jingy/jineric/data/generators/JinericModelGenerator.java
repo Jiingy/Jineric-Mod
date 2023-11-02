@@ -12,6 +12,8 @@ import net.minecraft.util.Identifier;
 
 //TODO: Move builder methods to it's own class
 public class JinericModelGenerator extends FabricModelProvider {
+   private static Block planksTexture;
+
    public JinericModelGenerator(FabricDataOutput output) {
       super(output);
    }
@@ -38,20 +40,24 @@ public class JinericModelGenerator extends FabricModelProvider {
       registerWall(wallBlock, blockTexture, blockStateModelGenerator);
    }
 
-   public void registerWoodSet(WoodType woodTypeIn, BlockStateModelGenerator blockModelGenerator) {
+   public void registerWoodSet(WoodType woodTypeIn, BlockStateModelGenerator generator) {
       String woodType = woodTypeIn.name();
-//      blockModelGenerator.registerLog(byId(woodType + "_log")).log(byId(woodType + "_log")).wood(byId(woodType + "_wood"));
-//      blockModelGenerator.registerLog(byId("stripped_" + woodType + "_log")).log(byId("stripped_" + woodType + "_log")).wood(byId("stripped_" + woodType + "_wood"));
-      blockModelGenerator.registerSimpleCubeAll(byId(woodType + "_planks"));
-      registerStairs(JinericBlocks.VERTRAUT_STAIRS, JinericBlocks.VERTRAUT_PLANKS, blockModelGenerator);
-      registerSlab(JinericBlocks.VERTRAUT_SLAB, JinericBlocks.VERTRAUT_PLANKS, blockModelGenerator);
-      registerFence(JinericBlocks.VERTRAUT_FENCE, JinericBlocks.VERTRAUT_PLANKS, blockModelGenerator);
-
-      blockModelGenerator.registerDoor(byId(woodType + "_door"));
-      blockModelGenerator.registerTrapdoor(byId(woodType + "_trapdoor"));
-//      registerPressurePlate(byId(woodType + "_pressure_plate"), blockModelGenerator);
-//      registerButton(byId(woodType + "_button"), woodTypeIn, blockModelGenerator);
-      blockModelGenerator.registerSimpleCubeAll(byId(woodType + "_leaves"));
+      generator.registerLog(byId(woodType + "_log")).log(byId(woodType + "_log")).wood(byId(woodType + "_wood"));
+      generator.registerLog(byId("stripped_" + woodType + "_log")).log(byId("stripped_" + woodType + "_log")).wood(byId("stripped_" + woodType + "_wood"));
+//      generator.registerLog(JinericBlocks.STRIPPED_VERTRAUT_LOG).log(JinericBlocks.STRIPPED_VERTRAUT_LOG).wood(JinericBlocks.STRIPPED_VERTRAUT_WOOD);
+      generator.registerSimpleCubeAll(byId(woodType + "_planks"));
+      this.registerStairs(JinericBlocks.VERTRAUT_STAIRS, JinericBlocks.VERTRAUT_PLANKS, generator);
+      this.registerSlab(JinericBlocks.VERTRAUT_SLAB, JinericBlocks.VERTRAUT_PLANKS, generator);
+      this.registerFence(JinericBlocks.VERTRAUT_FENCE, JinericBlocks.VERTRAUT_PLANKS, generator);
+      this.registerFenceGate(JinericBlocks.VERTRAUT_FENCE_GATE, JinericBlocks.VERTRAUT_PLANKS, generator);
+      generator.registerDoor(byId(woodType + "_door"));
+      generator.registerTrapdoor(byId(woodType + "_trapdoor"));
+      this.registerPressurePlate(byId(woodType + "_pressure_plate"), byId(woodType + "_planks"), generator);
+      this.registerButton(byId(woodType + "_button"), byId(woodType + "_planks"), generator);
+      generator.registerSingleton(byId(woodType + "_leaves"), TexturedModel.LEAVES);
+      generator.registerNorthDefaultHorizontalRotation(byId(woodType + "_ladder"));
+      generator.registerItemModel(byId(woodType + "_ladder"));
+      this.registerBookshelf(byId(woodType + "_bookshelf"), byId(woodType + "_planks"), generator);
    }
 
    public static Block byId(String id) {
@@ -59,56 +65,68 @@ public class JinericModelGenerator extends FabricModelProvider {
       return (Block)Registries.BLOCK.get(blockId);
    }
 
-   //TODO: Remove redundancies of having to use 'Block' so often
-   public void registerStairs(Block stairsBlock, Block stairsBlockTexture, BlockStateModelGenerator blockStateModelGenerator) {
+   public void registerStairs(Block stairsBlock, Block stairsBlockTexture, BlockStateModelGenerator generator) {
       TextureMap stairTextureMap = TextureMap.all(TextureMap.getId(stairsBlockTexture));
-      Identifier regularModelId = Models.STAIRS.upload(stairsBlock, stairTextureMap, blockStateModelGenerator.modelCollector);
-      Identifier innerModelId = Models.INNER_STAIRS.upload(stairsBlock, stairTextureMap, blockStateModelGenerator.modelCollector);
-      Identifier outerModelId = Models.OUTER_STAIRS.upload(stairsBlock, stairTextureMap, blockStateModelGenerator.modelCollector);
-      blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createStairsBlockState(stairsBlock, innerModelId, regularModelId, outerModelId));
+      Identifier regularModelId = Models.STAIRS.upload(stairsBlock, stairTextureMap, generator.modelCollector);
+      Identifier innerModelId = Models.INNER_STAIRS.upload(stairsBlock, stairTextureMap, generator.modelCollector);
+      Identifier outerModelId = Models.OUTER_STAIRS.upload(stairsBlock, stairTextureMap, generator.modelCollector);
+      generator.blockStateCollector.accept(BlockStateModelGenerator.createStairsBlockState(stairsBlock, innerModelId, regularModelId, outerModelId));
    }
-   public void registerSlab(Block slabBlock, Block slabBlockTexture, BlockStateModelGenerator blockStateModelGenerator) {
-      TextureMap slabTextureMap = TextureMap.all(TextureMap.getId(slabBlockTexture));
+   public void registerSlab(Block blockIn, Block slabTexture, BlockStateModelGenerator generator) {
+      TextureMap slabTextureMap = TextureMap.all(TextureMap.getId(slabTexture));
       TextureMap slabTextureMapSide = TextureMap.sideEnd(slabTextureMap.getTexture(TextureKey.SIDE), slabTextureMap.getTexture(TextureKey.TOP));
-      Identifier bottomModelId = Models.SLAB.upload(slabBlock, slabTextureMapSide, blockStateModelGenerator.modelCollector);
-      Identifier topModelId = Models.SLAB_TOP.upload(slabBlock, slabTextureMapSide, blockStateModelGenerator.modelCollector);
-      Identifier doubleModelId = Models.CUBE_COLUMN.uploadWithoutVariant(slabBlock, "_double", slabTextureMapSide, blockStateModelGenerator.modelCollector);
-      blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createSlabBlockState(slabBlock, bottomModelId, topModelId, doubleModelId));
+      Identifier bottomModelId = Models.SLAB.upload(blockIn, slabTextureMapSide, generator.modelCollector);
+      Identifier topModelId = Models.SLAB_TOP.upload(blockIn, slabTextureMapSide, generator.modelCollector);
+      Identifier doubleModelId = Models.CUBE_COLUMN.uploadWithoutVariant(blockIn, "_double", slabTextureMapSide, generator.modelCollector);
+      generator.blockStateCollector.accept(BlockStateModelGenerator.createSlabBlockState(blockIn, bottomModelId, topModelId, doubleModelId));
    }
-   public void registerWall( Block wallBlock, Block wallBlockTexture, BlockStateModelGenerator blockStateModelGenerator) {
-      TextureMap wallTextureMap = TextureMap.all(TextureMap.getId(wallBlockTexture));
-      Identifier postModelId = Models.TEMPLATE_WALL_POST.upload(wallBlock, wallTextureMap, blockStateModelGenerator.modelCollector);
-      Identifier sideModelId = Models.TEMPLATE_WALL_SIDE.upload(wallBlock, wallTextureMap, blockStateModelGenerator.modelCollector);
-      Identifier sideTallModelId = Models.TEMPLATE_WALL_SIDE_TALL.upload(wallBlock, wallTextureMap, blockStateModelGenerator.modelCollector);
-      blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createWallBlockState(wallBlock, postModelId, sideModelId, sideTallModelId));
-      Identifier wallInventory = Models.WALL_INVENTORY.upload(wallBlock, wallTextureMap, blockStateModelGenerator.modelCollector);
-      blockStateModelGenerator.registerParentedItemModel(wallBlock, wallInventory);
-   }
-
-   public void registerFence(Block fenceBlock, Block fenceBlockTexture, BlockStateModelGenerator blockStateModelGenerator) {
-      TextureMap textureMap = TextureMap.all(TextureMap.getId(fenceBlockTexture));
-      Identifier postModelId = Models.FENCE_POST.upload(fenceBlock, textureMap, blockStateModelGenerator.modelCollector);
-      Identifier sideModelId = Models.FENCE_SIDE.upload(fenceBlock, textureMap, blockStateModelGenerator.modelCollector);
-      blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createFenceBlockState(fenceBlock, postModelId, sideModelId));
-      Identifier fenceInventory = Models.FENCE_INVENTORY.upload(fenceBlock, textureMap, blockStateModelGenerator.modelCollector);
-      blockStateModelGenerator.registerParentedItemModel(fenceBlock, fenceInventory);
+   public void registerWall( Block blockIn, Block wallTexture, BlockStateModelGenerator generator) {
+      TextureMap wallTextureMap = TextureMap.all(TextureMap.getId(wallTexture));
+      Identifier postModelId = Models.TEMPLATE_WALL_POST.upload(blockIn, wallTextureMap, generator.modelCollector);
+      Identifier sideModelId = Models.TEMPLATE_WALL_SIDE.upload(blockIn, wallTextureMap, generator.modelCollector);
+      Identifier sideTallModelId = Models.TEMPLATE_WALL_SIDE_TALL.upload(blockIn, wallTextureMap, generator.modelCollector);
+      generator.blockStateCollector.accept(BlockStateModelGenerator.createWallBlockState(blockIn, postModelId, sideModelId, sideTallModelId));
+      Identifier wallInventory = Models.WALL_INVENTORY.upload(blockIn, wallTextureMap, generator.modelCollector);
+      generator.registerParentedItemModel(blockIn, wallInventory);
    }
 
+   public void registerFence(Block blockIn, Block fenceTexture, BlockStateModelGenerator generator) {
+      TextureMap textureMap = TextureMap.all(TextureMap.getId(fenceTexture));
+      Identifier postModelId = Models.FENCE_POST.upload(blockIn, textureMap, generator.modelCollector);
+      Identifier sideModelId = Models.FENCE_SIDE.upload(blockIn, textureMap, generator.modelCollector);
+      generator.blockStateCollector.accept(BlockStateModelGenerator.createFenceBlockState(blockIn, postModelId, sideModelId));
+      Identifier fenceInventory = Models.FENCE_INVENTORY.upload(blockIn, textureMap, generator.modelCollector);
+      generator.registerParentedItemModel(blockIn, fenceInventory);
+   }
 
+   public void registerFenceGate(Block fenceGateBlock, Block fenceGateTexture, BlockStateModelGenerator generator) {
+      TextureMap textureMap = TextureMap.all(TextureMap.getId(fenceGateTexture));
+      Identifier identifier = Models.TEMPLATE_FENCE_GATE_OPEN.upload(fenceGateBlock, textureMap, generator.modelCollector);
+      Identifier identifier2 = Models.TEMPLATE_FENCE_GATE.upload(fenceGateBlock, textureMap, generator.modelCollector);
+      Identifier identifier3 = Models.TEMPLATE_FENCE_GATE_WALL_OPEN.upload(fenceGateBlock, textureMap, generator.modelCollector);
+      Identifier identifier4 = Models.TEMPLATE_FENCE_GATE_WALL.upload(fenceGateBlock, textureMap, generator.modelCollector);
+      generator.blockStateCollector.accept(BlockStateModelGenerator.createFenceGateBlockState(fenceGateBlock, identifier, identifier2, identifier3, identifier4, true));
+   }
 
-//   public void registerPressurePlate(Block blockIn, BlockStateModelGenerator blockModelGenerator) {
-//      TextureMap textureMap = TextureMap.all(TextureMap.getId(blockIn));
-//      Identifier upModelId = Models.PRESSURE_PLATE_UP.upload(blockIn, textureMap, blockModelGenerator.modelCollector);
-//      Identifier downModelId = Models.PRESSURE_PLATE_DOWN.upload(blockIn, textureMap, blockModelGenerator.modelCollector);
-//      blockModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createPressurePlateBlockState(blockIn, upModelId, downModelId));
-//   }
+   public void registerPressurePlate(Block blockIn, Block pressurePlateTexture, BlockStateModelGenerator generator) {
+      TextureMap textureMap = TextureMap.all(TextureMap.getId(pressurePlateTexture));
+      Identifier upModelId = Models.PRESSURE_PLATE_UP.upload(blockIn, textureMap, generator.modelCollector);
+      Identifier downModelId = Models.PRESSURE_PLATE_DOWN.upload(blockIn, textureMap, generator.modelCollector);
+      generator.blockStateCollector.accept(BlockStateModelGenerator.createPressurePlateBlockState(blockIn, upModelId, downModelId));
+   }
 
-//   public void registerButton(Block block, WoodType woodType, BlockStateModelGenerator blockModelGenerator) {
-//      TextureMap pressurePlateTextureMap = TextureMap.all(TextureMap.getId(byId(woodType + "_planks")));
-//      Identifier buttonId = Models.BUTTON.upload(block, pressurePlateTextureMap, blockModelGenerator.modelCollector);
-//      Identifier pressedButtonId = Models.BUTTON_PRESSED.upload(block, pressurePlateTextureMap, blockModelGenerator.modelCollector);
-//      blockModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createButtonBlockState(block, buttonId, pressedButtonId));
-//      Identifier buttonInventory = Models.BUTTON_INVENTORY.upload(block, pressurePlateTextureMap, blockModelGenerator.modelCollector);
-//      blockModelGenerator.registerParentedItemModel(block, buttonInventory);
-//   }
+   public void registerButton(Block blockIn, Block buttonTexture, BlockStateModelGenerator generator) {
+      TextureMap pressurePlateTextureMap = TextureMap.all(TextureMap.getId(buttonTexture));
+      Identifier buttonId = Models.BUTTON.upload(blockIn, pressurePlateTextureMap, generator.modelCollector);
+      Identifier pressedButtonId = Models.BUTTON_PRESSED.upload(blockIn, pressurePlateTextureMap, generator.modelCollector);
+      generator.blockStateCollector.accept(BlockStateModelGenerator.createButtonBlockState(blockIn, buttonId, pressedButtonId));
+      Identifier buttonInventory = Models.BUTTON_INVENTORY.upload(blockIn, pressurePlateTextureMap, generator.modelCollector);
+      generator.registerParentedItemModel(blockIn, buttonInventory);
+   }
+
+   private void registerBookshelf(Block blockIn, Block bookshelfTexture, BlockStateModelGenerator generator) {
+      TextureMap textureMap = TextureMap.sideEnd(TextureMap.getId(blockIn), TextureMap.getId(bookshelfTexture));
+      Identifier identifier = Models.CUBE_COLUMN.upload(blockIn, textureMap, generator.modelCollector);
+      generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(blockIn, identifier));
+   }
 }
