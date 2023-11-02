@@ -131,7 +131,7 @@ public class JinericBlocks {
 	public static final Block CRACKED_TUFF_BRICK_WALL = register("cracked_tuff_brick_wall", new WallBlock(FabricBlockSettings.copy(CRACKED_TUFF_BRICKS)));
 	public static final Block CHISELED_TUFF = register("chiseled_tuff", new Block(Block.Settings.copy(TUFF_BRICKS)));
 	public static final Block TUFF_PILLAR = register("tuff_pillar", new PillarBlock(Block.Settings.copy(TUFF_BRICKS)));
-	public static final Block TUFF_TILES = register("tuff_tiles", new Block(Block.Settings.copy(STONE_TILES)));
+	public static final Block TUFF_TILES = register("tuff_tiles", new Block(Block.Settings.copy(STONE_TILES).sounds(BlockSoundGroup.TUFF)));
 	public static final Block TUFF_TILE_STAIRS = register("tuff_tile_stairs", new StairsBlock(TUFF_TILES.getDefaultState(), Block.Settings.copy(TUFF_TILES)));
 	public static final Block TUFF_TILE_SLAB = register("tuff_tile_slab", new SlabBlock(Block.Settings.copy(TUFF_TILES)));
 	public static final Block TUFF_TILE_WALL = register("tuff_tile_wall", new WallBlock(Block.Settings.copy(TUFF_TILES)));

@@ -14,10 +14,10 @@ import java.util.Set;
 @Environment(EnvType.CLIENT)
 public class RefineryRecipeBookScreen extends AbstractFurnaceRecipeBookScreen {
    private static final ButtonTextures REFINERY_TEXTURES = new ButtonTextures(
-           JinericMain.id("recipe_book/refinery_filter_enabled"),
-           JinericMain.id("recipe_book/refinery_filter_disabled"),
-           JinericMain.id("recipe_book/refinery_filter_enabled_highlighted"),
-           JinericMain.id("recipe_book/refinery_filter_disabled_highlighted")
+           JinericMain.jinericId("recipe_book/refinery_filter_enabled"),
+           JinericMain.jinericId("recipe_book/refinery_filter_disabled"),
+           JinericMain.jinericId("recipe_book/refinery_filter_enabled_highlighted"),
+           JinericMain.jinericId("recipe_book/refinery_filter_disabled_highlighted")
    );
    private static final Text TOGGLE_REFINABLE_RECIPES_TEXT = Text.translatable("gui.recipebook.toggleRecipes.refinable");
 

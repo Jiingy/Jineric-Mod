@@ -11,7 +11,7 @@ public class JinericRecipeTypes {
    public static void registerRecipeTypes() {
       String id = "refining";
       REFINING = Registry.register(
-           Registries.RECIPE_TYPE, JinericMain.id(id), new RecipeType<RefiningRecipe>() {
+           Registries.RECIPE_TYPE, JinericMain.jinericId(id), new RecipeType<RefiningRecipe>() {
               public String toString() {
                  return id;
               }
