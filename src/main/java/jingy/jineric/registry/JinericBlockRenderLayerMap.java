@@ -8,8 +8,8 @@ public class JinericBlockRenderLayerMap {
 
    public static void register() {
       BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.FIREWEED, RenderLayer.getCutout());
-      BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.VERTRAUT_TRAPDOOR, RenderLayer.getCutout());
-      BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.VERTRAUT_DOOR, RenderLayer.getCutout());
+      BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.PETRIFIED_OAK_TRAPDOOR, RenderLayer.getCutout());
+      BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.PETRIFIED_OAK_DOOR, RenderLayer.getCutout());
       BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.FULL_GRASS_BLOCK, RenderLayer.getCutout());
       BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.REDSTONE_LANTERN, RenderLayer.getCutout());
       BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.REDSTONE_CAMPFIRE, RenderLayer.getCutout());

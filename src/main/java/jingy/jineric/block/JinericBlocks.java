@@ -334,30 +334,30 @@ public class JinericBlocks {
 	public static final Block SPRUCE_BOOKSHELF = register("spruce_bookshelf",new Block(FabricBlockSettings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF)));
 	public static final Block WARPED_BOOKSHELF = register("warped_bookshelf",new Block(FabricBlockSettings.copy(BOOKSHELF).sounds(BlockSoundGroup.NETHER_WOOD)));
 
-	//VERTRAUT
-	public static final Block VERTRAUT_LOG = register("vertraut_log", new PillarBlock(FabricBlockSettings.copy(OAK_LOG)));
-	public static final Block VERTRAUT_WOOD = register("vertraut_wood",	new PillarBlock(FabricBlockSettings.copy(OAK_WOOD))	);
-	public static final Block STRIPPED_VERTRAUT_LOG = register("stripped_vertraut_log",	new PillarBlock(FabricBlockSettings.copy(OAK_LOG)));
-	public static final Block STRIPPED_VERTRAUT_WOOD = register("stripped_vertraut_wood", new PillarBlock(FabricBlockSettings.copy(OAK_WOOD)));
-	public static final Block VERTRAUT_PLANKS = register("vertraut_planks",	new Block(FabricBlockSettings.copy(OAK_PLANKS)));
-	public static final Block VERTRAUT_STAIRS = register("vertraut_stairs", new StairsBlock(OAK_STAIRS.getDefaultState(), FabricBlockSettings.copy(OAK_STAIRS)));
-	public static final Block VERTRAUT_SLAB = register("vertraut_slab",	new SlabBlock(FabricBlockSettings.copy(OAK_SLAB)));
-	public static final Block VERTRAUT_FENCE = register("vertraut_fence", new FenceBlock(FabricBlockSettings.copy(OAK_FENCE)));
-	public static final Block VERTRAUT_FENCE_GATE = register("vertraut_fence_gate", new FenceGateBlock(FabricBlockSettings.copy(OAK_FENCE_GATE), JinericWoodType.VERTRAUT));
-	public static final Block VERTRAUT_DOOR = register("vertraut_door", new DoorBlock(FabricBlockSettings.copy(OAK_DOOR), JinericBlockSetTypes.VERTRAUT));
-	public static final Block VERTRAUT_TRAPDOOR = register("vertraut_trapdoor", new TrapdoorBlock(FabricBlockSettings.copy(OAK_TRAPDOOR), JinericBlockSetTypes.VERTRAUT));
-	public static final Block VERTRAUT_PRESSURE_PLATE = register("vertraut_pressure_plate", new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copy(OAK_PRESSURE_PLATE), JinericBlockSetTypes.VERTRAUT));
-	public static final Block VERTRAUT_BUTTON = register("vertraut_button", new ButtonBlock(FabricBlockSettings.copy(OAK_BUTTON), JinericBlockSetTypes.VERTRAUT, 30, true));
-	public static final Block VERTRAUT_LEAVES = register("vertraut_leaves", JinericBlockSettings.JinericLeavesBlock(BlockSoundGroup.GRASS));
-//	public static final Block VERTRAUT_SAPLING = register("vertraut_sapling", new SaplingBlock(new BorealSaplingGenerator(), FabricBlockSettings.copy(OAK_SAPLING)));
-	public static final Block VERTRAUT_LADDER = register("vertraut_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER)));
-	public static final Block VERTRAUT_BOOKSHELF = register("vertraut_bookshelf", new Block(FabricBlockSettings.copy(BOOKSHELF)));
-//	public static final Block VERTRAUT_SIGN = register("vertraut_sign", new SignBlock(FabricBlockSettings.copy(OAK_SIGN), JinericWoodType.VERTRAUT));
-//	public static final Block VERTRAUT_WALL_SIGN = register("vertraut_wall_sign", new WallSignBlock(FabricBlockSettings.copy(OAK_WALL_SIGN), JinericWoodType.VERTRAUT));
-//	public static final Block VERTRAUT_HANGING_SIGN = register("vertraut_hanging_sign", new HangingSignBlock(FabricBlockSettings.copy(OAK_HANGING_SIGN), JinericWoodType.VERTRAUT));
-//	public static final Block VERTRAUT_WALL_HANGING_SIGN = register("vertraut_wall_hanging_sign", new HangingSignBlock(FabricBlockSettings.copy(OAK_HANGING_SIGN), JinericWoodType.VERTRAUT));
-	public static final Block VERTRAUT_CHEST = register("vertraut_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, JinericWoodType.VERTRAUT));
-	public static final Block TRAPPED_VERTRAUT_CHEST = register("trapped_vertraut_chest", new JinericTrappedChestBlock(FabricBlockSettings.copy(TRAPPED_CHEST), JinericWoodType.VERTRAUT));
+	//PETRIFIED_OAK
+	public static final Block PETRIFIED_OAK_LOG = register("petrified_oak_log", new PillarBlock(FabricBlockSettings.copy(OAK_LOG)));
+	public static final Block PETRIFIED_OAK_WOOD = register("petrified_oak_wood",	new PillarBlock(FabricBlockSettings.copy(OAK_WOOD)));
+	public static final Block STRIPPED_PETRIFIED_OAK_LOG = register("stripped_petrified_oak_log",	new PillarBlock(FabricBlockSettings.copy(STRIPPED_OAK_LOG)));
+	public static final Block STRIPPED_PETRIFIED_OAK_WOOD = register("stripped_petrified_oak_wood", new PillarBlock(FabricBlockSettings.copy(STRIPPED_OAK_WOOD)));
+	public static final Block PETRIFIED_OAK_PLANKS = register("petrified_oak_planks",	new Block(FabricBlockSettings.copy(OAK_PLANKS)));
+	public static final Block PETRIFIED_OAK_STAIRS = register("petrified_oak_stairs", new StairsBlock(OAK_STAIRS.getDefaultState(), FabricBlockSettings.copy(OAK_STAIRS)));
+	public static final Block PETRIFIED_OAK_SLAB = register("petrified_oak_slab",	new SlabBlock(FabricBlockSettings.copy(OAK_SLAB)));
+	public static final Block PETRIFIED_OAK_FENCE = register("petrified_oak_fence", new FenceBlock(FabricBlockSettings.copy(OAK_FENCE)));
+	public static final Block PETRIFIED_OAK_FENCE_GATE = register("petrified_oak_fence_gate", new FenceGateBlock(FabricBlockSettings.copy(OAK_FENCE_GATE), JinericWoodType.PETRIFIED_OAK));
+	public static final Block PETRIFIED_OAK_DOOR = register("petrified_oak_door", new DoorBlock(FabricBlockSettings.copy(OAK_DOOR), JinericBlockSetTypes.PETRIFIED_OAK));
+	public static final Block PETRIFIED_OAK_TRAPDOOR = register("petrified_oak_trapdoor", new TrapdoorBlock(FabricBlockSettings.copy(OAK_TRAPDOOR), JinericBlockSetTypes.PETRIFIED_OAK));
+	public static final Block PETRIFIED_OAK_PRESSURE_PLATE = register("petrified_oak_pressure_plate", new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copy(OAK_PRESSURE_PLATE), JinericBlockSetTypes.PETRIFIED_OAK));
+	public static final Block PETRIFIED_OAK_BUTTON = register("petrified_oak_button", new ButtonBlock(FabricBlockSettings.copy(OAK_BUTTON), JinericBlockSetTypes.PETRIFIED_OAK, 30, true));
+	public static final Block PETRIFIED_OAK_LEAVES = register("petrified_oak_leaves", JinericBlockSettings.JinericLeavesBlock(BlockSoundGroup.GRASS));
+//	public static final Block PETRIFIED_OAK_SAPLING = register("petrified_oak_sapling", new SaplingBlock(new BorealSaplingGenerator(), FabricBlockSettings.copy(OAK_SAPLING)));
+	public static final Block PETRIFIED_OAK_LADDER = register("petrified_oak_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER)));
+	public static final Block PETRIFIED_OAK_BOOKSHELF = register("petrified_oak_bookshelf", new Block(FabricBlockSettings.copy(BOOKSHELF)));
+//	public static final Block PETRIFIED_OAK_SIGN = register("petrified_oak_sign", new SignBlock(FabricBlockSettings.copy(OAK_SIGN), JinericWoodType.PETRIFIED_OAK));
+//	public static final Block PETRIFIED_OAK_WALL_SIGN = register("petrified_oak_wall_sign", new WallSignBlock(FabricBlockSettings.copy(OAK_WALL_SIGN), JinericWoodType.PETRIFIED_OAK));
+//	public static final Block PETRIFIED_OAK_HANGING_SIGN = register("petrified_oak_hanging_sign", new HangingSignBlock(FabricBlockSettings.copy(OAK_HANGING_SIGN), JinericWoodType.PETRIFIED_OAK));
+//	public static final Block PETRIFIED_OAK_WALL_HANGING_SIGN = register("petrified_oak_wall_hanging_sign", new HangingSignBlock(FabricBlockSettings.copy(OAK_HANGING_SIGN), JinericWoodType.PETRIFIED_OAK));
+	public static final Block PETRIFIED_OAK_CHEST = register("petrified_oak_chest", new JinericChestBlock(FabricBlockSettings.copy(CHEST), () -> JinericBlockEntityType.JINERIC_CHEST, JinericWoodType.PETRIFIED_OAK));
+	public static final Block TRAPPED_PETRIFIED_OAK_CHEST = register("trapped_petrified_oak_chest", new JinericTrappedChestBlock(FabricBlockSettings.copy(TRAPPED_CHEST), JinericWoodType.PETRIFIED_OAK));
 	// LADDERS
 	public static final Block ACACIA_LADDER = register("acacia_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD)));
 	public static final Block BAMBOO_LADDER = register("bamboo_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD)));

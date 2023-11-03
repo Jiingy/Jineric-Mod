@@ -29,26 +29,26 @@ public class JinericItemGroups {
 						.icon(() -> new ItemStack(JinericItems.PRISMARINE_CRYSTAL_BLOCK))
 						.entries((context, entries) -> {
 
-							entries.add(JinericItems.VERTRAUT_LOG);
-							entries.add(JinericItems.VERTRAUT_WOOD);
-							entries.add(JinericItems.STRIPPED_VERTRAUT_LOG);
-							entries.add(JinericItems.STRIPPED_VERTRAUT_WOOD);
-							entries.add(JinericItems.VERTRAUT_PLANKS);
-							entries.add(JinericItems.VERTRAUT_STAIRS);
-							entries.add(JinericItems.VERTRAUT_SLAB);
-							entries.add(JinericItems.VERTRAUT_FENCE);
-							entries.add(JinericItems.VERTRAUT_FENCE_GATE);
-							entries.add(JinericItems.VERTRAUT_DOOR);
-							entries.add(JinericItems.VERTRAUT_TRAPDOOR);
-							entries.add(JinericItems.VERTRAUT_PRESSURE_PLATE);
-							entries.add(JinericItems.VERTRAUT_BUTTON);
-							entries.add(JinericItems.VERTRAUT_LEAVES);
-							entries.add(JinericItems.VERTRAUT_LADDER);
-							entries.add(JinericItems.VERTRAUT_BOOKSHELF);
-//							entries.add(JinericItems.VERTRAUT_SIGN);
-//							entries.add(JinericItems.VERTRAUT_HANGING_SIGN);
-							entries.add(JinericItems.VERTRAUT_CHEST);
-							entries.add(JinericItems.VERTRAUT_TRAPPED_CHEST);
+							entries.add(JinericItems.PETRIFIED_OAK_LOG);
+							entries.add(JinericItems.PETRIFIED_OAK_WOOD);
+							entries.add(JinericItems.STRIPPED_PETRIFIED_OAK_LOG);
+							entries.add(JinericItems.STRIPPED_PETRIFIED_OAK_WOOD);
+							entries.add(JinericItems.PETRIFIED_OAK_PLANKS);
+							entries.add(JinericItems.PETRIFIED_OAK_STAIRS);
+							entries.add(JinericItems.PETRIFIED_OAK_SLAB);
+							entries.add(JinericItems.PETRIFIED_OAK_FENCE);
+							entries.add(JinericItems.PETRIFIED_OAK_FENCE_GATE);
+							entries.add(JinericItems.PETRIFIED_OAK_DOOR);
+							entries.add(JinericItems.PETRIFIED_OAK_TRAPDOOR);
+							entries.add(JinericItems.PETRIFIED_OAK_PRESSURE_PLATE);
+							entries.add(JinericItems.PETRIFIED_OAK_BUTTON);
+							entries.add(JinericItems.PETRIFIED_OAK_LEAVES);
+							entries.add(JinericItems.PETRIFIED_OAK_LADDER);
+							entries.add(JinericItems.PETRIFIED_OAK_BOOKSHELF);
+//							entries.add(JinericItems.PETRIFIED_OAK_SIGN);
+//							entries.add(JinericItems.PETRIFIED_OAK_HANGING_SIGN);
+							entries.add(JinericItems.PETRIFIED_OAK_CHEST);
+							entries.add(JinericItems.PETRIFIED_OAK_TRAPPED_CHEST);
 
 							entries.add(JinericItems.POLISHED_STONE);
 							entries.add(JinericItems.POLISHED_STONE_STAIRS);

@@ -4,7 +4,10 @@ import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.item.JinericItems;
 import jingy.jineric.tag.JinericBlockTags;
 import jingy.jineric.tag.JinericItemTags;
-import net.fabricmc.fabric.api.registry.*;
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
+import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
+import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 
 public class JinericRegistries {
    public static void initJinericRegistries() {
@@ -30,8 +33,8 @@ public class JinericRegistries {
    }
 
    private static void registerStrippable() {
-      StrippableBlockRegistry.register(JinericBlocks.VERTRAUT_LOG, JinericBlocks.STRIPPED_VERTRAUT_LOG);
-      StrippableBlockRegistry.register(JinericBlocks.VERTRAUT_WOOD, JinericBlocks.STRIPPED_VERTRAUT_WOOD);
+//      StrippableBlockRegistry.register(JinericBlocks.PETRIFIED_OAK_LOG, JinericBlocks.STRIPPED_PETRIFIED_OAK_LOG);
+//      StrippableBlockRegistry.register(JinericBlocks.PETRIFIED_OAK_WOOD, JinericBlocks.STRIPPED_PETRIFIED_OAK_WOOD);
    }
 
    private static void registerFlammable() {

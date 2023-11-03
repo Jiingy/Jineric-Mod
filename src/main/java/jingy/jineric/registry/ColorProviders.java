@@ -33,14 +33,14 @@ public class ColorProviders {
       );
 
       ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) ->
-              world != null && pos != null ? BiomeColors.getFoliageColor(world, pos) : FoliageColors.getColor(0.5D, 1.0D), JinericBlocks.VERTRAUT_LEAVES
+              world != null && pos != null ? BiomeColors.getFoliageColor(world, pos) : FoliageColors.getColor(0.5D, 1.0D), JinericBlocks.PETRIFIED_OAK_LEAVES
       );
 
       ColorProviderRegistry.ITEM.register(((stack, tintIndex) ->
               GrassColors.getColor(0.5D, 1.0D)), JinericItems.FULL_GRASS_BLOCK
       );
       ColorProviderRegistry.ITEM.register(((stack, tintIndex) ->
-              GrassColors.getColor(0.5D, 1.0D)), JinericItems.VERTRAUT_LEAVES
+              GrassColors.getColor(0.5D, 1.0D)), JinericItems.PETRIFIED_OAK_LEAVES
       );
       ColorProviderRegistry.ITEM.register((((stack, tintIndex) ->
               tintIndex > 0 ? -1 : GrassColors.getColor(0.5D, 1.0D))), JinericItems.JUNGLE_LADDER);
