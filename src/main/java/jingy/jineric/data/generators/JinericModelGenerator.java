@@ -27,10 +27,6 @@ public class JinericModelGenerator extends FabricModelProvider {
       registerSimpleBlockSet(JinericBlocks.CRACKED_TUFF_TILES, JinericBlocks.CRACKED_TUFF_TILE_STAIRS, JinericBlocks.CRACKED_TUFF_TILE_SLAB, JinericBlocks.CRACKED_TUFF_TILE_WALL, generator);
       registerSimpleBlockSet(JinericBlocks.CRACKED_STONE_TILES, JinericBlocks.CRACKED_STONE_TILE_STAIRS, JinericBlocks.CRACKED_STONE_TILE_SLAB, JinericBlocks.CRACKED_STONE_TILE_WALL, generator);
       registerWoodSet(JinericWoodType.PETRIFIED_OAK, generator);
-//      This DOES work:
-//      generator.registerLog(JinericBlocks.STRIPPED_PETRIFIED_OAK_LOG).log(JinericBlocks.STRIPPED_PETRIFIED_OAK_LOG).wood(JinericBlocks.STRIPPED_PETRIFIED_OAK_WOOD);
-
-
    }
 
    @Override
@@ -47,10 +43,9 @@ public class JinericModelGenerator extends FabricModelProvider {
 
    public void registerWoodSet(WoodType woodTypeIn, BlockStateModelGenerator generator) {
       String stripped = "stripped_";
-      String woodType = woodTypeIn.name();
+      String woodType = woodTypeIn.name().replace("jineric:", "");
       generator.registerLog(byId(woodType + "_log")).log(byId(woodType + "_log")).wood(byId(woodType + "_wood"));
-      //This does NOT work:
-//      generator.registerLog(byId(stripped + woodType + "_log")).log(byId(stripped + woodType + "_log")).wood(byId(stripped + woodType + "_wood"));
+      generator.registerLog(byId(stripped + woodType + "_log")).log(byId(stripped + woodType + "_log")).wood(byId(stripped + woodType + "_wood"));
       generator.registerSimpleCubeAll(byId(woodType + "_planks"));
       this.registerStairs(JinericBlocks.PETRIFIED_OAK_STAIRS, JinericBlocks.PETRIFIED_OAK_PLANKS, generator);
       this.registerSlab(JinericBlocks.PETRIFIED_OAK_SLAB, JinericBlocks.PETRIFIED_OAK_PLANKS, generator);
@@ -67,7 +62,11 @@ public class JinericModelGenerator extends FabricModelProvider {
    }
 
    static Block byId(String id) {
-      return Registries.BLOCK.get(Identifier.of(JinericMain.MOD_ID, id));
+      final Identifier identifier = new Identifier(JinericMain.MOD_ID, id);
+      if (!Registries.BLOCK.containsId(identifier)) {
+         throw new IllegalStateException("Block is not registered: " + identifier);
+      }
+      return Registries.BLOCK.get(identifier);
    }
 
    public void registerStairs(Block stairsBlock, Block stairsBlockTexture, BlockStateModelGenerator generator) {
