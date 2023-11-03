@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "jineric:block/vertraut_log",
-    "side": "jineric:block/vertraut_log"
-  }
-}
