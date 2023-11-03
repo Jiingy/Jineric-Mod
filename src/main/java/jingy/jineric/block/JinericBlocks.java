@@ -336,12 +336,12 @@ public class JinericBlocks {
 
 	//PETRIFIED_OAK
 	public static final Block PETRIFIED_OAK_LOG = register("petrified_oak_log", new PillarBlock(FabricBlockSettings.copy(OAK_LOG)));
-	public static final Block PETRIFIED_OAK_WOOD = register("petrified_oak_wood",	new PillarBlock(FabricBlockSettings.copy(OAK_WOOD)));
-	public static final Block STRIPPED_PETRIFIED_OAK_LOG = register("stripped_petrified_oak_log",	new PillarBlock(FabricBlockSettings.copy(STRIPPED_OAK_LOG)));
+	public static final Block PETRIFIED_OAK_WOOD = register("petrified_oak_wood", new PillarBlock(FabricBlockSettings.copy(OAK_WOOD)));
+	public static final Block STRIPPED_PETRIFIED_OAK_LOG = register("stripped_petrified_oak_log", new PillarBlock(FabricBlockSettings.copy(STRIPPED_OAK_LOG)));
 	public static final Block STRIPPED_PETRIFIED_OAK_WOOD = register("stripped_petrified_oak_wood", new PillarBlock(FabricBlockSettings.copy(STRIPPED_OAK_WOOD)));
-	public static final Block PETRIFIED_OAK_PLANKS = register("petrified_oak_planks",	new Block(FabricBlockSettings.copy(OAK_PLANKS)));
+	public static final Block PETRIFIED_OAK_PLANKS = register("petrified_oak_planks", new Block(FabricBlockSettings.copy(OAK_PLANKS)));
 	public static final Block PETRIFIED_OAK_STAIRS = register("petrified_oak_stairs", new StairsBlock(OAK_STAIRS.getDefaultState(), FabricBlockSettings.copy(OAK_STAIRS)));
-	public static final Block PETRIFIED_OAK_SLAB = register("petrified_oak_slab",	new SlabBlock(FabricBlockSettings.copy(OAK_SLAB)));
+	public static final Block PETRIFIED_OAK_SLAB = register("petrified_oak_slab", new SlabBlock(FabricBlockSettings.copy(OAK_SLAB)));
 	public static final Block PETRIFIED_OAK_FENCE = register("petrified_oak_fence", new FenceBlock(FabricBlockSettings.copy(OAK_FENCE)));
 	public static final Block PETRIFIED_OAK_FENCE_GATE = register("petrified_oak_fence_gate", new FenceGateBlock(FabricBlockSettings.copy(OAK_FENCE_GATE), JinericWoodType.PETRIFIED_OAK));
 	public static final Block PETRIFIED_OAK_DOOR = register("petrified_oak_door", new DoorBlock(FabricBlockSettings.copy(OAK_DOOR), JinericBlockSetTypes.PETRIFIED_OAK));
