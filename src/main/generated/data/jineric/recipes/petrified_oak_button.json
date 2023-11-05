@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "jineric:petrified_oak_planks"
+    }
+  ],
+  "result": {
+    "item": "jineric:petrified_oak_button"
+  }
+}
