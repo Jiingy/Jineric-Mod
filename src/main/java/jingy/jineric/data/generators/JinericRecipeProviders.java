@@ -1,5 +1,6 @@
 package jingy.jineric.data.generators;
 
+import jingy.jineric.data.family.JinericBlockFamilies;
 import jingy.jineric.item.JinericItems;
 import jingy.jineric.mixin.access.CookingRecipeJsonBuilderAccess;
 import jingy.jineric.recipe.JinericRecipeSerializers;
@@ -26,6 +27,7 @@ public class JinericRecipeProviders extends FabricRecipeProvider {
 
    @Override
    public void generate(RecipeExporter exporter) {
+      generateFamily(exporter, JinericBlockFamilies.PETRIFIED_OAK);
       JinericGeneratedRecipes.offerGeneralRecipes(exporter);
       JinericGeneratedRecipes.offerRefiningRecipes(exporter);
       JinericGeneratedRecipes.offerStoneCuttingRecipes(exporter);
