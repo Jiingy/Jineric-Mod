@@ -3,9 +3,7 @@ package jingy.jineric.item;
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.JinericBlocks;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.FoodComponent;
-import net.minecraft.item.Item;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -313,11 +311,9 @@ public class JinericItems {
 	//	public static final Item PETRIFIED_OAK_SAPLING = register("petrified_oak_sapling", new BlockItem(JinericBlocks.PETRIFIED_OAK_SAPLING, new FabricItemSettings()));
 	public static final Item PETRIFIED_OAK_LADDER = register("petrified_oak_ladder", new BlockItem(JinericBlocks.PETRIFIED_OAK_LADDER, new FabricItemSettings()));
 	public static final Item PETRIFIED_OAK_BOOKSHELF = register("petrified_oak_bookshelf", new BlockItem(JinericBlocks.PETRIFIED_OAK_BOOKSHELF, new FabricItemSettings()));
-//	public static final Item PETRIFIED_OAK_SIGN = register("petrified_oak_sign", new SignItem(new FabricItemSettings().maxCount(16), JinericBlocks.PETRIFIED_OAK_SIGN, JinericBlocks.PETRIFIED_OAK_WALL_SIGN));
-//	public static final Item PETRIFIED_OAK_HANGING_SIGN = register("petrified_oak_hanging_sign", new HangingSignItem(JinericBlocks.PETRIFIED_OAK_HANGING_SIGN, JinericBlocks.PETRIFIED_OAK_WALL_HANGING_SIGN, new FabricItemSettings().maxCount(16)));
-	public static final Item PETRIFIED_OAK_CHEST = register("petrified_oak_chest", new BlockItem(JinericBlocks.PETRIFIED_OAK_CHEST, new FabricItemSettings()));
+	public static final Item PETRIFIED_OAK_SIGN = register("petrified_oak_sign", new SignItem(new FabricItemSettings().maxCount(16), JinericBlocks.PETRIFIED_OAK_SIGN, JinericBlocks.PETRIFIED_OAK_WALL_SIGN));
+	public static final Item PETRIFIED_OAK_HANGING_SIGN = register("petrified_oak_hanging_sign", new HangingSignItem(JinericBlocks.PETRIFIED_OAK_HANGING_SIGN, JinericBlocks.PETRIFIED_OAK_WALL_HANGING_SIGN, new FabricItemSettings().maxCount(16)));
 	//	public static final Item PETRIFIED_OAK_BOAT = register("petrified_oak_boat", new BoatItem(false, ))
-	public static final Item PETRIFIED_OAK_TRAPPED_CHEST = register("petrified_oak_trapped_chest", new BlockItem(JinericBlocks.TRAPPED_PETRIFIED_OAK_CHEST, new FabricItemSettings()));
 
 	//RHYOLITE
 //	public static final Item RHYOLITE = register("rhyolite", new BlockItem(JinericBlocks.RHYOLITE, new FabricItemSettings()));

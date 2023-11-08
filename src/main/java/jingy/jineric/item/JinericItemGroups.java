@@ -28,7 +28,6 @@ public class JinericItemGroups {
 						.displayName(Text.literal("Jineric Mod Items"))
 						.icon(() -> new ItemStack(JinericItems.PRISMARINE_CRYSTAL_BLOCK))
 						.entries((context, entries) -> {
-
 							entries.add(JinericItems.PETRIFIED_OAK_LOG);
 							entries.add(JinericItems.PETRIFIED_OAK_WOOD);
 							entries.add(JinericItems.STRIPPED_PETRIFIED_OAK_LOG);
@@ -43,13 +42,11 @@ public class JinericItemGroups {
 							entries.add(JinericItems.PETRIFIED_OAK_PRESSURE_PLATE);
 							entries.add(JinericItems.PETRIFIED_OAK_BUTTON);
 							entries.add(JinericItems.PETRIFIED_OAK_LEAVES);
+//							entries.add(JinericItems.PETRIFIED_OAK_SAPLING);
 							entries.add(JinericItems.PETRIFIED_OAK_LADDER);
 							entries.add(JinericItems.PETRIFIED_OAK_BOOKSHELF);
-//							entries.add(JinericItems.PETRIFIED_OAK_SIGN);
-//							entries.add(JinericItems.PETRIFIED_OAK_HANGING_SIGN);
-							entries.add(JinericItems.PETRIFIED_OAK_CHEST);
-							entries.add(JinericItems.PETRIFIED_OAK_TRAPPED_CHEST);
-
+							entries.add(JinericItems.PETRIFIED_OAK_SIGN);
+							entries.add(JinericItems.PETRIFIED_OAK_HANGING_SIGN);
 							entries.add(JinericItems.POLISHED_STONE);
 							entries.add(JinericItems.POLISHED_STONE_STAIRS);
 							entries.add(JinericItems.POLISHED_STONE_SLAB);
@@ -301,6 +298,19 @@ public class JinericItemGroups {
 
 	public static void registerItemGroups() {
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register((entries) -> {
+			entries.addAfter(Items.BAMBOO_BUTTON, JinericItems.PETRIFIED_OAK_LOG);
+			entries.addAfter(JinericItems.PETRIFIED_OAK_LOG, JinericItems.PETRIFIED_OAK_WOOD);
+			entries.addAfter(JinericItems.PETRIFIED_OAK_WOOD, JinericItems.STRIPPED_PETRIFIED_OAK_LOG);
+			entries.addAfter(JinericItems.STRIPPED_PETRIFIED_OAK_LOG, JinericItems.STRIPPED_PETRIFIED_OAK_WOOD);
+			entries.addAfter(JinericItems.STRIPPED_PETRIFIED_OAK_WOOD, JinericItems.PETRIFIED_OAK_PLANKS);
+			entries.addAfter(JinericItems.PETRIFIED_OAK_PLANKS, JinericItems.PETRIFIED_OAK_STAIRS);
+			entries.addAfter(JinericItems.PETRIFIED_OAK_STAIRS, JinericItems.PETRIFIED_OAK_SLAB);
+			entries.addAfter(JinericItems.PETRIFIED_OAK_SLAB, JinericItems.PETRIFIED_OAK_FENCE);
+			entries.addAfter(JinericItems.PETRIFIED_OAK_FENCE, JinericItems.PETRIFIED_OAK_FENCE_GATE);
+			entries.addAfter(JinericItems.PETRIFIED_OAK_FENCE_GATE, JinericItems.PETRIFIED_OAK_DOOR);
+			entries.addAfter(JinericItems.PETRIFIED_OAK_DOOR, JinericItems.PETRIFIED_OAK_TRAPDOOR);
+			entries.addAfter(JinericItems.PETRIFIED_OAK_TRAPDOOR, JinericItems.PETRIFIED_OAK_PRESSURE_PLATE);
+			entries.addAfter(JinericItems.PETRIFIED_OAK_PRESSURE_PLATE, JinericItems.PETRIFIED_OAK_BUTTON);
 			entries.addAfter(Items.WARPED_BUTTON, JinericItems.STICK_BLOCK);
 			entries.addAfter(Items.STONE_SLAB, JinericItems.STONE_WALL);
 			entries.addAfter(Items.SMOOTH_STONE, JinericItems.SMOOTH_STONE_STAIRS);
@@ -492,6 +502,8 @@ public class JinericItemGroups {
 
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register((entries -> {
 			entries.addBefore(Items.GRASS_BLOCK, JinericItems.FULL_GRASS_BLOCK);
+			entries.addAfter(Items.CHERRY_LOG, JinericItems.PETRIFIED_OAK_LOG);
+			entries.addAfter(Items.CHERRY_LEAVES, JinericItems.PETRIFIED_OAK_LEAVES);
 			//TODO: WORK OUT BLOCK SETS
 //			entries.addAfter(Items.PACKED_ICE, JinericItems.PACKED_ICE_STAIRS);
 //			entries.addAfter(JinericItems.PACKED_ICE_STAIRS, JinericItems.PACKED_ICE_SLAB);
@@ -516,7 +528,8 @@ public class JinericItemGroups {
 			entries.addAfter(JinericItems.DARK_OAK_LADDER, JinericItems.MANGROVE_LADDER);
 			entries.addAfter(JinericItems.MANGROVE_LADDER, JinericItems.CHERRY_LADDER);
 			entries.addAfter(JinericItems.CHERRY_LADDER, JinericItems.BAMBOO_LADDER);
-			entries.addAfter(JinericItems.BAMBOO_LADDER, JinericItems.CRIMSON_LADDER);
+			entries.addAfter(JinericItems.BAMBOO_LADDER, JinericItems.PETRIFIED_OAK_LADDER);
+			entries.addAfter(JinericItems.PETRIFIED_OAK_LADDER, JinericItems.CRIMSON_LADDER);
 			entries.addAfter(JinericItems.CRIMSON_LADDER, JinericItems.WARPED_LADDER);
 			//BOOKSHELVES
 			entries.addAfter(Items.BOOKSHELF, JinericItems.SPRUCE_BOOKSHELF);
@@ -527,7 +540,8 @@ public class JinericItemGroups {
 			entries.addAfter(JinericItems.DARK_OAK_BOOKSHELF, JinericItems.MANGROVE_BOOKSHELF);
 			entries.addAfter(JinericItems.MANGROVE_BOOKSHELF, JinericItems.CHERRY_BOOKSHELF);
 			entries.addAfter(JinericItems.CHERRY_BOOKSHELF, JinericItems.BAMBOO_BOOKSHELF);
-			entries.addAfter(JinericItems.BAMBOO_BOOKSHELF, JinericItems.CRIMSON_BOOKSHELF);
+			entries.addAfter(JinericItems.BAMBOO_BOOKSHELF, JinericItems.PETRIFIED_OAK_BOOKSHELF);
+			entries.addAfter(JinericItems.PETRIFIED_OAK_BOOKSHELF, JinericItems.CRIMSON_BOOKSHELF);
 			entries.addAfter(JinericItems.CRIMSON_BOOKSHELF, JinericItems.WARPED_BOOKSHELF);
 			//CHESTS
 			entries.addAfter(Items.CHEST, JinericItems.SPRUCE_CHEST);
@@ -540,6 +554,9 @@ public class JinericItemGroups {
 			entries.addAfter(JinericItems.CHERRY_CHEST, JinericItems.BAMBOO_CHEST);
 			entries.addAfter(JinericItems.BAMBOO_CHEST, JinericItems.CRIMSON_CHEST);
 			entries.addAfter(JinericItems.CRIMSON_CHEST, JinericItems.WARPED_CHEST);
+			//SIGNS
+			entries.addAfter(Items.BAMBOO_HANGING_SIGN, JinericItems.PETRIFIED_OAK_SIGN);
+			entries.addAfter(JinericItems.PETRIFIED_OAK_SIGN, JinericItems.PETRIFIED_OAK_HANGING_SIGN);
 		});
 
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register((entries -> {
