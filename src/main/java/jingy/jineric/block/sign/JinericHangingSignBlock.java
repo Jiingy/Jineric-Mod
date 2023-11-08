@@ -2,12 +2,12 @@ package jingy.jineric.block.sign;
 
 import jingy.jineric.block.entity.JinericHangingSignBlockEntity;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.WallHangingSignBlock;
+import net.minecraft.block.HangingSignBlock;
 import net.minecraft.block.WoodType;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.util.math.BlockPos;
 
-public class JinericHangingSignBlock extends WallHangingSignBlock {
+public class JinericHangingSignBlock extends HangingSignBlock {
    public JinericHangingSignBlock(Settings settings, WoodType woodType) {
       super(settings, woodType);
    }
