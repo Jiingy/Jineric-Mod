@@ -2,6 +2,7 @@ package jingy.jineric.data.generators;
 
 import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.item.JinericItems;
+import jingy.jineric.tag.JinericItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeExporter;
@@ -20,6 +21,9 @@ public class JinericGeneratedRecipes extends JinericRecipeProviders {
    }
 
    public static void offerGeneralRecipes(RecipeExporter exporter) {
+      offerBarkBlockRecipe(exporter, JinericBlocks.PETRIFIED_OAK_WOOD, JinericBlocks.PETRIFIED_OAK_LOG);
+      offerBarkBlockRecipe(exporter, JinericBlocks.STRIPPED_PETRIFIED_OAK_WOOD, JinericBlocks.STRIPPED_PETRIFIED_OAK_LOG);
+      offerPlanksRecipe2(exporter, JinericBlocks.PETRIFIED_OAK_PLANKS, JinericItemTags.PETRIFIED_OAK_LOGS, 4);
       offerTrappedChestRecipe(exporter, JinericItems.TRAPPED_SPRUCE_CHEST, JinericItems.SPRUCE_CHEST);
       offerTrappedChestRecipe(exporter, JinericItems.TRAPPED_BIRCH_CHEST, JinericItems.BIRCH_CHEST);
       offerTrappedChestRecipe(exporter, JinericItems.TRAPPED_JUNGLE_CHEST, JinericItems.JUNGLE_CHEST);
@@ -36,6 +40,7 @@ public class JinericGeneratedRecipes extends JinericRecipeProviders {
       offerSimpleBrickSetRecipes(exporter, JinericItems.TUFF_TILES, JinericItems.CRACKED_TUFF_TILES, JinericItems.CRACKED_TUFF_TILE_STAIRS, JinericItems.CRACKED_TUFF_TILE_SLAB, JinericItems.CRACKED_TUFF_TILE_WALL);
       offerSimpleBrickSetRecipes(exporter, JinericItems.DRIPSTONE_TILES, JinericItems.CRACKED_DRIPSTONE_TILES, JinericItems.CRACKED_DRIPSTONE_TILE_STAIRS, JinericItems.CRACKED_DRIPSTONE_TILE_SLAB, JinericItems.CRACKED_DRIPSTONE_TILE_WALL);
       offerSimpleBrickSetRecipes(exporter, Items.SNOW_BLOCK, JinericItems.SNOW_BRICKS, JinericItems.SNOW_BRICK_STAIRS, JinericItems.SNOW_BRICK_SLAB, JinericItems.SNOW_BRICK_WALL);
+      offerHangingSignRecipe(exporter, JinericItems.PETRIFIED_OAK_HANGING_SIGN, JinericBlocks.STRIPPED_PETRIFIED_OAK_LOG);
    }
 
    static void offerRefiningRecipes(RecipeExporter exporter) {
