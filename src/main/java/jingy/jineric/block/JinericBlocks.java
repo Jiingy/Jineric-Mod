@@ -359,7 +359,7 @@ public class JinericBlocks {
 	public static final Block PETRIFIED_OAK_SIGN = register("petrified_oak_sign", new JinericSignBlock(FabricBlockSettings.copy(OAK_SIGN), JinericWoodType.PETRIFIED_OAK));
 	public static final Block PETRIFIED_OAK_WALL_SIGN = register("petrified_oak_wall_sign", new JinericWallSignBlock(FabricBlockSettings.copy(OAK_WALL_SIGN), JinericWoodType.PETRIFIED_OAK));
 	public static final Block PETRIFIED_OAK_HANGING_SIGN = register("petrified_oak_hanging_sign", new JinericHangingSignBlock(FabricBlockSettings.copy(OAK_HANGING_SIGN), JinericWoodType.PETRIFIED_OAK));
-	public static final Block PETRIFIED_OAK_WALL_HANGING_SIGN = register("petrified_oak_wall_hanging_sign", new JinericWallHangingSignBlock(FabricBlockSettings.copy(OAK_HANGING_SIGN), JinericWoodType.PETRIFIED_OAK));
+	public static final Block PETRIFIED_OAK_WALL_HANGING_SIGN = register("petrified_oak_wall_hanging_sign", new JinericWallHangingSignBlock(FabricBlockSettings.copy(OAK_WALL_HANGING_SIGN), JinericWoodType.PETRIFIED_OAK));
 
 	// LADDERS
 	public static final Block ACACIA_LADDER = register("acacia_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD)));
