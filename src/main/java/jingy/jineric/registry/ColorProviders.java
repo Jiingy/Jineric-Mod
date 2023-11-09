@@ -39,11 +39,11 @@ public class ColorProviders {
       ColorProviderRegistry.ITEM.register(((stack, tintIndex) ->
               GrassColors.getColor(0.5D, 1.0D)), JinericItems.FULL_GRASS_BLOCK
       );
-      ColorProviderRegistry.ITEM.register(((stack, tintIndex) ->
-              GrassColors.getColor(0.5D, 1.0D)), JinericItems.PETRIFIED_OAK_LEAVES
+      ColorProviderRegistry.ITEM.register((stack, tintIndex) ->
+              GrassColors.getColor(1.0D, 1.0D), JinericItems.PETRIFIED_OAK_LEAVES
       );
-      ColorProviderRegistry.ITEM.register((((stack, tintIndex) ->
-              tintIndex > 0 ? -1 : GrassColors.getColor(0.5D, 1.0D))), JinericItems.JUNGLE_LADDER);
+      ColorProviderRegistry.ITEM.register(((stack, tintIndex) ->
+              tintIndex > 0 ? -1 : GrassColors.getColor(0.5D, 1.0D)), JinericItems.JUNGLE_LADDER);
       ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex > 0 ? -1 : ((DyeableItem)stack.getItem()).getColor(stack), Items.BUNDLE
       );
    }
