@@ -1,6 +1,7 @@
 package jingy.jineric.block;
 
 import jingy.jineric.base.JinericMain;
+import jingy.jineric.block.sapling.PetrifiedOakSaplingGenerator;
 import jingy.jineric.block.sign.JinericHangingSignBlock;
 import jingy.jineric.block.sign.JinericSignBlock;
 import jingy.jineric.block.sign.JinericWallHangingSignBlock;
@@ -353,7 +354,8 @@ public class JinericBlocks {
 	public static final Block PETRIFIED_OAK_PRESSURE_PLATE = register("petrified_oak_pressure_plate", new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copy(OAK_PRESSURE_PLATE), JinericBlockSetTypes.PETRIFIED_OAK));
 	public static final Block PETRIFIED_OAK_BUTTON = register("petrified_oak_button", new ButtonBlock(FabricBlockSettings.copy(OAK_BUTTON), JinericBlockSetTypes.PETRIFIED_OAK, 30, true));
 	public static final Block PETRIFIED_OAK_LEAVES = register("petrified_oak_leaves", JinericBlockSettings.JinericLeavesBlock(BlockSoundGroup.GRASS));
-//	public static final Block PETRIFIED_OAK_SAPLING = register("petrified_oak_sapling", new SaplingBlock(new OakSaplingGenerator(), FabricBlockSettings.copy(OAK_SAPLING)));
+	public static final Block PETRIFIED_OAK_SAPLING = register("petrified_oak_sapling", new SaplingBlock(new PetrifiedOakSaplingGenerator(), FabricBlockSettings.copy(OAK_SAPLING)));
+	public static final Block POTTED_PETRIFIED_OAK_SAPLING = register("potted_petrified_oak_sapling", createFlowerPotBlock(PETRIFIED_OAK_SAPLING));
 	public static final Block PETRIFIED_OAK_LADDER = register("petrified_oak_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER)));
 	public static final Block PETRIFIED_OAK_BOOKSHELF = register("petrified_oak_bookshelf", new Block(FabricBlockSettings.copy(BOOKSHELF)));
 	public static final Block PETRIFIED_OAK_SIGN = register("petrified_oak_sign", new JinericSignBlock(FabricBlockSettings.copy(OAK_SIGN), JinericWoodType.PETRIFIED_OAK));
