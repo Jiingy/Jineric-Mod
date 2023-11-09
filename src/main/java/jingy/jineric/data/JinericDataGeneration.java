@@ -3,6 +3,7 @@ package jingy.jineric.data;
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.data.generators.*;
 import jingy.jineric.data.generators.world.JinericWorldGenerator;
+import jingy.jineric.world.feature.JinericTreeConfiguredFeatures;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.RegistryBuilder;
@@ -23,7 +24,7 @@ public class JinericDataGeneration implements DataGeneratorEntrypoint {
 
    @Override
    public void buildRegistry(RegistryBuilder registryBuilder) {
-      registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, JinericWorldGenerator::bootstrap);
+      registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, JinericWorldGenerator::bootstrap).addRegistry(RegistryKeys.CONFIGURED_FEATURE, JinericTreeConfiguredFeatures::bootstrap);
    }
 
    @Override
