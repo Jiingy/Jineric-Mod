@@ -1,8 +1,10 @@
 package jingy.jineric.item;
 
 import jingy.jineric.base.JinericMain;
+import jingy.jineric.block.JinericBlocks;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
@@ -42,7 +44,7 @@ public class JinericItemGroups {
 							entries.add(JinericItems.PETRIFIED_OAK_PRESSURE_PLATE);
 							entries.add(JinericItems.PETRIFIED_OAK_BUTTON);
 							entries.add(JinericItems.PETRIFIED_OAK_LEAVES);
-//							entries.add(JinericItems.PETRIFIED_OAK_SAPLING);
+							entries.add(JinericItems.PETRIFIED_OAK_SAPLING);
 							entries.add(JinericItems.PETRIFIED_OAK_LADDER);
 							entries.add(JinericItems.PETRIFIED_OAK_BOOKSHELF);
 							entries.add(JinericItems.PETRIFIED_OAK_SIGN);
@@ -504,6 +506,7 @@ public class JinericItemGroups {
 			entries.addBefore(Items.GRASS_BLOCK, JinericItems.FULL_GRASS_BLOCK);
 			entries.addAfter(Items.CHERRY_LOG, JinericItems.PETRIFIED_OAK_LOG);
 			entries.addAfter(Items.CHERRY_LEAVES, JinericItems.PETRIFIED_OAK_LEAVES);
+			entries.addAfter(Blocks.CHERRY_SAPLING, JinericBlocks.PETRIFIED_OAK_SAPLING);
 			//TODO: WORK OUT BLOCK SETS
 //			entries.addAfter(Items.PACKED_ICE, JinericItems.PACKED_ICE_STAIRS);
 //			entries.addAfter(JinericItems.PACKED_ICE_STAIRS, JinericItems.PACKED_ICE_SLAB);
