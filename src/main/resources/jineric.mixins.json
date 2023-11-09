@@ -23,6 +23,7 @@
 	  "access.CookingRecipeJsonBuilderAccess",
 	  "access.GetBundleOccupancyAccess",
 	  "access.SmithingTemplateItemAccess",
+	  "access.TreeConfiguredFeaturesAccess",
 	  "access.WoodTypeAccess"
    ],
    "client": [
