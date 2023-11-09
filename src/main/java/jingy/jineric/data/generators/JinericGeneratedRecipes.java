@@ -10,10 +10,6 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 
 public class JinericGeneratedRecipes extends JinericRecipeProviders {
-   private static final RecipeCategory CATEGORY_BUILDING = RecipeCategory.BUILDING_BLOCKS;
-   private static final RecipeCategory MISC = RecipeCategory.MISC;
-   private static final CookingRecipeCategory COOKING_BLOCKS = CookingRecipeCategory.BLOCKS;
-   private static final CookingRecipeCategory COOKING_MISC = CookingRecipeCategory.MISC;
 
    public JinericGeneratedRecipes(FabricDataOutput output) {
       super(output);

@@ -16,7 +16,6 @@ import net.minecraft.util.Identifier;
 
 //TODO: Move builder methods to it's own class
 public class JinericModelGenerator extends FabricModelProvider {
-   private static Block planksTexture;
 
    public JinericModelGenerator(FabricDataOutput output) {
       super(output);
