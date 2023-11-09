@@ -3,6 +3,8 @@ package jingy.jineric.data.generators;
 import jingy.jineric.block.JinericBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.minecraft.item.Items;
+import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 
 public class JinericBlockLootTableGenerator extends FabricBlockLootTableProvider {
    //TODO: Add convenient way to add a simple block set's loot table
@@ -15,6 +17,7 @@ public class JinericBlockLootTableGenerator extends FabricBlockLootTableProvider
       nameableContainersGen();
       genSimpleBlockSets();
       genUniqueBlocks();
+      genWoodSets();
    }
 
    private void genUniqueBlocks() {
@@ -67,5 +70,29 @@ public class JinericBlockLootTableGenerator extends FabricBlockLootTableProvider
       addDrop(JinericBlocks.CRACKED_STONE_TILE_STAIRS);
       addDrop(JinericBlocks.CRACKED_STONE_TILE_SLAB);
       addDrop(JinericBlocks.CRACKED_STONE_TILE_WALL);
+   }
+
+   private void genWoodSets() {
+      // PETRIFIED OAK
+      this.addDrop(JinericBlocks.PETRIFIED_OAK_LOG);
+      this.addDrop(JinericBlocks.PETRIFIED_OAK_WOOD);
+      this.addDrop(JinericBlocks.STRIPPED_PETRIFIED_OAK_LOG);
+      this.addDrop(JinericBlocks.STRIPPED_PETRIFIED_OAK_WOOD);
+      this.addDrop(JinericBlocks.PETRIFIED_OAK_PLANKS);
+      this.addDrop(JinericBlocks.PETRIFIED_OAK_STAIRS);
+      this.addDrop(JinericBlocks.PETRIFIED_OAK_SLAB);
+      this.addDrop(JinericBlocks.PETRIFIED_OAK_FENCE);
+      this.addDrop(JinericBlocks.PETRIFIED_OAK_FENCE_GATE);
+      this.addDrop(JinericBlocks.PETRIFIED_OAK_DOOR, this::doorDrops);
+      this.addDrop(JinericBlocks.PETRIFIED_OAK_TRAPDOOR);
+      this.addDrop(JinericBlocks.PETRIFIED_OAK_PRESSURE_PLATE);
+      this.addDrop(JinericBlocks.PETRIFIED_OAK_BUTTON);
+      this.addDrop(JinericBlocks.PETRIFIED_OAK_LEAVES, (block) -> this.leavesDrops(block, JinericBlocks.PETRIFIED_OAK_SAPLING, SAPLING_DROP_CHANCE));
+      this.addDrop(JinericBlocks.PETRIFIED_OAK_SAPLING);
+      this.addPottedPlantDrops(JinericBlocks.POTTED_PETRIFIED_OAK_SAPLING);
+      this.addDrop(JinericBlocks.PETRIFIED_OAK_LADDER);
+      this.addDrop(JinericBlocks.PETRIFIED_OAK_BOOKSHELF, (block) -> this.drops(block, Items.BOOK, ConstantLootNumberProvider.create(3.0F)));
+      this.addDrop(JinericBlocks.PETRIFIED_OAK_SIGN);
+      this.addDrop(JinericBlocks.PETRIFIED_OAK_HANGING_SIGN);
    }
 }
