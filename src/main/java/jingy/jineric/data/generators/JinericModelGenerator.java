@@ -53,6 +53,7 @@ public class JinericModelGenerator extends FabricModelProvider {
       generator.registerLog(byId(woodType + "_log")).log(byId(woodType + "_log")).wood(byId(woodType + "_wood"));
       generator.registerLog(byId(stripped + woodType + "_log")).log(byId(stripped + woodType + "_log")).wood(byId(stripped + woodType + "_wood"));
       generator.registerSingleton(byId(woodType + "_leaves"), TexturedModel.LEAVES);
+      generator.registerFlowerPotPlant(JinericBlocks.PETRIFIED_OAK_SAPLING, JinericBlocks.POTTED_PETRIFIED_OAK_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
       generator.registerNorthDefaultHorizontalRotation(byId(woodType + "_ladder"));
       generator.registerItemModel(byId(woodType + "_ladder"));
       this.registerBookshelf(byId(woodType + "_bookshelf"), byId(woodType + "_planks"), generator);
