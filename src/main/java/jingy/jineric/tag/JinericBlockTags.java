@@ -9,6 +9,7 @@ public class JinericBlockTags {
    public static final TagKey<Block> SPECIALTY_WALLS = registerBlockTag("specialty_walls");
    public static final TagKey<Block> IS_SLIPPERY = registerBlockTag("is_slippery");
    public static final TagKey<Block> FULL_GRASS_REPLACEABLE = registerBlockTag("full_grass_block_replaceable");
+   public static final TagKey<Block> PETRIFIED_OAK_LOGS = registerBlockTag("petrified_oak_logs");
    public static final TagKey<Block> WOODEN_BOOKSHELVES = registerBlockTag("wooden_bookshelves");
    public static final TagKey<Block> CHESTS = registerBlockTag("chests");
    public static final TagKey<Block> WOODEN_CHESTS = registerBlockTag("wooden_chests");
