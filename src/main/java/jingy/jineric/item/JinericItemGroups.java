@@ -49,6 +49,8 @@ public class JinericItemGroups {
 							entries.add(JinericItems.PETRIFIED_OAK_BOOKSHELF);
 							entries.add(JinericItems.PETRIFIED_OAK_SIGN);
 							entries.add(JinericItems.PETRIFIED_OAK_HANGING_SIGN);
+							entries.add(JinericItems.PETRIFIED_OAK_BOAT);
+							entries.add(JinericItems.PETRIFIED_OAK_CHEST_BOAT);
 							entries.add(JinericItems.POLISHED_STONE);
 							entries.add(JinericItems.POLISHED_STONE_STAIRS);
 							entries.add(JinericItems.POLISHED_STONE_SLAB);
@@ -561,6 +563,11 @@ public class JinericItemGroups {
 			entries.addAfter(Items.BAMBOO_HANGING_SIGN, JinericItems.PETRIFIED_OAK_SIGN);
 			entries.addAfter(JinericItems.PETRIFIED_OAK_SIGN, JinericItems.PETRIFIED_OAK_HANGING_SIGN);
 		});
+
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register((entries -> {
+			entries.addAfter(Items.CHERRY_CHEST_BOAT, JinericItems.PETRIFIED_OAK_BOAT);
+			entries.addAfter(JinericItems.PETRIFIED_OAK_BOAT, JinericItems.PETRIFIED_OAK_CHEST_BOAT);
+		}));
 
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register((entries -> {
 			entries.addAfter(Items.REDSTONE_TORCH, JinericItems.REDSTONE_LANTERN);

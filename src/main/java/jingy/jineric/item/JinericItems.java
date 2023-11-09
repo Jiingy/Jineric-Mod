@@ -2,6 +2,7 @@ package jingy.jineric.item;
 
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.JinericBlocks;
+import jingy.jineric.registry.JinericBoatTypes;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
@@ -313,7 +314,8 @@ public class JinericItems {
 	public static final Item PETRIFIED_OAK_BOOKSHELF = register("petrified_oak_bookshelf", new BlockItem(JinericBlocks.PETRIFIED_OAK_BOOKSHELF, new FabricItemSettings()));
 	public static final Item PETRIFIED_OAK_SIGN = register("petrified_oak_sign", new SignItem(new FabricItemSettings().maxCount(16), JinericBlocks.PETRIFIED_OAK_SIGN, JinericBlocks.PETRIFIED_OAK_WALL_SIGN));
 	public static final Item PETRIFIED_OAK_HANGING_SIGN = register("petrified_oak_hanging_sign", new HangingSignItem(JinericBlocks.PETRIFIED_OAK_HANGING_SIGN, JinericBlocks.PETRIFIED_OAK_WALL_HANGING_SIGN, new FabricItemSettings().maxCount(16)));
-	//	public static final Item PETRIFIED_OAK_BOAT = register("petrified_oak_boat", new BoatItem(false, ))
+	public static final Item PETRIFIED_OAK_BOAT = register("petrified_oak_boat", new BoatItem(false, JinericBoatTypes.PETRIFIED_OAK, new FabricItemSettings().maxCount(1)));
+	public static final Item PETRIFIED_OAK_CHEST_BOAT = register("petrified_oak_chest_boat", new BoatItem(true, JinericBoatTypes.PETRIFIED_OAK, new FabricItemSettings().maxCount(1)));
 
 	//RHYOLITE
 //	public static final Item RHYOLITE = register("rhyolite", new BlockItem(JinericBlocks.RHYOLITE, new FabricItemSettings()));

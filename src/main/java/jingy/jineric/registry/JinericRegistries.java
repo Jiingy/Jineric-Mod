@@ -27,6 +27,8 @@ public class JinericRegistries {
    private static void registerCompostable() {
       CompostingChanceRegistry registry = CompostingChanceRegistry.INSTANCE;
       registry.add(JinericItems.TUMBLEWEED, 0.5F);
+      registry.add(JinericItems.PETRIFIED_OAK_LEAVES, 0.3F);
+      registry.add(JinericItems.PETRIFIED_OAK_SAPLING, 0.3F);
    }
 
    private static void registerStrippable() {
@@ -40,6 +42,14 @@ public class JinericRegistries {
       instance.add(JinericBlockTags.WOODEN_BOOKSHELVES, 30, 20);
       instance.add(JinericBlocks.PAPER_BLOCK, 5, 20);
       instance.add(JinericBlocks.STICK_BLOCK, 5, 20);
+      // PETRIFIED OAK
+      instance.add(JinericBlockTags.PETRIFIED_OAK_LOGS, 5, 5);
+      instance.add(JinericBlocks.PETRIFIED_OAK_PLANKS, 5, 20);
+      instance.add(JinericBlocks.PETRIFIED_OAK_SLAB, 5, 20);
+      instance.add(JinericBlocks.PETRIFIED_OAK_FENCE_GATE, 5, 20);
+      instance.add(JinericBlocks.PETRIFIED_OAK_FENCE, 5, 20);
+      instance.add(JinericBlocks.PETRIFIED_OAK_STAIRS, 5, 20);
+      instance.add(JinericBlocks.PETRIFIED_OAK_LEAVES, 30, 60);
    }
 
    private static void registerOxidizableBlockPairs() {

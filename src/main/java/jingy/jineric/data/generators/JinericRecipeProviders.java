@@ -17,6 +17,7 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.book.CookingRecipeCategory;
 import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.Identifier;
 
 public class JinericRecipeProviders extends FabricRecipeProvider {
@@ -32,6 +33,10 @@ public class JinericRecipeProviders extends FabricRecipeProvider {
       JinericGeneratedRecipes.offerRefiningRecipes(exporter);
       JinericGeneratedRecipes.offerStoneCuttingRecipes(exporter);
       JinericGeneratedRecipes.offerUpgradeRecipes(exporter);
+   }
+
+   public static void offerChestBoatRecipe(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
+      ShapelessRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, output).input(JinericItemTags.CHESTS).input(input).group("chest_boat").criterion("has_boat", conditionsFromTag(ItemTags.BOATS)).offerTo(exporter);
    }
 
    public static void offerTrappedChestRecipe(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {

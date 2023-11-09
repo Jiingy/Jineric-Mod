@@ -3,6 +3,7 @@ package jingy.jineric.data.generators;
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.data.family.JinericBlockFamilies;
+import jingy.jineric.item.JinericItems;
 import jingy.jineric.registry.JinericWoodType;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
@@ -36,8 +37,9 @@ public class JinericModelGenerator extends FabricModelProvider {
    }
 
    @Override
-   public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-      //NOTE: DOES NOT NEED TO BE USED FOR ITEMS FOR BLOCKS
+   public void generateItemModels(ItemModelGenerator generator) {
+      generator.register(JinericItems.PETRIFIED_OAK_BOAT, Models.GENERATED);
+      generator.register(JinericItems.PETRIFIED_OAK_CHEST_BOAT, Models.GENERATED);
    }
 
    public void registerSimpleBlockSet(Block blockTexture, Block stairBlock, Block slabBlock, Block wallBlock, BlockStateModelGenerator blockStateModelGenerator) {
@@ -58,7 +60,6 @@ public class JinericModelGenerator extends FabricModelProvider {
       generator.registerItemModel(byId(woodType + "_ladder"));
       this.registerBookshelf(byId(woodType + "_bookshelf"), byId(woodType + "_planks"), generator);
       generator.registerHangingSign(JinericBlocks.STRIPPED_PETRIFIED_OAK_LOG, JinericBlocks.PETRIFIED_OAK_HANGING_SIGN, JinericBlocks.PETRIFIED_OAK_WALL_HANGING_SIGN);
-
    }
 
    static Block byId(String id) {

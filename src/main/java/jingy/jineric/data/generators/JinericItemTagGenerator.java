@@ -42,5 +42,7 @@ public class JinericItemTagGenerator extends FabricTagProvider.ItemTagProvider {
       this.getOrCreateTagBuilder(ItemTags.SAPLINGS).add(JinericItems.PETRIFIED_OAK_SAPLING).setReplace(false);
       this.getOrCreateTagBuilder(ItemTags.SIGNS).add(JinericItems.PETRIFIED_OAK_SIGN).setReplace(false);
       this.getOrCreateTagBuilder(ItemTags.HANGING_SIGNS).add(JinericItems.PETRIFIED_OAK_HANGING_SIGN).setReplace(false);
+      this.getOrCreateTagBuilder(ItemTags.BOATS).add(JinericItems.PETRIFIED_OAK_BOAT).setReplace(false);
+      this.getOrCreateTagBuilder(ItemTags.CHEST_BOATS).add(JinericItems.PETRIFIED_OAK_CHEST_BOAT).setReplace(false);
    }
 }

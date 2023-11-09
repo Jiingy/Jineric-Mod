@@ -6,9 +6,11 @@
    "mixins": [
 	  "BellBlockShapeMixin",
 	  "BlockMixin",
+	  "BoatEntityMixin",
 	  "BrewingRecipeRegistryMixin",
 	  "BundleItemMixin",
 	  "CatsSitOnJinericChestsMixin",
+	  "ChestBoatEntityMixin",
 	  "DefaultAttributeRegistryMixin",
 	  "EatGrassGoalMixin",
 	  "EnchantmentMixin",

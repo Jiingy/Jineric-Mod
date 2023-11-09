@@ -7,7 +7,6 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.item.Items;
-import net.minecraft.recipe.book.CookingRecipeCategory;
 import net.minecraft.recipe.book.RecipeCategory;
 
 public class JinericGeneratedRecipes extends JinericRecipeProviders {
@@ -40,6 +39,8 @@ public class JinericGeneratedRecipes extends JinericRecipeProviders {
       offerSimpleBrickSetRecipes(exporter, JinericItems.TUFF_TILES, JinericItems.CRACKED_TUFF_TILES, JinericItems.CRACKED_TUFF_TILE_STAIRS, JinericItems.CRACKED_TUFF_TILE_SLAB, JinericItems.CRACKED_TUFF_TILE_WALL);
       offerSimpleBrickSetRecipes(exporter, JinericItems.DRIPSTONE_TILES, JinericItems.CRACKED_DRIPSTONE_TILES, JinericItems.CRACKED_DRIPSTONE_TILE_STAIRS, JinericItems.CRACKED_DRIPSTONE_TILE_SLAB, JinericItems.CRACKED_DRIPSTONE_TILE_WALL);
       offerSimpleBrickSetRecipes(exporter, Items.SNOW_BLOCK, JinericItems.SNOW_BRICKS, JinericItems.SNOW_BRICK_STAIRS, JinericItems.SNOW_BRICK_SLAB, JinericItems.SNOW_BRICK_WALL);
+      offerBoatRecipe(exporter, JinericItems.PETRIFIED_OAK_BOAT, JinericItems.PETRIFIED_OAK_PLANKS);
+      offerChestBoatRecipe(exporter, JinericItems.PETRIFIED_OAK_CHEST_BOAT, JinericItems.PETRIFIED_OAK_BOAT);
       offerHangingSignRecipe(exporter, JinericItems.PETRIFIED_OAK_HANGING_SIGN, JinericBlocks.STRIPPED_PETRIFIED_OAK_LOG);
    }
 
