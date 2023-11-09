@@ -308,7 +308,7 @@ public class JinericItems {
 	public static final Item PETRIFIED_OAK_PRESSURE_PLATE = register("petrified_oak_pressure_plate", new BlockItem(JinericBlocks.PETRIFIED_OAK_PRESSURE_PLATE, new FabricItemSettings()));
 	public static final Item PETRIFIED_OAK_BUTTON = register("petrified_oak_button", new BlockItem(JinericBlocks.PETRIFIED_OAK_BUTTON, new FabricItemSettings()));
 	public static final Item PETRIFIED_OAK_LEAVES = register("petrified_oak_leaves", new BlockItem(JinericBlocks.PETRIFIED_OAK_LEAVES, new FabricItemSettings()));
-	//	public static final Item PETRIFIED_OAK_SAPLING = register("petrified_oak_sapling", new BlockItem(JinericBlocks.PETRIFIED_OAK_SAPLING, new FabricItemSettings()));
+	public static final Item PETRIFIED_OAK_SAPLING = register("petrified_oak_sapling", new BlockItem(JinericBlocks.PETRIFIED_OAK_SAPLING, new FabricItemSettings()));
 	public static final Item PETRIFIED_OAK_LADDER = register("petrified_oak_ladder", new BlockItem(JinericBlocks.PETRIFIED_OAK_LADDER, new FabricItemSettings()));
 	public static final Item PETRIFIED_OAK_BOOKSHELF = register("petrified_oak_bookshelf", new BlockItem(JinericBlocks.PETRIFIED_OAK_BOOKSHELF, new FabricItemSettings()));
 	public static final Item PETRIFIED_OAK_SIGN = register("petrified_oak_sign", new SignItem(new FabricItemSettings().maxCount(16), JinericBlocks.PETRIFIED_OAK_SIGN, JinericBlocks.PETRIFIED_OAK_WALL_SIGN));
