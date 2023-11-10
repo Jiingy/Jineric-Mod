@@ -53,6 +53,8 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 //	modCompileOnly "dev.emi:emi:${emi_version}:api"
 //	modLocalRuntime "dev.emi:emi:${emi_version}"
+//	modImplementation 'com.github.glitchfiend:TerraBlender-fabric:1.20.2-3.0.0.170'
+	modImplementation "com.github.glitchfiend:TerraBlender-fabric:${project.minecraft_version}-${project.terrablender_version}"
 
 	// mixin extras
 	implementation("com.github.LlamaLad7:MixinExtras:0.1.1")
