@@ -1,11 +1,15 @@
 package jingy.jineric.world.biome;
 
-import net.minecraft.world.biome.BiomeKeys;
+import jingy.jineric.base.JinericMain;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.world.biome.Biome;
 
-public abstract class JinericBiomeKeys extends BiomeKeys {
-//   public static final RegistryKey<Biome> BOREAL_FOREST = register("boreal_forest");
+public class JinericBiomeKeys {
+   public static final RegistryKey<Biome> WISTFUL_FOREST = register("wistful_forest");
+   public static final RegistryKey<Biome> WISTFUL_FLOWER_FOREST = register("wistful_flower_forest");
 
-//   private static RegistryKey<Biome> register(String name) {
-//      return RegistryKey.of(Registries.BIOME_KEY, new Identifier("jineric", name));
-//   }
+   private static RegistryKey<Biome> register(String id) {
+      return RegistryKey.of(RegistryKeys.BIOME, JinericMain.jinericId(id));
+   }
 }

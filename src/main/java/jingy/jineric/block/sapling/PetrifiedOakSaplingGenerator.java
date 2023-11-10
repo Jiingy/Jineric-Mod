@@ -1,6 +1,6 @@
 package jingy.jineric.block.sapling;
 
-import jingy.jineric.world.feature.JinericTreeConfiguredFeatures;
+import jingy.jineric.world.gen.feature.JinericTreeConfiguredFeatures;
 import net.minecraft.block.sapling.SaplingGenerator;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.math.random.Random;

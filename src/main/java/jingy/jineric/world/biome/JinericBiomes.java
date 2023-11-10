@@ -1,24 +1,18 @@
 package jingy.jineric.world.biome;
 
-public class JinericBiomes {
-//
-//   public static final List<RegistryObject<Biome>> BIOMES = new ArrayList<>();
-//   public static RegistryKey<Biome> BOREAL_FOREST = createBiome("boreal_forest", JinericOverworldBiomes.createBorealForest(false));
-//
-//
-//   private static RegistryKey<Biome> createBiome(String id, Biome biome) {
-//      Identifier jinericID = JinericMain.createLocation(id);
-//      if (BuiltinRegistries.BIOME.getIds().contains(jinericID)) {
-//         throw new IllegalStateException("Biome ID: \"" + jinericID.toString() + "\"already exists in the Biome Registry!");
-//      }
-//      if (JinericMain.BIOMES) {
-//         BIOMES.add(new RegistryObject<>(biome, id));
-//      }
-//
-//      return RegistryKey.of(Registries.BIOME_SOURCE, jinericID);
-//   }
-//
-//   public static Collection<RegistryObject<Biome>> bootStrap() {
-//      return BIOMES;
-//   }
+import net.minecraft.registry.Registerable;
+import net.minecraft.registry.RegistryEntryLookup;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.carver.ConfiguredCarver;
+import net.minecraft.world.gen.feature.PlacedFeature;
+
+public abstract class JinericBiomes {
+
+   public static void bootstrap(Registerable<Biome> biomeRegisterable) {
+      RegistryEntryLookup<PlacedFeature> placedFeatureLookup = biomeRegisterable.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
+      RegistryEntryLookup<ConfiguredCarver<?>> configuredCarverLookup = biomeRegisterable.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER);
+      biomeRegisterable.register(JinericBiomeKeys.WISTFUL_FOREST, JinericOverworldBiomeCreator.createWistfulForest(placedFeatureLookup, configuredCarverLookup, false));
+      biomeRegisterable.register(JinericBiomeKeys.WISTFUL_FLOWER_FOREST, JinericOverworldBiomeCreator.createWistfulForest(placedFeatureLookup, configuredCarverLookup, true));
+   }
 }

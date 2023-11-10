@@ -24,6 +24,7 @@
 	  "WallBlockMixin",
 	  "access.CookingRecipeJsonBuilderAccess",
 	  "access.GetBundleOccupancyAccess",
+	  "access.OverworldBiomeCreatorAccess",
 	  "access.SmithingTemplateItemAccess",
 	  "access.TreeConfiguredFeaturesAccess",
 	  "access.WoodTypeAccess"
