@@ -27,7 +27,7 @@ public class JinericDataGeneration implements DataGeneratorEntrypoint {
 
    @Override
    public void buildRegistry(RegistryBuilder registryBuilder) {
-      registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, JinericWorldGenerator::bootstrap)
+      registryBuilder
               .addRegistry(RegistryKeys.BIOME, JinericBiomes::bootstrap)
               .addRegistry(RegistryKeys.PLACED_FEATURE, JinericPlacedFeatures::bootstrap)
               .addRegistry(RegistryKeys.CONFIGURED_FEATURE, JinericConfiguredFeatures::bootstrap)

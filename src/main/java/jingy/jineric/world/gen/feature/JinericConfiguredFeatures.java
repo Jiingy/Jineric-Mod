@@ -15,5 +15,6 @@ public class JinericConfiguredFeatures {
    public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> featureRegisterable) {
       JinericTreeConfiguredFeatures.bootstrap(featureRegisterable);
       JinericVegetationConfiguredFeatures.bootstrap(featureRegisterable);
+      JinericUndergroundConfiguredFeatures.bootstrap(featureRegisterable);
    }
 }

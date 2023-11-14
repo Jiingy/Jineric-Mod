@@ -18,7 +18,7 @@ public interface OverworldBiomeCreatorAccess {
    }
 
    @Invoker("createBiome")
-   static Biome invokeCreateBiome(boolean precipitation, float temperature, float downfall, SpawnSettings.Builder spawnSettings, GenerationSettings.LookupBackedBuilder generationSettings, @Nullable MusicSound music) {
+   static Biome invokeCreateBiome(boolean precipitation, float temperature, float downfall, int waterColor, int waterFogColor, @Nullable Integer grassColor, @Nullable Integer foliageColor, SpawnSettings.Builder spawnSettings, GenerationSettings.LookupBackedBuilder generationSettings, @Nullable MusicSound music) {
       throw new IllegalStateException("Could not invoke createBiome() in OverworldBiomeCreator!");
    }
 }

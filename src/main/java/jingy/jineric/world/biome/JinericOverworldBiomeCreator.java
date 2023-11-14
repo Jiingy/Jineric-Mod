@@ -1,6 +1,7 @@
 package jingy.jineric.world.biome;
 
 import jingy.jineric.mixin.access.OverworldBiomeCreatorAccess;
+import jingy.jineric.world.gen.feature.JinericVegetationPlacedFeatures;
 import net.minecraft.client.sound.MusicType;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
@@ -18,6 +19,10 @@ import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 
 public class JinericOverworldBiomeCreator extends OverworldBiomeCreator {
+
+   public static Biome create() {
+      return new Biome.Builder().build();
+   }
 
    public static Biome createWistfulForest(RegistryEntryLookup<PlacedFeature> featureLookup, RegistryEntryLookup<ConfiguredCarver<?>> carverLookup, boolean flower) {
       GenerationSettings.LookupBackedBuilder lookupBackedBuilder = new GenerationSettings.LookupBackedBuilder(featureLookup, carverLookup);
@@ -38,6 +43,7 @@ public class JinericOverworldBiomeCreator extends OverworldBiomeCreator {
          lookupBackedBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.FLOWER_FLOWER_FOREST);
          DefaultBiomeFeatures.addDefaultGrass(lookupBackedBuilder);
       } else {
+         lookupBackedBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, JinericVegetationPlacedFeatures.TREES_WISTFUL_FOREST);
          DefaultBiomeFeatures.addDefaultFlowers(lookupBackedBuilder);
          DefaultBiomeFeatures.addForestGrass(lookupBackedBuilder);
       }
@@ -53,6 +59,7 @@ public class JinericOverworldBiomeCreator extends OverworldBiomeCreator {
          builder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.WOLF, 5, 4, 4));
       }
 
-      return OverworldBiomeCreatorAccess.invokeCreateBiome(true, 0.7F, 0.8F, builder, lookupBackedBuilder, musicSound);
+//      return OverworldBiomeCreatorAccess.invokeCreateBiome(true, 0.7F, 0.8F, builder, lookupBackedBuilder, musicSound);
+      return OverworldBiomeCreatorAccess.invokeCreateBiome(true, 0.7F, 0.8F, 1201651, 921191, 8378678, 8378678, builder, lookupBackedBuilder, musicSound);
    }
 }
