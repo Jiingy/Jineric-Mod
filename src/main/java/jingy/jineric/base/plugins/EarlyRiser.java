@@ -1,10 +1,10 @@
 package jingy.jineric.base.plugins;
 
 import com.chocohead.mm.api.ClassTinkerers;
-import jingy.jineric.block.JinericBlocks;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.MappingResolver;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 
@@ -17,8 +17,8 @@ public class EarlyRiser implements Runnable {
       String recipeBookCategory = remapper.mapClassName("intermediary", "net.minecraft.class_5421");
       ClassTinkerers.enumBuilder(recipeBookCategory).addEnum("JINERIC_REFINERY").build();
       String boatEntityType = remapper.mapClassName("intermediary", "net.minecraft.class_1690$class_1692");
-      String block = "L" + remapper.mapClassName("intermediary", "net.minecraft.class_2248") + ";";
-      ClassTinkerers.enumBuilder(boatEntityType, block, String.class).addEnum("PETRIFIED_OAK", () -> new Object[]{JinericBlocks.PETRIFIED_OAK_PLANKS, "petrified_oak"}).build();
+      String block = 'L' + remapper.mapClassName("intermediary", "net.minecraft.class_2248") + ';';
+      ClassTinkerers.enumBuilder(boatEntityType, block, String.class).addEnum("PETRIFIED_OAK", () -> new Object[] {Blocks.AIR, "petrified_oak"}).build();
 
       if (isClient) {
          String recipeBookGroup = remapper.mapClassName("intermediary", "net.minecraft.class_314");
