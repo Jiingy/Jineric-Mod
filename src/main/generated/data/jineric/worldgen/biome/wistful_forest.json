@@ -9,8 +9,8 @@
   "downfall": 0.8,
   "effects": {
     "fog_color": 12638463,
-    "foliage_color": 8378678,
-    "grass_color": 8378678,
+    "foliage_color": 8310072,
+    "grass_color": 8310072,
     "mood_sound": {
       "block_search_extent": 8,
       "offset": 2.0,
@@ -84,10 +84,11 @@
       "jineric:trees_wistful_forest",
       "minecraft:flower_default",
       "minecraft:patch_grass_forest",
+      "minecraft:patch_tall_grass_2",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
-      "minecraft:patch_sugar_cane",
-      "minecraft:patch_pumpkin"
+      "jineric:carved_pumpkin_patch",
+      "minecraft:patch_sugar_cane"
     ],
     [
       "minecraft:freeze_top_layer"
