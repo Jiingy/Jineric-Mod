@@ -14,6 +14,7 @@ import jingy.jineric.sound.JinericBlockSoundGroup;
 import jingy.jineric.tag.JinericBlockTags;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
@@ -283,6 +284,8 @@ public class JinericBlocks {
 
 //DECORATION BLOCKS
 	public static final Block FIREWEED = register("fireweed", new TallFlowerBlock(FabricBlockSettings.copy(LILAC)));
+	public static final Block BLOSSOMED_DANDELION = register("blossomed_dandelion", new BlossomedDandelion(StatusEffects.NAUSEA, 12, FabricBlockSettings.copy(DANDELION)));
+	public static final Block POTTED_BLOSSOMED_DANDELION = register("potted_oblossomed_dandelion", createFlowerPotBlock(BLOSSOMED_DANDELION));
 	public static final Block SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", new CarvedPumpkinBlock(FabricBlockSettings.copy(JACK_O_LANTERN)));
 	public static final Block FULL_GRASS_BLOCK = register("full_grass_block", new FullGrassBlock(FabricBlockSettings.copy(GRASS_BLOCK)));
 	public static final Block PRISMARINE_BRICK_WALL = register("prismarine_brick_wall", new WallBlock(FabricBlockSettings.copy(PRISMARINE_BRICKS)));

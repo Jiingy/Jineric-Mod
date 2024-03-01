@@ -9,6 +9,7 @@ public class JinericBlockRenderLayerMap {
    //TODO: Move to JinericRegistries
    public static void register() {
       BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.FIREWEED, RenderLayer.getCutout());
+      BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BLOSSOMED_DANDELION, RenderLayer.getCutout());
       BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.PETRIFIED_OAK_TRAPDOOR, RenderLayer.getCutout());
       BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.PETRIFIED_OAK_DOOR, RenderLayer.getCutout());
       BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.PETRIFIED_OAK_LADDER, RenderLayer.getCutout());

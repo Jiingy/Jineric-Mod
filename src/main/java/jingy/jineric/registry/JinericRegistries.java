@@ -64,4 +64,8 @@ public class JinericRegistries {
       OxidizableBlocksRegistry.registerWaxableBlockPair(JinericBlocks.WEATHERED_CUT_COPPER_WALL, JinericBlocks.WAXED_WEATHERED_CUT_COPPER_WALL);
       OxidizableBlocksRegistry.registerWaxableBlockPair(JinericBlocks.OXIDIZED_CUT_COPPER_WALL, JinericBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL);
    }
+
+   private static void registerParticleFactories() {
+//      ParticleFactoryRegistry.getInstance().register(JinericParticleTypes.RED_DANDELION_SEED, );
+   }
 }

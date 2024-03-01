@@ -33,6 +33,8 @@ public class JinericModelGenerator extends FabricModelProvider {
       JinericBlockFamilies.getFamilies().filter(BlockFamily::shouldGenerateModels).forEach((family) -> {
          generator.registerCubeAllModelTexturePool(family.getBaseBlock()).family(family);
       });
+
+      generator.registerFlowerPotPlant(JinericBlocks.BLOSSOMED_DANDELION, JinericBlocks.POTTED_BLOSSOMED_DANDELION, BlockStateModelGenerator.TintType.NOT_TINTED);
    }
 
    @Override

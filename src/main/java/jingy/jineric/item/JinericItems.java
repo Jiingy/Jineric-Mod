@@ -285,6 +285,7 @@ public class JinericItems {
 
 	public static final Item REFINERY = register("refinery", new BlockItem(JinericBlocks.REFINERY, new FabricItemSettings()));
 	public static final Item FIREWEED = register("fireweed", new BlockItem(JinericBlocks.FIREWEED, new FabricItemSettings()));
+	public static final Item BLOSSOMED_DANDELION = register("blossomed_dandelion", new BlockItem(JinericBlocks.BLOSSOMED_DANDELION, new FabricItemSettings()));
 	public static final Item TUMBLEWEED = register("tumbleweed", new BlockItem(JinericBlocks.TUMBLEWEED, new FabricItemSettings()));
 	public static final Item REDSTONE_CAMPFIRE = register("redstone_campfire", new BlockItem(JinericBlocks.REDSTONE_CAMPFIRE, new FabricItemSettings()));
 
