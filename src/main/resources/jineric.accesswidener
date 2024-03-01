@@ -1,5 +1,1 @@
 accessWidener v1 named
-
-accessible class net/minecraft/recipe/CookingRecipeSerializer$RecipeFactory
-accessible field net/minecraft/entity/ai/goal/EatGrassGoal GRASS_PREDICATE Ljava/util/function/Predicate;
-accessible method net/minecraft/client/render/block/entity/BlockEntityRendererFactories register (Lnet/minecraft/block/entity/BlockEntityType;Lnet/minecraft/client/render/block/entity/BlockEntityRendererFactory;)V
