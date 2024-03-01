@@ -27,7 +27,7 @@ public class JinericUndergroundConfiguredFeatures {
               new SimpleBlockFeatureConfig(
                       new WeightedBlockStateProvider(
                               DataPool.<BlockState>builder()
-                                      .add(Blocks.GRASS.getDefaultState(), 40)
+                                      .add(Blocks.SHORT_GRASS.getDefaultState(), 40)
                                       .add(Blocks.TALL_GRASS.getDefaultState(), 10)
                                       .add(Blocks.POPPY.getDefaultState(), 5)
                                       .add(Blocks.DANDELION.getDefaultState(), 5)

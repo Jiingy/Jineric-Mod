@@ -1,5 +1,6 @@
 package jingy.jineric.block;
 
+import com.mojang.serialization.MapCodec;
 import jingy.jineric.block.entity.RefineryBlockEntity;
 import jingy.jineric.registry.JinericBlockEntityType;
 import jingy.jineric.stat.JinericStats;
@@ -20,6 +21,13 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class RefineryBlock extends AbstractFurnaceBlock {
+   public static final MapCodec<RefineryBlock> CODEC = createCodec(RefineryBlock::new);
+
+   @Override
+   protected MapCodec<RefineryBlock> getCodec() {
+      return CODEC;
+   }
+
    public RefineryBlock(Settings settings) {
       super(settings);
    }
