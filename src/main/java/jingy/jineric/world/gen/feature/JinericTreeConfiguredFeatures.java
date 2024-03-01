@@ -15,7 +15,7 @@ public class JinericTreeConfiguredFeatures extends TreeConfiguredFeatures {
 //   public static final RegistryKey<ConfiguredFeature<?, ?>> PETRIFIED_OAK_BEES_005 = JinericTreeConfiguredFeatures.of("petrified_oak_bees_005");
 
    private static TreeFeatureConfig.Builder petrifiedOak() {
-      return TreeConfiguredFeaturesAccess.initBuilder(JinericBlocks.PETRIFIED_OAK_LOG, JinericBlocks.PETRIFIED_OAK_LEAVES, 4, 2, 0, 2).ignoreVines();
+      return TreeConfiguredFeaturesAccess.initBuilder(JinericBlocks.PETRIFIED_OAK_LOG, JinericBlocks.PETRIFIED_OAK_LEAVES, 5, 2, 1, 2).ignoreVines();
    }
 
    public static RegistryKey<ConfiguredFeature<?, ?>> of(String id) {

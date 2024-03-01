@@ -45,8 +45,8 @@ public class JinericOverworldBiomeCreator extends OverworldBiomeCreator {
          DefaultBiomeFeatures.addPlainsTallGrass(builder);
       } else {
          builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, JinericVegetationPlacedFeatures.TREES_WISTFUL_FOREST);
-         DefaultBiomeFeatures.addDefaultFlowers(builder);
-         DefaultBiomeFeatures.addForestGrass(builder);
+//         DefaultBiomeFeatures.addDefaultFlowers(builder);
+         DefaultBiomeFeatures.addJungleGrass(builder);
          DefaultBiomeFeatures.addPlainsTallGrass(builder);
       }
 
