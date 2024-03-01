@@ -50,6 +50,7 @@ public class JinericModelGenerator extends FabricModelProvider {
       registerWall(wallBlock, blockTexture, blockStateModelGenerator);
    }
 
+   // REMOVED HARD CODED PETRIFIED ADDITIONS
    public void registerWoodSet(WoodType woodTypeIn, BlockStateModelGenerator generator) {
       String stripped = "stripped_";
       String woodType = woodTypeIn.name().replace("jineric:", "");
