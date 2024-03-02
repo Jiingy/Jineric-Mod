@@ -23,10 +23,10 @@ public abstract class EatGrassGoalMixin extends Goal {
 
    @Mutable
    @Shadow @Final
-   public static Predicate<BlockState> GRASS_PREDICATE;
+   private static Predicate<BlockState> SHORT_GRASS_PREDICATE;
 
    static {
-      GRASS_PREDICATE = GRASS_PREDICATE.or(BlockStatePredicate.forBlock(JinericBlocks.FULL_GRASS_BLOCK));
+      SHORT_GRASS_PREDICATE = SHORT_GRASS_PREDICATE.or(BlockStatePredicate.forBlock(JinericBlocks.FULL_GRASS_BLOCK));
    }
 
    @WrapOperation(

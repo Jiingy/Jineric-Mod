@@ -19,6 +19,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.property.Properties;
+import net.minecraft.util.ColorCode;
 import net.minecraft.util.Identifier;
 
 import java.util.function.ToIntFunction;
@@ -256,7 +257,7 @@ public class JinericBlocks {
 
 	// --- MISCELLANEOUS ---
 //PACKED ITEM BLOCKS
-	public static final Block SUGAR_BLOCK = register("sugar_block", new FallingBlock(FabricBlockSettings.copy(CLAY).sounds(BlockSoundGroup.SAND)));
+	public static final Block SUGAR_BLOCK = register("sugar_block", new ColoredFallingBlock(new ColorCode(238238238), FabricBlockSettings.copy(CLAY).sounds(BlockSoundGroup.SAND)));
 	public static final Block ROTTEN_FLESH_BLOCK = register("rotten_flesh_block", new Block(FabricBlockSettings.copy(HONEYCOMB_BLOCK).sounds(BlockSoundGroup.HONEY)));
 	public static final Block FLINT_BLOCK = register("flint_block", new Block(FabricBlockSettings.copy(STONE)));
 	public static final Block CHARCOAL_BLOCK = register("charcoal_block", new Block(FabricBlockSettings.copy(COAL_BLOCK)));

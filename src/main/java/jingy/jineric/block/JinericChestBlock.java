@@ -44,8 +44,8 @@ public class JinericChestBlock extends ChestBlock {
             @Override
             public ScreenHandler createMenu(int i, PlayerInventory playerInventory, PlayerEntity playerEntity) {
                if (jinericChestBlockEntity.checkUnlocked(playerEntity) && jinericChestBlockEntity2.checkUnlocked(playerEntity)) {
-                  jinericChestBlockEntity.checkLootInteraction(playerInventory.player);
-                  jinericChestBlockEntity2.checkLootInteraction(playerInventory.player);
+                  jinericChestBlockEntity.generateLoot(playerInventory.player);
+                  jinericChestBlockEntity2.generateLoot(playerInventory.player);
                   return GenericContainerScreenHandler.createGeneric9x6(i, playerInventory, inventory);
                } else {
                   return null;
