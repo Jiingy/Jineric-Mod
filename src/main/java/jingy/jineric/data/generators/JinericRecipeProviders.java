@@ -18,6 +18,8 @@ import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.book.CookingRecipeCategory;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.resource.featuretoggle.FeatureFlags;
+import net.minecraft.resource.featuretoggle.FeatureSet;
 import net.minecraft.util.Identifier;
 
 public class JinericRecipeProviders extends FabricRecipeProvider {
@@ -28,7 +30,7 @@ public class JinericRecipeProviders extends FabricRecipeProvider {
 
    @Override
    public void generate(RecipeExporter exporter) {
-      generateFamily(exporter, JinericBlockFamilies.PETRIFIED_OAK);
+      generateFamily(exporter, JinericBlockFamilies.PETRIFIED_OAK, FeatureSet.of(FeatureFlags.VANILLA));
       JinericGeneratedRecipes.offerGeneralRecipes(exporter);
       JinericGeneratedRecipes.offerRefiningRecipes(exporter);
       JinericGeneratedRecipes.offerStoneCuttingRecipes(exporter);

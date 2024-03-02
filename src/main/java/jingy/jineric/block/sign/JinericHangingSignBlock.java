@@ -9,7 +9,7 @@ import net.minecraft.util.math.BlockPos;
 
 public class JinericHangingSignBlock extends HangingSignBlock {
    public JinericHangingSignBlock(Settings settings, WoodType woodType) {
-      super(settings, woodType);
+      super(woodType, settings);
    }
 
    @Override
