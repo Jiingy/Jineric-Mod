@@ -2,7 +2,7 @@ plugins {
 	id 'java-library'
 	id 'idea'
 	id "maven-publish"
-	id 'fabric-loom' version '1.5-SNAPSHOT'
+	id 'fabric-loom' version '1.8-SNAPSHOT'
 	id "com.modrinth.minotaur" version "1.1.0"
 }
 
@@ -36,8 +36,9 @@ repositories {
 	}
 }
 
-tasks.withType(JavaCompile).configureEach { it.options.release = 17 }
-sourceCompatibility = targetCompatibility = JavaVersion.VERSION_17
+tasks.withType(JavaCompile).configureEach { it.options.release = 21 }
+sourceCompatibility = JavaVersion.VERSION_21
+targetCompatibility = JavaVersion.VERSION_21
 
 group = project.maven_group
 archivesBaseName = project.archives_base_name
@@ -52,7 +53,6 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 //	modCompileOnly "dev.emi:emi:${emi_version}:api"
 //	modLocalRuntime "dev.emi:emi:${emi_version}"
-//	modImplementation 'com.github.glitchfiend:TerraBlender-fabric:1.20.2-3.0.0.170'
 	modImplementation "com.github.glitchfiend:TerraBlender-fabric:${project.minecraft_version}-${project.terrablender_version}"
 
 	// mixin extras

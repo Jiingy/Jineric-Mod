@@ -56,8 +56,7 @@
       }
     },
     "loom:injected_interfaces": {
-      "net/minecraft/class_1481": ["net/minecraft/class_5146"],
-      "net/minecraft/class_5537": ["net/minecraft/class_1768"]
+      "net/minecraft/class_1481": ["net/minecraft/class_5146"]
     }
   }
 }
