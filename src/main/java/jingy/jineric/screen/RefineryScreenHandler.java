@@ -17,14 +17,7 @@ public class RefineryScreenHandler extends AbstractFurnaceScreenHandler {
    private static final RecipeBookType JINERIC_REFINERY = ClassTinkerers.getEnum(RecipeBookType.class, "JINERIC_REFINERY");
 
    public RefineryScreenHandler(int syncId, PlayerInventory playerInventory) {
-      super(
-              JinericScreenHandlerType.REFINERY,
-              JinericRecipeTypes.REFINING,
-              JinericRecipePropertySet.REFINERY_INPUT,
-              JINERIC_REFINERY,
-              syncId,
-              playerInventory
-      );
+      super(JinericScreenHandlerType.REFINERY, JinericRecipeTypes.REFINING, JinericRecipePropertySet.REFINERY_INPUT, JINERIC_REFINERY, syncId, playerInventory);
    }
 
    public RefineryScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate propertyDelegate) {
@@ -36,6 +29,7 @@ public class RefineryScreenHandler extends AbstractFurnaceScreenHandler {
               syncId,
               playerInventory,
               inventory,
-              propertyDelegate);
+              propertyDelegate
+      );
    }
 }

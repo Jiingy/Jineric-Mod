@@ -21,7 +21,7 @@ public class RefineryScreen extends AbstractFurnaceScreen<RefineryScreenHandler>
    private static final Identifier BURN_PROGRESS_TEXTURE = JinericMain.ofJineric("container/refinery/burn_progress");
    private static final Identifier TEXTURE = JinericMain.ofJineric("textures/gui/container/refinery.png");
    private static final Text TOGGLE_REFINABLE_TEXT = Text.translatable("gui.recipebook.toggleRecipes.refinable");
-   private static final net.minecraft.client.recipebook.RecipeBookType JINERIC_REFINERY = ClassTinkerers.getEnum(RecipeBookType.class, "JINERIC_REFINERY");
+   private static final net.minecraft.client.recipebook.RecipeBookType JINERIC_REFINERY = ClassTinkerers.getEnum(net.minecraft.client.recipebook.RecipeBookType.class, "JINERIC_REFINERY");
    private static final List<RecipeBookWidget.Tab> TABS = List.of(
            new RecipeBookWidget.Tab(JINERIC_REFINERY),
            new RecipeBookWidget.Tab(Items.STONE, JinericRecipeBookCategories.REFINERY_BLOCKS),
