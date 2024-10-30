@@ -16,24 +16,27 @@ public class EarlyRiser implements Runnable {
       boolean isClient = FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT;
       MappingResolver remapper = FabricLoader.getInstance().getMappingResolver();
       String recipeBookType = remapper.mapClassName("intermediary", "net.minecraft.class_5421");
-//      ClassTinkerers.enumBuilder(recipeBookType).addEnum("JINERIC_REFINERY").build();
+      String recipeBookCategory = "[L" + remapper.mapClassName("intermediary", "net.minecraft.class_10355") + ";";
+//    String recipeBookCategory = remapper.mapClassName("intermediary", "net.minecraft.class_10355");
+      ClassTinkerers.enumBuilder(recipeBookType).addEnum("JINERIC_REFINERY").build();
 
       if (isClient) {
-//         String recipeBookGroup = remapper.mapClassName("intermediary", "net.minecraft.class_314");
-         String recipeBookCategory = remapper.mapClassName("intermediary", "net.minecraft.class_10355");
+//       String clientRecipeBookType = "[L" + remapper.mapClassName("intermediary", "net.minecraft.class_10331") + ";";
+         String clientRecipeBookType = remapper.mapClassName("intermediary", "net.minecraft.class_10331");
 
-         //TODO: FIX AND CLEAN UP 1.21.3
 //         String itemStack = "[L" + remapper.mapClassName("intermediary", "net.minecraft.class_1799") + ";";
-//         ClassTinkerers.enumBuilder(recipeBookGroup, itemStack).addEnum("JINERIC_REFINERY_BUILDING",
-//                 () -> new Object[] {
-//                         new ItemStack[] {
-//                                 new ItemStack(Items.STONE)
-//                         }
-//                 }
-//         ).build();
+//         ClassTinkerers.enumBuilder(recipeBookGroup, itemStack).addEnum("JINERIC_REFINERY_BUILDING", () -> new Object[] {new ItemStack[] {new ItemStack(Items.STONE)}}).build();
 //         ClassTinkerers.enumBuilder(recipeBookGroup, itemStack).addEnum("JINERIC_REFINERY_MISC", () -> new Object[] {new ItemStack[]{new ItemStack(Items.CYAN_GLAZED_TERRACOTTA)}}).build();
 
-         ClassTinkerers.enumBuilder(recipeBookType).addEnum("JINERIC_REFINERY", () -> new Object[] {new RecipeBookCategory[] {JinericRecipeBookCategories.REFINERY_BLOCKS, JinericRecipeBookCategories.REFINERY_MISC}}).build();
+         ClassTinkerers.enumBuilder(clientRecipeBookType, recipeBookCategory).addEnum(
+                 "JINERIC_REFINERY",
+                 () -> new Object[] {
+                         new RecipeBookCategory[] {
+                                 JinericRecipeBookCategories.REFINERY_BLOCKS,
+                                 JinericRecipeBookCategories.REFINERY_MISC
+                         }
+                 }
+         ).build();
       }
    }
 }
