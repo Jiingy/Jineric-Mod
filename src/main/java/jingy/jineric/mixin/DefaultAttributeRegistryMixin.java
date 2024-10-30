@@ -1,6 +1,6 @@
 package jingy.jineric.mixin;
 
-import jingy.jineric.entity.passive.manxloaghtan.ManxLoaghtan;
+import jingy.jineric.entity.passive.manxloaghtan.ManxLoaghtanEntity;
 import jingy.jineric.registry.JinericEntities;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -27,7 +27,7 @@ public abstract class DefaultAttributeRegistryMixin {
    private static void jineric$AddAttributes(CallbackInfo callbackInfo) {
       final IdentityHashMap<EntityType<? extends LivingEntity>, DefaultAttributeContainer> suppliers = new IdentityHashMap<>(DEFAULT_ATTRIBUTE_REGISTRY);
       suppliers.put(
-              JinericEntities.MANX_LOAGHTAN, ManxLoaghtan.createManxLoaghtanAttributes().build()
+              JinericEntities.MANX_LOAGHTAN, ManxLoaghtanEntity.createManxLoaghtanAttributes().build()
       );
       DEFAULT_ATTRIBUTE_REGISTRY = suppliers;
    }

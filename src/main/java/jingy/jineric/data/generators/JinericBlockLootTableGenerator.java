@@ -3,11 +3,14 @@ package jingy.jineric.data.generators;
 import jingy.jineric.block.JinericBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.minecraft.registry.RegistryWrapper;
+
+import java.util.concurrent.CompletableFuture;
 
 public class JinericBlockLootTableGenerator extends FabricBlockLootTableProvider {
    //TODO: Add convenient way to add a simple block set's loot table
-   public JinericBlockLootTableGenerator(FabricDataOutput dataGenerator) {
-      super(dataGenerator);
+   public JinericBlockLootTableGenerator(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+      super(dataOutput, registryLookup);
    }
 
    @Override

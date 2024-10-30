@@ -15,6 +15,5 @@ public class JinericEntityModels {
       EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayers.TURTLE_SADDLE, turtleSaddle);
       EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayers.MANX_LOAGHTAN, ManxLoaghtanModel::getTexturedModelData);
       EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayers.MANX_LOAGHTAN_WOOL, ManxLoaghtanWoolModel::getTexturedModelData);
-      EntityModelLayerRegistry.registerModelLayer(JinericEntityModelLayers.SHULKER_CHEST, ChestBlockEntityRenderer::getSingleTexturedModelData);
    }
 }

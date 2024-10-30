@@ -12,7 +12,7 @@ public class JinericStatusEffects {
    public static final StatusEffect FAST_FALLING = new FastFallingEffect(StatusEffectCategory.HARMFUL, 0);
 
    public static void registerStatusEffects() {
-      Registry.register(Registries.STATUS_EFFECT, JinericMain.jinericId("thorns"), THORNS);
-      Registry.register(Registries.STATUS_EFFECT, JinericMain.jinericId("fast_falling"), FAST_FALLING);
+      Registry.register(Registries.STATUS_EFFECT, JinericMain.ofJineric("thorns"), THORNS);
+      Registry.register(Registries.STATUS_EFFECT, JinericMain.ofJineric("fast_falling"), FAST_FALLING);
    }
 }

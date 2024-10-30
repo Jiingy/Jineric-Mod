@@ -1,7 +1,7 @@
 package jingy.jineric.recipe;
 
 import jingy.jineric.base.JinericMain;
-import net.minecraft.recipe.CookingRecipeSerializer;
+import net.minecraft.recipe.AbstractCookingRecipe;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -13,8 +13,8 @@ public class JinericRecipeSerializers {
    public static void registerRefiningRecipe() {
       REFINING = Registry.register(
               Registries.RECIPE_SERIALIZER,
-              new Identifier(JinericMain.MOD_ID, "refining"),
-              new CookingRecipeSerializer<>(RefiningRecipe::new, 100)
+              JinericMain.ofJineric("refining"),
+              new AbstractCookingRecipe.Serializer<>(RefiningRecipe::new, 100)
       );
    }
 }

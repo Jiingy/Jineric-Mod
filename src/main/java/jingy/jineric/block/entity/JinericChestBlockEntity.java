@@ -13,9 +13,9 @@ import net.minecraft.util.math.BlockPos;
 import static net.minecraft.block.WoodType.*;
 
 public class JinericChestBlockEntity extends ChestBlockEntity {
+
    public JinericChestBlockEntity(BlockEntityType<?> type, BlockPos blockPos, BlockState blockState) {
       super(type, blockPos, blockState);
-      this.setInvStackList(DefaultedList.ofSize(this.size(), ItemStack.EMPTY));
    }
 
    public JinericChestBlockEntity(BlockPos blockPos, BlockState state) {

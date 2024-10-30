@@ -32,6 +32,6 @@ public class JinericEntityModelLayers {
    }
 
    private static EntityModelLayer create(String id, String layer) {
-      return new EntityModelLayer(new Identifier(JinericMain.MOD_ID, id), layer);
+      return new EntityModelLayer(JinericMain.ofJineric(id), layer);
    }
 }

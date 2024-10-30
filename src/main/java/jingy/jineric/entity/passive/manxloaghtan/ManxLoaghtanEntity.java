@@ -21,6 +21,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
@@ -30,6 +31,7 @@ import net.minecraft.util.DyeColor;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ColorHelper;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.LocalDifficulty;
@@ -42,9 +44,9 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class ManxLoaghtan extends AnimalEntity implements Shearable {
+public class ManxLoaghtanEntity extends AnimalEntity implements Shearable {
    private static final int MAX_GRASS_TIMER = 40;
-   private static final TrackedData<Byte> COLOR = DataTracker.registerData(ManxLoaghtan.class, TrackedDataHandlerRegistry.BYTE);
+   private static final TrackedData<Byte> COLOR = DataTracker.registerData(ManxLoaghtanEntity.class, TrackedDataHandlerRegistry.BYTE);
    private static final Map<DyeColor, ItemConvertible> DROPS = Util.make(Maps.newEnumMap(DyeColor.class), map -> {
       map.put(DyeColor.WHITE, Blocks.WHITE_WOOL);
       map.put(DyeColor.GRAY, Blocks.GRAY_WOOL);
@@ -53,23 +55,28 @@ public class ManxLoaghtan extends AnimalEntity implements Shearable {
       map.put(DyeColor.BLACK, Blocks.BLACK_WOOL);
    });
    private static final Map<DyeColor, float[]> COLORS = Maps.newEnumMap(
-           (Map) Arrays.stream(DyeColor.values()).collect(Collectors.toMap(dyeColor -> dyeColor, ManxLoaghtan::getDyedColor))
+           (Map) Arrays.stream(DyeColor.values()).collect(Collectors.toMap(dyeColor -> dyeColor, ManxLoaghtanEntity::getDyedColor))
    );
    private int eatGrassTimer;
    private EatGrassGoal eatGrassGoal;
    private int headAngle;
 
-   private static float[] getDyedColor(DyeColor color) {
-      if (color == DyeColor.BLACK) {
-         return new float[]{0.9019608F, 0.9019608F, 0.9019608F};
+   private static int getDyedColor(DyeColor color) {
+      if (color == DyeColor.WHITE) {
+         return -1644826;
       } else {
-         float[] fs = color.getColorComponents();
+         int i = color.getEntityColor();
          float f = 0.75F;
-         return new float[]{fs[0] * 0.75F, fs[1] * 0.75F, fs[2] * 0.75F};
+         return ColorHelper.getArgb(
+                 255,
+                 MathHelper.floor((float)ColorHelper.getRed(i) * 0.75F),
+                 MathHelper.floor((float)ColorHelper.getGreen(i) * 0.75F),
+                 MathHelper.floor((float)ColorHelper.getBlue(i) * 0.75F)
+         );
       }
    }
 
-   public ManxLoaghtan(EntityType<? extends ManxLoaghtan> entityType, World world) {
+   public ManxLoaghtanEntity(EntityType<? extends ManxLoaghtanEntity> entityType, World world) {
       super(entityType, world);
    }
 
@@ -92,9 +99,9 @@ public class ManxLoaghtan extends AnimalEntity implements Shearable {
    }
 
    @Override
-   protected void mobTick() {
+   protected void mobTick(ServerWorld world) {
       this.eatGrassTimer = this.eatGrassGoal.getTimer();
-      super.mobTick();
+      super.mobTick(world);
    }
 
    @Override
@@ -106,13 +113,13 @@ public class ManxLoaghtan extends AnimalEntity implements Shearable {
    }
 
    public static DefaultAttributeContainer.Builder createManxLoaghtanAttributes() {
-      return MobEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 8.0).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.23F);
+      return AnimalEntity.createAnimalAttributes().add(EntityAttributes.MAX_HEALTH, 8.0).add(EntityAttributes.MOVEMENT_SPEED, 0.23F);
    }
 
    @Override
-   protected void initDataTracker() {
-      super.initDataTracker();
-      this.dataTracker.startTracking(COLOR, (byte)0);
+   protected void initDataTracker(DataTracker.Builder builder) {
+      super.initDataTracker(builder);
+      builder.add(COLOR, (byte)0);
    }
 
    @Override
@@ -152,10 +159,10 @@ public class ManxLoaghtan extends AnimalEntity implements Shearable {
    public ActionResult interactMob(PlayerEntity player, Hand hand) {
       ItemStack itemStack = player.getStackInHand(hand);
       if (itemStack.isOf(Items.SHEARS)) {
-         if (!this.getWorld().isClient && this.isShearable()) {
-            this.sheared(SoundCategory.PLAYERS);
+         if (this.getWorld() instanceof ServerWorld serverWorld && this.isShearable()) {
+            this.sheared(serverWorld, SoundCategory.PLAYERS, itemStack);
             this.emitGameEvent(GameEvent.SHEAR, player);
-            itemStack.damage(1, player, playerx -> playerx.sendToolBreakStatus(hand));
+            itemStack.damage(1, player, getSlotForHand(hand));
             return ActionResult.SUCCESS;
          } else {
             return ActionResult.CONSUME;
@@ -166,13 +173,13 @@ public class ManxLoaghtan extends AnimalEntity implements Shearable {
    }
 
    @Override
-   public void sheared(SoundCategory shearedSoundCategory) {
+   public void sheared(ServerWorld world, SoundCategory shearedSoundCategory, ItemStack shears) {
       this.getWorld().playSoundFromEntity((PlayerEntity)null, this, SoundEvents.ENTITY_SHEEP_SHEAR, shearedSoundCategory, 1.0F, 1.0F);
       this.setSheared(true);
       int i = 1 + this.random.nextInt(3);
 
       for(int j = 0; j < i; ++j) {
-         ItemEntity itemEntity = this.dropItem(Items.BLACK_WOOL, 1);
+         ItemEntity itemEntity = this.dropItem(world, Items.BLACK_WOOL);
          if (itemEntity != null) {
             itemEntity.setVelocity(
                     itemEntity.getVelocity()
@@ -204,6 +211,12 @@ public class ManxLoaghtan extends AnimalEntity implements Shearable {
       super.readCustomDataFromNbt(nbt);
       this.setSheared(nbt.getBoolean("Sheared"));
       this.setColor(DyeColor.byId(nbt.getByte("Color")));
+   }
+
+   @Override
+   public boolean isBreedingItem(ItemStack stack) {
+      //TODO: WOULD NEED UNIQUE ITEM TAG 1.21.3
+      return stack.isIn(ItemTags.SHEEP_FOOD);
    }
 
    @Override
@@ -265,8 +278,8 @@ public class ManxLoaghtan extends AnimalEntity implements Shearable {
 
 
    @Override
-   public ManxLoaghtan createChild(ServerWorld serverWorld, PassiveEntity passiveEntity) {
-      return JinericEntities.MANX_LOAGHTAN.create(serverWorld);
+   public ManxLoaghtanEntity createChild(ServerWorld serverWorld, PassiveEntity passiveEntity) {
+      return JinericEntities.MANX_LOAGHTAN.create(serverWorld, SpawnReason.BREEDING);
    }
 
    @Override
@@ -280,10 +293,10 @@ public class ManxLoaghtan extends AnimalEntity implements Shearable {
    @Nullable
    @Override
    public EntityData initialize(
-           ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt
+           ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData
    ) {
       this.setColor(generateDefaultColor(world.getRandom()));
-      return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
+      return super.initialize(world, difficulty, spawnReason, entityData);
    }
 
 //   private DyeColor getChildColor(AnimalEntity firstParent, AnimalEntity secondParent) {
@@ -312,9 +325,4 @@ public class ManxLoaghtan extends AnimalEntity implements Shearable {
 //      craftingInventory.setStack(1, new ItemStack(DyeItem.byColor(secondColor)));
 //      return craftingInventory;
 //   }
-
-   @Override
-   protected float getActiveEyeHeight(EntityPose pose, EntityDimensions dimensions) {
-      return 0.95F * dimensions.height;
-   }
 }

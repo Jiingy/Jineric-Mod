@@ -16,11 +16,11 @@ public class FullGrassBlock extends GrassBlock implements Fertilizable {
 	}
 
 	@Override
-	public void grow(ServerWorld world, net.minecraft.util.math.random.Random random, BlockPos pos, BlockState state) {
+	public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
 		world.getRegistryManager()
 				.getOptional(RegistryKeys.CONFIGURED_FEATURE)
-				.flatMap(registry -> registry.getEntry(JinericUndergroundConfiguredFeatures.FULL_GRASS_PATCH_BONEMEAL))
-				.ifPresent(reference -> ((ConfiguredFeature)reference.value()).generate(world, world.getChunkManager().getChunkGenerator(), random, pos.up()));
+				.flatMap(registry -> registry.getOptional(JinericUndergroundConfiguredFeatures.FULL_GRASS_PATCH_BONEMEAL))
+				.ifPresent(entry -> ((ConfiguredFeature) entry.value()).generate(world, world.getChunkManager().getChunkGenerator(), random, pos.up()));
 	}
 
 	@Override

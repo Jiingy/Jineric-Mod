@@ -79,7 +79,7 @@ public class JinericTextureRenderLayers extends TexturedRenderLayers {
    public static final SpriteIdentifier TRAPPED_BAMBOO_CHEST_RIGHT = createChestTextureId("trapped_bamboo_right");
 
    private static SpriteIdentifier createChestTextureId(String variant) {
-      return new SpriteIdentifier(CHEST_ATLAS_TEXTURE, new Identifier(JinericMain.MOD_ID, "entity/chest/" + variant));
+      return new SpriteIdentifier(CHEST_ATLAS_TEXTURE, JinericMain.ofJineric("entity/chest/" + variant));
    }
 
    public static SpriteIdentifier getChestTexture(BlockEntity blockEntity, ChestType chestType, boolean christmas, WoodType woodType) {

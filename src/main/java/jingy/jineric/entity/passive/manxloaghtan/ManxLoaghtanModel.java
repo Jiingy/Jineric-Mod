@@ -1,6 +1,7 @@
 package jingy.jineric.entity.passive.manxloaghtan;
 
 import jingy.jineric.client.render.entity.model.JinericEntityModelPartNames;
+import jingy.jineric.client.render.entity.state.ManxLoaghtanRenderState;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.model.*;
@@ -8,12 +9,13 @@ import net.minecraft.client.render.entity.model.EntityModelPartNames;
 import net.minecraft.client.render.entity.model.QuadrupedEntityModel;
 
 @Environment(EnvType.CLIENT)
-public class ManxLoaghtanModel<T extends ManxLoaghtan> extends QuadrupedEntityModel<T> {
+public class ManxLoaghtanModel extends QuadrupedEntityModel<ManxLoaghtanRenderState> {
    private float headPitchModifier;
 
-   public ManxLoaghtanModel(ModelPart modelPart) {
-      super(modelPart, false, 8.0F, 4.0F, 2.0F, 2.0F, 24);
+   protected ManxLoaghtanModel(ModelPart root) {
+      super(root);
    }
+
 
    public static TexturedModelData getTexturedModelData() {
       ModelData modelData = QuadrupedEntityModel.getModelData(12, Dilation.NONE);
@@ -69,22 +71,5 @@ public class ManxLoaghtanModel<T extends ManxLoaghtan> extends QuadrupedEntityMo
       modelPartData.addChild(EntityModelPartNames.LEFT_HIND_LEG, leftLegPartBuilder, ModelTransform.pivot(-1.0F, 11.5F, 6));
 
       return TexturedModelData.of(modelData, 64, 48);
-   }
-
-   public void animateModel(T manxLoaghtanEntity, float f, float g, float h) {
-      super.animateModel(manxLoaghtanEntity, f, g, h);
-      this.head.pivotY = 6.0F + manxLoaghtanEntity.getNeckAngle(h) * 9.0F;
-      this.headPitchModifier = manxLoaghtanEntity.getHeadAngle(h);
-   }
-
-   public void setAngles(T manxLoaghtanEntity, float f, float g, float h, float i, float j) {
-      //this.head.getChild(EntityModelPartNames.RIGHT_HORN).visible = !manxLoaghtanEntity.isBaby();
-      //this.head.getChild(EntityModelPartNames.LEFT_HORN).visible = !manxLoaghtanEntity.isBaby();
-      super.setAngles(manxLoaghtanEntity, f, g, h, i, j);
-      float k = manxLoaghtanEntity.getHeadPitch();
-      if (k != 0.0F) {
-         headPitchModifier = k;
-      }
-      this.head.pitch = this.headPitchModifier;
    }
 }

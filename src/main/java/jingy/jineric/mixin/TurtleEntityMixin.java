@@ -12,6 +12,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -20,25 +21,26 @@ import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(TurtleEntity.class)
 public abstract class TurtleEntityMixin extends AnimalEntity implements Saddleable {
-   private static final TrackedData<Integer> BOOST_TIME = DataTracker.registerData(TurtleEntityMixin.class, TrackedDataHandlerRegistry.INTEGER);
-   private static final TrackedData<Boolean> SADDLED = DataTracker.registerData(TurtleEntityMixin.class, TrackedDataHandlerRegistry.BOOLEAN);
-   private final SaddledComponent jineric$saddledComponent = new SaddledComponent(this.dataTracker, BOOST_TIME, SADDLED);
+   @Unique private static final TrackedData<Integer> JINERIC_BOOST_TIME = DataTracker.registerData(TurtleEntityMixin.class, TrackedDataHandlerRegistry.INTEGER);
+   @Unique private static final TrackedData<Boolean> JINERIC_SADDLED = DataTracker.registerData(TurtleEntityMixin.class, TrackedDataHandlerRegistry.BOOLEAN);
+   @Unique private final SaddledComponent jineric$saddledComponent = new SaddledComponent(this.dataTracker, JINERIC_BOOST_TIME, JINERIC_SADDLED);
 
    protected TurtleEntityMixin(EntityType<? extends TurtleEntity> entityType, World world) {
       super(entityType, world);
    }
 
    @Inject(method = "initDataTracker", at = @At("HEAD"))
-   protected void jineric$initDataTracker(CallbackInfo ci) {
-      this.dataTracker.startTracking(BOOST_TIME, 0);
-      this.dataTracker.startTracking(SADDLED, false);
-
+   protected void jineric$initDataTracker(DataTracker.Builder builder, CallbackInfo ci) {
+      super.initDataTracker(builder);
+      builder.add(JINERIC_BOOST_TIME, 0);
+      builder.add(JINERIC_SADDLED, false);
    }
 
    // Write saddle-able NBT data
@@ -57,10 +59,10 @@ public abstract class TurtleEntityMixin extends AnimalEntity implements Saddleab
    }
 
    @Override
-   protected void dropInventory() {
-      super.dropInventory();
+   protected void dropInventory(ServerWorld world) {
+      super.dropInventory(world);
       if (this.isSaddled()) {
-         this.dropItem(Items.SADDLE);
+         this.dropItem(world, Items.SADDLE);
       }
    }
 
@@ -75,10 +77,10 @@ public abstract class TurtleEntityMixin extends AnimalEntity implements Saddleab
    }
 
    @Override
-   public void saddle(@Nullable SoundCategory sound) {
+   public void saddle(ItemStack stack, @Nullable SoundCategory soundCategory) {
       this.jineric$saddledComponent.setSaddled(true);
-      if (sound != null) {
-         this.getWorld().playSoundFromEntity((PlayerEntity)null, this, SoundEvents.ENTITY_STRIDER_SADDLE, sound, 0.5F, 1.0F);
+      if (soundCategory != null) {
+         this.getWorld().playSoundFromEntity(null, this, SoundEvents.ENTITY_PIG_SADDLE, soundCategory, 0.5F, 1.0F);
       }
    }
 
@@ -89,7 +91,7 @@ public abstract class TurtleEntityMixin extends AnimalEntity implements Saddleab
 
    @Override
    public void onTrackedDataSet(TrackedData<?> data) {
-      if (BOOST_TIME.equals(data) && this.getWorld().isClient) {
+      if (JINERIC_BOOST_TIME.equals(data) && this.getWorld().isClient) {
          this.jineric$saddledComponent.boost();
       }
 
@@ -104,7 +106,7 @@ public abstract class TurtleEntityMixin extends AnimalEntity implements Saddleab
             player.startRiding(this);
          }
 
-         return ActionResult.success(this.getWorld().isClient);
+         return ActionResult.SUCCESS;
       } else {
          ActionResult actionResult = super.interactMob(player, hand);
          if (!actionResult.isAccepted()) {

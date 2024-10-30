@@ -1,9 +1,10 @@
 package jingy.jineric.base;
 
 import jingy.jineric.block.JinericCauldronBehaviors;
-import jingy.jineric.entity.JinericPaintingVariant;
 import jingy.jineric.entity.effect.JinericStatusEffects;
 import jingy.jineric.item.JinericItemGroups;
+import jingy.jineric.potion.JinericPotions;
+import jingy.jineric.recipe.JinericRecipeBookCategories;
 import jingy.jineric.recipe.JinericRecipeSerializers;
 import jingy.jineric.recipe.JinericRecipeTypes;
 import jingy.jineric.registry.JinericBlockEntityType;
@@ -19,8 +20,8 @@ public class JinericMain implements ModInitializer {
 	public static final Logger LOGGER = LogManager.getLogger("Jineric Mod");
 	public static final String MOD_ID = "jineric";
 
-	public static Identifier jinericId(String path) {
-		return new Identifier(MOD_ID, path);
+	public static Identifier ofJineric(String path) {
+		return Identifier.of(MOD_ID, path);
 	}
 
 	// TODO: FIX EMI PLUGIN
@@ -35,13 +36,14 @@ public class JinericMain implements ModInitializer {
 		JinericRegistries.initJinericRegistries();
 		JinericItemGroups.registerItemGroups();
 		JinericItemGroups.registerJinericItemGroups();
-		JinericPaintingVariant.registerPaintingMotives();
 		JinericStats.registerStats();
 		JinericBlockEntityType.registerBlockEntities();
 		JinericStatusEffects.registerStatusEffects();
 		JinericScreenHandlerType.registerScreenHandlers();
 		JinericCauldronBehaviors.registerCauldronBehaviors();
-		JinericRecipeTypes.registerRecipeTypes();
 		JinericRecipeSerializers.registerRefiningRecipe();
+		JinericPotions.registerPotions();
+		JinericRecipeBookCategories.registerRecipeBookCategories();
+		JinericRecipeTypes.registerRecipeTypes();
 	}
 }

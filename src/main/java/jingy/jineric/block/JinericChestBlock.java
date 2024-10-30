@@ -26,8 +26,13 @@ import java.util.function.Supplier;
 public class JinericChestBlock extends ChestBlock {
    private final WoodType type;
 
-   public JinericChestBlock(Settings settings, Supplier<BlockEntityType<? extends ChestBlockEntity>> supplier, WoodType type) {
-      super(settings, supplier);
+   public JinericChestBlock(Supplier<BlockEntityType<? extends ChestBlockEntity>> blockEntityTypeSupplier, Settings settings, WoodType type) {
+      super(blockEntityTypeSupplier, settings);
+      this.type = type;
+   }
+
+   public JinericChestBlock(Settings settings, WoodType type) {
+      super(() -> JinericBlockEntityType.JINERIC_CHEST, settings);
       this.type = type;
    }
 

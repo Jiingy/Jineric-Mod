@@ -28,17 +28,18 @@ public class JinericClientMain implements ClientModInitializer {
 	}
 
 	private void registerFeatureRenderers() {
-		LivingEntityFeatureRendererRegistrationCallback.EVENT.register((entityType, entityRenderer, registrationHelper, context) -> {
-			if (entityRenderer instanceof ArmorStandEntityRenderer || entityRenderer instanceof PlayerEntityRenderer) {
-				registrationHelper.register(
-						new JinericElytraFeatureRenderer<>(entityRenderer, context.getModelLoader()));
-			}
-		});
+		//TODO: ICE ELYTRA IS POORLY IMPLEMENTED, REMOVED IN 1.21.3
+//		LivingEntityFeatureRendererRegistrationCallback.EVENT.register((entityType, entityRenderer, registrationHelper, context) -> {
+//			if (entityRenderer instanceof ArmorStandEntityRenderer || entityRenderer instanceof PlayerEntityRenderer) {
+//				registrationHelper.register(
+//						new JinericElytraFeatureRenderer<>(context.getModelLoader(), context.getEquipmentRenderer()));
+//			}
+//		});
 
 		LivingEntityFeatureRendererRegistrationCallback.EVENT.register(((entityType, entityRenderer, registrationHelper, context) -> {
 			if (entityRenderer instanceof TurtleEntityRenderer turtleEntityRenderer) {
 				registrationHelper.register(new SaddleFeatureRenderer(
-						turtleEntityRenderer, new TurtleSaddleModel(context.getPart(JinericEntityModelLayers.TURTLE_SADDLE)),new Identifier(JinericMain.MOD_ID, "textures/entity/turtle/big_sea_turtle_saddle.png"))
+						turtleEntityRenderer, new TurtleSaddleModel(context.getPart(JinericEntityModelLayers.TURTLE_SADDLE)), Identifier.of(JinericMain.MOD_ID, "textures/entity/turtle/big_sea_turtle_saddle.png"))
 				);
 
 			}

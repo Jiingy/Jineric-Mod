@@ -50,11 +50,11 @@ public class JinericBlockEntityType {
            FabricBlockEntityTypeBuilder.create(RedstoneCampfireBlockEntity::new, JinericBlocks.REDSTONE_CAMPFIRE).build();
 
    public static void registerBlockEntities() {
-      Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "jineric_chest"), JINERIC_CHEST);
-      Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "jineric_trapped_chest"), JINERIC_TRAPPED_CHEST);
-//      Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "shulker_chest"), SHULKER_CHEST);
-      Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "refinery"), REFINERY);
-      Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "campfire"), REDSTONE_CAMPFIRE);
+      Registry.register(Registries.BLOCK_ENTITY_TYPE, JinericMain.ofJineric("jineric_chest"), JINERIC_CHEST);
+      Registry.register(Registries.BLOCK_ENTITY_TYPE, JinericMain.ofJineric("jineric_trapped_chest"), JINERIC_TRAPPED_CHEST);
+//      Registry.register(Registries.BLOCK_ENTITY_TYPE, JinericMain.ofJineric("shulker_chest"), SHULKER_CHEST);
+      Registry.register(Registries.BLOCK_ENTITY_TYPE, JinericMain.ofJineric("refinery"), REFINERY);
+      Registry.register(Registries.BLOCK_ENTITY_TYPE, JinericMain.ofJineric("campfire"), REDSTONE_CAMPFIRE);
    }
 }
 

@@ -12,9 +12,10 @@ import org.spongepowered.asm.mixin.Shadow;
 
 import java.util.Map;
 
+//TODO: BROKEN/CHANGED IN 1.21.3
 @Mixin(RecipeBookOptions.class)
 public abstract class RecipeBookOptionsMixin {
-   private static final RecipeBookCategory JINERIC_REFINERY = ClassTinkerers.getEnum(RecipeBookCategory.class, "JINERIC_REFINERY");
+//   private static final RecipeBookCategory JINERIC_REFINERY = ClassTinkerers.getEnum(RecipeBookCategory.class, "JINERIC_REFINERY");
 
    @Mutable
    @Final
@@ -23,16 +24,16 @@ public abstract class RecipeBookOptionsMixin {
 
    static {
       CATEGORY_OPTION_NAMES = ImmutableMap.of(
-              RecipeBookCategory.CRAFTING,
-              Pair.of("isGuiOpen", "isFilteringCraftable"),
-              RecipeBookCategory.FURNACE,
-              Pair.of("isFurnaceGuiOpen", "isFurnaceFilteringCraftable"),
-              RecipeBookCategory.BLAST_FURNACE,
-              Pair.of("isBlastingFurnaceGuiOpen", "isBlastingFurnaceFilteringCraftable"),
-              RecipeBookCategory.SMOKER,
-              Pair.of("isSmokerGuiOpen", "isSmokerFilteringCraftable"),
-              JINERIC_REFINERY,
-              Pair.of("isRefineryGuiOpen", "isRefineryFilteringCraftable")
+//              RecipeBookCategory.CRAFTING,
+//              Pair.of("isGuiOpen", "isFilteringCraftable"),
+//              RecipeBookCategory.FURNACE,
+//              Pair.of("isFurnaceGuiOpen", "isFurnaceFilteringCraftable"),
+//              RecipeBookCategory.BLAST_FURNACE,
+//              Pair.of("isBlastingFurnaceGuiOpen", "isBlastingFurnaceFilteringCraftable"),
+//              RecipeBookCategory.SMOKER,
+//              Pair.of("isSmokerGuiOpen", "isSmokerFilteringCraftable"),
+//              JINERIC_REFINERY,
+//              Pair.of("isRefineryGuiOpen", "isRefineryFilteringCraftable")
       );
    }
 }

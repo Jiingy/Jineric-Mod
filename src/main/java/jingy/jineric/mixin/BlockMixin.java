@@ -2,6 +2,7 @@ package jingy.jineric.mixin;
 
 import jingy.jineric.sound.JinericBlockSoundGroup;
 import jingy.jineric.tag.JinericBlockSoundTags;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -12,9 +13,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(Block.class)
+@Mixin(AbstractBlock.class)
 public abstract class BlockMixin {
 
+   //TODO: MAY BE LAGGY AND NEED IMPROVING
    @Inject(method = "getSoundGroup", at = @At(value = "HEAD"), cancellable = true)
    private void jineric$CustomSoundGroups(BlockState state, CallbackInfoReturnable<BlockSoundGroup> cir) {
       if (state.isIn(JinericBlockSoundTags.LEAF_SOUNDS)) {

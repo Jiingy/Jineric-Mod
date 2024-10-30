@@ -1,16 +1,18 @@
 package jingy.jineric.screen;
 
+import jingy.jineric.base.JinericMain;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public class ShulkerChestScreen extends HandledScreen<ShulkerChestScreenHandler>  {
-	private static final Identifier TEXTURE = new Identifier("jineric", "textures/gui/container/shulker_chest_gui.png");
+	private static final Identifier TEXTURE = JinericMain.ofJineric("textures/gui/container/shulker_chest_gui.png");
 //	private final int rows;
 
 	public ShulkerChestScreen(ShulkerChestScreenHandler handler, PlayerInventory inventory, Text title) {
@@ -32,6 +34,6 @@ public class ShulkerChestScreen extends HandledScreen<ShulkerChestScreenHandler>
 	protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
 		int x = (width - backgroundWidth) / 2;
 		int y = (height - backgroundHeight) / 2;
-		context.drawTexture(TEXTURE, x, y, 0, 0, this.backgroundWidth, this.backgroundHeight, 256, 320);
+		context.drawTexture(RenderLayer::getGuiTextured, TEXTURE, x, y, 0, 0, this.backgroundWidth, this.backgroundHeight, 256, 320);
 	}
 }

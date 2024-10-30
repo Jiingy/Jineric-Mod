@@ -18,7 +18,7 @@ import net.minecraft.util.Identifier;
 public class JinericItemGroups {
 	//TODO: FIX BUG WITH SOME ITEMS HAVING SLABS GO BEFORE STAIRS
 
-	public static final Identifier MOD_ITEMS_ID = new Identifier(JinericMain.MOD_ID, "mod_items");
+	public static final Identifier MOD_ITEMS_ID = JinericMain.ofJineric("mod_items");
 
 	private static final RegistryKey<ItemGroup> MOD_ITEMS_KEY =
 			RegistryKey.of(RegistryKeys.ITEM_GROUP, MOD_ITEMS_ID);

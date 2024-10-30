@@ -6,6 +6,7 @@ import jingy.jineric.screen.RefineryScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.item.FuelRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
@@ -21,8 +22,8 @@ public class RefineryBlockEntity extends AbstractFurnaceBlockEntity {
    }
 
    @Override
-   protected int getFuelTime(ItemStack fuel) {
-      return super.getFuelTime(fuel) / 2;
+   protected int getFuelTime(FuelRegistry fuel, ItemStack stack) {
+      return super.getFuelTime(fuel, stack) / 2;
    }
 
    @Override
