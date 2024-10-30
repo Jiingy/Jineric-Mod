@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "jineric:block/cracked_tuff_tiles",
-    "side": "jineric:block/cracked_tuff_tiles"
-  }
-}

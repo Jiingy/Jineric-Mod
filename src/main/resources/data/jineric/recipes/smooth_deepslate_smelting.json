@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "category": "blocks",
-  "experience": 0.2,
-  "ingredient": {
-    "item": "minecraft:deepslate"
-  },
-  "result": "jineric:smooth_deepslate"
-}

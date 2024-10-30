@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "jineric:polished_stone"
-  },
-  "result": "jineric:stone_tile_slab"
-}

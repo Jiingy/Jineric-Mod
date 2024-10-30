@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "jineric:cracked_tuff_bricks"
-  },
-  "result": "jineric:cracked_tuff_brick_slab"
-}
