@@ -34,7 +34,5 @@ public class ColorProviders {
               GrassColors.getColor(0.5D, 1.0D)), JinericItems.FULL_GRASS_BLOCK);
       ColorProviderRegistry.ITEM.register((((stack, tintIndex) ->
               tintIndex > 0 ? -1 : GrassColors.getColor(0.5D, 1.0D))), JinericItems.JUNGLE_LADDER);
-      //TODO: REMOVE, DYABLE BUNDLES ARE VANILLA
-//      ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex > 0 ? -1 : ((DyeableItem)stack.getItem()).getColor(stack), Items.BUNDLE);
    }
 }
