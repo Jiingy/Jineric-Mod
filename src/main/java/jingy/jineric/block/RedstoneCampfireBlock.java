@@ -2,6 +2,7 @@ package jingy.jineric.block;
 
 import jingy.jineric.block.entity.RedstoneCampfireBlockEntity;
 import jingy.jineric.registry.JinericBlockEntityType;
+import jingy.jineric.stat.JinericStats;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CampfireBlock;
@@ -48,15 +49,13 @@ public class RedstoneCampfireBlock extends CampfireBlock {
          ItemStack itemStack = player.getStackInHand(hand);
          if (world.getRecipeManager().getPropertySet(RecipePropertySet.CAMPFIRE_INPUT).canUse(itemStack)) {
             if (world instanceof ServerWorld serverWorld && redstoneCampfireBlockEntity.addItem(serverWorld, player, itemStack)) {
-               //TODO: ADD STATISTIC FOR REDSTONE CAMPFIRE
-//               player.incrementStat(Stats.INTERACT_WITH_CAMPFIRE);
+               player.incrementStat(JinericStats.INTERACT_WITH_REDSTONE_CAMPFIRE);
                return ActionResult.SUCCESS_SERVER;
             }
 
             return ActionResult.CONSUME;
          }
       }
-
       return ActionResult.PASS_TO_DEFAULT_BLOCK_ACTION;
    }
 
