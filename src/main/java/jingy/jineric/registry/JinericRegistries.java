@@ -1,11 +1,13 @@
 package jingy.jineric.registry;
 
 import jingy.jineric.block.JinericBlocks;
+import jingy.jineric.data.generators.JinericItemTagGenerator;
 import jingy.jineric.item.JinericItems;
 import jingy.jineric.tag.JinericBlockTags;
 import jingy.jineric.tag.JinericItemTags;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
+import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 import net.minecraft.item.FuelRegistry;
 
@@ -20,12 +22,12 @@ public class JinericRegistries {
    }
 
    private static void registerIsFuel() {
-      //TODO: FUEL REGISTRY BROKEN IN 1.21.3, NOT SURE HOW TO FIX. MAYBE MIX INTO 'createDefault' IN FUEL REGISTRY
-//      FuelRegistry registry = FuelRegistry.INSTANCE;
-//      registry.add(JinericItemTags.WOODEN_BOOKSHELVES, 300);
-//      registry.add(JinericItemTags.WOODEN_CHESTS, 300);
-//      registry.add(JinericItemTags.WOODEN_TRAPPED_CHESTS, 300);
-//      registry.add(JinericItemTags.WOODEN_LADDERS, 300);
+      FuelRegistryEvents.BUILD.register((builder, context) -> builder
+              .add(JinericItemTagGenerator.WOODEN_BOOKSHELVES, 300)
+              .add(JinericItemTagGenerator.WOODEN_CHESTS, 300)
+              .add(JinericItemTagGenerator.WOODEN_TRAPPED_CHESTS, 300)
+              .add(JinericItemTagGenerator.WOODEN_LADDERS, 300)
+      );
    }
 
    private static void registerCompostable() {
