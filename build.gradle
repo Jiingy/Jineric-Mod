@@ -56,9 +56,7 @@ dependencies {
 	modImplementation "com.github.glitchfiend:TerraBlender-fabric:${project.minecraft_version}-${project.terrablender_version}"
 
 	// mixin extras
-	implementation("com.github.LlamaLad7:MixinExtras:0.1.1")
-	include "com.github.LlamaLad7:MixinExtras:0.1.1"
-	annotationProcessor("com.github.LlamaLad7:MixinExtras:0.1.1")
+	include(implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:0.4.1")))
 
 	include(implementation ('com.github.Chocohead:Fabric-ASM:v2.3'))
 }
