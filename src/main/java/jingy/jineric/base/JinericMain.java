@@ -1,6 +1,7 @@
 package jingy.jineric.base;
 
 import jingy.jineric.block.JinericCauldronBehaviors;
+import jingy.jineric.data.family.JinericBlockFamilies;
 import jingy.jineric.entity.effect.JinericStatusEffects;
 import jingy.jineric.item.JinericItemGroups;
 import jingy.jineric.potion.JinericPotions;
@@ -45,5 +46,6 @@ public class JinericMain implements ModInitializer {
 		JinericPotions.registerPotions();
 		JinericRecipeBookCategories.registerRecipeBookCategories();
 		JinericRecipeTypes.registerRecipeTypes();
+		JinericBlockFamilies.registerBlockFamilies();
 	}
 }
