@@ -9,6 +9,7 @@
     "BrewingRecipeRegistryMixin",
     "BundleItemMixin",
     "CatsSitOnJinericChestsMixin",
+    "CookingRecipeJsonBuilderMixin",
     "DefaultAttributeRegistryMixin",
     "EatGrassGoalMixin",
     "LadderWithTrapdoorClimbingFixMixin",
@@ -20,7 +21,7 @@
     "SpreadableBlockMixin",
     "TurtleEntityMixin",
     "WallBlockMixin",
-    "access.CookingRecipeJsonBuilderAccess",
+    "access.BaseBlocksToFamiliesAccess",
     "access.SmithingTemplateItemAccess",
     "access.WoodTypeAccess"
   ],
