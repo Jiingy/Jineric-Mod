@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "bone_meal",
+  "ingredients": [
+    "jineric:bone_meal_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "minecraft:bone_meal"
+  }
+}

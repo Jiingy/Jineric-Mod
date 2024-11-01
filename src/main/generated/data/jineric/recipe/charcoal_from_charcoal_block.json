@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "charcoal",
+  "ingredients": [
+    "jineric:charcoal_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "minecraft:charcoal"
+  }
+}

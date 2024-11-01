@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sugar_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jineric:sugar_block"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:sugar_from_sugar_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sugar_block"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:sugar_from_sugar_block"
+    ]
+  }
+}

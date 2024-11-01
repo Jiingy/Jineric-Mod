@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "paper",
+  "ingredients": [
+    "jineric:paper_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "minecraft:paper"
+  }
+}

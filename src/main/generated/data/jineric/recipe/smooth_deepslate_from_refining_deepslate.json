@@ -1,0 +1,11 @@
+{
+  "type": "jineric:refining",
+  "category": "blocks",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "group": "deepslate_set",
+  "ingredient": "minecraft:deepslate",
+  "result": {
+    "id": "jineric:smooth_deepslate"
+  }
+}
