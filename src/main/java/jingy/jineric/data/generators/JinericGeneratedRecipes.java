@@ -1,11 +1,7 @@
 package jingy.jineric.data.generators;
 
-import jingy.jineric.block.JinericBlocks;
-import jingy.jineric.item.JinericItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeExporter;
-import net.minecraft.item.Items;
 import net.minecraft.recipe.book.CookingRecipeCategory;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
@@ -19,13 +15,9 @@ public class JinericGeneratedRecipes extends JinericRecipeProviders {
    private static final CookingRecipeCategory COOKING_BLOCKS = CookingRecipeCategory.BLOCKS;
    private static final CookingRecipeCategory COOKING_MISC = CookingRecipeCategory.MISC;
 
-   protected JinericGeneratedRecipes(RegistryWrapper.WrapperLookup registries, RecipeExporter exporter) {
-      super(registries, exporter);
+   public JinericGeneratedRecipes(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+      super(output, registriesFuture);
    }
-
-//   public JinericGeneratedRecipes(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
-//      super(output, registriesFuture);
-//   }
 
    public static void offerGeneralRecipes(RecipeExporter exporter) {
 //      offerTrappedChestRecipe(exporter, JinericItems.TRAPPED_SPRUCE_CHEST, JinericItems.SPRUCE_CHEST);
