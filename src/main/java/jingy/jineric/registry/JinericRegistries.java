@@ -4,12 +4,10 @@ import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.data.generators.JinericItemTagGenerator;
 import jingy.jineric.item.JinericItems;
 import jingy.jineric.tag.JinericBlockTags;
-import jingy.jineric.tag.JinericItemTags;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
-import net.minecraft.item.FuelRegistry;
 
 public class JinericRegistries {
    public static void initJinericRegistries() {

@@ -28,14 +28,6 @@ public class JinericClientMain implements ClientModInitializer {
 	}
 
 	private void registerFeatureRenderers() {
-		//TODO: ICE ELYTRA IS POORLY IMPLEMENTED, REMOVED IN 1.21.3
-//		LivingEntityFeatureRendererRegistrationCallback.EVENT.register((entityType, entityRenderer, registrationHelper, context) -> {
-//			if (entityRenderer instanceof ArmorStandEntityRenderer || entityRenderer instanceof PlayerEntityRenderer) {
-//				registrationHelper.register(
-//						new JinericElytraFeatureRenderer<>(context.getModelLoader(), context.getEquipmentRenderer()));
-//			}
-//		});
-
 		LivingEntityFeatureRendererRegistrationCallback.EVENT.register(((entityType, entityRenderer, registrationHelper, context) -> {
 			if (entityRenderer instanceof TurtleEntityRenderer turtleEntityRenderer) {
 				registrationHelper.register(new SaddleFeatureRenderer(

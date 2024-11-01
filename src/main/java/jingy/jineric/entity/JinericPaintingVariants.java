@@ -8,6 +8,7 @@ import net.minecraft.util.Formatting;
 
 import java.util.Optional;
 
+//TODO: 1.21.3 WAS CAUSING CRASH
 public class JinericPaintingVariants {
 //   public static final RegistryKey<PaintingVariant> KROMER = of("kromer");
 //   public static final RegistryKey<PaintingVariant> KEY_GEN = of("key_gen");

@@ -9,14 +9,12 @@ import net.minecraft.block.CampfireBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.block.entity.CampfireBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.DustParticleEffect;
 import net.minecraft.recipe.*;
 import net.minecraft.recipe.input.SingleStackRecipeInput;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.stat.Stats;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
@@ -31,15 +29,13 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Optional;
-
 public class RedstoneCampfireBlock extends CampfireBlock {
    public static final BooleanProperty POWERED = Properties.POWERED;
 
    public RedstoneCampfireBlock(boolean emitsParticles, int fireDamage, Settings settings) {
       super(emitsParticles, fireDamage, settings);
       this.setDefaultState(
-              this.stateManager.getDefaultState().with(POWERED, Boolean.valueOf(false))
+              this.stateManager.getDefaultState().with(POWERED, Boolean.FALSE)
       );
    }
 
@@ -123,7 +119,7 @@ public class RedstoneCampfireBlock extends CampfireBlock {
    @Override
    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
       if (world instanceof ServerWorld serverWorld) {
-         if ((Boolean)state.get(LIT)) {
+         if (state.get(LIT)) {
             ServerRecipeManager.MatchGetter<SingleStackRecipeInput, CampfireCookingRecipe> matchGetter = ServerRecipeManager.createCachedMatchGetter(
                     RecipeType.CAMPFIRE_COOKING
             );

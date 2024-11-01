@@ -15,6 +15,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 @SuppressWarnings("all")
+//TODO: 1.21.3 REORGANIZE INVENTORY
 public class JinericItemGroups {
 	//TODO: FIX BUG WITH SOME ITEMS HAVING SLABS GO BEFORE STAIRS
 
@@ -470,7 +471,6 @@ public class JinericItemGroups {
 
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register((entries -> {
 			entries.addBefore(Items.GRASS_BLOCK, JinericItems.FULL_GRASS_BLOCK);
-			//TODO: WORK OUT BLOCK SETS
 //			entries.addAfter(Items.PACKED_ICE, JinericItems.PACKED_ICE_STAIRS);
 //			entries.addAfter(JinericItems.PACKED_ICE_STAIRS, JinericItems.PACKED_ICE_SLAB);
 //			entries.addAfter(JinericItems.PACKED_ICE_SLAB, JinericItems.PACKED_ICE_WALL);

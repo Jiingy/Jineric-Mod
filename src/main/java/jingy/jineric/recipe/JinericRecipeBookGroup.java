@@ -8,7 +8,7 @@ import net.minecraft.recipe.book.RecipeBookGroup;
 import java.util.List;
 
 public class JinericRecipeBookGroup {
-   //TODO: BROKEN IN 1.21.3
+   //TODO: MAKE ALL REFERENCES TO CLASS TINKER ENUM MIXINS POINT HERE
 //   private static final RecipeBookGroup JINERIC_REFINERY_SEARCH = ClassTinkerers.getEnum(RecipeBookGroup.class, "JINERIC_REFINERY_SEARCH");
 //   private static final RecipeBookGroup JINERIC_REFINERY_BUILDING = ClassTinkerers.getEnum(RecipeBookGroup.class, "JINERIC_REFINERY_BUILDING");
 //   private static final RecipeBookGroup JINERIC_REFINERY_MISC = ClassTinkerers.getEnum(RecipeBookGroup.class, "JINERIC_REFINERY_MISC");

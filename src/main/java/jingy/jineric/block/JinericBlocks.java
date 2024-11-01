@@ -107,6 +107,7 @@ public class JinericBlocks {
 	public static final Block POLISHED_DIORITE_WALL = register("polished_diorite_wall", WallBlock::new, AbstractBlock.Settings.copy(POLISHED_DIORITE));
 	public static final Block POLISHED_ANDESITE_WALL = register("polished_andesite_wall", WallBlock::new, AbstractBlock.Settings.copy(POLISHED_ANDESITE));
 
+	//TODO: DEPRECATE AND DATAFIX TO VANILLA
 //TUFF
 	public static final Block COBBLED_TUFF = register("cobbled_tuff",  Block.Settings.copy(TUFF));
 	public static final Block COBBLED_TUFF_SLAB = register("cobbled_tuff_slab", SlabBlock::new, Block.Settings.copy(COBBLED_TUFF));
@@ -226,6 +227,7 @@ public class JinericBlocks {
 	public static final Block STICK_BLOCK = register("stick_block", PillarBlock::new, AbstractBlock.Settings.copy(OAK_PLANKS));
 	public static final Block PAPER_BLOCK = register("paper_block", AbstractBlock.Settings.copy(AZALEA_LEAVES).sounds(BlockSoundGroup.AZALEA_LEAVES));
 
+	//TODO: FIX MIXIN THAT ADDS SLIDING TO NON-FULL BLOCKS 1.21.3
 //PACKED ICE
 	public static final Block PACKED_ICE_STAIRS = registerStairsBlock("packed_ice_stairs", PACKED_ICE);
 	public static final Block PACKED_ICE_SLAB  = register("packed_ice_slab", SlabBlock::new, AbstractBlock.Settings.copy(PACKED_ICE));
@@ -370,7 +372,7 @@ public class JinericBlocks {
 	}
 
 	public static Block register(RegistryKey<Block> key, Function<AbstractBlock.Settings, Block> factory, AbstractBlock.Settings settings) {
-		Block block = (Block)factory.apply(settings.registryKey(key));
+		Block block = factory.apply(settings.registryKey(key));
 		return Registry.register(Registries.BLOCK, key, block);
 	}
 
