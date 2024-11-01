@@ -1,14 +1,10 @@
 package jingy.jineric.data;
 
 import jingy.jineric.base.JinericMain;
-import jingy.jineric.data.generators.JinericBlockLootTableGenerator;
-import jingy.jineric.data.generators.JinericModelGenerator;
-import jingy.jineric.data.generators.world.JinericWorldGenerator;
-import jingy.jineric.entity.JinericPaintingVariants;
+import jingy.jineric.data.generators.*;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.RegistryBuilder;
-import net.minecraft.registry.RegistryKeys;
 
 public class JinericDataGeneration implements DataGeneratorEntrypoint {
 
@@ -18,7 +14,8 @@ public class JinericDataGeneration implements DataGeneratorEntrypoint {
 //      fabricDataGenPack.addProvider(JinericGeneratedRecipes::new);
       fabricDataGenPack.addProvider(JinericModelGenerator::new);
       fabricDataGenPack.addProvider(JinericBlockLootTableGenerator::new);
-      fabricDataGenPack.addProvider(JinericWorldGenerator::new);
+      fabricDataGenPack.addProvider(JinericItemTagGenerator::new);
+//      fabricDataGenPack.addProvider(JinericWorldGenerator::new);
    }
 
    @Override
