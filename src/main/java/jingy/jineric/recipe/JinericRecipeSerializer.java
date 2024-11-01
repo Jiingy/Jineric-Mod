@@ -5,9 +5,8 @@ import net.minecraft.recipe.AbstractCookingRecipe;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
 
-public class JinericRecipeSerializers {
+public class JinericRecipeSerializer {
    public static RecipeSerializer<RefiningRecipe> REFINING;
 
    public static void registerRefiningRecipe() {

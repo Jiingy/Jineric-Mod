@@ -5,7 +5,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.*;
 import net.minecraft.recipe.book.CookingRecipeCategory;
-import net.minecraft.recipe.book.RecipeBookCategories;
 import net.minecraft.recipe.book.RecipeBookCategory;
 
 public class RefiningRecipe extends AbstractCookingRecipe {
@@ -20,7 +19,7 @@ public class RefiningRecipe extends AbstractCookingRecipe {
 
    @Override
    public RecipeSerializer<RefiningRecipe> getSerializer() {
-      return JinericRecipeSerializers.REFINING;
+      return JinericRecipeSerializer.REFINING;
    }
 
    @Override

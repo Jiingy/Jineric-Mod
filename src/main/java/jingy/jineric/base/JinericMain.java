@@ -5,7 +5,7 @@ import jingy.jineric.entity.effect.JinericStatusEffects;
 import jingy.jineric.item.JinericItemGroups;
 import jingy.jineric.potion.JinericPotions;
 import jingy.jineric.recipe.JinericRecipeBookCategories;
-import jingy.jineric.recipe.JinericRecipeSerializers;
+import jingy.jineric.recipe.JinericRecipeSerializer;
 import jingy.jineric.recipe.JinericRecipeTypes;
 import jingy.jineric.registry.JinericBlockEntityType;
 import jingy.jineric.registry.JinericRegistries;
@@ -41,7 +41,7 @@ public class JinericMain implements ModInitializer {
 		JinericStatusEffects.registerStatusEffects();
 		JinericScreenHandlerType.registerScreenHandlers();
 		JinericCauldronBehaviors.registerCauldronBehaviors();
-		JinericRecipeSerializers.registerRefiningRecipe();
+		JinericRecipeSerializer.registerRefiningRecipe();
 		JinericPotions.registerPotions();
 		JinericRecipeBookCategories.registerRecipeBookCategories();
 		JinericRecipeTypes.registerRecipeTypes();
