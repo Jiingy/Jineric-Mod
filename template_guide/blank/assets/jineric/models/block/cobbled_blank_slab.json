@@ -1,8 +1,0 @@
-{
-    "parent": "minecraft:block/slab",
-    "textures": {
-        "top": "jineric:block/blank",
-        "bottom": "jineric:block/blank",
-        "side": "jineric:block/blank"
-    }
-}
