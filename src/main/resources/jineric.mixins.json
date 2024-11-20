@@ -1,36 +1,36 @@
 {
-  "required": true,
-  "package": "jingy.jineric.mixin",
-  "compatibilityLevel": "JAVA_21",
-  "mixins": [
-    "BellBlockShapeMixin",
-    "BlockEntityTypeMixin",
-    "BlockMixin",
-    "BrewingRecipeRegistryMixin",
-    "BundleItemMixin",
-    "CatsSitOnJinericChestsMixin",
-    "CookingRecipeJsonBuilderMixin",
-    "DefaultAttributeRegistryMixin",
-    "EatGrassGoalMixin",
-    "LadderWithTrapdoorClimbingFixMixin",
-    "LivingEntityFastFallingMixin",
-    "PointedDripstoneBlockMixin",
-    "RecipeBookOptionsMixin",
-    "RecipeBookTypeMixin",
-    "SmokerBlockMixin",
-    "SpreadableBlockMixin",
-    "TurtleEntityMixin",
-    "WallBlockMixin",
-    "access.BaseBlocksToFamiliesAccess",
-    "access.SmithingTemplateItemAccess",
-    "access.WoodTypeAccess"
-  ],
-  "client": [
-    "ChestBlockEntityRendererMixin",
-    "ClientRecipeBookMixin",
-    "LivingEntityMixin"
-  ],
-  "injectors": {
-    "defaultRequire": 1
-  }
+   "required": true,
+   "package": "jingy.jineric.mixin",
+   "compatibilityLevel": "JAVA_21",
+   "mixins": [
+	  "BellBlockShapeMixin",
+	  "BlockEntityTypeMixin",
+	  "BlockMixin",
+	  "BrewingRecipeRegistryMixin",
+	  "BundleItemMixin",
+	  "CatsSitOnJinericChestsMixin",
+	  "CookingRecipeJsonBuilderAccessor",
+	  "DefaultAttributeRegistryMixin",
+	  "EatGrassGoalMixin",
+	  "LadderWithTrapdoorClimbingFixMixin",
+	  "LivingEntityFastFallingMixin",
+	  "PointedDripstoneBlockMixin",
+	  "RecipeBookOptionsMixin",
+	  "RecipeBookTypeMixin",
+	  "SmokerBlockMixin",
+	  "SpreadableBlockMixin",
+	  "TurtleEntityMixin",
+	  "WallBlockMixin",
+	  "access.BaseBlocksToFamiliesAccess",
+	  "access.SmithingTemplateItemAccess",
+	  "access.WoodTypeAccess"
+   ],
+   "client": [
+	  "ChestBlockEntityRendererMixin",
+	  "ClientRecipeBookMixin",
+	  "LivingEntityMixin"
+   ],
+   "injectors": {
+	  "defaultRequire": 1
+   }
 }
