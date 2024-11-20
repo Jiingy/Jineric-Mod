@@ -298,16 +298,16 @@ public class JinericBlocks {
 	public static final Block BAMBOO_CHEST = registerChest("bamboo_chest", Blocks.CHEST, WoodType.BAMBOO);
 	public static final Block CRIMSON_CHEST = registerChest("crimson_chest", Blocks.CHEST, WoodType.CRIMSON);
 	public static final Block WARPED_CHEST = registerChest("warped_chest", Blocks.CHEST, WoodType.WARPED);
-	public static final Block TRAPPED_SPRUCE_CHEST = registerChest("trapped_spruce_chest", Blocks.TRAPPED_CHEST, WoodType.SPRUCE);
-	public static final Block TRAPPED_BIRCH_CHEST = registerChest("trapped_birch_chest", Blocks.TRAPPED_CHEST, WoodType.BIRCH);
-	public static final Block TRAPPED_JUNGLE_CHEST = registerChest("trapped_jungle_chest", Blocks.TRAPPED_CHEST, WoodType.JUNGLE);
-	public static final Block TRAPPED_ACACIA_CHEST = registerChest("trapped_acacia_chest", Blocks.TRAPPED_CHEST, WoodType.ACACIA);
-	public static final Block TRAPPED_DARK_OAK_CHEST = registerChest("trapped_dark_oak_chest", Blocks.TRAPPED_CHEST, WoodType.DARK_OAK);
-	public static final Block TRAPPED_MANGROVE_CHEST = registerChest("trapped_mangrove_chest", Blocks.TRAPPED_CHEST, WoodType.MANGROVE);
-	public static final Block TRAPPED_CHERRY_CHEST = registerChest("trapped_cherry_chest", Blocks.TRAPPED_CHEST, WoodType.CHERRY);
-	public static final Block TRAPPED_BAMBOO_CHEST = registerChest("trapped_bamboo_chest", Blocks.TRAPPED_CHEST, WoodType.BAMBOO);
-	public static final Block TRAPPED_CRIMSON_CHEST = registerChest("trapped_crimson_chest", Blocks.TRAPPED_CHEST, WoodType.CRIMSON);
-	public static final Block TRAPPED_WARPED_CHEST = registerChest("trapped_warped_chest", Blocks.TRAPPED_CHEST, WoodType.WARPED);
+	public static final Block TRAPPED_SPRUCE_CHEST = registerTrappedChest("trapped_spruce_chest", Blocks.TRAPPED_CHEST, WoodType.SPRUCE);
+	public static final Block TRAPPED_BIRCH_CHEST = registerTrappedChest("trapped_birch_chest", Blocks.TRAPPED_CHEST, WoodType.BIRCH);
+	public static final Block TRAPPED_JUNGLE_CHEST = registerTrappedChest("trapped_jungle_chest", Blocks.TRAPPED_CHEST, WoodType.JUNGLE);
+	public static final Block TRAPPED_ACACIA_CHEST = registerTrappedChest("trapped_acacia_chest", Blocks.TRAPPED_CHEST, WoodType.ACACIA);
+	public static final Block TRAPPED_DARK_OAK_CHEST = registerTrappedChest("trapped_dark_oak_chest", Blocks.TRAPPED_CHEST, WoodType.DARK_OAK);
+	public static final Block TRAPPED_MANGROVE_CHEST = registerTrappedChest("trapped_mangrove_chest", Blocks.TRAPPED_CHEST, WoodType.MANGROVE);
+	public static final Block TRAPPED_CHERRY_CHEST = registerTrappedChest("trapped_cherry_chest", Blocks.TRAPPED_CHEST, WoodType.CHERRY);
+	public static final Block TRAPPED_BAMBOO_CHEST = registerTrappedChest("trapped_bamboo_chest", Blocks.TRAPPED_CHEST, WoodType.BAMBOO);
+	public static final Block TRAPPED_CRIMSON_CHEST = registerTrappedChest("trapped_crimson_chest", Blocks.TRAPPED_CHEST, WoodType.CRIMSON);
+	public static final Block TRAPPED_WARPED_CHEST = registerTrappedChest("trapped_warped_chest", Blocks.TRAPPED_CHEST, WoodType.WARPED);
 
 	public static final Block REFINERY = register(
 			"refinery",
@@ -369,6 +369,11 @@ public class JinericBlocks {
 	private static Block registerChest(String id, Block base, WoodType woodType) {
 		boolean notNether = (woodType != WoodType.WARPED || woodType != WoodType.CRIMSON);
 		return register(id, settings -> new JinericChestBlock(settings, woodType), notNether ? AbstractBlock.Settings.copy(base) : AbstractBlock.Settings.copy(base).sounds(BlockSoundGroup.NETHER_WOOD));
+	}
+
+	private static Block registerTrappedChest(String id, Block base, WoodType woodType) {
+		boolean notNether = (woodType != WoodType.WARPED || woodType != WoodType.CRIMSON);
+		return register(id, settings -> new JinericTrappedChestBlock(settings, woodType), notNether ? AbstractBlock.Settings.copy(base) : AbstractBlock.Settings.copy(base).sounds(BlockSoundGroup.NETHER_WOOD));
 	}
 
 	public static Block register(RegistryKey<Block> key, Function<AbstractBlock.Settings, Block> factory, AbstractBlock.Settings settings) {
