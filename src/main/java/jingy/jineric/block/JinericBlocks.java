@@ -218,6 +218,7 @@ public class JinericBlocks {
 	public static final Block ROTTEN_FLESH_BLOCK = register("rotten_flesh_block", AbstractBlock.Settings.copy(HONEYCOMB_BLOCK).sounds(BlockSoundGroup.HONEY));
 	public static final Block FLINT_BLOCK = register("flint_block", AbstractBlock.Settings.copy(STONE));
 	public static final Block CHARCOAL_BLOCK = register("charcoal_block", AbstractBlock.Settings.copy(COAL_BLOCK));
+	//TODO: REMOVE
 	public static final Block TUMBLEWEED = register("tumbleweed", LeavesBlock::new, AbstractBlock.Settings.copy(OAK_LEAVES).mapColor(MapColor.DIRT_BROWN));
 	public static final Block BONE_MEAL_BLOCK = register("bone_meal_block", AbstractBlock.Settings.copy(BONE_BLOCK));
 	public static final Block ENDER_PEARL_BLOCK = register("ender_pearl_block", AbstractBlock.Settings.copy(HONEY_BLOCK));
@@ -234,7 +235,7 @@ public class JinericBlocks {
 	public static final Block PACKED_ICE_WALL = register("packed_ice_wall", WallBlock::new, AbstractBlock.Settings.copy(PACKED_ICE));
 
 //SNOW & POWDERED SNOW
-	public static final Block SNOW_WALL = register("snow_wall", WallBlock::new, AbstractBlock.Settings.copy(SNOW_BLOCK));
+	public static final Block SNOW_WALL = register("snow_wall", WallBlock::new, AbstractBlock.Settings.copy(SNOW_BLOCK).strength(1.5F, 1.0F));
 	public static final Block SNOW_BRICKS = register("snow_bricks",  JinericBlockSettings.snowBrickSettings());
 	public static final Block SNOW_BRICK_STAIRS = registerStairsBlock("snow_brick_stairs", SNOW_BRICKS);
 	public static final Block SNOW_BRICK_SLAB = register("snow_brick_slab", SlabBlock::new, AbstractBlock.Settings.copy(SNOW_BRICKS));
