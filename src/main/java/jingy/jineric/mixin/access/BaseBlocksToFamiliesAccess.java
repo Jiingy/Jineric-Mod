@@ -12,7 +12,7 @@ import java.util.Map;
 public interface BaseBlocksToFamiliesAccess {
 
     @Accessor("BASE_BLOCKS_TO_FAMILIES")
-    static Map<Block, BlockFamily> getBlockFamilies() {
+    static Map<Block, BlockFamily> getBASE_BLOCKS_TO_FAMILIES() {
         throw new AssertionError();
     }
 }
