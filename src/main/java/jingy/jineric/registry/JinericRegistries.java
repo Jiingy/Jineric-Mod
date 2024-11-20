@@ -1,9 +1,9 @@
 package jingy.jineric.registry;
 
 import jingy.jineric.block.JinericBlocks;
-import jingy.jineric.data.generators.JinericItemTagGenerator;
 import jingy.jineric.item.JinericItems;
 import jingy.jineric.tag.JinericBlockTags;
+import jingy.jineric.tag.JinericItemTags;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
@@ -21,10 +21,10 @@ public class JinericRegistries {
 
    private static void registerIsFuel() {
       FuelRegistryEvents.BUILD.register((builder, context) -> builder
-              .add(JinericItemTagGenerator.WOODEN_BOOKSHELVES, 300)
-              .add(JinericItemTagGenerator.WOODEN_CHESTS, 300)
-              .add(JinericItemTagGenerator.WOODEN_TRAPPED_CHESTS, 300)
-              .add(JinericItemTagGenerator.WOODEN_LADDERS, 300)
+              .add(JinericItemTags.WOODEN_BOOKSHELVES, 300)
+              .add(JinericItemTags.WOODEN_CHESTS, 300)
+              .add(JinericItemTags.WOODEN_TRAPPED_CHESTS, 300)
+              .add(JinericItemTags.WOODEN_LADDERS, 300)
       );
    }
 

@@ -12,6 +12,7 @@ import jingy.jineric.registry.JinericBlockEntityType;
 import jingy.jineric.registry.JinericRegistries;
 import jingy.jineric.screen.JinericScreenHandlerType;
 import jingy.jineric.stat.JinericStats;
+import jingy.jineric.tag.JinericItemTags;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
@@ -34,6 +35,7 @@ public class JinericMain implements ModInitializer {
 	}
 
 	private void initRegistries() {
+		JinericItemTags.jinericItemTags();
 		JinericRegistries.initJinericRegistries();
 		JinericItemGroups.registerItemGroups();
 		JinericItemGroups.registerJinericItemGroups();
