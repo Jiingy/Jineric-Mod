@@ -5,7 +5,6 @@ import net.minecraft.data.family.BlockFamilies;
 import net.minecraft.data.family.BlockFamily;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
-import org.spongepowered.asm.mixin.gen.Invoker;
 
 import java.util.Map;
 
@@ -13,7 +12,7 @@ import java.util.Map;
 public interface BaseBlocksToFamiliesAccess {
 
     @Accessor("BASE_BLOCKS_TO_FAMILIES")
-    public static Map<Block, BlockFamily> getBlockFamilies() {
+    static Map<Block, BlockFamily> getBlockFamilies() {
         throw new AssertionError();
     }
 }
