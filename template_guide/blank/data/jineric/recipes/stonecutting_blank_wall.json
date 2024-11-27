@@ -1,8 +1,0 @@
-{
-    "type": "minecraft:stonecutting",
-    "ingredient": {
-        "item": "jineric:blank"
-    },
-    "result": "jineric:blank_wall",
-    "count": 1
-}

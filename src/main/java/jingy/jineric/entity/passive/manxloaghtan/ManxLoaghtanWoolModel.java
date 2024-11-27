@@ -5,13 +5,15 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.entity.model.EntityModelPartNames;
 import net.minecraft.client.render.entity.model.QuadrupedEntityModel;
+import net.minecraft.client.render.entity.state.SheepEntityRenderState;
 
 @Environment(EnvType.CLIENT)
-public class ManxLoaghtanWoolModel<T extends ManxLoaghtan> extends QuadrupedEntityModel<T> {
+public class ManxLoaghtanWoolModel extends QuadrupedEntityModel<SheepEntityRenderState> {
    private float headAngle;
 
    public ManxLoaghtanWoolModel(ModelPart root) {
-      super(root, false, 8.0F, 4.0F, 2.0F, 2.0F, 24);
+      super(root);
+      //, false, 8.0F, 4.0F, 2.0F, 2.0F, 24
    }
 
    public static TexturedModelData getTexturedModelData() {
@@ -36,14 +38,11 @@ public class ManxLoaghtanWoolModel<T extends ManxLoaghtan> extends QuadrupedEnti
       return TexturedModelData.of(modelData, 64, 32);
    }
 
-   public void animateModel(T sheepEntity, float f, float g, float h) {
-      super.animateModel(sheepEntity, f, g, h);
-      this.head.pivotY = 6.0F + sheepEntity.getNeckAngle(h) * 9.0F;
-      this.headAngle = sheepEntity.getHeadAngle(h);
-   }
-
-   public void setAngles(T sheepEntity, float f, float g, float h, float i, float j) {
-      super.setAngles(sheepEntity, f, g, h, i, j);
-      this.head.pitch = this.headAngle;
+   //TODO: IF NEEDED, MAKE UNIQUE RENDER STATE FOR MANX 1.21.3
+   public void setAngles(SheepEntityRenderState sheepEntityRenderState) {
+      super.setAngles(sheepEntityRenderState);
+      ModelPart var10000 = this.head;
+      var10000.pivotY += sheepEntityRenderState.neckAngle * 9.0F * sheepEntityRenderState.ageScale;
+      this.head.pitch = sheepEntityRenderState.headAngle;
    }
 }

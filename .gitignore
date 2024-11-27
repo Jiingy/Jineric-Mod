@@ -5,6 +5,7 @@ build/
 out/
 classes/
 /src/main/generated/.cache/
+/jineric-mod/todo.txt
 
 # eclipse
 

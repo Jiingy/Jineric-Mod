@@ -1,8 +1,0 @@
-{
-  "parent": "jineric:block/template_alt_wall_side",
-  "textures": {
-    "top": "jineric:block/wall/blank/blank_wall_top_post",
-    "bottom": "jineric:block/wall/blank/blank_wall_end",
-    "side": "jineric:block/wall/blank/blank_wall_low_side"
-  }
-}

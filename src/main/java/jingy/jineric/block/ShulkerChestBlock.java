@@ -1,6 +1,6 @@
 package jingy.jineric.block;
 
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.WoodType;
 import net.minecraft.block.entity.BlockEntityType;
@@ -12,8 +12,8 @@ import net.minecraft.item.ItemPlacementContext;
 import java.util.function.Supplier;
 
 public class ShulkerChestBlock extends JinericChestBlock {
-   public ShulkerChestBlock(FabricBlockSettings settings, Supplier<BlockEntityType<? extends ChestBlockEntity>> supplier, WoodType type) {
-      super(settings, supplier, type);
+   public ShulkerChestBlock(Block.Settings settings, Supplier<BlockEntityType<? extends ChestBlockEntity>> supplier, WoodType type) {
+      super(supplier, settings, type);
    }
 
    @Override

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "jineric:dripstone_tiles",
+  "result": {
+    "count": 1,
+    "id": "jineric:dripstone_tile_wall"
+  }
+}

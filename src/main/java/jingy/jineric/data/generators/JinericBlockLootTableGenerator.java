@@ -1,71 +1,87 @@
 package jingy.jineric.data.generators;
 
+import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.JinericBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.WoodType;
+import net.minecraft.data.family.BlockFamilies;
+import net.minecraft.data.family.BlockFamily;
+import net.minecraft.item.Items;
+import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
+import net.minecraft.registry.DefaultedRegistry;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryWrapper;
+
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.stream.Stream;
 
 public class JinericBlockLootTableGenerator extends FabricBlockLootTableProvider {
-   //TODO: Add convenient way to add a simple block set's loot table
-   public JinericBlockLootTableGenerator(FabricDataOutput dataGenerator) {
-      super(dataGenerator);
+   public JinericBlockLootTableGenerator(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+      super(dataOutput, registryLookup);
    }
 
    @Override
    public void generate() {
-      nameableContainersGen();
-      genSimpleBlockSets();
-      genUniqueBlocks();
+      this.genVanillaWoodFamilyAdditionDrops();
+      this.genBlockFamilyDrops();
+      this.genUniqueDrops();
    }
 
-   private void genUniqueBlocks() {
-      addDrop(JinericBlocks.REFINERY);
+   private void genUniqueDrops() {
+      this.addDrop(JinericBlocks.REFINERY);
+      this.addDrop(JinericBlocks.STONE_BRICK_PILLAR);
+      this.addDrop(JinericBlocks.DRIPSTONE_BRICK_PILLAR);
+      this.addDrop(JinericBlocks.BLAZE_ROD_BLOCK);
+      this.addDrop(JinericBlocks.ENDER_PEARL_BLOCK);
+      this.addDrop(JinericBlocks.PAPER_BLOCK);
+      this.addDrop(JinericBlocks.EGG_BLOCK);
+      this.addDrop(JinericBlocks.STICK_BLOCK);
+      this.addDrop(JinericBlocks.ROTTEN_FLESH_BLOCK);
+      this.addDrop(JinericBlocks.SUGAR_BLOCK);
+      this.addDrop(JinericBlocks.PRISMARINE_CRYSTAL_BLOCK);
+      this.addDrop(JinericBlocks.BONE_MEAL_BLOCK);
+      this.addDrop(JinericBlocks.FLINT_BLOCK);
+      this.addDrop(JinericBlocks.CHARCOAL_BLOCK);
+      this.addDrop(JinericBlocks.SOUL_JACK_O_LANTERN);
+      this.addDrop(JinericBlocks.FULL_GRASS_BLOCK, block -> this.drops(block, Blocks.DIRT));
    }
 
-   private void nameableContainersGen() {
-      //Chests
-      addDrop(JinericBlocks.SPRUCE_CHEST, this::nameableContainerDrops);
-      addDrop(JinericBlocks.BIRCH_CHEST, this::nameableContainerDrops);
-      addDrop(JinericBlocks.JUNGLE_CHEST, this::nameableContainerDrops);
-      addDrop(JinericBlocks.ACACIA_CHEST, this::nameableContainerDrops);
-      addDrop(JinericBlocks.DARK_OAK_CHEST, this::nameableContainerDrops);
-      addDrop(JinericBlocks.MANGROVE_CHEST, this::nameableContainerDrops);
-      addDrop(JinericBlocks.CHERRY_CHEST, this::nameableContainerDrops);
-      addDrop(JinericBlocks.BAMBOO_CHEST, this::nameableContainerDrops);
-      addDrop(JinericBlocks.CRIMSON_CHEST, this::nameableContainerDrops);
-      addDrop(JinericBlocks.WARPED_CHEST, this::nameableContainerDrops);
-      //Trapped Chests
-      addDrop(JinericBlocks.TRAPPED_SPRUCE_CHEST, this::nameableContainerDrops);
-      addDrop(JinericBlocks.TRAPPED_BIRCH_CHEST, this::nameableContainerDrops);
-      addDrop(JinericBlocks.TRAPPED_JUNGLE_CHEST, this::nameableContainerDrops);
-      addDrop(JinericBlocks.TRAPPED_ACACIA_CHEST, this::nameableContainerDrops);
-      addDrop(JinericBlocks.TRAPPED_DARK_OAK_CHEST, this::nameableContainerDrops);
-      addDrop(JinericBlocks.TRAPPED_MANGROVE_CHEST, this::nameableContainerDrops);
-      addDrop(JinericBlocks.TRAPPED_CHERRY_CHEST, this::nameableContainerDrops);
-      addDrop(JinericBlocks.TRAPPED_BAMBOO_CHEST, this::nameableContainerDrops);
-      addDrop(JinericBlocks.TRAPPED_CRIMSON_CHEST, this::nameableContainerDrops);
-      addDrop(JinericBlocks.TRAPPED_WARPED_CHEST, this::nameableContainerDrops);
+   private void genVanillaWoodFamilyAdditionDrops() {
+      DefaultedRegistry<Block> blockRegistry = Registries.BLOCK;
+      List<WoodType> woodTypes = WoodType.stream().toList();
+      woodTypes.forEach(
+              woodType -> {
+                 // SKIPS OAK BECAUSE JINERIC DOES NOT HAVE UNIQUE OAK AT THE MOMENT
+                 if (woodType != WoodType.OAK && woodType != WoodType.PALE_OAK) {
+                    this.addDrop(blockRegistry.get(JinericMain.ofJineric(woodType.name() + "_ladder")));
+                    this.addDrop(blockRegistry.get(JinericMain.ofJineric(woodType.name() + "_bookshelf")), block -> this.drops(block, Items.BOOK, ConstantLootNumberProvider.create(3.0F)));
+                    this.addNameableContainerDrop(blockRegistry.get(JinericMain.ofJineric(woodType.name() + "_chest")));
+                    this.addNameableContainerDrop(blockRegistry.get(JinericMain.ofJineric("trapped_" + woodType.name() + "_chest")));
+                 }
+              }
+      );
    }
 
-   private void genSimpleBlockSets() {
-      addDrop(JinericBlocks.SNOW_BRICKS);
-      addDrop(JinericBlocks.SNOW_BRICK_STAIRS);
-      addDrop(JinericBlocks.SNOW_BRICK_SLAB);
-      addDrop(JinericBlocks.SNOW_BRICK_WALL);
-      addDrop(JinericBlocks.CRACKED_DRIPSTONE_TILES);
-      addDrop(JinericBlocks.CRACKED_DRIPSTONE_TILE_STAIRS);
-      addDrop(JinericBlocks.CRACKED_DRIPSTONE_TILE_SLAB);
-      addDrop(JinericBlocks.CRACKED_DRIPSTONE_TILE_WALL);
-      addDrop(JinericBlocks.CRACKED_DRIPSTONE_BRICKS);
-      addDrop(JinericBlocks.CRACKED_DRIPSTONE_BRICK_STAIRS);
-      addDrop(JinericBlocks.CRACKED_DRIPSTONE_BRICK_SLAB);
-      addDrop(JinericBlocks.CRACKED_DRIPSTONE_BRICK_WALL);
-      addDrop(JinericBlocks.CRACKED_TUFF_TILES);
-      addDrop(JinericBlocks.CRACKED_TUFF_TILE_STAIRS);
-      addDrop(JinericBlocks.CRACKED_TUFF_TILE_SLAB);
-      addDrop(JinericBlocks.CRACKED_TUFF_TILE_WALL);
-      addDrop(JinericBlocks.CRACKED_STONE_TILES);
-      addDrop(JinericBlocks.CRACKED_STONE_TILE_STAIRS);
-      addDrop(JinericBlocks.CRACKED_STONE_TILE_SLAB);
-      addDrop(JinericBlocks.CRACKED_STONE_TILE_WALL);
+   private void addNameableContainerDrop(Block drop) {
+      this.addDrop(drop, this::nameableContainerDrops);
+   }
+
+   private void genBlockFamilyDrops() {
+      Stream<BlockFamily> blockFamilies = BlockFamilies.getFamilies();
+      blockFamilies.forEach(blockFamily -> {
+         Block baseBlock = blockFamily.getBaseBlock();
+         for (Block block : blockFamily.getVariants().values()) {
+            if (Registries.BLOCK.getId(block).getNamespace().matches("jineric")) {
+               this.addDrop(block);
+            }
+         }
+         if (Registries.BLOCK.getId(baseBlock).getNamespace().matches("jineric")) {
+            this.addDrop(baseBlock);
+         }
+      });
    }
 }

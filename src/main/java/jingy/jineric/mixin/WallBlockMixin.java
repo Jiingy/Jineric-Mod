@@ -19,6 +19,6 @@ public abstract class WallBlockMixin extends Block implements Waterloggable {
 
    @Inject(method = "shouldConnectTo", at = @At("RETURN"), cancellable = true)
    private void jineric$shouldConnectTo(BlockState state, boolean faceFullSquare, Direction side, CallbackInfoReturnable<Boolean> cir) {
-      cir.setReturnValue(cir.getReturnValueZ() || state.isIn(JinericBlockTags.SPECIALTY_WALLS));
+      cir.setReturnValue(cir.getReturnValueZ() || state.isIn(JinericBlockTags.NOT_PICKAXE_WALL));
    }
 }

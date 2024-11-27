@@ -5,7 +5,6 @@ import jingy.jineric.base.JinericMain;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.minecraft.util.Identifier;
 
 import java.util.Set;
 
@@ -32,6 +31,6 @@ public class JinericEntityModelLayers {
    }
 
    private static EntityModelLayer create(String id, String layer) {
-      return new EntityModelLayer(new Identifier(JinericMain.MOD_ID, id), layer);
+      return new EntityModelLayer(JinericMain.ofJineric(id), layer);
    }
 }

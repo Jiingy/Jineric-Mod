@@ -11,11 +11,13 @@ public class JinericItemTags {
    public static final TagKey<Item> WOODEN_CHESTS = registerItemTag("wooden_chests");
    public static final TagKey<Item> WOODEN_LADDERS = registerItemTag("wooden_ladders");
    public static final TagKey<Item> WOODEN_TRAPPED_CHESTS = registerItemTag("wooden_trapped_chests");
+   //TODO: POOR IMPLEMENTATION FOR REFINERY
+   public static final TagKey<Item> REFINING_MISC = registerItemTag("refining_misc");
 
    private static TagKey<Item> registerItemTag(String id) {
-      return TagKey.of(Registries.ITEM.getKey(), JinericMain.jinericId(id));
+      return TagKey.of(Registries.ITEM.getKey(), JinericMain.ofJineric(id));
    }
 
-   private JinericItemTags() {
+   public static void jinericItemTags() {
    }
 }

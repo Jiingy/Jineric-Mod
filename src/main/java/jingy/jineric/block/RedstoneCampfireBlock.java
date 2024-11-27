@@ -2,6 +2,7 @@ package jingy.jineric.block;
 
 import jingy.jineric.block.entity.RedstoneCampfireBlockEntity;
 import jingy.jineric.registry.JinericBlockEntityType;
+import jingy.jineric.stat.JinericStats;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CampfireBlock;
@@ -11,10 +12,9 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.DustParticleEffect;
-import net.minecraft.recipe.CampfireCookingRecipe;
-import net.minecraft.recipe.RecipeEntry;
+import net.minecraft.recipe.*;
+import net.minecraft.recipe.input.SingleStackRecipeInput;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.stat.Stats;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
@@ -29,37 +29,30 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Optional;
-
 public class RedstoneCampfireBlock extends CampfireBlock {
    public static final BooleanProperty POWERED = Properties.POWERED;
 
    public RedstoneCampfireBlock(boolean emitsParticles, int fireDamage, Settings settings) {
       super(emitsParticles, fireDamage, settings);
       this.setDefaultState(
-              this.stateManager.getDefaultState().with(POWERED, Boolean.valueOf(false))
+              this.stateManager.getDefaultState().with(POWERED, Boolean.FALSE)
       );
    }
 
    @Override
-   public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-      BlockEntity blockEntity = world.getBlockEntity(pos);
-      if (blockEntity instanceof RedstoneCampfireBlockEntity redstoneCampfireBlock) {
+   public ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+      if (world.getBlockEntity(pos) instanceof RedstoneCampfireBlockEntity redstoneCampfireBlockEntity) {
          ItemStack itemStack = player.getStackInHand(hand);
-         Optional<RecipeEntry<CampfireCookingRecipe>> optional = redstoneCampfireBlock.getRecipeFor(itemStack);
-         if (optional.isPresent()) {
-            if (!world.isClient
-                    && redstoneCampfireBlock.addItem(player, player.getAbilities().creativeMode
-                    ? itemStack.copy() : itemStack, ((CampfireCookingRecipe)((RecipeEntry<?>)optional.get()).value()).getCookingTime())
-            ) {
-               world.updateNeighborsAlways(pos, this);
-               player.incrementStat(Stats.INTERACT_WITH_CAMPFIRE);
-               return ActionResult.SUCCESS;
+         if (world.getRecipeManager().getPropertySet(RecipePropertySet.CAMPFIRE_INPUT).canUse(itemStack)) {
+            if (world instanceof ServerWorld serverWorld && redstoneCampfireBlockEntity.addItem(serverWorld, player, itemStack)) {
+               player.incrementStat(JinericStats.INTERACT_WITH_REDSTONE_CAMPFIRE);
+               return ActionResult.SUCCESS_SERVER;
             }
+
             return ActionResult.CONSUME;
          }
       }
-      return ActionResult.PASS;
+      return ActionResult.PASS_TO_DEFAULT_BLOCK_ACTION;
    }
 
    @Override
@@ -125,12 +118,21 @@ public class RedstoneCampfireBlock extends CampfireBlock {
    @Nullable
    @Override
    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-      if (world.isClient) {
-         return state.get(LIT) ? validateTicker(type, JinericBlockEntityType.REDSTONE_CAMPFIRE, RedstoneCampfireBlockEntity::clientTick) : null;
+      if (world instanceof ServerWorld serverWorld) {
+         if (state.get(LIT)) {
+            ServerRecipeManager.MatchGetter<SingleStackRecipeInput, CampfireCookingRecipe> matchGetter = ServerRecipeManager.createCachedMatchGetter(
+                    RecipeType.CAMPFIRE_COOKING
+            );
+            return validateTicker(
+                    type,
+                    JinericBlockEntityType.REDSTONE_CAMPFIRE,
+                    (worldx, pos, statex, blockEntity) -> RedstoneCampfireBlockEntity.litServerTick(serverWorld, pos, statex, blockEntity, matchGetter)
+            );
+         } else {
+            return validateTicker(type, JinericBlockEntityType.REDSTONE_CAMPFIRE, RedstoneCampfireBlockEntity::unlitServerTick);
+         }
       } else {
-         return state.get(LIT)
-                 ? validateTicker(type, JinericBlockEntityType.REDSTONE_CAMPFIRE, RedstoneCampfireBlockEntity::litServerTick)
-                 : validateTicker(type, JinericBlockEntityType.REDSTONE_CAMPFIRE, RedstoneCampfireBlockEntity::unlitServerTick);
+         return state.get(LIT) ? validateTicker(type, JinericBlockEntityType.REDSTONE_CAMPFIRE, RedstoneCampfireBlockEntity::clientTick) : null;
       }
    }
 }

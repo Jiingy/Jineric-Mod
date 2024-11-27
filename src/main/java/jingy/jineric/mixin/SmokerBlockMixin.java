@@ -1,10 +1,7 @@
 package jingy.jineric.mixin;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.HorizontalFacingBlock;
-import net.minecraft.block.SmokerBlock;
+import net.minecraft.block.*;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
@@ -15,13 +12,15 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(SmokerBlock.class)
-public abstract class SmokerBlockMixin {
+public abstract class SmokerBlockMixin extends AbstractFurnaceBlock {
 
-   private static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
+    protected SmokerBlockMixin(Settings settings) {
+        super(settings);
+    }
 
-   @Inject(at = @At("TAIL"), method = "randomDisplayTick", cancellable = true)
+    @Inject(at = @At("TAIL"), method = "randomDisplayTick", cancellable = true)
    public void jineric$randomDisplayTick(BlockState state, World world, BlockPos pos, Random random, CallbackInfo ci) {
-         Direction direction = state.get(FACING);
+       Direction direction = state.get(FACING);
          Direction.Axis axis = direction.getAxis();
          double d = (double)pos.getX() + 0.5;
          double e = (double)pos.getY();

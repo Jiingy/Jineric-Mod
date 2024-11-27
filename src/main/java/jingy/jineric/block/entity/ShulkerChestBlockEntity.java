@@ -29,7 +29,6 @@ public class ShulkerChestBlockEntity extends ChestBlockEntity {
            BlockPos blockPos, BlockState blockState) {
       super(JinericBlockEntityType.JINERIC_CHEST, blockPos, blockState);
 //      this.color = color;
-      this.setInvStackList(DefaultedList.ofSize(this.size(), ItemStack.EMPTY));
    }
 
    private final ViewerCountManager stateManager = new ViewerCountManager() {

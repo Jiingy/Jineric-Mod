@@ -1,7 +1,6 @@
 package jingy.jineric.mixin;
 
 import jingy.jineric.block.JinericBlocks;
-import jingy.jineric.tag.JinericBlockTags;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SpreadableBlock;
 import net.minecraft.util.math.BlockPos;
@@ -18,7 +17,7 @@ public abstract class SpreadableBlockMixin {
    private static void jineric$canSurviveIfFullGrassBlock(BlockState state, WorldView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
       BlockPos blockPos = pos.up();
       BlockState blockState = world.getBlockState(blockPos);
-      if (blockState.isIn(JinericBlockTags.FULL_GRASSY_BLOCKS)) {
+      if (blockState.isOf(JinericBlocks.FULL_GRASS_BLOCK)) {
          cir.setReturnValue(true);
       }
    }

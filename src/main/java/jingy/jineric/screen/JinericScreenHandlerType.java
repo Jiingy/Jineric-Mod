@@ -8,8 +8,8 @@ import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 
 public class JinericScreenHandlerType<T extends ScreenHandler> {
-   public static final Identifier SHULKER_CHEST_SCREEN_ID = new Identifier(JinericMain.MOD_ID, "shulker_chest");
-   public static final Identifier REFINERY_SCREEN_ID = new Identifier(JinericMain.MOD_ID, "refinery");
+   public static final Identifier SHULKER_CHEST_SCREEN_ID = JinericMain.ofJineric("shulker_chest");
+   public static final Identifier REFINERY_SCREEN_ID = JinericMain.ofJineric("refinery");
    public static ScreenHandlerType<ShulkerChestScreenHandler> SHULKER_CHEST;
    public static ScreenHandlerType<RefineryScreenHandler> REFINERY;
 

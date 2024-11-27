@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "jineric:cracked_dripstone_tiles"
-  },
-  "result": "jineric:cracked_dripstone_tile_slab"
-}

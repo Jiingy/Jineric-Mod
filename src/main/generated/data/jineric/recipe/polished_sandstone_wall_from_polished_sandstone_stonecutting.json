@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "jineric:polished_sandstone",
+  "result": {
+    "count": 1,
+    "id": "jineric:polished_sandstone_wall"
+  }
+}

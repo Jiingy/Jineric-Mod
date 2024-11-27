@@ -15,8 +15,9 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.BlockView;
 
 public class JinericTrappedChestBlock extends JinericChestBlock {
+
    public JinericTrappedChestBlock(Settings settings, WoodType type) {
-      super(settings, () -> JinericBlockEntityType.JINERIC_TRAPPED_CHEST, type);
+      super(() -> JinericBlockEntityType.JINERIC_TRAPPED_CHEST, settings,  type);
    }
 
    @Override

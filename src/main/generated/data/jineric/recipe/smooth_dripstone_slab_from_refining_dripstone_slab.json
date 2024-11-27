@@ -1,0 +1,11 @@
+{
+  "type": "jineric:refining",
+  "category": "blocks",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "group": "smooth_dripstone",
+  "ingredient": "jineric:dripstone_slab",
+  "result": {
+    "id": "jineric:smooth_dripstone_slab"
+  }
+}

@@ -1,16 +1,19 @@
 package jingy.jineric.client.render.entity.model;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.model.*;
-import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModelPartNames;
 import net.minecraft.client.render.entity.model.QuadrupedEntityModel;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.passive.TurtleEntity;
+import net.minecraft.client.render.entity.state.TurtleEntityRenderState;
 
-public class TurtleSaddleModel<T extends TurtleEntity> extends QuadrupedEntityModel<T> {
+@Environment(EnvType.CLIENT)
+public class TurtleSaddleModel extends QuadrupedEntityModel<TurtleEntityRenderState> {
 
+   //TODO: BROKEN IN 1.21.3
    public TurtleSaddleModel(ModelPart root) {
-      super(root, true, 120.0F, 0.0F, 9.0F, 6.0F, 120);
+      super(root);
+      //, true, 120.0F, 0.0F, 9.0F, 6.0F, 120
    }
 
    public static TexturedModelData getTexturedModelData() {
@@ -62,10 +65,5 @@ public class TurtleSaddleModel<T extends TurtleEntity> extends QuadrupedEntityMo
 //              ModelTransform.pivot(5.0F, 21.0F, -4.0F)
 //      );
       return TexturedModelData.of(modelData, 128, 64);
-   }
-
-   @Override
-   public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
-      super.render(matrices, vertices, light, overlay, red, green, blue, alpha);
    }
 }

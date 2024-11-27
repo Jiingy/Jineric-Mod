@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dripstone_tile_stairs": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jineric:dripstone_tile_stairs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:cracked_dripstone_tile_stairs_from_refining_dripstone_tile_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_dripstone_tile_stairs"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:cracked_dripstone_tile_stairs_from_refining_dripstone_tile_stairs"
+    ]
+  }
+}

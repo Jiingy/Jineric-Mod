@@ -5,31 +5,29 @@ import com.google.common.collect.ImmutableMap;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.recipe.book.RecipeBookCategory;
 import net.minecraft.recipe.book.RecipeBookOptions;
-import org.spongepowered.asm.mixin.Final;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Mutable;
-import org.spongepowered.asm.mixin.Shadow;
+import net.minecraft.recipe.book.RecipeBookType;
+import org.spongepowered.asm.mixin.*;
 
 import java.util.Map;
 
 @Mixin(RecipeBookOptions.class)
 public abstract class RecipeBookOptionsMixin {
-   private static final RecipeBookCategory JINERIC_REFINERY = ClassTinkerers.getEnum(RecipeBookCategory.class, "JINERIC_REFINERY");
+   @Unique private static final RecipeBookType JINERIC_REFINERY = ClassTinkerers.getEnum(RecipeBookType.class, "JINERIC_REFINERY");
 
    @Mutable
    @Final
    @Shadow
-   private static Map<RecipeBookCategory, Pair<String, String>> CATEGORY_OPTION_NAMES;
+   private static Map<RecipeBookType, Pair<String, String>> CATEGORY_OPTION_NAMES;
 
    static {
       CATEGORY_OPTION_NAMES = ImmutableMap.of(
-              RecipeBookCategory.CRAFTING,
+              RecipeBookType.CRAFTING,
               Pair.of("isGuiOpen", "isFilteringCraftable"),
-              RecipeBookCategory.FURNACE,
+              RecipeBookType.FURNACE,
               Pair.of("isFurnaceGuiOpen", "isFurnaceFilteringCraftable"),
-              RecipeBookCategory.BLAST_FURNACE,
+              RecipeBookType.BLAST_FURNACE,
               Pair.of("isBlastingFurnaceGuiOpen", "isBlastingFurnaceFilteringCraftable"),
-              RecipeBookCategory.SMOKER,
+              RecipeBookType.SMOKER,
               Pair.of("isSmokerGuiOpen", "isSmokerFilteringCraftable"),
               JINERIC_REFINERY,
               Pair.of("isRefineryGuiOpen", "isRefineryFilteringCraftable")

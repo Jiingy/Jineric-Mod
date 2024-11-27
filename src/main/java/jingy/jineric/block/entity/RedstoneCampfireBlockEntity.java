@@ -5,7 +5,9 @@ import jingy.jineric.registry.JinericBlockEntityType;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.CampfireBlockEntity;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
@@ -14,10 +16,10 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.recipe.CampfireCookingRecipe;
-import net.minecraft.recipe.RecipeEntry;
-import net.minecraft.recipe.RecipeManager;
-import net.minecraft.recipe.RecipeType;
+import net.minecraft.recipe.*;
+import net.minecraft.recipe.input.SingleStackRecipeInput;
+import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Clearable;
 import net.minecraft.util.ItemScatterer;
@@ -36,39 +38,38 @@ public class RedstoneCampfireBlockEntity extends BlockEntity implements Clearabl
    private final DefaultedList<ItemStack> itemsBeingCooked = DefaultedList.ofSize(4, ItemStack.EMPTY);
    private final int[] cookingTimes = new int[4];
    private final int[] cookingTotalTimes = new int[4];
-   private final RecipeManager.MatchGetter<Inventory, CampfireCookingRecipe> matchGetter = RecipeManager.createCachedMatchGetter(RecipeType.CAMPFIRE_COOKING);
 
    public RedstoneCampfireBlockEntity(BlockPos pos, BlockState state) {
       super(JinericBlockEntityType.REDSTONE_CAMPFIRE, pos, state);
    }
 
-   public static void litServerTick(World world, BlockPos pos, BlockState state, RedstoneCampfireBlockEntity redstoneCampfire) {
+   public static void litServerTick(ServerWorld world, BlockPos pos, BlockState state, RedstoneCampfireBlockEntity blockEntity, ServerRecipeManager.MatchGetter<SingleStackRecipeInput, CampfireCookingRecipe> recipeMatchGetter) {
       boolean bl = false;
       boolean powered = state.get(Properties.POWERED);
-      for(int i = 0; i < redstoneCampfire.itemsBeingCooked.size(); ++i) {
-         ItemStack itemStack = redstoneCampfire.itemsBeingCooked.get(i);
+      for(int i = 0; i < blockEntity.itemsBeingCooked.size(); ++i) {
+         ItemStack itemStack = blockEntity.itemsBeingCooked.get(i);
          if (!itemStack.isEmpty()) {
             bl = true;
-            redstoneCampfire.cookingTimes[i]++;
-            if (redstoneCampfire.cookingTimes[i] >= redstoneCampfire.cookingTotalTimes[i]) {
-               Inventory inventory = new SimpleInventory(itemStack);
-               ItemStack itemStack2 = redstoneCampfire.matchGetter.getFirstMatch(inventory, world).map(
-                       (recipeEntry) -> recipeEntry.value().craft(inventory, world.getRegistryManager())
+            blockEntity.cookingTimes[i]++;
+            if (blockEntity.cookingTimes[i] >= blockEntity.cookingTotalTimes[i]) {
+               SingleStackRecipeInput singleStackRecipeInput = new SingleStackRecipeInput(itemStack);
+               ItemStack itemStack2 = recipeMatchGetter.getFirstMatch(singleStackRecipeInput, world).map(
+                       (recipeEntry) -> recipeEntry.value().craft(singleStackRecipeInput, world.getRegistryManager())
                ).orElse(itemStack);
                if (itemStack2.isItemEnabled(world.getEnabledFeatures())) {
                   ItemScatterer.spawn(world, (double)pos.getX(), (double)pos.getY(), (double)pos.getZ(), itemStack2);
-                  redstoneCampfire.itemsBeingCooked.set(i, ItemStack.EMPTY);
+                  blockEntity.itemsBeingCooked.set(i, ItemStack.EMPTY);
                   world.updateListeners(pos, state, state, Block.NOTIFY_ALL);
                   world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(state));
                }
             }
-            world.updateNeighborsAlways(pos, redstoneCampfire.getCachedState().getBlock());
+            world.updateNeighborsAlways(pos, blockEntity.getCachedState().getBlock());
          }
       }
 
-      if (redstoneCampfire.isCooking() && !powered) {
+      if (blockEntity.isCooking() && !powered) {
          world.setBlockState(pos, state.with(Properties.POWERED, Boolean.valueOf(true)));
-      } else if (!redstoneCampfire.isCooking() && powered) {
+      } else if (!blockEntity.isCooking() && powered) {
          world.setBlockState(pos, state.with(Properties.POWERED, Boolean.valueOf(false)));
       }
 
@@ -149,10 +150,10 @@ public class RedstoneCampfireBlockEntity extends BlockEntity implements Clearabl
    }
 
    @Override
-   public void readNbt(NbtCompound nbt) {
-      super.readNbt(nbt);
+   public void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
+      super.readNbt(nbt, registries);
       this.itemsBeingCooked.clear();
-      Inventories.readNbt(nbt, this.itemsBeingCooked);
+      Inventories.readNbt(nbt, this.itemsBeingCooked, registries);
       if (nbt.contains("CookingTimes", NbtElement.INT_ARRAY_TYPE)) {
          int[] is = nbt.getIntArray("CookingTimes");
          System.arraycopy(is, 0, this.cookingTimes, 0, Math.min(this.cookingTotalTimes.length, is.length));
@@ -165,9 +166,9 @@ public class RedstoneCampfireBlockEntity extends BlockEntity implements Clearabl
    }
 
    @Override
-   protected void writeNbt(NbtCompound nbt) {
-      super.writeNbt(nbt);
-      Inventories.writeNbt(nbt, this.itemsBeingCooked, true);
+   protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
+      super.writeNbt(nbt, registries);
+      Inventories.writeNbt(nbt, this.itemsBeingCooked, registries);
       nbt.putIntArray("CookingTimes", this.cookingTimes);
       nbt.putIntArray("CookingTotalTimes", this.cookingTotalTimes);
    }
@@ -177,26 +178,26 @@ public class RedstoneCampfireBlockEntity extends BlockEntity implements Clearabl
    }
 
    @Override
-   public NbtCompound toInitialChunkDataNbt() {
+   public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registries) {
       NbtCompound nbtCompound = new NbtCompound();
-      Inventories.writeNbt(nbtCompound, this.itemsBeingCooked, true);
+      Inventories.writeNbt(nbtCompound, this.itemsBeingCooked, registries);
       return nbtCompound;
    }
 
-   public Optional<RecipeEntry<CampfireCookingRecipe>> getRecipeFor(ItemStack stack) {
-      return this.itemsBeingCooked.stream().noneMatch(ItemStack::isEmpty)
-              ? Optional.empty()
-              : this.matchGetter.getFirstMatch(new SimpleInventory(new ItemStack[]{stack}), this.world);
-   }
-
-   public boolean addItem(@Nullable Entity user, ItemStack stack, int cookTime) {
-      for(int i = 0; i < this.itemsBeingCooked.size(); ++i) {
+   public boolean addItem(ServerWorld world, @Nullable LivingEntity entity, ItemStack stack) {
+      for (int i = 0; i < this.itemsBeingCooked.size(); i++) {
          ItemStack itemStack = this.itemsBeingCooked.get(i);
          if (itemStack.isEmpty()) {
-            this.cookingTotalTimes[i] = cookTime;
+            Optional<RecipeEntry<CampfireCookingRecipe>> optional = world.getRecipeManager()
+                    .getFirstMatch(RecipeType.CAMPFIRE_COOKING, new SingleStackRecipeInput(stack), world);
+            if (optional.isEmpty()) {
+               return false;
+            }
+
+            this.cookingTotalTimes[i] = ((CampfireCookingRecipe)((RecipeEntry)optional.get()).value()).getCookingTime();
             this.cookingTimes[i] = 0;
-            this.itemsBeingCooked.set(i, stack.split(1));
-            this.world.emitGameEvent(GameEvent.BLOCK_CHANGE, this.getPos(), GameEvent.Emitter.of(user, this.getCachedState()));
+            this.itemsBeingCooked.set(i, stack.splitUnlessCreative(1, entity));
+            world.emitGameEvent(GameEvent.BLOCK_CHANGE, this.getPos(), GameEvent.Emitter.of(entity, this.getCachedState()));
             this.updateListeners();
             return true;
          }
