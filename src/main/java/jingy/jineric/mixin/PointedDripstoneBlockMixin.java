@@ -19,7 +19,11 @@ public abstract class PointedDripstoneBlockMixin extends Block implements Landin
       super(settings);
    }
 
-   @Inject(method = "canGrow(Lnet/minecraft/block/BlockState;Lnet/minecraft/block/BlockState;)Z", at = @At("HEAD"), cancellable = true)
+   @Inject(
+           method = "canGrow(Lnet/minecraft/block/BlockState;Lnet/minecraft/block/BlockState;)Z",
+           at = @At("HEAD"),
+           cancellable = true
+   )
    private static void jineric$canGrow(BlockState dripstoneBlockState, BlockState waterState, CallbackInfoReturnable<Boolean> cir) {
       //Checks if block is == to DRIPSTONE_SLAB which is water logged and type.BOTTOM
       if (dripstoneBlockState.isOf(JinericBlocks.DRIPSTONE_SLAB)

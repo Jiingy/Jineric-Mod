@@ -10,11 +10,11 @@ public interface WoodTypeAccess {
 
    @Invoker("<init>")
    static WoodType invokeInit(String name, BlockSetType blockSetType) {
-      throw new IllegalStateException("Could not initialize init() in WoodType!");
+      throw new IllegalStateException("Could not <invoke> init() in WoodType!");
    }
 
    @Invoker("register")
    static WoodType invokeRegister(WoodType signType) {
-      throw new IllegalStateException("Could not initialize register() in WoodType!");
+      throw new IllegalStateException("Could not invoke register() in WoodType!");
    }
 }

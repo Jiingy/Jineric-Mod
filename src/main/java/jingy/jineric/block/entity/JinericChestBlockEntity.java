@@ -9,7 +9,6 @@ import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 
 public class JinericChestBlockEntity extends ChestBlockEntity {
-
    public JinericChestBlockEntity(BlockEntityType<?> type, BlockPos blockPos, BlockState blockState) {
       super(type, blockPos, blockState);
    }

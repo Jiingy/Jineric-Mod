@@ -6,8 +6,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.tag.TagKey;
 
 public class JinericBlockSoundTags {
-   // TODO Fix Sound
-//   public static final TagKey<Block> STONE_ORE_SOUNDS = register("stone_ore_sounds");
    public static final TagKey<Block> VEGETATION_SOUNDS = register("vegetation_sounds");
    public static final TagKey<Block> WOODEN_BLOCK_SOUNDS = register("wooden_block_sounds");
    public static final TagKey<Block> WOODEN_NETHER_BLOCK_SOUNDS = register("wooden_nether_block_sounds");

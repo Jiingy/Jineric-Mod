@@ -4,7 +4,6 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvents;
 
 public class JinericBlockSoundGroup {
-
 	public static final BlockSoundGroup SOUL_SANDSTONE = new BlockSoundGroup(
 			1.0F,
 			1,
@@ -50,13 +49,4 @@ public class JinericBlockSoundGroup {
 			SoundEvents.BLOCK_SAND_HIT,
 			SoundEvents.BLOCK_SAND_FALL
 	);
-//	public static final BlockSoundGroup STONE_ORES = new BlockSoundGroup(
-//			1.0F,
-//			1.0F,
-//			SoundEvents.BLOCK_DEEPSLATE_BREAK,
-//			SoundEvents.BLOCK_DEEPSLATE_STEP,
-//			SoundEvents.BLOCK_STONE_PLACE,
-//			SoundEvents.BLOCK_DEEPSLATE_HIT,
-//			SoundEvents.BLOCK_DEEPSLATE_FALL
-//	);
 }

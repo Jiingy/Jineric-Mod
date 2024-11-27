@@ -1,21 +1,16 @@
 package jingy.jineric.mixin;
 
-import jingy.jineric.entity.effect.JinericStatusEffects;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.Constant;
-import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityFastFallingMixin extends Entity {
-
    @Shadow public abstract boolean hasStatusEffect(RegistryEntry<StatusEffect> effect);
 
    public LivingEntityFastFallingMixin(EntityType<?> type, World world) {

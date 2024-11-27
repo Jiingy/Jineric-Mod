@@ -20,18 +20,14 @@ import java.util.function.Predicate;
 
 @Mixin(EatGrassGoal.class)
 public abstract class EatGrassGoalMixin extends Goal {
-
-   @Mutable
-   @Shadow @Final
-   private static Predicate<BlockState> SHORT_GRASS_PREDICATE;
-
-   static {
-      SHORT_GRASS_PREDICATE = SHORT_GRASS_PREDICATE.or(BlockStatePredicate.forBlock(JinericBlocks.FULL_GRASS_BLOCK));
-   }
+   @Mutable @Shadow @Final private static Predicate<BlockState> SHORT_GRASS_PREDICATE;
 
    @WrapOperation(
            method = "canStart",
-           at = @At(value = "INVOKE", target = "net/minecraft/block/BlockState.isOf(Lnet/minecraft/block/Block;)Z")
+           at = @At(
+                   value = "INVOKE",
+                   target = "net/minecraft/block/BlockState.isOf(Lnet/minecraft/block/Block;)Z"
+           )
    )
    private boolean jineric$canStartFullGrassBlockCheck(BlockState instance, Block block, Operation<Boolean> original) {
       return original.call(instance, block) || instance.isOf(JinericBlocks.FULL_GRASS_BLOCK);
@@ -39,7 +35,10 @@ public abstract class EatGrassGoalMixin extends Goal {
 
    @WrapOperation(
            method = "tick",
-           at = @At(value = "INVOKE", target = "net/minecraft/block/BlockState.isOf(Lnet/minecraft/block/Block;)Z")
+           at = @At(
+                   value = "INVOKE",
+                   target = "net/minecraft/block/BlockState.isOf(Lnet/minecraft/block/Block;)Z"
+           )
    )
    private boolean jineric$tickFullGrassBlockCheck(BlockState instance, Block block, Operation<Boolean> original) {
       return original.call(instance, block) || instance.isOf(JinericBlocks.FULL_GRASS_BLOCK);
@@ -54,5 +53,9 @@ public abstract class EatGrassGoalMixin extends Goal {
    )
    private BlockState jineric$FullGrassRawIdFromState(@Nullable BlockState state) {
       return JinericBlocks.FULL_GRASS_BLOCK.getDefaultState();
+   }
+
+   static {
+      SHORT_GRASS_PREDICATE = SHORT_GRASS_PREDICATE.or(BlockStatePredicate.forBlock(JinericBlocks.FULL_GRASS_BLOCK));
    }
 }

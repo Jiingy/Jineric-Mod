@@ -12,7 +12,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(BrewingRecipeRegistry.class)
 public abstract class BrewingRecipeRegistryMixin {
 
-   @Inject(at = @At("HEAD"), method = "registerDefaults")
+   @Inject(
+           at = @At("HEAD"),
+           method = "registerDefaults"
+   )
    private static void jineric$registerDefaults(BrewingRecipeRegistry.Builder builder, CallbackInfo ci) {
       //DARKNESS
       builder.registerPotionRecipe(Potions.NIGHT_VISION, Items.FERMENTED_SPIDER_EYE, JinericPotions.DARKNESS);

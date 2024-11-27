@@ -17,7 +17,11 @@ public abstract class BlockMixin {
 
    //TODO: Likely a bad way to do this, better way would be to change the blocks themselves via mixins similar to the mixins for adding to block fanilies.
    // Needs to be reviewed, block tags need to be added via data gen, generally just improve.
-   @Inject(method = "getSoundGroup", at = @At(value = "HEAD"), cancellable = true)
+   @Inject(
+           method = "getSoundGroup",
+           at = @At(value = "HEAD"),
+           cancellable = true
+   )
    private void jineric$CustomSoundGroups(BlockState state, CallbackInfoReturnable<BlockSoundGroup> cir) {
       if (state.isIn(JinericBlockSoundTags.LEAF_SOUNDS)) {
          cir.setReturnValue(BlockSoundGroup.AZALEA_LEAVES);
@@ -28,10 +32,6 @@ public abstract class BlockMixin {
       else if (state.isIn(JinericBlockSoundTags.WOODEN_ACCESSORY_SOUNDS)) {
          cir.setReturnValue(JinericBlockSoundGroup.WOODEN_ACCESSORIES);
       }
-      //TODO: Re-add when sound is fixed
-//      else if (state.isIn(JinericBlockSoundTags.STONE_ORE_SOUNDS)) {
-//         cir.setReturnValue(JinericBlockSoundGroup.STONE_ORES);
-//      }
       else if (state.isIn(JinericBlockSoundTags.MUSHROOM_SOUNDS)) {
          cir.setReturnValue(BlockSoundGroup.NETHER_WART);
       }

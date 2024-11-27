@@ -17,7 +17,8 @@ public abstract class CatsSitOnJinericChestsMixin {
            method = "isTargetPos",
            at = @At(
                    value = "INVOKE",
-                   target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z", ordinal = 0
+                   target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z",
+                   ordinal = 0
            )
    )
    private boolean jineric$addJinericChests(BlockState instance, Block block, Operation<Boolean> original) {
@@ -28,7 +29,8 @@ public abstract class CatsSitOnJinericChestsMixin {
            method = "isTargetPos",
            at = @At(
                    value = "INVOKE",
-                   target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z", ordinal = 1
+                   target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z",
+                   ordinal = 1
            )
    )
    private boolean jineric$addRefinery(BlockState instance, Block block, Operation<Boolean> original) {

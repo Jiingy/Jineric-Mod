@@ -6,6 +6,5 @@ public class TerraBlenderPlugin implements TerraBlenderApi {
 
    @Override
    public void onTerraBlenderInitialized() {
-
    }
 }
