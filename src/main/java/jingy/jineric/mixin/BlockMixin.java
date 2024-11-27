@@ -28,6 +28,7 @@ public abstract class BlockMixin {
       else if (state.isIn(JinericBlockSoundTags.WOODEN_ACCESSORY_SOUNDS)) {
          cir.setReturnValue(JinericBlockSoundGroup.WOODEN_ACCESSORIES);
       }
+      //TODO: Re-add when sound is fixed
 //      else if (state.isIn(JinericBlockSoundTags.STONE_ORE_SOUNDS)) {
 //         cir.setReturnValue(JinericBlockSoundGroup.STONE_ORES);
 //      }
@@ -50,7 +51,7 @@ public abstract class BlockMixin {
       else if (state.isIn(BlockTags.SAPLINGS)) {
          cir.setReturnValue(BlockSoundGroup.CHERRY_SAPLING);
       }
-      else if (state.isIn(JinericBlockSoundTags.WOODEN_NETHER_CHEST_SOUNDS)) {
+      else if (state.isIn(JinericBlockSoundTags.WOODEN_NETHER_BLOCK_SOUNDS)) {
          cir.setReturnValue(BlockSoundGroup.NETHER_WOOD);
       }
       else if (state.isOf(Blocks.SKELETON_SKULL)
