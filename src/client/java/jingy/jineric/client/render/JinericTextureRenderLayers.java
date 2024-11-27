@@ -9,7 +9,6 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.enums.ChestType;
 import net.minecraft.client.render.TexturedRenderLayers;
 import net.minecraft.client.util.SpriteIdentifier;
-import net.minecraft.util.Identifier;
 
 public class JinericTextureRenderLayers extends TexturedRenderLayers {
    public static final SpriteIdentifier ACACIA_CHEST = createChestTextureId("acacia_chest");

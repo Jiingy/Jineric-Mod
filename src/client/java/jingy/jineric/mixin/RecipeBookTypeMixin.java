@@ -1,11 +1,11 @@
 package jingy.jineric.mixin;
 
 import com.chocohead.mm.api.ClassTinkerers;
-import jingy.jineric.recipe.JinericRecipeBookCategories;
 import net.minecraft.recipe.book.RecipeBookCategory;
 import net.minecraft.recipe.book.RecipeBookGroup;
-import net.minecraft.recipe.book.RecipeBookType;
-import org.spongepowered.asm.mixin.*;
+import org.spongepowered.asm.mixin.Final;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;

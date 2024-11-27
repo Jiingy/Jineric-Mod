@@ -3,15 +3,12 @@ package jingy.jineric.screen;
 import jingy.jineric.base.JinericMain;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.client.gui.screen.ButtonTextures;
 import net.minecraft.client.gui.screen.recipebook.AbstractFurnaceRecipeBookWidget;
-import net.minecraft.item.Item;
 import net.minecraft.screen.AbstractFurnaceScreenHandler;
 import net.minecraft.text.Text;
 
 import java.util.List;
-import java.util.Set;
 
 //TODO: MAYBE USELESS IN 1.21.3
 @Environment(EnvType.CLIENT)

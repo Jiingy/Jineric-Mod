@@ -9,6 +9,7 @@ plugins {
 /* Data Generation */
 def dataOutput = 'src/main/generated'
 loom {
+	splitEnvironmentSourceSets()
 	accessWidenerPath = file("src/main/resources/jineric.accesswidener")
 	runs {
 		datagenClient {
@@ -20,88 +21,92 @@ loom {
 			runDir "build/datagen"
 		}
 	}
+	mods {
+		"modid" {
+			sourceSet sourceSets.main
+			sourceSet sourceSets.client
+		}
+	}
 }
 
-sourceSets { main { resources { srcDirs += dataOutput } } }
+sourceSets { 
+	main { 
+		resources { 
+			srcDirs += dataOutput 
+		} 
+	} 
+}
 
 /* Dependencies */
 repositories {
 	mavenCentral()
-	maven { url "https://api.modrinth.com/maven" }
-	maven { url = 'https://maven.minecraftforge.net/' }
-	maven { url "https://jitpack.io" }
+	maven { 
+		url "https://api.modrinth.com/maven" 
+	}
+	maven { 
+		url = 'https://maven.minecraftforge.net/'
+	}
+	maven { 
+		url "https://jitpack.io"
+	}
 	maven {
 		name = "TerraformersMC"
 		url = "https://maven.terraformersmc.com/"
 	}
 }
 
-tasks.withType(JavaCompile).configureEach { it.options.release = 21 }
-sourceCompatibility = JavaVersion.VERSION_21
-targetCompatibility = JavaVersion.VERSION_21
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 21
+}
 
-group = project.maven_group
-archivesBaseName = project.archives_base_name
 version = project.version
+group = project.maven_group
+
+base {
+	archivesBaseName = project.archives_base_name
+}
 
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-
-	// api
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-//	modCompileOnly "dev.emi:emi:${emi_version}:api"
-//	modLocalRuntime "dev.emi:emi:${emi_version}"
 	modImplementation "com.github.glitchfiend:TerraBlender-fabric:${project.minecraft_version}-${project.terrablender_version}"
-
-	// mixin extras
 	include(implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:0.5.0-beta.4")))
-
 	include(implementation ('com.github.Chocohead:Fabric-ASM:v2.3'))
 }
 
 /* Resource Processing */
 processResources {
 	inputs.property "version", project.version
-	inputs.property "mod_id", project.mod_id
-	inputs.property "mod_name", project.name
-//	inputs.property "mod_description", project.description
-	inputs.property "version", project.version
-//	inputs.property "main_class", project.main_class
 
 	filesMatching("fabric.mod.json") {
-		expand(
-				"version": project.version,
-				"mod_id": project.mod_id,
-				"mod_name": project.name,
-//			"mod_description": project.description,
-//			"main_class": project.main_class
-		)
+		expand "version": project.version
 	}
 }
 
 jar {
 	from("LICENSE") {
-		rename { "${it}_${project.archivesBaseName}"}
+		rename { "${it}_${project.base.archivesName.get()}"}
 	}
 }
 
 /* Publishing */
-java { withSourcesJar() }
+java {
+	withSourcesJar()
+	sourceCompatibility = JavaVersion.VERSION_21
+	targetCompatibility = JavaVersion.VERSION_21
+}
 
 publishing {
 	publications {
-		mavenJava(MavenPublication) {
-			artifact(remapJar) {
-				builtBy remapJar
-			}
-			artifact(sourcesJar) {
-				builtBy remapSourcesJar
-			}
+		create("mavenJava", MavenPublication) {
+			artifactId = project.archives_base_name
+			from components.java
 		}
 	}
 
+	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
 	repositories {
 	}
 }

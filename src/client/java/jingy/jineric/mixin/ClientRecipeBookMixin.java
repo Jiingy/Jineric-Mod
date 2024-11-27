@@ -1,18 +1,7 @@
 package jingy.jineric.mixin;
 
-import com.chocohead.mm.api.ClassTinkerers;
-import jingy.jineric.recipe.JinericRecipeTypes;
 import net.minecraft.client.recipebook.ClientRecipeBook;
-import net.minecraft.recipe.AbstractCookingRecipe;
-import net.minecraft.recipe.Recipe;
-import net.minecraft.recipe.RecipeEntry;
-import net.minecraft.recipe.RecipeType;
-import net.minecraft.recipe.book.CookingRecipeCategory;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ClientRecipeBook.class)
 public abstract class ClientRecipeBookMixin {

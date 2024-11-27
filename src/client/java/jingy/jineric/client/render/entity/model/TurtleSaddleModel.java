@@ -1,13 +1,13 @@
 package jingy.jineric.client.render.entity.model;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.model.*;
-import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModelPartNames;
 import net.minecraft.client.render.entity.model.QuadrupedEntityModel;
 import net.minecraft.client.render.entity.state.TurtleEntityRenderState;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.passive.TurtleEntity;
 
+@Environment(EnvType.CLIENT)
 public class TurtleSaddleModel extends QuadrupedEntityModel<TurtleEntityRenderState> {
 
    //TODO: BROKEN IN 1.21.3

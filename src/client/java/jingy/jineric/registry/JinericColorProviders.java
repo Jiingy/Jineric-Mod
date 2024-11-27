@@ -3,12 +3,16 @@ package jingy.jineric.registry;
 import jingy.jineric.block.FullGrassBlock;
 import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.item.JinericItems;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.world.biome.GrassColors;
 
-public class ColorProviders {
+//TODO: SEPARATE INTO BLOCK AND ITEM VARIANT CLASSES
 
+@Environment(EnvType.CLIENT)
+public class JinericColorProviders {
    public static void register() {
       ColorProviderRegistry.BLOCK.register(
               ((state, world, pos, tintIndex) -> {

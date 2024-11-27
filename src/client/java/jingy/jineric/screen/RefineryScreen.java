@@ -7,7 +7,6 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.ingame.AbstractFurnaceScreen;
 import net.minecraft.client.gui.screen.recipebook.RecipeBookWidget;
-import net.minecraft.client.recipebook.RecipeBookType;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Items;
 import net.minecraft.text.Text;
@@ -28,6 +27,7 @@ public class RefineryScreen extends AbstractFurnaceScreen<RefineryScreenHandler>
            new RecipeBookWidget.Tab(Items.CYAN_GLAZED_TERRACOTTA, JinericRecipeBookCategories.REFINERY_MISC)
    );
 
+   //TODO: CANT SHIFT CLICK INTO REFINERY SLOTS
    public RefineryScreen(RefineryScreenHandler container, PlayerInventory inventory, Text title) {
       super(container, inventory, title, TOGGLE_REFINABLE_TEXT, TEXTURE, LIT_PROGRESS_TEXTURE, BURN_PROGRESS_TEXTURE, TABS);
    }

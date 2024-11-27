@@ -18,7 +18,7 @@ public class ManxLoaghtanModel extends QuadrupedEntityModel<ManxLoaghtanRenderSt
 
 
    public static TexturedModelData getTexturedModelData() {
-      ModelData modelData = QuadrupedEntityModel.getModelData(12, Dilation.NONE);
+      ModelData modelData = getModelData(12, Dilation.NONE);
       ModelPartData modelPartData = modelData.getRoot();
       Dilation dilation = new Dilation(0.001F);
 //HEAD
