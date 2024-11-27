@@ -14,7 +14,7 @@ public interface WoodTypeAccess {
    }
 
    @Invoker("register")
-   static WoodType jineric$registerNew(WoodType signType) {
+   static WoodType invokeRegister(WoodType signType) {
       throw new IllegalStateException("Could not initialize register() in WoodType!");
    }
 }
