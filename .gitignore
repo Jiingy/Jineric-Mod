@@ -1,25 +1,20 @@
 # gradle
-
 .gradle/
 build/
 out/
 classes/
 /src/main/generated/.cache/
-/jineric-mod/todo.txt
 
 # eclipse
-
 *.launch
 
 # idea
-
 .idea/
 *.iml
 *.ipr
 *.iws
 
 # vscode
-
 .settings/
 .vscode/
 bin/
@@ -27,9 +22,8 @@ bin/
 .project
 
 # macos
-
 *.DS_Store
 
 # fabric
-
 run/
+todo.txt
