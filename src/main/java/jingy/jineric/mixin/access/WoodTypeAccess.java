@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 public interface WoodTypeAccess {
 
    @Invoker("<init>")
-   static WoodType jineric$newSignType(String name, BlockSetType blockSetType) {
+   static WoodType invokeInit(String name, BlockSetType blockSetType) {
       throw new IllegalStateException("Could not initialize init() in WoodType!");
    }
 
