@@ -3,7 +3,6 @@ package jingy.jineric.mixin;
 import jingy.jineric.sound.JinericBlockSoundGroup;
 import jingy.jineric.tag.JinericBlockSoundTags;
 import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.tag.BlockTags;
@@ -43,8 +42,6 @@ public abstract class BlockMixin {
       else if (state.isOf(Blocks.TRIPWIRE)) {
          cir.setReturnValue(BlockSoundGroup.WOOL);
       }
-
-
 
       else if (state.isOf(Blocks.COBBLESTONE) || state.isOf(Blocks.INFESTED_COBBLESTONE)) {
          cir.setReturnValue(JinericBlockSoundGroup.COBBLED_STONES);
