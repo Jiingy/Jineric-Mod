@@ -16,6 +16,7 @@ import net.minecraft.util.Identifier;
 
 @SuppressWarnings("all")
 //TODO: 1.21.3 REORGANIZE INVENTORY
+//TODO: ^^^ FIX ORDER OF DRIPSTONE BLOCKS
 public class JinericItemGroups {
 	//TODO: FIX BUG WITH SOME ITEMS HAVING SLABS GO BEFORE STAIRS
 
@@ -366,9 +367,6 @@ public class JinericItemGroups {
 			entries.addAfter(JinericItems.CRACKED_DRIPSTONE_BRICKS, JinericItems.CRACKED_DRIPSTONE_BRICK_STAIRS);
 			entries.addAfter(JinericItems.CRACKED_DRIPSTONE_BRICK_STAIRS, JinericItems.CRACKED_DRIPSTONE_BRICK_SLAB);
 			entries.addAfter(JinericItems.CRACKED_DRIPSTONE_BRICK_SLAB, JinericItems.CRACKED_DRIPSTONE_BRICK_WALL);
-			entries.addAfter(JinericItems.CRACKED_DRIPSTONE_BRICK_WALL, JinericItems.DRIPSTONE_PILLAR);
-			entries.addAfter(JinericItems.DRIPSTONE_PILLAR, JinericItems.CHISELED_DRIPSTONE);
-			entries.addAfter(JinericItems.CHISELED_DRIPSTONE, JinericItems.DRIPSTONE_TILES);
 			entries.addAfter(JinericItems.CRACKED_DRIPSTONE_BRICK_WALL, JinericItems.DRIPSTONE_BRICK_PILLAR);
 			entries.addAfter(JinericItems.DRIPSTONE_BRICK_PILLAR, JinericItems.CHISELED_DRIPSTONE_BRICKS);
 			entries.addAfter(JinericItems.CHISELED_DRIPSTONE_BRICKS, JinericItems.DRIPSTONE_TILES);
@@ -389,7 +387,6 @@ public class JinericItemGroups {
 			entries.addAfter(Items.CRACKED_DEEPSLATE_TILES, JinericItems.CRACKED_DEEPSLATE_TILE_STAIRS);
 			entries.addAfter(JinericItems.CRACKED_DEEPSLATE_TILE_STAIRS, JinericItems.CRACKED_DEEPSLATE_TILE_SLAB);
 			entries.addAfter(JinericItems.CRACKED_DEEPSLATE_TILE_SLAB, JinericItems.CRACKED_DEEPSLATE_TILE_WALL);
-//			entries.prepend(Items.POLISHED_BLACKSTONE_BRICK_STAIRS);
 			entries.addAfter(Items.POLISHED_BLACKSTONE_BRICK_WALL, JinericItems.SOUL_SANDSTONE);
 			entries.addAfter(JinericItems.SOUL_SANDSTONE, JinericItems.SOUL_SANDSTONE_STAIRS);
 			entries.addAfter(JinericItems.SOUL_SANDSTONE_STAIRS, JinericItems.SOUL_SANDSTONE_SLAB);
