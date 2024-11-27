@@ -19,11 +19,13 @@ import java.util.function.ToIntFunction;
 
 import static net.minecraft.block.Blocks.*;
 
+//TODO: INITIALIZE BLOCKS BEFORE THEY ARE NEEDED BY SETTING THEM STATICALLY ON LOAD
 public class JinericBlocks {
 
 //SANDSTONE
 	public static final Block CUT_SANDSTONE_STAIRS = registerStairsBlock("cut_sandstone_stairs", CUT_SANDSTONE);
 	public static final Block CUT_SANDSTONE_WALL = register("cut_sandstone_wall", WallBlock::new, AbstractBlock.Settings.copy(CUT_SANDSTONE));
+	//TODO: RENAME TO 'POLISHED_CUT_SANDSTONE' OR OTHER VARIANT, AS SANDSTONE IS ALREADY USED IN A VANILLA CRAFTING RECIPE. CURRENTLY CRAFTED WITH 'CUT' SANDSTONE
 	public static final Block POLISHED_SANDSTONE = register("polished_sandstone", AbstractBlock.Settings.copy(SANDSTONE));
 	public static final Block POLISHED_SANDSTONE_STAIRS = registerStairsBlock("polished_sandstone_stairs", POLISHED_SANDSTONE);
 	public static final Block POLISHED_SANDSTONE_SLAB  = register("polished_sandstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(POLISHED_SANDSTONE));
@@ -107,7 +109,7 @@ public class JinericBlocks {
 	public static final Block POLISHED_DIORITE_WALL = register("polished_diorite_wall", WallBlock::new, AbstractBlock.Settings.copy(POLISHED_DIORITE));
 	public static final Block POLISHED_ANDESITE_WALL = register("polished_andesite_wall", WallBlock::new, AbstractBlock.Settings.copy(POLISHED_ANDESITE));
 
-	//TODO: DEPRECATE AND DATAFIX TO VANILLA
+	//TODO: REMOVE AND DATA-FIX TO VANILLA IF POSSIBLE
 //TUFF
 	public static final Block COBBLED_TUFF = register("cobbled_tuff",  Block.Settings.copy(TUFF));
 	public static final Block COBBLED_TUFF_SLAB = register("cobbled_tuff_slab", SlabBlock::new, Block.Settings.copy(COBBLED_TUFF));
@@ -149,6 +151,7 @@ public class JinericBlocks {
 	public static final Block CALCITE_WALL = register("calcite_wall", WallBlock::new, AbstractBlock.Settings.copy(CALCITE));
 
 //DRIPSTONE
+	//TODO: RENAME TO 'DRIPSTONE_BLOCK[variant]'
 	public static final Block DRIPSTONE_SLAB = register("dripstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(DRIPSTONE_BLOCK));
 	public static final Block DRIPSTONE_STAIRS = registerStairsBlock("dripstone_stairs", DRIPSTONE_BLOCK);
 	public static final Block DRIPSTONE_WALL = register("dripstone_wall", WallBlock::new, AbstractBlock.Settings.copy(DRIPSTONE_BLOCK));
@@ -244,6 +247,7 @@ public class JinericBlocks {
 //DECORATION BLOCKS
 	public static final Block FIREWEED = register("fireweed", TallFlowerBlock::new, AbstractBlock.Settings.copy(LILAC));
 	public static final Block SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", CarvedPumpkinBlock::new, AbstractBlock.Settings.copy(JACK_O_LANTERN));
+	// TODO: SPREADING/BONEMEALING IS BROKEN IN 1.21.3
 	public static final Block FULL_GRASS_BLOCK = register("full_grass_block", FullGrassBlock::new, AbstractBlock.Settings.copy(GRASS_BLOCK));
 	public static final Block PRISMARINE_BRICK_WALL = register("prismarine_brick_wall", WallBlock::new, AbstractBlock.Settings.copy(PRISMARINE_BRICKS));
 	public static final Block DARK_PRISMARINE_WALL = register("dark_prismarine_wall", WallBlock::new, AbstractBlock.Settings.copy(DARK_PRISMARINE));
@@ -305,7 +309,7 @@ public class JinericBlocks {
 			settings -> new RedstoneCampfireBlock(false, 1, settings),
 			AbstractBlock.Settings.copy(CAMPFIRE).luminance(createLightLevelFromLitBlockState(7))
 	);
-
+//TODO: 1.21.3+ ADD PALE OAK WOODEN ADDITIONS
 //WOOD
 	public static final Block ACACIA_BOOKSHELF = register("acacia_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
 	public static final Block BAMBOO_BOOKSHELF = register("bamboo_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
