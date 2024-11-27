@@ -7,7 +7,6 @@ import net.minecraft.registry.RegistryWrapper;
 import java.util.concurrent.CompletableFuture;
 
 public class JinericItemTagGenerator extends FabricTagProvider.ItemTagProvider {
-
     //  TODO: ADD ALL MODDED ITEMS TO VANILLA TAGS AND/OR JINERIC TAGS
     public JinericItemTagGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> completableFuture) {
         super(output, completableFuture);
@@ -15,5 +14,10 @@ public class JinericItemTagGenerator extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+    }
+
+    @Override
+    public String getName() {
+        return "jineric_item_tags";
     }
 }

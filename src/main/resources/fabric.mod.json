@@ -19,6 +19,9 @@
       "main": [
          "jingy.jineric.base.JinericMain"
       ],
+      "client": [
+         "jingy.jineric.base.JinericClientMain"
+      ],
       "fabric-datagen": [
          "jingy.jineric.data.JinericDataGeneration"
       ],

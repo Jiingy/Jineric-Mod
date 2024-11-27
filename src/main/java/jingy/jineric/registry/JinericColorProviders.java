@@ -10,10 +10,11 @@ import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.world.biome.GrassColors;
 
 //TODO: SEPARATE INTO BLOCK AND ITEM VARIANT CLASSES
-
 @Environment(EnvType.CLIENT)
 public class JinericColorProviders {
-   public static void register() {
+
+   public static void registerColorProviders() {
+      // BLOCKS
       ColorProviderRegistry.BLOCK.register(
               ((state, world, pos, tintIndex) -> {
                  boolean snowy = state.get(FullGrassBlock.SNOWY);
@@ -28,12 +29,11 @@ public class JinericColorProviders {
                  }
               }), JinericBlocks.FULL_GRASS_BLOCK
       );
-
       ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) ->
               world != null && pos != null
                       ? BiomeColors.getGrassColor(world, pos)
                       : GrassColors.getColor(0.5D, 1.0D), JinericBlocks.JUNGLE_LADDER);
-
+      // ITEMS
       ColorProviderRegistry.ITEM.register(((stack, tintIndex) ->
               GrassColors.getColor(0.5D, 1.0D)), JinericItems.FULL_GRASS_BLOCK);
       ColorProviderRegistry.ITEM.register((((stack, tintIndex) ->

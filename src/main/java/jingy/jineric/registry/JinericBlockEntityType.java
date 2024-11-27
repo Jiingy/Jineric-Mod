@@ -10,10 +10,13 @@ import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityT
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
 
 public class JinericBlockEntityType {
 
+   public static final BlockEntityType<RefineryBlockEntity> REFINERY =
+           FabricBlockEntityTypeBuilder.create(RefineryBlockEntity::new, JinericBlocks.REFINERY).build();
+   public static final BlockEntityType<RedstoneCampfireBlockEntity> REDSTONE_CAMPFIRE =
+           FabricBlockEntityTypeBuilder.create(RedstoneCampfireBlockEntity::new, JinericBlocks.REDSTONE_CAMPFIRE).build();
    public static final BlockEntityType<JinericChestBlockEntity> JINERIC_CHEST =
            FabricBlockEntityTypeBuilder.create(
                    JinericChestBlockEntity::new,
@@ -43,18 +46,11 @@ public class JinericBlockEntityType {
                    JinericBlocks.TRAPPED_WARPED_CHEST
            ).build();
 
-   public static final BlockEntityType<RefineryBlockEntity> REFINERY =
-           FabricBlockEntityTypeBuilder.create(RefineryBlockEntity::new, JinericBlocks.REFINERY).build();
-
-   public static final BlockEntityType<RedstoneCampfireBlockEntity> REDSTONE_CAMPFIRE =
-           FabricBlockEntityTypeBuilder.create(RedstoneCampfireBlockEntity::new, JinericBlocks.REDSTONE_CAMPFIRE).build();
-
-   public static void registerBlockEntities() {
-      Registry.register(Registries.BLOCK_ENTITY_TYPE, JinericMain.ofJineric("jineric_chest"), JINERIC_CHEST);
-      Registry.register(Registries.BLOCK_ENTITY_TYPE, JinericMain.ofJineric("jineric_trapped_chest"), JINERIC_TRAPPED_CHEST);
-//      Registry.register(Registries.BLOCK_ENTITY_TYPE, JinericMain.ofJineric("shulker_chest"), SHULKER_CHEST);
+   public static void registerBlockEntityTypes() {
       Registry.register(Registries.BLOCK_ENTITY_TYPE, JinericMain.ofJineric("refinery"), REFINERY);
       Registry.register(Registries.BLOCK_ENTITY_TYPE, JinericMain.ofJineric("campfire"), REDSTONE_CAMPFIRE);
+      Registry.register(Registries.BLOCK_ENTITY_TYPE, JinericMain.ofJineric("jineric_chest"), JINERIC_CHEST);
+      Registry.register(Registries.BLOCK_ENTITY_TYPE, JinericMain.ofJineric("jineric_trapped_chest"), JINERIC_TRAPPED_CHEST);
    }
 }
 

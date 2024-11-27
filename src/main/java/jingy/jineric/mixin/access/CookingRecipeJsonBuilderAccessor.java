@@ -1,4 +1,4 @@
-package jingy.jineric.mixin;
+package jingy.jineric.mixin.access;
 
 import net.minecraft.data.server.recipe.CookingRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 public interface CookingRecipeJsonBuilderAccessor {
 
    @Invoker("<init>")
-   static CookingRecipeJsonBuilder createCookingRecipeJsonBuilder(
+   static CookingRecipeJsonBuilder invokeInit(
            RecipeCategory category,
            CookingRecipeCategory cookingCategory,
            ItemConvertible output,
@@ -22,6 +22,6 @@ public interface CookingRecipeJsonBuilderAccessor {
            int cookingTime,
            AbstractCookingRecipe.RecipeFactory<?> recipeFactory
    ) {
-      throw new UnsupportedOperationException();
+      throw new IllegalStateException("Could not invoke <init>() in WoodType!");
    }
 }

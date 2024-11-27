@@ -1,7 +1,6 @@
 package jingy.jineric.registry;
 
 import jingy.jineric.block.JinericBlocks;
-import jingy.jineric.item.JinericItems;
 import jingy.jineric.tag.JinericBlockTags;
 import jingy.jineric.tag.JinericItemTags;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
@@ -10,7 +9,8 @@ import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 
 public class JinericRegistries {
-   public static void initJinericRegistries() {
+   //TODO: SPLIT INTO UNIQUE CLASSES
+   public static void initializeJinericRegistries() {
       registerIsFuel();
       registerCompostable();
       registerStrippable();
@@ -30,7 +30,6 @@ public class JinericRegistries {
 
    private static void registerCompostable() {
       CompostingChanceRegistry registry = CompostingChanceRegistry.INSTANCE;
-      registry.add(JinericItems.TUMBLEWEED, 0.5F);
    }
 
    private static void registerStrippable() {
@@ -38,7 +37,6 @@ public class JinericRegistries {
 
    private static void registerFlammable() {
       FlammableBlockRegistry instance = FlammableBlockRegistry.getDefaultInstance();
-      instance.add(JinericBlocks.TUMBLEWEED, 30, 60);
       instance.add(JinericBlockTags.WOODEN_BOOKSHELVES, 30, 20);
       instance.add(JinericBlocks.PAPER_BLOCK, 5, 20);
       instance.add(JinericBlocks.STICK_BLOCK, 5, 20);

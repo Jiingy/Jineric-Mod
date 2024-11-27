@@ -418,4 +418,9 @@ public class JinericBlockTagGenerator extends FabricTagProvider.BlockTagProvider
    private static Identifier getIdFamilyVariant(BlockFamily blockFamily, BlockFamily.Variant variant) {
       return Registries.BLOCK.getId(blockFamily.getVariant(variant));
    }
+
+   @Override
+   public String getName() {
+      return "jineric_block_tags";
+   }
 }

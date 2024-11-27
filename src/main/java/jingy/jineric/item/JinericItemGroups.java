@@ -16,14 +16,9 @@ import net.minecraft.util.Identifier;
 
 @SuppressWarnings("all")
 //TODO: 1.21.3 REORGANIZE INVENTORY
-//TODO: ^^^ FIX ORDER OF DRIPSTONE BLOCKS
 public class JinericItemGroups {
-	//TODO: FIX BUG WITH SOME ITEMS HAVING SLABS GO BEFORE STAIRS
-
 	public static final Identifier MOD_ITEMS_ID = JinericMain.ofJineric("mod_items");
-
-	private static final RegistryKey<ItemGroup> MOD_ITEMS_KEY =
-			RegistryKey.of(RegistryKeys.ITEM_GROUP, MOD_ITEMS_ID);
+	private static final RegistryKey<ItemGroup> MOD_ITEMS_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, MOD_ITEMS_ID);
 
 	public static void registerJinericItemGroups() {
 		Registry.register(Registries.ITEM_GROUP, MOD_ITEMS_KEY, FabricItemGroup.builder()
@@ -53,8 +48,6 @@ public class JinericItemGroups {
 							entries.add(JinericItems.SMOOTH_DRIPSTONE_STAIRS);
 							entries.add(JinericItems.SMOOTH_DRIPSTONE_SLAB);
 							entries.add(JinericItems.SMOOTH_DRIPSTONE_WALL);
-							entries.add(JinericItems.CHISELED_DRIPSTONE_BRICKS);
-							entries.add(JinericItems.DRIPSTONE_BRICK_PILLAR);
 							entries.add(JinericItems.POLISHED_DRIPSTONE);
 							entries.add(JinericItems.POLISHED_DRIPSTONE_STAIRS);
 							entries.add(JinericItems.POLISHED_DRIPSTONE_SLAB);
@@ -63,29 +56,31 @@ public class JinericItemGroups {
 							entries.add(JinericItems.DRIPSTONE_BRICK_STAIRS);
 							entries.add(JinericItems.DRIPSTONE_BRICK_SLAB);
 							entries.add(JinericItems.DRIPSTONE_BRICK_WALL);
+							entries.add(JinericItems.DRIPSTONE_BRICK_PILLAR);
+							entries.add(JinericItems.CHISELED_DRIPSTONE_BRICKS);
 							entries.add(JinericItems.CRACKED_DRIPSTONE_BRICKS);
 							entries.add(JinericItems.CRACKED_DRIPSTONE_BRICK_STAIRS);
 							entries.add(JinericItems.CRACKED_DRIPSTONE_BRICK_SLAB);
 							entries.add(JinericItems.CRACKED_DRIPSTONE_BRICK_WALL);
 							entries.add(JinericItems.DRIPSTONE_TILES);
-							entries.add(JinericItems.DRIPSTONE_TILE_SLAB);
 							entries.add(JinericItems.DRIPSTONE_TILE_STAIRS);
+							entries.add(JinericItems.DRIPSTONE_TILE_SLAB);
 							entries.add(JinericItems.DRIPSTONE_TILE_WALL);
 							entries.add(JinericItems.CRACKED_DRIPSTONE_TILES);
-							entries.add(JinericItems.CRACKED_DRIPSTONE_TILE_SLAB);
 							entries.add(JinericItems.CRACKED_DRIPSTONE_TILE_STAIRS);
+							entries.add(JinericItems.CRACKED_DRIPSTONE_TILE_SLAB);
 							entries.add(JinericItems.CRACKED_DRIPSTONE_TILE_WALL);
 							entries.add(JinericItems.FULL_GRASS_BLOCK);
 							entries.add(JinericItems.SMOOTH_SANDSTONE_WALL);
 							entries.add(JinericItems.CUT_SANDSTONE_STAIRS);
 							entries.add(JinericItems.CUT_SANDSTONE_WALL);
 							entries.add(JinericItems.POLISHED_SANDSTONE);
-							entries.add(JinericItems.POLISHED_SANDSTONE_SLAB);
 							entries.add(JinericItems.POLISHED_SANDSTONE_STAIRS);
+							entries.add(JinericItems.POLISHED_SANDSTONE_SLAB);
 							entries.add(JinericItems.POLISHED_SANDSTONE_WALL);
 							entries.add(JinericItems.WAVY_SANDSTONE);
-							entries.add(JinericItems.WAVY_SANDSTONE_SLAB);
 							entries.add(JinericItems.WAVY_SANDSTONE_STAIRS);
+							entries.add(JinericItems.WAVY_SANDSTONE_SLAB);
 							entries.add(JinericItems.WAVY_SANDSTONE_WALL);
 							entries.add(JinericItems.SMOOTH_RED_SANDSTONE_WALL);
 							entries.add(JinericItems.CUT_RED_SANDSTONE_STAIRS);
@@ -99,25 +94,25 @@ public class JinericItemGroups {
 							entries.add(JinericItems.WAVY_RED_SANDSTONE_SLAB);
 							entries.add(JinericItems.WAVY_RED_SANDSTONE_WALL);
 							entries.add(JinericItems.SOUL_SANDSTONE);
-							entries.add(JinericItems.SOUL_SANDSTONE_SLAB);
 							entries.add(JinericItems.SOUL_SANDSTONE_STAIRS);
+							entries.add(JinericItems.SOUL_SANDSTONE_SLAB);
 							entries.add(JinericItems.SOUL_SANDSTONE_WALL);
 							entries.add(JinericItems.CUT_SOUL_SANDSTONE);
-							entries.add(JinericItems.CUT_SOUL_SANDSTONE_SLAB);
 							entries.add(JinericItems.CUT_SOUL_SANDSTONE_STAIRS);
+							entries.add(JinericItems.CUT_SOUL_SANDSTONE_SLAB);
 							entries.add(JinericItems.CUT_SOUL_SANDSTONE_WALL);
 							entries.add(JinericItems.POLISHED_SOUL_SANDSTONE);
-							entries.add(JinericItems.POLISHED_SOUL_SANDSTONE_SLAB);
 							entries.add(JinericItems.POLISHED_SOUL_SANDSTONE_STAIRS);
+							entries.add(JinericItems.POLISHED_SOUL_SANDSTONE_SLAB);
 							entries.add(JinericItems.POLISHED_SOUL_SANDSTONE_WALL);
 							entries.add(JinericItems.CHISELED_SOUL_SANDSTONE);
 							entries.add(JinericItems.SMOOTH_SOUL_SANDSTONE);
-							entries.add(JinericItems.SMOOTH_SOUL_SANDSTONE_SLAB);
 							entries.add(JinericItems.SMOOTH_SOUL_SANDSTONE_STAIRS);
+							entries.add(JinericItems.SMOOTH_SOUL_SANDSTONE_SLAB);
 							entries.add(JinericItems.SMOOTH_SOUL_SANDSTONE_WALL);
 							entries.add(JinericItems.WAVY_SOUL_SANDSTONE);
-							entries.add(JinericItems.WAVY_SOUL_SANDSTONE_SLAB);
 							entries.add(JinericItems.WAVY_SOUL_SANDSTONE_STAIRS);
+							entries.add(JinericItems.WAVY_SOUL_SANDSTONE_SLAB);
 							entries.add(JinericItems.WAVY_SOUL_SANDSTONE_WALL);
 							entries.add(JinericItems.STONE_WALL);
 							entries.add(JinericItems.CRACKED_STONE_BRICK_STAIRS);
@@ -141,9 +136,6 @@ public class JinericItemGroups {
 							entries.add(JinericItems.POLISHED_GRANITE_WALL);
 							entries.add(JinericItems.POLISHED_DIORITE_WALL);
 							entries.add(JinericItems.POLISHED_ANDESITE_WALL);
-							entries.add(JinericItems.TUFF_STAIRS);
-							entries.add(JinericItems.TUFF_SLAB);
-							entries.add(JinericItems.TUFF_WALL);
 							entries.add(JinericItems.CALCITE_STAIRS);
 							entries.add(JinericItems.CALCITE_SLAB);
 							entries.add(JinericItems.CALCITE_WALL);
@@ -235,30 +227,19 @@ public class JinericItemGroups {
 							entries.add(JinericItems.WARPED_LADDER);
 							entries.add(JinericItems.SOUL_JACK_O_LANTERN);
 							entries.add(JinericItems.NETHERITE_HORSE_ARMOR);
-							entries.add(JinericItems.TUMBLEWEED);
 							entries.add(JinericItems.REFINERY);
-							entries.add(JinericItems.FIREWEED);
 							entries.add(JinericItems.COBBLED_TUFF);
-							entries.add(JinericItems.COBBLED_TUFF_SLAB);
 							entries.add(JinericItems.COBBLED_TUFF_STAIRS);
+							entries.add(JinericItems.COBBLED_TUFF_SLAB);
 							entries.add(JinericItems.COBBLED_TUFF_WALL);
 							entries.add(JinericItems.SMOOTH_TUFF);
 							entries.add(JinericItems.SMOOTH_TUFF_STAIRS);
 							entries.add(JinericItems.SMOOTH_TUFF_SLAB);
 							entries.add(JinericItems.SMOOTH_TUFF_WALL);
-							entries.add(JinericItems.POLISHED_TUFF);
-							entries.add(JinericItems.POLISHED_TUFF_STAIRS);
-							entries.add(JinericItems.POLISHED_TUFF_SLAB);
-							entries.add(JinericItems.POLISHED_TUFF_WALL);
-							entries.add(JinericItems.TUFF_BRICKS);
-							entries.add(JinericItems.TUFF_BRICK_STAIRS);
-							entries.add(JinericItems.TUFF_BRICK_SLAB);
-							entries.add(JinericItems.TUFF_BRICK_WALL);
 							entries.add(JinericItems.CRACKED_TUFF_BRICKS);
 							entries.add(JinericItems.CRACKED_TUFF_BRICK_STAIRS);
 							entries.add(JinericItems.CRACKED_TUFF_BRICK_SLAB);
 							entries.add(JinericItems.CRACKED_TUFF_BRICK_WALL);
-							entries.add(JinericItems.CHISELED_TUFF);
 							entries.add(JinericItems.TUFF_PILLAR);
 							entries.add(JinericItems.TUFF_TILES);
 							entries.add(JinericItems.TUFF_TILE_STAIRS);
@@ -271,7 +252,6 @@ public class JinericItemGroups {
 							entries.add(JinericItems.GOLDEN_POTATO);
 							entries.add(JinericItems.GOLDEN_SWEET_BERRIES);
 							entries.add(JinericItems.GOLDEN_BEETROOT);
-//				entries.add(JinericItems.FROZEN_ELYTRA);
 							entries.add(JinericItems.REDSTONE_LANTERN);
 							entries.add(JinericItems.REDSTONE_CAMPFIRE);
 							entries.add(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE);
@@ -303,16 +283,11 @@ public class JinericItemGroups {
 			entries.addAfter(JinericItems.CRACKED_STONE_TILES, JinericItems.CRACKED_STONE_TILE_STAIRS);
 			entries.addAfter(JinericItems.CRACKED_STONE_TILE_STAIRS, JinericItems.CRACKED_STONE_TILE_SLAB);
 			entries.addAfter(JinericItems.CRACKED_STONE_TILE_SLAB, JinericItems.CRACKED_STONE_TILE_WALL);
-			//"ITE" BlOCKS
 			entries.addAfter(Items.POLISHED_ANDESITE_SLAB, JinericItems.POLISHED_ANDESITE_WALL);
 			entries.addAfter(Items.POLISHED_DIORITE_SLAB, JinericItems.POLISHED_DIORITE_WALL);
 			entries.addAfter(Items.POLISHED_GRANITE_SLAB, JinericItems.POLISHED_GRANITE_WALL);
-			//TUFF
 			entries.addAfter(JinericItems.POLISHED_ANDESITE_WALL, Items.TUFF);
-			entries.addAfter(Items.TUFF, JinericItems.TUFF_STAIRS);
-			entries.addAfter(JinericItems.TUFF_STAIRS, JinericItems.TUFF_SLAB);
-			entries.addAfter(JinericItems.TUFF_SLAB, JinericItems.TUFF_WALL);
-			entries.addAfter(JinericItems.TUFF_WALL, JinericItems.COBBLED_TUFF);
+			entries.addAfter(Items.TUFF, JinericItems.COBBLED_TUFF);
 			entries.addAfter(JinericItems.COBBLED_TUFF, JinericItems.COBBLED_TUFF_STAIRS);
 			entries.addAfter(JinericItems.COBBLED_TUFF_STAIRS, JinericItems.COBBLED_TUFF_SLAB);
 			entries.addAfter(JinericItems.COBBLED_TUFF_SLAB, JinericItems.COBBLED_TUFF_WALL);
@@ -320,21 +295,12 @@ public class JinericItemGroups {
 			entries.addAfter(JinericItems.SMOOTH_TUFF, JinericItems.SMOOTH_TUFF_STAIRS);
 			entries.addAfter(JinericItems.SMOOTH_TUFF_STAIRS, JinericItems.SMOOTH_TUFF_SLAB);
 			entries.addAfter(JinericItems.SMOOTH_TUFF_SLAB, JinericItems.SMOOTH_TUFF_WALL);
-			entries.addAfter(JinericItems.SMOOTH_TUFF_WALL, JinericItems.POLISHED_TUFF);
-			entries.addAfter(JinericItems.POLISHED_TUFF, JinericItems.POLISHED_TUFF_STAIRS);
-			entries.addAfter(JinericItems.POLISHED_TUFF_STAIRS, JinericItems.POLISHED_TUFF_SLAB);
-			entries.addAfter(JinericItems.POLISHED_TUFF_SLAB, JinericItems.POLISHED_TUFF_WALL);
-			entries.addAfter(JinericItems.POLISHED_TUFF_WALL, JinericItems.TUFF_BRICKS);
-			entries.addAfter(JinericItems.TUFF_BRICKS, JinericItems.TUFF_BRICK_STAIRS);
-			entries.addAfter(JinericItems.TUFF_BRICK_STAIRS, JinericItems.TUFF_BRICK_SLAB);
-			entries.addAfter(JinericItems.TUFF_BRICK_SLAB, JinericItems.TUFF_BRICK_WALL);
-			entries.addAfter(JinericItems.TUFF_BRICK_WALL, JinericItems.CRACKED_TUFF_BRICKS);
+			entries.addAfter(JinericItems.SMOOTH_TUFF_WALL, JinericItems.CRACKED_TUFF_BRICKS);
 			entries.addAfter(JinericItems.CRACKED_TUFF_BRICKS, JinericItems.CRACKED_TUFF_BRICK_STAIRS);
 			entries.addAfter(JinericItems.CRACKED_TUFF_BRICK_STAIRS, JinericItems.CRACKED_TUFF_BRICK_SLAB);
 			entries.addAfter(JinericItems.CRACKED_TUFF_BRICK_SLAB, JinericItems.CRACKED_TUFF_BRICK_WALL);
 			entries.addAfter(JinericItems.CRACKED_TUFF_BRICK_WALL, JinericItems.TUFF_PILLAR);
-			entries.addAfter(JinericItems.TUFF_PILLAR, JinericItems.CHISELED_TUFF);
-			entries.addAfter(JinericItems.CHISELED_TUFF, JinericItems.TUFF_TILES);
+			entries.addAfter(JinericItems.TUFF_PILLAR, JinericItems.TUFF_TILES);
 			entries.addAfter(JinericItems.TUFF_TILES, JinericItems.TUFF_TILE_STAIRS);
 			entries.addAfter(JinericItems.TUFF_TILE_STAIRS, JinericItems.TUFF_TILE_SLAB);
 			entries.addAfter(JinericItems.TUFF_TILE_SLAB, JinericItems.TUFF_TILE_WALL);
@@ -471,13 +437,6 @@ public class JinericItemGroups {
 
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register((entries -> {
 			entries.addBefore(Items.GRASS_BLOCK, JinericItems.FULL_GRASS_BLOCK);
-//			entries.addAfter(Items.PACKED_ICE, JinericItems.PACKED_ICE_STAIRS);
-//			entries.addAfter(JinericItems.PACKED_ICE_STAIRS, JinericItems.PACKED_ICE_SLAB);
-//			entries.addAfter(JinericItems.PACKED_ICE_SLAB, JinericItems.PACKED_ICE_WALL);
-//			entries.addAfter(Items.OBSIDIAN, JinericItems.OBSIDIAN_STAIRS);
-//			entries.addAfter(JinericItems.OBSIDIAN_STAIRS, JinericItems.OBSIDIAN_SLAB);
-//			entries.addAfter(JinericItems.OBSIDIAN_SLAB, JinericItems.OBSIDIAN_WALL);
-//			entries.addAfter(Items.SNOW_BLOCK, JinericItems.SNOW_WALL);
 			entries.addBefore(Items.BONE_BLOCK, JinericItems.BONE_MEAL_BLOCK);
 			entries.addAfter(Items.JACK_O_LANTERN, JinericItems.SOUL_JACK_O_LANTERN);
 		}));

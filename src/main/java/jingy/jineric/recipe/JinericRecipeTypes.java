@@ -5,7 +5,6 @@ import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
 
 public interface JinericRecipeTypes<T extends Recipe<?>> {
    RecipeType<RefiningRecipe> REFINING = register("refining");
@@ -18,5 +17,6 @@ public interface JinericRecipeTypes<T extends Recipe<?>> {
         });
     }
 
-    static void registerRecipeTypes() {}
+    static void initialize() {
+    }
 }
