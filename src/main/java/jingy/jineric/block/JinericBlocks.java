@@ -180,15 +180,13 @@ public class JinericBlocks {
 	public static final Block SMOOTH_DRIPSTONE_SLAB  = register("smooth_dripstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(SMOOTH_DRIPSTONE));
 	public static final Block SMOOTH_DRIPSTONE_STAIRS = registerStairsBlock("smooth_dripstone_stairs", SMOOTH_DRIPSTONE);
 	public static final Block SMOOTH_DRIPSTONE_WALL = register("smooth_dripstone_wall", WallBlock::new, AbstractBlock.Settings.copy(SMOOTH_DRIPSTONE));
-	public static final Block CHISELED_DRIPSTONE = register("chiseled_dripstone", AbstractBlock.Settings.copy(DRIPSTONE_BRICKS));
-	public static final Block DRIPSTONE_PILLAR = register("dripstone_pillar", PillarBlock::new, AbstractBlock.Settings.copy(DRIPSTONE_BLOCK));
 	public static final Block CHISELED_DRIPSTONE_BRICKS = register("chiseled_dripstone_bricks", AbstractBlock.Settings.copy(DRIPSTONE_BRICKS));
 	public static final Block DRIPSTONE_BRICK_PILLAR = register("dripstone_brick_pillar", PillarBlock::new, AbstractBlock.Settings.copy(DRIPSTONE_BLOCK));
 
 //OBSIDIAN
 	public static final Block OBSIDIAN_STAIRS = registerStairsBlock("obsidian_stairs", OBSIDIAN);
-	public static final Block OBSIDIAN_SLAB  = register("obsidian_slab", SlabBlock::new, JinericBlockSettings.obsidianSettings().nonOpaque());
-	public static final Block OBSIDIAN_WALL = register("obsidian_wall", WallBlock::new, JinericBlockSettings.obsidianSettings().nonOpaque());
+	public static final Block OBSIDIAN_SLAB  = register("obsidian_slab", SlabBlock::new, AbstractBlock.Settings.copy(OBSIDIAN));
+	public static final Block OBSIDIAN_WALL = register("obsidian_wall", WallBlock::new, AbstractBlock.Settings.copy(OBSIDIAN));
 
 //NETHER
 	public static final Block QUARTZ_WALL = register("quartz_wall", WallBlock::new, AbstractBlock.Settings.copy(QUARTZ_BLOCK));
@@ -290,7 +288,45 @@ public class JinericBlocks {
 			AbstractBlock.Settings.copy(OXIDIZED_CUT_COPPER)
 	);
 
-//CHESTS
+	public static final Block REFINERY = register(
+			"refinery",
+            RefineryBlock::new,
+			AbstractBlock.Settings.copy(FURNACE).luminance(createLightLevelFromLitBlockState(13)).sounds(BlockSoundGroup.DEEPSLATE)
+	);
+
+//REDSTONE
+	public static final Block REDSTONE_LANTERN = register(
+		"redstone_lantern",
+		RedstoneLanternBlock::new,
+		AbstractBlock.Settings.copy(LANTERN).luminance(state -> 7)
+	);
+	public static final Block REDSTONE_CAMPFIRE = register(
+			"redstone_campfire",
+			settings -> new RedstoneCampfireBlock(false, 1, settings),
+			AbstractBlock.Settings.copy(CAMPFIRE).luminance(createLightLevelFromLitBlockState(7))
+	);
+
+//WOOD
+	public static final Block ACACIA_BOOKSHELF = register("acacia_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
+	public static final Block BAMBOO_BOOKSHELF = register("bamboo_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
+	public static final Block BIRCH_BOOKSHELF = register("birch_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
+	public static final Block CHERRY_BOOKSHELF = register("cherry_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
+	public static final Block CRIMSON_BOOKSHELF = register("crimson_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.NETHER_WOOD));
+	public static final Block DARK_OAK_BOOKSHELF = register("dark_oak_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
+	public static final Block JUNGLE_BOOKSHELF = register("jungle_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
+	public static final Block MANGROVE_BOOKSHELF = register("mangrove_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
+	public static final Block SPRUCE_BOOKSHELF = register("spruce_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
+	public static final Block WARPED_BOOKSHELF = register("warped_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.NETHER_WOOD));
+	public static final Block ACACIA_LADDER = register("acacia_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD));
+	public static final Block BAMBOO_LADDER = register("bamboo_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD));
+	public static final Block BIRCH_LADDER = register("birch_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD));
+	public static final Block CHERRY_LADDER = register("cherry_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD));
+	public static final Block DARK_OAK_LADDER = register("dark_oak_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD));
+	public static final Block SPRUCE_LADDER = register("spruce_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD));
+	public static final Block JUNGLE_LADDER = register("jungle_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD));
+	public static final Block MANGROVE_LADDER = register("mangrove_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD));
+	public static final Block WARPED_LADDER = register("warped_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.NETHER_WOOD));
+	public static final Block CRIMSON_LADDER = register("crimson_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.NETHER_WOOD));
 	public static final Block SPRUCE_CHEST = registerChest("spruce_chest", Blocks.CHEST, WoodType.SPRUCE);
 	public static final Block BIRCH_CHEST = registerChest("birch_chest", Blocks.CHEST, WoodType.BIRCH);
 	public static final Block JUNGLE_CHEST = registerChest("jungle_chest", Blocks.CHEST, WoodType.JUNGLE);
@@ -312,53 +348,9 @@ public class JinericBlocks {
 	public static final Block TRAPPED_CRIMSON_CHEST = registerTrappedChest("trapped_crimson_chest", Blocks.TRAPPED_CHEST, WoodType.CRIMSON);
 	public static final Block TRAPPED_WARPED_CHEST = registerTrappedChest("trapped_warped_chest", Blocks.TRAPPED_CHEST, WoodType.WARPED);
 
-	public static final Block REFINERY = register(
-			"refinery",
-            RefineryBlock::new,
-			AbstractBlock.Settings.copy(FURNACE).luminance(createLightLevelFromLitBlockState(13)).sounds(BlockSoundGroup.DEEPSLATE)
-	);
-
-//REDSTONE
-	public static final Block REDSTONE_LANTERN = register(
-		"redstone_lantern",
-		RedstoneLanternBlock::new,
-		AbstractBlock.Settings.copy(LANTERN).luminance(state -> 7)
-	);
-	//TODO: Change redundant usage of JinericBlockSettings.redstoneCampfireSettings()
-	public static final Block REDSTONE_CAMPFIRE = register(
-			"redstone_campfire",
-			settings -> new RedstoneCampfireBlock(false, 1, settings),
-			JinericBlockSettings.redstoneCampfireSettings()
-	);
-
-//WOOD
-	// BOOKSHELVES
-	public static final Block ACACIA_BOOKSHELF = register("acacia_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
-	public static final Block BAMBOO_BOOKSHELF = register("bamboo_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
-	public static final Block BIRCH_BOOKSHELF = register("birch_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
-	public static final Block CHERRY_BOOKSHELF = register("cherry_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
-	public static final Block CRIMSON_BOOKSHELF = register("crimson_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.NETHER_WOOD));
-	public static final Block DARK_OAK_BOOKSHELF = register("dark_oak_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
-	public static final Block JUNGLE_BOOKSHELF = register("jungle_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
-	public static final Block MANGROVE_BOOKSHELF = register("mangrove_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
-	public static final Block SPRUCE_BOOKSHELF = register("spruce_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
-	public static final Block WARPED_BOOKSHELF = register("warped_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.NETHER_WOOD));
-
-	// LADDES
-	public static final Block ACACIA_LADDER = register("acacia_ladder", AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD));
-	public static final Block BAMBOO_LADDER = register("bamboo_ladder", AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD));
-	public static final Block BIRCH_LADDER = register("birch_ladder", AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD));
-	public static final Block CHERRY_LADDER = register("cherry_ladder", AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD));
-	public static final Block DARK_OAK_LADDER = register("dark_oak_ladder", AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD));
-	public static final Block SPRUCE_LADDER = register("spruce_ladder", AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD));
-	public static final Block JUNGLE_LADDER = register("jungle_ladder", AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD));
-	public static final Block MANGROVE_LADDER = register("mangrove_ladder", AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD));
-	public static final Block WARPED_LADDER = register("warped_ladder", AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.NETHER_WOOD));
-	public static final Block CRIMSON_LADDER = register("crimson_ladder", AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.NETHER_WOOD));
-
 	//ICE SLIPPERINESS
 	public static boolean isSlipperyBlock(BlockState state) {
-		return state.isIn(JinericBlockTags.IS_SLIPPERY);
+		return state.isIn(JinericBlockTags.SLIPPERY);
 	}
 
 	private static ToIntFunction<BlockState> createLightLevelFromLitBlockState(int litLevel) {
