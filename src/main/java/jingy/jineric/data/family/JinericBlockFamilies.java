@@ -1,13 +1,12 @@
 package jingy.jineric.data.family;
 
 import jingy.jineric.block.JinericBlocks;
-import jingy.jineric.mixin.access.BaseBlocksToFamiliesAccess;
-import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.data.family.BlockFamilies;
 import net.minecraft.data.family.BlockFamily;
-import net.minecraft.registry.Registries;
 
-public class JinericBlockFamilies {
+public class JinericBlockFamilies extends BlockFamilies {
+//TODO: ADD DUCK MIXIN, WITH A .pillar() METHOD
 
 //    public static final BlockFamily  = register(JinericBlocks.)
 //            .stairs(JinericBlocks._STAIRS)
@@ -15,6 +14,11 @@ public class JinericBlockFamilies {
 //            .wall(JinericBlocks._WALL)
 //            .build();
 
+    public static final BlockFamily DRIPSTONE =register(Blocks.DRIPSTONE_BLOCK)
+            .stairs(JinericBlocks.DRIPSTONE_STAIRS)
+            .slab(JinericBlocks.DRIPSTONE_SLAB)
+            .wall(JinericBlocks.DRIPSTONE_WALL)
+            .build();
 
     public static final BlockFamily SMOOTH_STONE = register(Blocks.SMOOTH_STONE)
             .stairs(JinericBlocks.SMOOTH_STONE_STAIRS)
@@ -40,13 +44,6 @@ public class JinericBlockFamilies {
             .wall(JinericBlocks.CRACKED_DEEPSLATE_TILE_WALL)
             .build();
 
-    public static final BlockFamily DRIPSTONE_BLOCK = register(Blocks.DRIPSTONE_BLOCK)
-            .stairs(JinericBlocks.DRIPSTONE_STAIRS)
-            .slab(JinericBlocks.DRIPSTONE_SLAB)
-            .wall(JinericBlocks.DRIPSTONE_WALL)
-            .polished(JinericBlocks.POLISHED_DRIPSTONE)
-            .build();
-
     public static final BlockFamily CRACKED_NETHER_BRICKS = register(Blocks.CRACKED_NETHER_BRICKS)
             .stairs(JinericBlocks.CRACKED_NETHER_BRICK_STAIRS)
             .slab(JinericBlocks.CRACKED_NETHER_BRICK_SLAB)
@@ -65,8 +62,39 @@ public class JinericBlockFamilies {
             .wall(JinericBlocks.SMOOTH_BASALT_WALL)
             .build();
 
+    public static final BlockFamily QUARTZ_BRICKS = register(Blocks.QUARTZ_BRICKS)
+        .stairs(JinericBlocks.QUARTZ_BRICK_STAIRS)
+        .slab(JinericBlocks.QUARTZ_BRICK_SLAB)
+        .wall(JinericBlocks.QUARTZ_BRICK_WALL)
+        .build();
 
+    public static final BlockFamily OBSIDIAN = register(Blocks.OBSIDIAN)
+        .stairs(JinericBlocks.OBSIDIAN_STAIRS)
+        .slab(JinericBlocks.OBSIDIAN_SLAB)
+        .wall(JinericBlocks.OBSIDIAN_WALL)
+        .build();
 
+    public static final BlockFamily CALCITE = register(Blocks.CALCITE)
+        .stairs(JinericBlocks.CALCITE_STAIRS)
+        .slab(JinericBlocks.CALCITE_SLAB)
+        .wall(JinericBlocks.CALCITE_WALL)
+        .build();
+
+    public static final BlockFamily PACKED_ICE = register(Blocks.PACKED_ICE)
+        .stairs(JinericBlocks.PACKED_ICE_STAIRS)
+        .slab(JinericBlocks.PACKED_ICE_SLAB)
+        .wall(JinericBlocks.PACKED_ICE_WALL)
+        .build();
+
+    public static final BlockFamily SNOW = register(Blocks.SNOW)
+            .wall(JinericBlocks.SNOW_WALL)
+            .build();
+
+    public static final BlockFamily SNOW_BRICKS = register(JinericBlocks.SNOW_BRICKS)
+            .stairs(JinericBlocks.SNOW_BRICK_STAIRS)
+            .slab(JinericBlocks.SNOW_BRICK_SLAB)
+            .wall(JinericBlocks.SNOW_BRICK_WALL)
+            .build();
 
     public static final BlockFamily COBBLED_DRIPSTONE = register(JinericBlocks.COBBLED_DRIPSTONE)
             .stairs(JinericBlocks.COBBLED_DRIPSTONE_STAIRS)
@@ -74,11 +102,17 @@ public class JinericBlockFamilies {
             .wall(JinericBlocks.COBBLED_DRIPSTONE_WALL)
             .build();
 
+    public static final BlockFamily POLISHED_DRIPSTONE = register(JinericBlocks.POLISHED_DRIPSTONE)
+            .stairs(JinericBlocks.POLISHED_DRIPSTONE_STAIRS)
+            .slab(JinericBlocks.POLISHED_DRIPSTONE_SLAB)
+            .wall(JinericBlocks.POLISHED_DRIPSTONE_WALL)
+            .build();
+
     public static final BlockFamily DRIPSTONE_BRICKS = register(JinericBlocks.DRIPSTONE_BRICKS)
             .stairs(JinericBlocks.DRIPSTONE_BRICK_STAIRS)
             .slab(JinericBlocks.DRIPSTONE_BRICK_SLAB)
             .wall(JinericBlocks.DRIPSTONE_BRICK_WALL)
-            .chiseled(JinericBlocks.CHISELED_DRIPSTONE)
+            .chiseled(JinericBlocks.CHISELED_DRIPSTONE_BRICKS)
             .cracked(JinericBlocks.CRACKED_DRIPSTONE_BRICKS)
             .build();
 
@@ -107,7 +141,6 @@ public class JinericBlockFamilies {
             .wall(JinericBlocks.SMOOTH_DRIPSTONE_WALL)
             .build();
 
-
     public static final BlockFamily POLISHED_STONE = register(JinericBlocks.POLISHED_STONE)
         .stairs(JinericBlocks.POLISHED_STONE_STAIRS)
         .slab(JinericBlocks.POLISHED_STONE_SLAB)
@@ -132,15 +165,61 @@ public class JinericBlockFamilies {
             .wall(JinericBlocks.SMOOTH_DEEPSLATE_WALL)
             .build();
 
-    public static BlockFamily.Builder register(Block baseBlock) {
-        BlockFamily.Builder builder = new BlockFamily.Builder(baseBlock);
-        BlockFamily blockFamily = BaseBlocksToFamiliesAccess.getBASE_BLOCKS_TO_FAMILIES().put(baseBlock, builder.build());
-        if (blockFamily != null) {
-            throw new IllegalStateException("Duplicate family definition for " + Registries.BLOCK.getId(baseBlock));
-        } else {
-            return builder;
-        }
-    }
+    public static final BlockFamily POLISHED_SANDSTONE = register(JinericBlocks.POLISHED_SANDSTONE)
+            .stairs(JinericBlocks.POLISHED_SANDSTONE_STAIRS)
+            .slab(JinericBlocks.POLISHED_SANDSTONE_SLAB)
+            .wall(JinericBlocks.POLISHED_SANDSTONE_WALL)
+            .build();
+
+    public static final BlockFamily WAVY_SANDSTONE = register(JinericBlocks.WAVY_SANDSTONE)
+        .stairs(JinericBlocks.WAVY_SANDSTONE_STAIRS)
+        .slab(JinericBlocks.WAVY_SANDSTONE_SLAB)
+        .wall(JinericBlocks.WAVY_SANDSTONE_WALL)
+        .build();
+
+    public static final BlockFamily POLISHED_RED_SANDSTONE = register(JinericBlocks.POLISHED_RED_SANDSTONE)
+            .stairs(JinericBlocks.POLISHED_RED_SANDSTONE_STAIRS)
+            .slab(JinericBlocks.POLISHED_RED_SANDSTONE_SLAB)
+            .wall(JinericBlocks.POLISHED_RED_SANDSTONE_WALL)
+            .build();
+
+    public static final BlockFamily WAVY_RED_SANDSTONE = register(JinericBlocks.WAVY_RED_SANDSTONE)
+        .stairs(JinericBlocks.WAVY_RED_SANDSTONE_STAIRS)
+        .slab(JinericBlocks.WAVY_RED_SANDSTONE_SLAB)
+        .wall(JinericBlocks.WAVY_RED_SANDSTONE_WALL)
+        .build();
+
+
+    public static final BlockFamily SOUL_SANDSTONE = register(JinericBlocks.SOUL_SANDSTONE)
+            .stairs(JinericBlocks.SOUL_SANDSTONE_STAIRS)
+            .slab(JinericBlocks.SOUL_SANDSTONE_SLAB)
+            .wall(JinericBlocks.SOUL_SANDSTONE_WALL)
+            .chiseled(JinericBlocks.CHISELED_SOUL_SANDSTONE)
+            .build();
+
+    public static final BlockFamily SMOOTH_SOUL_SANDSTONE = register(JinericBlocks.SMOOTH_SOUL_SANDSTONE)
+            .stairs(JinericBlocks.SMOOTH_SOUL_SANDSTONE_STAIRS)
+            .slab(JinericBlocks.SMOOTH_SOUL_SANDSTONE_SLAB)
+            .wall(JinericBlocks.SMOOTH_SOUL_SANDSTONE_WALL)
+            .build();
+
+    public static final BlockFamily CUT_SOUL_SANDSTONE = register(JinericBlocks.CUT_SOUL_SANDSTONE)
+            .stairs(JinericBlocks.CUT_SOUL_SANDSTONE_STAIRS)
+            .slab(JinericBlocks.CUT_SOUL_SANDSTONE_SLAB)
+            .wall(JinericBlocks.CUT_SOUL_SANDSTONE_WALL)
+            .build();
+
+    public static final BlockFamily POLISHED_SOUL_SANDSTONE = register(JinericBlocks.POLISHED_SOUL_SANDSTONE)
+            .stairs(JinericBlocks.POLISHED_SOUL_SANDSTONE_STAIRS)
+            .slab(JinericBlocks.POLISHED_SOUL_SANDSTONE_SLAB)
+            .wall(JinericBlocks.POLISHED_SOUL_SANDSTONE_WALL)
+            .build();
+
+    public static final BlockFamily WAVY_SOUL_SANDSTONE = register(JinericBlocks.WAVY_SOUL_SANDSTONE)
+        .stairs(JinericBlocks.WAVY_SOUL_SANDSTONE_STAIRS)
+        .slab(JinericBlocks.WAVY_SOUL_SANDSTONE_SLAB)
+        .wall(JinericBlocks.WAVY_SOUL_SANDSTONE_WALL)
+        .build();
 
     public static void registerBlockFamilies() {}
 }
