@@ -3,7 +3,7 @@
   "category": "blocks",
   "cookingtime": 100,
   "experience": 0.1,
-  "group": "smooth_stone_set",
+  "group": "smooth_stone",
   "ingredient": "jineric:stone_wall",
   "result": {
     "id": "jineric:smooth_stone_wall"

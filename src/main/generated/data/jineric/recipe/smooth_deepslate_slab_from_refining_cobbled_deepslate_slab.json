@@ -1,9 +1,9 @@
 {
   "type": "jineric:refining",
-  "category": "blocks",
+  "category": "misc",
   "cookingtime": 100,
   "experience": 0.1,
-  "group": "cobbled_deepslate_set",
+  "group": "smooth_deepslate",
   "ingredient": "minecraft:cobbled_deepslate_slab",
   "result": {
     "id": "jineric:smooth_deepslate_slab"

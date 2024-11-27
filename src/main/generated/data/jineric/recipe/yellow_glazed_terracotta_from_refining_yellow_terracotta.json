@@ -1,0 +1,11 @@
+{
+  "type": "jineric:refining",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "group": "yellow_glazed_terracotta",
+  "ingredient": "minecraft:yellow_terracotta",
+  "result": {
+    "id": "minecraft:yellow_glazed_terracotta"
+  }
+}

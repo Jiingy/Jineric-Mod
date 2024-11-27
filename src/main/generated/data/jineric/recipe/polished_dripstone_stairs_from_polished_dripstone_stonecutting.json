@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "jineric:polished_dripstone",
+  "result": {
+    "count": 1,
+    "id": "jineric:polished_dripstone_stairs"
+  }
+}

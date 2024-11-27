@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "jineric:wavy_soul_sandstone_slab"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wavy_soul_sandstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jineric:wavy_soul_sandstone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_wavy_soul_sandstone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "jineric:wavy_soul_sandstone_slab"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "jineric:prismarine_crystal_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "minecraft:prismarine_crystals"
+  }
+}

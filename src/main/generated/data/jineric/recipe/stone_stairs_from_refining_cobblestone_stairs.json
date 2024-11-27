@@ -3,7 +3,7 @@
   "category": "blocks",
   "cookingtime": 100,
   "experience": 0.1,
-  "group": "stone_set",
+  "group": "stone",
   "ingredient": "minecraft:cobblestone_stairs",
   "result": {
     "id": "minecraft:stone_stairs"

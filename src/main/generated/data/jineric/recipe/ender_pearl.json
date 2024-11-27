@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "jineric:ender_pearl_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "minecraft:ender_pearl"
+  }
+}
