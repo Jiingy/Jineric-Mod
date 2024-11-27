@@ -17,7 +17,6 @@ import net.minecraft.data.family.BlockFamily;
 import net.minecraft.data.server.recipe.CookingRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.RecipeGenerator;
-import net.minecraft.data.server.recipe.SmithingTransformRecipeJsonBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
@@ -481,23 +480,23 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
                     .offerTo(recipeExporter);
          }
 
-         public void offerIronUpgradeRecipe(Item input, RecipeCategory category, Item result) {
-         SmithingTransformRecipeJsonBuilder.create(
-                      Ingredient.ofItems(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE),
-                      Ingredient.ofItems(input),
-                      Ingredient.ofItems(Items.IRON_INGOT), category, result)
-              .criterion("has_iron_ingot", conditionsFromItem(Items.IRON_INGOT))
-              .offerTo(recipeExporter, getItemPath(result) + "_smithing");
-         }
-
-         public void offerBrickRecipe(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
-            this.createShaped(RecipeCategory.BUILDING_BLOCKS, output, 4)
-                    .input('#', input)
-                    .pattern("##")
-                    .pattern("##")
-                    .criterion("has_" + input, conditionsFromItem(input))
-                    .offerTo(exporter);
-         }
+//         public void offerIronUpgradeRecipe(Item input, RecipeCategory category, Item result) {
+//         SmithingTransformRecipeJsonBuilder.create(
+//                      Ingredient.ofItems(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE),
+//                      Ingredient.ofItems(input),
+//                      Ingredient.ofItems(Items.IRON_INGOT), category, result)
+//              .criterion("has_iron_ingot", conditionsFromItem(Items.IRON_INGOT))
+//              .offerTo(recipeExporter, getItemPath(result) + "_smithing");
+//         }
+//
+//         public void offerBrickRecipe(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
+//            this.createShaped(RecipeCategory.BUILDING_BLOCKS, output, 4)
+//                    .input('#', input)
+//                    .pattern("##")
+//                    .pattern("##")
+//                    .criterion("has_" + input, conditionsFromItem(input))
+//                    .offerTo(exporter);
+//         }
       };
    }
 
