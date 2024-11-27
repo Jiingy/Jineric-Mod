@@ -80,7 +80,7 @@ public class JinericBlocks {
 	public static final Block CRACKED_STONE_BRICK_STAIRS = registerStairsBlock("cracked_stone_brick_stairs", STONE);
 	public static final Block CRACKED_STONE_BRICK_SLAB  = register("cracked_stone_brick_slab", SlabBlock::new, AbstractBlock.Settings.copy(STONE));
 	public static final Block CRACKED_STONE_BRICK_WALL = register("cracked_stone_brick_wall", WallBlock::new, AbstractBlock.Settings.copy(STONE));
-	public static final Block STONE_PILLAR = register("stone_pillar", PillarBlock::new, AbstractBlock.Settings.copy(STONE));
+	public static final Block STONE_BRICK_PILLAR = register("stone_brick_pillar", PillarBlock::new, AbstractBlock.Settings.copy(STONE));
 	public static final Block STONE_TILES = register("stone_tiles", AbstractBlock.Settings.copy(STONE_BRICKS).sounds(BlockSoundGroup.STONE));
 	public static final Block STONE_TILE_STAIRS = registerStairsBlock("stone_tile_stairs", STONE_TILES);
 	public static final Block STONE_TILE_SLAB = register("stone_tile_slab", SlabBlock::new, AbstractBlock.Settings.copy(STONE_TILES));
@@ -182,6 +182,8 @@ public class JinericBlocks {
 	public static final Block SMOOTH_DRIPSTONE_WALL = register("smooth_dripstone_wall", WallBlock::new, AbstractBlock.Settings.copy(SMOOTH_DRIPSTONE));
 	public static final Block CHISELED_DRIPSTONE = register("chiseled_dripstone", AbstractBlock.Settings.copy(DRIPSTONE_BRICKS));
 	public static final Block DRIPSTONE_PILLAR = register("dripstone_pillar", PillarBlock::new, AbstractBlock.Settings.copy(DRIPSTONE_BLOCK));
+	public static final Block CHISELED_DRIPSTONE_BRICKS = register("chiseled_dripstone_bricks", AbstractBlock.Settings.copy(DRIPSTONE_BRICKS));
+	public static final Block DRIPSTONE_BRICK_PILLAR = register("dripstone_brick_pillar", PillarBlock::new, AbstractBlock.Settings.copy(DRIPSTONE_BLOCK));
 
 //OBSIDIAN
 	public static final Block OBSIDIAN_STAIRS = registerStairsBlock("obsidian_stairs", OBSIDIAN);

@@ -59,8 +59,8 @@ public class JinericItems {
 	public static final Item SMOOTH_DRIPSTONE_STAIRS = register(JinericBlocks.SMOOTH_DRIPSTONE_STAIRS);
 	public static final Item SMOOTH_DRIPSTONE_SLAB = register(JinericBlocks.SMOOTH_DRIPSTONE_SLAB);
 	public static final Item SMOOTH_DRIPSTONE_WALL = register(JinericBlocks.SMOOTH_DRIPSTONE_WALL);
-	public static final Item CHISELED_DRIPSTONE = register(JinericBlocks.CHISELED_DRIPSTONE);
-	public static final Item DRIPSTONE_PILLAR = register(JinericBlocks.DRIPSTONE_PILLAR);
+	public static final Item CHISELED_DRIPSTONE_BRICKS = register(JinericBlocks.CHISELED_DRIPSTONE_BRICKS);
+	public static final Item DRIPSTONE_BRICK_PILLAR = register(JinericBlocks.DRIPSTONE_BRICK_PILLAR);
 
 //TUFF
 	public static final Item COBBLED_TUFF = register(JinericBlocks.COBBLED_TUFF);
@@ -157,7 +157,7 @@ public class JinericItems {
 	public static final Item CRACKED_STONE_TILE_STAIRS = register(JinericBlocks.CRACKED_STONE_TILE_STAIRS);
 	public static final Item CRACKED_STONE_TILE_SLAB = register(JinericBlocks.CRACKED_STONE_TILE_SLAB);
 	public static final Item CRACKED_STONE_TILE_WALL = register(JinericBlocks.CRACKED_STONE_TILE_WALL);
-	public static final Item STONE_PILLAR = register(JinericBlocks.STONE_PILLAR);
+	public static final Item STONE_BRICK_PILLAR = register(JinericBlocks.STONE_BRICK_PILLAR);
 	public static final Item CRACKED_DEEPSLATE_BRICK_STAIRS = register(JinericBlocks.CRACKED_DEEPSLATE_BRICK_STAIRS);
 	public static final Item CRACKED_DEEPSLATE_BRICK_SLAB = register(JinericBlocks.CRACKED_DEEPSLATE_BRICK_SLAB);
 	public static final Item CRACKED_DEEPSLATE_BRICK_WALL = register(JinericBlocks.CRACKED_DEEPSLATE_BRICK_WALL);
