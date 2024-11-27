@@ -1,4 +1,4 @@
-package jingy.jineric.mixin;
+package jingy.jineric.mixin.client;
 
 import com.chocohead.mm.api.ClassTinkerers;
 import net.minecraft.recipe.book.RecipeBookCategory;

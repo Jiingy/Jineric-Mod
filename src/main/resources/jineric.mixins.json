@@ -15,22 +15,20 @@
 	  "DefaultAttributeRegistryMixin",
 	  "EatGrassGoalMixin",
 	  "LadderWithTrapdoorClimbingFixMixin",
-	  "LivingEntityFastFallingMixin",
-	  "PointedDripstoneBlockMixin",
-	  "RecipeBookOptionsMixin",
-	  "RecipeBookTypeMixin",
-	  "SmokerBlockMixin",
-	  "SpreadableBlockMixin",
-	  "TurtleEntityMixin",
-	  "WallBlockMixin",
-	  "access.BaseBlocksToFamiliesAccess",
-	  "access.SmithingTemplateItemAccess",
-	  "access.WoodTypeAccess"
+	   "LivingEntityFastFallingMixin",
+	   "PointedDripstoneBlockMixin",
+	   "RecipeBookOptionsMixin",
+	   "SmokerBlockMixin",
+	   "SpreadableBlockMixin",
+	   "TurtleEntityMixin",
+	   "WallBlockMixin",
+	   "access.BaseBlocksToFamiliesAccess",
+	   "access.SmithingTemplateItemAccess",
+	   "access.WoodTypeAccess"
    ],
-   "client": [
-	  "ChestBlockEntityRendererMixin",
-	  "ClientRecipeBookMixin",
-	  "LivingEntityMixin"
+	"client": [
+	   "client.ChestBlockEntityRendererMixin",
+	   "client.ClientRecipeBookMixin"
    ],
    "injectors": {
 	  "defaultRequire": 1

@@ -1,4 +1,4 @@
-package jingy.jineric.mixin;
+package jingy.jineric.mixin.client;
 
 import net.minecraft.client.recipebook.ClientRecipeBook;
 import org.spongepowered.asm.mixin.Mixin;
