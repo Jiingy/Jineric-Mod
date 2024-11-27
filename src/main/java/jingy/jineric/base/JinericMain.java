@@ -1,9 +1,10 @@
 package jingy.jineric.base;
 
-import jingy.jineric.block.JinericCauldronBehaviors;
+import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.data.family.JinericBlockFamilies;
 import jingy.jineric.entity.effect.JinericStatusEffects;
 import jingy.jineric.item.JinericItemGroups;
+import jingy.jineric.item.JinericItems;
 import jingy.jineric.potion.JinericPotions;
 import jingy.jineric.recipe.JinericRecipeBookCategories;
 import jingy.jineric.recipe.JinericRecipeSerializer;
@@ -35,19 +36,20 @@ public class JinericMain implements ModInitializer {
 	}
 
 	private void initRegistries() {
-		JinericItemTags.jinericItemTags();
-		JinericRegistries.initJinericRegistries();
-		JinericItemGroups.registerItemGroups();
-		JinericItemGroups.registerJinericItemGroups();
-		JinericStats.registerStats();
-		JinericBlockEntityType.registerBlockEntities();
+		JinericRegistries.initializeJinericRegistries();
+		JinericBlocks.initialize();
+		JinericItems.initialize();
+		JinericBlockFamilies.initialize();
+		JinericScreenHandlerType.initialize();
+		JinericItemTags.initialize();
+		JinericRecipeTypes.initialize();
+		JinericStats.initialize();
+		JinericRecipeSerializer.initialize();
+		JinericPotions.initialize();
+		JinericRecipeBookCategories.initialize();
+		JinericBlockEntityType.registerBlockEntityTypes();
 		JinericStatusEffects.registerStatusEffects();
-		JinericScreenHandlerType.registerScreenHandlers();
-		JinericCauldronBehaviors.registerCauldronBehaviors();
-		JinericRecipeSerializer.registerRefiningRecipe();
-		JinericPotions.registerPotions();
-		JinericRecipeBookCategories.registerRecipeBookCategories();
-		JinericRecipeTypes.registerRecipeTypes();
-		JinericBlockFamilies.registerBlockFamilies();
+		JinericItemGroups.registerJinericItemGroups();
+		JinericItemGroups.registerItemGroups();
 	}
 }

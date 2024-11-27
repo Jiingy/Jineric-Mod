@@ -13,7 +13,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(SpreadableBlock.class)
 public abstract class SpreadableBlockMixin {
 
-   @Inject(method = "canSurvive", at = @At(value = "HEAD"), cancellable = true)
+   @Inject(
+           method = "canSurvive",
+           at = @At(value = "HEAD"),
+           cancellable = true
+   )
    private static void jineric$canSurviveIfFullGrassBlock(BlockState state, WorldView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
       BlockPos blockPos = pos.up();
       BlockState blockState = world.getBlockState(blockPos);
@@ -25,7 +29,8 @@ public abstract class SpreadableBlockMixin {
    @Inject(
            method = "canSpread",
            at = @At(value = "RETURN", target = "net/minecraft/block/SpreadableBlock.canSurvive(Lnet/minecraft/block/BlockState;Lnet/minecraft/world/WorldView;Lnet/minecraft/util/math/BlockPos;)Z"),
-           cancellable = true)
+           cancellable = true
+   )
    private static void jineric$cannotSpreadIfFullGrassBlock(BlockState state, WorldView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
       BlockPos posAbove = pos.up();
       if (world.getBlockState(posAbove).isOf(JinericBlocks.FULL_GRASS_BLOCK)) {

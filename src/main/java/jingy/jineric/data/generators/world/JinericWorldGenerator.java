@@ -1,6 +1,5 @@
 package jingy.jineric.data.generators.world;
 
-import jingy.jineric.base.JinericMain;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
 import net.minecraft.registry.Registerable;
@@ -28,6 +27,6 @@ public class JinericWorldGenerator extends FabricDynamicRegistryProvider {
 
    @Override
    public String getName() {
-      return JinericMain.MOD_ID;
+      return "jineric_world";
    }
 }

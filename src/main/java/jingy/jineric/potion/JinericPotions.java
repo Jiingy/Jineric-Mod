@@ -7,7 +7,6 @@ import net.minecraft.potion.Potion;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.util.Identifier;
 
 public class JinericPotions {
    public static final RegistryEntry<Potion> GLOWING = register("glowing", new Potion("glowing", new StatusEffectInstance(
@@ -26,7 +25,6 @@ public class JinericPotions {
       return Registry.registerReference(Registries.POTION, JinericMain.ofJineric(id), potion);
    }
 
-   public static void registerPotions() {
-
+   public static void initialize() {
    }
 }

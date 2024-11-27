@@ -45,18 +45,6 @@ public abstract class BlockFamiliesAdditionsMixin {
       return instance.wall(JinericBlocks.SMOOTH_QUARTZ_WALL);
    }
 
-   // TODO: NEED TO MIXIN TO createFenceRecipe() BECAUSE FENCE RECIPES ARE HARD CODED FOR SOME REASON
-//   @Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
-//   @Definition(id = "RED_NETHER_BRICK", field = "Lnet/minecraft/data/family/BlockFamilies;RED_NETHER_BRICK:Lnet/minecraft/data/family/BlockFamily;")
-//   @Expression("RED_NETHER_BRICK = @(?.build())")
-//   @ModifyReceiver(
-//           method = "<clinit>",
-//           at = @At("MIXINEXTRAS:EXPRESSION")
-//   )
-//   private static BlockFamily.Builder modifyRedNetherBRickFamily(BlockFamily.Builder instance) {
-//      return instance.wall(JinericBlocks.RED_NETHER_BRICK_FENCE);
-//   }
-
    @Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
    @Definition(id = "PRISMARINE_BRICK", field = "Lnet/minecraft/data/family/BlockFamilies;PRISMARINE_BRICK:Lnet/minecraft/data/family/BlockFamily;")
    @Expression("PRISMARINE_BRICK = @(?.build())")

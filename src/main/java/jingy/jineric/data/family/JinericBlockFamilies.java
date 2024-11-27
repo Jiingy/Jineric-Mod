@@ -5,15 +5,8 @@ import net.minecraft.block.Blocks;
 import net.minecraft.data.family.BlockFamilies;
 import net.minecraft.data.family.BlockFamily;
 
-public class JinericBlockFamilies extends BlockFamilies {
 //TODO: ADD DUCK MIXIN, WITH A .pillar() METHOD
-
-//    public static final BlockFamily  = register(JinericBlocks.)
-//            .stairs(JinericBlocks._STAIRS)
-//            .slab(JinericBlocks._SLAB)
-//            .wall(JinericBlocks._WALL)
-//            .build();
-
+public class JinericBlockFamilies extends BlockFamilies {
     public static final BlockFamily DRIPSTONE =register(Blocks.DRIPSTONE_BLOCK)
             .stairs(JinericBlocks.DRIPSTONE_STAIRS)
             .slab(JinericBlocks.DRIPSTONE_SLAB)
@@ -221,5 +214,5 @@ public class JinericBlockFamilies extends BlockFamilies {
         .wall(JinericBlocks.WAVY_SOUL_SANDSTONE_WALL)
         .build();
 
-    public static void registerBlockFamilies() {}
+    public static void initialize() {}
 }

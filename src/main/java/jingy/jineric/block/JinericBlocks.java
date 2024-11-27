@@ -19,11 +19,13 @@ import java.util.function.ToIntFunction;
 
 import static net.minecraft.block.Blocks.*;
 
+//TODO: INITIALIZE BLOCKS BEFORE THEY ARE NEEDED BY SETTING THEM STATICALLY ON LOAD
 public class JinericBlocks {
 
 //SANDSTONE
 	public static final Block CUT_SANDSTONE_STAIRS = registerStairsBlock("cut_sandstone_stairs", CUT_SANDSTONE);
 	public static final Block CUT_SANDSTONE_WALL = register("cut_sandstone_wall", WallBlock::new, AbstractBlock.Settings.copy(CUT_SANDSTONE));
+	//TODO: RENAME TO 'POLISHED_CUT_SANDSTONE' OR OTHER VARIANT, AS SANDSTONE IS ALREADY USED IN A VANILLA CRAFTING RECIPE. CURRENTLY CRAFTED WITH 'CUT' SANDSTONE
 	public static final Block POLISHED_SANDSTONE = register("polished_sandstone", AbstractBlock.Settings.copy(SANDSTONE));
 	public static final Block POLISHED_SANDSTONE_STAIRS = registerStairsBlock("polished_sandstone_stairs", POLISHED_SANDSTONE);
 	public static final Block POLISHED_SANDSTONE_SLAB  = register("polished_sandstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(POLISHED_SANDSTONE));
@@ -107,32 +109,19 @@ public class JinericBlocks {
 	public static final Block POLISHED_DIORITE_WALL = register("polished_diorite_wall", WallBlock::new, AbstractBlock.Settings.copy(POLISHED_DIORITE));
 	public static final Block POLISHED_ANDESITE_WALL = register("polished_andesite_wall", WallBlock::new, AbstractBlock.Settings.copy(POLISHED_ANDESITE));
 
-	//TODO: DEPRECATE AND DATAFIX TO VANILLA
 //TUFF
 	public static final Block COBBLED_TUFF = register("cobbled_tuff",  Block.Settings.copy(TUFF));
 	public static final Block COBBLED_TUFF_SLAB = register("cobbled_tuff_slab", SlabBlock::new, Block.Settings.copy(COBBLED_TUFF));
 	public static final Block COBBLED_TUFF_STAIRS = registerStairsBlock("cobbled_tuff_stairs", COBBLED_TUFF);
 	public static final Block COBBLED_TUFF_WALL = register("cobbled_tuff_wall", WallBlock::new, Block.Settings.copy(COBBLED_TUFF));
-	public static final Block TUFF_STAIRS = registerStairsBlock("tuff_stairs", TUFF);
-	public static final Block TUFF_SLAB = register("tuff_slab", SlabBlock::new, AbstractBlock.Settings.copy(TUFF));
-	public static final Block TUFF_WALL = register("tuff_wall", WallBlock::new, AbstractBlock.Settings.copy(TUFF));
 	public static final Block SMOOTH_TUFF = register("smooth_tuff", AbstractBlock.Settings.copy(TUFF));
 	public static final Block SMOOTH_TUFF_SLAB = register("smooth_tuff_slab", SlabBlock::new, AbstractBlock.Settings.copy(SMOOTH_TUFF));
 	public static final Block SMOOTH_TUFF_STAIRS = registerStairsBlock("smooth_tuff_stairs", SMOOTH_TUFF);
 	public static final Block SMOOTH_TUFF_WALL = register("smooth_tuff_wall", WallBlock::new, AbstractBlock.Settings.copy(SMOOTH_TUFF));
-	public static final Block POLISHED_TUFF = register("polished_tuff", AbstractBlock.Settings.copy(TUFF));
-	public static final Block POLISHED_TUFF_STAIRS = registerStairsBlock("polished_tuff_stairs", POLISHED_TUFF);
-	public static final Block POLISHED_TUFF_SLAB = register("polished_tuff_slab", SlabBlock::new, AbstractBlock.Settings.copy(POLISHED_TUFF));
-	public static final Block POLISHED_TUFF_WALL = register("polished_tuff_wall", WallBlock::new, AbstractBlock.Settings.copy(POLISHED_TUFF));
-	public static final Block TUFF_BRICKS = register("tuff_bricks", AbstractBlock.Settings.copy(TUFF));
-	public static final Block TUFF_BRICK_SLAB = register("tuff_brick_slab", SlabBlock::new, AbstractBlock.Settings.copy(TUFF_BRICKS));
-	public static final Block TUFF_BRICK_STAIRS = registerStairsBlock("tuff_brick_stairs", TUFF_BRICKS);
-	public static final Block TUFF_BRICK_WALL = register("tuff_brick_wall", WallBlock::new, AbstractBlock.Settings.copy(TUFF_BRICKS));
 	public static final Block CRACKED_TUFF_BRICKS = register("cracked_tuff_bricks", AbstractBlock.Settings.copy(TUFF_BRICKS));
 	public static final Block CRACKED_TUFF_BRICK_SLAB = register("cracked_tuff_brick_slab", SlabBlock::new, AbstractBlock.Settings.copy(CRACKED_TUFF_BRICKS));
 	public static final Block CRACKED_TUFF_BRICK_STAIRS = registerStairsBlock("cracked_tuff_brick_stairs", CRACKED_TUFF_BRICKS);
 	public static final Block CRACKED_TUFF_BRICK_WALL = register("cracked_tuff_brick_wall", WallBlock::new, AbstractBlock.Settings.copy(CRACKED_TUFF_BRICKS));
-	public static final Block CHISELED_TUFF = register("chiseled_tuff",  Block.Settings.copy(TUFF_BRICKS));
 	public static final Block TUFF_PILLAR = register("tuff_pillar", PillarBlock::new, Block.Settings.copy(TUFF_BRICKS));
 	public static final Block TUFF_TILES = register("tuff_tiles",  Block.Settings.copy(STONE_TILES).sounds(BlockSoundGroup.TUFF));
 	public static final Block TUFF_TILE_STAIRS = registerStairsBlock("tuff_tile_stairs", TUFF_TILES);
@@ -149,6 +138,7 @@ public class JinericBlocks {
 	public static final Block CALCITE_WALL = register("calcite_wall", WallBlock::new, AbstractBlock.Settings.copy(CALCITE));
 
 //DRIPSTONE
+	//TODO: RENAME TO 'DRIPSTONE_BLOCK[variant]'
 	public static final Block DRIPSTONE_SLAB = register("dripstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(DRIPSTONE_BLOCK));
 	public static final Block DRIPSTONE_STAIRS = registerStairsBlock("dripstone_stairs", DRIPSTONE_BLOCK);
 	public static final Block DRIPSTONE_WALL = register("dripstone_wall", WallBlock::new, AbstractBlock.Settings.copy(DRIPSTONE_BLOCK));
@@ -218,8 +208,6 @@ public class JinericBlocks {
 	public static final Block ROTTEN_FLESH_BLOCK = register("rotten_flesh_block", AbstractBlock.Settings.copy(HONEYCOMB_BLOCK).sounds(BlockSoundGroup.HONEY));
 	public static final Block FLINT_BLOCK = register("flint_block", AbstractBlock.Settings.copy(STONE));
 	public static final Block CHARCOAL_BLOCK = register("charcoal_block", AbstractBlock.Settings.copy(COAL_BLOCK));
-	//TODO: REMOVE
-	public static final Block TUMBLEWEED = register("tumbleweed", LeavesBlock::new, AbstractBlock.Settings.copy(OAK_LEAVES).mapColor(MapColor.DIRT_BROWN));
 	public static final Block BONE_MEAL_BLOCK = register("bone_meal_block", AbstractBlock.Settings.copy(BONE_BLOCK));
 	public static final Block ENDER_PEARL_BLOCK = register("ender_pearl_block", AbstractBlock.Settings.copy(HONEY_BLOCK));
 	public static final Block PRISMARINE_CRYSTAL_BLOCK = register("prismarine_crystal_block", AbstractBlock.Settings.copy(SEA_LANTERN).luminance(state -> 4).requiresTool());
@@ -242,8 +230,8 @@ public class JinericBlocks {
 	public static final Block SNOW_BRICK_WALL = register("snow_brick_wall", WallBlock::new, AbstractBlock.Settings.copy(SNOW_BRICKS));
 
 //DECORATION BLOCKS
-	public static final Block FIREWEED = register("fireweed", TallFlowerBlock::new, AbstractBlock.Settings.copy(LILAC));
 	public static final Block SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", CarvedPumpkinBlock::new, AbstractBlock.Settings.copy(JACK_O_LANTERN));
+	// TODO: SPREADING/BONEMEALING IS BROKEN IN 1.21.3
 	public static final Block FULL_GRASS_BLOCK = register("full_grass_block", FullGrassBlock::new, AbstractBlock.Settings.copy(GRASS_BLOCK));
 	public static final Block PRISMARINE_BRICK_WALL = register("prismarine_brick_wall", WallBlock::new, AbstractBlock.Settings.copy(PRISMARINE_BRICKS));
 	public static final Block DARK_PRISMARINE_WALL = register("dark_prismarine_wall", WallBlock::new, AbstractBlock.Settings.copy(DARK_PRISMARINE));
@@ -305,7 +293,7 @@ public class JinericBlocks {
 			settings -> new RedstoneCampfireBlock(false, 1, settings),
 			AbstractBlock.Settings.copy(CAMPFIRE).luminance(createLightLevelFromLitBlockState(7))
 	);
-
+//TODO: 1.21.3+ ADD PALE OAK WOODEN ADDITIONS
 //WOOD
 	public static final Block ACACIA_BOOKSHELF = register("acacia_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
 	public static final Block BAMBOO_BOOKSHELF = register("bamboo_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
@@ -370,7 +358,6 @@ public class JinericBlocks {
 		boolean notNether = (woodType != WoodType.WARPED || woodType != WoodType.CRIMSON);
 		return register(id, settings -> new JinericTrappedChestBlock(settings, woodType), notNether ? AbstractBlock.Settings.copy(base) : AbstractBlock.Settings.copy(base).sounds(BlockSoundGroup.NETHER_WOOD));
 	}
-
 	public static Block register(RegistryKey<Block> key, Function<AbstractBlock.Settings, Block> factory, AbstractBlock.Settings settings) {
 		Block block = factory.apply(settings.registryKey(key));
 		return Registry.register(Registries.BLOCK, key, block);
@@ -391,4 +378,6 @@ public class JinericBlocks {
 	private static Block register(String id, AbstractBlock.Settings settings) {
 		return register(id, Block::new, settings);
 	}
+
+	public static void initialize() {}
 }

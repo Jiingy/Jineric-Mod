@@ -13,7 +13,6 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.tick.ScheduledTickView;
 
@@ -73,6 +72,10 @@ public class RedstoneLanternBlock extends LanternBlock {
       return direction != attachedDirection(state) || direction != attachedDirection(state).getOpposite() ? 15 : 0;
    }
 
+   //TODO: Add functionality for this method
+   protected boolean shouldUnpower(World world, BlockPos pos, BlockState state) {
+      return world.isEmittingRedstonePower(pos.up(), Direction.UP);
+   }
 
    @Override
    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {

@@ -11,11 +11,7 @@ import java.util.Set;
 @Environment(EnvType.CLIENT)
 public class JinericEntityModelLayers {
    private static final String MAIN = "main";
-   private static final Set<EntityModelLayer> LAYERS = Sets.<EntityModelLayer>newHashSet();
-   public static final EntityModelLayer MANX_LOAGHTAN = registerMain("manx_loaghtan");
-   public static final EntityModelLayer MANX_LOAGHTAN_WOOL = register("manx_loaghtan", "wool");
-   public static final EntityModelLayer SHULKER_CHEST = registerMain("shulker_chest");
-   public static final EntityModelLayer TURTLE_SADDLE = register("turtle", "saddle");
+   private static final Set<EntityModelLayer> LAYERS = Sets.newHashSet();
 
    private static EntityModelLayer registerMain(String id) {
       return register(id, MAIN);

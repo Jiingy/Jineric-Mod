@@ -6,6 +6,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.MapColor;
 import net.minecraft.sound.BlockSoundGroup;
 
+//	TODO: REMOVE THIS CLASS, MAKE ALL BLOCKS SET THEIR DATA MANUALLY INSTEAD OF COPYING VANILLA BLOCKS
 public class JinericBlockSettings extends Blocks {
 
 	public static AbstractBlock.Settings soulSandstoneSettings() {

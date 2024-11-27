@@ -9,13 +9,8 @@ import net.minecraft.client.render.RenderLayer;
 @Environment(EnvType.CLIENT)
 public class JinericBlockRenderLayerMap {
 
-   public static void register() {
-      BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.FIREWEED, RenderLayer.getCutout());
-//		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BOREAL_TRAPDOOR, RenderLayer.getCutout());
-//		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BOREAL_DOOR, RenderLayer.getCutout());
+   public static void registerBlockRenderLayerMaps() {
       BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.FULL_GRASS_BLOCK, RenderLayer.getCutout());
-//		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BOREAL_LEAVES, RenderLayer.getCutout());
-//		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BOREAL_SAPLING, RenderLayer.getCutout());
       BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.REDSTONE_LANTERN, RenderLayer.getCutout());
       BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.REDSTONE_CAMPFIRE, RenderLayer.getCutout());
       BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.SPRUCE_LADDER, RenderLayer.getCutout());
@@ -27,7 +22,6 @@ public class JinericBlockRenderLayerMap {
       BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.ACACIA_LADDER, RenderLayer.getCutout());
       BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.WARPED_LADDER, RenderLayer.getCutout());
       BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.CRIMSON_LADDER, RenderLayer.getCutout());
-//		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BOREAL_LADDER, RenderLayer.getCutout());
       BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.DARK_OAK_LADDER, RenderLayer.getCutout());
    }
 }

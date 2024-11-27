@@ -15,8 +15,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(AbstractBlock.class)
 public abstract class BlockMixin {
 
-   //TODO: MAY BE LAGGY AND NEED IMPROVING
-   @Inject(method = "getSoundGroup", at = @At(value = "HEAD"), cancellable = true)
+   //TODO: Likely a bad way to do this, better way would be to change the blocks themselves via mixins similar to the mixins for adding to block fanilies.
+   // Needs to be reviewed, block tags need to be added via data gen, generally just improve.
+   @Inject(
+           method = "getSoundGroup",
+           at = @At(value = "HEAD"),
+           cancellable = true
+   )
    private void jineric$CustomSoundGroups(BlockState state, CallbackInfoReturnable<BlockSoundGroup> cir) {
       if (state.isIn(JinericBlockSoundTags.LEAF_SOUNDS)) {
          cir.setReturnValue(BlockSoundGroup.AZALEA_LEAVES);
@@ -27,9 +32,6 @@ public abstract class BlockMixin {
       else if (state.isIn(JinericBlockSoundTags.WOODEN_ACCESSORY_SOUNDS)) {
          cir.setReturnValue(JinericBlockSoundGroup.WOODEN_ACCESSORIES);
       }
-//      else if (state.isIn(JinericBlockSoundTags.STONE_ORE_SOUNDS)) {
-//         cir.setReturnValue(JinericBlockSoundGroup.STONE_ORES);
-//      }
       else if (state.isIn(JinericBlockSoundTags.MUSHROOM_SOUNDS)) {
          cir.setReturnValue(BlockSoundGroup.NETHER_WART);
       }
@@ -49,7 +51,7 @@ public abstract class BlockMixin {
       else if (state.isIn(BlockTags.SAPLINGS)) {
          cir.setReturnValue(BlockSoundGroup.CHERRY_SAPLING);
       }
-      else if (state.isIn(JinericBlockSoundTags.WOODEN_NETHER_CHEST_SOUNDS)) {
+      else if (state.isIn(JinericBlockSoundTags.WOODEN_NETHER_BLOCK_SOUNDS)) {
          cir.setReturnValue(BlockSoundGroup.NETHER_WOOD);
       }
       else if (state.isOf(Blocks.SKELETON_SKULL)

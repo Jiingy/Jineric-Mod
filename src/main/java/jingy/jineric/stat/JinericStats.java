@@ -18,6 +18,6 @@ public class JinericStats {
       return identifier;
    }
 
-   public static void registerStats() {
+   public static void initialize() {
    }
 }

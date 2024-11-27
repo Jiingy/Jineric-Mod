@@ -5,18 +5,17 @@ import jingy.jineric.registry.JinericBlockEntityType;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.CampfireBlockEntity;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.inventory.Inventories;
-import net.minecraft.inventory.Inventory;
-import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.recipe.*;
+import net.minecraft.recipe.CampfireCookingRecipe;
+import net.minecraft.recipe.RecipeEntry;
+import net.minecraft.recipe.RecipeType;
+import net.minecraft.recipe.ServerRecipeManager;
 import net.minecraft.recipe.input.SingleStackRecipeInput;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.server.world.ServerWorld;
@@ -57,7 +56,7 @@ public class RedstoneCampfireBlockEntity extends BlockEntity implements Clearabl
                        (recipeEntry) -> recipeEntry.value().craft(singleStackRecipeInput, world.getRegistryManager())
                ).orElse(itemStack);
                if (itemStack2.isItemEnabled(world.getEnabledFeatures())) {
-                  ItemScatterer.spawn(world, (double)pos.getX(), (double)pos.getY(), (double)pos.getZ(), itemStack2);
+                  ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), itemStack2);
                   blockEntity.itemsBeingCooked.set(i, ItemStack.EMPTY);
                   world.updateListeners(pos, state, state, Block.NOTIFY_ALL);
                   world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(state));
@@ -102,7 +101,7 @@ public class RedstoneCampfireBlockEntity extends BlockEntity implements Clearabl
             }
          }
       }
-      int i = ((Direction)state.get(RedstoneCampfireBlock.FACING)).getHorizontal();
+      int i = state.get(RedstoneCampfireBlock.FACING).getHorizontal();
 
       for(int j = 0; j < campfire.itemsBeingCooked.size(); ++j) {
          if (!campfire.itemsBeingCooked.get(j).isEmpty() && random.nextFloat() < 0.2F) {

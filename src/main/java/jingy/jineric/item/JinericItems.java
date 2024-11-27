@@ -18,7 +18,6 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
-//TODO: INITIALIZE ITEMS BEFORE THEY ARE NEEDED BY SETTING THEM STATICALLY ON LOAD
 public class JinericItems {
 
 //DONE ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -71,19 +70,10 @@ public class JinericItems {
 	public static final Item SMOOTH_TUFF_STAIRS = register(JinericBlocks.SMOOTH_TUFF_STAIRS);
 	public static final Item SMOOTH_TUFF_SLAB = register(JinericBlocks.SMOOTH_TUFF_SLAB);
 	public static final Item SMOOTH_TUFF_WALL = register(JinericBlocks.SMOOTH_TUFF_WALL);
-	public static final Item POLISHED_TUFF = register(JinericBlocks.POLISHED_TUFF);
-	public static final Item POLISHED_TUFF_STAIRS = register(JinericBlocks.POLISHED_TUFF_STAIRS);
-	public static final Item POLISHED_TUFF_SLAB = register(JinericBlocks.POLISHED_TUFF_SLAB);
-	public static final Item POLISHED_TUFF_WALL = register(JinericBlocks.POLISHED_TUFF_WALL);
-	public static final Item TUFF_BRICKS = register(JinericBlocks.TUFF_BRICKS);
-	public static final Item TUFF_BRICK_STAIRS = register(JinericBlocks.TUFF_BRICK_STAIRS);
-	public static final Item TUFF_BRICK_SLAB = register(JinericBlocks.TUFF_BRICK_SLAB);
-	public static final Item TUFF_BRICK_WALL = register(JinericBlocks.TUFF_BRICK_WALL);
 	public static final Item CRACKED_TUFF_BRICKS = register(JinericBlocks.CRACKED_TUFF_BRICKS);
 	public static final Item CRACKED_TUFF_BRICK_STAIRS = register(JinericBlocks.CRACKED_TUFF_BRICK_STAIRS);
 	public static final Item CRACKED_TUFF_BRICK_SLAB = register(JinericBlocks.CRACKED_TUFF_BRICK_SLAB);
 	public static final Item CRACKED_TUFF_BRICK_WALL = register(JinericBlocks.CRACKED_TUFF_BRICK_WALL);
-	public static final Item CHISELED_TUFF = register(JinericBlocks.CHISELED_TUFF);
 	public static final Item TUFF_PILLAR = register(JinericBlocks.TUFF_PILLAR);
 	public static final Item TUFF_TILES = register(JinericBlocks.TUFF_TILES);
 	public static final Item TUFF_TILE_SLAB = register(JinericBlocks.TUFF_TILE_SLAB);
@@ -175,9 +165,6 @@ public class JinericItems {
 	public static final Item POLISHED_GRANITE_WALL = register(JinericBlocks.POLISHED_GRANITE_WALL);
 	public static final Item POLISHED_DIORITE_WALL = register(JinericBlocks.POLISHED_DIORITE_WALL);
 	public static final Item POLISHED_ANDESITE_WALL = register(JinericBlocks.POLISHED_ANDESITE_WALL);
-	public static final Item TUFF_STAIRS = register(JinericBlocks.TUFF_STAIRS);
-	public static final Item TUFF_SLAB = register(JinericBlocks.TUFF_SLAB);
-	public static final Item TUFF_WALL = register(JinericBlocks.TUFF_WALL);
 	public static final Item CALCITE_STAIRS = register(JinericBlocks.CALCITE_STAIRS);
 	public static final Item CALCITE_SLAB = register(JinericBlocks.CALCITE_SLAB);
 	public static final Item CALCITE_WALL = register(JinericBlocks.CALCITE_WALL);
@@ -296,8 +283,6 @@ public class JinericItems {
 	);
 
 	public static final Item REFINERY = register(JinericBlocks.REFINERY);
-	public static final Item FIREWEED = register(JinericBlocks.FIREWEED);
-	public static final Item TUMBLEWEED = register(JinericBlocks.TUMBLEWEED);
 	public static final Item REDSTONE_CAMPFIRE = register(JinericBlocks.REDSTONE_CAMPFIRE);
 
 	private static RegistryKey<Item> keyOf(String id) {
@@ -367,6 +352,9 @@ public class JinericItems {
 		}
 
 		return Registry.register(Registries.ITEM, key, item);
+	}
+
+	public static void initialize() {
 	}
 }
 

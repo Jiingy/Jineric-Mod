@@ -66,4 +66,9 @@ public class JinericModelGenerator extends FabricModelProvider {
       Identifier fenceInventory = Models.FENCE_INVENTORY.upload(fenceBlock, fenceTextureMap, blockStateModelGenerator.modelCollector);
       blockStateModelGenerator.registerParentedItemModel(fenceBlock, fenceInventory);
    }
+
+   @Override
+   public String getName() {
+      return "jineric_model";
+   }
 }

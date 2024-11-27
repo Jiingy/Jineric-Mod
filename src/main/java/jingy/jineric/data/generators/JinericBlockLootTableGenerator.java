@@ -84,4 +84,9 @@ public class JinericBlockLootTableGenerator extends FabricBlockLootTableProvider
          }
       });
    }
+
+   @Override
+   public String getName() {
+      return "jineric_block_loot_table";
+   }
 }

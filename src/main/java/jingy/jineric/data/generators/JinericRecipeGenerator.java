@@ -2,7 +2,7 @@ package jingy.jineric.data.generators;
 
 import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.item.JinericItems;
-import jingy.jineric.mixin.CookingRecipeJsonBuilderAccessor;
+import jingy.jineric.mixin.access.CookingRecipeJsonBuilderAccessor;
 import jingy.jineric.recipe.RefiningRecipe;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -378,7 +378,7 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
          }
 
          public CookingRecipeJsonBuilder createRefining(Ingredient input, ItemConvertible output, RecipeCategory category, CookingRecipeCategory cookingRecipeCategory, float experience, int cookingTime) {
-            return CookingRecipeJsonBuilderAccessor.createCookingRecipeJsonBuilder(category, cookingRecipeCategory, output, input, experience, cookingTime, RefiningRecipe::new);
+            return CookingRecipeJsonBuilderAccessor.invokeInit(category, cookingRecipeCategory, output, input, experience, cookingTime, RefiningRecipe::new);
          }
 
          public void offerStairs(ItemConvertible input, ItemConvertible output) {

@@ -16,6 +16,7 @@ public class RefineryBlockEntity extends AbstractFurnaceBlockEntity {
    public RefineryBlockEntity(BlockPos blockPos, BlockState state) {
       super(JinericBlockEntityType.REFINERY, blockPos, state, JinericRecipeTypes.REFINING);
    }
+
    @Override
    protected Text getContainerName() {
       return Text.translatable("container.refinery");
