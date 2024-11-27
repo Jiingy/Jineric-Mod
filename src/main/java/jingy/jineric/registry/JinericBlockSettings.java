@@ -18,20 +18,6 @@ public class JinericBlockSettings extends Blocks {
 				.sounds(JinericBlockSoundGroup.SOUL_SANDSTONE);
 	}
 
-	public static AbstractBlock.Settings obsidianSettings() {
-		return AbstractBlock.Settings.copy(OBSIDIAN)
-				.requiresTool()
-				.strength(50.0F, 1200.0F).sounds(BlockSoundGroup.STONE);
-	}
-	public static AbstractBlock.Settings redstoneCampfireSettings() {
-		return AbstractBlock.Settings
-				.copy(OAK_WOOD)
-				.strength(2.0F)
-				.sounds(BlockSoundGroup.WOOD)
-				.luminance(createLightLevelFromLitBlockState(7))
-				.nonOpaque();
-	}
-
 	public static AbstractBlock.Settings snowBrickSettings() {
 		return AbstractBlock.Settings
 				.copy(SNOW_BLOCK)
