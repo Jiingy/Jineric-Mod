@@ -12,6 +12,8 @@ import java.util.Set;
 public class JinericEntityModelLayers {
    private static final String MAIN = "main";
    private static final Set<EntityModelLayer> LAYERS = Sets.newHashSet();
+   public static final EntityModelLayer PETRIFIED_OAK_BOAT = registerMain("boat/petrified_oak");
+   public static final EntityModelLayer PETRIFIED_OAK_CHEST_BOAT = registerMain("chest_boat/petrified_oak");
 
    private static EntityModelLayer registerMain(String id) {
       return register(id, MAIN);

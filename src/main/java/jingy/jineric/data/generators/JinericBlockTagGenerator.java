@@ -97,27 +97,38 @@ public class JinericBlockTagGenerator extends FabricTagProvider.BlockTagProvider
       this.blockFamilyToTag(BlockTags.NEEDS_DIAMOND_TOOL, Blocks.OBSIDIAN);
       // Vanilla Tags
 //      this.getOrCreateTagBuilder(BlockTags.WOOL);
-//      this.getOrCreateTagBuilder(BlockTags.PLANKS);
+      this.getOrCreateTagBuilder(BlockTags.PLANKS)
+              .add(JinericBlocks.PETRIFIED_OAK_PLANKS);
       this.getOrCreateTagBuilder(BlockTags.STONE_BRICKS)
               .add(STONE_BRICK_PILLAR);
-//      this.getOrCreateTagBuilder(BlockTags.WOODEN_BUTTONS);
+      this.getOrCreateTagBuilder(BlockTags.WOODEN_BUTTONS)
+              .add(JinericBlocks.PETRIFIED_OAK_BUTTON);
 //      this.getOrCreateTagBuilder(BlockTags.STONE_BUTTONS);
 //      this.getOrCreateTagBuilder(BlockTags.BUTTONS);
 //      this.getOrCreateTagBuilder(BlockTags.WOOL_CARPETS);
-//      this.getOrCreateTagBuilder(BlockTags.WOODEN_DOORS);
+      this.getOrCreateTagBuilder(BlockTags.WOODEN_DOORS)
+              .add(JinericBlocks.PETRIFIED_OAK_DOOR);
 //      this.getOrCreateTagBuilder(BlockTags.MOB_INTERACTABLE_DOORS);
-//      this.getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS);
-//      this.getOrCreateTagBuilder(BlockTags.WOODEN_SLABS);
-//      this.getOrCreateTagBuilder(BlockTags.WOODEN_FENCES);
+      this.getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS)
+              .add(JinericBlocks.PETRIFIED_OAK_STAIRS);
+      this.getOrCreateTagBuilder(BlockTags.WOODEN_SLABS)
+              .add(JinericBlocks.PETRIFIED_OAK_SLAB);
+      this.getOrCreateTagBuilder(BlockTags.WOODEN_FENCES)
+              .add(JinericBlocks.PETRIFIED_OAK_FENCE);
 //      this.getOrCreateTagBuilder(BlockTags.PRESSURE_PLATES);
-//      this.getOrCreateTagBuilder(BlockTags.WOODEN_PRESSURE_PLATES);
+      this.getOrCreateTagBuilder(BlockTags.WOODEN_PRESSURE_PLATES)
+              .add(JinericBlocks.PETRIFIED_OAK_PRESSURE_PLATE);
 //      this.getOrCreateTagBuilder(BlockTags.STONE_PRESSURE_PLATES);
-//      this.getOrCreateTagBuilder(BlockTags.WOODEN_TRAPDOORS);
+      this.getOrCreateTagBuilder(BlockTags.WOODEN_TRAPDOORS)
+              .add(JinericBlocks.PETRIFIED_OAK_TRAPDOOR);
 //      this.getOrCreateTagBuilder(BlockTags.DOORS);
-//      this.getOrCreateTagBuilder(BlockTags.SAPLINGS);
-//      this.getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN);
+      this.getOrCreateTagBuilder(BlockTags.SAPLINGS)
+              .add(JinericBlocks.PETRIFIED_OAK_SAPLING);
+      this.getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
+              .addTag(JinericBlockTags.PETRIFIED_OAK_LOGS);;
 //      this.getOrCreateTagBuilder(BlockTags.OVERWORLD_NATURAL_LOGS);
-//      this.getOrCreateTagBuilder(BlockTags.LOGS);
+      this.getOrCreateTagBuilder(BlockTags.LOGS)
+              .forceAddTag(JinericBlockTags.PETRIFIED_OAK_LOGS);
 //      this.getOrCreateTagBuilder(BlockTags.DARK_OAK_LOGS);
 //      this.getOrCreateTagBuilder(BlockTags.PALE_OAK_LOGS);
 //      this.getOrCreateTagBuilder(BlockTags.OAK_LOGS);
@@ -139,7 +150,8 @@ public class JinericBlockTagGenerator extends FabricTagProvider.BlockTagProvider
 //      this.getOrCreateTagBuilder(BlockTags.WALLS);
 //      this.getOrCreateTagBuilder(BlockTags.ANVIL);
 //      this.getOrCreateTagBuilder(BlockTags.RAILS);
-//      this.getOrCreateTagBuilder(BlockTags.LEAVES);
+      this.getOrCreateTagBuilder(BlockTags.LEAVES)
+              .add(JinericBlocks.PETRIFIED_OAK_LEAVES);
 //      this.getOrCreateTagBuilder(BlockTags.TRAPDOORS);
 //      this.getOrCreateTagBuilder(BlockTags.SMALL_FLOWERS);
 //      this.getOrCreateTagBuilder(BlockTags.BEDS);
@@ -178,11 +190,14 @@ public class JinericBlockTagGenerator extends FabricTagProvider.BlockTagProvider
 //      this.getOrCreateTagBuilder(BlockTags.CORALS);
       this.getOrCreateTagBuilder(BlockTags.BAMBOO_PLANTABLE_ON)
               .add(FULL_GRASS_BLOCK);
-//      this.getOrCreateTagBuilder(BlockTags.STANDING_SIGNS);
+      this.getOrCreateTagBuilder(BlockTags.STANDING_SIGNS)
+              .add(JinericBlocks.PETRIFIED_OAK_SIGN);
 //      this.getOrCreateTagBuilder(BlockTags.WALL_SIGNS);
 //      this.getOrCreateTagBuilder(BlockTags.SIGNS);
-//      this.getOrCreateTagBuilder(BlockTags.CEILING_HANGING_SIGNS);
-//      this.getOrCreateTagBuilder(BlockTags.WALL_HANGING_SIGNS);
+      this.getOrCreateTagBuilder(BlockTags.CEILING_HANGING_SIGNS)
+              .add(JinericBlocks.PETRIFIED_OAK_HANGING_SIGN);
+      this.getOrCreateTagBuilder(BlockTags.WALL_HANGING_SIGNS)
+              .add(JinericBlocks.PETRIFIED_OAK_WALL_HANGING_SIGN);
 //      this.getOrCreateTagBuilder(BlockTags.ALL_HANGING_SIGNS);
 //      this.getOrCreateTagBuilder(BlockTags.ALL_SIGNS);
 //      this.getOrCreateTagBuilder(BlockTags.DRAGON_IMMUNE);
@@ -295,6 +310,11 @@ public class JinericBlockTagGenerator extends FabricTagProvider.BlockTagProvider
 //      this.getOrCreateTagBuilder(BlockTags.DOES_NOT_BLOCK_HOPPERS);
 
       // JinericBlock Tags
+      this.getOrCreateTagBuilder(JinericBlockTags.PETRIFIED_OAK_LOGS)
+              .add(JinericBlocks.PETRIFIED_OAK_LOG)
+              .add(JinericBlocks.PETRIFIED_OAK_WOOD)
+              .add(JinericBlocks.STRIPPED_PETRIFIED_OAK_LOG)
+              .add(JinericBlocks.STRIPPED_PETRIFIED_OAK_WOOD);
       this.getOrCreateTagBuilder(JinericBlockTags.LADDERS)
               .forceAddTag(JinericBlockTags.WOODEN_LADDERS);
       this.getOrCreateTagBuilder(JinericBlockTags.NOT_PICKAXE_WALL)
@@ -365,7 +385,7 @@ public class JinericBlockTagGenerator extends FabricTagProvider.BlockTagProvider
    private void blockFamilyToTag(TagKey<Block> tagKey, Block... baseBlock) {
       Stream<BlockFamily> blockFamilies = BlockFamilies.getFamilies();
       blockFamilies.forEach(blockFamily -> Arrays.stream(baseBlock).forEach(block -> {
-         if (blockFamily.getBaseBlock() == block) {
+         if (block == blockFamily.getBaseBlock()) {
             for (Block blockVariant : blockFamily.getVariants().values()) {
                if (!blockVariant.getDefaultState().isIn(tagKey)) {
                   this.getOrCreateTagBuilder(tagKey).add(blockVariant);
@@ -423,31 +443,4 @@ public class JinericBlockTagGenerator extends FabricTagProvider.BlockTagProvider
    public String getName() {
       return "jineric_block_tags";
    }
-
-//   private void petrifiedOak() {
-//      this.getOrCreateTagBuilder(JinericBlockTags.PETRIFIED_OAK_LOGS).add(JinericBlocks.PETRIFIED_OAK_LOG).add(JinericBlocks.PETRIFIED_OAK_WOOD).add(JinericBlocks.STRIPPED_PETRIFIED_OAK_LOG).add(JinericBlocks.STRIPPED_PETRIFIED_OAK_WOOD);
-//      this.getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN).addTag(JinericBlockTags.PETRIFIED_OAK_LOGS).setReplace(false);
-//      this.getOrCreateTagBuilder(BlockTags.PLANKS).add(JinericBlocks.PETRIFIED_OAK_PLANKS).setReplace(false);
-//      this.getOrCreateTagBuilder(BlockTags.STAIRS).add(JinericBlocks.PETRIFIED_OAK_STAIRS).setReplace(false);
-//      this.getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS).add(JinericBlocks.PETRIFIED_OAK_STAIRS).setReplace(false);
-//      this.getOrCreateTagBuilder(BlockTags.SLABS).add(JinericBlocks.PETRIFIED_OAK_SLAB).setReplace(false);
-//      this.getOrCreateTagBuilder(BlockTags.WOODEN_SLABS).add(JinericBlocks.PETRIFIED_OAK_SLAB).setReplace(false);
-//      this.getOrCreateTagBuilder(BlockTags.FENCES).add(JinericBlocks.PETRIFIED_OAK_FENCE, JinericBlocks.RED_NETHER_BRICK_FENCE).setReplace(false);
-//      this.getOrCreateTagBuilder(BlockTags.WOODEN_FENCES).add(JinericBlocks.PETRIFIED_OAK_FENCE).setReplace(false);
-//      this.getOrCreateTagBuilder(BlockTags.FENCE_GATES).add(JinericBlocks.PETRIFIED_OAK_FENCE_GATE).setReplace(false);
-//      this.getOrCreateTagBuilder(BlockTags.DOORS).add(JinericBlocks.PETRIFIED_OAK_DOOR).setReplace(false);
-//      this.getOrCreateTagBuilder(BlockTags.WOODEN_DOORS).add(JinericBlocks.PETRIFIED_OAK_DOOR).setReplace(false);
-//      this.getOrCreateTagBuilder(BlockTags.TRAPDOORS).add(JinericBlocks.PETRIFIED_OAK_TRAPDOOR).setReplace(false);
-//      this.getOrCreateTagBuilder(BlockTags.WOODEN_TRAPDOORS).add(JinericBlocks.PETRIFIED_OAK_TRAPDOOR).setReplace(false);
-//      this.getOrCreateTagBuilder(BlockTags.PRESSURE_PLATES).add(JinericBlocks.PETRIFIED_OAK_PRESSURE_PLATE).setReplace(false);
-//      this.getOrCreateTagBuilder(BlockTags.WOODEN_PRESSURE_PLATES).add(JinericBlocks.PETRIFIED_OAK_PRESSURE_PLATE).setReplace(false);
-//      this.getOrCreateTagBuilder(BlockTags.BUTTONS).add(JinericBlocks.PETRIFIED_OAK_BUTTON).setReplace(false);
-//      this.getOrCreateTagBuilder(BlockTags.WOODEN_BUTTONS).add(JinericBlocks.PETRIFIED_OAK_BUTTON).setReplace(false);
-//      this.getOrCreateTagBuilder(BlockTags.LEAVES).add(JinericBlocks.PETRIFIED_OAK_LEAVES).setReplace(false);
-//      this.getOrCreateTagBuilder(BlockTags.SAPLINGS).add(JinericBlocks.PETRIFIED_OAK_SAPLING).setReplace(false);
-//      this.getOrCreateTagBuilder(BlockTags.STANDING_SIGNS).add(JinericBlocks.PETRIFIED_OAK_SIGN).setReplace(false);
-//      this.getOrCreateTagBuilder(BlockTags.WALL_SIGNS).add(JinericBlocks.PETRIFIED_OAK_WALL_SIGN).setReplace(false);
-//      this.getOrCreateTagBuilder(BlockTags.CEILING_HANGING_SIGNS).add(JinericBlocks.PETRIFIED_OAK_HANGING_SIGN).setReplace(false);
-//      this.getOrCreateTagBuilder(BlockTags.WALL_HANGING_SIGNS).add(JinericBlocks.PETRIFIED_OAK_WALL_HANGING_SIGN).setReplace(false);
-//   }
 }

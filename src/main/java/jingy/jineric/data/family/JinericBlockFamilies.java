@@ -17,7 +17,8 @@ public class JinericBlockFamilies extends BlockFamilies {
            .stairs(JinericBlocks.PETRIFIED_OAK_STAIRS)
            .door(JinericBlocks.PETRIFIED_OAK_DOOR)
            .trapdoor(JinericBlocks.PETRIFIED_OAK_TRAPDOOR)
-           .group("wooden").unlockCriterionName("has_planks")
+           .group("wooden")
+           .unlockCriterionName("has_planks")
            .build();
 
     public static final BlockFamily DRIPSTONE = register(Blocks.DRIPSTONE_BLOCK)

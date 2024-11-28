@@ -2,6 +2,7 @@ package jingy.jineric.data.generators;
 
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.JinericBlocks;
+import jingy.jineric.registry.JinericWoodType;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Block;
@@ -80,8 +81,8 @@ public class JinericBlockLootTableGenerator extends FabricBlockLootTableProvider
       List<WoodType> woodTypes = WoodType.stream().toList();
       woodTypes.forEach(
               woodType -> {
-                 // SKIPS OAK BECAUSE JINERIC DOES NOT HAVE UNIQUE OAK AT THE MOMENT
-                 if (woodType != WoodType.OAK && woodType != WoodType.PALE_OAK) {
+                 // TODO: SKIPS OAK BECAUSE JINERIC DOES NOT HAVE UNIQUE OAK AT THE MOMENT
+                 if (woodType != WoodType.OAK && woodType != WoodType.PALE_OAK && woodType != JinericWoodType.PETRIFIED_OAK) {
                     this.addDrop(blockRegistry.get(JinericMain.ofJineric(woodType.name() + "_ladder")));
                     this.addDrop(blockRegistry.get(JinericMain.ofJineric(woodType.name() + "_bookshelf")), block -> this.drops(block, Items.BOOK, ConstantLootNumberProvider.create(3.0F)));
                     this.addNameableContainerDrop(blockRegistry.get(JinericMain.ofJineric(woodType.name() + "_chest")));

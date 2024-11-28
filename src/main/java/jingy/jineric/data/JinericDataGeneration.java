@@ -2,10 +2,7 @@ package jingy.jineric.data;
 
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.data.generators.*;
-import jingy.jineric.data.generators.world.JinericWorldGenerator;
 import jingy.jineric.entity.JinericPaintingVariants;
-import jingy.jineric.world.biome.JinericBiomes;
-import jingy.jineric.world.gen.feature.JinericPlacedFeatures;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.RegistryBuilder;
@@ -30,9 +27,9 @@ public class JinericDataGeneration implements DataGeneratorEntrypoint {
    @Override
    public void buildRegistry(RegistryBuilder registryBuilder) {
       //TODO: FIX FEATURES, NOT WORKING RIGHT NOW
-      registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, JinericWorldGenerator::bootstrap);
-      registryBuilder.addRegistry(RegistryKeys.BIOME, JinericBiomes::bootstrap);
-      registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, JinericPlacedFeatures::bootstrap);
+//      registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, JinericWorldGenerator::bootstrap);
+//      registryBuilder.addRegistry(RegistryKeys.BIOME, JinericBiomes::bootstrap);
+//      registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, JinericPlacedFeatures::bootstrap);
       //TODO: PAINTINGS MOVED TO DATA GEN, NO LONGER WORK
       registryBuilder.addRegistry(RegistryKeys.PAINTING_VARIANT, JinericPaintingVariants::bootstrap);
    }

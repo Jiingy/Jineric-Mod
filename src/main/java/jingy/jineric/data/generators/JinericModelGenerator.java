@@ -2,7 +2,6 @@ package jingy.jineric.data.generators;
 
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.JinericBlocks;
-import jingy.jineric.data.family.JinericBlockFamilies;
 import jingy.jineric.item.JinericItems;
 import jingy.jineric.registry.JinericWoodType;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -10,7 +9,6 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.WoodType;
 import net.minecraft.data.client.*;
-import net.minecraft.data.family.BlockFamily;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 
@@ -23,17 +21,15 @@ public class JinericModelGenerator extends FabricModelProvider {
 
    @Override
    public void generateBlockStateModels(BlockStateModelGenerator generator) {
-      registerSimpleBlockSet(JinericBlocks.SNOW_BRICKS, JinericBlocks.SNOW_BRICK_STAIRS, JinericBlocks.SNOW_BRICK_SLAB, JinericBlocks.SNOW_BRICK_WALL, generator);
-      registerSimpleBlockSet(JinericBlocks.CRACKED_DRIPSTONE_TILES, JinericBlocks.CRACKED_DRIPSTONE_TILE_STAIRS, JinericBlocks.CRACKED_DRIPSTONE_TILE_SLAB, JinericBlocks.CRACKED_DRIPSTONE_TILE_WALL, generator);
-      registerSimpleBlockSet(JinericBlocks.CRACKED_DRIPSTONE_BRICKS, JinericBlocks.CRACKED_DRIPSTONE_BRICK_STAIRS, JinericBlocks.CRACKED_DRIPSTONE_BRICK_SLAB, JinericBlocks.CRACKED_DRIPSTONE_BRICK_WALL, generator);
-      registerSimpleBlockSet(JinericBlocks.CRACKED_TUFF_TILES, JinericBlocks.CRACKED_TUFF_TILE_STAIRS, JinericBlocks.CRACKED_TUFF_TILE_SLAB, JinericBlocks.CRACKED_TUFF_TILE_WALL, generator);
-      registerSimpleBlockSet(JinericBlocks.CRACKED_STONE_TILES, JinericBlocks.CRACKED_STONE_TILE_STAIRS, JinericBlocks.CRACKED_STONE_TILE_SLAB, JinericBlocks.CRACKED_STONE_TILE_WALL, generator);
+      //
+//      JinericBlockFamilies.getFamilies()
+//              .filter(BlockFamily::shouldGenerateModels )
+//              .forEach((family) -> {
+//                 if (Registries.BLOCK.getId(family.getBaseBlock()).getNamespace().equals("jineric")) {
+//                    generator.registerCubeAllModelTexturePool(family.getBaseBlock()).family(family);
+//                 }
+//              });
       registerWoodSet(JinericWoodType.PETRIFIED_OAK, generator);
-
-      JinericBlockFamilies.getFamilies().filter(BlockFamily::shouldGenerateModels).forEach((family) -> {
-         generator.registerCubeAllModelTexturePool(family.getBaseBlock()).family(family);
-      });
-
       generator.registerFlowerPotPlant(JinericBlocks.BLOSSOMED_DANDELION, JinericBlocks.POTTED_BLOSSOMED_DANDELION, BlockStateModelGenerator.TintType.NOT_TINTED);
    }
 
@@ -53,15 +49,16 @@ public class JinericModelGenerator extends FabricModelProvider {
    // REMOVED HARD CODED PETRIFIED ADDITIONS
    public void registerWoodSet(WoodType woodTypeIn, BlockStateModelGenerator generator) {
       String stripped = "stripped_";
-      String woodType = woodTypeIn.name().replace("jineric:", "");
-      generator.registerLog(byId(woodType + "_log")).log(byId(woodType + "_log")).wood(byId(woodType + "_wood"));
-      generator.registerLog(byId(stripped + woodType + "_log")).log(byId(stripped + woodType + "_log")).wood(byId(stripped + woodType + "_wood"));
-      generator.registerSingleton(byId(woodType + "_leaves"), TexturedModel.LEAVES);
-      generator.registerFlowerPotPlant(JinericBlocks.PETRIFIED_OAK_SAPLING, JinericBlocks.POTTED_PETRIFIED_OAK_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
-      generator.registerNorthDefaultHorizontalRotation(byId(woodType + "_ladder"));
-      generator.registerItemModel(byId(woodType + "_ladder"));
-      this.registerBookshelf(byId(woodType + "_bookshelf"), byId(woodType + "_planks"), generator);
-      generator.registerHangingSign(JinericBlocks.STRIPPED_PETRIFIED_OAK_LOG, JinericBlocks.PETRIFIED_OAK_HANGING_SIGN, JinericBlocks.PETRIFIED_OAK_WALL_HANGING_SIGN);
+      String woodType = woodTypeIn.name();
+      System.out.println(woodType);
+//      generator.registerLog(byId(woodType + "_log")).log(byId(woodType + "_log")).wood(byId(woodType + "_wood"));
+//      generator.registerLog(byId(stripped + woodType + "_log")).log(byId(stripped + woodType + "_log")).wood(byId(stripped + woodType + "_wood"));
+//      generator.registerSingleton(byId(woodType + "_leaves"), TexturedModel.LEAVES);
+//      generator.registerFlowerPotPlant(JinericBlocks.PETRIFIED_OAK_SAPLING, JinericBlocks.POTTED_PETRIFIED_OAK_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
+//      generator.registerNorthDefaultHorizontalRotation(byId(woodType + "_ladder"));
+//      generator.registerItemModel(byId(woodType + "_ladder"));
+//      this.registerBookshelf(byId(woodType + "_bookshelf"), byId(woodType + "_planks"), generator);
+//      generator.registerHangingSign(JinericBlocks.STRIPPED_PETRIFIED_OAK_LOG, JinericBlocks.PETRIFIED_OAK_HANGING_SIGN, JinericBlocks.PETRIFIED_OAK_WALL_HANGING_SIGN);
    }
 
    static Block byId(String id) {
