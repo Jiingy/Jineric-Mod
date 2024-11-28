@@ -47,18 +47,17 @@ public class JinericModelGenerator extends FabricModelProvider {
    }
 
    // REMOVED HARD CODED PETRIFIED ADDITIONS
-   public void registerWoodSet(WoodType woodTypeIn, BlockStateModelGenerator generator) {
+   public void registerWoodSet(WoodType woodType, BlockStateModelGenerator modelGenerator) {
       String stripped = "stripped_";
-      String woodType = woodTypeIn.name();
-      System.out.println(woodType);
-//      generator.registerLog(byId(woodType + "_log")).log(byId(woodType + "_log")).wood(byId(woodType + "_wood"));
-//      generator.registerLog(byId(stripped + woodType + "_log")).log(byId(stripped + woodType + "_log")).wood(byId(stripped + woodType + "_wood"));
-//      generator.registerSingleton(byId(woodType + "_leaves"), TexturedModel.LEAVES);
-//      generator.registerFlowerPotPlant(JinericBlocks.PETRIFIED_OAK_SAPLING, JinericBlocks.POTTED_PETRIFIED_OAK_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
-//      generator.registerNorthDefaultHorizontalRotation(byId(woodType + "_ladder"));
-//      generator.registerItemModel(byId(woodType + "_ladder"));
-//      this.registerBookshelf(byId(woodType + "_bookshelf"), byId(woodType + "_planks"), generator);
-//      generator.registerHangingSign(JinericBlocks.STRIPPED_PETRIFIED_OAK_LOG, JinericBlocks.PETRIFIED_OAK_HANGING_SIGN, JinericBlocks.PETRIFIED_OAK_WALL_HANGING_SIGN);
+      String woodTypeName = woodType.name().replace("jineric:", "");
+      modelGenerator.registerLog(byId(woodTypeName + "_log")).log(byId(woodTypeName + "_log")).wood(byId(woodTypeName + "_wood"));
+      modelGenerator.registerLog(byId(stripped + woodTypeName + "_log")).log(byId(stripped + woodTypeName + "_log")).wood(byId(stripped + woodTypeName + "_wood"));
+      modelGenerator.registerSingleton(byId(woodTypeName + "_leaves"), TexturedModel.LEAVES);
+      modelGenerator.registerFlowerPotPlant(JinericBlocks.PETRIFIED_OAK_SAPLING, JinericBlocks.POTTED_PETRIFIED_OAK_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
+      modelGenerator.registerNorthDefaultHorizontalRotation(byId(woodTypeName + "_ladder"));
+      modelGenerator.registerItemModel(byId(woodTypeName + "_ladder"));
+      this.registerBookshelf(byId(woodTypeName + "_bookshelf"), byId(woodTypeName + "_planks"), modelGenerator);
+      modelGenerator.registerHangingSign(JinericBlocks.STRIPPED_PETRIFIED_OAK_LOG, JinericBlocks.PETRIFIED_OAK_HANGING_SIGN, JinericBlocks.PETRIFIED_OAK_WALL_HANGING_SIGN);
    }
 
    static Block byId(String id) {
