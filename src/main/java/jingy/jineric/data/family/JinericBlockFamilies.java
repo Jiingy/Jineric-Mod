@@ -20,7 +20,7 @@ public class JinericBlockFamilies extends BlockFamilies {
            .group("wooden").unlockCriterionName("has_planks")
            .build();
 
-    public static final BlockFamily DRIPSTONE =register(Blocks.DRIPSTONE_BLOCK)
+    public static final BlockFamily DRIPSTONE = register(Blocks.DRIPSTONE_BLOCK)
             .stairs(JinericBlocks.DRIPSTONE_STAIRS)
             .slab(JinericBlocks.DRIPSTONE_SLAB)
             .wall(JinericBlocks.DRIPSTONE_WALL)
