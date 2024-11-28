@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": "jineric:dripstone_bricks",
+  "result": {
+    "id": "jineric:cracked_dripstone_bricks"
+  }
+}

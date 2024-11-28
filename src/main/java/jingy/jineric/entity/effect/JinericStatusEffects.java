@@ -6,13 +6,13 @@ import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
+//TODO: BROKEN IN 1.21.3, EITHER FIX OR REMOVE
 public class JinericStatusEffects {
-
    public static final StatusEffect THORNS = new ThornsStatusEffect(StatusEffectCategory.HARMFUL, 0);
    public static final StatusEffect FAST_FALLING = new FastFallingEffect(StatusEffectCategory.HARMFUL, 0);
 
    public static void registerStatusEffects() {
-      Registry.register(Registries.STATUS_EFFECT, JinericMain.jinericId("thorns"), THORNS);
-      Registry.register(Registries.STATUS_EFFECT, JinericMain.jinericId("fast_falling"), FAST_FALLING);
+      Registry.register(Registries.STATUS_EFFECT, JinericMain.ofJineric("thorns"), THORNS);
+      Registry.register(Registries.STATUS_EFFECT, JinericMain.ofJineric("fast_falling"), FAST_FALLING);
    }
 }

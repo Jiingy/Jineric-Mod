@@ -9,22 +9,23 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import static net.minecraft.recipe.BrewingRecipeRegistry.registerPotionRecipe;
-
 @Mixin(BrewingRecipeRegistry.class)
 public abstract class BrewingRecipeRegistryMixin {
 
-   @Inject(at = @At("HEAD"), method = "registerDefaults()V")
-   private static void jineric$registerDefaults(CallbackInfo ci) {
+   @Inject(
+           at = @At("HEAD"),
+           method = "registerDefaults"
+   )
+   private static void jineric$registerDefaults(BrewingRecipeRegistry.Builder builder, CallbackInfo ci) {
       //DARKNESS
-      registerPotionRecipe(Potions.NIGHT_VISION, Items.FERMENTED_SPIDER_EYE, JinericPotions.DARKNESS);
-      registerPotionRecipe(JinericPotions.DARKNESS, Items.REDSTONE, JinericPotions.LONG_DARKNESS);
-      registerPotionRecipe(Potions.LONG_NIGHT_VISION, Items.FERMENTED_SPIDER_EYE, JinericPotions.LONG_DARKNESS);
+      builder.registerPotionRecipe(Potions.NIGHT_VISION, Items.FERMENTED_SPIDER_EYE, JinericPotions.DARKNESS);
+      builder.registerPotionRecipe(JinericPotions.DARKNESS, Items.REDSTONE, JinericPotions.LONG_DARKNESS);
+      builder.registerPotionRecipe(Potions.LONG_NIGHT_VISION, Items.FERMENTED_SPIDER_EYE, JinericPotions.LONG_DARKNESS);
       //GLOWING
-      registerPotionRecipe(Potions.AWKWARD, Items.GLOW_BERRIES, JinericPotions.GLOWING);
-      registerPotionRecipe(JinericPotions.GLOWING, Items.REDSTONE, JinericPotions.LONG_GLOWING);
+      builder.registerPotionRecipe(Potions.AWKWARD, Items.GLOW_BERRIES, JinericPotions.GLOWING);
+      builder.registerPotionRecipe(JinericPotions.GLOWING, Items.REDSTONE, JinericPotions.LONG_GLOWING);
       //INVISIBILITY
-      registerPotionRecipe(JinericPotions.GLOWING, Items.FERMENTED_SPIDER_EYE, Potions.INVISIBILITY);
-      registerPotionRecipe(JinericPotions.LONG_GLOWING, Items.FERMENTED_SPIDER_EYE, Potions.LONG_INVISIBILITY);
+      builder.registerPotionRecipe(JinericPotions.GLOWING, Items.FERMENTED_SPIDER_EYE, Potions.INVISIBILITY);
+      builder.registerPotionRecipe(JinericPotions.LONG_GLOWING, Items.FERMENTED_SPIDER_EYE, Potions.LONG_INVISIBILITY);
    }
 }

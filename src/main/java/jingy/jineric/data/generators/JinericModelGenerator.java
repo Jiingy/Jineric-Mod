@@ -136,4 +136,9 @@ public class JinericModelGenerator extends FabricModelProvider {
       Identifier identifier = Models.CUBE_COLUMN.upload(blockIn, textureMap, generator.modelCollector);
       generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(blockIn, identifier));
    }
+
+   @Override
+   public String getName() {
+      return "jineric_model";
+   }
 }

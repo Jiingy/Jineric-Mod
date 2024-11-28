@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "bookshelf",
+  "key": {
+    "B": "minecraft:book",
+    "M": "minecraft:bamboo_planks"
+  },
+  "pattern": [
+    "MMM",
+    "BBB",
+    "MMM"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jineric:bamboo_bookshelf"
+  }
+}

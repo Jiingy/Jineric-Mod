@@ -1,16 +1,20 @@
 package jingy.jineric.base;
 
-import jingy.jineric.block.JinericCauldronBehaviors;
-import jingy.jineric.entity.JinericPaintingVariant;
+import jingy.jineric.block.JinericBlocks;
+import jingy.jineric.data.family.JinericBlockFamilies;
 import jingy.jineric.entity.effect.JinericStatusEffects;
 import jingy.jineric.item.JinericItemGroups;
-import jingy.jineric.recipe.JinericRecipeSerializers;
+import jingy.jineric.item.JinericItems;
+import jingy.jineric.potion.JinericPotions;
+import jingy.jineric.recipe.JinericRecipeBookCategories;
+import jingy.jineric.recipe.JinericRecipeSerializer;
 import jingy.jineric.recipe.JinericRecipeTypes;
 import jingy.jineric.registry.JinericBlockEntityType;
 import jingy.jineric.registry.JinericParticleTypes;
 import jingy.jineric.registry.JinericRegistries;
 import jingy.jineric.screen.JinericScreenHandlerType;
 import jingy.jineric.stat.JinericStats;
+import jingy.jineric.tag.JinericItemTags;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
@@ -20,8 +24,8 @@ public class JinericMain implements ModInitializer {
 	public static final Logger LOGGER = LogManager.getLogger("Jineric Mod");
 	public static final String MOD_ID = "jineric";
 
-	public static Identifier jinericId(String path) {
-		return new Identifier(MOD_ID, path);
+	public static Identifier ofJineric(String path) {
+		return Identifier.of(MOD_ID, path);
 	}
 
 	// TODO: FIX EMI PLUGIN
@@ -33,17 +37,21 @@ public class JinericMain implements ModInitializer {
 	}
 
 	private void initRegistries() {
-		JinericParticleTypes.init();
-		JinericRegistries.initJinericRegistries();
-		JinericItemGroups.registerItemGroups();
-		JinericItemGroups.registerJinericItemGroups();
-		JinericPaintingVariant.registerPaintingMotives();
-		JinericStats.registerStats();
-		JinericBlockEntityType.registerBlockEntities();
+        JinericParticleTypes.init();
+		JinericRegistries.initializeJinericRegistries();
+		JinericBlocks.initialize();
+		JinericItems.initialize();
+		JinericBlockFamilies.initialize();
+		JinericScreenHandlerType.initialize();
+		JinericItemTags.initialize();
+		JinericRecipeTypes.initialize();
+		JinericStats.initialize();
+		JinericRecipeSerializer.initialize();
+		JinericPotions.initialize();
+		JinericRecipeBookCategories.initialize();
+		JinericBlockEntityType.registerBlockEntityTypes();
 		JinericStatusEffects.registerStatusEffects();
-		JinericScreenHandlerType.registerScreenHandlers();
-		JinericCauldronBehaviors.registerCauldronBehaviors();
-		JinericRecipeTypes.registerRecipeTypes();
-		JinericRecipeSerializers.registerRefiningRecipe();
+		JinericItemGroups.registerJinericItemGroups();
+		JinericItemGroups.registerItemGroups();
 	}
 }

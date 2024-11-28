@@ -1,10 +1,10 @@
 package jingy.jineric.data.generators.world;
 
-import jingy.jineric.base.JinericMain;
 import jingy.jineric.world.biome.JinericBiomeKeys;
 import jingy.jineric.world.gen.feature.*;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
+import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.world.biome.Biome;
@@ -16,6 +16,11 @@ import java.util.concurrent.CompletableFuture;
 public class JinericWorldGenerator extends FabricDynamicRegistryProvider {
    public JinericWorldGenerator(FabricDataOutput generator, CompletableFuture<RegistryWrapper.WrapperLookup> registries) {
       super(generator, registries);
+   }
+
+   public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> registry) {
+      registry.register(JinericUndergroundConfiguredFeatures.FULL_GRASS_PATCH_BONEMEAL, JinericUndergroundConfiguredFeatures.createFullGrassPatchFeature(registry));
+      registry.register(JinericUndergroundConfiguredFeatures.FULL_GRASS_VEGETATION, JinericUndergroundConfiguredFeatures.createFullGrassVegetation());
    }
 
    @Override
@@ -37,12 +42,12 @@ public class JinericWorldGenerator extends FabricDynamicRegistryProvider {
 //      entries.add(JinericTreePlacedFeatures.PETRIFIED_OAK_BEES_002, placedFeatureRegistry.getOrThrow(JinericTreePlacedFeatures.PETRIFIED_OAK_BEES_002).value());
       entries.add(JinericVegetationPlacedFeatures.TREES_WISTFUL_FOREST, placedFeatureRegistry.getOrThrow(JinericVegetationPlacedFeatures.TREES_WISTFUL_FOREST).value());
       entries.add(JinericVegetationPlacedFeatures.CARVED_PUMPKIN_PATCH, placedFeatureRegistry.getOrThrow(JinericVegetationPlacedFeatures.CARVED_PUMPKIN_PATCH).value());
-//      entries.addAll(registries.getWrapperOrThrow(RegistryKeys.CONFIGURED_FEATURE));
-//      entries.addAll(registries.getWrapperOrThrow(RegistryKeys.PLACED_FEATURE));
+      entries.addAll(registries.getOrThrow(RegistryKeys.CONFIGURED_FEATURE));
+      entries.addAll(registries.getOrThrow(RegistryKeys.PLACED_FEATURE));
    }
 
    @Override
    public String getName() {
-      return JinericMain.MOD_ID;
+      return "jineric_world";
    }
 }

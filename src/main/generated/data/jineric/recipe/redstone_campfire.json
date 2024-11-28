@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": "#minecraft:logs",
+    "R": "minecraft:redstone",
+    "S": "minecraft:stick"
+  },
+  "pattern": [
+    " S ",
+    "SRS",
+    "LLL"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jineric:redstone_campfire"
+  }
+}

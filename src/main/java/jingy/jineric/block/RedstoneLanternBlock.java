@@ -8,11 +8,13 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.state.StateManager;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
+import net.minecraft.world.WorldView;
+import net.minecraft.world.tick.ScheduledTickView;
 
 public class RedstoneLanternBlock extends LanternBlock {
    protected static final VoxelShape HANGING_SHAPE = VoxelShapes.union(
@@ -38,11 +40,14 @@ public class RedstoneLanternBlock extends LanternBlock {
    }
 
    @Override
-   public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+   public BlockState getStateForNeighborUpdate(
+           BlockState state, WorldView world, ScheduledTickView tickView, BlockPos pos,
+           Direction direction, BlockPos neighborPos, BlockState neighborState, Random random
+   ) {
       if (state.get(WATERLOGGED)) {
-         world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+         tickView.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
       }
-      return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
+      return super.getStateForNeighborUpdate(state, world, tickView, pos, direction, neighborPos, neighborState, random);
    }
 
    @Override
@@ -67,6 +72,10 @@ public class RedstoneLanternBlock extends LanternBlock {
       return direction != attachedDirection(state) || direction != attachedDirection(state).getOpposite() ? 15 : 0;
    }
 
+   //TODO: Add functionality for this method
+   protected boolean shouldUnpower(World world, BlockPos pos, BlockState state) {
+      return world.isEmittingRedstonePower(pos.up(), Direction.UP);
+   }
 
    @Override
    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {

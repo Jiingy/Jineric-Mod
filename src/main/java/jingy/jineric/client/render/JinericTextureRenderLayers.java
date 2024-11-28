@@ -3,13 +3,11 @@ package jingy.jineric.client.render;
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.entity.JinericChestBlockEntity;
 import jingy.jineric.block.entity.JinericTrappedChestBlockEntity;
-import jingy.jineric.block.entity.ShulkerChestBlockEntity;
 import net.minecraft.block.WoodType;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.enums.ChestType;
 import net.minecraft.client.render.TexturedRenderLayers;
 import net.minecraft.client.util.SpriteIdentifier;
-import net.minecraft.util.Identifier;
 
 public class JinericTextureRenderLayers extends TexturedRenderLayers {
    public static final SpriteIdentifier ACACIA_CHEST = createChestTextureId("acacia_chest");
@@ -18,9 +16,6 @@ public class JinericTextureRenderLayers extends TexturedRenderLayers {
    public static final SpriteIdentifier TRAPPED_ACACIA_CHEST = createChestTextureId("trapped_acacia_chest");
    public static final SpriteIdentifier TRAPPED_ACACIA_CHEST_LEFT = createChestTextureId("trapped_acacia_left");
    public static final SpriteIdentifier TRAPPED_ACACIA_CHEST_RIGHT = createChestTextureId("trapped_acacia_right");
-//   public static final SpriteIdentifier BOREAL_CHEST = createChestTextureId("boreal_chest");
-//   public static final SpriteIdentifier BOREAL_CHEST_LEFT = createChestTextureId("boreal_left");
-//   public static final SpriteIdentifier BOREAL_CHEST_RIGHT = createChestTextureId("boreal_right");
    public static final SpriteIdentifier BIRCH_CHEST = createChestTextureId("birch_chest");
    public static final SpriteIdentifier BIRCH_CHEST_LEFT = createChestTextureId("birch_left");
    public static final SpriteIdentifier BIRCH_CHEST_RIGHT = createChestTextureId("birch_right");
@@ -33,7 +28,6 @@ public class JinericTextureRenderLayers extends TexturedRenderLayers {
    public static final SpriteIdentifier JUNGLE_CHEST = createChestTextureId("jungle_chest");
    public static final SpriteIdentifier JUNGLE_CHEST_LEFT = createChestTextureId("jungle_left");
    public static final SpriteIdentifier JUNGLE_CHEST_RIGHT = createChestTextureId("jungle_right");
-   public static final SpriteIdentifier SHULKER = createChestTextureId("shulker_chest");
    public static final SpriteIdentifier SPRUCE_CHEST = createChestTextureId("spruce_chest");
    public static final SpriteIdentifier SPRUCE_CHEST_LEFT = createChestTextureId("spruce_left");
    public static final SpriteIdentifier SPRUCE_CHEST_RIGHT = createChestTextureId("spruce_right");
@@ -61,7 +55,6 @@ public class JinericTextureRenderLayers extends TexturedRenderLayers {
    public static final SpriteIdentifier TRAPPED_JUNGLE_CHEST = createChestTextureId("trapped_jungle_chest");
    public static final SpriteIdentifier TRAPPED_JUNGLE_CHEST_LEFT = createChestTextureId("trapped_jungle_left");
    public static final SpriteIdentifier TRAPPED_JUNGLE_CHEST_RIGHT = createChestTextureId("trapped_jungle_right");
-   public static final SpriteIdentifier TRAPPED_SHULKER = createChestTextureId("trapped_shulker_chest");
    public static final SpriteIdentifier TRAPPED_SPRUCE_CHEST = createChestTextureId("trapped_spruce_chest");
    public static final SpriteIdentifier TRAPPED_SPRUCE_CHEST_LEFT = createChestTextureId("trapped_spruce_left");
    public static final SpriteIdentifier TRAPPED_SPRUCE_CHEST_RIGHT = createChestTextureId("trapped_spruce_right");
@@ -79,15 +72,12 @@ public class JinericTextureRenderLayers extends TexturedRenderLayers {
    public static final SpriteIdentifier TRAPPED_BAMBOO_CHEST_RIGHT = createChestTextureId("trapped_bamboo_right");
 
    private static SpriteIdentifier createChestTextureId(String variant) {
-      return new SpriteIdentifier(CHEST_ATLAS_TEXTURE, new Identifier(JinericMain.MOD_ID, "entity/chest/" + variant));
+      return new SpriteIdentifier(CHEST_ATLAS_TEXTURE, JinericMain.ofJineric("entity/chest/" + variant));
    }
 
    public static SpriteIdentifier getChestTexture(BlockEntity blockEntity, ChestType chestType, boolean christmas, WoodType woodType) {
       if (christmas) {
          return getChestTexture(chestType, CHRISTMAS, CHRISTMAS_LEFT, CHRISTMAS_RIGHT);
-      }
-      else if (blockEntity instanceof ShulkerChestBlockEntity) {
-         return SHULKER;
       }
       else if (blockEntity instanceof JinericTrappedChestBlockEntity) {
          if (woodType == WoodType.SPRUCE) {
@@ -157,14 +147,10 @@ public class JinericTextureRenderLayers extends TexturedRenderLayers {
    }
 
    public static SpriteIdentifier getChestTexture(ChestType type, SpriteIdentifier single, SpriteIdentifier left, SpriteIdentifier right) {
-      switch(type) {
-         case LEFT:
-            return left;
-         case RIGHT:
-            return right;
-         case SINGLE:
-         default:
-            return single;
-      }
+      return switch (type) {
+         case LEFT -> left;
+         case RIGHT -> right;
+         default -> single;
+      };
    }
 }

@@ -11,7 +11,7 @@ public class JinericSoundEvents {
    public static SoundEvent BLOCK_SOUL_SANDSTONE_STEP = register("block.soul_sandstone.step");
 
    private static SoundEvent register(String name) {
-      Identifier id = new Identifier(JinericMain.MOD_ID, name);
+      Identifier id = JinericMain.ofJineric(name);
       return Registry.register(Registries.SOUND_EVENT, id, SoundEvent.of(id));
    }
 }

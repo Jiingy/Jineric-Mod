@@ -7,7 +7,8 @@ import jingy.jineric.tag.JinericItemTags;
 import net.fabricmc.fabric.api.registry.*;
 
 public class JinericRegistries {
-   public static void initJinericRegistries() {
+   //TODO: SPLIT INTO UNIQUE CLASSES
+   public static void initializeJinericRegistries() {
       registerIsFuel();
       registerCompostable();
       registerStrippable();
@@ -17,16 +18,16 @@ public class JinericRegistries {
    }
 
    private static void registerIsFuel() {
-      FuelRegistry registry = FuelRegistry.INSTANCE;
-      registry.add(JinericItemTags.WOODEN_BOOKSHELVES, 300);
-      registry.add(JinericItemTags.WOODEN_CHESTS, 300);
-      registry.add(JinericItemTags.WOODEN_TRAPPED_CHESTS, 300);
-      registry.add(JinericItemTags.WOODEN_LADDERS, 300);
+      FuelRegistryEvents.BUILD.register((builder, context) -> builder
+              .add(JinericItemTags.WOODEN_BOOKSHELVES, 300)
+              .add(JinericItemTags.WOODEN_CHESTS, 300)
+              .add(JinericItemTags.WOODEN_TRAPPED_CHESTS, 300)
+              .add(JinericItemTags.WOODEN_LADDERS, 300)
+      );
    }
 
    private static void registerCompostable() {
       CompostingChanceRegistry registry = CompostingChanceRegistry.INSTANCE;
-      registry.add(JinericItems.TUMBLEWEED, 0.5F);
       registry.add(JinericItems.PETRIFIED_OAK_LEAVES, 0.3F);
       registry.add(JinericItems.PETRIFIED_OAK_SAPLING, 0.3F);
    }
@@ -38,7 +39,6 @@ public class JinericRegistries {
 
    private static void registerFlammable() {
       FlammableBlockRegistry instance = FlammableBlockRegistry.getDefaultInstance();
-      instance.add(JinericBlocks.TUMBLEWEED, 30, 60);
       instance.add(JinericBlockTags.WOODEN_BOOKSHELVES, 30, 20);
       instance.add(JinericBlocks.PAPER_BLOCK, 5, 20);
       instance.add(JinericBlocks.STICK_BLOCK, 5, 20);
@@ -63,9 +63,5 @@ public class JinericRegistries {
       OxidizableBlocksRegistry.registerWaxableBlockPair(JinericBlocks.EXPOSED_CUT_COPPER_WALL, JinericBlocks.WAXED_EXPOSED_CUT_COPPER_WALL);
       OxidizableBlocksRegistry.registerWaxableBlockPair(JinericBlocks.WEATHERED_CUT_COPPER_WALL, JinericBlocks.WAXED_WEATHERED_CUT_COPPER_WALL);
       OxidizableBlocksRegistry.registerWaxableBlockPair(JinericBlocks.OXIDIZED_CUT_COPPER_WALL, JinericBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL);
-   }
-
-   private static void registerParticleFactories() {
-//      ParticleFactoryRegistry.getInstance().register(JinericParticleTypes.RED_DANDELION_SEED, );
    }
 }

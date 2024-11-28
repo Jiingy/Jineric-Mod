@@ -1,0 +1,11 @@
+{
+  "type": "jineric:refining",
+  "category": "blocks",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "group": "stone",
+  "ingredient": "minecraft:cobblestone_wall",
+  "result": {
+    "id": "jineric:stone_wall"
+  }
+}

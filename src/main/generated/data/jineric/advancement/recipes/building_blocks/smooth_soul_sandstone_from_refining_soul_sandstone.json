@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_soul_sandstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jineric:soul_sandstone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:smooth_soul_sandstone_from_refining_soul_sandstone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_soul_sandstone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:smooth_soul_sandstone_from_refining_soul_sandstone"
+    ]
+  }
+}

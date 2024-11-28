@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "minecraft:polished_granite",
+  "result": {
+    "count": 1,
+    "id": "jineric:polished_granite_wall"
+  }
+}

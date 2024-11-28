@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "jineric:soul_sandstone",
+  "result": {
+    "count": 1,
+    "id": "jineric:wavy_soul_sandstone"
+  }
+}

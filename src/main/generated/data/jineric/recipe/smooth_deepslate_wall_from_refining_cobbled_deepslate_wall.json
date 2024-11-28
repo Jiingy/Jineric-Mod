@@ -1,0 +1,11 @@
+{
+  "type": "jineric:refining",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "group": "smooth_deepslate",
+  "ingredient": "minecraft:cobbled_deepslate_wall",
+  "result": {
+    "id": "jineric:smooth_deepslate_wall"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "values": [
+    "#jineric:wooden_chests",
+    "#jineric:wooden_trapped_chests",
+    "#jineric:wooden_ladders",
+    "#jineric:wooden_bookshelves",
+    "jineric:stick_block",
+    "jineric:soul_jack_o_lantern",
+    "jineric:redstone_campfire",
+    "#jineric:petrified_oak_logs",
+    "jineric:petrified_oak_planks",
+    "jineric:petrified_oak_stairs",
+    "jineric:petrified_oak_slab",
+    "jineric:petrified_oak_fence",
+    "jineric:petrified_oak_fence_gate",
+    "jineric:petrified_oak_door",
+    "jineric:petrified_oak_trapdoor",
+    "jineric:petrified_oak_pressure_plate",
+    "jineric:petrified_oak_button",
+    "jineric:petrified_oak_sign",
+    "jineric:petrified_oak_wall_sign",
+    "jineric:petrified_oak_hanging_sign",
+    "jineric:petrified_oak_wall_hanging_sign"
+  ]
+}

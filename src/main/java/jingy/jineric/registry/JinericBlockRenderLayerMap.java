@@ -1,14 +1,15 @@
 package jingy.jineric.registry;
 
 import jingy.jineric.block.JinericBlocks;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.client.render.RenderLayer;
 
+@Environment(EnvType.CLIENT)
 public class JinericBlockRenderLayerMap {
 
-   //TODO: Move to JinericRegistries
-   public static void register() {
-      BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.FIREWEED, RenderLayer.getCutout());
+   public static void registerBlockRenderLayerMaps() {
       BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BLOSSOMED_DANDELION, RenderLayer.getCutout());
       BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.PETRIFIED_OAK_TRAPDOOR, RenderLayer.getCutout());
       BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.PETRIFIED_OAK_DOOR, RenderLayer.getCutout());

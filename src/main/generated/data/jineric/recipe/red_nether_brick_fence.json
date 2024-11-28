@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:red_nether_bricks",
+    "&": "minecraft:nether_brick"
+  },
+  "pattern": [
+    "#&#",
+    "#&#"
+  ],
+  "result": {
+    "count": 6,
+    "id": "jineric:red_nether_brick_fence"
+  }
+}
