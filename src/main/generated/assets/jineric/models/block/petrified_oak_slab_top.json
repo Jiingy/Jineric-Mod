@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "jineric:block/petrified_oak_planks",
-    "side": "jineric:block/petrified_oak_planks",
-    "top": "jineric:block/petrified_oak_planks"
-  }
-}

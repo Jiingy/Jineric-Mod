@@ -1,11 +1,8 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "building",
-  "group": "wooden_stairs",
   "key": {
-    "#": {
-      "item": "jineric:petrified_oak_planks"
-    }
+    "#": "jineric:petrified_oak_planks"
   },
   "pattern": [
     "#  ",
@@ -14,7 +11,6 @@
   ],
   "result": {
     "count": 4,
-    "item": "jineric:petrified_oak_stairs"
-  },
-  "show_notification": true
+    "id": "jineric:petrified_oak_stairs"
+  }
 }

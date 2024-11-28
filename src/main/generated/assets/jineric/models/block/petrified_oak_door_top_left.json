@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/door_top_left",
-  "textures": {
-    "bottom": "jineric:block/petrified_oak_door_bottom",
-    "top": "jineric:block/petrified_oak_door_top"
-  }
-}

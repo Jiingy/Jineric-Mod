@@ -1,8 +1,5 @@
 package jingy.jineric.base.plugins;
 
-import jingy.jineric.base.JinericMain;
-import jingy.jineric.world.biome.WistfulForest;
-import terrablender.api.Regions;
 import terrablender.api.TerraBlenderApi;
 
 public class TerraBlenderPlugin implements TerraBlenderApi {

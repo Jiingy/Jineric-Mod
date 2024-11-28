@@ -1,13 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_planks": {
+    "has_Block{jineric:petrified_oak_planks}": {
       "conditions": {
         "items": [
           {
-            "items": [
-              "jineric:petrified_oak_planks"
-            ]
+            "items": "jineric:petrified_oak_planks"
           }
         ]
       },
@@ -23,13 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_planks"
+      "has_Block{jineric:petrified_oak_planks}"
     ]
   ],
   "rewards": {
     "recipes": [
       "jineric:petrified_oak_stairs"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
