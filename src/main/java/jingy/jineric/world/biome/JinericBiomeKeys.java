@@ -10,6 +10,6 @@ public class JinericBiomeKeys {
    public static final RegistryKey<Biome> WISTFUL_FLOWER_FOREST = register("wistful_flower_forest");
 
    private static RegistryKey<Biome> register(String id) {
-      return RegistryKey.of(RegistryKeys.BIOME, JinericMain.jinericId(id));
+      return RegistryKey.of(RegistryKeys.BIOME, JinericMain.ofJineric(id));
    }
 }

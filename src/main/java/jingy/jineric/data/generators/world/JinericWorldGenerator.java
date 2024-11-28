@@ -25,11 +25,12 @@ public class JinericWorldGenerator extends FabricDynamicRegistryProvider {
 
    @Override
    protected void configure(RegistryWrapper.WrapperLookup registries, Entries entries) {
-      final RegistryWrapper.Impl<Biome> biomeRegistry = registries.getWrapperOrThrow(RegistryKeys.BIOME);
-      entries.add(JinericBiomeKeys.WISTFUL_FOREST, biomeRegistry.getOrThrow(JinericBiomeKeys.WISTFUL_FOREST).value());
-      entries.add(JinericBiomeKeys.WISTFUL_FLOWER_FOREST, biomeRegistry.getOrThrow(JinericBiomeKeys.WISTFUL_FLOWER_FOREST).value());
-      final RegistryWrapper.Impl<ConfiguredFeature<?, ?>> configuredFeatureRegistry = registries.getWrapperOrThrow(RegistryKeys.CONFIGURED_FEATURE);
-      entries.add(JinericTreeConfiguredFeatures.PETRIFIED_OAK, configuredFeatureRegistry.getOrThrow(JinericTreeConfiguredFeatures.PETRIFIED_OAK).value());
+      final RegistryWrapper.Impl<Biome> biomeRegistry = registries.getOrThrow(RegistryKeys.BIOME);
+//      entries.add(JinericBiomeKeys.WISTFUL_FOREST, biomeRegistry.getOrThrow(JinericBiomeKeys.WISTFUL_FOREST).value());
+//      entries.add(JinericBiomeKeys.WISTFUL_FLOWER_FOREST, biomeRegistry.getOrThrow(JinericBiomeKeys.WISTFUL_FLOWER_FOREST).value());
+
+      final RegistryWrapper.Impl<ConfiguredFeature<?, ?>> configuredFeatureRegistry = registries.getOrThrow(RegistryKeys.CONFIGURED_FEATURE);
+//      entries.add(JinericTreeConfiguredFeatures.PETRIFIED_OAK, configuredFeatureRegistry.getOrThrow(JinericTreeConfiguredFeatures.PETRIFIED_OAK).value());
 //      entries.add(JinericTreeConfiguredFeatures.PETRIFIED_OAK_BEES_002, configuredFeatureRegistry.getOrThrow(JinericTreeConfiguredFeatures.PETRIFIED_OAK_BEES_002).value());
 //      entries.add(JinericTreeConfiguredFeatures.PETRIFIED_OAK_BEES_0002, configuredFeatureRegistry.getOrThrow(JinericTreeConfiguredFeatures.PETRIFIED_OAK_BEES_0002).value());
 //      entries.add(JinericTreeConfiguredFeatures.PETRIFIED_OAK_BEES_005, configuredFeatureRegistry.getOrThrow(JinericTreeConfiguredFeatures.PETRIFIED_OAK_BEES_005).value());

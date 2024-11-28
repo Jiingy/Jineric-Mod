@@ -2,10 +2,6 @@ package jingy.jineric.block;
 
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.sapling.JinericSaplingGenerators;
-import jingy.jineric.block.sign.JinericHangingSignBlock;
-import jingy.jineric.block.sign.JinericSignBlock;
-import jingy.jineric.block.sign.JinericWallHangingSignBlock;
-import jingy.jineric.block.sign.JinericWallSignBlock;
 import jingy.jineric.registry.JinericBlockSetTypes;
 import jingy.jineric.registry.JinericBlockSettings;
 import jingy.jineric.registry.JinericWoodType;
@@ -238,8 +234,17 @@ public class JinericBlocks {
     public static final Block SNOW_BRICK_WALL = register("snow_brick_wall", WallBlock::new, AbstractBlock.Settings.copy(SNOW_BRICKS));
 
 //DECORATION BLOCKS
-    public static final Block BLOSSOMED_DANDELION = register("blossomed_dandelion", new BlossomedDandelion(StatusEffects.NAUSEA, 12, FabricBlockSettings.copy(DANDELION)));
-    public static final Block POTTED_BLOSSOMED_DANDELION = register("potted_oblossomed_dandelion", createFlowerPotBlock(BLOSSOMED_DANDELION));
+	public static final Block FIREWEED = register("fireweed", TallFlowerBlock::new, AbstractBlock.Settings.copy(SUNFLOWER));
+    public static final Block BLOSSOMED_DANDELION = register(
+			"blossomed_dandelion",
+			settings -> new BlossomedDandelion(StatusEffects.NAUSEA, 12, settings), 
+			AbstractBlock.Settings.copy(DANDELION)
+	);
+	public static final Block POTTED_BLOSSOMED_DANDELION = register(
+			"potted_oblossomed_dandelion",
+			settings -> new FlowerPotBlock(BLOSSOMED_DANDELION, settings), 
+			createFlowerPotSettings()
+	);
     public static final Block SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", CarvedPumpkinBlock::new, AbstractBlock.Settings.copy(JACK_O_LANTERN));
 	// TODO: SPREADING/BONEMEALING IS BROKEN IN 1.21.3
 	public static final Block FULL_GRASS_BLOCK = register("full_grass_block", FullGrassBlock::new, AbstractBlock.Settings.copy(GRASS_BLOCK));
@@ -306,29 +311,74 @@ public class JinericBlocks {
 //TODO: 1.21.3+ ADD PALE OAK WOODEN ADDITIONS
 //WOOD
     //PETRIFIED_OAK
-    public static final Block PETRIFIED_OAK_LOG = register("petrified_oak_log", new PillarBlock(FabricBlockSettings.copy(OAK_LOG)));
-    public static final Block PETRIFIED_OAK_WOOD = register("petrified_oak_wood", new PillarBlock(FabricBlockSettings.copy(OAK_WOOD)));
-    public static final Block STRIPPED_PETRIFIED_OAK_LOG = register("stripped_petrified_oak_log", new PillarBlock(FabricBlockSettings.copy(STRIPPED_OAK_LOG)));
-    public static final Block STRIPPED_PETRIFIED_OAK_WOOD = register("stripped_petrified_oak_wood", new PillarBlock(FabricBlockSettings.copy(STRIPPED_OAK_WOOD)));
-    public static final Block PETRIFIED_OAK_PLANKS = register("petrified_oak_planks", new Block(FabricBlockSettings.copy(OAK_PLANKS)));
-    public static final Block PETRIFIED_OAK_STAIRS = register("petrified_oak_stairs", new StairsBlock(OAK_STAIRS.getDefaultState(), FabricBlockSettings.copy(OAK_STAIRS)));
-    public static final Block PETRIFIED_OAK_SLAB = register("petrified_oak_slab", new SlabBlock(FabricBlockSettings.copy(OAK_SLAB)));
-    public static final Block PETRIFIED_OAK_FENCE = register("petrified_oak_fence", new FenceBlock(FabricBlockSettings.copy(OAK_FENCE)));
-    public static final Block PETRIFIED_OAK_FENCE_GATE = register("petrified_oak_fence_gate", new FenceGateBlock(JinericWoodType.PETRIFIED_OAK, FabricBlockSettings.copy(OAK_FENCE_GATE)));
-    public static final Block PETRIFIED_OAK_DOOR = register("petrified_oak_door", new DoorBlock(JinericBlockSetTypes.PETRIFIED_OAK, FabricBlockSettings.copy(OAK_DOOR)));
-    public static final Block PETRIFIED_OAK_TRAPDOOR = register("petrified_oak_trapdoor", new TrapdoorBlock(JinericBlockSetTypes.PETRIFIED_OAK, FabricBlockSettings.copy(OAK_TRAPDOOR)));
-    public static final Block PETRIFIED_OAK_PRESSURE_PLATE = register("petrified_oak_pressure_plate", new PressurePlateBlock(JinericBlockSetTypes.PETRIFIED_OAK, FabricBlockSettings.copy(OAK_PRESSURE_PLATE)));
-    public static final Block PETRIFIED_OAK_BUTTON = register("petrified_oak_button", createWoodenButtonBlock(JinericBlockSetTypes.PETRIFIED_OAK));
-    public static final Block PETRIFIED_OAK_LEAVES = register("petrified_oak_leaves", JinericBlockSettings.JinericLeavesBlock(BlockSoundGroup.GRASS));
-    public static final Block PETRIFIED_OAK_SAPLING = register("petrified_oak_sapling", new SaplingBlock(JinericSaplingGenerators.PETRIFIED_OAK, FabricBlockSettings.copy(OAK_SAPLING)));
-    public static final Block POTTED_PETRIFIED_OAK_SAPLING = register("potted_petrified_oak_sapling", createFlowerPotBlock(PETRIFIED_OAK_SAPLING));
-    public static final Block PETRIFIED_OAK_LADDER = register("petrified_oak_ladder", new LadderBlock(FabricBlockSettings.copy(LADDER)));
-    public static final Block PETRIFIED_OAK_BOOKSHELF = register("petrified_oak_bookshelf", new Block(FabricBlockSettings.copy(BOOKSHELF)));
-    public static final Block PETRIFIED_OAK_SIGN = register("petrified_oak_sign", new JinericSignBlock(FabricBlockSettings.copy(OAK_SIGN), JinericWoodType.PETRIFIED_OAK));
-    public static final Block PETRIFIED_OAK_WALL_SIGN = register("petrified_oak_wall_sign", new JinericWallSignBlock(FabricBlockSettings.copy(OAK_WALL_SIGN).dropsLike(PETRIFIED_OAK_SIGN), JinericWoodType.PETRIFIED_OAK));
-    public static final Block PETRIFIED_OAK_HANGING_SIGN = register("petrified_oak_hanging_sign", new JinericHangingSignBlock(FabricBlockSettings.copy(OAK_HANGING_SIGN), JinericWoodType.PETRIFIED_OAK));
-    public static final Block PETRIFIED_OAK_WALL_HANGING_SIGN = register("petrified_oak_wall_hanging_sign", new JinericWallHangingSignBlock(FabricBlockSettings.copy(OAK_WALL_HANGING_SIGN).dropsLike(PETRIFIED_OAK_HANGING_SIGN), JinericWoodType.PETRIFIED_OAK));
-
+    public static final Block PETRIFIED_OAK_LOG = register("petrified_oak_log", PillarBlock::new, AbstractBlock.Settings.copy(OAK_LOG));
+    public static final Block PETRIFIED_OAK_WOOD = register("petrified_oak_wood", PillarBlock::new, AbstractBlock.Settings.copy(OAK_WOOD));
+    public static final Block STRIPPED_PETRIFIED_OAK_LOG = register("stripped_petrified_oak_log", PillarBlock::new, AbstractBlock.Settings.copy(STRIPPED_OAK_LOG));
+    public static final Block STRIPPED_PETRIFIED_OAK_WOOD = register("stripped_petrified_oak_wood", PillarBlock::new, AbstractBlock.Settings.copy(STRIPPED_OAK_WOOD));
+    public static final Block PETRIFIED_OAK_PLANKS = register("petrified_oak_planks", Block::new, AbstractBlock.Settings.copy(OAK_PLANKS));
+    public static final Block PETRIFIED_OAK_STAIRS = registerStairsBlock("petrified_oak_stairs", OAK_STAIRS);
+    public static final Block PETRIFIED_OAK_SLAB = register("petrified_oak_slab", SlabBlock::new, AbstractBlock.Settings.copy(OAK_SLAB));
+    public static final Block PETRIFIED_OAK_FENCE = register("petrified_oak_fence", FenceBlock::new, AbstractBlock.Settings.copy(OAK_FENCE));
+    public static final Block PETRIFIED_OAK_FENCE_GATE = register(
+			"petrified_oak_fence_gate",
+			settings -> new FenceGateBlock(JinericWoodType.PETRIFIED_OAK, settings),
+			AbstractBlock.Settings.copy(OAK_FENCE_GATE)
+	);
+    public static final Block PETRIFIED_OAK_DOOR = register(
+			"petrified_oak_door",
+			settings -> new DoorBlock(JinericBlockSetTypes.PETRIFIED_OAK, settings),
+			AbstractBlock.Settings.copy(OAK_DOOR)
+	);
+    public static final Block PETRIFIED_OAK_TRAPDOOR = register(
+			"petrified_oak_trapdoor",
+			settings -> new TrapdoorBlock(JinericBlockSetTypes.PETRIFIED_OAK, settings),
+			AbstractBlock.Settings.copy(OAK_TRAPDOOR)
+	);
+    public static final Block PETRIFIED_OAK_PRESSURE_PLATE = register(
+			"petrified_oak_pressure_plate",
+			settings -> new PressurePlateBlock(JinericBlockSetTypes.PETRIFIED_OAK, settings),
+			AbstractBlock.Settings.copy(OAK_PRESSURE_PLATE)
+	);
+    public static final Block PETRIFIED_OAK_BUTTON = register(
+			"petrified_oak_button",
+			settings -> new ButtonBlock(JinericBlockSetTypes.PETRIFIED_OAK, 30, settings),
+			AbstractBlock.Settings.copy(OAK_BUTTON)
+	);
+    public static final Block PETRIFIED_OAK_LEAVES = register(
+			"petrified_oak_leaves",
+            LeavesBlock::new,
+			AbstractBlock.Settings.copy(OAK_LEAVES).sounds(BlockSoundGroup.GRASS)
+	);
+    public static final Block PETRIFIED_OAK_SAPLING = register(
+			"petrified_oak_sapling",
+			settings -> new SaplingBlock(JinericSaplingGenerators.PETRIFIED_OAK, settings),
+			AbstractBlock.Settings.copy(OAK_SAPLING)
+	);
+    public static final Block POTTED_PETRIFIED_OAK_SAPLING = register(
+			"potted_petrified_oak_sapling",
+			settings -> new FlowerPotBlock(PETRIFIED_OAK_SAPLING, settings),
+			AbstractBlock.Settings.copy(POTTED_OAK_SAPLING)
+	);
+    public static final Block PETRIFIED_OAK_LADDER = register("petrified_oak_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER));
+    public static final Block PETRIFIED_OAK_BOOKSHELF = register("petrified_oak_bookshelf", Block::new, AbstractBlock.Settings.copy(BOOKSHELF));
+    public static final Block PETRIFIED_OAK_SIGN = register(
+			"petrified_oak_sign",
+			settings -> new SignBlock(JinericWoodType.PETRIFIED_OAK, settings),
+			AbstractBlock.Settings.copy(OAK_SIGN)
+	);
+    public static final Block PETRIFIED_OAK_WALL_SIGN = register(
+			"petrified_oak_wall_sign", settings -> new WallSignBlock(JinericWoodType.PETRIFIED_OAK, settings),
+			AbstractBlock.Settings.copy(OAK_WALL_SIGN)
+	);
+    public static final Block PETRIFIED_OAK_HANGING_SIGN = register(
+			"petrified_oak_hanging_sign", settings -> new HangingSignBlock(JinericWoodType.PETRIFIED_OAK, settings),
+			AbstractBlock.Settings.copy(OAK_HANGING_SIGN)
+	);
+    public static final Block PETRIFIED_OAK_WALL_HANGING_SIGN = register(
+			"petrified_oak_wall_hanging_sign",
+			settings -> new WallHangingSignBlock(JinericWoodType.PETRIFIED_OAK, settings),
+			AbstractBlock.Settings.copy(OAK_WALL_HANGING_SIGN)
+	);
     public static final Block ACACIA_BOOKSHELF = register("acacia_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
 	public static final Block BAMBOO_BOOKSHELF = register("bamboo_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
 	public static final Block BIRCH_BOOKSHELF = register("birch_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));

@@ -2,11 +2,11 @@ package jingy.jineric.world.biome;
 
 import jingy.jineric.mixin.access.OverworldBiomeCreatorAccess;
 import jingy.jineric.world.gen.feature.JinericVegetationPlacedFeatures;
-import net.minecraft.client.sound.MusicType;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.RegistryEntryLookup;
 import net.minecraft.sound.MusicSound;
+import net.minecraft.sound.MusicType;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.GenerationSettings;

@@ -2,8 +2,7 @@ package jingy.jineric.item;
 
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.JinericBlocks;
-import jingy.jineric.registry.JinericBoatTypes;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import jingy.jineric.entity.JinericEntityType;
 import net.minecraft.block.Block;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.item.*;
@@ -221,28 +220,38 @@ public class JinericItems {
 	public static final Item ENDER_PEARL_BLOCK = register(JinericBlocks.ENDER_PEARL_BLOCK);
 	public static final Item PAPER_BLOCK = register(JinericBlocks.PAPER_BLOCK);
 	public static final Item BLAZE_ROD_BLOCK = register(JinericBlocks.BLAZE_ROD_BLOCK);
-    // PETRIFIED_OAK
-    public static final Item PETRIFIED_OAK_LOG = register("petrified_oak_log", new BlockItem(JinericBlocks.PETRIFIED_OAK_LOG, new FabricItemSettings()));
-    public static final Item PETRIFIED_OAK_WOOD = register("petrified_oak_wood", new BlockItem(JinericBlocks.PETRIFIED_OAK_WOOD, new FabricItemSettings()));
-    public static final Item STRIPPED_PETRIFIED_OAK_LOG = register("stripped_petrified_oak_log", new BlockItem(JinericBlocks.STRIPPED_PETRIFIED_OAK_LOG, new FabricItemSettings()));
-    public static final Item STRIPPED_PETRIFIED_OAK_WOOD = register("stripped_petrified_oak_wood", new BlockItem(JinericBlocks.STRIPPED_PETRIFIED_OAK_WOOD, new FabricItemSettings()));
-    public static final Item PETRIFIED_OAK_PLANKS = register("petrified_oak_planks", new BlockItem(JinericBlocks.PETRIFIED_OAK_PLANKS, new FabricItemSettings()));
-    public static final Item PETRIFIED_OAK_STAIRS = register("petrified_oak_stairs", new BlockItem(JinericBlocks.PETRIFIED_OAK_STAIRS, new FabricItemSettings()));
-    public static final Item PETRIFIED_OAK_SLAB = register("petrified_oak_slab", new BlockItem(JinericBlocks.PETRIFIED_OAK_SLAB, new FabricItemSettings()));
-    public static final Item PETRIFIED_OAK_FENCE = register("petrified_oak_fence", new BlockItem(JinericBlocks.PETRIFIED_OAK_FENCE, new FabricItemSettings()));
-    public static final Item PETRIFIED_OAK_FENCE_GATE = register("petrified_oak_fence_gate", new BlockItem(JinericBlocks.PETRIFIED_OAK_FENCE_GATE, new FabricItemSettings()));
-    public static final Item PETRIFIED_OAK_DOOR = register("petrified_oak_door", new BlockItem(JinericBlocks.PETRIFIED_OAK_DOOR, new FabricItemSettings()));
-    public static final Item PETRIFIED_OAK_TRAPDOOR = register("petrified_oak_trapdoor", new BlockItem(JinericBlocks.PETRIFIED_OAK_TRAPDOOR, new FabricItemSettings()));
-    public static final Item PETRIFIED_OAK_PRESSURE_PLATE = register("petrified_oak_pressure_plate", new BlockItem(JinericBlocks.PETRIFIED_OAK_PRESSURE_PLATE, new FabricItemSettings()));
-    public static final Item PETRIFIED_OAK_BUTTON = register("petrified_oak_button", new BlockItem(JinericBlocks.PETRIFIED_OAK_BUTTON, new FabricItemSettings()));
-    public static final Item PETRIFIED_OAK_LEAVES = register("petrified_oak_leaves", new BlockItem(JinericBlocks.PETRIFIED_OAK_LEAVES, new FabricItemSettings()));
-    public static final Item PETRIFIED_OAK_SAPLING = register("petrified_oak_sapling", new BlockItem(JinericBlocks.PETRIFIED_OAK_SAPLING, new FabricItemSettings()));
-    public static final Item PETRIFIED_OAK_LADDER = register("petrified_oak_ladder", new BlockItem(JinericBlocks.PETRIFIED_OAK_LADDER, new FabricItemSettings()));
-    public static final Item PETRIFIED_OAK_BOOKSHELF = register("petrified_oak_bookshelf", new BlockItem(JinericBlocks.PETRIFIED_OAK_BOOKSHELF, new FabricItemSettings()));
-    public static final Item PETRIFIED_OAK_SIGN = register("petrified_oak_sign", new SignItem(new FabricItemSettings().maxCount(16), JinericBlocks.PETRIFIED_OAK_SIGN, JinericBlocks.PETRIFIED_OAK_WALL_SIGN));
-    public static final Item PETRIFIED_OAK_HANGING_SIGN = register("petrified_oak_hanging_sign", new HangingSignItem(JinericBlocks.PETRIFIED_OAK_HANGING_SIGN, JinericBlocks.PETRIFIED_OAK_WALL_HANGING_SIGN, new FabricItemSettings().maxCount(16)));
-    public static final Item PETRIFIED_OAK_BOAT = register("petrified_oak_boat", new BoatItem(false, JinericBoatTypes.PETRIFIED_OAK, new FabricItemSettings().maxCount(1)));
-    public static final Item PETRIFIED_OAK_CHEST_BOAT = register("petrified_oak_chest_boat", new BoatItem(true, JinericBoatTypes.PETRIFIED_OAK, new FabricItemSettings().maxCount(1)));
+// PETRIFIED_OAK
+	public static final Item PETRIFIED_OAK_LOG = register(JinericBlocks.PETRIFIED_OAK_LOG);
+    public static final Item PETRIFIED_OAK_WOOD = register(JinericBlocks.PETRIFIED_OAK_WOOD);
+    public static final Item STRIPPED_PETRIFIED_OAK_LOG = register(JinericBlocks.STRIPPED_PETRIFIED_OAK_LOG);
+    public static final Item STRIPPED_PETRIFIED_OAK_WOOD = register(JinericBlocks.STRIPPED_PETRIFIED_OAK_WOOD);
+    public static final Item PETRIFIED_OAK_PLANKS = register(JinericBlocks.PETRIFIED_OAK_PLANKS);
+    public static final Item PETRIFIED_OAK_STAIRS = register(JinericBlocks.PETRIFIED_OAK_STAIRS);
+    public static final Item PETRIFIED_OAK_SLAB = register(JinericBlocks.PETRIFIED_OAK_SLAB);
+    public static final Item PETRIFIED_OAK_FENCE = register(JinericBlocks.PETRIFIED_OAK_FENCE);
+    public static final Item PETRIFIED_OAK_FENCE_GATE = register(JinericBlocks.PETRIFIED_OAK_FENCE_GATE);
+    public static final Item PETRIFIED_OAK_DOOR = register(JinericBlocks.PETRIFIED_OAK_DOOR);
+    public static final Item PETRIFIED_OAK_TRAPDOOR = register(JinericBlocks.PETRIFIED_OAK_TRAPDOOR);
+    public static final Item PETRIFIED_OAK_PRESSURE_PLATE = register(JinericBlocks.PETRIFIED_OAK_PRESSURE_PLATE);
+    public static final Item PETRIFIED_OAK_BUTTON = register(JinericBlocks.PETRIFIED_OAK_BUTTON);
+    public static final Item PETRIFIED_OAK_LEAVES = register(JinericBlocks.PETRIFIED_OAK_LEAVES);
+    public static final Item PETRIFIED_OAK_SAPLING = register(JinericBlocks.PETRIFIED_OAK_SAPLING);
+    public static final Item PETRIFIED_OAK_LADDER = register(JinericBlocks.PETRIFIED_OAK_LADDER);
+    public static final Item PETRIFIED_OAK_BOOKSHELF = register(JinericBlocks.PETRIFIED_OAK_BOOKSHELF);
+    public static final Item PETRIFIED_OAK_SIGN = register(
+			JinericBlocks.PETRIFIED_OAK_SIGN, (block, settings) -> new SignItem(block, JinericBlocks.PETRIFIED_OAK_WALL_SIGN, settings), new Item.Settings().maxCount(16)
+	);
+    public static final Item PETRIFIED_OAK_HANGING_SIGN = register(
+			JinericBlocks.PETRIFIED_OAK_HANGING_SIGN,
+			(block, settings) -> new HangingSignItem(block, JinericBlocks.PETRIFIED_OAK_WALL_HANGING_SIGN, settings),
+			new Item.Settings().maxCount(16)
+	);
+    public static final Item PETRIFIED_OAK_BOAT = register(
+			"petrified_oak_boat", settings -> new BoatItem(JinericEntityType.PETRIFIED_OAK_BOAT, settings), new Item.Settings().maxCount(1)
+	);
+    public static final Item PETRIFIED_OAK_CHEST_BOAT = register(
+			"petrified_oak_chest_boat", settings -> new BoatItem(JinericEntityType.PETRIFIED_OAK_CHEST_BOAT, settings), new Item.Settings().maxCount(1)
+	);
 //BOOKSHELVES
 	public static final Item SPRUCE_BOOKSHELF = register(JinericBlocks.SPRUCE_BOOKSHELF);
 	public static final Item BIRCH_BOOKSHELF = register(JinericBlocks.BIRCH_BOOKSHELF);
@@ -306,8 +315,8 @@ public class JinericItems {
 
 	public static final Item REFINERY = register(JinericBlocks.REFINERY);
 	public static final Item REDSTONE_CAMPFIRE = register(JinericBlocks.REDSTONE_CAMPFIRE);
-    public static final Item FIREWEED = register("fireweed", new BlockItem(JinericBlocks.FIREWEED, new FabricItemSettings()));
-    public static final Item BLOSSOMED_DANDELION = register("blossomed_dandelion", new BlockItem(JinericBlocks.BLOSSOMED_DANDELION, new FabricItemSettings()));
+    public static final Item FIREWEED = register(JinericBlocks.FIREWEED);
+    public static final Item BLOSSOMED_DANDELION = register(JinericBlocks.BLOSSOMED_DANDELION);
 
    private static RegistryKey<Item> keyOf(String id) {
 		return RegistryKey.of(RegistryKeys.ITEM, JinericMain.ofJineric(id));

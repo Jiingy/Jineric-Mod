@@ -26,7 +26,7 @@ public class JinericUndergroundConfiguredFeatures {
       registry.register(JinericUndergroundConfiguredFeatures.FULL_GRASS_VEGETATION, JinericUndergroundConfiguredFeatures.createFullGrassVegetation());
    }
 
-   protected static ConfiguredFeature<?, ?> createFullGrassVegetation() {
+   public static ConfiguredFeature<?, ?> createFullGrassVegetation() {
       return new ConfiguredFeature<>(Feature.SIMPLE_BLOCK,
               new SimpleBlockFeatureConfig(
                       new WeightedBlockStateProvider(
@@ -40,7 +40,7 @@ public class JinericUndergroundConfiguredFeatures {
       );
    }
 
-   protected static ConfiguredFeature<?, ?> createFullGrassPatchFeature(Registerable<ConfiguredFeature<?, ?>> registry) {
+   public static ConfiguredFeature<?, ?> createFullGrassPatchFeature(Registerable<ConfiguredFeature<?, ?>> registry) {
       RegistryEntryLookup<ConfiguredFeature<?, ?>> registryEntryLookup = registry.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
       return new ConfiguredFeature<>(Feature.VEGETATION_PATCH,
               new VegetationPatchFeatureConfig(

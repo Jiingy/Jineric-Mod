@@ -19,7 +19,7 @@ public class JinericTreeConfiguredFeatures extends TreeConfiguredFeatures {
    }
 
    public static RegistryKey<ConfiguredFeature<?, ?>> of(String id) {
-      return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, JinericMain.jinericId(id));
+      return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, JinericMain.ofJineric(id));
    }
 
    public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> featureRegistrable) {

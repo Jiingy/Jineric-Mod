@@ -9,7 +9,7 @@ import net.minecraft.world.gen.feature.PlacedFeature;
 public class JinericPlacedFeatures {
 
    public static RegistryKey<PlacedFeature> of(String id) {
-      return RegistryKey.of(RegistryKeys.PLACED_FEATURE, JinericMain.jinericId(id));
+      return RegistryKey.of(RegistryKeys.PLACED_FEATURE, JinericMain.ofJineric(id));
    }
 
    public static void bootstrap(Registerable<PlacedFeature> featureRegisterable) {

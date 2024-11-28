@@ -23,9 +23,8 @@ public class JinericDataGeneration implements DataGeneratorEntrypoint {
       fabricDataGenPack.addProvider(JinericRecipeGenerator::new);
       fabricDataGenPack.addProvider(JinericModelGenerator::new);
       fabricDataGenPack.addProvider(JinericBlockLootTableGenerator::new);
-      fabricDataGenPack.addProvider(JinericWorldGenerator::new);
-      fabricDataGenPack.addProvider(JinericGeneratedRecipes::new);
-      fabricDataGenPack.addProvider(JinericBiomeTagGen::new);
+//      fabricDataGenPack.addProvider(JinericWorldGenerator::new);
+//      fabricDataGenPack.addProvider(JinericBiomeTagGen::new);
    }
 
    @Override

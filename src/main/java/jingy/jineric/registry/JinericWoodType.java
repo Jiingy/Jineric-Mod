@@ -9,6 +9,6 @@ public class JinericWoodType {
    public static final WoodType PETRIFIED_OAK = register("petrified_oak", WoodTypeBuilder.copyOf(WoodType.OAK), JinericBlockSetTypes.PETRIFIED_OAK);
 
    public static WoodType register(String id, WoodTypeBuilder woodTypeBuilder, BlockSetType blockSetType) {
-      return woodTypeBuilder.register(JinericMain.jinericId(id), blockSetType);
+      return woodTypeBuilder.register(JinericMain.ofJineric(id), blockSetType);
    }
 }

@@ -65,7 +65,7 @@ public class JinericModelGenerator extends FabricModelProvider {
    }
 
    static Block byId(String id) {
-      final Identifier identifier = new Identifier(JinericMain.MOD_ID, id);
+      final Identifier identifier = JinericMain.ofJineric(id);
       if (!Registries.BLOCK.containsId(identifier)) {
          throw new IllegalStateException("Block is not registered: " + identifier);
       }

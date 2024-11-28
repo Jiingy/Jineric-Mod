@@ -9,7 +9,7 @@ public class TerraBlenderPlugin implements TerraBlenderApi {
 
    @Override
    public void onTerraBlenderInitialized() {
-		Regions.register(new WistfulForest(JinericMain.jinericId("wistful_forest"), 1));
-		Regions.register(new WistfulForest(JinericMain.jinericId("wistful_flower_forest"), 1));
+//		Regions.register(new WistfulForest(JinericMain.ofJineric("wistful_forest"), 1));
+//		Regions.register(new WistfulForest(JinericMain.ofJineric("wistful_flower_forest"), 1));
    }
 }

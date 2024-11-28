@@ -59,8 +59,8 @@ public class JinericBlockEntityType {
    public static void registerBlockEntityTypes() {
       Registry.register(Registries.BLOCK_ENTITY_TYPE, JinericMain.ofJineric("refinery"), REFINERY);
       Registry.register(Registries.BLOCK_ENTITY_TYPE, JinericMain.ofJineric("campfire"), REDSTONE_CAMPFIRE);
-      Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "jineric_sign"), JINERIC_SIGN);
-      Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(JinericMain.MOD_ID, "jineric_hanging_sign"), JINERIC_HANGING_SIGN);
+      Registry.register(Registries.BLOCK_ENTITY_TYPE, JinericMain.ofJineric("jineric_sign"), JINERIC_SIGN);
+      Registry.register(Registries.BLOCK_ENTITY_TYPE, JinericMain.ofJineric("jineric_hanging_sign"), JINERIC_HANGING_SIGN);
       Registry.register(Registries.BLOCK_ENTITY_TYPE, JinericMain.ofJineric("jineric_chest"), JINERIC_CHEST);
       Registry.register(Registries.BLOCK_ENTITY_TYPE, JinericMain.ofJineric("jineric_trapped_chest"), JINERIC_TRAPPED_CHEST);
    }

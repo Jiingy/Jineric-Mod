@@ -8,6 +8,6 @@ public class JinericBlockSetTypes {
    public static final BlockSetType PETRIFIED_OAK = register("petrified_oak", BlockSetTypeBuilder.copyOf(BlockSetType.OAK));
 
    private static BlockSetType register(String id, BlockSetTypeBuilder blockSetTypeBuilder) {
-      return blockSetTypeBuilder.build(JinericMain.jinericId(id));
+      return blockSetTypeBuilder.build(JinericMain.ofJineric(id));
    }
 }
