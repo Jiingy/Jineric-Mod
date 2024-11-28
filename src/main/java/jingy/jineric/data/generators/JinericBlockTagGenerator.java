@@ -376,20 +376,6 @@ public class JinericBlockTagGenerator extends FabricTagProvider.BlockTagProvider
             this.getOrCreateTagBuilder(tagKey).add(block);
          }
       }
-
-//      Stream<BlockFamily> blockFamilies = BlockFamilies.getFamilies();
-//      blockFamilies.forEach(blockFamily -> Arrays.stream(baseBlock).forEach(block -> {
-//         if (blockFamily.getBaseBlock() == block) {
-//            for (Block blockVariant : blockFamily.getVariants().values()) {
-//               if (!blockVariant.getDefaultState().isIn(tagKey) && Registries.BLOCK.getId(blockVariant).getNamespace().equals("jineric")) {
-//                  this.getOrCreateTagBuilder(tagKey).add(blockVariant);
-//               }
-//            }
-//            if (!blockFamily.getBaseBlock().getDefaultState().isIn(tagKey)) {
-//               this.getOrCreateTagBuilder(tagKey).add(blockFamily.getBaseBlock());
-//            }
-//         }
-//      }));
    }
 
    private void genFamiliesToBlockTypeTags() {
