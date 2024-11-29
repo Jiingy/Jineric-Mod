@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "top": "jineric:block/soul_sandstone_top",
+    "top": "jineric:block/smooth_soul_sandstone",
     "bottom": "jineric:block/soul_sandstone_bottom",
     "side": "jineric:block/soul_sandstone"
   }

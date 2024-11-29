@@ -1,8 +1,8 @@
 {
   "parent": "jineric:block/template_edge_texture_wall_post",
   "textures": {
-    "side": "jineric:block/cut_soul_sandstone",
-    "top": "jineric:block/soul_sandstone_top",
-    "bottom": "jineric:block/soul_sandstone_top"
+    "top": "jineric:block/smooth_soul_sandstone",
+    "bottom": "jineric:block/smooth_soul_sandstone",
+    "side": "jineric:block/cut_soul_sandstone"
   }
 }
