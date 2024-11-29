@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "jineric:block/snow_bricks",
-    "side": "jineric:block/snow_bricks",
-    "top": "jineric:block/snow_bricks"
-  }
-}

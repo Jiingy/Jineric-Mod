@@ -7,7 +7,7 @@ import net.minecraft.data.family.BlockFamily;
 
 //TODO: ADD DUCK MIXIN, WITH A .pillar() METHOD
 public class JinericBlockFamilies extends BlockFamilies {
-    public static final BlockFamily DRIPSTONE =register(Blocks.DRIPSTONE_BLOCK)
+    public static final BlockFamily DRIPSTONE = register(Blocks.DRIPSTONE_BLOCK)
             .stairs(JinericBlocks.DRIPSTONE_STAIRS)
             .slab(JinericBlocks.DRIPSTONE_SLAB)
             .wall(JinericBlocks.DRIPSTONE_WALL)
@@ -106,7 +106,8 @@ public class JinericBlockFamilies extends BlockFamilies {
             .slab(JinericBlocks.DRIPSTONE_BRICK_SLAB)
             .wall(JinericBlocks.DRIPSTONE_BRICK_WALL)
             .chiseled(JinericBlocks.CHISELED_DRIPSTONE_BRICKS)
-            .cracked(JinericBlocks.CRACKED_DRIPSTONE_BRICKS)
+            //TODO: DOUBLE CHECK REMOVING THIS DOES NOT AFFECT OTHER DATA
+//            .cracked(JinericBlocks.CRACKED_DRIPSTONE_BRICKS)
             .build();
 
     public static final BlockFamily CRACKED_DRIPSTONE_BRICKS = register(JinericBlocks.CRACKED_DRIPSTONE_BRICKS)
@@ -119,7 +120,8 @@ public class JinericBlockFamilies extends BlockFamilies {
             .stairs(JinericBlocks.DRIPSTONE_TILE_STAIRS)
             .slab(JinericBlocks.DRIPSTONE_TILE_SLAB)
             .wall(JinericBlocks.DRIPSTONE_TILE_WALL)
-            .cracked(JinericBlocks.CRACKED_DRIPSTONE_TILES)
+            //TODO: DOUBLE CHECK REMOVING THIS DOES NOT AFFECT OTHER DATA
+//            .cracked(JinericBlocks.CRACKED_DRIPSTONE_TILES)
             .build();
 
     public static final BlockFamily CRACKED_DRIPSTONE_TILES = register(JinericBlocks.CRACKED_DRIPSTONE_TILES)
@@ -187,7 +189,9 @@ public class JinericBlockFamilies extends BlockFamilies {
             .stairs(JinericBlocks.SOUL_SANDSTONE_STAIRS)
             .slab(JinericBlocks.SOUL_SANDSTONE_SLAB)
             .wall(JinericBlocks.SOUL_SANDSTONE_WALL)
-            .chiseled(JinericBlocks.CHISELED_SOUL_SANDSTONE)
+            .noGenerateModels()
+            //TODO: CHECK THIS DOESN'T BREAK DATA
+//            .chiseled(JinericBlocks.CHISELED_SOUL_SANDSTONE)
             .build();
 
     public static final BlockFamily SMOOTH_SOUL_SANDSTONE = register(JinericBlocks.SMOOTH_SOUL_SANDSTONE)
@@ -200,6 +204,7 @@ public class JinericBlockFamilies extends BlockFamilies {
             .stairs(JinericBlocks.CUT_SOUL_SANDSTONE_STAIRS)
             .slab(JinericBlocks.CUT_SOUL_SANDSTONE_SLAB)
             .wall(JinericBlocks.CUT_SOUL_SANDSTONE_WALL)
+            .noGenerateModels()
             .build();
 
     public static final BlockFamily POLISHED_SOUL_SANDSTONE = register(JinericBlocks.POLISHED_SOUL_SANDSTONE)

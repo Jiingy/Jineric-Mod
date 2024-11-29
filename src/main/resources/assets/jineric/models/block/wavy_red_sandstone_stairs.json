@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "jineric:block/wavy_red_sandstone",
-    "top": "jineric:block/wavy_red_sandstone",
-    "side": "jineric:block/wavy_red_sandstone"
-  }
-}

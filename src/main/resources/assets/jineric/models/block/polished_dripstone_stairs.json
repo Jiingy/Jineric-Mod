@@ -1,8 +1,0 @@
-{
-    "parent": "minecraft:block/stairs",
-    "textures": {
-        "bottom": "jineric:block/polished_dripstone",
-        "top": "jineric:block/polished_dripstone",
-        "side": "jineric:block/polished_dripstone"
-    }
-}

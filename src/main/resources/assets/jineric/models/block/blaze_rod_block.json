@@ -1,7 +1,0 @@
-{
-   "parent": "minecraft:block/cube_column",
-   "textures": {
-	  "end": "jineric:block/blaze_rod_block_end",
-	  "side": "jineric:block/blaze_rod_block"
-   }
-}
