@@ -40,10 +40,6 @@ public class JinericItemGroups {
 							entries.add(JinericItems.DRIPSTONE_STAIRS);
 							entries.add(JinericItems.DRIPSTONE_SLAB);
 							entries.add(JinericItems.DRIPSTONE_WALL);
-							entries.add(JinericItems.COBBLED_DRIPSTONE);
-							entries.add(JinericItems.COBBLED_DRIPSTONE_STAIRS);
-							entries.add(JinericItems.COBBLED_DRIPSTONE_SLAB);
-							entries.add(JinericItems.COBBLED_DRIPSTONE_WALL);
 							entries.add(JinericItems.SMOOTH_DRIPSTONE);
 							entries.add(JinericItems.SMOOTH_DRIPSTONE_STAIRS);
 							entries.add(JinericItems.SMOOTH_DRIPSTONE_SLAB);
@@ -228,10 +224,6 @@ public class JinericItemGroups {
 							entries.add(JinericItems.SOUL_JACK_O_LANTERN);
 							entries.add(JinericItems.NETHERITE_HORSE_ARMOR);
 							entries.add(JinericItems.REFINERY);
-							entries.add(JinericItems.COBBLED_TUFF);
-							entries.add(JinericItems.COBBLED_TUFF_STAIRS);
-							entries.add(JinericItems.COBBLED_TUFF_SLAB);
-							entries.add(JinericItems.COBBLED_TUFF_WALL);
 							entries.add(JinericItems.SMOOTH_TUFF);
 							entries.add(JinericItems.SMOOTH_TUFF_STAIRS);
 							entries.add(JinericItems.SMOOTH_TUFF_SLAB);
@@ -287,11 +279,7 @@ public class JinericItemGroups {
 			entries.addAfter(Items.POLISHED_DIORITE_SLAB, JinericItems.POLISHED_DIORITE_WALL);
 			entries.addAfter(Items.POLISHED_GRANITE_SLAB, JinericItems.POLISHED_GRANITE_WALL);
 			entries.addAfter(JinericItems.POLISHED_ANDESITE_WALL, Items.TUFF);
-			entries.addAfter(Items.TUFF, JinericItems.COBBLED_TUFF);
-			entries.addAfter(JinericItems.COBBLED_TUFF, JinericItems.COBBLED_TUFF_STAIRS);
-			entries.addAfter(JinericItems.COBBLED_TUFF_STAIRS, JinericItems.COBBLED_TUFF_SLAB);
-			entries.addAfter(JinericItems.COBBLED_TUFF_SLAB, JinericItems.COBBLED_TUFF_WALL);
-			entries.addAfter(JinericItems.COBBLED_TUFF_WALL, JinericItems.SMOOTH_TUFF);
+			entries.addAfter(Items.TUFF, JinericItems.SMOOTH_TUFF);
 			entries.addAfter(JinericItems.SMOOTH_TUFF, JinericItems.SMOOTH_TUFF_STAIRS);
 			entries.addAfter(JinericItems.SMOOTH_TUFF_STAIRS, JinericItems.SMOOTH_TUFF_SLAB);
 			entries.addAfter(JinericItems.SMOOTH_TUFF_SLAB, JinericItems.SMOOTH_TUFF_WALL);
@@ -313,11 +301,7 @@ public class JinericItemGroups {
 			entries.addAfter(Items.DRIPSTONE_BLOCK, JinericItems.DRIPSTONE_STAIRS);
 			entries.addAfter(JinericItems.DRIPSTONE_STAIRS, JinericItems.DRIPSTONE_SLAB);
 			entries.addAfter(JinericItems.DRIPSTONE_SLAB, JinericItems.DRIPSTONE_WALL);
-			entries.addAfter(JinericItems.DRIPSTONE_WALL, JinericItems.COBBLED_DRIPSTONE);
-			entries.addAfter(JinericItems.COBBLED_DRIPSTONE, JinericItems.COBBLED_DRIPSTONE_STAIRS);
-			entries.addAfter(JinericItems.COBBLED_DRIPSTONE_STAIRS, JinericItems.COBBLED_DRIPSTONE_SLAB);
-			entries.addAfter(JinericItems.COBBLED_DRIPSTONE_SLAB, JinericItems.COBBLED_DRIPSTONE_WALL);
-			entries.addAfter(JinericItems.COBBLED_DRIPSTONE_WALL, JinericItems.SMOOTH_DRIPSTONE);
+			entries.addAfter(JinericItems.DRIPSTONE_WALL, JinericItems.SMOOTH_DRIPSTONE);
 			entries.addAfter(JinericItems.SMOOTH_DRIPSTONE, JinericItems.SMOOTH_DRIPSTONE_STAIRS);
 			entries.addAfter(JinericItems.SMOOTH_DRIPSTONE_STAIRS, JinericItems.SMOOTH_DRIPSTONE_SLAB);
 			entries.addAfter(JinericItems.SMOOTH_DRIPSTONE_SLAB, JinericItems.SMOOTH_DRIPSTONE_WALL);

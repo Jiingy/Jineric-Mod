@@ -30,10 +30,6 @@ public class JinericItems {
 	public static final Item DRIPSTONE_STAIRS = register(JinericBlocks.DRIPSTONE_STAIRS);
 	public static final Item DRIPSTONE_SLAB = register(JinericBlocks.DRIPSTONE_SLAB);
 	public static final Item DRIPSTONE_WALL = register(JinericBlocks.DRIPSTONE_WALL);
-	public static final Item COBBLED_DRIPSTONE = register(JinericBlocks.COBBLED_DRIPSTONE);
-	public static final Item COBBLED_DRIPSTONE_STAIRS = register(JinericBlocks.COBBLED_DRIPSTONE_STAIRS);
-	public static final Item COBBLED_DRIPSTONE_SLAB = register(JinericBlocks.COBBLED_DRIPSTONE_SLAB);
-	public static final Item COBBLED_DRIPSTONE_WALL = register(JinericBlocks.COBBLED_DRIPSTONE_WALL);
 	public static final Item DRIPSTONE_BRICKS = register(JinericBlocks.DRIPSTONE_BRICKS);
 	public static final Item DRIPSTONE_BRICK_STAIRS = register(JinericBlocks.DRIPSTONE_BRICK_STAIRS);
 	public static final Item DRIPSTONE_BRICK_SLAB = register(JinericBlocks.DRIPSTONE_BRICK_SLAB);
@@ -62,10 +58,6 @@ public class JinericItems {
 	public static final Item DRIPSTONE_BRICK_PILLAR = register(JinericBlocks.DRIPSTONE_BRICK_PILLAR);
 
 //TUFF
-	public static final Item COBBLED_TUFF = register(JinericBlocks.COBBLED_TUFF);
-	public static final Item COBBLED_TUFF_SLAB = register(JinericBlocks.COBBLED_TUFF_SLAB);
-	public static final Item COBBLED_TUFF_STAIRS = register(JinericBlocks.COBBLED_TUFF_STAIRS);
-	public static final Item COBBLED_TUFF_WALL = register(JinericBlocks.COBBLED_TUFF_WALL);
 	public static final Item SMOOTH_TUFF = register(JinericBlocks.SMOOTH_TUFF);
 	public static final Item SMOOTH_TUFF_STAIRS = register(JinericBlocks.SMOOTH_TUFF_STAIRS);
 	public static final Item SMOOTH_TUFF_SLAB = register(JinericBlocks.SMOOTH_TUFF_SLAB);

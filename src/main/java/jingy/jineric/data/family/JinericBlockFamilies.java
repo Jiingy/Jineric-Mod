@@ -5,6 +5,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.data.family.BlockFamilies;
 import net.minecraft.data.family.BlockFamily;
 
+//TODO: NO CRACKED TUFF TILES?
 //TODO: ADD DUCK MIXIN, WITH A .pillar() METHOD
 public class JinericBlockFamilies extends BlockFamilies {
     public static final BlockFamily DRIPSTONE = register(Blocks.DRIPSTONE_BLOCK)
@@ -87,12 +88,6 @@ public class JinericBlockFamilies extends BlockFamilies {
             .stairs(JinericBlocks.SNOW_BRICK_STAIRS)
             .slab(JinericBlocks.SNOW_BRICK_SLAB)
             .wall(JinericBlocks.SNOW_BRICK_WALL)
-            .build();
-
-    public static final BlockFamily COBBLED_DRIPSTONE = register(JinericBlocks.COBBLED_DRIPSTONE)
-            .stairs(JinericBlocks.COBBLED_DRIPSTONE_STAIRS)
-            .slab(JinericBlocks.COBBLED_DRIPSTONE_SLAB)
-            .wall(JinericBlocks.COBBLED_DRIPSTONE_WALL)
             .build();
 
     public static final BlockFamily POLISHED_DRIPSTONE = register(JinericBlocks.POLISHED_DRIPSTONE)
