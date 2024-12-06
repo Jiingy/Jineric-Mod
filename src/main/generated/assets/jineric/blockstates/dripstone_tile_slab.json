@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "jineric:block/dripstone_tile_slab"
+    },
+    "type=double": {
+      "model": "jineric:block/dripstone_tiles"
+    },
+    "type=top": {
+      "model": "jineric:block/dripstone_tile_slab_top"
+    }
+  }
+}

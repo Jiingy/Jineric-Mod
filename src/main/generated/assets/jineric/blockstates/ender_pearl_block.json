@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "jineric:block/ender_pearl_block"
+    }
+  }
+}
