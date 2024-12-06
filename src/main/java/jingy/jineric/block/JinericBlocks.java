@@ -114,12 +114,12 @@ public class JinericBlocks {
 	public static final Block SMOOTH_TUFF_SLAB = register("smooth_tuff_slab", SlabBlock::new, AbstractBlock.Settings.copy(SMOOTH_TUFF));
 	public static final Block SMOOTH_TUFF_STAIRS = registerStairsBlock("smooth_tuff_stairs", SMOOTH_TUFF);
 	public static final Block SMOOTH_TUFF_WALL = register("smooth_tuff_wall", WallBlock::new, AbstractBlock.Settings.copy(SMOOTH_TUFF));
+	public static final Block TUFF_BRICK_PILLAR = register("tuff_brick_pillar", PillarBlock::new, Block.Settings.copy(TUFF_BRICKS));
 	public static final Block CRACKED_TUFF_BRICKS = register("cracked_tuff_bricks", AbstractBlock.Settings.copy(TUFF_BRICKS));
 	public static final Block CRACKED_TUFF_BRICK_SLAB = register("cracked_tuff_brick_slab", SlabBlock::new, AbstractBlock.Settings.copy(CRACKED_TUFF_BRICKS));
 	public static final Block CRACKED_TUFF_BRICK_STAIRS = registerStairsBlock("cracked_tuff_brick_stairs", CRACKED_TUFF_BRICKS);
 	public static final Block CRACKED_TUFF_BRICK_WALL = register("cracked_tuff_brick_wall", WallBlock::new, AbstractBlock.Settings.copy(CRACKED_TUFF_BRICKS));
 	//	TODO: RENAME TO TUFF BRICK PILLAR
-	public static final Block TUFF_PILLAR = register("tuff_pillar", PillarBlock::new, Block.Settings.copy(TUFF_BRICKS));
 	public static final Block TUFF_TILES = register("tuff_tiles",  Block.Settings.copy(STONE_TILES).sounds(BlockSoundGroup.TUFF));
 	public static final Block TUFF_TILE_STAIRS = registerStairsBlock("tuff_tile_stairs", TUFF_TILES);
 	public static final Block TUFF_TILE_SLAB = register("tuff_tile_slab", SlabBlock::new, Block.Settings.copy(TUFF_TILES));

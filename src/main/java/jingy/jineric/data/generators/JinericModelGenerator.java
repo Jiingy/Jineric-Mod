@@ -52,6 +52,7 @@ public class JinericModelGenerator extends FabricModelProvider {
       blockModelGenerator.registerSimpleState(JinericBlocks.PAPER_BLOCK);
       blockModelGenerator.registerSimpleState(JinericBlocks.BLAZE_ROD_BLOCK);
       blockModelGenerator.registerAxisRotated(JinericBlocks.STICK_BLOCK, TexturedModel.CUBE_COLUMN, TexturedModel.CUBE_COLUMN_HORIZONTAL);
+      blockModelGenerator.registerAxisRotated(JinericBlocks.TUFF_BRICK_PILLAR, TexturedModel.CUBE_COLUMN, TexturedModel.CUBE_COLUMN_HORIZONTAL);
    }
 
    public void genVanillaWoodFamilyAdditions(BlockStateModelGenerator blockStateModelGenerator) {

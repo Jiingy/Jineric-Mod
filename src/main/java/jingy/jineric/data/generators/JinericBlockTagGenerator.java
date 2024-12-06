@@ -66,6 +66,7 @@ public class JinericBlockTagGenerator extends FabricTagProvider.BlockTagProvider
               .add(JinericBlocks.WAXED_CUT_COPPER_WALL, JinericBlocks.WAXED_EXPOSED_CUT_COPPER_WALL, JinericBlocks.WAXED_WEATHERED_CUT_COPPER_WALL, JinericBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL)
               .add(JinericBlocks.BLAZE_ROD_BLOCK, JinericBlocks.EGG_BLOCK, JinericBlocks.PRISMARINE_CRYSTAL_BLOCK, JinericBlocks.BONE_MEAL_BLOCK, JinericBlocks.FLINT_BLOCK, JinericBlocks.CHARCOAL_BLOCK)
               .add(JinericBlocks.STONE_BRICK_PILLAR)
+              .add(JinericBlocks.TUFF_BRICK_PILLAR)
               .add(JinericBlocks.DRIPSTONE_BRICK_PILLAR)
               .add(JinericBlocks.REDSTONE_LANTERN)
               .add(JinericBlocks.PURPUR_WALL)

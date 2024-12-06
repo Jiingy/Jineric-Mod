@@ -66,7 +66,7 @@ public class JinericItems {
 	public static final Item CRACKED_TUFF_BRICK_STAIRS = register(JinericBlocks.CRACKED_TUFF_BRICK_STAIRS);
 	public static final Item CRACKED_TUFF_BRICK_SLAB = register(JinericBlocks.CRACKED_TUFF_BRICK_SLAB);
 	public static final Item CRACKED_TUFF_BRICK_WALL = register(JinericBlocks.CRACKED_TUFF_BRICK_WALL);
-	public static final Item TUFF_PILLAR = register(JinericBlocks.TUFF_PILLAR);
+	public static final Item TUFF_BRICK_PILLAR = register(JinericBlocks.TUFF_BRICK_PILLAR);
 	public static final Item TUFF_TILES = register(JinericBlocks.TUFF_TILES);
 	public static final Item TUFF_TILE_SLAB = register(JinericBlocks.TUFF_TILE_SLAB);
 	public static final Item TUFF_TILE_STAIRS = register(JinericBlocks.TUFF_TILE_STAIRS);

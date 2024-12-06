@@ -32,6 +32,7 @@ public class JinericBlockLootTableGenerator extends FabricBlockLootTableProvider
    }
 
    private void genUniqueDrops() {
+      this.addDrop(JinericBlocks.TUFF_BRICK_PILLAR);
       this.addDrop(JinericBlocks.REFINERY);
       this.addDrop(JinericBlocks.STONE_BRICK_PILLAR);
       this.addDrop(JinericBlocks.DRIPSTONE_BRICK_PILLAR);

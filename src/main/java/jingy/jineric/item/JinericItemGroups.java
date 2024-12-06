@@ -62,7 +62,7 @@ public class JinericItemGroups {
 							entries.add(JinericItems.CRACKED_TUFF_BRICK_STAIRS);
 							entries.add(JinericItems.CRACKED_TUFF_BRICK_SLAB);
 							entries.add(JinericItems.CRACKED_TUFF_BRICK_WALL);
-							entries.add(JinericItems.TUFF_PILLAR);
+							entries.add(JinericItems.TUFF_BRICK_PILLAR);
 							entries.add(JinericItems.TUFF_TILES);
 							entries.add(JinericItems.TUFF_TILE_STAIRS);
 							entries.add(JinericItems.TUFF_TILE_SLAB);
@@ -289,7 +289,7 @@ public class JinericItemGroups {
 			entries.addAfter(JinericItems.CRACKED_TUFF_BRICKS, JinericItems.CRACKED_TUFF_BRICK_STAIRS);
 			entries.addAfter(JinericItems.CRACKED_TUFF_BRICK_STAIRS, JinericItems.CRACKED_TUFF_BRICK_SLAB);
 			entries.addAfter(JinericItems.CRACKED_TUFF_BRICK_SLAB, JinericItems.CRACKED_TUFF_BRICK_WALL);
-			entries.addAfter(JinericItems.CRACKED_TUFF_BRICK_WALL, JinericItems.TUFF_PILLAR);
+			entries.addAfter(JinericItems.CRACKED_TUFF_BRICK_WALL, JinericItems.TUFF_BRICK_PILLAR);
 			entries.addAfter(Items.CHISELED_TUFF_BRICKS, JinericItems.TUFF_TILES);
 			entries.addAfter(JinericItems.TUFF_TILES, JinericItems.TUFF_TILE_STAIRS);
 			entries.addAfter(JinericItems.TUFF_TILE_STAIRS, JinericItems.TUFF_TILE_SLAB);
