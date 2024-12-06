@@ -20,6 +20,12 @@ public class JinericBlockFamilies extends BlockFamilies {
             .wall(JinericBlocks.SMOOTH_STONE_WALL)
             .build();
 
+    public static final BlockFamily SMOOTH_TUFF = register(JinericBlocks.SMOOTH_TUFF)
+            .stairs(JinericBlocks.SMOOTH_TUFF_STAIRS)
+            .slab(JinericBlocks.SMOOTH_TUFF_SLAB)
+            .wall(JinericBlocks.SMOOTH_TUFF_WALL)
+            .build();
+
     public static final BlockFamily CRACKED_STONE_BRICKS = register(Blocks.CRACKED_STONE_BRICKS)
             .stairs(JinericBlocks.CRACKED_STONE_BRICK_STAIRS)
             .slab(JinericBlocks.CRACKED_STONE_BRICK_SLAB)

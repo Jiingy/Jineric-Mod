@@ -96,6 +96,7 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
             // Refining
             this.offerRefiningBlockFamily(Blocks.COBBLESTONE, Blocks.STONE, RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, "stone");
             this.offerRefiningBlockFamily(Blocks.STONE, Blocks.SMOOTH_STONE, RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, "smooth_stone");
+            this.offerRefiningBlockFamily(Blocks.TUFF, JinericBlocks.SMOOTH_TUFF, RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, "smooth_tuff");
             this.offerRefiningBlockFamily(Blocks.SANDSTONE, Blocks.SMOOTH_SANDSTONE, RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, "smooth_sandstone");
             this.offerRefiningBlockFamily(Blocks.RED_SANDSTONE, Blocks.SMOOTH_RED_SANDSTONE, RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, "smooth_red_sandstone");
             this.offerRefiningBlockFamily(JinericBlocks.SOUL_SANDSTONE, JinericBlocks.SMOOTH_SOUL_SANDSTONE, RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, "smooth_soul_sandstone");
@@ -110,7 +111,6 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
             this.offerRefiningBlockFamily(Blocks.POLISHED_BLACKSTONE_BRICKS, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS, RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, "cracked_polished_blackstone_bricks");
             this.offerRefiningBlockFamily(Blocks.QUARTZ_BLOCK, Blocks.SMOOTH_QUARTZ, RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, "smooth_quartz");
             this.offerRefiningBlockFamily(Blocks.COBBLED_DEEPSLATE, JinericBlocks.SMOOTH_DEEPSLATE, RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.MISC, "smooth_deepslate", Blocks.DEEPSLATE);
-            //TODO: FIX RECIPE CATEGORY BEING IGNORED - ALSO CREATE AUTOMATION FOR THIS, IN CASE OTHER MODS ADD TERRACOTTA
             this.offerRefining(Blocks.WET_SPONGE, Blocks.SPONGE, RecipeCategory.MISC, CookingRecipeCategory.MISC, 0.2F, 100, "sponge");
             this.offerRefining(Blocks.SAND, Blocks.GLASS, RecipeCategory.MISC, CookingRecipeCategory.MISC, "glass");
             this.offerRefining(Blocks.CLAY, Blocks.TERRACOTTA, RecipeCategory.MISC, CookingRecipeCategory.MISC, "terracotta");
@@ -134,7 +134,8 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
 
 // STONECUTTING
             //TODO: GENERATE PILLAR BLOCKS AUTOMATICALLY IN FAMILY SETS
-            //SOMEHOW SMOOTH BASALT AND SNOW BRICK STONE CUTTING RECIPES ARE GENERATING WITHOUT ME
+            //SOMEHOW SMOOTH BASALT AND SNOW BRICK STONE CUTTING RECIPES ARE GENERATING WITHOUT ME DOING ANYTHING
+            this.genStonecuttingFromFamilyBase(JinericBlocks.SMOOTH_TUFF, SMOOTH_TUFF);
             this.genStonecuttingFromFamilyBase(Blocks.STONE, POLISHED_STONE, STONE_TILES);
             this.genStonecuttingFromFamilyBase(Blocks.SMOOTH_STONE, SMOOTH_STONE);
             this.genStonecuttingFromFamilyBase(Blocks.CRACKED_STONE_BRICKS, CRACKED_STONE_BRICKS);

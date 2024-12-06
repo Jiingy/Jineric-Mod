@@ -2,7 +2,7 @@
   "parent": "minecraft:block/outer_stairs",
   "textures": {
     "bottom": "jineric:block/smooth_tuff",
-    "top": "jineric:block/smooth_tuff",
-    "side": "jineric:block/smooth_tuff"
+    "side": "jineric:block/smooth_tuff",
+    "top": "jineric:block/smooth_tuff"
   }
 }

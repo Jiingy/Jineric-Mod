@@ -79,6 +79,7 @@ public class JinericBlockTagGenerator extends FabricTagProvider.BlockTagProvider
       // SWORD
       this.getOrCreateTagBuilder(BlockTags.SWORD_EFFICIENT);
       // BLOCK FAMILY -> TAG
+      this.blockFamilyToTag(BlockTags.PICKAXE_MINEABLE, JinericBlocks.SMOOTH_TUFF);
       this.blockFamilyToTag(BlockTags.PICKAXE_MINEABLE, Blocks.SMOOTH_BASALT);
       this.blockFamilyToTag(BlockTags.PICKAXE_MINEABLE, Blocks.CRACKED_NETHER_BRICKS);
       this.blockFamilyToTag(BlockTags.PICKAXE_MINEABLE, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS);
