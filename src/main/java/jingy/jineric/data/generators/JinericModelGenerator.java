@@ -1,11 +1,11 @@
 package jingy.jineric.data.generators;
 
 import jingy.jineric.block.JinericBlocks;
+import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.WoodType;
-import net.minecraft.data.client.*;
+import net.minecraft.client.data.*;
 import net.minecraft.data.family.BlockFamilies;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.registry.DefaultedRegistry;
@@ -15,7 +15,7 @@ import net.minecraft.util.Identifier;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static net.minecraft.data.client.BlockStateModelGenerator.createSingletonBlockState;
+import static net.minecraft.client.data.BlockStateModelGenerator.createSingletonBlockState;
 
 public class JinericModelGenerator extends FabricModelProvider {
    public JinericModelGenerator(FabricDataOutput output) {
@@ -92,7 +92,7 @@ public class JinericModelGenerator extends FabricModelProvider {
 
    @Override
    public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-      //NOTE: DOES NOT NEED TO BE USED FOR ITEMS FOR BLOCKS
+      //TODO: 1.21.4: ALL ITEM MODELS ARE BROKEN AND NEED TO BE MIGRATED TO DATA-GEN
    }
 
    public void registerSimpleBlockSet(Block blockTexture, Block stairBlock, Block slabBlock, Block wallBlock, BlockStateModelGenerator blockStateModelGenerator) {

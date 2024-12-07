@@ -101,11 +101,13 @@ public class RedstoneCampfireBlockEntity extends BlockEntity implements Clearabl
             }
          }
       }
-      int i = state.get(RedstoneCampfireBlock.FACING).getHorizontal();
+      //TODO 1.21.4: VERIFY THIS CHANGE: getHorizontalQuarterTurns
+      int i = state.get(RedstoneCampfireBlock.FACING).getHorizontalQuarterTurns();
 
       for(int j = 0; j < campfire.itemsBeingCooked.size(); ++j) {
          if (!campfire.itemsBeingCooked.get(j).isEmpty() && random.nextFloat() < 0.2F) {
-            Direction direction = Direction.fromHorizontal(Math.floorMod(j + i, 4));
+            //TODO 1.21.4: VERIFY THIS CHANGE: fromHorizontalDegrees
+            Direction direction = Direction.fromHorizontalDegrees(Math.floorMod(j + i, 4));
             float f = 0.3125F;
             double d = (double)pos.getX()
                     + 0.5

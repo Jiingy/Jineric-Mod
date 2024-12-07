@@ -353,7 +353,6 @@ public class JinericBlockTagGenerator extends FabricTagProvider.BlockTagProvider
          // Sounds
       this.getOrCreateTagBuilder(JinericBlockSoundTags.VEGETATION_SOUNDS)
               .forceAddTag(BlockTags.SMALL_FLOWERS)
-              .forceAddTag(BlockTags.TALL_FLOWERS)
               .add(FULL_GRASS_BLOCK)
               .add(Blocks.GRASS_BLOCK)
               .add(Blocks.SHORT_GRASS)

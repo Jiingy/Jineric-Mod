@@ -33,8 +33,9 @@ public class RedstoneCampfireBlockEntityRenderer implements BlockEntityRenderer<
          if (itemStack != ItemStack.EMPTY) {
             matrixStack.push();
             matrixStack.translate(0.5F, 0.44921875F, 0.5F);
-            Direction direction2 = Direction.fromHorizontal((l + direction.getHorizontal()) % 4);
-            float g = -direction2.asRotation();
+            Direction direction2 = Direction.fromHorizontalDegrees((l + direction.getHorizontalQuarterTurns()) % 4);
+            //TODO 1.21.4: VERIFY CHANGE: getRotationQuaternion().angle()
+            float g = -direction2.getRotationQuaternion().angle();
             matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(g));
             matrixStack.multiply(RotationAxis.POSITIVE_X.rotationDegrees(90.0F));
             matrixStack.translate(-0.3125F, -0.3125F, 0.0F);
