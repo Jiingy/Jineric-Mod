@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "jineric:block/stone_wall"
+    "model": "jineric:block/stone_wall_inventory"
   }
 }

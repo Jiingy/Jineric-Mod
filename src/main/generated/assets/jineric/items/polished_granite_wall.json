@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "jineric:block/polished_granite_wall"
+    "model": "jineric:block/polished_granite_wall_inventory"
   }
 }

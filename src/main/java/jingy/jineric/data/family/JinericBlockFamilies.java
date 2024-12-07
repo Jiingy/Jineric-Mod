@@ -18,12 +18,31 @@ public class JinericBlockFamilies extends BlockFamilies {
             .stairs(JinericBlocks.SMOOTH_STONE_STAIRS)
             .slab(Blocks.SMOOTH_STONE_SLAB)
             .wall(JinericBlocks.SMOOTH_STONE_WALL)
+            .noGenerateModels()
             .build();
 
     public static final BlockFamily SMOOTH_TUFF = register(JinericBlocks.SMOOTH_TUFF)
             .stairs(JinericBlocks.SMOOTH_TUFF_STAIRS)
             .slab(JinericBlocks.SMOOTH_TUFF_SLAB)
             .wall(JinericBlocks.SMOOTH_TUFF_WALL)
+            .build();
+
+    public static final BlockFamily CRACKED_TUFF_BRICKS = register(JinericBlocks.CRACKED_TUFF_BRICKS)
+            .stairs(JinericBlocks.CRACKED_TUFF_BRICK_STAIRS)
+            .slab(JinericBlocks.CRACKED_TUFF_BRICK_SLAB)
+            .wall(JinericBlocks.CRACKED_TUFF_BRICK_WALL)
+            .build();
+
+    public static final BlockFamily TUFF_TILESS = register(JinericBlocks.TUFF_TILES)
+            .stairs(JinericBlocks.TUFF_TILE_STAIRS)
+            .slab(JinericBlocks.TUFF_TILE_SLAB)
+            .wall(JinericBlocks.TUFF_TILE_WALL)
+            .build();
+
+    public static final BlockFamily CRACKED_TUFF_TILES = register(JinericBlocks.CRACKED_TUFF_TILES)
+            .stairs(JinericBlocks.CRACKED_TUFF_TILE_STAIRS)
+            .slab(JinericBlocks.CRACKED_TUFF_TILE_SLAB)
+            .wall(JinericBlocks.CRACKED_TUFF_TILE_WALL)
             .build();
 
     public static final BlockFamily CRACKED_STONE_BRICKS = register(Blocks.CRACKED_STONE_BRICKS)

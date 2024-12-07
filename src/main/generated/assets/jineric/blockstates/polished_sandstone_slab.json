@@ -4,7 +4,7 @@
       "model": "jineric:block/polished_sandstone_slab"
     },
     "type=double": {
-      "model": "jineric:block/polished_sandstone"
+      "model": "jineric:block/polished_sandstone_slab_double"
     },
     "type=top": {
       "model": "jineric:block/polished_sandstone_slab_top"

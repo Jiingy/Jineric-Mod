@@ -4,7 +4,7 @@
       "model": "jineric:block/smooth_tuff_slab"
     },
     "type=double": {
-      "model": "jineric:block/smooth_tuff"
+      "model": "jineric:block/smooth_tuff_slab_double"
     },
     "type=top": {
       "model": "jineric:block/smooth_tuff_slab_top"

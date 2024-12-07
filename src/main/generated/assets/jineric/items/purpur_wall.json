@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "jineric:block/purpur_wall"
+    "model": "jineric:block/purpur_wall_inventory"
   }
 }

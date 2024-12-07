@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "minecraft:block/smooth_basalt",
+    "side": "minecraft:block/smooth_basalt"
+  }
+}

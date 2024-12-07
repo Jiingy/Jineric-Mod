@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "jineric:block/wavy_red_sandstone",
+    "side": "jineric:block/wavy_red_sandstone"
+  }
+}

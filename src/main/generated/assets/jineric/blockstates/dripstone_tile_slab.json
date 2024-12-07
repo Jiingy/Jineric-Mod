@@ -4,7 +4,7 @@
       "model": "jineric:block/dripstone_tile_slab"
     },
     "type=double": {
-      "model": "jineric:block/dripstone_tiles"
+      "model": "jineric:block/dripstone_tile_slab_double"
     },
     "type=top": {
       "model": "jineric:block/dripstone_tile_slab_top"

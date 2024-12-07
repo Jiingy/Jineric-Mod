@@ -4,7 +4,7 @@
       "model": "jineric:block/cracked_stone_tile_slab"
     },
     "type=double": {
-      "model": "jineric:block/cracked_stone_tiles"
+      "model": "jineric:block/cracked_stone_tile_slab_double"
     },
     "type=top": {
       "model": "jineric:block/cracked_stone_tile_slab_top"

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "top": "jineric:block/smooth_soul_sandstone",
-    "bottom": "jineric:block/smooth_soul_sandstone",
-    "side": "jineric:block/cut_soul_sandstone"
-  }
-}

@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "jineric:block/cracked_deepslate_tile_wall"
+    "model": "jineric:block/cracked_deepslate_tile_wall_inventory"
   }
 }

@@ -4,7 +4,7 @@
       "model": "jineric:block/polished_stone_slab"
     },
     "type=double": {
-      "model": "jineric:block/polished_stone"
+      "model": "jineric:block/polished_stone_slab_double"
     },
     "type=top": {
       "model": "jineric:block/polished_stone_slab_top"

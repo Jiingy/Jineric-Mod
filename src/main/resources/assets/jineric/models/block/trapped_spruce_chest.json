@@ -1,7 +1,0 @@
-{
-  "parent": "jineric:block/chest_template",
-  "textures": {
-    "0": "jineric:entity/chest/trapped_spruce_chest",
-    "particle": "jineric:entity/chest/spruce_chest_particle"
-  }
-}

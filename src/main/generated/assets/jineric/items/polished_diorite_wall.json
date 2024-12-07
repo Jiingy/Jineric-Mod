@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "jineric:block/polished_diorite_wall"
+    "model": "jineric:block/polished_diorite_wall_inventory"
   }
 }
