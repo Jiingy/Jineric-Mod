@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "top": "jineric:block/polished_stone",
-    "bottom": "jineric:block/polished_stone",
-    "side": "jineric:block/polished_stone"
-  }
-}

@@ -32,6 +32,7 @@ public class JinericBlockLootTableGenerator extends FabricBlockLootTableProvider
    }
 
    private void genUniqueDrops() {
+      this.addDrop(JinericBlocks.TUFF_BRICK_PILLAR);
       this.addDrop(JinericBlocks.REFINERY);
       this.addDrop(JinericBlocks.STONE_BRICK_PILLAR);
       this.addDrop(JinericBlocks.DRIPSTONE_BRICK_PILLAR);
@@ -76,7 +77,11 @@ public class JinericBlockLootTableGenerator extends FabricBlockLootTableProvider
          Block baseBlock = blockFamily.getBaseBlock();
          for (Block block : blockFamily.getVariants().values()) {
             if (Registries.BLOCK.getId(block).getNamespace().matches("jineric")) {
-               this.addDrop(block);
+               if (block == blockFamily.getVariant(BlockFamily.Variant.SLAB)) {
+                  this.addDrop(block, this::slabDrops);
+               } else {
+                  this.addDrop(block);
+               }
             }
          }
          if (Registries.BLOCK.getId(baseBlock).getNamespace().matches("jineric")) {

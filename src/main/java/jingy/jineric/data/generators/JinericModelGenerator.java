@@ -4,8 +4,18 @@ import jingy.jineric.block.JinericBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Block;
+import net.minecraft.block.WoodType;
 import net.minecraft.data.client.*;
+import net.minecraft.data.family.BlockFamilies;
+import net.minecraft.data.family.BlockFamily;
+import net.minecraft.registry.DefaultedRegistry;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
+
+import java.util.List;
+import java.util.stream.Stream;
+
+import static net.minecraft.data.client.BlockStateModelGenerator.createSingletonBlockState;
 
 public class JinericModelGenerator extends FabricModelProvider {
    public JinericModelGenerator(FabricDataOutput output) {
@@ -14,11 +24,70 @@ public class JinericModelGenerator extends FabricModelProvider {
 
    @Override
    public void generateBlockStateModels(BlockStateModelGenerator blockModelGenerator) {
-      registerSimpleBlockSet(JinericBlocks.SNOW_BRICKS, JinericBlocks.SNOW_BRICK_STAIRS, JinericBlocks.SNOW_BRICK_SLAB, JinericBlocks.SNOW_BRICK_WALL, blockModelGenerator);
-      registerSimpleBlockSet(JinericBlocks.CRACKED_DRIPSTONE_TILES, JinericBlocks.CRACKED_DRIPSTONE_TILE_STAIRS, JinericBlocks.CRACKED_DRIPSTONE_TILE_SLAB, JinericBlocks.CRACKED_DRIPSTONE_TILE_WALL, blockModelGenerator);
-      registerSimpleBlockSet(JinericBlocks.CRACKED_DRIPSTONE_BRICKS, JinericBlocks.CRACKED_DRIPSTONE_BRICK_STAIRS, JinericBlocks.CRACKED_DRIPSTONE_BRICK_SLAB, JinericBlocks.CRACKED_DRIPSTONE_BRICK_WALL, blockModelGenerator);
-      registerSimpleBlockSet(JinericBlocks.CRACKED_TUFF_TILES, JinericBlocks.CRACKED_TUFF_TILE_STAIRS, JinericBlocks.CRACKED_TUFF_TILE_SLAB, JinericBlocks.CRACKED_TUFF_TILE_WALL, blockModelGenerator);
-      registerSimpleBlockSet(JinericBlocks.CRACKED_STONE_TILES, JinericBlocks.CRACKED_STONE_TILE_STAIRS, JinericBlocks.CRACKED_STONE_TILE_SLAB, JinericBlocks.CRACKED_STONE_TILE_WALL, blockModelGenerator);
+      this.genVanillaWoodFamilyAdditions(blockModelGenerator);
+      Stream<BlockFamily> blockFamilies = BlockFamilies.getFamilies();
+      blockFamilies
+              .filter(BlockFamily::shouldGenerateModels)
+              .forEach(blockFamily -> {
+                 Block baseBlock = blockFamily.getBaseBlock();
+                 if (Registries.BLOCK.getId(baseBlock).getNamespace().equals("jineric")) {
+                    blockModelGenerator.registerCubeAllModelTexturePool(baseBlock).family(blockFamily);
+                 }
+//                 Map<BlockFamily.Variant, Block> blockVariant = blockFamily.getVariants();
+//                 blockVariant.forEach((variant, block) -> {
+//                    if (Registries.BLOCK.getId(block).getNamespace().equals("jineric")) {
+//                       blockModelGenerator.registerSimpleCubeAll(baseBlock);
+//                    }
+//                 });
+              });
+      blockModelGenerator.registerSimpleCubeAll(JinericBlocks.PRISMARINE_CRYSTAL_BLOCK);
+      blockModelGenerator.registerSimpleCubeAll(JinericBlocks.SUGAR_BLOCK);
+      blockModelGenerator.registerSimpleCubeAll(JinericBlocks.CHARCOAL_BLOCK);
+      blockModelGenerator.registerSimpleCubeAll(JinericBlocks.FLINT_BLOCK);
+      blockModelGenerator.registerSimpleCubeAll(JinericBlocks.EGG_BLOCK);
+      blockModelGenerator.registerSimpleCubeAll(JinericBlocks.ROTTEN_FLESH_BLOCK);
+      blockModelGenerator.registerSimpleCubeAll(JinericBlocks.ENDER_PEARL_BLOCK);
+      blockModelGenerator.registerSimpleCubeAll(JinericBlocks.BONE_MEAL_BLOCK);
+      // TODO: AFAIK THERE IS NO VANILLA METHOD TO GEN BLOCKS LIKE PAPER_BLOCK AND BLAZE_ROD_BLOCK
+      blockModelGenerator.registerSimpleState(JinericBlocks.PAPER_BLOCK);
+      blockModelGenerator.registerSimpleState(JinericBlocks.BLAZE_ROD_BLOCK);
+      blockModelGenerator.registerAxisRotated(JinericBlocks.STICK_BLOCK, TexturedModel.CUBE_COLUMN, TexturedModel.CUBE_COLUMN_HORIZONTAL);
+      blockModelGenerator.registerAxisRotated(JinericBlocks.TUFF_BRICK_PILLAR, TexturedModel.CUBE_COLUMN, TexturedModel.CUBE_COLUMN_HORIZONTAL);
+   }
+
+   public void genVanillaWoodFamilyAdditions(BlockStateModelGenerator blockStateModelGenerator) {
+      DefaultedRegistry<Block> blockRegistry = Registries.BLOCK;
+      List<WoodType> woodTypes = WoodType.stream().toList();
+      woodTypes.forEach(woodType -> blockRegistry.stream()
+              .filter(block -> blockRegistry.getId(block).getNamespace().equals("jineric"))
+              .forEach(block -> {
+                 Block plank = blockRegistry.get(Identifier.of(woodType.name() + "_planks"));
+                 String blockKey = block.getTranslationKey();
+                 String trimmedBlockKey = blockKey
+                         .replace("block.jineric.", "")
+                         .replace("_ladder", "")
+                         .replace("trapped_", "").replace("_chest", "")
+                         .replace("_bookshelf", "");
+                 if (trimmedBlockKey.equals(woodType.name())) {
+                    this.offerWoodTypeBlock(blockKey, plank, block, blockStateModelGenerator);
+                 }
+              })
+      );
+   }
+
+   public void offerWoodTypeBlock(String blockKey, Block plank, Block checkedBlock, BlockStateModelGenerator blockStateModelGenerator) {
+      if (blockKey.contains("_chest")) {
+         if (blockKey.contains("trapped_")) {
+
+         } else {
+//         blockStateModelGenerator.registerBuiltin(ModelIds.getMinecraftNamespacedBlock("chest"), plank).includeWithoutItem(Blocks.CHEST, Blocks.TRAPPED_CHEST);
+         }
+      } else if (blockKey.contains("_ladder")) {
+//         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(checkedBlock);
+//         blockStateModelGenerator.registerItemModel(checkedBlock);
+      } else if (blockKey.contains("_bookshelf")) {
+         this.registerBookshelf(checkedBlock, plank, blockStateModelGenerator);
+      }
    }
 
    @Override
@@ -56,6 +125,12 @@ public class JinericModelGenerator extends FabricModelProvider {
       blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createWallBlockState(wallBlock, postModelId, sideModelId, sideTallModelId));
       Identifier wallInventory = Models.WALL_INVENTORY.upload(wallBlock, wallTextureMap, blockStateModelGenerator.modelCollector);
       blockStateModelGenerator.registerParentedItemModel(wallBlock, wallInventory);
+   }
+
+   private void registerBookshelf(Block bookshelf, Block plank, BlockStateModelGenerator blockStateModelGenerator) {
+      TextureMap textureMap = TextureMap.sideEnd(TextureMap.getId(bookshelf), TextureMap.getId(plank));
+      Identifier identifier = Models.CUBE_COLUMN.upload(bookshelf, textureMap, blockStateModelGenerator.modelCollector);
+      blockStateModelGenerator.blockStateCollector.accept(createSingletonBlockState(bookshelf, identifier));
    }
 
    public void registerFence(Block fenceBlock, Block fenceBlockTexture, BlockStateModelGenerator blockStateModelGenerator) {

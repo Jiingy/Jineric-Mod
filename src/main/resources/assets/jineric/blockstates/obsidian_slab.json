@@ -4,7 +4,7 @@
       "model": "jineric:block/obsidian_slab"
     },
     "type=double": {
-      "model": "minecraft:block/obsidian"
+      "model": "jineric:block/obsidian_slab_double"
     },
     "type=top": {
       "model": "jineric:block/obsidian_slab_top"

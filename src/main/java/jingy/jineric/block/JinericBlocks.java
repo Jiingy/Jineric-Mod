@@ -110,19 +110,16 @@ public class JinericBlocks {
 	public static final Block POLISHED_ANDESITE_WALL = register("polished_andesite_wall", WallBlock::new, AbstractBlock.Settings.copy(POLISHED_ANDESITE));
 
 //TUFF
-	public static final Block COBBLED_TUFF = register("cobbled_tuff",  Block.Settings.copy(TUFF));
-	public static final Block COBBLED_TUFF_SLAB = register("cobbled_tuff_slab", SlabBlock::new, Block.Settings.copy(COBBLED_TUFF));
-	public static final Block COBBLED_TUFF_STAIRS = registerStairsBlock("cobbled_tuff_stairs", COBBLED_TUFF);
-	public static final Block COBBLED_TUFF_WALL = register("cobbled_tuff_wall", WallBlock::new, Block.Settings.copy(COBBLED_TUFF));
 	public static final Block SMOOTH_TUFF = register("smooth_tuff", AbstractBlock.Settings.copy(TUFF));
 	public static final Block SMOOTH_TUFF_SLAB = register("smooth_tuff_slab", SlabBlock::new, AbstractBlock.Settings.copy(SMOOTH_TUFF));
 	public static final Block SMOOTH_TUFF_STAIRS = registerStairsBlock("smooth_tuff_stairs", SMOOTH_TUFF);
 	public static final Block SMOOTH_TUFF_WALL = register("smooth_tuff_wall", WallBlock::new, AbstractBlock.Settings.copy(SMOOTH_TUFF));
+	public static final Block TUFF_BRICK_PILLAR = register("tuff_brick_pillar", PillarBlock::new, Block.Settings.copy(TUFF_BRICKS));
 	public static final Block CRACKED_TUFF_BRICKS = register("cracked_tuff_bricks", AbstractBlock.Settings.copy(TUFF_BRICKS));
 	public static final Block CRACKED_TUFF_BRICK_SLAB = register("cracked_tuff_brick_slab", SlabBlock::new, AbstractBlock.Settings.copy(CRACKED_TUFF_BRICKS));
 	public static final Block CRACKED_TUFF_BRICK_STAIRS = registerStairsBlock("cracked_tuff_brick_stairs", CRACKED_TUFF_BRICKS);
 	public static final Block CRACKED_TUFF_BRICK_WALL = register("cracked_tuff_brick_wall", WallBlock::new, AbstractBlock.Settings.copy(CRACKED_TUFF_BRICKS));
-	public static final Block TUFF_PILLAR = register("tuff_pillar", PillarBlock::new, Block.Settings.copy(TUFF_BRICKS));
+	//	TODO: RENAME TO TUFF BRICK PILLAR
 	public static final Block TUFF_TILES = register("tuff_tiles",  Block.Settings.copy(STONE_TILES).sounds(BlockSoundGroup.TUFF));
 	public static final Block TUFF_TILE_STAIRS = registerStairsBlock("tuff_tile_stairs", TUFF_TILES);
 	public static final Block TUFF_TILE_SLAB = register("tuff_tile_slab", SlabBlock::new, Block.Settings.copy(TUFF_TILES));
@@ -142,10 +139,6 @@ public class JinericBlocks {
 	public static final Block DRIPSTONE_SLAB = register("dripstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(DRIPSTONE_BLOCK));
 	public static final Block DRIPSTONE_STAIRS = registerStairsBlock("dripstone_stairs", DRIPSTONE_BLOCK);
 	public static final Block DRIPSTONE_WALL = register("dripstone_wall", WallBlock::new, AbstractBlock.Settings.copy(DRIPSTONE_BLOCK));
-	public static final Block COBBLED_DRIPSTONE = register("cobbled_dripstone", AbstractBlock.Settings.copy(DRIPSTONE_BLOCK));
-	public static final Block COBBLED_DRIPSTONE_SLAB  = register("cobbled_dripstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(COBBLED_DRIPSTONE));
-	public static final Block COBBLED_DRIPSTONE_STAIRS = registerStairsBlock("cobbled_dripstone_stairs", COBBLED_DRIPSTONE);
-	public static final Block COBBLED_DRIPSTONE_WALL = register("cobbled_dripstone_wall", WallBlock::new, AbstractBlock.Settings.copy(COBBLED_DRIPSTONE));
 	public static final Block DRIPSTONE_BRICKS = register("dripstone_bricks", AbstractBlock.Settings.copy(DRIPSTONE_BLOCK));
 	public static final Block DRIPSTONE_BRICK_SLAB = register("dripstone_brick_slab", SlabBlock::new, AbstractBlock.Settings.copy(DRIPSTONE_BRICKS));
 	public static final Block DRIPSTONE_BRICK_STAIRS = registerStairsBlock("dripstone_brick_stairs", DRIPSTONE_BRICKS);

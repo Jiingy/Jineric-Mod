@@ -66,6 +66,7 @@ public class JinericBlockTagGenerator extends FabricTagProvider.BlockTagProvider
               .add(JinericBlocks.WAXED_CUT_COPPER_WALL, JinericBlocks.WAXED_EXPOSED_CUT_COPPER_WALL, JinericBlocks.WAXED_WEATHERED_CUT_COPPER_WALL, JinericBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL)
               .add(JinericBlocks.BLAZE_ROD_BLOCK, JinericBlocks.EGG_BLOCK, JinericBlocks.PRISMARINE_CRYSTAL_BLOCK, JinericBlocks.BONE_MEAL_BLOCK, JinericBlocks.FLINT_BLOCK, JinericBlocks.CHARCOAL_BLOCK)
               .add(JinericBlocks.STONE_BRICK_PILLAR)
+              .add(JinericBlocks.TUFF_BRICK_PILLAR)
               .add(JinericBlocks.DRIPSTONE_BRICK_PILLAR)
               .add(JinericBlocks.REDSTONE_LANTERN)
               .add(JinericBlocks.PURPUR_WALL)
@@ -79,6 +80,7 @@ public class JinericBlockTagGenerator extends FabricTagProvider.BlockTagProvider
       // SWORD
       this.getOrCreateTagBuilder(BlockTags.SWORD_EFFICIENT);
       // BLOCK FAMILY -> TAG
+      this.blockFamilyToTag(BlockTags.PICKAXE_MINEABLE, JinericBlocks.SMOOTH_TUFF);
       this.blockFamilyToTag(BlockTags.PICKAXE_MINEABLE, Blocks.SMOOTH_BASALT);
       this.blockFamilyToTag(BlockTags.PICKAXE_MINEABLE, Blocks.CRACKED_NETHER_BRICKS);
       this.blockFamilyToTag(BlockTags.PICKAXE_MINEABLE, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS);
@@ -88,7 +90,7 @@ public class JinericBlockTagGenerator extends FabricTagProvider.BlockTagProvider
       this.blockFamilyToTag(BlockTags.PICKAXE_MINEABLE, Blocks.CUT_SANDSTONE, POLISHED_SANDSTONE, WAVY_SANDSTONE);
       this.blockFamilyToTag(BlockTags.PICKAXE_MINEABLE, Blocks.CUT_RED_SANDSTONE, POLISHED_RED_SANDSTONE, WAVY_RED_SANDSTONE);
       this.blockFamilyToTag(BlockTags.PICKAXE_MINEABLE, SOUL_SANDSTONE, CUT_SOUL_SANDSTONE, POLISHED_SOUL_SANDSTONE, SMOOTH_SOUL_SANDSTONE, WAVY_SOUL_SANDSTONE, CHISELED_SOUL_SANDSTONE);
-      this.blockFamilyToTag(BlockTags.PICKAXE_MINEABLE, Blocks.DRIPSTONE_BLOCK, COBBLED_DRIPSTONE, SMOOTH_DRIPSTONE, POLISHED_DRIPSTONE, DRIPSTONE_BRICKS, CRACKED_DRIPSTONE_BRICKS, DRIPSTONE_TILES, CRACKED_DRIPSTONE_TILES);
+      this.blockFamilyToTag(BlockTags.PICKAXE_MINEABLE, Blocks.DRIPSTONE_BLOCK, SMOOTH_DRIPSTONE, POLISHED_DRIPSTONE, DRIPSTONE_BRICKS, CRACKED_DRIPSTONE_BRICKS, DRIPSTONE_TILES, CRACKED_DRIPSTONE_TILES);
       this.blockFamilyToTag(BlockTags.PICKAXE_MINEABLE, TUFF_TILES, CRACKED_TUFF_TILES);
       this.blockFamilyToTag(PICKAXE_MINEABLE, Blocks.QUARTZ_BRICKS);
       this.blockFamilyToTag(BlockTags.SHOVEL_MINEABLE, SNOW_BRICKS);

@@ -1,8 +1,0 @@
-{
-    "parent": "minecraft:block/slab_top",
-    "textures": {
-        "top": "jineric:block/cobbled_dripstone",
-        "bottom": "jineric:block/cobbled_dripstone",
-        "side": "jineric:block/cobbled_dripstone"
-    }
-}
