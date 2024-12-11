@@ -33,7 +33,7 @@ public class JinericBlockFamilies extends BlockFamilies {
             .wall(JinericBlocks.CRACKED_TUFF_BRICK_WALL)
             .build();
 
-    public static final BlockFamily TUFF_TILESS = register(JinericBlocks.TUFF_TILES)
+    public static final BlockFamily TUFF_TILES = register(JinericBlocks.TUFF_TILES)
             .stairs(JinericBlocks.TUFF_TILE_STAIRS)
             .slab(JinericBlocks.TUFF_TILE_SLAB)
             .wall(JinericBlocks.TUFF_TILE_WALL)
