@@ -1,6 +1,32 @@
 {
   "model": {
-    "type": "minecraft:model",
-    "model": "jineric:block/trapped_mangrove_chest"
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:special",
+          "base": "jineric:item/trapped_mangrove_chest",
+          "model": {
+            "type": "minecraft:chest",
+            "texture": "minecraft:christmas"
+          }
+        },
+        "when": [
+          "12-24",
+          "12-25",
+          "12-26"
+        ]
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:special",
+      "base": "jineric:item/trapped_mangrove_chest",
+      "model": {
+        "type": "minecraft:chest",
+        "texture": "jineric:mangrove_chest"
+      }
+    },
+    "pattern": "MM-dd",
+    "property": "minecraft:local_time"
   }
 }
