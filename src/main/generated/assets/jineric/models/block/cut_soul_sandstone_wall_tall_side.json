@@ -1,0 +1,7 @@
+{
+  "parent": "jineric:block/template_column_short_wall_tall_side",
+  "textures": {
+    "end": "jineric:block/soul_sandstone_top",
+    "side": "jineric:block/cut_soul_sandstone"
+  }
+}

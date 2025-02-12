@@ -1,0 +1,9 @@
+{
+  "parent": "jineric:block/template_border_wall_side_low",
+  "textures": {
+    "end": "jineric:block/smooth_stone_wall_end",
+    "side": "minecraft:block/smooth_stone",
+    "side_short": "jineric:block/smooth_stone_wall_side_short",
+    "top": "jineric:block/smooth_stone_wall_top"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "jineric:block/template_column_short_wall_inventory",
+  "textures": {
+    "end": "jineric:block/smooth_stone_wall_end",
+    "side": "minecraft:block/smooth_stone",
+    "side_short": "jineric:block/smooth_stone_wall_side_short"
+  }
+}

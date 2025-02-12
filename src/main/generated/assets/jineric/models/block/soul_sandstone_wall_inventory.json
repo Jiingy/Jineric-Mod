@@ -1,0 +1,9 @@
+{
+  "parent": "jineric:block/template_top_bottom_short_wall_inventory",
+  "textures": {
+    "bottom": "jineric:block/soul_sandstone_bottom",
+    "side": "jineric:block/soul_sandstone",
+    "side_short": "jineric:block/soul_sandstone_short",
+    "top": "jineric:block/soul_sandstone_top"
+  }
+}
