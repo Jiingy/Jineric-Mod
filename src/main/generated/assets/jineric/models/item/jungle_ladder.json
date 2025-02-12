@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "jineric:block/jungle_ladder",
+    "layer1": "jineric:block/jungle_ladder_overlay"
+  }
+}
