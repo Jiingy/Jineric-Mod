@@ -119,7 +119,7 @@ public abstract class BlockFamiliesAdditionsMixin {
            at = @At("MIXINEXTRAS:EXPRESSION")
    )
    private static BlockFamily.Builder modifyCutSandstoneFamily(BlockFamily.Builder instance) {
-      return instance.stairs(JinericBlocks.CUT_SANDSTONE_STAIRS).wall(JinericBlocks.CUT_SANDSTONE_WALL);
+      return instance.stairs(JinericBlocks.CUT_SANDSTONE_STAIRS).wall(JinericBlocks.CUT_SANDSTONE_WALL).noGenerateModels();
    }
 
    @Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
@@ -141,7 +141,7 @@ public abstract class BlockFamiliesAdditionsMixin {
            at = @At("MIXINEXTRAS:EXPRESSION")
    )
    private static BlockFamily.Builder modifyCutRedSandstoneFamily(BlockFamily.Builder instance) {
-      return instance.stairs(JinericBlocks.CUT_RED_SANDSTONE_STAIRS).wall(JinericBlocks.CUT_RED_SANDSTONE_WALL);
+      return instance.stairs(JinericBlocks.CUT_RED_SANDSTONE_STAIRS).wall(JinericBlocks.CUT_RED_SANDSTONE_WALL).noGenerateModels();
    }
 
    @Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
@@ -162,7 +162,7 @@ public abstract class BlockFamiliesAdditionsMixin {
            method = "<clinit>",
            at = @At("MIXINEXTRAS:EXPRESSION")
    )
-   private static BlockFamily.Builder modify_Family(BlockFamily.Builder instance) {
+   private static BlockFamily.Builder modifyPurPurFamily(BlockFamily.Builder instance) {
       return instance.wall(JinericBlocks.PURPUR_WALL);
    }
 
