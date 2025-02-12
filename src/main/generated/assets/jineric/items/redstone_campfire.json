@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "jineric:block/redstone_campfire"
+    "model": "jineric:item/redstone_campfire"
   }
 }

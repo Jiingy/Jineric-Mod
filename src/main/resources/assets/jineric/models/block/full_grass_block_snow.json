@@ -4,7 +4,7 @@
     "particle": "jineric:block/full_grass_block",
     "end": "jineric:block/full_grass_block",
     "side": "jineric:block/full_grass_block",
-    "overlay": "jineric:block/full_grass_block_side_overlay"
+    "overlay": "jineric:block/full_grass_block_snow"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],
