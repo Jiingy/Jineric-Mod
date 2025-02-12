@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "jineric:block/mangrove_ladder"
+    "model": "jineric:item/mangrove_ladder"
   }
 }
