@@ -254,6 +254,17 @@ public abstract class BlockFamiliesAdditionsMixin {
       return instance.wall(JinericBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL);
    }
 
+   @Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
+   @Definition(id = "RED_NETHER_BRICK", field = "Lnet/minecraft/data/family/BlockFamilies;RED_NETHER_BRICK:Lnet/minecraft/data/family/BlockFamily;")
+   @Expression("RED_NETHER_BRICK = @(?.build())")
+   @ModifyReceiver(
+           method = "<clinit>",
+           at = @At("MIXINEXTRAS:EXPRESSION")
+   )
+   private static BlockFamily.Builder modifyRedNetherBrickFamily(BlockFamily.Builder instance) {
+      return instance.fence(JinericBlocks.RED_NETHER_BRICK_FENCE);
+   }
+
 //   @Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
 //   @Expression("COPPER = @(?.build())")
 //   @ModifyReceiver(
