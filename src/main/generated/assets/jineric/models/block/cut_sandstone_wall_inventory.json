@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/wall_inventory",
+  "parent": "jineric:block/template_column_short_wall_inventory",
   "textures": {
-    "wall": "minecraft:block/cut_sandstone"
+    "end": "minecraft:block/sandstone_top",
+    "side": "minecraft:block/cut_sandstone",
+    "side_short": "jineric:block/cut_sandstone_short"
   }
 }

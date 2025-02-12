@@ -2,7 +2,7 @@
   "parent": "minecraft:block/slab_top",
   "textures": {
     "bottom": "jineric:block/polished_stone",
-    "side": "jineric:block/polished_stone",
+    "side": "jineric:block/polished_stone_slab_side",
     "top": "jineric:block/polished_stone"
   }
 }

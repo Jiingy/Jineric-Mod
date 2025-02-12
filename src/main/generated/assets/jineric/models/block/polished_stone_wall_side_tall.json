@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/template_wall_side_tall",
+  "parent": "jineric:block/template_border_wall_side_tall",
   "textures": {
-    "wall": "jineric:block/polished_stone"
+    "end": "jineric:block/polished_stone_wall_end",
+    "side": "jineric:block/polished_stone"
   }
 }
