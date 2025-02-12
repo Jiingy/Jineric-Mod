@@ -157,10 +157,11 @@ public class JinericBlockFamilies extends BlockFamilies {
             .build();
 
     public static final BlockFamily POLISHED_STONE = register(JinericBlocks.POLISHED_STONE)
-        .stairs(JinericBlocks.POLISHED_STONE_STAIRS)
-        .slab(JinericBlocks.POLISHED_STONE_SLAB)
-        .wall(JinericBlocks.POLISHED_STONE_WALL)
-        .build();
+            .stairs(JinericBlocks.POLISHED_STONE_STAIRS)
+            .slab(JinericBlocks.POLISHED_STONE_SLAB)
+            .wall(JinericBlocks.POLISHED_STONE_WALL)
+            .noGenerateModels()
+            .build();
 
     public static final BlockFamily STONE_TILES = register(JinericBlocks.STONE_TILES)
         .stairs(JinericBlocks.STONE_TILE_STAIRS)
@@ -204,11 +205,11 @@ public class JinericBlockFamilies extends BlockFamilies {
         .wall(JinericBlocks.WAVY_RED_SANDSTONE_WALL)
         .build();
 
-
     public static final BlockFamily SOUL_SANDSTONE = register(JinericBlocks.SOUL_SANDSTONE)
             .stairs(JinericBlocks.SOUL_SANDSTONE_STAIRS)
             .slab(JinericBlocks.SOUL_SANDSTONE_SLAB)
             .wall(JinericBlocks.SOUL_SANDSTONE_WALL)
+            .chiseled(JinericBlocks.CHISELED_SOUL_SANDSTONE)
             .noGenerateModels()
             //TODO: CHECK THIS DOESN'T BREAK DATA
 //            .chiseled(JinericBlocks.CHISELED_SOUL_SANDSTONE)
