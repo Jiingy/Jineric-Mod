@@ -211,8 +211,6 @@ public class JinericBlockFamilies extends BlockFamilies {
             .wall(JinericBlocks.SOUL_SANDSTONE_WALL)
             .chiseled(JinericBlocks.CHISELED_SOUL_SANDSTONE)
             .noGenerateModels()
-            //TODO: CHECK THIS DOESN'T BREAK DATA
-//            .chiseled(JinericBlocks.CHISELED_SOUL_SANDSTONE)
             .build();
 
     public static final BlockFamily SMOOTH_SOUL_SANDSTONE = register(JinericBlocks.SMOOTH_SOUL_SANDSTONE)
