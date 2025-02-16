@@ -7,6 +7,7 @@ import jingy.jineric.client.data.JinericModels;
 import jingy.jineric.client.data.JinericTextureMap;
 import jingy.jineric.data.family.JinericBlockFamilies;
 import jingy.jineric.item.JinericItems;
+import jingy.jineric.registry.JinericWoodType;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.block.Block;
@@ -48,8 +49,7 @@ public class JinericModelGenerator extends FabricModelProvider {
          }
       });
 
-      bsmg.registerFlowerPotPlant(JinericBlocks.BLOSSOMED_DANDELION, JinericBlocks.POTTED_BLOSSOMED_DANDELION, BlockStateModelGenerator.TintType.NOT_TINTED);
-
+//      bsmg.registerFlowerPotPlant(JinericBlocks.BLOSSOMED_DANDELION, JinericBlocks.POTTED_BLOSSOMED_DANDELION, BlockStateModelGenerator.TintType.NOT_TINTED);
 
       this.genVanillaWoodFamilyAdditions(bsmg);
       bsmg.registerSimpleCubeAll(JinericBlocks.PRISMARINE_CRYSTAL_BLOCK);
@@ -86,6 +86,8 @@ public class JinericModelGenerator extends FabricModelProvider {
       this.acceptWall(JinericBlockFamilies.WAXED_EXPOSED_CUT_COPPER, TextureMap.all(Blocks.EXPOSED_CUT_COPPER), bsmg);
       this.acceptWall(JinericBlockFamilies.WAXED_WEATHERED_CUT_COPPER, TextureMap.all(Blocks.WEATHERED_CUT_COPPER), bsmg);
       this.acceptWall(JinericBlockFamilies.WAXED_OXIDIZED_CUT_COPPER, TextureMap.all(Blocks.OXIDIZED_CUT_COPPER), bsmg);
+
+      this.registerWoodSet(JinericWoodType.PETRIFIED_OAK, bsmg);
    }
 
    @Override
@@ -107,7 +109,7 @@ public class JinericModelGenerator extends FabricModelProvider {
       modelGenerator.registerLog(byId(woodTypeName + "_log")).log(byId(woodTypeName + "_log")).wood(byId(woodTypeName + "_wood"));
       modelGenerator.registerLog(byId(stripped + woodTypeName + "_log")).log(byId(stripped + woodTypeName + "_log")).wood(byId(stripped + woodTypeName + "_wood"));
       modelGenerator.registerSingleton(byId(woodTypeName + "_leaves"), TexturedModel.LEAVES);
-      modelGenerator.registerFlowerPotPlant(JinericBlocks.PETRIFIED_OAK_SAPLING, JinericBlocks.POTTED_PETRIFIED_OAK_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
+//      modelGenerator.registerFlowerPotPlant(JinericBlocks.PETRIFIED_OAK_SAPLING, JinericBlocks.POTTED_PETRIFIED_OAK_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
       modelGenerator.registerNorthDefaultHorizontalRotation(byId(woodTypeName + "_ladder"));
       modelGenerator.registerItemModel(byId(woodTypeName + "_ladder"));
       this.registerBookshelf(byId(woodTypeName + "_bookshelf"), byId(woodTypeName + "_planks"), modelGenerator);
