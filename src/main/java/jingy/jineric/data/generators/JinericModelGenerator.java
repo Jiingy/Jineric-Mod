@@ -38,14 +38,16 @@ public class JinericModelGenerator extends FabricModelProvider {
       BlockFamilies.getFamilies().filter(BlockFamily::shouldGenerateModels).forEach(blockFamily -> {
          Block baseBlock = blockFamily.getBaseBlock();
          TextureMap textureMapAll = TextureMap.all(baseBlock);
-         // Jineric checks are poor here. Find a better way to filter this.
          this.acceptBlock(baseBlock, Models.CUBE_ALL, textureMapAll, bsmg);
-         this.acceptStairs(blockFamily, textureMapAll, bsmg);
-         this.acceptSlab(blockFamily, textureMapAll, bsmg);
-         this.acceptWall(blockFamily, this.verifyWall(blockFamily), bsmg);
-         if (blockFamily.getVariant(BlockFamily.Variant.FENCE) != null) {
-            this.registerFence(blockFamily, textureMapAll, bsmg);
+         for (BlockFamily.Variant familyVariant : BlockFamily.Variant.values()) {
+            switch (familyVariant) {
+               case STAIRS -> this.acceptStairs(blockFamily, textureMapAll, bsmg);
+               case SLAB -> this.acceptSlab(blockFamily, textureMapAll, bsmg);
+               case WALL -> this.acceptWall(blockFamily, this.verifyWall(blockFamily), bsmg);
+               case FENCE -> this.registerFence(blockFamily, textureMapAll, bsmg);
+            }
          }
+
       });
       this.genVanillaWoodFamilyAdditions(bsmg);
       bsmg.registerSimpleCubeAll(JinericBlocks.PRISMARINE_CRYSTAL_BLOCK);
