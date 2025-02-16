@@ -1,0 +1,7 @@
+{
+  "parent": "jineric:block/template_column_short_wall_post",
+  "textures": {
+    "end": "jineric:block/polished_stone_wall_end",
+    "side": "jineric:block/polished_stone"
+  }
+}

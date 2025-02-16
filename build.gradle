@@ -1,9 +1,8 @@
 plugins {
-	id 'fabric-loom' version '1.8-SNAPSHOT'
+	id 'fabric-loom' version '1.9-SNAPSHOT'
 	id "maven-publish"
-//	id 'java-library'
-//	id 'idea'
-	id "com.modrinth.minotaur" version "1.1.0"
+	//FIGURE OUT HERE: https://github.com/modrinth/minotaur
+	id "com.modrinth.minotaur" version "2.8.7"
 }
 
 /* Data Generation */
@@ -12,7 +11,9 @@ loom {
 }
 
 fabricApi {
-	configureDataGeneration()
+	configureDataGeneration {
+		client = true
+	}
 }
 
 /* Dependencies */

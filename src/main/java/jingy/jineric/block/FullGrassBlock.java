@@ -8,7 +8,6 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
 
 public class FullGrassBlock extends GrassBlock implements Fertilizable {
 	public FullGrassBlock(Settings settings) {
@@ -20,7 +19,7 @@ public class FullGrassBlock extends GrassBlock implements Fertilizable {
 		world.getRegistryManager()
 				.getOptional(RegistryKeys.CONFIGURED_FEATURE)
 				.flatMap(registry -> registry.getOptional(JinericUndergroundConfiguredFeatures.FULL_GRASS_PATCH_BONEMEAL))
-				.ifPresent(entry -> ((ConfiguredFeature) entry.value()).generate(world, world.getChunkManager().getChunkGenerator(), random, pos.up()));
+				.ifPresent(entry -> entry.value().generate(world, world.getChunkManager().getChunkGenerator(), random, pos.up()));
 	}
 
 	@Override

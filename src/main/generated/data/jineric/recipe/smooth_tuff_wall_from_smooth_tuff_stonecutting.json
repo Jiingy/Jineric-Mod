@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "jineric:smooth_tuff",
+  "result": {
+    "count": 1,
+    "id": "jineric:smooth_tuff_wall"
+  }
+}

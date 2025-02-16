@@ -1,6 +1,6 @@
 package jingy.jineric.mixin.access;
 
-import net.minecraft.data.server.recipe.CookingRecipeJsonBuilder;
+import net.minecraft.data.recipe.CookingRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.recipe.AbstractCookingRecipe;
 import net.minecraft.recipe.Ingredient;

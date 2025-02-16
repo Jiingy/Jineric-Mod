@@ -26,6 +26,7 @@
 		"access.WoodTypeAccess"
 	],
 	"client": [
+		"access.TextureKeyAccess",
 		"client.ChestBlockEntityRendererMixin"
 	],
 	"injectors": {

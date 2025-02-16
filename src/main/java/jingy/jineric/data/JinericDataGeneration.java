@@ -12,8 +12,8 @@ public class JinericDataGeneration implements DataGeneratorEntrypoint {
 
    @Override
    public void onInitializeDataGenerator(FabricDataGenerator generator) {
-      FabricDataGenerator.Pack jinericModPack = generator.createBuiltinResourcePack(JinericMain.ofJineric("jineric_mod_pack"));
-      jinericModPack.addProvider(JinericModPackModelGenerator::new);
+//      FabricDataGenerator.Pack jinericModPack = generator.createBuiltinResourcePack(JinericMain.ofJineric("jineric_mod_pack"));
+//      jinericModPack.addProvider(JinericModPackModelGenerator::new);
       FabricDataGenerator.Pack fabricDataGenPack = generator.createPack();
       fabricDataGenPack.addProvider(JinericItemTagGenerator::new);
       fabricDataGenPack.addProvider(JinericBlockTagGenerator::new);

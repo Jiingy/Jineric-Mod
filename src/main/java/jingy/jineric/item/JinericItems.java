@@ -29,10 +29,6 @@ public class JinericItems {
 	public static final Item DRIPSTONE_STAIRS = register(JinericBlocks.DRIPSTONE_STAIRS);
 	public static final Item DRIPSTONE_SLAB = register(JinericBlocks.DRIPSTONE_SLAB);
 	public static final Item DRIPSTONE_WALL = register(JinericBlocks.DRIPSTONE_WALL);
-	public static final Item COBBLED_DRIPSTONE = register(JinericBlocks.COBBLED_DRIPSTONE);
-	public static final Item COBBLED_DRIPSTONE_STAIRS = register(JinericBlocks.COBBLED_DRIPSTONE_STAIRS);
-	public static final Item COBBLED_DRIPSTONE_SLAB = register(JinericBlocks.COBBLED_DRIPSTONE_SLAB);
-	public static final Item COBBLED_DRIPSTONE_WALL = register(JinericBlocks.COBBLED_DRIPSTONE_WALL);
 	public static final Item DRIPSTONE_BRICKS = register(JinericBlocks.DRIPSTONE_BRICKS);
 	public static final Item DRIPSTONE_BRICK_STAIRS = register(JinericBlocks.DRIPSTONE_BRICK_STAIRS);
 	public static final Item DRIPSTONE_BRICK_SLAB = register(JinericBlocks.DRIPSTONE_BRICK_SLAB);
@@ -61,10 +57,6 @@ public class JinericItems {
 	public static final Item DRIPSTONE_BRICK_PILLAR = register(JinericBlocks.DRIPSTONE_BRICK_PILLAR);
 
 //TUFF
-	public static final Item COBBLED_TUFF = register(JinericBlocks.COBBLED_TUFF);
-	public static final Item COBBLED_TUFF_SLAB = register(JinericBlocks.COBBLED_TUFF_SLAB);
-	public static final Item COBBLED_TUFF_STAIRS = register(JinericBlocks.COBBLED_TUFF_STAIRS);
-	public static final Item COBBLED_TUFF_WALL = register(JinericBlocks.COBBLED_TUFF_WALL);
 	public static final Item SMOOTH_TUFF = register(JinericBlocks.SMOOTH_TUFF);
 	public static final Item SMOOTH_TUFF_STAIRS = register(JinericBlocks.SMOOTH_TUFF_STAIRS);
 	public static final Item SMOOTH_TUFF_SLAB = register(JinericBlocks.SMOOTH_TUFF_SLAB);
@@ -73,7 +65,7 @@ public class JinericItems {
 	public static final Item CRACKED_TUFF_BRICK_STAIRS = register(JinericBlocks.CRACKED_TUFF_BRICK_STAIRS);
 	public static final Item CRACKED_TUFF_BRICK_SLAB = register(JinericBlocks.CRACKED_TUFF_BRICK_SLAB);
 	public static final Item CRACKED_TUFF_BRICK_WALL = register(JinericBlocks.CRACKED_TUFF_BRICK_WALL);
-	public static final Item TUFF_PILLAR = register(JinericBlocks.TUFF_PILLAR);
+	public static final Item TUFF_BRICK_PILLAR = register(JinericBlocks.TUFF_BRICK_PILLAR);
 	public static final Item TUFF_TILES = register(JinericBlocks.TUFF_TILES);
 	public static final Item TUFF_TILE_SLAB = register(JinericBlocks.TUFF_TILE_SLAB);
 	public static final Item TUFF_TILE_STAIRS = register(JinericBlocks.TUFF_TILE_STAIRS);
@@ -326,19 +318,19 @@ public class JinericItems {
 		return RegistryKey.of(RegistryKeys.ITEM, blockKey.getValue());
 	}
 
-	public static Item register(Block block) {
+	private static Item register(Block block) {
 		return register(block, BlockItem::new);
 	}
 
-	public static Item register(Block block, Item.Settings settings) {
+	private static Item register(Block block, Item.Settings settings) {
 		return register(block, BlockItem::new, settings);
 	}
 
-	public static Item register(Block block, UnaryOperator<Item.Settings> settingsOperator) {
+	private static Item register(Block block, UnaryOperator<Item.Settings> settingsOperator) {
 		return register(block, (blockx, settings) -> new BlockItem(blockx, settingsOperator.apply(settings)));
 	}
 
-	public static Item register(Block block, Block... blocks) {
+	private static Item register(Block block, Block... blocks) {
 		Item item = register(block);
 
 		for (Block block2 : blocks) {
@@ -348,37 +340,37 @@ public class JinericItems {
 		return item;
 	}
 
-	public static Item register(Block block, BiFunction<Block, Item.Settings, Item> factory) {
+	private static Item register(Block block, BiFunction<Block, Item.Settings, Item> factory) {
 		return register(block, factory, new Item.Settings());
 	}
 
-	public static Item register(Block block, BiFunction<Block, Item.Settings, Item> factory, Item.Settings settings) {
+	private static Item register(Block block, BiFunction<Block, Item.Settings, Item> factory, Item.Settings settings) {
 		return register(
 				keyOf(block.getRegistryEntry().registryKey()), itemSettings -> factory.apply(block, itemSettings), settings.useBlockPrefixedTranslationKey()
 		);
 	}
 
-	public static Item register(String id, Function<Item.Settings, Item> factory) {
+	private static Item register(String id, Function<Item.Settings, Item> factory) {
 		return register(keyOf(id), factory, new Item.Settings());
 	}
 
-	public static Item register(String id, Function<Item.Settings, Item> factory, Item.Settings settings) {
+	private static Item register(String id, Function<Item.Settings, Item> factory, Item.Settings settings) {
 		return register(keyOf(id), factory, settings);
 	}
 
-	public static Item register(String id, Item.Settings settings) {
+	private static Item register(String id, Item.Settings settings) {
 		return register(keyOf(id), Item::new, settings);
 	}
 
-	public static Item register(String id) {
+	private static Item register(String id) {
 		return register(keyOf(id), Item::new, new Item.Settings());
 	}
 
-	public static Item register(RegistryKey<Item> key, Function<Item.Settings, Item> factory) {
+	private static Item register(RegistryKey<Item> key, Function<Item.Settings, Item> factory) {
 		return register(key, factory, new Item.Settings());
 	}
 
-	public static Item register(RegistryKey<Item> key, Function<Item.Settings, Item> factory, Item.Settings settings) {
+	private static Item register(RegistryKey<Item> key, Function<Item.Settings, Item> factory, Item.Settings settings) {
 		Item item = factory.apply(settings.registryKey(key));
 		if (item instanceof BlockItem blockItem) {
 			blockItem.appendBlocks(Item.BLOCK_ITEMS, item);

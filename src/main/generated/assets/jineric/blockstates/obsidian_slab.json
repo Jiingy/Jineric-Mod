@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "jineric:block/obsidian_slab"
+    },
+    "type=double": {
+      "model": "jineric:block/obsidian_slab_double"
+    },
+    "type=top": {
+      "model": "jineric:block/obsidian_slab_top"
+    }
+  }
+}

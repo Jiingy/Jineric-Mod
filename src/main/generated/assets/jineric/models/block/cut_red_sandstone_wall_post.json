@@ -1,0 +1,7 @@
+{
+  "parent": "jineric:block/template_column_short_wall_post",
+  "textures": {
+    "end": "minecraft:block/red_sandstone_top",
+    "side": "minecraft:block/cut_red_sandstone"
+  }
+}

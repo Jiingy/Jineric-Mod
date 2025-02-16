@@ -1,0 +1,7 @@
+{
+  "parent": "jineric:block/template_border_wall_side_tall",
+  "textures": {
+    "end": "jineric:block/smooth_stone_wall_end",
+    "side": "minecraft:block/smooth_stone"
+  }
+}

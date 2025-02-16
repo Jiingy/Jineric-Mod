@@ -5,6 +5,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.data.family.BlockFamilies;
 import net.minecraft.data.family.BlockFamily;
 
+//TODO: NO CRACKED TUFF TILES?
 //TODO: ADD DUCK MIXIN, WITH A .pillar() METHOD
 public class JinericBlockFamilies extends BlockFamilies {
    public static final BlockFamily PETRIFIED_OAK = register(JinericBlocks.PETRIFIED_OAK_PLANKS)
@@ -31,6 +32,31 @@ public class JinericBlockFamilies extends BlockFamilies {
             .stairs(JinericBlocks.SMOOTH_STONE_STAIRS)
             .slab(Blocks.SMOOTH_STONE_SLAB)
             .wall(JinericBlocks.SMOOTH_STONE_WALL)
+            .noGenerateModels()
+            .build();
+
+    public static final BlockFamily SMOOTH_TUFF = register(JinericBlocks.SMOOTH_TUFF)
+            .stairs(JinericBlocks.SMOOTH_TUFF_STAIRS)
+            .slab(JinericBlocks.SMOOTH_TUFF_SLAB)
+            .wall(JinericBlocks.SMOOTH_TUFF_WALL)
+            .build();
+
+    public static final BlockFamily CRACKED_TUFF_BRICKS = register(JinericBlocks.CRACKED_TUFF_BRICKS)
+            .stairs(JinericBlocks.CRACKED_TUFF_BRICK_STAIRS)
+            .slab(JinericBlocks.CRACKED_TUFF_BRICK_SLAB)
+            .wall(JinericBlocks.CRACKED_TUFF_BRICK_WALL)
+            .build();
+
+    public static final BlockFamily TUFF_TILES = register(JinericBlocks.TUFF_TILES)
+            .stairs(JinericBlocks.TUFF_TILE_STAIRS)
+            .slab(JinericBlocks.TUFF_TILE_SLAB)
+            .wall(JinericBlocks.TUFF_TILE_WALL)
+            .build();
+
+    public static final BlockFamily CRACKED_TUFF_TILES = register(JinericBlocks.CRACKED_TUFF_TILES)
+            .stairs(JinericBlocks.CRACKED_TUFF_TILE_STAIRS)
+            .slab(JinericBlocks.CRACKED_TUFF_TILE_SLAB)
+            .wall(JinericBlocks.CRACKED_TUFF_TILE_WALL)
             .build();
 
     public static final BlockFamily CRACKED_STONE_BRICKS = register(Blocks.CRACKED_STONE_BRICKS)
@@ -103,12 +129,6 @@ public class JinericBlockFamilies extends BlockFamilies {
             .wall(JinericBlocks.SNOW_BRICK_WALL)
             .build();
 
-    public static final BlockFamily COBBLED_DRIPSTONE = register(JinericBlocks.COBBLED_DRIPSTONE)
-            .stairs(JinericBlocks.COBBLED_DRIPSTONE_STAIRS)
-            .slab(JinericBlocks.COBBLED_DRIPSTONE_SLAB)
-            .wall(JinericBlocks.COBBLED_DRIPSTONE_WALL)
-            .build();
-
     public static final BlockFamily POLISHED_DRIPSTONE = register(JinericBlocks.POLISHED_DRIPSTONE)
             .stairs(JinericBlocks.POLISHED_DRIPSTONE_STAIRS)
             .slab(JinericBlocks.POLISHED_DRIPSTONE_SLAB)
@@ -120,7 +140,8 @@ public class JinericBlockFamilies extends BlockFamilies {
             .slab(JinericBlocks.DRIPSTONE_BRICK_SLAB)
             .wall(JinericBlocks.DRIPSTONE_BRICK_WALL)
             .chiseled(JinericBlocks.CHISELED_DRIPSTONE_BRICKS)
-            .cracked(JinericBlocks.CRACKED_DRIPSTONE_BRICKS)
+            //TODO: DOUBLE CHECK REMOVING THIS DOES NOT AFFECT OTHER DATA
+//            .cracked(JinericBlocks.CRACKED_DRIPSTONE_BRICKS)
             .build();
 
     public static final BlockFamily CRACKED_DRIPSTONE_BRICKS = register(JinericBlocks.CRACKED_DRIPSTONE_BRICKS)
@@ -133,7 +154,8 @@ public class JinericBlockFamilies extends BlockFamilies {
             .stairs(JinericBlocks.DRIPSTONE_TILE_STAIRS)
             .slab(JinericBlocks.DRIPSTONE_TILE_SLAB)
             .wall(JinericBlocks.DRIPSTONE_TILE_WALL)
-            .cracked(JinericBlocks.CRACKED_DRIPSTONE_TILES)
+            //TODO: DOUBLE CHECK REMOVING THIS DOES NOT AFFECT OTHER DATA
+//            .cracked(JinericBlocks.CRACKED_DRIPSTONE_TILES)
             .build();
 
     public static final BlockFamily CRACKED_DRIPSTONE_TILES = register(JinericBlocks.CRACKED_DRIPSTONE_TILES)
@@ -149,10 +171,11 @@ public class JinericBlockFamilies extends BlockFamilies {
             .build();
 
     public static final BlockFamily POLISHED_STONE = register(JinericBlocks.POLISHED_STONE)
-        .stairs(JinericBlocks.POLISHED_STONE_STAIRS)
-        .slab(JinericBlocks.POLISHED_STONE_SLAB)
-        .wall(JinericBlocks.POLISHED_STONE_WALL)
-        .build();
+            .stairs(JinericBlocks.POLISHED_STONE_STAIRS)
+            .slab(JinericBlocks.POLISHED_STONE_SLAB)
+            .wall(JinericBlocks.POLISHED_STONE_WALL)
+            .noGenerateModels()
+            .build();
 
     public static final BlockFamily STONE_TILES = register(JinericBlocks.STONE_TILES)
         .stairs(JinericBlocks.STONE_TILE_STAIRS)
@@ -196,12 +219,12 @@ public class JinericBlockFamilies extends BlockFamilies {
         .wall(JinericBlocks.WAVY_RED_SANDSTONE_WALL)
         .build();
 
-
     public static final BlockFamily SOUL_SANDSTONE = register(JinericBlocks.SOUL_SANDSTONE)
             .stairs(JinericBlocks.SOUL_SANDSTONE_STAIRS)
             .slab(JinericBlocks.SOUL_SANDSTONE_SLAB)
             .wall(JinericBlocks.SOUL_SANDSTONE_WALL)
             .chiseled(JinericBlocks.CHISELED_SOUL_SANDSTONE)
+            .noGenerateModels()
             .build();
 
     public static final BlockFamily SMOOTH_SOUL_SANDSTONE = register(JinericBlocks.SMOOTH_SOUL_SANDSTONE)
@@ -214,6 +237,7 @@ public class JinericBlockFamilies extends BlockFamilies {
             .stairs(JinericBlocks.CUT_SOUL_SANDSTONE_STAIRS)
             .slab(JinericBlocks.CUT_SOUL_SANDSTONE_SLAB)
             .wall(JinericBlocks.CUT_SOUL_SANDSTONE_WALL)
+            .noGenerateModels()
             .build();
 
     public static final BlockFamily POLISHED_SOUL_SANDSTONE = register(JinericBlocks.POLISHED_SOUL_SANDSTONE)

@@ -1,0 +1,32 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:special",
+          "base": "jineric:item/trapped_cherry_chest",
+          "model": {
+            "type": "minecraft:chest",
+            "texture": "minecraft:christmas"
+          }
+        },
+        "when": [
+          "12-24",
+          "12-25",
+          "12-26"
+        ]
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:special",
+      "base": "jineric:item/trapped_cherry_chest",
+      "model": {
+        "type": "minecraft:chest",
+        "texture": "jineric:cherry_chest"
+      }
+    },
+    "pattern": "MM-dd",
+    "property": "minecraft:local_time"
+  }
+}

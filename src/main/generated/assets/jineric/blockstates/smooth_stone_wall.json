@@ -1,0 +1,294 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "jineric:block/smooth_stone_wall_post"
+      },
+      "when": {
+        "up": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "jineric:block/smooth_stone_wall_side_line_low"
+      },
+      "when": {
+        "OR": [
+          {
+            "east": "none",
+            "north": "low",
+            "south": "low",
+            "west": "none"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "jineric:block/smooth_stone_wall_side_line_low",
+        "y": 90
+      },
+      "when": {
+        "OR": [
+          {
+            "east": "low",
+            "north": "none",
+            "south": "none",
+            "west": "low"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "jineric:block/smooth_stone_wall_side_low",
+        "uvlock": true,
+        "y": 0
+      },
+      "when": {
+        "OR": [
+          {
+            "east": "none|tall",
+            "north": "low",
+            "south": "none|tall",
+            "west": "none|tall"
+          },
+          {
+            "east": "low|tall",
+            "north": "low",
+            "south": "none|tall",
+            "west": "none|tall"
+          },
+          {
+            "east": "none|tall",
+            "north": "low",
+            "south": "none|tall",
+            "west": "low|tall"
+          },
+          {
+            "east": "low|tall",
+            "north": "low",
+            "south": "low|tall",
+            "west": "none|tall"
+          },
+          {
+            "east": "none|tall",
+            "north": "low",
+            "south": "low|tall",
+            "west": "low|tall"
+          },
+          {
+            "east": "low|tall",
+            "north": "low",
+            "south": "none|tall",
+            "west": "low|tall"
+          },
+          {
+            "east": "low|tall",
+            "north": "low",
+            "south": "low|tall",
+            "west": "low|tall"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "jineric:block/smooth_stone_wall_side_low",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "OR": [
+          {
+            "east": "low",
+            "north": "none|tall",
+            "south": "none|tall",
+            "west": "none|tall"
+          },
+          {
+            "east": "low",
+            "north": "none|tall",
+            "south": "low|tall",
+            "west": "none|tall"
+          },
+          {
+            "east": "low",
+            "north": "low|tall",
+            "south": "none|tall",
+            "west": "none|tall"
+          },
+          {
+            "east": "low",
+            "north": "low|tall",
+            "south": "low|tall",
+            "west": "none|tall"
+          },
+          {
+            "east": "low",
+            "north": "none|tall",
+            "south": "low|tall",
+            "west": "low|tall"
+          },
+          {
+            "east": "low",
+            "north": "low|tall",
+            "south": "none|tall",
+            "west": "low|tall"
+          },
+          {
+            "east": "low",
+            "north": "low|tall",
+            "south": "low|tall",
+            "west": "low|tall"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "jineric:block/smooth_stone_wall_side_low",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "OR": [
+          {
+            "east": "none|tall",
+            "north": "none|tall",
+            "south": "low",
+            "west": "none|tall"
+          },
+          {
+            "east": "low|tall",
+            "north": "none|tall",
+            "south": "low",
+            "west": "none|tall"
+          },
+          {
+            "east": "none|tall",
+            "north": "none|tall",
+            "south": "low",
+            "west": "low|tall"
+          },
+          {
+            "east": "none|tall",
+            "north": "low|tall",
+            "south": "low",
+            "west": "low|tall"
+          },
+          {
+            "east": "low|tall",
+            "north": "low|tall",
+            "south": "low",
+            "west": "none|tall"
+          },
+          {
+            "east": "low|tall",
+            "north": "none|tall",
+            "south": "low",
+            "west": "low|tall"
+          },
+          {
+            "east": "low|tall",
+            "north": "low|tall",
+            "south": "low",
+            "west": "low|tall"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "jineric:block/smooth_stone_wall_side_low",
+        "uvlock": true,
+        "y": 270
+      },
+      "when": {
+        "OR": [
+          {
+            "east": "none|tall",
+            "north": "none|tall",
+            "south": "none|tall",
+            "west": "low"
+          },
+          {
+            "east": "none|tall",
+            "north": "none|tall",
+            "south": "low|tall",
+            "west": "low"
+          },
+          {
+            "east": "none|tall",
+            "north": "low|tall",
+            "south": "none|tall",
+            "west": "low"
+          },
+          {
+            "east": "low|tall",
+            "north": "none|tall",
+            "south": "low|tall",
+            "west": "low"
+          },
+          {
+            "east": "none|tall",
+            "north": "low|tall",
+            "south": "low|tall",
+            "west": "low"
+          },
+          {
+            "east": "low|tall",
+            "north": "low|tall",
+            "south": "none|tall",
+            "west": "low"
+          },
+          {
+            "east": "low|tall",
+            "north": "low|tall",
+            "south": "low|tall",
+            "west": "low"
+          }
+        ]
+      }
+    },
+    {
+      "apply": {
+        "model": "jineric:block/smooth_stone_wall_side_tall",
+        "uvlock": true
+      },
+      "when": {
+        "north": "tall"
+      }
+    },
+    {
+      "apply": {
+        "model": "jineric:block/smooth_stone_wall_side_tall",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "east": "tall"
+      }
+    },
+    {
+      "apply": {
+        "model": "jineric:block/smooth_stone_wall_side_tall",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "south": "tall"
+      }
+    },
+    {
+      "apply": {
+        "model": "jineric:block/smooth_stone_wall_side_tall",
+        "uvlock": true,
+        "y": 270
+      },
+      "when": {
+        "west": "tall"
+      }
+    }
+  ]
+}

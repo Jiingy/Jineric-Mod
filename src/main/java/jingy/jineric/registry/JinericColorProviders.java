@@ -2,7 +2,6 @@ package jingy.jineric.registry;
 
 import jingy.jineric.block.FullGrassBlock;
 import jingy.jineric.block.JinericBlocks;
-import jingy.jineric.item.JinericItems;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
@@ -38,12 +37,13 @@ public class JinericColorProviders {
               world != null && pos != null ? BiomeColors.getFoliageColor(world, pos) : FoliageColors.getColor(0.5D, 1.0D), JinericBlocks.PETRIFIED_OAK_LEAVES
       );
       // ITEMS
-      ColorProviderRegistry.ITEM.register((stack, tintIndex) ->
-              GrassColors.getColor(1.0D, 1.0D), JinericItems.PETRIFIED_OAK_LEAVES
-      );
-      ColorProviderRegistry.ITEM.register(((stack, tintIndex) ->
-              GrassColors.getColor(0.5D, 1.0D)), JinericItems.FULL_GRASS_BLOCK);
-      ColorProviderRegistry.ITEM.register((((stack, tintIndex) ->
-              tintIndex > 0 ? -1 : GrassColors.getColor(0.5D, 1.0D))), JinericItems.JUNGLE_LADDER);
+      //TODO 1.21.4: COLORS ARE NOW ADDED VIA DATA GEN?
+//      ColorProviderRegistry.ITEM.register((stack, tintIndex) ->
+//              GrassColors.getColor(1.0D, 1.0D), JinericItems.PETRIFIED_OAK_LEAVES
+//      );
+//      ColorProviderRegistry.ITEM.register(((stack, tintIndex) ->
+//              GrassColors.getColor(0.5D, 1.0D)), JinericItems.FULL_GRASS_BLOCK);
+//      ColorProviderRegistry.ITEM.register((((stack, tintIndex) ->
+//              tintIndex > 0 ? -1 : GrassColors.getColor(0.5D, 1.0D))), JinericItems.JUNGLE_LADDER);
    }
 }
