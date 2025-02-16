@@ -1,6 +1,7 @@
 package jingy.jineric.data.generators;
 
 import jingy.jineric.block.JinericBlocks;
+import jingy.jineric.data.family.JinericBlockFamilies;
 import jingy.jineric.tag.JinericBlockSoundTags;
 import jingy.jineric.tag.JinericBlockTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -13,90 +14,117 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.TagKey;
-import net.minecraft.util.Identifier;
 
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;
 
 import static jingy.jineric.block.JinericBlocks.*;
-import static net.minecraft.registry.tag.BlockTags.PICKAXE_MINEABLE;
 
 public class JinericBlockTagGenerator extends FabricTagProvider.BlockTagProvider {
+   public Map<TagKey<Block>, Block> blockTagMap = new HashMap<>();
+
    public JinericBlockTagGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
       super(output, registriesFuture);
    }
 
    @Override
    protected void configure(RegistryWrapper.WrapperLookup arg) {
-      this.genFamiliesToBlockTypeTags();
+      this.blockFamiliesToFamilyVariantTag(BlockTags.BUTTONS, BlockFamily.Variant.BUTTON);
+      this.blockFamiliesToFamilyVariantTag(BlockTags.DOORS, BlockFamily.Variant.DOOR);
+      this.blockFamiliesToFamilyVariantTag(BlockTags.FENCES, BlockFamily.Variant.FENCE);
+      this.blockFamiliesToFamilyVariantTag(BlockTags.FENCE_GATES, BlockFamily.Variant.FENCE_GATE);
+      this.blockFamiliesToFamilyVariantTag(BlockTags.SIGNS, BlockFamily.Variant.SIGN);
+      this.blockFamiliesToFamilyVariantTag(BlockTags.SLABS, BlockFamily.Variant.SLAB);
+      this.blockFamiliesToFamilyVariantTag(BlockTags.STAIRS, BlockFamily.Variant.STAIRS);
+      this.blockFamiliesToFamilyVariantTag(BlockTags.PRESSURE_PLATES, BlockFamily.Variant.PRESSURE_PLATE);
+      this.blockFamiliesToFamilyVariantTag(BlockTags.TRAPDOORS, BlockFamily.Variant.TRAPDOOR);
+      this.blockFamiliesToFamilyVariantTag(BlockTags.WALLS, BlockFamily.Variant.WALL);
+      this.blockFamiliesToFamilyVariantTag(BlockTags.WALL_SIGNS, BlockFamily.Variant.WALL_SIGN);
       // Needs Tool
       this.getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL);
       this.getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL);
       this.getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
-              .add(JinericBlocks.CUT_COPPER_WALL, JinericBlocks.EXPOSED_CUT_COPPER_WALL, JinericBlocks.WEATHERED_CUT_COPPER_WALL, JinericBlocks.OXIDIZED_CUT_COPPER_WALL)
-              .add(JinericBlocks.WAXED_CUT_COPPER_WALL, JinericBlocks.WAXED_EXPOSED_CUT_COPPER_WALL, JinericBlocks.WAXED_WEATHERED_CUT_COPPER_WALL, JinericBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL);
+              .add(CUT_COPPER_WALL, EXPOSED_CUT_COPPER_WALL, WEATHERED_CUT_COPPER_WALL, OXIDIZED_CUT_COPPER_WALL)
+              .add(WAXED_CUT_COPPER_WALL, WAXED_EXPOSED_CUT_COPPER_WALL, WAXED_WEATHERED_CUT_COPPER_WALL, WAXED_OXIDIZED_CUT_COPPER_WALL);
       // Incorrect for Tool
       this.getOrCreateTagBuilder(BlockTags.INCORRECT_FOR_NETHERITE_TOOL);
       this.getOrCreateTagBuilder(BlockTags.INCORRECT_FOR_DIAMOND_TOOL);
       this.getOrCreateTagBuilder(BlockTags.INCORRECT_FOR_IRON_TOOL);
       this.getOrCreateTagBuilder(BlockTags.INCORRECT_FOR_STONE_TOOL);
       this.getOrCreateTagBuilder(BlockTags.INCORRECT_FOR_GOLD_TOOL)
-              .add(JinericBlocks.CUT_COPPER_WALL, JinericBlocks.EXPOSED_CUT_COPPER_WALL, JinericBlocks.WEATHERED_CUT_COPPER_WALL, JinericBlocks.OXIDIZED_CUT_COPPER_WALL)
-              .add(JinericBlocks.WAXED_CUT_COPPER_WALL, JinericBlocks.WAXED_EXPOSED_CUT_COPPER_WALL, JinericBlocks.WAXED_WEATHERED_CUT_COPPER_WALL, JinericBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL);
+              .add(CUT_COPPER_WALL, EXPOSED_CUT_COPPER_WALL, WEATHERED_CUT_COPPER_WALL, OXIDIZED_CUT_COPPER_WALL)
+              .add(WAXED_CUT_COPPER_WALL, WAXED_EXPOSED_CUT_COPPER_WALL, WAXED_WEATHERED_CUT_COPPER_WALL, WAXED_OXIDIZED_CUT_COPPER_WALL);
       this.getOrCreateTagBuilder(BlockTags.INCORRECT_FOR_WOODEN_TOOL)
-              .add(JinericBlocks.CUT_COPPER_WALL, JinericBlocks.EXPOSED_CUT_COPPER_WALL, JinericBlocks.WEATHERED_CUT_COPPER_WALL, JinericBlocks.OXIDIZED_CUT_COPPER_WALL)
-              .add(JinericBlocks.WAXED_CUT_COPPER_WALL, JinericBlocks.WAXED_EXPOSED_CUT_COPPER_WALL, JinericBlocks.WAXED_WEATHERED_CUT_COPPER_WALL, JinericBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL);
+              .add(CUT_COPPER_WALL, EXPOSED_CUT_COPPER_WALL, WEATHERED_CUT_COPPER_WALL, OXIDIZED_CUT_COPPER_WALL)
+              .add(WAXED_CUT_COPPER_WALL, WAXED_EXPOSED_CUT_COPPER_WALL, WAXED_WEATHERED_CUT_COPPER_WALL, WAXED_OXIDIZED_CUT_COPPER_WALL);
       // AXE
       this.getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
               .forceAddTag(JinericBlockTags.WOODEN_CHESTS)
               .forceAddTag(JinericBlockTags.WOODEN_TRAPPED_CHESTS)
               .forceAddTag(JinericBlockTags.WOODEN_LADDERS)
               .forceAddTag(JinericBlockTags.WOODEN_BOOKSHELVES)
-              .add(JinericBlocks.STICK_BLOCK)
-              .add(JinericBlocks.SOUL_JACK_O_LANTERN)
-              .add(JinericBlocks.REDSTONE_CAMPFIRE);
+              .add(STICK_BLOCK)
+              .add(SOUL_JACK_O_LANTERN)
+              .add(REDSTONE_CAMPFIRE);
       // HOE
       this.getOrCreateTagBuilder(BlockTags.HOE_MINEABLE)
-              .add(JinericBlocks.ROTTEN_FLESH_BLOCK)
-              .add(JinericBlocks.PAPER_BLOCK);
+              .add(ROTTEN_FLESH_BLOCK)
+              .add(PAPER_BLOCK);
       // PICKAXE
-      this.getOrCreateTagBuilder(PICKAXE_MINEABLE)
-              .add(JinericBlocks.CUT_COPPER_WALL, JinericBlocks.EXPOSED_CUT_COPPER_WALL, JinericBlocks.WEATHERED_CUT_COPPER_WALL, JinericBlocks.OXIDIZED_CUT_COPPER_WALL)
-              .add(JinericBlocks.WAXED_CUT_COPPER_WALL, JinericBlocks.WAXED_EXPOSED_CUT_COPPER_WALL, JinericBlocks.WAXED_WEATHERED_CUT_COPPER_WALL, JinericBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL)
-              .add(JinericBlocks.BLAZE_ROD_BLOCK, JinericBlocks.EGG_BLOCK, JinericBlocks.PRISMARINE_CRYSTAL_BLOCK, JinericBlocks.BONE_MEAL_BLOCK, JinericBlocks.FLINT_BLOCK, JinericBlocks.CHARCOAL_BLOCK)
-              .add(JinericBlocks.STONE_BRICK_PILLAR)
-              .add(JinericBlocks.TUFF_BRICK_PILLAR)
-              .add(JinericBlocks.DRIPSTONE_BRICK_PILLAR)
-              .add(JinericBlocks.REDSTONE_LANTERN)
-              .add(JinericBlocks.PURPUR_WALL)
-              .add(JinericBlocks.RED_NETHER_BRICK_FENCE)
-              .add(JinericBlocks.STONE_WALL)
-              .add(JinericBlocks.REFINERY);
+      this.putBlocksToTag(BlockTags.PICKAXE_MINEABLE,
+              JinericBlocks.CUT_COPPER_WALL, JinericBlocks.EXPOSED_CUT_COPPER_WALL, JinericBlocks.WEATHERED_CUT_COPPER_WALL, JinericBlocks.OXIDIZED_CUT_COPPER_WALL,
+              JinericBlocks.WAXED_CUT_COPPER_WALL, JinericBlocks.WAXED_EXPOSED_CUT_COPPER_WALL, JinericBlocks.WAXED_WEATHERED_CUT_COPPER_WALL, JinericBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL,
+              JinericBlocks.BLAZE_ROD_BLOCK, JinericBlocks.EGG_BLOCK, JinericBlocks.PRISMARINE_CRYSTAL_BLOCK, JinericBlocks.BONE_MEAL_BLOCK, JinericBlocks.FLINT_BLOCK, JinericBlocks.CHARCOAL_BLOCK,
+              JinericBlocks.STONE_BRICK_PILLAR, JinericBlocks.TUFF_BRICK_PILLAR, JinericBlocks.DRIPSTONE_BRICK_PILLAR,
+              JinericBlocks.REDSTONE_LANTERN,
+              JinericBlocks.REFINERY
+      );
+      this.blockFamiliesToTag(BlockTags.PICKAXE_MINEABLE,
+              JinericBlockFamilies.STONE, JinericBlockFamilies.SMOOTH_STONE,
+              JinericBlockFamilies.POLISHED_STONE,
+              JinericBlockFamilies.CRACKED_STONE_BRICKS,
+              JinericBlockFamilies.STONE_TILES, JinericBlockFamilies.CRACKED_STONE_TILES,
+              JinericBlockFamilies.SMOOTH_DEEPSLATE, JinericBlockFamilies.CRACKED_DEEPSLATE_BRICKS, JinericBlockFamilies.CRACKED_DEEPSLATE_TILES,
+              JinericBlockFamilies.SMOOTH_TUFF,
+              JinericBlockFamilies.CRACKED_TUFF_BRICKS,
+              JinericBlockFamilies.TUFF_TILES, JinericBlockFamilies.CRACKED_TUFF_TILES,
+              JinericBlockFamilies.DRIPSTONE, JinericBlockFamilies.SMOOTH_DRIPSTONE,
+              JinericBlockFamilies.POLISHED_DRIPSTONE, JinericBlockFamilies.DRIPSTONE_BRICKS, JinericBlockFamilies.CRACKED_DRIPSTONE_BRICKS,
+              JinericBlockFamilies.DRIPSTONE_TILES, JinericBlockFamilies.CRACKED_DRIPSTONE_TILES,
+              JinericBlockFamilies.SMOOTH_SANDSTONE, JinericBlockFamilies.CUT_SANDSTONE, JinericBlockFamilies.POLISHED_SANDSTONE, JinericBlockFamilies.WAVY_SANDSTONE,
+              JinericBlockFamilies.SMOOTH_RED_SANDSTONE, JinericBlockFamilies.CUT_RED_SANDSTONE, JinericBlockFamilies.POLISHED_RED_SANDSTONE, JinericBlockFamilies.WAVY_RED_SANDSTONE,
+              JinericBlockFamilies.SOUL_SANDSTONE, JinericBlockFamilies.SMOOTH_SOUL_SANDSTONE,
+              JinericBlockFamilies.CUT_SOUL_SANDSTONE, JinericBlockFamilies.POLISHED_SOUL_SANDSTONE, JinericBlockFamilies.WAVY_SOUL_SANDSTONE,
+              JinericBlockFamilies.PRISMARINE, JinericBlockFamilies.DARK_PRISMARINE,
+              JinericBlockFamilies.POLISHED_GRANITE, JinericBlockFamilies.POLISHED_DIORITE, JinericBlockFamilies.POLISHED_ANDESITE,
+              JinericBlockFamilies.CALCITE,
+              JinericBlockFamilies.SNOW_BRICKS, JinericBlockFamilies.PACKED_ICE,
+              JinericBlockFamilies.OBSIDIAN,
+              JinericBlockFamilies.QUARTZ_BLOCK, JinericBlockFamilies.SMOOTH_QUARTZ, JinericBlockFamilies.QUARTZ_BRICKS,
+              JinericBlockFamilies.CRACKED_NETHER_BRICKS, JinericBlockFamilies.RED_NETHER_BRICK,
+              JinericBlockFamilies.CRACKED_POLISHED_BLACKSTONE_BRICKS,
+              JinericBlockFamilies.SMOOTH_BASALT,
+              JinericBlockFamilies.PURPUR
+      );
       // SHOVEL
       this.getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
-              .add(JinericBlocks.FULL_GRASS_BLOCK)
-              .add(JinericBlocks.SUGAR_BLOCK);
+              .add(FULL_GRASS_BLOCK)
+              .add(SUGAR_BLOCK);
       // SWORD
       this.getOrCreateTagBuilder(BlockTags.SWORD_EFFICIENT);
       // BLOCK FAMILY -> TAG
-      this.blockFamilyToTag(BlockTags.PICKAXE_MINEABLE, JinericBlocks.SMOOTH_TUFF);
-      this.blockFamilyToTag(BlockTags.PICKAXE_MINEABLE, Blocks.SMOOTH_BASALT);
-      this.blockFamilyToTag(BlockTags.PICKAXE_MINEABLE, Blocks.CRACKED_NETHER_BRICKS);
-      this.blockFamilyToTag(BlockTags.PICKAXE_MINEABLE, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS);
-      this.blockFamilyToTag(BlockTags.PICKAXE_MINEABLE, SMOOTH_DEEPSLATE);
-      this.blockFamilyToTag(BlockTags.PICKAXE_MINEABLE, Blocks.PACKED_ICE);
-      this.blockFamilyToTag(BlockTags.PICKAXE_MINEABLE, POLISHED_STONE, Blocks.SMOOTH_STONE, Blocks.CRACKED_STONE_BRICKS, STONE_TILES, CRACKED_STONE_TILES);
-      this.blockFamilyToTag(BlockTags.PICKAXE_MINEABLE, Blocks.CUT_SANDSTONE, POLISHED_SANDSTONE, WAVY_SANDSTONE);
-      this.blockFamilyToTag(BlockTags.PICKAXE_MINEABLE, Blocks.CUT_RED_SANDSTONE, POLISHED_RED_SANDSTONE, WAVY_RED_SANDSTONE);
-      this.blockFamilyToTag(BlockTags.PICKAXE_MINEABLE, SOUL_SANDSTONE, CUT_SOUL_SANDSTONE, POLISHED_SOUL_SANDSTONE, SMOOTH_SOUL_SANDSTONE, WAVY_SOUL_SANDSTONE, CHISELED_SOUL_SANDSTONE);
-      this.blockFamilyToTag(BlockTags.PICKAXE_MINEABLE, Blocks.DRIPSTONE_BLOCK, SMOOTH_DRIPSTONE, POLISHED_DRIPSTONE, DRIPSTONE_BRICKS, CRACKED_DRIPSTONE_BRICKS, DRIPSTONE_TILES, CRACKED_DRIPSTONE_TILES);
-      this.blockFamilyToTag(BlockTags.PICKAXE_MINEABLE, TUFF_TILES, CRACKED_TUFF_TILES);
-      this.blockFamilyToTag(PICKAXE_MINEABLE, Blocks.QUARTZ_BRICKS);
-      this.blockFamilyToTag(BlockTags.SHOVEL_MINEABLE, SNOW_BRICKS);
-      this.blockFamilyToTag(BlockTags.SOUL_SPEED_BLOCKS, SOUL_SANDSTONE, CUT_SOUL_SANDSTONE, POLISHED_SOUL_SANDSTONE, SMOOTH_SOUL_SANDSTONE, WAVY_SOUL_SANDSTONE, CHISELED_SOUL_SANDSTONE);
-      this.blockFamilyToTag(BlockTags.DRAGON_IMMUNE, Blocks.OBSIDIAN);
-      this.blockFamilyToTag(BlockTags.NEEDS_DIAMOND_TOOL, Blocks.OBSIDIAN);
+      this.blockListToTag(BlockTags.SHOVEL_MINEABLE, JinericBlocks.SNOW_BRICKS);
+      this.blockListToTag(BlockTags.SOUL_SPEED_BLOCKS,
+              JinericBlocks.CUT_SOUL_SANDSTONE,
+              JinericBlocks.POLISHED_SOUL_SANDSTONE,
+              JinericBlocks.SMOOTH_SOUL_SANDSTONE,
+              JinericBlocks.SOUL_SANDSTONE,
+              JinericBlocks.WAVY_SOUL_SANDSTONE
+      );
+      this.blockListToTag(BlockTags.DRAGON_IMMUNE, Blocks.OBSIDIAN);
+      this.blockListToTag(BlockTags.NEEDS_DIAMOND_TOOL, Blocks.OBSIDIAN);
+
       // Vanilla Tags
 //      this.getOrCreateTagBuilder(BlockTags.WOOL);
 //      this.getOrCreateTagBuilder(BlockTags.PLANKS);
@@ -363,9 +391,29 @@ public class JinericBlockTagGenerator extends FabricTagProvider.BlockTagProvider
               .add(Blocks.VINE);
    }
 
-   private void blockFamilyToTag(TagKey<Block> tagKey, Block... baseBlockIn) {
+   private void putBlocksToTag(TagKey<Block> tagKey, Block... blocks) {
+      for (Block block : blocks) {
+         this.blockTagMap.put(tagKey, block);
+      }
+   }
+
+   private void blockFamiliesToTag(TagKey<Block> tagKey, BlockFamily... blockFamiliesIn) {
+      List<Block> blockToAdd = new ArrayList<>();
+      Stream<Map.Entry<TagKey<Block>, Block>> list = this.blockTagMap.entrySet().stream()
+              .filter(tagKeyBlockEntry -> tagKeyBlockEntry.getKey().equals(tagKey));
+      list.forEach(tagKeyBlockEntry -> blockToAdd.add(tagKeyBlockEntry.getValue()));
+      for (BlockFamily blockFamily : blockFamiliesIn) {
+         blockToAdd.addAll(blockFamily.getVariants().values().stream().toList());
+      }
+      blockToAdd.sort(Comparator.comparing(Block::toString));
+      blockToAdd.stream()
+              .filter(block -> Registries.BLOCK.getId(block).getNamespace().equals("jineric") && !block.getDefaultState().isIn(tagKey))
+              .forEach(block -> this.getOrCreateTagBuilder(tagKey).add(block));
+   }
+
+   private void blockListToTag(TagKey<Block> tagKey, Block... baseBlockIn) {
       for (Block block : baseBlockIn) {
-         Stream<BlockFamily> blockFamilies = BlockFamilies.getFamilies();
+         List<BlockFamily> blockFamilies = BlockFamilies.getFamilies().toList();
          blockFamilies.forEach(blockFamily -> {
             Map<BlockFamily.Variant, Block> variants = blockFamily.getVariants();
             if (blockFamily.getBaseBlock() == block) {
@@ -379,43 +427,22 @@ public class JinericBlockTagGenerator extends FabricTagProvider.BlockTagProvider
       }
    }
 
-   private void genFamiliesToBlockTypeTags() {
-      Stream<BlockFamily> blockFamilies = BlockFamilies.getFamilies();
-      blockFamilies.forEach(
+   private void blockFamiliesToFamilyVariantTag(TagKey<Block> blockTag, BlockFamily.Variant familyVariantIn) {
+      List<BlockFamily> familyList = new ArrayList<>(BlockFamilies.getFamilies().toList());
+      familyList.sort(Comparator.comparing(blockFamily -> {
+         Block familyVariant = blockFamily.getVariant(familyVariantIn);
+         return familyVariant != null ? blockFamily.getVariant(familyVariantIn).toString() : blockFamily.getBaseBlock().toString();
+      }));
+      familyList.forEach(
               (blockFamily) -> {
-                 //TODO:
-                 // ADD CASE HANDLING FOR 'WOODEN' VARIANT BLOCK TAGS
-                 // ADD CASE HANDLING FOR EXTRA BLOCK TYPES (LIKE WALL SIGN)
-                 // ADD CASE FOR 'SPECIALTY' WALLS (WALLS THAT ARE NOT MINED WITH PICKAXE)
-                 this.genVariantTag(blockFamily, BlockFamily.Variant.BUTTON, BlockTags.BUTTONS);
-                 this.genVariantTag(blockFamily, BlockFamily.Variant.DOOR, BlockTags.DOORS);
-                 this.genVariantTag(blockFamily, BlockFamily.Variant.FENCE, BlockTags.FENCES);
-                 this.genVariantTag(blockFamily, BlockFamily.Variant.FENCE_GATE, BlockTags.FENCE_GATES);
-                 this.genVariantTag(blockFamily, BlockFamily.Variant.SIGN, BlockTags.SIGNS);
-                 this.genVariantTag(blockFamily, BlockFamily.Variant.SLAB, BlockTags.SLABS);
-                 this.genVariantTag(blockFamily, BlockFamily.Variant.STAIRS, BlockTags.STAIRS);
-                 this.genVariantTag(blockFamily, BlockFamily.Variant.PRESSURE_PLATE, BlockTags.PRESSURE_PLATES);
-                 this.genVariantTag(blockFamily, BlockFamily.Variant.TRAPDOOR, BlockTags.TRAPDOORS);
-                 this.genVariantTag(blockFamily, BlockFamily.Variant.WALL, BlockTags.WALLS);
-                 this.genVariantTag(blockFamily, BlockFamily.Variant.WALL_SIGN, BlockTags.WALL_SIGNS);
+                 if (blockFamily.getVariant(familyVariantIn) != null) {
+                    Block familyVariantBlock = blockFamily.getVariant(familyVariantIn);
+                    if (Registries.BLOCK.getId(familyVariantBlock).getNamespace().equals("jineric")) {
+                       this.getOrCreateTagBuilder(blockTag).add(familyVariantBlock);
+                    }
+                 }
               }
       );
-   }
-
-   private void genVariantTag(BlockFamily blockFamily, BlockFamily.Variant familyVariant, TagKey<Block> tagKey) {
-      boolean jineric = getIdFamilyVariant(blockFamily, familyVariant).getNamespace().equals("jineric");
-      Block variantBlock = blockFamily.getVariant(familyVariant);
-      if (variantBlock != null && jineric) {
-         if (variantBlock != JinericBlocks.SNOW_BRICK_WALL && variantBlock != JinericBlocks.SNOW_WALL)
-//         if (!variantBlock.getDefaultState().isIn(JinericBlockTags.SPECIALTY_WALLS)) {
-//            System.out.println("\nblock: " + variantBlock + "\ndefaultState:" + variantBlock.getDefaultState() + "\nboolean: " + variantBlock.getDefaultState().isIn(JinericBlockTags.SPECIALTY_WALLS));
-            this.getTagBuilder(tagKey).add(getIdFamilyVariant(blockFamily, familyVariant));
-//         }
-      }
-   }
-
-   private static Identifier getIdFamilyVariant(BlockFamily blockFamily, BlockFamily.Variant variant) {
-      return Registries.BLOCK.getId(blockFamily.getVariant(variant));
    }
 
    @Override
