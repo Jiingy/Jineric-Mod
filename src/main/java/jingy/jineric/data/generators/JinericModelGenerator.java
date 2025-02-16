@@ -41,11 +41,14 @@ public class JinericModelGenerator extends FabricModelProvider {
          TextureMap textureMapAll = TextureMap.all(baseBlock);
          this.acceptBlock(baseBlock, Models.CUBE_ALL, textureMapAll, bsmg);
          for (BlockFamily.Variant familyVariant : BlockFamily.Variant.values()) {
-            switch (familyVariant) {
-               case STAIRS -> this.acceptStairs(blockFamily, textureMapAll, bsmg);
-               case SLAB -> this.acceptSlab(blockFamily, textureMapAll, bsmg);
-               case WALL -> this.acceptWall(blockFamily, this.verifyWall(blockFamily), bsmg);
-               case FENCE -> this.registerFence(blockFamily, textureMapAll, bsmg);
+            if (Registries.BLOCK.getId(blockFamily.getVariant(familyVariant)).getNamespace().equals("jineric")) {
+               switch (familyVariant) {
+//                  case BUTTON -> this.registerButton(blockFamily, );
+                  case FENCE -> this.registerFence(blockFamily, textureMapAll, bsmg);
+                  case STAIRS -> this.acceptStairs(blockFamily, textureMapAll, bsmg);
+                  case SLAB -> this.acceptSlab(blockFamily, textureMapAll, bsmg);
+                  case WALL -> this.acceptWall(blockFamily, this.verifyWall(blockFamily), bsmg);
+               }
             }
          }
 
@@ -295,7 +298,8 @@ public class JinericModelGenerator extends FabricModelProvider {
       blockStateModelGenerator.registerParentedItemModel(fenceBlock, fenceInventory);
    }
 
-   public void registerFenceGate(Block fenceGateBlock, Block fenceGateTexture, BlockStateModelGenerator generator) {
+   public void registerFenceGate(BlockFamily blockFamily, Block fenceGateTexture, BlockStateModelGenerator generator) {
+      Block fenceGateBlock = blockFamily.getVariant(BlockFamily.Variant.FENCE_GATE);
       TextureMap textureMap = TextureMap.all(TextureMap.getId(fenceGateTexture));
       Identifier identifier = Models.TEMPLATE_FENCE_GATE_OPEN.upload(fenceGateBlock, textureMap, generator.modelCollector);
       Identifier identifier2 = Models.TEMPLATE_FENCE_GATE.upload(fenceGateBlock, textureMap, generator.modelCollector);
