@@ -32,6 +32,9 @@ public abstract class BlockMixin {
       else if (state.isIn(JinericBlockSoundTags.WOODEN_ACCESSORY_SOUNDS)) {
          cir.setReturnValue(JinericBlockSoundGroup.WOODEN_ACCESSORIES);
       }
+      else if (state.isOf(Blocks.LADDER)) {
+         cir.setReturnValue(JinericBlockSoundGroup.WOODEN_LADDER);
+      }
       else if (state.isIn(JinericBlockSoundTags.MUSHROOM_SOUNDS)) {
          cir.setReturnValue(BlockSoundGroup.NETHER_WART);
       }
