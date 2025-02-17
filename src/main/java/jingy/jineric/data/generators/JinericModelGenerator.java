@@ -7,7 +7,6 @@ import jingy.jineric.client.data.JinericModels;
 import jingy.jineric.client.data.JinericTextureMap;
 import jingy.jineric.data.family.JinericBlockFamilies;
 import jingy.jineric.item.JinericItems;
-import jingy.jineric.registry.JinericWoodType;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.block.Block;
@@ -17,6 +16,7 @@ import net.minecraft.client.data.*;
 import net.minecraft.client.render.item.tint.GrassTintSource;
 import net.minecraft.data.family.BlockFamilies;
 import net.minecraft.data.family.BlockFamily;
+import net.minecraft.item.Item;
 import net.minecraft.registry.DefaultedRegistry;
 import net.minecraft.registry.Registries;
 import net.minecraft.state.property.Properties;
@@ -43,18 +43,28 @@ public class JinericModelGenerator extends FabricModelProvider {
          for (BlockFamily.Variant familyVariant : BlockFamily.Variant.values()) {
             if (Registries.BLOCK.getId(blockFamily.getVariant(familyVariant)).getNamespace().equals("jineric")) {
                switch (familyVariant) {
-//                  case BUTTON -> this.registerButton(blockFamily, );
+                  case BUTTON -> this.registerButton(blockFamily, textureMapAll, bsmg);
+                  case DOOR -> bsmg.registerDoor(blockFamily.getVariant(BlockFamily.Variant.DOOR));
+                  case FENCE_GATE -> this.registerFenceGate(blockFamily, textureMapAll, bsmg);
+                  case SIGN -> this.registerSign(blockFamily, textureMapAll, bsmg);
                   case FENCE -> this.registerFence(blockFamily, textureMapAll, bsmg);
                   case STAIRS -> this.acceptStairs(blockFamily, textureMapAll, bsmg);
+                  case PRESSURE_PLATE -> this.registerPressurePlate(blockFamily, textureMapAll, bsmg);
                   case SLAB -> this.acceptSlab(blockFamily, textureMapAll, bsmg);
+                  case TRAPDOOR -> bsmg.registerTrapdoor(blockFamily.getVariant(BlockFamily.Variant.TRAPDOOR));
                   case WALL -> this.acceptWall(blockFamily, this.verifyWall(blockFamily), bsmg);
                }
             }
          }
 
+         blockFamily.getGroup().ifPresent(name -> {
+            if (name.equals("wooden") && Registries.BLOCK.getId(baseBlock).getNamespace().equals("jineric")) {
+               WoodType.stream()
+                       .filter(woodType -> woodType.name().contains("jineric") && blockFamily.getBaseBlock().toString().contains(woodType.name()))
+                       .forEach(woodType -> this.finishWoodSet(woodType, null, bsmg));
+            }
+         });
       });
-
-//      bsmg.registerFlowerPotPlant(JinericBlocks.BLOSSOMED_DANDELION, JinericBlocks.POTTED_BLOSSOMED_DANDELION, BlockStateModelGenerator.TintType.NOT_TINTED);
 
       this.genVanillaWoodFamilyAdditions(bsmg);
       bsmg.registerSimpleCubeAll(JinericBlocks.PRISMARINE_CRYSTAL_BLOCK);
@@ -72,10 +82,10 @@ public class JinericModelGenerator extends FabricModelProvider {
       bsmg.registerCooker(JinericBlocks.REFINERY, TexturedModel.ORIENTABLE);
       bsmg.registerCampfire(JinericBlocks.REDSTONE_CAMPFIRE);
       bsmg.registerLantern(JinericBlocks.REDSTONE_LANTERN);
-      bsmg.registerTintedItemModel(JinericBlocks.FULL_GRASS_BLOCK, ModelIds.getBlockModelId(JinericBlocks.FULL_GRASS_BLOCK), new GrassTintSource());
       bsmg.registerAxisRotated(JinericBlocks.STONE_BRICK_PILLAR, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
       bsmg.registerAxisRotated(JinericBlocks.TUFF_BRICK_PILLAR, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
       bsmg.registerAxisRotated(JinericBlocks.DRIPSTONE_BRICK_PILLAR, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
+      bsmg.registerTintedItemModel(JinericBlocks.FULL_GRASS_BLOCK, ModelIds.getBlockModelId(JinericBlocks.FULL_GRASS_BLOCK), new GrassTintSource());
       this.registerCubeBottomTopSet(JinericBlockFamilies.SOUL_SANDSTONE,  bsmg);
       this.acceptChiseledBlock(JinericBlockFamilies.SOUL_SANDSTONE, JinericBlocks.SMOOTH_SOUL_SANDSTONE, bsmg);
       this.registerCubeColumnBlockSet(JinericBlockFamilies.CUT_SANDSTONE, JinericBlockFamilies.SANDSTONE, bsmg);
@@ -92,11 +102,21 @@ public class JinericModelGenerator extends FabricModelProvider {
       this.acceptWall(JinericBlockFamilies.WAXED_WEATHERED_CUT_COPPER, TextureMap.all(Blocks.WEATHERED_CUT_COPPER), bsmg);
       this.acceptWall(JinericBlockFamilies.WAXED_OXIDIZED_CUT_COPPER, TextureMap.all(Blocks.OXIDIZED_CUT_COPPER), bsmg);
 
-      this.registerWoodSet(JinericWoodType.PETRIFIED_OAK, bsmg);
+      bsmg.registerFlowerPotPlantAndItem(JinericBlocks.PETRIFIED_OAK_SAPLING, JinericBlocks.POTTED_PETRIFIED_OAK_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
    }
 
    @Override
    public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+      BlockFamilies.getFamilies().filter(BlockFamily::shouldGenerateModels).forEach(blockFamily -> {
+         Block baseBlock = blockFamily.getBaseBlock();
+         blockFamily.getGroup().ifPresent(name -> {
+            if (name.equals("wooden") && Registries.BLOCK.getId(baseBlock).getNamespace().equals("jineric")) {
+               WoodType.stream()
+                       .filter(woodType -> woodType.name().contains("jineric") && blockFamily.getBaseBlock().toString().contains(woodType.name()))
+                       .forEach(woodType -> this.finishWoodSet(woodType, itemModelGenerator, null));
+            }
+         });
+      });
       Identifier jungleLadderId = itemModelGenerator.uploadTwoLayers(JinericItems.JUNGLE_LADDER, ModelIds.getBlockModelId(JinericBlocks.JUNGLE_LADDER), JinericMain.ofJineric("block/jungle_ladder_overlay"));
       itemModelGenerator.output.accept(JinericItems.JUNGLE_LADDER, ItemModels.tinted(jungleLadderId, new GrassTintSource()));
       itemModelGenerator.register(JinericItems.GOLDEN_BEETROOT, Models.GENERATED);
@@ -104,29 +124,29 @@ public class JinericModelGenerator extends FabricModelProvider {
       itemModelGenerator.register(JinericItems.GOLDEN_SWEET_BERRIES, Models.GENERATED);
       itemModelGenerator.register(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE, Models.GENERATED);
       itemModelGenerator.register(JinericItems.NETHERITE_HORSE_ARMOR, Models.GENERATED);
-      itemModelGenerator.register(JinericItems.PETRIFIED_OAK_BOAT, Models.GENERATED);
-      itemModelGenerator.register(JinericItems.PETRIFIED_OAK_CHEST_BOAT, Models.GENERATED);
    }
 
-   public void registerWoodSet(WoodType woodType, BlockStateModelGenerator modelGenerator) {
-      String stripped = "stripped_";
+   public void finishWoodSet(WoodType woodType, @Nullable ItemModelGenerator img, @Nullable BlockStateModelGenerator bsmg) {
       String woodTypeName = woodType.name().replace("jineric:", "");
-      modelGenerator.registerLog(byId(woodTypeName + "_log")).log(byId(woodTypeName + "_log")).wood(byId(woodTypeName + "_wood"));
-      modelGenerator.registerLog(byId(stripped + woodTypeName + "_log")).log(byId(stripped + woodTypeName + "_log")).wood(byId(stripped + woodTypeName + "_wood"));
-      modelGenerator.registerSingleton(byId(woodTypeName + "_leaves"), TexturedModel.LEAVES);
-//      modelGenerator.registerFlowerPotPlant(JinericBlocks.PETRIFIED_OAK_SAPLING, JinericBlocks.POTTED_PETRIFIED_OAK_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
-      modelGenerator.registerNorthDefaultHorizontalRotation(byId(woodTypeName + "_ladder"));
-      modelGenerator.registerItemModel(byId(woodTypeName + "_ladder"));
-      this.registerBookshelf(byId(woodTypeName + "_bookshelf"), byId(woodTypeName + "_planks"), modelGenerator);
-      modelGenerator.registerHangingSign(JinericBlocks.STRIPPED_PETRIFIED_OAK_LOG, JinericBlocks.PETRIFIED_OAK_HANGING_SIGN, JinericBlocks.PETRIFIED_OAK_WALL_HANGING_SIGN);
-   }
-
-   static Block byId(String id) {
-      final Identifier identifier = JinericMain.ofJineric(id);
-      if (!Registries.BLOCK.containsId(identifier)) {
-         throw new IllegalStateException("Block is not registered: " + identifier);
+      if (bsmg != null) {
+         this.acceptLogs(woodType, bsmg);
+         this.registerBookshelf(blockById(woodTypeName + "_bookshelf"), blockById(woodTypeName + "_planks"), bsmg);
+         bsmg.registerTintedBlockAndItem(
+                 blockById(woodTypeName + "_leaves"),
+                 TexturedModel.LEAVES,
+                 -12012264);
+         bsmg.registerNorthDefaultHorizontalRotation(blockById(woodTypeName + "_ladder"));
+         bsmg.registerItemModel(blockById(woodTypeName + "_ladder"));
+         bsmg.registerHangingSign(
+                 blockById("stripped_" + woodTypeName + "_log"),
+                 blockById(woodTypeName + "_hanging_sign"),
+                 blockById(woodTypeName + "_wall_hanging_sign")
+         );
       }
-      return Registries.BLOCK.get(identifier);
+      if (img != null) {
+         img.register(itemById(woodTypeName + "_boat"), Models.GENERATED);
+         img.register(itemById(woodTypeName + "_chest_boat"), Models.GENERATED);
+      }
    }
 
    public void genVanillaWoodFamilyAdditions(BlockStateModelGenerator blockStateModelGenerator) {
@@ -203,6 +223,16 @@ public class JinericModelGenerator extends FabricModelProvider {
       TextureMap textureMap = JinericTextureMap.bareSideEnd(chiseledBlock, endTexture);
       Identifier id = Models.CUBE_COLUMN.upload(chiseledBlock, textureMap, blockStateModelGenerator.modelCollector);
       blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(chiseledBlock, id));
+   }
+
+   private void acceptLogs(WoodType woodType, BlockStateModelGenerator bsmg) {
+      String woodTypeName = woodType.name().replace("jineric:", "");
+      bsmg.registerLog(blockById(woodTypeName + "_log"))
+              .log(blockById(woodTypeName + "_log"))
+              .wood(blockById(woodTypeName + "_wood"));
+      bsmg.registerLog(blockById("stripped_" + woodTypeName + "_log"))
+              .log(blockById("stripped_" + woodTypeName + "_log"))
+              .wood(blockById("stripped_" + woodTypeName + "_wood"));
    }
 
    private void acceptStairs(BlockFamily blockFamily, TextureMap textureMap, BlockStateModelGenerator blockStateModelGenerator) {
@@ -288,6 +318,15 @@ public class JinericModelGenerator extends FabricModelProvider {
       }
    }
 
+   public void registerSign(BlockFamily blockFamily, TextureMap textureMap, BlockStateModelGenerator blockStateModelGenerator) {
+      Block signBlock = blockFamily.getVariants().get(BlockFamily.Variant.SIGN);
+      Block wallSignBlock = blockFamily.getVariants().get(BlockFamily.Variant.WALL_SIGN);
+      Identifier identifier = Models.PARTICLE.upload(signBlock, textureMap, blockStateModelGenerator.modelCollector);
+      blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(signBlock, identifier));
+      blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(wallSignBlock, identifier));
+      blockStateModelGenerator.registerItemModel(signBlock.asItem());
+   }
+
    public void registerFence(BlockFamily blockFamily, TextureMap textureMap, BlockStateModelGenerator blockStateModelGenerator) {
       Block fenceBlock = blockFamily.getVariant(BlockFamily.Variant.FENCE);
       if (!this.isJineric(fenceBlock)) return;
@@ -298,9 +337,8 @@ public class JinericModelGenerator extends FabricModelProvider {
       blockStateModelGenerator.registerParentedItemModel(fenceBlock, fenceInventory);
    }
 
-   public void registerFenceGate(BlockFamily blockFamily, Block fenceGateTexture, BlockStateModelGenerator generator) {
+   public void registerFenceGate(BlockFamily blockFamily, TextureMap textureMap, BlockStateModelGenerator generator) {
       Block fenceGateBlock = blockFamily.getVariant(BlockFamily.Variant.FENCE_GATE);
-      TextureMap textureMap = TextureMap.all(TextureMap.getId(fenceGateTexture));
       Identifier identifier = Models.TEMPLATE_FENCE_GATE_OPEN.upload(fenceGateBlock, textureMap, generator.modelCollector);
       Identifier identifier2 = Models.TEMPLATE_FENCE_GATE.upload(fenceGateBlock, textureMap, generator.modelCollector);
       Identifier identifier3 = Models.TEMPLATE_FENCE_GATE_WALL_OPEN.upload(fenceGateBlock, textureMap, generator.modelCollector);
@@ -308,20 +346,20 @@ public class JinericModelGenerator extends FabricModelProvider {
       generator.blockStateCollector.accept(BlockStateModelGenerator.createFenceGateBlockState(fenceGateBlock, identifier, identifier2, identifier3, identifier4, true));
    }
 
-   public void registerPressurePlate(Block blockIn, Block pressurePlateTexture, BlockStateModelGenerator generator) {
-      TextureMap textureMap = TextureMap.all(TextureMap.getId(pressurePlateTexture));
-      Identifier upModelId = Models.PRESSURE_PLATE_UP.upload(blockIn, textureMap, generator.modelCollector);
-      Identifier downModelId = Models.PRESSURE_PLATE_DOWN.upload(blockIn, textureMap, generator.modelCollector);
-      generator.blockStateCollector.accept(BlockStateModelGenerator.createPressurePlateBlockState(blockIn, upModelId, downModelId));
+   public void registerPressurePlate(BlockFamily blockFamily, TextureMap textureMap, BlockStateModelGenerator generator) {
+      Block pressurePlateBlock = blockFamily.getVariant(BlockFamily.Variant.PRESSURE_PLATE);
+      Identifier upModelId = Models.PRESSURE_PLATE_UP.upload(pressurePlateBlock, textureMap, generator.modelCollector);
+      Identifier downModelId = Models.PRESSURE_PLATE_DOWN.upload(pressurePlateBlock, textureMap, generator.modelCollector);
+      generator.blockStateCollector.accept(BlockStateModelGenerator.createPressurePlateBlockState(pressurePlateBlock, upModelId, downModelId));
    }
 
-   public void registerButton(Block blockIn, Block buttonTexture, BlockStateModelGenerator generator) {
-      TextureMap pressurePlateTextureMap = TextureMap.all(TextureMap.getId(buttonTexture));
-      Identifier buttonId = Models.BUTTON.upload(blockIn, pressurePlateTextureMap, generator.modelCollector);
-      Identifier pressedButtonId = Models.BUTTON_PRESSED.upload(blockIn, pressurePlateTextureMap, generator.modelCollector);
-      generator.blockStateCollector.accept(BlockStateModelGenerator.createButtonBlockState(blockIn, buttonId, pressedButtonId));
-      Identifier buttonInventory = Models.BUTTON_INVENTORY.upload(blockIn, pressurePlateTextureMap, generator.modelCollector);
-      generator.registerParentedItemModel(blockIn, buttonInventory);
+   public void registerButton(BlockFamily blockFamily, TextureMap textureMap, BlockStateModelGenerator generator) {
+      Block buttonBlock = blockFamily.getVariant(BlockFamily.Variant.BUTTON);
+      Identifier buttonId = Models.BUTTON.upload(buttonBlock, textureMap, generator.modelCollector);
+      Identifier pressedButtonId = Models.BUTTON_PRESSED.upload(buttonBlock, textureMap, generator.modelCollector);
+      generator.blockStateCollector.accept(BlockStateModelGenerator.createButtonBlockState(buttonBlock, buttonId, pressedButtonId));
+      Identifier buttonInventory = Models.BUTTON_INVENTORY.upload(buttonBlock, textureMap, generator.modelCollector);
+      generator.registerParentedItemModel(buttonBlock, buttonInventory);
    }
 
    private void registerPillar(Block pillar, BlockStateModelGenerator blockStateModelGenerator) {
@@ -368,6 +406,22 @@ public class JinericModelGenerator extends FabricModelProvider {
                               .register(true, snowyVariant)
                               .register(false, list)
       ));
+   }
+
+   public static Block blockById(String id) {
+      final Identifier identifier = JinericMain.ofJineric(id);
+      if (!Registries.BLOCK.containsId(identifier)) {
+         throw new IllegalStateException("Block is not registered: " + identifier);
+      }
+      return Registries.BLOCK.get(identifier);
+   }
+
+   public static Item itemById(String id) {
+      final Identifier identifier = JinericMain.ofJineric(id);
+      if (!Registries.ITEM.containsId(identifier)) {
+         throw new IllegalStateException("Item is not registered: " + identifier);
+      }
+      return Registries.ITEM.get(identifier);
    }
 
    private boolean isJineric(Block block) {
