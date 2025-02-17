@@ -360,11 +360,13 @@ public class JinericBlocks {
 			AbstractBlock.Settings.copy(OAK_SIGN)
 	);
     public static final Block PETRIFIED_OAK_WALL_SIGN = register(
-			"petrified_oak_wall_sign", settings -> new WallSignBlock(JinericWoodType.PETRIFIED_OAK, settings),
+			"petrified_oak_wall_sign",
+			settings -> new WallSignBlock(JinericWoodType.PETRIFIED_OAK, settings),
 			AbstractBlock.Settings.copy(OAK_WALL_SIGN)
 	);
     public static final Block PETRIFIED_OAK_HANGING_SIGN = register(
-			"petrified_oak_hanging_sign", settings -> new HangingSignBlock(JinericWoodType.PETRIFIED_OAK, settings),
+			"petrified_oak_hanging_sign",
+			settings -> new HangingSignBlock(JinericWoodType.PETRIFIED_OAK, settings),
 			AbstractBlock.Settings.copy(OAK_HANGING_SIGN)
 	);
     public static final Block PETRIFIED_OAK_WALL_HANGING_SIGN = register(
