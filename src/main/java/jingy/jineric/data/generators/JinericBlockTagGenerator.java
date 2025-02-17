@@ -325,10 +325,14 @@ public class JinericBlockTagGenerator extends FabricTagProvider.BlockTagProvider
 //      this.getOrCreateTagBuilder(BlockTags.DOES_NOT_BLOCK_HOPPERS);
 
       // JinericBlock Tags
-      this.getOrCreateTagBuilder(JinericBlockTags.LADDERS)
-              .forceAddTag(JinericBlockTags.WOODEN_LADDERS);
       this.getOrCreateTagBuilder(JinericBlockTags.NOT_PICKAXE_WALL)
               .add(SNOW_BRICK_WALL, SNOW_WALL);
+      this.getOrCreateTagBuilder(JinericBlockTags.LADDERS)
+              .forceAddTag(JinericBlockTags.WOODEN_LADDERS);
+      this.getOrCreateTagBuilder(JinericBlockTags.CHESTS)
+              .forceAddTag(JinericBlockTags.WOODEN_CHESTS);
+      this.getOrCreateTagBuilder(JinericBlockTags.TRAPPED_CHESTS)
+              .forceAddTag(JinericBlockTags.WOODEN_TRAPPED_CHESTS);
       this.getOrCreateTagBuilder(JinericBlockTags.WOODEN_CHESTS)
               .add(SPRUCE_CHEST)
               .add(BIRCH_CHEST)
@@ -373,9 +377,6 @@ public class JinericBlockTagGenerator extends FabricTagProvider.BlockTagProvider
               .add(BAMBOO_BOOKSHELF)
               .add(CRIMSON_BOOKSHELF)
               .add(WARPED_BOOKSHELF);
-      this.getOrCreateTagBuilder(JinericBlockTags.CHESTS)
-              .forceAddTag(JinericBlockTags.WOODEN_CHESTS)
-              .forceAddTag(JinericBlockTags.WOODEN_TRAPPED_CHESTS);
       this.getOrCreateTagBuilder(JinericBlockTags.FULL_GRASS_REPLACEABLE).add(Blocks.GRASS_BLOCK);
       this.getOrCreateTagBuilder(JinericBlockTags.SLIPPERY).add(PACKED_ICE_STAIRS, PACKED_ICE_SLAB, PACKED_ICE_WALL);
          // Sounds
