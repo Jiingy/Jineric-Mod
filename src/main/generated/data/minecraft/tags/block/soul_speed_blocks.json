@@ -1,25 +1,20 @@
 {
   "values": [
-    "jineric:cut_soul_sandstone_wall",
+    "jineric:chiseled_soul_sandstone",
     "jineric:cut_soul_sandstone_slab",
     "jineric:cut_soul_sandstone_stairs",
-    "jineric:cut_soul_sandstone",
-    "jineric:polished_soul_sandstone_wall",
+    "jineric:cut_soul_sandstone_wall",
     "jineric:polished_soul_sandstone_slab",
     "jineric:polished_soul_sandstone_stairs",
-    "jineric:polished_soul_sandstone",
-    "jineric:smooth_soul_sandstone_wall",
+    "jineric:polished_soul_sandstone_wall",
     "jineric:smooth_soul_sandstone_slab",
     "jineric:smooth_soul_sandstone_stairs",
-    "jineric:smooth_soul_sandstone",
-    "jineric:soul_sandstone_wall",
+    "jineric:smooth_soul_sandstone_wall",
     "jineric:soul_sandstone_slab",
-    "jineric:chiseled_soul_sandstone",
     "jineric:soul_sandstone_stairs",
-    "jineric:soul_sandstone",
-    "jineric:wavy_soul_sandstone_wall",
+    "jineric:soul_sandstone_wall",
     "jineric:wavy_soul_sandstone_slab",
     "jineric:wavy_soul_sandstone_stairs",
-    "jineric:wavy_soul_sandstone"
+    "jineric:wavy_soul_sandstone_wall"
   ]
 }

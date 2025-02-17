@@ -114,16 +114,16 @@ public class JinericBlockTagGenerator extends FabricTagProvider.BlockTagProvider
       // SWORD
       this.getOrCreateTagBuilder(BlockTags.SWORD_EFFICIENT);
       // BLOCK FAMILY -> TAG
-      this.blockListToTag(BlockTags.SHOVEL_MINEABLE, JinericBlocks.SNOW_BRICKS);
-      this.blockListToTag(BlockTags.SOUL_SPEED_BLOCKS,
-              JinericBlocks.CUT_SOUL_SANDSTONE,
-              JinericBlocks.POLISHED_SOUL_SANDSTONE,
-              JinericBlocks.SMOOTH_SOUL_SANDSTONE,
-              JinericBlocks.SOUL_SANDSTONE,
-              JinericBlocks.WAVY_SOUL_SANDSTONE
+      this.blockFamiliesToTag(BlockTags.SHOVEL_MINEABLE, JinericBlockFamilies.SNOW_BRICKS);
+      this.blockFamiliesToTag(BlockTags.SOUL_SPEED_BLOCKS,
+              JinericBlockFamilies.CUT_SOUL_SANDSTONE,
+              JinericBlockFamilies.POLISHED_SOUL_SANDSTONE,
+              JinericBlockFamilies.SMOOTH_SOUL_SANDSTONE,
+              JinericBlockFamilies.SOUL_SANDSTONE,
+              JinericBlockFamilies.WAVY_SOUL_SANDSTONE
       );
-      this.blockListToTag(BlockTags.DRAGON_IMMUNE, Blocks.OBSIDIAN);
-      this.blockListToTag(BlockTags.NEEDS_DIAMOND_TOOL, Blocks.OBSIDIAN);
+      this.blockFamiliesToTag(BlockTags.DRAGON_IMMUNE, JinericBlockFamilies.OBSIDIAN);
+      this.blockFamiliesToTag(BlockTags.NEEDS_DIAMOND_TOOL, JinericBlockFamilies.OBSIDIAN);
 
       // Vanilla Tags
 //      this.getOrCreateTagBuilder(BlockTags.WOOL);
