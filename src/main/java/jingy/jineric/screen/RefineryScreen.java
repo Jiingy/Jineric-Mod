@@ -26,7 +26,6 @@ public class RefineryScreen extends AbstractFurnaceScreen<RefineryScreenHandler>
            new RecipeBookWidget.Tab(Items.CYAN_GLAZED_TERRACOTTA, JinericRecipeBookCategories.REFINERY_MISC)
    );
 
-   //TODO: CANT SHIFT CLICK INTO REFINERY SLOTS
    public RefineryScreen(RefineryScreenHandler container, PlayerInventory inventory, Text title) {
       super(container, inventory, title, TOGGLE_REFINABLE_TEXT, TEXTURE, LIT_PROGRESS_TEXTURE, BURN_PROGRESS_TEXTURE, TABS);
    }

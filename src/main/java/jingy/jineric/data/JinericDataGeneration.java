@@ -26,9 +26,7 @@ public class JinericDataGeneration implements DataGeneratorEntrypoint {
 
    @Override
    public void buildRegistry(RegistryBuilder registryBuilder) {
-      //TODO: FIX FEATURES, NOT WORKING RIGHT NOW
       registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, JinericWorldGenerator::bootstrap);
-      //TODO: PAINTINGS MOVED TO DATA GEN, NO LONGER WORK
       registryBuilder.addRegistry(RegistryKeys.PAINTING_VARIANT, JinericPaintingVariants::bootstrap);
    }
 

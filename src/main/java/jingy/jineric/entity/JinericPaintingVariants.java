@@ -2,13 +2,14 @@ package jingy.jineric.entity;
 
 import jingy.jineric.base.JinericMain;
 import net.minecraft.entity.decoration.painting.PaintingVariant;
-import net.minecraft.registry.*;
+import net.minecraft.registry.Registerable;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
 import java.util.Optional;
 
-//TODO: 1.21.3 WAS CAUSING CRASH
 public class JinericPaintingVariants {
 //   public static final RegistryKey<PaintingVariant> KROMER = of("kromer");
 //   public static final RegistryKey<PaintingVariant> KEY_GEN = of("key_gen");
@@ -20,7 +21,6 @@ public class JinericPaintingVariants {
    public static void bootstrap(Registerable<PaintingVariant> registry) {
 //      register(registry, KROMER, 64, 32);
 //      register(registry, KEY_GEN, 64, 32);
-      //TODO: FIX AUTHOR IN TRANSLATION KEY
 //      register(registry, PEACEFUL_FARM, 16, 16, true);
    }
 

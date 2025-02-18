@@ -12,7 +12,6 @@ public abstract class LivingEntityMixin extends Entity {
 		super(type, world);
 	}
 
-	//TODO: CHANGED IN 1.21.3, LIKELY TIED TO SOUL SPEED DIRECTLY NOW IN THE DATA DRIVEN ENCHANTMENT. TEST IF WORKING.
 //	@Inject(at = @At("HEAD"), method = "isOnSoulSpeedBlock()Z", cancellable = true)
 //	protected void jineric$handleSoulSpeedForSlabsAndFences(CallbackInfoReturnable<Boolean> cir) {
 //		// check feet pos block
@@ -26,7 +25,6 @@ public abstract class LivingEntityMixin extends Entity {
 //		}
 //	}
 
-	//TODO: BROKEN IN 1.21.3, MAY BE FIXED
 //	@ModifyVariable(
 //			method = "travel",
 //			slice = @Slice(from = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;getVelocityAffectingPos()Lnet/minecraft/util/math/BlockPos;")),

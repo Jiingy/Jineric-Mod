@@ -15,7 +15,6 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 @SuppressWarnings("all")
-//TODO: 1.21.3 REORGANIZE INVENTORY
 public class JinericItemGroups {
 	public static final Identifier MOD_ITEMS_ID = JinericMain.ofJineric("mod_items");
 	private static final RegistryKey<ItemGroup> MOD_ITEMS_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, MOD_ITEMS_ID);

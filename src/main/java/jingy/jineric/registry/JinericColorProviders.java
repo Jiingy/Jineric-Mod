@@ -8,7 +8,6 @@ import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.world.biome.GrassColors;
 
-//TODO: SEPARATE INTO BLOCK AND ITEM VARIANT CLASSES
 @Environment(EnvType.CLIENT)
 public class JinericColorProviders {
 
@@ -32,11 +31,5 @@ public class JinericColorProviders {
               world != null && pos != null
                       ? BiomeColors.getGrassColor(world, pos)
                       : GrassColors.getColor(0.5D, 1.0D), JinericBlocks.JUNGLE_LADDER);
-      // ITEMS
-      //TODO 1.21.4: COLORS ARE NOW ADDED VIA DATA GEN?
-//      ColorProviderRegistry.ITEM.register(((stack, tintIndex) ->
-//              GrassColors.getColor(0.5D, 1.0D)), JinericItems.FULL_GRASS_BLOCK);
-//      ColorProviderRegistry.ITEM.register((((stack, tintIndex) ->
-//              tintIndex > 0 ? -1 : GrassColors.getColor(0.5D, 1.0D))), JinericItems.JUNGLE_LADDER);
    }
 }

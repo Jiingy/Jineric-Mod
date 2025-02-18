@@ -9,7 +9,6 @@ import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 
 public class JinericRegistries {
-   //TODO: SPLIT INTO UNIQUE CLASSES
    public static void initializeJinericRegistries() {
       registerIsFuel();
       registerCompostable();

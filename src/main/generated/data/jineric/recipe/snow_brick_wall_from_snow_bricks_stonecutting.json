@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "jineric:snow_bricks",
+  "result": {
+    "count": 1,
+    "id": "jineric:snow_brick_wall"
+  }
+}

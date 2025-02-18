@@ -5,6 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.LanternBlock;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -24,6 +25,10 @@ public class RedstoneLanternBlock extends LanternBlock {
 
    public RedstoneLanternBlock(Settings settings) {
       super(settings);
+   }
+
+   @Override
+   protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
    }
 
    @Override
@@ -72,7 +77,6 @@ public class RedstoneLanternBlock extends LanternBlock {
       return direction != attachedDirection(state) || direction != attachedDirection(state).getOpposite() ? 15 : 0;
    }
 
-   //TODO: Add functionality for this method
    protected boolean shouldUnpower(World world, BlockPos pos, BlockState state) {
       return world.isEmittingRedstonePower(pos.up(), Direction.UP);
    }

@@ -11,7 +11,6 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(BlockFamilies.class)
 public abstract class BlockFamiliesAdditionsMixin {
-   //TODO: .polished() REMOVED FROM CUT SANDSTONE AND RED SANDSTONE DUE TO ISSUES WITH STONECUTTING RECIPE GEN
 
    @Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
    @Definition(id = "STONE", field = "Lnet/minecraft/data/family/BlockFamilies;STONE:Lnet/minecraft/data/family/BlockFamily;")

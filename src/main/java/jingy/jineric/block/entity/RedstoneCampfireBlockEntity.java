@@ -101,23 +101,21 @@ public class RedstoneCampfireBlockEntity extends BlockEntity implements Clearabl
             }
          }
       }
-      //TODO 1.21.4: VERIFY THIS CHANGE: getHorizontalQuarterTurns
       int i = state.get(RedstoneCampfireBlock.FACING).getHorizontalQuarterTurns();
 
       for(int j = 0; j < campfire.itemsBeingCooked.size(); ++j) {
          if (!campfire.itemsBeingCooked.get(j).isEmpty() && random.nextFloat() < 0.2F) {
-            //TODO 1.21.4: VERIFY THIS CHANGE: fromHorizontalDegrees
             Direction direction = Direction.fromHorizontalDegrees(Math.floorMod(j + i, 4));
             float f = 0.3125F;
             double d = (double)pos.getX()
                     + 0.5
-                    - (double)((float)direction.getOffsetX() * 0.3125F)
-                    + (double)((float)direction.rotateYClockwise().getOffsetX() * 0.3125F);
+                    - (double)((float)direction.getOffsetX() * f)
+                    + (double)((float)direction.rotateYClockwise().getOffsetX() * f);
             double e = (double)pos.getY() + 0.5;
             double g = (double)pos.getZ()
                     + 0.5
-                    - (double)((float)direction.getOffsetZ() * 0.3125F)
-                    + (double)((float)direction.rotateYClockwise().getOffsetZ() * 0.3125F);
+                    - (double)((float)direction.getOffsetZ() * f)
+                    + (double)((float)direction.rotateYClockwise().getOffsetZ() * f);
 
             for(int k = 0; k < 4; ++k) {
                world.addParticle(ParticleTypes.SMOKE, d, e, g, 0.0, 5.0E-4, 0.0);

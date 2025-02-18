@@ -14,9 +14,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(AbstractBlock.class)
 public abstract class BlockMixin {
-
-   //TODO: Likely a bad way to do this, better way would be to change the blocks themselves via mixins similar to the mixins for adding to block fanilies.
-   // Needs to be reviewed, block tags need to be added via data gen, generally just improve.
    @Inject(
            method = "getSoundGroup",
            at = @At(value = "HEAD"),
