@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "horse_body": [
+      {
+        "texture": "jineric:netherite"
+      }
+    ],
+    "humanoid": [
+      {
+        "texture": "minecraft:netherite"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "minecraft:netherite"
+      }
+    ]
+  }
+}
