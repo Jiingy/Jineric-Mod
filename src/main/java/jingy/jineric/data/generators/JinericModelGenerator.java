@@ -100,7 +100,7 @@ public class JinericModelGenerator extends FabricModelProvider {
       itemModelGenerator.register(JinericItems.NETHERITE_HORSE_ARMOR, Models.GENERATED);
    }
 
-   public void genVanillaWoodFamilyAdditions(BlockStateModelGenerator blockStateModelGenerator) {
+   public void genVanillaWoodFamilyAdditions(BlockStateModelGenerator bsmg) {
       DefaultedRegistry<Block> blockRegistry = Registries.BLOCK;
       List<WoodType> woodTypes = WoodType.stream().toList();
       woodTypes.forEach(woodType -> blockRegistry.stream()
@@ -115,7 +115,7 @@ public class JinericModelGenerator extends FabricModelProvider {
                          .replace("trapped_", "").replace("_chest", "")
                          .replace("_bookshelf", "");
                  if (trimmedBlockKey.equals(woodType.name())) {
-                    this.offerWoodTypeBlock(blockKey, plank, block, blockStateModelGenerator, woodType);
+                    this.offerWoodTypeBlock(blockKey, plank, block, bsmg, woodType);
                  }
               })
       );
@@ -137,114 +137,114 @@ public class JinericModelGenerator extends FabricModelProvider {
       }
    }
 
-   public void registerCubeBottomTopSet(BlockFamily blockFamily, BlockStateModelGenerator blockStateModelGenerator) {
+   public void registerCubeBottomTopSet(BlockFamily blockFamily, BlockStateModelGenerator bsmg) {
       TextureMap textureMap = JinericTextureMap.topBottomShort(blockFamily);
-      this.acceptBlock(blockFamily.getBaseBlock(), Models.CUBE_BOTTOM_TOP, textureMap, blockStateModelGenerator);
-      this.acceptStairs(blockFamily, textureMap, blockStateModelGenerator);
-      this.acceptSlab(blockFamily, textureMap, blockStateModelGenerator);
-      this.acceptTopBottomWall(blockFamily, blockStateModelGenerator);
+      this.acceptBlock(blockFamily.getBaseBlock(), Models.CUBE_BOTTOM_TOP, textureMap, bsmg);
+      this.acceptStairs(blockFamily, textureMap, bsmg);
+      this.acceptSlab(blockFamily, textureMap, bsmg);
+      this.acceptTopBottomWall(blockFamily, bsmg);
    }
 
-   public void registerCubeColumnBlockSet(BlockFamily blockFamily, @Nullable BlockFamily blockTopFix, BlockStateModelGenerator blockStateModelGenerator) {
+   public void registerCubeColumnBlockSet(BlockFamily blockFamily, @Nullable BlockFamily blockTopFix, BlockStateModelGenerator bsmg) {
       TextureMap textureMap = JinericTextureMap.columnShort(blockFamily, blockTopFix);
       Block baseBlock = blockFamily.getBaseBlock();
-      this.acceptBlock(baseBlock, Models.CUBE_COLUMN, textureMap, blockStateModelGenerator);
-      this.acceptStairs(blockFamily, textureMap, blockStateModelGenerator);
-      this.acceptSlab(blockFamily, textureMap, blockStateModelGenerator);
-      this.acceptColumnWall(blockFamily, textureMap, blockStateModelGenerator);
+      this.acceptBlock(baseBlock, Models.CUBE_COLUMN, textureMap, bsmg);
+      this.acceptStairs(blockFamily, textureMap, bsmg);
+      this.acceptSlab(blockFamily, textureMap, bsmg);
+      this.acceptColumnWall(blockFamily, textureMap, bsmg);
    }
 
-   public void registerBorderBlockSet(BlockFamily blockFamily, BlockStateModelGenerator blockStateModelGenerator) {
+   public void registerBorderBlockSet(BlockFamily blockFamily, BlockStateModelGenerator bsmg) {
       Block blockFamilyWall = blockFamily.getVariant(BlockFamily.Variant.WALL);
       Block baseBlock = blockFamily.getBaseBlock();
-      this.acceptBlock(baseBlock, Models.CUBE_ALL, TextureMap.all(baseBlock), blockStateModelGenerator);
-      this.acceptStairs(blockFamily, JinericTextureMap.borderStairs(blockFamily), blockStateModelGenerator);
-      this.acceptSlab(blockFamily, JinericTextureMap.sidedSlab(blockFamily), blockStateModelGenerator);
-      this.acceptBorderWall(blockFamilyWall, JinericTextureMap.borderWall(blockFamily), blockStateModelGenerator);
+      this.acceptBlock(baseBlock, Models.CUBE_ALL, TextureMap.all(baseBlock), bsmg);
+      this.acceptStairs(blockFamily, JinericTextureMap.borderStairs(blockFamily), bsmg);
+      this.acceptSlab(blockFamily, JinericTextureMap.sidedSlab(blockFamily), bsmg);
+      this.acceptBorderWall(blockFamilyWall, JinericTextureMap.borderWall(blockFamily), bsmg);
    }
 
-   private void acceptBlock(Block block, Model model, TextureMap textureMap, BlockStateModelGenerator blockStateModelGenerator) {
+   private void acceptBlock(Block block, Model model, TextureMap textureMap, BlockStateModelGenerator bsmg) {
       if (!this.isJineric(block)) return;
-      Identifier id = model.upload(block, textureMap, blockStateModelGenerator.modelCollector);
-      blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(block, id));
+      Identifier id = model.upload(block, textureMap, bsmg.modelCollector);
+      bsmg.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(block, id));
    }
 
-   private void acceptChiseledBlock(BlockFamily blockFamily, Block endTexture, BlockStateModelGenerator blockStateModelGenerator) {
+   private void acceptChiseledBlock(BlockFamily blockFamily, Block endTexture, BlockStateModelGenerator bsmg) {
       Block chiseledBlock = blockFamily.getVariant(BlockFamily.Variant.CHISELED);
       TextureMap textureMap = JinericTextureMap.bareSideEnd(chiseledBlock, endTexture);
-      Identifier id = Models.CUBE_COLUMN.upload(chiseledBlock, textureMap, blockStateModelGenerator.modelCollector);
-      blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(chiseledBlock, id));
+      Identifier id = Models.CUBE_COLUMN.upload(chiseledBlock, textureMap, bsmg.modelCollector);
+      bsmg.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(chiseledBlock, id));
    }
 
-   private void acceptStairs(BlockFamily blockFamily, TextureMap textureMap, BlockStateModelGenerator blockStateModelGenerator) {
+   private void acceptStairs(BlockFamily blockFamily, TextureMap textureMap, BlockStateModelGenerator bsmg) {
       Block stairs = blockFamily.getVariant(BlockFamily.Variant.STAIRS);
       if (!this.isJineric(stairs)) return;
-      Identifier regularModelId = Models.STAIRS.upload(stairs, textureMap, blockStateModelGenerator.modelCollector);
-      Identifier innerModelId = Models.INNER_STAIRS.upload(stairs, textureMap, blockStateModelGenerator.modelCollector);
-      Identifier outerModelId = Models.OUTER_STAIRS.upload(stairs, textureMap, blockStateModelGenerator.modelCollector);
-      blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createStairsBlockState(stairs, innerModelId, regularModelId, outerModelId));
+      Identifier regularModelId = Models.STAIRS.upload(stairs, textureMap, bsmg.modelCollector);
+      Identifier innerModelId = Models.INNER_STAIRS.upload(stairs, textureMap, bsmg.modelCollector);
+      Identifier outerModelId = Models.OUTER_STAIRS.upload(stairs, textureMap, bsmg.modelCollector);
+      bsmg.blockStateCollector.accept(BlockStateModelGenerator.createStairsBlockState(stairs, innerModelId, regularModelId, outerModelId));
    }
 
-   private void acceptColumnStairs(BlockFamily blockFamily, TextureMap textureMap, BlockStateModelGenerator blockStateModelGenerator) {
+   private void acceptColumnStairs(BlockFamily blockFamily, TextureMap textureMap, BlockStateModelGenerator bsmg) {
       Block stairs = blockFamily.getVariant(BlockFamily.Variant.STAIRS);
-      Identifier regularModelId = Models.STAIRS.upload(stairs, textureMap, blockStateModelGenerator.modelCollector);
-      Identifier innerModelId = Models.INNER_STAIRS.upload(stairs, textureMap, blockStateModelGenerator.modelCollector);
-      Identifier outerModelId = Models.OUTER_STAIRS.upload(stairs, textureMap, blockStateModelGenerator.modelCollector);
-      blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createStairsBlockState(stairs, innerModelId, regularModelId, outerModelId));
+      Identifier regularModelId = Models.STAIRS.upload(stairs, textureMap, bsmg.modelCollector);
+      Identifier innerModelId = Models.INNER_STAIRS.upload(stairs, textureMap, bsmg.modelCollector);
+      Identifier outerModelId = Models.OUTER_STAIRS.upload(stairs, textureMap, bsmg.modelCollector);
+      bsmg.blockStateCollector.accept(BlockStateModelGenerator.createStairsBlockState(stairs, innerModelId, regularModelId, outerModelId));
    }
 
-   private void acceptSlab(BlockFamily blockFamily, TextureMap textureMap, BlockStateModelGenerator blockStateModelGenerator) {
+   private void acceptSlab(BlockFamily blockFamily, TextureMap textureMap, BlockStateModelGenerator bsmg) {
       Block slab = blockFamily.getVariant(BlockFamily.Variant.SLAB);
       if (!this.isJineric(slab)) return;
-      Identifier slabModelId = Models.SLAB.upload(slab, textureMap, blockStateModelGenerator.modelCollector);
-      Identifier topModelId = Models.SLAB_TOP.upload(slab, textureMap, blockStateModelGenerator.modelCollector);
+      Identifier slabModelId = Models.SLAB.upload(slab, textureMap, bsmg.modelCollector);
+      Identifier topModelId = Models.SLAB_TOP.upload(slab, textureMap, bsmg.modelCollector);
 //      Identifier bottomModelId = BlockStateModelGenerator.BlockTexturePool.ensureModel(Models.SLAB, block);
-//      Identifier topModelId = blockStateModelGenerator.ensureModel(Models.SLAB_TOP, block);
-      Identifier doubleModelId = Models.CUBE_BOTTOM_TOP.uploadWithoutVariant(slab, "_double", textureMap, blockStateModelGenerator.modelCollector);
-      blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createSlabBlockState(slab, slabModelId, topModelId, doubleModelId));
-      blockStateModelGenerator.registerParentedItemModel(slab, slabModelId);
+//      Identifier topModelId = bsmg.ensureModel(Models.SLAB_TOP, block);
+      Identifier doubleModelId = Models.CUBE_BOTTOM_TOP.uploadWithoutVariant(slab, "_double", textureMap, bsmg.modelCollector);
+      bsmg.blockStateCollector.accept(BlockStateModelGenerator.createSlabBlockState(slab, slabModelId, topModelId, doubleModelId));
+      bsmg.registerParentedItemModel(slab, slabModelId);
    }
 
-   private void acceptWall(BlockFamily blockFamily, TextureMap textureMap, BlockStateModelGenerator blockStateModelGenerator) {
+   private void acceptWall(BlockFamily blockFamily, TextureMap textureMap, BlockStateModelGenerator bsmg) {
       Block wall = blockFamily.getVariant(BlockFamily.Variant.WALL);
       if (!isJineric(wall)) return;
-      Identifier postModelId = Models.TEMPLATE_WALL_POST.upload(wall, textureMap, blockStateModelGenerator.modelCollector);
-      Identifier sideModelId = Models.TEMPLATE_WALL_SIDE.upload(wall, textureMap, blockStateModelGenerator.modelCollector);
-      Identifier sideTallModelId = Models.TEMPLATE_WALL_SIDE_TALL.upload(wall, textureMap, blockStateModelGenerator.modelCollector);
-      blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createWallBlockState(wall, postModelId, sideModelId, sideTallModelId));
-      Identifier wallInventory = Models.WALL_INVENTORY.upload(wall, textureMap, blockStateModelGenerator.modelCollector);
-      blockStateModelGenerator.registerParentedItemModel(wall, wallInventory);
+      Identifier postModelId = Models.TEMPLATE_WALL_POST.upload(wall, textureMap, bsmg.modelCollector);
+      Identifier sideModelId = Models.TEMPLATE_WALL_SIDE.upload(wall, textureMap, bsmg.modelCollector);
+      Identifier sideTallModelId = Models.TEMPLATE_WALL_SIDE_TALL.upload(wall, textureMap, bsmg.modelCollector);
+      bsmg.blockStateCollector.accept(BlockStateModelGenerator.createWallBlockState(wall, postModelId, sideModelId, sideTallModelId));
+      Identifier wallInventory = Models.WALL_INVENTORY.upload(wall, textureMap, bsmg.modelCollector);
+      bsmg.registerParentedItemModel(wall, wallInventory);
    }
 
-   private void acceptColumnWall(BlockFamily blockFamily, TextureMap textureMap, BlockStateModelGenerator blockStateModelGenerator) {
+   private void acceptColumnWall(BlockFamily blockFamily, TextureMap textureMap, BlockStateModelGenerator bsmg) {
       Block wall = blockFamily.getVariant(BlockFamily.Variant.WALL);
-      Identifier postId = JinericModels.TEMPLATE_COLUMN_SHORT_WALL_POST.upload(wall, textureMap, blockStateModelGenerator.modelCollector);
-      Identifier sideShortId = JinericModels.TEMPLATE_COLUMN_SHORT_WALL_SIDE_LOW.upload(wall, textureMap, blockStateModelGenerator.modelCollector);
-      Identifier sideTallId = JinericModels.TEMPLATE_COLUMN_SHORT_WALL_TALL_SIDE.upload(wall, textureMap, blockStateModelGenerator.modelCollector);
-      blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createWallBlockState(wall, postId, sideShortId, sideTallId));
-      Identifier wallInventory = JinericModels.TEMPLATE_COLUMN_SHORT_WALL_INVENTORY.upload(wall, textureMap, blockStateModelGenerator.modelCollector);
-      blockStateModelGenerator.registerParentedItemModel(wall, wallInventory);
+      Identifier postId = JinericModels.TEMPLATE_COLUMN_SHORT_WALL_POST.upload(wall, textureMap, bsmg.modelCollector);
+      Identifier sideShortId = JinericModels.TEMPLATE_COLUMN_SHORT_WALL_SIDE_LOW.upload(wall, textureMap, bsmg.modelCollector);
+      Identifier sideTallId = JinericModels.TEMPLATE_COLUMN_SHORT_WALL_TALL_SIDE.upload(wall, textureMap, bsmg.modelCollector);
+      bsmg.blockStateCollector.accept(BlockStateModelGenerator.createWallBlockState(wall, postId, sideShortId, sideTallId));
+      Identifier wallInventory = JinericModels.TEMPLATE_COLUMN_SHORT_WALL_INVENTORY.upload(wall, textureMap, bsmg.modelCollector);
+      bsmg.registerParentedItemModel(wall, wallInventory);
    }
 
-   private void acceptTopBottomWall(BlockFamily blockFamily, BlockStateModelGenerator blockStateModelGenerator) {
+   private void acceptTopBottomWall(BlockFamily blockFamily, BlockStateModelGenerator bsmg) {
       TextureMap textureMap = JinericTextureMap.topBottomShort(blockFamily);
       Block wall = blockFamily.getVariant(BlockFamily.Variant.WALL);
-      Identifier postId = JinericModels.TEMPLATE_TOP_BOTTOM_SHORT_WALL_POST.upload(wall, textureMap, blockStateModelGenerator.modelCollector);
-      Identifier sideShortId = JinericModels.TEMPLATE_TOP_BOTTOM_SHORT_WALL_SIDE_LOW.upload(wall, textureMap, blockStateModelGenerator.modelCollector);
-      Identifier sideTallId = JinericModels.TEMPLATE_TOP_BOTTOM_SHORT_WALL_SIDE_TALL.upload(wall, textureMap, blockStateModelGenerator.modelCollector);
-      blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createWallBlockState(wall, postId, sideShortId, sideTallId));
-      Identifier wallInventory = JinericModels.TEMPLATE_TOP_BOTTOM_WALL_INVENTORY.upload(wall, textureMap, blockStateModelGenerator.modelCollector);
-      blockStateModelGenerator.registerParentedItemModel(wall, wallInventory);
+      Identifier postId = JinericModels.TEMPLATE_TOP_BOTTOM_SHORT_WALL_POST.upload(wall, textureMap, bsmg.modelCollector);
+      Identifier sideShortId = JinericModels.TEMPLATE_TOP_BOTTOM_SHORT_WALL_SIDE_LOW.upload(wall, textureMap, bsmg.modelCollector);
+      Identifier sideTallId = JinericModels.TEMPLATE_TOP_BOTTOM_SHORT_WALL_SIDE_TALL.upload(wall, textureMap, bsmg.modelCollector);
+      bsmg.blockStateCollector.accept(BlockStateModelGenerator.createWallBlockState(wall, postId, sideShortId, sideTallId));
+      Identifier wallInventory = JinericModels.TEMPLATE_TOP_BOTTOM_WALL_INVENTORY.upload(wall, textureMap, bsmg.modelCollector);
+      bsmg.registerParentedItemModel(wall, wallInventory);
    }
 
-   private void acceptBorderWall(Block wall, TextureMap textureMap, BlockStateModelGenerator blockStateModelGenerator) {
-      Identifier postId = JinericModels.TEMPLATE_COLUMN_SHORT_WALL_POST.upload(wall, textureMap, blockStateModelGenerator.modelCollector);
-      Identifier sideShortId = JinericModels.TEMPLATE_BORDER_WALL_SIDE_LOW.upload(wall, textureMap, blockStateModelGenerator.modelCollector);
-      Identifier sideShortLongId = JinericModels.TEMPLATE_BORDER_WALL_SIDE_LINE_LOW.upload(wall, textureMap, blockStateModelGenerator.modelCollector);
-      Identifier sideTallId = JinericModels.TEMPLATE_BORDER_WALL_SIDE_TALL.upload(wall, textureMap, blockStateModelGenerator.modelCollector);
-      blockStateModelGenerator.blockStateCollector.accept(BlockStateCreators.createBorderWallBlockState(wall, postId, sideShortId, sideShortLongId, sideTallId));
-      Identifier wallInventory = JinericModels.TEMPLATE_COLUMN_SHORT_WALL_INVENTORY.upload(wall, textureMap, blockStateModelGenerator.modelCollector);
-      blockStateModelGenerator.registerParentedItemModel(wall, wallInventory);
+   private void acceptBorderWall(Block wall, TextureMap textureMap, BlockStateModelGenerator bsmg) {
+      Identifier postId = JinericModels.TEMPLATE_COLUMN_SHORT_WALL_POST.upload(wall, textureMap, bsmg.modelCollector);
+      Identifier sideShortId = JinericModels.TEMPLATE_BORDER_WALL_SIDE_LOW.upload(wall, textureMap, bsmg.modelCollector);
+      Identifier sideShortLongId = JinericModels.TEMPLATE_BORDER_WALL_SIDE_LINE_LOW.upload(wall, textureMap, bsmg.modelCollector);
+      Identifier sideTallId = JinericModels.TEMPLATE_BORDER_WALL_SIDE_TALL.upload(wall, textureMap, bsmg.modelCollector);
+      bsmg.blockStateCollector.accept(BlockStateCreators.createBorderWallBlockState(wall, postId, sideShortId, sideShortLongId, sideTallId));
+      Identifier wallInventory = JinericModels.TEMPLATE_COLUMN_SHORT_WALL_INVENTORY.upload(wall, textureMap, bsmg.modelCollector);
+      bsmg.registerParentedItemModel(wall, wallInventory);
    }
 
    private TextureMap verifyWall(BlockFamily blockFamily) {
@@ -259,14 +259,14 @@ public class JinericModelGenerator extends FabricModelProvider {
       }
    }
 
-   public void registerFence(BlockFamily blockFamily, TextureMap textureMap, BlockStateModelGenerator blockStateModelGenerator) {
+   public void registerFence(BlockFamily blockFamily, TextureMap textureMap, BlockStateModelGenerator bsmg) {
       Block fenceBlock = blockFamily.getVariant(BlockFamily.Variant.FENCE);
       if (!this.isJineric(fenceBlock)) return;
-      Identifier postModelId = Models.FENCE_POST.upload(fenceBlock, textureMap, blockStateModelGenerator.modelCollector);
-      Identifier sideModelId = Models.FENCE_SIDE.upload(fenceBlock, textureMap, blockStateModelGenerator.modelCollector);
-      blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createFenceBlockState(fenceBlock, postModelId, sideModelId));
-      Identifier fenceInventory = Models.FENCE_INVENTORY.upload(fenceBlock, textureMap, blockStateModelGenerator.modelCollector);
-      blockStateModelGenerator.registerParentedItemModel(fenceBlock, fenceInventory);
+      Identifier postModelId = Models.FENCE_POST.upload(fenceBlock, textureMap, bsmg.modelCollector);
+      Identifier sideModelId = Models.FENCE_SIDE.upload(fenceBlock, textureMap, bsmg.modelCollector);
+      bsmg.blockStateCollector.accept(BlockStateModelGenerator.createFenceBlockState(fenceBlock, postModelId, sideModelId));
+      Identifier fenceInventory = Models.FENCE_INVENTORY.upload(fenceBlock, textureMap, bsmg.modelCollector);
+      bsmg.registerParentedItemModel(fenceBlock, fenceInventory);
    }
 
    public final void registerChest(Block chest, WoodType WoodType, boolean christmas, BlockStateModelGenerator bsmg) {
@@ -284,26 +284,26 @@ public class JinericModelGenerator extends FabricModelProvider {
       }
    }
 
-   private void registerPillar(Block pillar, BlockStateModelGenerator blockStateModelGenerator) {
+   private void registerPillar(Block pillar, BlockStateModelGenerator bsmg) {
       TextureMap textureMap = TextureMap.sideEnd(TextureMap.getSubId(pillar, "_side"), TextureMap.getSubId(pillar, "_end"));
-      Identifier identifier = Models.CUBE_COLUMN.upload(pillar, textureMap, blockStateModelGenerator.modelCollector);
-      blockStateModelGenerator.registerAxisRotated(pillar, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
+      Identifier identifier = Models.CUBE_COLUMN.upload(pillar, textureMap, bsmg.modelCollector);
+      bsmg.registerAxisRotated(pillar, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
    }
 
-   private void registerBookshelf(Block bookshelf, Block plank, BlockStateModelGenerator blockStateModelGenerator) {
+   private void registerBookshelf(Block bookshelf, Block plank, BlockStateModelGenerator bsmg) {
       TextureMap textureMap = TextureMap.sideEnd(TextureMap.getId(bookshelf), TextureMap.getId(plank));
-      Identifier identifier = Models.CUBE_COLUMN.upload(bookshelf, textureMap, blockStateModelGenerator.modelCollector);
-      blockStateModelGenerator.blockStateCollector.accept(createSingletonBlockState(bookshelf, identifier));
+      Identifier identifier = Models.CUBE_COLUMN.upload(bookshelf, textureMap, bsmg.modelCollector);
+      bsmg.blockStateCollector.accept(createSingletonBlockState(bookshelf, identifier));
    }
 
-   public void registerFullGrassBlock(BlockStateModelGenerator blockStateModelGenerator) {
+   public void registerFullGrassBlock(BlockStateModelGenerator bsmg) {
       Identifier fullGrassBlockId = TextureMap.getId(JinericBlocks.FULL_GRASS_BLOCK);
       Identifier fullGrassBlock = TexturedModel.CUBE_BOTTOM_TOP
               .get(JinericBlocks.FULL_GRASS_BLOCK)
               .textures(texture -> texture
                       .put(TextureKey.ALL, fullGrassBlockId)
               )
-              .upload(JinericBlocks.FULL_GRASS_BLOCK, blockStateModelGenerator.modelCollector);
+              .upload(JinericBlocks.FULL_GRASS_BLOCK, bsmg.modelCollector);
       List<BlockStateVariant> list = Arrays.asList(createModelVariantWithRandomHorizontalRotations(fullGrassBlock));
 
       TextureMap textureMap = new TextureMap()
@@ -319,10 +319,10 @@ public class JinericModelGenerator extends FabricModelProvider {
                               JinericBlocks.FULL_GRASS_BLOCK,
                               "_snow",
                               textureMap,
-                              blockStateModelGenerator.modelCollector
+                              bsmg.modelCollector
                       )
               );
-      blockStateModelGenerator.blockStateCollector
+      bsmg.blockStateCollector
               .accept(VariantsBlockStateSupplier.create(JinericBlocks.FULL_GRASS_BLOCK)
                       .coordinate(BlockStateVariantMap.create(Properties.SNOWY)
                               .register(true, snowyVariant)
