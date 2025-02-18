@@ -23,7 +23,7 @@
       "base": "jineric:item/trapped_mangrove_chest",
       "model": {
         "type": "minecraft:chest",
-        "texture": "jineric:mangrove_chest"
+        "texture": "jineric:trapped_mangrove_chest"
       }
     },
     "pattern": "MM-dd",

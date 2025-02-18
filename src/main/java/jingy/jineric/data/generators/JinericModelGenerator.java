@@ -13,9 +13,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.WoodType;
 import net.minecraft.client.data.*;
+import net.minecraft.client.render.item.model.ItemModel;
+import net.minecraft.client.render.item.model.special.ChestModelRenderer;
 import net.minecraft.client.render.item.tint.GrassTintSource;
 import net.minecraft.data.family.BlockFamilies;
 import net.minecraft.data.family.BlockFamily;
+import net.minecraft.item.Item;
 import net.minecraft.registry.DefaultedRegistry;
 import net.minecraft.registry.Registries;
 import net.minecraft.state.property.Properties;
@@ -118,19 +121,19 @@ public class JinericModelGenerator extends FabricModelProvider {
       );
    }
 
-   public void offerWoodTypeBlock(String blockKey, Block plank, Block checkedBlock, BlockStateModelGenerator blockModelGenerator, WoodType woodType) {
+   public void offerWoodTypeBlock(String blockKey, Block plank, Block checkedBlock, BlockStateModelGenerator bsmg, WoodType woodType) {
       // Instead of 'blockKey.contains("")', could use an instance of check
       if (blockKey.contains("_chest")) {
-         blockModelGenerator.registerChest(checkedBlock, plank, JinericMain.ofJineric(woodType.name() + "_chest"), true);
+         this.registerChest(checkedBlock, woodType, true, bsmg);
       }
       if (blockKey.contains("_ladder")) {
-         blockModelGenerator.registerNorthDefaultHorizontalRotation(checkedBlock);
+         bsmg.registerNorthDefaultHorizontalRotation(checkedBlock);
          if (!blockKey.contains("jungle_")) {
-            blockModelGenerator.registerItemModel(checkedBlock);
+            bsmg.registerItemModel(checkedBlock);
          }
       }
       if (blockKey.contains("_bookshelf")) {
-         this.registerBookshelf(checkedBlock, plank, blockModelGenerator);
+         this.registerBookshelf(checkedBlock, plank, bsmg);
       }
    }
 
@@ -266,6 +269,21 @@ public class JinericModelGenerator extends FabricModelProvider {
       blockStateModelGenerator.registerParentedItemModel(fenceBlock, fenceInventory);
    }
 
+   public final void registerChest(Block chest, WoodType WoodType, boolean christmas, BlockStateModelGenerator bsmg) {
+      Identifier particleSource = JinericMain.ofJineric("block/" + WoodType.name() + "_chest_particle");
+
+      bsmg.registerBuiltinWithParticle(chest, particleSource);
+      Item item = chest.asItem();
+      Identifier identifier = Models.TEMPLATE_CHEST.upload(item, TextureMap.particle(particleSource), bsmg.modelCollector);
+      ItemModel.Unbaked unbaked = ItemModels.special(identifier, new ChestModelRenderer.Unbaked(Registries.BLOCK.getId(chest)));
+      if (christmas) {
+         ItemModel.Unbaked unbaked2 = ItemModels.special(identifier, new ChestModelRenderer.Unbaked(ChestModelRenderer.CHRISTMAS_ID));
+         bsmg.itemModelOutput.accept(item, ItemModels.christmasSelect(unbaked2, unbaked));
+      } else {
+         bsmg.itemModelOutput.accept(item, unbaked);
+      }
+   }
+
    private void registerPillar(Block pillar, BlockStateModelGenerator blockStateModelGenerator) {
       TextureMap textureMap = TextureMap.sideEnd(TextureMap.getSubId(pillar, "_side"), TextureMap.getSubId(pillar, "_end"));
       Identifier identifier = Models.CUBE_COLUMN.upload(pillar, textureMap, blockStateModelGenerator.modelCollector);
@@ -310,6 +328,22 @@ public class JinericModelGenerator extends FabricModelProvider {
                               .register(true, snowyVariant)
                               .register(false, list)
       ));
+   }
+
+   public static Block blockById(String id) {
+      final Identifier identifier = JinericMain.ofJineric(id);
+      if (!Registries.BLOCK.containsId(identifier)) {
+         throw new IllegalStateException("Block is not registered: " + identifier);
+      }
+      return Registries.BLOCK.get(identifier);
+   }
+
+   public static Item itemById(String id) {
+      final Identifier identifier = JinericMain.ofJineric(id);
+      if (!Registries.ITEM.containsId(identifier)) {
+         throw new IllegalStateException("Item is not registered: " + identifier);
+      }
+      return Registries.ITEM.get(identifier);
    }
 
    private boolean isJineric(Block block) {

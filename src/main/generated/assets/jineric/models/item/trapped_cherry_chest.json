@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/template_chest",
   "textures": {
-    "particle": "minecraft:block/cherry_planks"
+    "particle": "jineric:block/cherry_chest_particle"
   }
 }

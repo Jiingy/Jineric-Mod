@@ -1,5 +1,5 @@
 {
   "textures": {
-    "particle": "minecraft:block/acacia_planks"
+    "particle": "jineric:block/acacia_chest_particle"
   }
 }

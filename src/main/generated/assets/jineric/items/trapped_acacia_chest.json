@@ -23,7 +23,7 @@
       "base": "jineric:item/trapped_acacia_chest",
       "model": {
         "type": "minecraft:chest",
-        "texture": "jineric:acacia_chest"
+        "texture": "jineric:trapped_acacia_chest"
       }
     },
     "pattern": "MM-dd",

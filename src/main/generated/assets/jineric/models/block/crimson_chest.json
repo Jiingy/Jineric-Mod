@@ -1,5 +1,5 @@
 {
   "textures": {
-    "particle": "minecraft:block/crimson_planks"
+    "particle": "jineric:block/crimson_chest_particle"
   }
 }

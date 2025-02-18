@@ -23,7 +23,7 @@
       "base": "jineric:item/trapped_dark_oak_chest",
       "model": {
         "type": "minecraft:chest",
-        "texture": "jineric:dark_oak_chest"
+        "texture": "jineric:trapped_dark_oak_chest"
       }
     },
     "pattern": "MM-dd",

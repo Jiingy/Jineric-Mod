@@ -1,5 +1,5 @@
 {
   "textures": {
-    "particle": "minecraft:block/dark_oak_planks"
+    "particle": "jineric:block/dark_oak_chest_particle"
   }
 }

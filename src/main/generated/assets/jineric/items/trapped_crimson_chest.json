@@ -23,7 +23,7 @@
       "base": "jineric:item/trapped_crimson_chest",
       "model": {
         "type": "minecraft:chest",
-        "texture": "jineric:crimson_chest"
+        "texture": "jineric:trapped_crimson_chest"
       }
     },
     "pattern": "MM-dd",

@@ -23,7 +23,7 @@
       "base": "jineric:item/trapped_spruce_chest",
       "model": {
         "type": "minecraft:chest",
-        "texture": "jineric:spruce_chest"
+        "texture": "jineric:trapped_spruce_chest"
       }
     },
     "pattern": "MM-dd",
