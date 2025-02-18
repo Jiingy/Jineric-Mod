@@ -42,7 +42,7 @@ public class JinericBlockSoundGroup {
 	);
 	public static final BlockSoundGroup WOODEN_LADDER = new BlockSoundGroup(
 			0.75F,
-			1.1F,
+			1.0F,
 			SoundEvents.BLOCK_WOOD_BREAK,
 			SoundEvents.BLOCK_LADDER_STEP,
 			SoundEvents.BLOCK_WOOD_PLACE,
