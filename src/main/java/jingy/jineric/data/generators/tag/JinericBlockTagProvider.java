@@ -1,4 +1,4 @@
-package jingy.jineric.data.generators;
+package jingy.jineric.data.generators.tag;
 
 import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.data.family.JinericBlockFamilies;

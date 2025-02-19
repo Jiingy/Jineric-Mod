@@ -1,7 +1,12 @@
 package jingy.jineric.data;
 
 import jingy.jineric.base.JinericMain;
-import jingy.jineric.data.generators.*;
+import jingy.jineric.data.generators.JinericBlockLootTableProvider;
+import jingy.jineric.data.generators.JinericModelProvider;
+import jingy.jineric.data.generators.JinericRecipeProvider;
+import jingy.jineric.data.generators.tag.JinericBlockTagProvider;
+import jingy.jineric.data.generators.tag.JinericItemTagProvider;
+import jingy.jineric.data.generators.tag.JinericPaintingVariantTagProvider;
 import jingy.jineric.data.generators.world.JinericWorldProvider;
 import jingy.jineric.entity.JinericPaintingVariants;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;

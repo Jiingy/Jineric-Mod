@@ -1,4 +1,4 @@
-package jingy.jineric.data.generators;
+package jingy.jineric.data.generators.tag;
 
 import jingy.jineric.entity.JinericPaintingVariants;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
