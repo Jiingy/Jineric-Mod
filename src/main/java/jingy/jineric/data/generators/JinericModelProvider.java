@@ -36,15 +36,14 @@ public class JinericModelProvider extends FabricModelProvider {
    @Override
    public void generateBlockStateModels(BlockStateModelGenerator bsmg) {
       BlockFamilies.getFamilies().filter(BlockFamily::shouldGenerateModels).forEach(blockFamily -> {
-          Block baseBlock = blockFamily.getBaseBlock();
-          TextureMap textureMapAll = TextureMap.all(baseBlock);
-          blockFamily.getGroup().ifPresent(name -> {
-              if (name.equals("wooden") && Registries.BLOCK.getId(baseBlock).getNamespace().equals("jineric")) {
-                  WoodType.stream()
-                          .filter(woodType -> woodType.name().contains("jineric") && blockFamily.getBaseBlock().toString().contains(woodType.name()))
-                          .forEach(woodType -> this.finishWoodSet(woodType, null, bsmg));
-              }
-          });
+         Block baseBlock = blockFamily.getBaseBlock();
+         blockFamily.getGroup().ifPresent(name -> {
+             if (name.equals("wooden") && Registries.BLOCK.getId(baseBlock).getNamespace().equals("jineric")) {
+                 WoodType.stream()
+                         .filter(woodType -> woodType.name().contains("jineric") && blockFamily.getBaseBlock().toString().contains(woodType.name()))
+                         .forEach(woodType -> this.finishWoodSet(woodType, null, bsmg));
+             }
+         });
       });
       this.registerBlockFamilyModels(bsmg);
       this.registerWoodSetModels(bsmg);
@@ -74,14 +73,14 @@ public class JinericModelProvider extends FabricModelProvider {
       this.registerCubeColumnBlockSet(JinericBlockFamilies.CUT_SOUL_SANDSTONE, JinericBlockFamilies.SOUL_SANDSTONE, bsmg);
       this.registerBorderBlockSet(JinericBlockFamilies.SMOOTH_STONE, bsmg);
       this.registerBorderBlockSet(JinericBlockFamilies.POLISHED_STONE, bsmg);
-      this.acceptWall(JinericBlockFamilies.CUT_COPPER, TextureMap.all(Blocks.CUT_COPPER), bsmg);
-      this.acceptWall(JinericBlockFamilies.EXPOSED_CUT_COPPER, TextureMap.all(Blocks.EXPOSED_CUT_COPPER), bsmg);
-      this.acceptWall(JinericBlockFamilies.WEATHERED_CUT_COPPER, TextureMap.all(Blocks.WEATHERED_CUT_COPPER), bsmg);
-      this.acceptWall(JinericBlockFamilies.OXIDIZED_CUT_COPPER, TextureMap.all(Blocks.OXIDIZED_CUT_COPPER), bsmg);
-      this.acceptWall(JinericBlockFamilies.WAXED_CUT_COPPER, TextureMap.all(Blocks.CUT_COPPER), bsmg);
-      this.acceptWall(JinericBlockFamilies.WAXED_EXPOSED_CUT_COPPER, TextureMap.all(Blocks.EXPOSED_CUT_COPPER), bsmg);
-      this.acceptWall(JinericBlockFamilies.WAXED_WEATHERED_CUT_COPPER, TextureMap.all(Blocks.WEATHERED_CUT_COPPER), bsmg);
-      this.acceptWall(JinericBlockFamilies.WAXED_OXIDIZED_CUT_COPPER, TextureMap.all(Blocks.OXIDIZED_CUT_COPPER), bsmg);
+      this.registerWall(JinericBlockFamilies.CUT_COPPER, TextureMap.all(Blocks.CUT_COPPER), bsmg);
+      this.registerWall(JinericBlockFamilies.EXPOSED_CUT_COPPER, TextureMap.all(Blocks.EXPOSED_CUT_COPPER), bsmg);
+      this.registerWall(JinericBlockFamilies.WEATHERED_CUT_COPPER, TextureMap.all(Blocks.WEATHERED_CUT_COPPER), bsmg);
+      this.registerWall(JinericBlockFamilies.OXIDIZED_CUT_COPPER, TextureMap.all(Blocks.OXIDIZED_CUT_COPPER), bsmg);
+      this.registerWall(JinericBlockFamilies.WAXED_CUT_COPPER, TextureMap.all(Blocks.CUT_COPPER), bsmg);
+      this.registerWall(JinericBlockFamilies.WAXED_EXPOSED_CUT_COPPER, TextureMap.all(Blocks.EXPOSED_CUT_COPPER), bsmg);
+      this.registerWall(JinericBlockFamilies.WAXED_WEATHERED_CUT_COPPER, TextureMap.all(Blocks.WEATHERED_CUT_COPPER), bsmg);
+      this.registerWall(JinericBlockFamilies.WAXED_OXIDIZED_CUT_COPPER, TextureMap.all(Blocks.OXIDIZED_CUT_COPPER), bsmg);
 
       bsmg.registerFlowerPotPlantAndItem(JinericBlocks.PETRIFIED_OAK_SAPLING, JinericBlocks.POTTED_PETRIFIED_OAK_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
    }
@@ -142,21 +141,21 @@ public class JinericModelProvider extends FabricModelProvider {
     public void registerFamilyVariantModels(BlockFamily blockFamily, TextureMap textureMap, BlockStateModelGenerator bsmg) {
         for (BlockFamily.Variant familyVariant : BlockFamily.Variant.values()) {
             switch (familyVariant) {
-                case BUTTON -> this.registerButton(blockFamily, textureMapAll, bsmg);
+                case BUTTON -> this.registerButton(blockFamily, textureMap, bsmg);
                 case DOOR -> bsmg.registerDoor(blockFamily.getVariant(BlockFamily.Variant.DOOR));
-                case FENCE_GATE -> this.registerFenceGate(blockFamily, textureMapAll, bsmg);
-                case SIGN -> this.registerSign(blockFamily, textureMapAll, bsmg);
-                case FENCE -> this.registerFence(blockFamily, textureMapAll, bsmg);
-                case STAIRS -> this.acceptStairs(blockFamily, textureMapAll, bsmg);
-                case PRESSURE_PLATE -> this.registerPressurePlate(blockFamily, textureMapAll, bsmg);
-                case SLAB -> this.acceptSlab(blockFamily, textureMapAll, bsmg);
+                case FENCE_GATE -> this.registerFenceGate(blockFamily, textureMap, bsmg);
+                case SIGN -> this.registerSign(blockFamily, textureMap, bsmg);
+                case FENCE -> this.registerFence(blockFamily, textureMap, bsmg);
+                case STAIRS -> this.registerStairs(blockFamily, textureMap, bsmg);
+                case PRESSURE_PLATE -> this.registerPressurePlate(blockFamily, textureMap, bsmg);
+                case SLAB -> this.registerSlab(blockFamily, textureMap, bsmg);
                 case TRAPDOOR -> bsmg.registerTrapdoor(blockFamily.getVariant(BlockFamily.Variant.TRAPDOOR));
-                case WALL -> this.acceptWall(blockFamily, this.verifyWall(blockFamily), bsmg);
+                case WALL -> this.registerWall(blockFamily, this.verifyWall(blockFamily), bsmg);
             }
         }
     }
 
-   public void registerWoodSetModels(BlockStateModelGenerator blockStateModelGenerator) {
+   public void registerWoodSetModels(BlockStateModelGenerator bsmg) {
       DefaultedRegistry<Block> blockRegistry = Registries.BLOCK;
       List<WoodType> woodTypes = WoodType.stream().toList();
       woodTypes.forEach(woodType -> blockRegistry.stream()
@@ -395,40 +394,6 @@ public class JinericModelProvider extends FabricModelProvider {
       TextureMap textureMap = TextureMap.sideEnd(TextureMap.getId(bookshelf), TextureMap.getId(plank));
       Identifier identifier = Models.CUBE_COLUMN.upload(bookshelf, textureMap, bsmg.modelCollector);
       bsmg.blockStateCollector.accept(createSingletonBlockState(bookshelf, identifier));
-   }
-
-   public void registerFullGrassBlock(BlockStateModelGenerator blockStateModelGenerator) {
-      Identifier fullGrassBlockId = TextureMap.getId(JinericBlocks.FULL_GRASS_BLOCK);
-      Identifier fullGrassBlock = TexturedModel.CUBE_BOTTOM_TOP
-              .get(JinericBlocks.FULL_GRASS_BLOCK)
-              .textures(texture -> texture
-                      .put(TextureKey.ALL, fullGrassBlockId)
-              )
-              .upload(JinericBlocks.FULL_GRASS_BLOCK, blockStateModelGenerator.modelCollector);
-      List<BlockStateVariant> list = Arrays.asList(createModelVariantWithRandomHorizontalRotations(fullGrassBlock));
-
-      TextureMap textureMap = new TextureMap()
-              .put(TextureKey.TOP, fullGrassBlockId)
-              .put(TextureKey.SIDE, fullGrassBlockId)
-              .put(TextureKey.of("overlay"), TextureMap.getSubId(JinericBlocks.FULL_GRASS_BLOCK, "_snow"))
-              .put(TextureKey.BOTTOM, fullGrassBlockId)
-              .inherit(TextureKey.BOTTOM, TextureKey.PARTICLE);
-
-      BlockStateVariant snowyVariant = BlockStateVariant.create()
-              .put(VariantSettings.MODEL, Models.CUBE_BOTTOM_TOP
-                      .upload(
-                              JinericBlocks.FULL_GRASS_BLOCK,
-                              "_snow",
-                              textureMap,
-                              blockStateModelGenerator.modelCollector
-                      )
-              );
-      blockStateModelGenerator.blockStateCollector
-              .accept(VariantsBlockStateSupplier.create(JinericBlocks.FULL_GRASS_BLOCK)
-                      .coordinate(BlockStateVariantMap.create(Properties.SNOWY)
-                              .register(true, snowyVariant)
-                              .register(false, list)
-      ));
    }
 
    public static Block blockById(String id) {
