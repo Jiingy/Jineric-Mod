@@ -18,6 +18,7 @@ public class JinericDataGeneration implements DataGeneratorEntrypoint {
       FabricDataGenerator.Pack fabricDataGenPack = generator.createPack();
       fabricDataGenPack.addProvider(JinericItemTagGenerator::new);
       fabricDataGenPack.addProvider(JinericBlockTagGenerator::new);
+      fabricDataGenPack.addProvider(JinericPaintingVariantTagProvider::new);
       fabricDataGenPack.addProvider(JinericRecipeGenerator::new);
       fabricDataGenPack.addProvider(JinericModelGenerator::new);
       fabricDataGenPack.addProvider(JinericBlockLootTableGenerator::new);
@@ -26,8 +27,8 @@ public class JinericDataGeneration implements DataGeneratorEntrypoint {
 
    @Override
    public void buildRegistry(RegistryBuilder registryBuilder) {
-      registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, JinericWorldGenerator::bootstrap);
       registryBuilder.addRegistry(RegistryKeys.PAINTING_VARIANT, JinericPaintingVariants::bootstrap);
+      registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, JinericWorldGenerator::bootstrap);
    }
 
    @Override
