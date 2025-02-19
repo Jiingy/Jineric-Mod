@@ -12,28 +12,28 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(CatSitOnBlockGoal.class)
 public abstract class CatSitOnBlockGoalMixin {
-
-   @WrapOperation(
-           method = "isTargetPos",
-           at = @At(
-                   value = "INVOKE",
-                   target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z",
-                   ordinal = 0
-           )
-   )
-   private boolean jineric$addJinericChests(BlockState instance, Block block, Operation<Boolean> original) {
-      return original.call(instance, block) || instance.isIn(JinericBlockTags.CHESTS);
-   }
-
-   @WrapOperation(
-           method = "isTargetPos",
-           at = @At(
-                   value = "INVOKE",
-                   target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z",
-                   ordinal = 1
-           )
-   )
-   private boolean jineric$addRefinery(BlockState instance, Block block, Operation<Boolean> original) {
-      return original.call(instance, block) || instance.isOf(JinericBlocks.REFINERY);
-   }
+	
+	@WrapOperation(
+			method = "isTargetPos",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z",
+					ordinal = 0
+			)
+	)
+	private boolean jineric$addJinericChests(BlockState instance, Block block, Operation<Boolean> original) {
+		return original.call(instance, block) || instance.isIn(JinericBlockTags.CHESTS);
+	}
+	
+	@WrapOperation(
+			method = "isTargetPos",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z",
+					ordinal = 1
+			)
+	)
+	private boolean jineric$addRefinery(BlockState instance, Block block, Operation<Boolean> original) {
+		return original.call(instance, block) || instance.isOf(JinericBlocks.REFINERY);
+	}
 }

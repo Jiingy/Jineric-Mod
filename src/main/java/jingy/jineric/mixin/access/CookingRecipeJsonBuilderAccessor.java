@@ -11,17 +11,17 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 
 @Mixin(CookingRecipeJsonBuilder.class)
 public interface CookingRecipeJsonBuilderAccessor {
-
-   @Invoker("<init>")
-   static CookingRecipeJsonBuilder invokeInit(
-           RecipeCategory category,
-           CookingRecipeCategory cookingCategory,
-           ItemConvertible output,
-           Ingredient input,
-           float experience,
-           int cookingTime,
-           AbstractCookingRecipe.RecipeFactory<?> recipeFactory
-   ) {
-      throw new IllegalStateException("Could not invoke <init>() in WoodType!");
-   }
+	
+	@Invoker("<init>")
+	static CookingRecipeJsonBuilder invokeInit(
+			RecipeCategory category,
+			CookingRecipeCategory cookingCategory,
+			ItemConvertible output,
+			Ingredient input,
+			float experience,
+			int cookingTime,
+			AbstractCookingRecipe.RecipeFactory<?> recipeFactory
+	) {
+		throw new IllegalStateException("Could not invoke <init>() in WoodType!");
+	}
 }

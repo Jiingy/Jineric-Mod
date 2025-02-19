@@ -7,7 +7,7 @@ import net.minecraft.block.MapColor;
 import net.minecraft.sound.BlockSoundGroup;
 
 public class JinericBlockSettings extends Blocks {
-
+	
 	public static AbstractBlock.Settings soulSandstoneSettings() {
 		return AbstractBlock.Settings
 				.copy(STONE)
@@ -17,7 +17,7 @@ public class JinericBlockSettings extends Blocks {
 				.mapColor(MapColor.BROWN)
 				.sounds(JinericBlockSoundGroup.SOUL_SANDSTONE);
 	}
-
+	
 	public static AbstractBlock.Settings snowBrickSettings() {
 		return AbstractBlock.Settings
 				.copy(SNOW_BLOCK)

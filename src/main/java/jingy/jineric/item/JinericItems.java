@@ -22,8 +22,8 @@ import java.util.function.UnaryOperator;
 public class JinericItems {
 
 //DONE ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-//DRIPSTONE
+	
+	//DRIPSTONE
 	public static final Item POLISHED_STONE = register(JinericBlocks.POLISHED_STONE);
 	public static final Item POLISHED_STONE_STAIRS = register(JinericBlocks.POLISHED_STONE_STAIRS);
 	public static final Item POLISHED_STONE_SLAB = register(JinericBlocks.POLISHED_STONE_SLAB);
@@ -57,8 +57,8 @@ public class JinericItems {
 	public static final Item SMOOTH_DRIPSTONE_WALL = register(JinericBlocks.SMOOTH_DRIPSTONE_WALL);
 	public static final Item CHISELED_DRIPSTONE_BRICKS = register(JinericBlocks.CHISELED_DRIPSTONE_BRICKS);
 	public static final Item DRIPSTONE_BRICK_PILLAR = register(JinericBlocks.DRIPSTONE_BRICK_PILLAR);
-
-//TUFF
+	
+	//TUFF
 	public static final Item SMOOTH_TUFF = register(JinericBlocks.SMOOTH_TUFF);
 	public static final Item SMOOTH_TUFF_STAIRS = register(JinericBlocks.SMOOTH_TUFF_STAIRS);
 	public static final Item SMOOTH_TUFF_SLAB = register(JinericBlocks.SMOOTH_TUFF_SLAB);
@@ -76,8 +76,8 @@ public class JinericItems {
 	public static final Item CRACKED_TUFF_TILE_SLAB = register(JinericBlocks.CRACKED_TUFF_TILE_SLAB);
 	public static final Item CRACKED_TUFF_TILE_STAIRS = register(JinericBlocks.CRACKED_TUFF_TILE_STAIRS);
 	public static final Item CRACKED_TUFF_TILE_WALL = register(JinericBlocks.CRACKED_TUFF_TILE_WALL);
-
-//SANDSTONE
+	
+	//SANDSTONE
 	public static final Item SMOOTH_SANDSTONE_WALL = register(JinericBlocks.SMOOTH_SANDSTONE_WALL);
 	public static final Item CUT_SANDSTONE_STAIRS = register(JinericBlocks.CUT_SANDSTONE_STAIRS);
 	public static final Item CUT_SANDSTONE_WALL = register(JinericBlocks.CUT_SANDSTONE_WALL);
@@ -89,8 +89,8 @@ public class JinericItems {
 	public static final Item WAVY_SANDSTONE_SLAB = register(JinericBlocks.WAVY_SANDSTONE_SLAB);
 	public static final Item WAVY_SANDSTONE_STAIRS = register(JinericBlocks.WAVY_SANDSTONE_STAIRS);
 	public static final Item WAVY_SANDSTONE_WALL = register(JinericBlocks.WAVY_SANDSTONE_WALL);
-
-//RED SANDSTONE
+	
+	//RED SANDSTONE
 	public static final Item SMOOTH_RED_SANDSTONE_WALL = register(JinericBlocks.SMOOTH_RED_SANDSTONE_WALL);
 	public static final Item CUT_RED_SANDSTONE_STAIRS = register(JinericBlocks.CUT_RED_SANDSTONE_STAIRS);
 	public static final Item CUT_RED_SANDSTONE_WALL = register(JinericBlocks.CUT_RED_SANDSTONE_WALL);
@@ -102,8 +102,8 @@ public class JinericItems {
 	public static final Item WAVY_RED_SANDSTONE_STAIRS = register(JinericBlocks.WAVY_RED_SANDSTONE_STAIRS);
 	public static final Item WAVY_RED_SANDSTONE_SLAB = register(JinericBlocks.WAVY_RED_SANDSTONE_SLAB);
 	public static final Item WAVY_RED_SANDSTONE_WALL = register(JinericBlocks.WAVY_RED_SANDSTONE_WALL);
-
-//SOUL SANDSTONE
+	
+	//SOUL SANDSTONE
 	public static final Item SOUL_SANDSTONE = register(JinericBlocks.SOUL_SANDSTONE);
 	public static final Item SOUL_SANDSTONE_SLAB = register(JinericBlocks.SOUL_SANDSTONE_SLAB);
 	public static final Item SOUL_SANDSTONE_STAIRS = register(JinericBlocks.SOUL_SANDSTONE_STAIRS);
@@ -125,8 +125,8 @@ public class JinericItems {
 	public static final Item WAVY_SOUL_SANDSTONE_SLAB = register(JinericBlocks.WAVY_SOUL_SANDSTONE_SLAB);
 	public static final Item WAVY_SOUL_SANDSTONE_STAIRS = register(JinericBlocks.WAVY_SOUL_SANDSTONE_STAIRS);
 	public static final Item WAVY_SOUL_SANDSTONE_WALL = register(JinericBlocks.WAVY_SOUL_SANDSTONE_WALL);
-
-//MISC VANILLA
+	
+	//MISC VANILLA
 	//OVERWORLD
 	public static final Item STONE_WALL = register(JinericBlocks.STONE_WALL);
 	public static final Item CRACKED_STONE_BRICK_STAIRS = register(JinericBlocks.CRACKED_STONE_BRICK_STAIRS);
@@ -191,8 +191,8 @@ public class JinericItems {
 	public static final Item SMOOTH_BASALT_WALL = register(JinericBlocks.SMOOTH_BASALT_WALL);
 	//END
 	public static final Item PURPUR_WALL = register(JinericBlocks.PURPUR_WALL);
-
-//COPPER
+	
+	//COPPER
 	//CUT
 	public static final Item CUT_COPPER_WALL = register(JinericBlocks.CUT_COPPER_WALL);
 	public static final Item EXPOSED_CUT_COPPER_WALL = register(JinericBlocks.EXPOSED_CUT_COPPER_WALL);
@@ -202,7 +202,7 @@ public class JinericItems {
 	public static final Item WAXED_EXPOSED_CUT_COPPER_WALL = register(JinericBlocks.WAXED_EXPOSED_CUT_COPPER_WALL);
 	public static final Item WAXED_WEATHERED_CUT_COPPER_WALL = register(JinericBlocks.WAXED_WEATHERED_CUT_COPPER_WALL);
 	public static final Item WAXED_OXIDIZED_CUT_COPPER_WALL = register(JinericBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL);
-//ITEM STORAGE
+	//ITEM STORAGE
 	public static final Item CHARCOAL_BLOCK = register(JinericBlocks.CHARCOAL_BLOCK);
 	public static final Item FLINT_BLOCK = register(JinericBlocks.FLINT_BLOCK);
 	public static final Item BONE_MEAL_BLOCK = register(JinericBlocks.BONE_MEAL_BLOCK);
@@ -214,7 +214,7 @@ public class JinericItems {
 	public static final Item ENDER_PEARL_BLOCK = register(JinericBlocks.ENDER_PEARL_BLOCK);
 	public static final Item PAPER_BLOCK = register(JinericBlocks.PAPER_BLOCK);
 	public static final Item BLAZE_ROD_BLOCK = register(JinericBlocks.BLAZE_ROD_BLOCK);
-//BOOKSHELVES
+	//BOOKSHELVES
 	public static final Item SPRUCE_BOOKSHELF = register(JinericBlocks.SPRUCE_BOOKSHELF);
 	public static final Item BIRCH_BOOKSHELF = register(JinericBlocks.BIRCH_BOOKSHELF);
 	public static final Item JUNGLE_BOOKSHELF = register(JinericBlocks.JUNGLE_BOOKSHELF);
@@ -225,7 +225,7 @@ public class JinericItems {
 	public static final Item BAMBOO_BOOKSHELF = register(JinericBlocks.BAMBOO_BOOKSHELF);
 	public static final Item CRIMSON_BOOKSHELF = register(JinericBlocks.CRIMSON_BOOKSHELF);
 	public static final Item WARPED_BOOKSHELF = register(JinericBlocks.WARPED_BOOKSHELF);
-//CHESTS
+	//CHESTS
 	public static final Item BIRCH_CHEST = register(JinericBlocks.BIRCH_CHEST);
 	public static final Item SPRUCE_CHEST = register(JinericBlocks.SPRUCE_CHEST);
 	public static final Item JUNGLE_CHEST = register(JinericBlocks.JUNGLE_CHEST);
@@ -246,7 +246,7 @@ public class JinericItems {
 	public static final Item TRAPPED_BAMBOO_CHEST = register(JinericBlocks.TRAPPED_BAMBOO_CHEST);
 	public static final Item TRAPPED_CRIMSON_CHEST = register(JinericBlocks.TRAPPED_CRIMSON_CHEST);
 	public static final Item TRAPPED_WARPED_CHEST = register(JinericBlocks.TRAPPED_WARPED_CHEST);
-//LADDERS
+	//LADDERS
 	public static final Item SPRUCE_LADDER = register(JinericBlocks.SPRUCE_LADDER);
 	public static final Item BIRCH_LADDER = register(JinericBlocks.BIRCH_LADDER);
 	public static final Item JUNGLE_LADDER = register(JinericBlocks.JUNGLE_LADDER);
@@ -257,95 +257,95 @@ public class JinericItems {
 	public static final Item BAMBOO_LADDER = register(JinericBlocks.BAMBOO_LADDER);
 	public static final Item WARPED_LADDER = register(JinericBlocks.WARPED_LADDER);
 	public static final Item CRIMSON_LADDER = register(JinericBlocks.CRIMSON_LADDER);
-//REDSTONE
+	//REDSTONE
 	public static final Item REDSTONE_LANTERN = register(JinericBlocks.REDSTONE_LANTERN);
-//FOOD
+	//FOOD
 	public static final Item GOLDEN_POTATO = register("golden_potato", new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.6f).build()));
 	public static final Item GOLDEN_SWEET_BERRIES = register("golden_sweet_berries", new Item.Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.2f).build()));
 	public static final Item GOLDEN_BEETROOT = register("golden_beetroot", new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(1.2f).build()));
-//MISC JINERIC
+	//MISC JINERIC
 	public static final Item SOUL_JACK_O_LANTERN = register(JinericBlocks.SOUL_JACK_O_LANTERN);
 	public static final Item NETHERITE_HORSE_ARMOR = register(
 			"netherite_horse_armor", settings -> new AnimalArmorItem(ArmorMaterials.NETHERITE, AnimalArmorItem.Type.EQUESTRIAN, SoundEvents.ENTITY_HORSE_ARMOR, false, settings)
 	);
-
-//WIP OR UNKNOWN ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+	//WIP OR UNKNOWN ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	public static final Item IRON_UPGRADE_SMITHING_TEMPLATE = register(
 			"iron_upgrade_smithing_template", JinericSmithingTemplateItem::createIronUpgrade, new Item.Settings().rarity(Rarity.COMMON)
 	);
-
+	
 	public static final Item REFINERY = register(JinericBlocks.REFINERY);
 	public static final Item REDSTONE_CAMPFIRE = register(JinericBlocks.REDSTONE_CAMPFIRE);
-
+	
 	private static RegistryKey<Item> keyOf(String id) {
 		return RegistryKey.of(RegistryKeys.ITEM, JinericMain.ofJineric(id));
 	}
-
+	
 	private static RegistryKey<Item> keyOf(RegistryKey<Block> blockKey) {
 		return RegistryKey.of(RegistryKeys.ITEM, blockKey.getValue());
 	}
-
+	
 	private static Item register(Block block) {
 		return register(block, BlockItem::new);
 	}
-
+	
 	private static Item register(Block block, Item.Settings settings) {
 		return register(block, BlockItem::new, settings);
 	}
-
+	
 	private static Item register(Block block, UnaryOperator<Item.Settings> settingsOperator) {
 		return register(block, (blockx, settings) -> new BlockItem(blockx, settingsOperator.apply(settings)));
 	}
-
+	
 	private static Item register(Block block, Block... blocks) {
 		Item item = register(block);
-
+		
 		for (Block block2 : blocks) {
 			Item.BLOCK_ITEMS.put(block2, item);
 		}
-
+		
 		return item;
 	}
-
+	
 	private static Item register(Block block, BiFunction<Block, Item.Settings, Item> factory) {
 		return register(block, factory, new Item.Settings());
 	}
-
+	
 	private static Item register(Block block, BiFunction<Block, Item.Settings, Item> factory, Item.Settings settings) {
 		return register(
 				keyOf(block.getRegistryEntry().registryKey()), itemSettings -> factory.apply(block, itemSettings), settings.useBlockPrefixedTranslationKey()
 		);
 	}
-
+	
 	private static Item register(String id, Function<Item.Settings, Item> factory) {
 		return register(keyOf(id), factory, new Item.Settings());
 	}
-
+	
 	private static Item register(String id, Function<Item.Settings, Item> factory, Item.Settings settings) {
 		return register(keyOf(id), factory, settings);
 	}
-
+	
 	private static Item register(String id, Item.Settings settings) {
 		return register(keyOf(id), Item::new, settings);
 	}
-
+	
 	private static Item register(String id) {
 		return register(keyOf(id), Item::new, new Item.Settings());
 	}
-
+	
 	private static Item register(RegistryKey<Item> key, Function<Item.Settings, Item> factory) {
 		return register(key, factory, new Item.Settings());
 	}
-
+	
 	private static Item register(RegistryKey<Item> key, Function<Item.Settings, Item> factory, Item.Settings settings) {
 		Item item = factory.apply(settings.registryKey(key));
 		if (item instanceof BlockItem blockItem) {
 			blockItem.appendBlocks(Item.BLOCK_ITEMS, item);
 		}
-
+		
 		return Registry.register(Registries.ITEM, key, item);
 	}
-
+	
 	public static void initialize() {
 	}
 }

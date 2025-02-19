@@ -13,15 +13,15 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(WallBlock.class)
 public abstract class WallsConnectionMixin extends Block implements Waterloggable {
-   public WallsConnectionMixin(Settings settings) {
-      super(settings);
-   }
-
-   @Inject(
-           method = "shouldConnectTo",
-           at = @At("RETURN"), cancellable = true
-   )
-   private void jineric$shouldConnectTo(BlockState state, boolean faceFullSquare, Direction side, CallbackInfoReturnable<Boolean> cir) {
-      cir.setReturnValue(cir.getReturnValueZ() || state.isIn(JinericBlockTags.NOT_PICKAXE_WALL));
-   }
+	public WallsConnectionMixin(Settings settings) {
+		super(settings);
+	}
+	
+	@Inject(
+			method = "shouldConnectTo",
+			at = @At("RETURN"), cancellable = true
+	)
+	private void jineric$shouldConnectTo(BlockState state, boolean faceFullSquare, Direction side, CallbackInfoReturnable<Boolean> cir) {
+		cir.setReturnValue(cir.getReturnValueZ() || state.isIn(JinericBlockTags.NOT_PICKAXE_WALL));
+	}
 }

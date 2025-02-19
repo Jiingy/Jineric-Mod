@@ -12,17 +12,17 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(SpreadableBlock.class)
 public abstract class BlocksForGrassSurvivingMixin {
-
-    @Inject(
-            method = "canSurvive",
-            at = @At(value = "HEAD"),
-            cancellable = true
-    )
-    private static void jineric$canSurviveIfFullGrassBlock(BlockState state, WorldView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
-        BlockPos blockPos = pos.up();
-        BlockState blockState = world.getBlockState(blockPos);
-        if (blockState.isOf(JinericBlocks.FULL_GRASS_BLOCK)) {
-            cir.setReturnValue(true);
-        }
-    }
+	
+	@Inject(
+			method = "canSurvive",
+			at = @At(value = "HEAD"),
+			cancellable = true
+	)
+	private static void jineric$canSurviveIfFullGrassBlock(BlockState state, WorldView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
+		BlockPos blockPos = pos.up();
+		BlockState blockState = world.getBlockState(blockPos);
+		if (blockState.isOf(JinericBlocks.FULL_GRASS_BLOCK)) {
+			cir.setReturnValue(true);
+		}
+	}
 }

@@ -10,23 +10,23 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import java.util.concurrent.CompletableFuture;
 
 public class JinericWorldProvider extends FabricDynamicRegistryProvider {
-   public JinericWorldProvider(FabricDataOutput generator, CompletableFuture<RegistryWrapper.WrapperLookup> registries) {
-      super(generator, registries);
-   }
-
-   public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> registry) {
-      registry.register(JinericUndergroundConfiguredFeatures.FULL_GRASS_PATCH_BONEMEAL, JinericUndergroundConfiguredFeatures.createFullGrassPatchFeature(registry));
-      registry.register(JinericUndergroundConfiguredFeatures.FULL_GRASS_VEGETATION, JinericUndergroundConfiguredFeatures.createFullGrassVegetation());
-   }
-
-   @Override
-   protected void configure(RegistryWrapper.WrapperLookup registries, Entries entries) {
-      entries.addAll(registries.getOrThrow(RegistryKeys.CONFIGURED_FEATURE));
-      entries.addAll(registries.getOrThrow(RegistryKeys.PLACED_FEATURE));
-   }
-
-   @Override
-   public String getName() {
-      return "jineric_world";
-   }
+	public JinericWorldProvider(FabricDataOutput generator, CompletableFuture<RegistryWrapper.WrapperLookup> registries) {
+		super(generator, registries);
+	}
+	
+	public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> registry) {
+		registry.register(JinericUndergroundConfiguredFeatures.FULL_GRASS_PATCH_BONEMEAL, JinericUndergroundConfiguredFeatures.createFullGrassPatchFeature(registry));
+		registry.register(JinericUndergroundConfiguredFeatures.FULL_GRASS_VEGETATION, JinericUndergroundConfiguredFeatures.createFullGrassVegetation());
+	}
+	
+	@Override
+	protected void configure(RegistryWrapper.WrapperLookup registries, Entries entries) {
+		entries.addAll(registries.getOrThrow(RegistryKeys.CONFIGURED_FEATURE));
+		entries.addAll(registries.getOrThrow(RegistryKeys.PLACED_FEATURE));
+	}
+	
+	@Override
+	public String getName() {
+		return "jineric_world";
+	}
 }

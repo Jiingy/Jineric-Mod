@@ -11,15 +11,15 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(LivingEntity.class)
 public abstract class CanEnterTrapdoorMixin {
-
-    @WrapOperation(
-            method = "canEnterTrapdoor",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z"
-            )
-    )
-    private boolean checkJinericLadder(BlockState instance, Block block, Operation<Boolean> original) {
-        return original.call(instance, block) || instance.isIn(JinericBlockTags.LADDERS);
-    }
+	
+	@WrapOperation(
+			method = "canEnterTrapdoor",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z"
+			)
+	)
+	private boolean checkJinericLadder(BlockState instance, Block block, Operation<Boolean> original) {
+		return original.call(instance, block) || instance.isIn(JinericBlockTags.LADDERS);
+	}
 }

@@ -20,54 +20,54 @@ import java.util.function.ToIntFunction;
 import static net.minecraft.block.Blocks.*;
 
 public class JinericBlocks {
-
-//SANDSTONE
+	
+	//SANDSTONE
 	public static final Block CUT_SANDSTONE_STAIRS = registerStairsBlock("cut_sandstone_stairs", CUT_SANDSTONE);
 	public static final Block CUT_SANDSTONE_WALL = register("cut_sandstone_wall", WallBlock::new, AbstractBlock.Settings.copy(CUT_SANDSTONE));
 	public static final Block POLISHED_SANDSTONE = register("polished_sandstone", AbstractBlock.Settings.copy(SANDSTONE));
 	public static final Block POLISHED_SANDSTONE_STAIRS = registerStairsBlock("polished_sandstone_stairs", POLISHED_SANDSTONE);
-	public static final Block POLISHED_SANDSTONE_SLAB  = register("polished_sandstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(POLISHED_SANDSTONE));
+	public static final Block POLISHED_SANDSTONE_SLAB = register("polished_sandstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(POLISHED_SANDSTONE));
 	public static final Block POLISHED_SANDSTONE_WALL = register("polished_sandstone_wall", WallBlock::new, AbstractBlock.Settings.copy(POLISHED_SANDSTONE));
 	public static final Block SMOOTH_SANDSTONE_WALL = register("smooth_sandstone_wall", WallBlock::new, AbstractBlock.Settings.copy(SMOOTH_SANDSTONE));
 	public static final Block WAVY_SANDSTONE = register("wavy_sandstone", AbstractBlock.Settings.copy(SANDSTONE));
 	public static final Block WAVY_SANDSTONE_STAIRS = registerStairsBlock("wavy_sandstone_stairs", WAVY_SANDSTONE);
-	public static final Block WAVY_SANDSTONE_SLAB  = register("wavy_sandstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(WAVY_SANDSTONE));
+	public static final Block WAVY_SANDSTONE_SLAB = register("wavy_sandstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(WAVY_SANDSTONE));
 	public static final Block WAVY_SANDSTONE_WALL = register("wavy_sandstone_wall", WallBlock::new, AbstractBlock.Settings.copy(WAVY_SANDSTONE));
-//RED SAND
+	//RED SAND
 	public static final Block CUT_RED_SANDSTONE_STAIRS = registerStairsBlock("cut_red_sandstone_stairs", RED_SANDSTONE);
 	public static final Block CUT_RED_SANDSTONE_WALL = register("cut_red_sandstone_wall", WallBlock::new, AbstractBlock.Settings.copy(RED_SANDSTONE));
 	public static final Block POLISHED_RED_SANDSTONE = register("polished_red_sandstone", AbstractBlock.Settings.copy(RED_SANDSTONE));
 	public static final Block POLISHED_RED_SANDSTONE_STAIRS = registerStairsBlock("polished_red_sandstone_stairs", POLISHED_RED_SANDSTONE);
-	public static final Block POLISHED_RED_SANDSTONE_SLAB  = register("polished_red_sandstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(POLISHED_RED_SANDSTONE));
+	public static final Block POLISHED_RED_SANDSTONE_SLAB = register("polished_red_sandstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(POLISHED_RED_SANDSTONE));
 	public static final Block POLISHED_RED_SANDSTONE_WALL = register("polished_red_sandstone_wall", WallBlock::new, AbstractBlock.Settings.copy(POLISHED_RED_SANDSTONE));
 	public static final Block SMOOTH_RED_SANDSTONE_WALL = register("smooth_red_sandstone_wall", WallBlock::new, AbstractBlock.Settings.copy(RED_SANDSTONE));
 	public static final Block WAVY_RED_SANDSTONE = register("wavy_red_sandstone", AbstractBlock.Settings.copy(RED_SANDSTONE));
 	public static final Block WAVY_RED_SANDSTONE_STAIRS = registerStairsBlock("wavy_red_sandstone_stairs", WAVY_RED_SANDSTONE);
-	public static final Block WAVY_RED_SANDSTONE_SLAB  = register("wavy_red_sandstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(WAVY_RED_SANDSTONE));
+	public static final Block WAVY_RED_SANDSTONE_SLAB = register("wavy_red_sandstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(WAVY_RED_SANDSTONE));
 	public static final Block WAVY_RED_SANDSTONE_WALL = register("wavy_red_sandstone_wall", WallBlock::new, AbstractBlock.Settings.copy(WAVY_RED_SANDSTONE));
-//SOUL SAND
+	//SOUL SAND
 	public static final Block SOUL_SANDSTONE = register("soul_sandstone", AbstractBlock.Settings.copy(SANDSTONE).sounds(JinericBlockSoundGroup.SOUL_SANDSTONE));
 	public static final Block SOUL_SANDSTONE_STAIRS = registerStairsBlock("soul_sandstone_stairs", SOUL_SANDSTONE);
-	public static final Block SOUL_SANDSTONE_SLAB  = register("soul_sandstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(SOUL_SANDSTONE));
+	public static final Block SOUL_SANDSTONE_SLAB = register("soul_sandstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(SOUL_SANDSTONE));
 	public static final Block SOUL_SANDSTONE_WALL = register("soul_sandstone_wall", WallBlock::new, AbstractBlock.Settings.copy(SOUL_SANDSTONE));
-	public static final Block CUT_SOUL_SANDSTONE = register("cut_soul_sandstone",  JinericBlockSettings.soulSandstoneSettings());
+	public static final Block CUT_SOUL_SANDSTONE = register("cut_soul_sandstone", JinericBlockSettings.soulSandstoneSettings());
 	public static final Block CUT_SOUL_SANDSTONE_STAIRS = registerStairsBlock("cut_soul_sandstone_stairs", CUT_SOUL_SANDSTONE);
-	public static final Block CUT_SOUL_SANDSTONE_SLAB  = register("cut_soul_sandstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(CUT_SOUL_SANDSTONE));
+	public static final Block CUT_SOUL_SANDSTONE_SLAB = register("cut_soul_sandstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(CUT_SOUL_SANDSTONE));
 	public static final Block CUT_SOUL_SANDSTONE_WALL = register("cut_soul_sandstone_wall", WallBlock::new, AbstractBlock.Settings.copy(CUT_SOUL_SANDSTONE));
-	public static final Block POLISHED_SOUL_SANDSTONE = register("polished_soul_sandstone",  JinericBlockSettings.soulSandstoneSettings());
+	public static final Block POLISHED_SOUL_SANDSTONE = register("polished_soul_sandstone", JinericBlockSettings.soulSandstoneSettings());
 	public static final Block POLISHED_SOUL_SANDSTONE_STAIRS = registerStairsBlock("polished_soul_sandstone_stairs", POLISHED_SOUL_SANDSTONE);
-	public static final Block POLISHED_SOUL_SANDSTONE_SLAB  = register("polished_soul_sandstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(POLISHED_SOUL_SANDSTONE));
+	public static final Block POLISHED_SOUL_SANDSTONE_SLAB = register("polished_soul_sandstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(POLISHED_SOUL_SANDSTONE));
 	public static final Block POLISHED_SOUL_SANDSTONE_WALL = register("polished_soul_sandstone_wall", WallBlock::new, AbstractBlock.Settings.copy(POLISHED_SOUL_SANDSTONE));
-	public static final Block CHISELED_SOUL_SANDSTONE = register("chiseled_soul_sandstone",  JinericBlockSettings.soulSandstoneSettings());
-	public static final Block SMOOTH_SOUL_SANDSTONE = register("smooth_soul_sandstone",  JinericBlockSettings.soulSandstoneSettings());
+	public static final Block CHISELED_SOUL_SANDSTONE = register("chiseled_soul_sandstone", JinericBlockSettings.soulSandstoneSettings());
+	public static final Block SMOOTH_SOUL_SANDSTONE = register("smooth_soul_sandstone", JinericBlockSettings.soulSandstoneSettings());
 	public static final Block SMOOTH_SOUL_SANDSTONE_STAIRS = registerStairsBlock("smooth_soul_sandstone_stairs", SMOOTH_SOUL_SANDSTONE);
-	public static final Block SMOOTH_SOUL_SANDSTONE_SLAB  = register("smooth_soul_sandstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(SMOOTH_SOUL_SANDSTONE));
+	public static final Block SMOOTH_SOUL_SANDSTONE_SLAB = register("smooth_soul_sandstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(SMOOTH_SOUL_SANDSTONE));
 	public static final Block SMOOTH_SOUL_SANDSTONE_WALL = register("smooth_soul_sandstone_wall", WallBlock::new, AbstractBlock.Settings.copy(SMOOTH_SOUL_SANDSTONE));
-	public static final Block WAVY_SOUL_SANDSTONE = register("wavy_soul_sandstone",  JinericBlockSettings.soulSandstoneSettings().sounds(BlockSoundGroup.SOUL_SOIL));
+	public static final Block WAVY_SOUL_SANDSTONE = register("wavy_soul_sandstone", JinericBlockSettings.soulSandstoneSettings().sounds(BlockSoundGroup.SOUL_SOIL));
 	public static final Block WAVY_SOUL_SANDSTONE_STAIRS = registerStairsBlock("wavy_soul_sandstone_stairs", WAVY_SOUL_SANDSTONE);
-	public static final Block WAVY_SOUL_SANDSTONE_SLAB  = register("wavy_soul_sandstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(WAVY_SOUL_SANDSTONE));
+	public static final Block WAVY_SOUL_SANDSTONE_SLAB = register("wavy_soul_sandstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(WAVY_SOUL_SANDSTONE));
 	public static final Block WAVY_SOUL_SANDSTONE_WALL = register("wavy_soul_sandstone_wall", WallBlock::new, AbstractBlock.Settings.copy(WAVY_SOUL_SANDSTONE));
-
+	
 	// --- STONE TYPE BLOCKS ---
 //STONE
 	public static final Block STONE_WALL = register("stone_wall", WallBlock::new, AbstractBlock.Settings.copy(STONE));
@@ -78,7 +78,7 @@ public class JinericBlocks {
 	public static final Block POLISHED_STONE_SLAB = register("polished_stone_slab", SlabBlock::new, AbstractBlock.Settings.copy(POLISHED_STONE));
 	public static final Block POLISHED_STONE_WALL = register("polished_stone_wall", WallBlock::new, AbstractBlock.Settings.copy(POLISHED_STONE));
 	public static final Block CRACKED_STONE_BRICK_STAIRS = registerStairsBlock("cracked_stone_brick_stairs", STONE);
-	public static final Block CRACKED_STONE_BRICK_SLAB  = register("cracked_stone_brick_slab", SlabBlock::new, AbstractBlock.Settings.copy(STONE));
+	public static final Block CRACKED_STONE_BRICK_SLAB = register("cracked_stone_brick_slab", SlabBlock::new, AbstractBlock.Settings.copy(STONE));
 	public static final Block CRACKED_STONE_BRICK_WALL = register("cracked_stone_brick_wall", WallBlock::new, AbstractBlock.Settings.copy(STONE));
 	public static final Block STONE_BRICK_PILLAR = register("stone_brick_pillar", PillarBlock::new, AbstractBlock.Settings.copy(STONE));
 	public static final Block STONE_TILES = register("stone_tiles", AbstractBlock.Settings.copy(STONE_BRICKS).sounds(BlockSoundGroup.STONE));
@@ -89,8 +89,8 @@ public class JinericBlocks {
 	public static final Block CRACKED_STONE_TILE_STAIRS = registerStairsBlock("cracked_stone_tile_stairs", CRACKED_STONE_TILES);
 	public static final Block CRACKED_STONE_TILE_SLAB = register("cracked_stone_tile_slab", SlabBlock::new, AbstractBlock.Settings.copy(CRACKED_STONE_TILES));
 	public static final Block CRACKED_STONE_TILE_WALL = register("cracked_stone_tile_wall", WallBlock::new, AbstractBlock.Settings.copy(CRACKED_STONE_TILES));
-
-//DEEPSLATE
+	
+	//DEEPSLATE
 	public static final Block CRACKED_DEEPSLATE_BRICK_STAIRS = registerStairsBlock("cracked_deepslate_brick_stairs", CRACKED_DEEPSLATE_BRICKS);
 	public static final Block CRACKED_DEEPSLATE_BRICK_SLAB = register("cracked_deepslate_brick_slab", SlabBlock::new, AbstractBlock.Settings.copy(CRACKED_DEEPSLATE_BRICKS));
 	public static final Block CRACKED_DEEPSLATE_BRICK_WALL = register("cracked_deepslate_brick_wall", WallBlock::new, AbstractBlock.Settings.copy(CRACKED_DEEPSLATE_BRICKS));
@@ -101,13 +101,13 @@ public class JinericBlocks {
 	public static final Block SMOOTH_DEEPSLATE_STAIRS = registerStairsBlock("smooth_deepslate_stairs", SMOOTH_DEEPSLATE);
 	public static final Block SMOOTH_DEEPSLATE_SLAB = register("smooth_deepslate_slab", SlabBlock::new, AbstractBlock.Settings.copy(SMOOTH_DEEPSLATE));
 	public static final Block SMOOTH_DEEPSLATE_WALL = register("smooth_deepslate_wall", WallBlock::new, AbstractBlock.Settings.copy(SMOOTH_DEEPSLATE));
-
-//DIORITE, GRANITE, ANDESITE
+	
+	//DIORITE, GRANITE, ANDESITE
 	public static final Block POLISHED_GRANITE_WALL = register("polished_granite_wall", WallBlock::new, AbstractBlock.Settings.copy(POLISHED_GRANITE));
 	public static final Block POLISHED_DIORITE_WALL = register("polished_diorite_wall", WallBlock::new, AbstractBlock.Settings.copy(POLISHED_DIORITE));
 	public static final Block POLISHED_ANDESITE_WALL = register("polished_andesite_wall", WallBlock::new, AbstractBlock.Settings.copy(POLISHED_ANDESITE));
-
-//TUFF
+	
+	//TUFF
 	public static final Block SMOOTH_TUFF = register("smooth_tuff", AbstractBlock.Settings.copy(TUFF));
 	public static final Block SMOOTH_TUFF_SLAB = register("smooth_tuff_slab", SlabBlock::new, AbstractBlock.Settings.copy(SMOOTH_TUFF));
 	public static final Block SMOOTH_TUFF_STAIRS = registerStairsBlock("smooth_tuff_stairs", SMOOTH_TUFF);
@@ -117,21 +117,21 @@ public class JinericBlocks {
 	public static final Block CRACKED_TUFF_BRICK_SLAB = register("cracked_tuff_brick_slab", SlabBlock::new, AbstractBlock.Settings.copy(CRACKED_TUFF_BRICKS));
 	public static final Block CRACKED_TUFF_BRICK_STAIRS = registerStairsBlock("cracked_tuff_brick_stairs", CRACKED_TUFF_BRICKS);
 	public static final Block CRACKED_TUFF_BRICK_WALL = register("cracked_tuff_brick_wall", WallBlock::new, AbstractBlock.Settings.copy(CRACKED_TUFF_BRICKS));
-	public static final Block TUFF_TILES = register("tuff_tiles",  Block.Settings.copy(STONE_TILES).sounds(BlockSoundGroup.TUFF));
+	public static final Block TUFF_TILES = register("tuff_tiles", Block.Settings.copy(STONE_TILES).sounds(BlockSoundGroup.TUFF));
 	public static final Block TUFF_TILE_STAIRS = registerStairsBlock("tuff_tile_stairs", TUFF_TILES);
 	public static final Block TUFF_TILE_SLAB = register("tuff_tile_slab", SlabBlock::new, Block.Settings.copy(TUFF_TILES));
 	public static final Block TUFF_TILE_WALL = register("tuff_tile_wall", WallBlock::new, Block.Settings.copy(TUFF_TILES));
-	public static final Block CRACKED_TUFF_TILES = register("cracked_tuff_tiles",  Block.Settings.copy(TUFF_TILES));
+	public static final Block CRACKED_TUFF_TILES = register("cracked_tuff_tiles", Block.Settings.copy(TUFF_TILES));
 	public static final Block CRACKED_TUFF_TILE_STAIRS = registerStairsBlock("cracked_tuff_tile_stairs", CRACKED_TUFF_TILES);
 	public static final Block CRACKED_TUFF_TILE_SLAB = register("cracked_tuff_tile_slab", SlabBlock::new, Block.Settings.copy(CRACKED_TUFF_TILES));
 	public static final Block CRACKED_TUFF_TILE_WALL = register("cracked_tuff_tile_wall", WallBlock::new, Block.Settings.copy(CRACKED_TUFF_TILES));
-
+	
 	//CALCITE
 	public static final Block CALCITE_STAIRS = registerStairsBlock("calcite_stairs", CALCITE);
 	public static final Block CALCITE_SLAB = register("calcite_slab", SlabBlock::new, AbstractBlock.Settings.copy(CALCITE));
 	public static final Block CALCITE_WALL = register("calcite_wall", WallBlock::new, AbstractBlock.Settings.copy(CALCITE));
-
-//DRIPSTONE
+	
+	//DRIPSTONE
 	public static final Block DRIPSTONE_SLAB = register("dripstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(DRIPSTONE_BLOCK));
 	public static final Block DRIPSTONE_STAIRS = registerStairsBlock("dripstone_stairs", DRIPSTONE_BLOCK);
 	public static final Block DRIPSTONE_WALL = register("dripstone_wall", WallBlock::new, AbstractBlock.Settings.copy(DRIPSTONE_BLOCK));
@@ -144,7 +144,7 @@ public class JinericBlocks {
 	public static final Block CRACKED_DRIPSTONE_BRICK_STAIRS = registerStairsBlock("cracked_dripstone_brick_stairs", DRIPSTONE_BRICKS);
 	public static final Block CRACKED_DRIPSTONE_BRICK_WALL = register("cracked_dripstone_brick_wall", WallBlock::new, AbstractBlock.Settings.copy(DRIPSTONE_BRICKS));
 	public static final Block POLISHED_DRIPSTONE = register("polished_dripstone", AbstractBlock.Settings.copy(DRIPSTONE_BLOCK));
-	public static final Block POLISHED_DRIPSTONE_SLAB  = register("polished_dripstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(POLISHED_DRIPSTONE));
+	public static final Block POLISHED_DRIPSTONE_SLAB = register("polished_dripstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(POLISHED_DRIPSTONE));
 	public static final Block POLISHED_DRIPSTONE_STAIRS = registerStairsBlock("polished_dripstone_stairs", STONE);
 	public static final Block POLISHED_DRIPSTONE_WALL = register("polished_dripstone_wall", WallBlock::new, AbstractBlock.Settings.copy(POLISHED_DRIPSTONE));
 	public static final Block DRIPSTONE_TILES = register("dripstone_tiles", AbstractBlock.Settings.copy(DRIPSTONE_BLOCK));
@@ -156,18 +156,18 @@ public class JinericBlocks {
 	public static final Block CRACKED_DRIPSTONE_TILE_STAIRS = registerStairsBlock("cracked_dripstone_tile_stairs", CRACKED_DRIPSTONE_TILES);
 	public static final Block CRACKED_DRIPSTONE_TILE_WALL = register("cracked_dripstone_tile_wall", WallBlock::new, AbstractBlock.Settings.copy(CRACKED_DRIPSTONE_TILES));
 	public static final Block SMOOTH_DRIPSTONE = register("smooth_dripstone", AbstractBlock.Settings.copy(DRIPSTONE_BLOCK));
-	public static final Block SMOOTH_DRIPSTONE_SLAB  = register("smooth_dripstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(SMOOTH_DRIPSTONE));
+	public static final Block SMOOTH_DRIPSTONE_SLAB = register("smooth_dripstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(SMOOTH_DRIPSTONE));
 	public static final Block SMOOTH_DRIPSTONE_STAIRS = registerStairsBlock("smooth_dripstone_stairs", SMOOTH_DRIPSTONE);
 	public static final Block SMOOTH_DRIPSTONE_WALL = register("smooth_dripstone_wall", WallBlock::new, AbstractBlock.Settings.copy(SMOOTH_DRIPSTONE));
 	public static final Block CHISELED_DRIPSTONE_BRICKS = register("chiseled_dripstone_bricks", AbstractBlock.Settings.copy(DRIPSTONE_BRICKS));
 	public static final Block DRIPSTONE_BRICK_PILLAR = register("dripstone_brick_pillar", PillarBlock::new, AbstractBlock.Settings.copy(DRIPSTONE_BLOCK));
-
-//OBSIDIAN
+	
+	//OBSIDIAN
 	public static final Block OBSIDIAN_STAIRS = registerStairsBlock("obsidian_stairs", OBSIDIAN);
-	public static final Block OBSIDIAN_SLAB  = register("obsidian_slab", SlabBlock::new, AbstractBlock.Settings.copy(OBSIDIAN));
+	public static final Block OBSIDIAN_SLAB = register("obsidian_slab", SlabBlock::new, AbstractBlock.Settings.copy(OBSIDIAN));
 	public static final Block OBSIDIAN_WALL = register("obsidian_wall", WallBlock::new, AbstractBlock.Settings.copy(OBSIDIAN));
-
-//NETHER
+	
+	//NETHER
 	public static final Block QUARTZ_WALL = register("quartz_wall", WallBlock::new, AbstractBlock.Settings.copy(QUARTZ_BLOCK));
 	public static final Block SMOOTH_QUARTZ_WALL = register("smooth_quartz_wall", WallBlock::new, AbstractBlock.Settings.copy(SMOOTH_QUARTZ));
 	public static final Block QUARTZ_BRICK_SLAB = register("quartz_brick_slab", SlabBlock::new, AbstractBlock.Settings.copy(QUARTZ_BRICKS));
@@ -183,14 +183,14 @@ public class JinericBlocks {
 	public static final Block CRACKED_NETHER_BRICK_SLAB = register("cracked_nether_brick_slab", SlabBlock::new, Block.Settings.copy(CRACKED_NETHER_BRICKS));
 	public static final Block CRACKED_NETHER_BRICK_STAIRS = registerStairsBlock("cracked_nether_brick_stairs", CRACKED_NETHER_BRICKS);
 	public static final Block CRACKED_NETHER_BRICK_WALL = register("cracked_nether_brick_wall", WallBlock::new, Block.Settings.copy(CRACKED_NETHER_BRICKS));
-
-//END
+	
+	//END
 	public static final Block PURPUR_WALL = register("purpur_wall", WallBlock::new, AbstractBlock.Settings.copy(PURPUR_BLOCK));
-
+	
 	// --- MISCELLANEOUS ---
 //PACKED ITEM BLOCKS
 	public static final Block SUGAR_BLOCK = register(
-			"sugar_block", 
+			"sugar_block",
 			settings -> new ColoredFallingBlock(new ColorCode(238238238), settings),
 			AbstractBlock.Settings.create().mapColor(MapColor.WHITE).instrument(NoteBlockInstrument.SNARE).strength(0.5F).sounds(BlockSoundGroup.SAND)
 	);
@@ -204,20 +204,20 @@ public class JinericBlocks {
 	public static final Block EGG_BLOCK = register("egg_block", AbstractBlock.Settings.copy(CALCITE).sounds(BlockSoundGroup.CALCITE).strength(0.50F));
 	public static final Block STICK_BLOCK = register("stick_block", PillarBlock::new, AbstractBlock.Settings.copy(OAK_PLANKS));
 	public static final Block PAPER_BLOCK = register("paper_block", AbstractBlock.Settings.copy(AZALEA_LEAVES).sounds(BlockSoundGroup.AZALEA_LEAVES));
-
-//PACKED ICE
+	
+	//PACKED ICE
 	public static final Block PACKED_ICE_STAIRS = registerStairsBlock("packed_ice_stairs", PACKED_ICE);
-	public static final Block PACKED_ICE_SLAB  = register("packed_ice_slab", SlabBlock::new, AbstractBlock.Settings.copy(PACKED_ICE));
+	public static final Block PACKED_ICE_SLAB = register("packed_ice_slab", SlabBlock::new, AbstractBlock.Settings.copy(PACKED_ICE));
 	public static final Block PACKED_ICE_WALL = register("packed_ice_wall", WallBlock::new, AbstractBlock.Settings.copy(PACKED_ICE));
-
-//SNOW & POWDERED SNOW
+	
+	//SNOW & POWDERED SNOW
 	public static final Block SNOW_WALL = register("snow_wall", WallBlock::new, AbstractBlock.Settings.copy(SNOW_BLOCK).strength(1.5F, 1.0F));
-	public static final Block SNOW_BRICKS = register("snow_bricks",  JinericBlockSettings.snowBrickSettings());
+	public static final Block SNOW_BRICKS = register("snow_bricks", JinericBlockSettings.snowBrickSettings());
 	public static final Block SNOW_BRICK_STAIRS = registerStairsBlock("snow_brick_stairs", SNOW_BRICKS);
 	public static final Block SNOW_BRICK_SLAB = register("snow_brick_slab", SlabBlock::new, AbstractBlock.Settings.copy(SNOW_BRICKS));
 	public static final Block SNOW_BRICK_WALL = register("snow_brick_wall", WallBlock::new, AbstractBlock.Settings.copy(SNOW_BRICKS));
-
-//DECORATION BLOCKS
+	
+	//DECORATION BLOCKS
 	public static final Block SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", CarvedPumpkinBlock::new, AbstractBlock.Settings.copy(JACK_O_LANTERN));
 	public static final Block FULL_GRASS_BLOCK = register("full_grass_block", FullGrassBlock::new, AbstractBlock.Settings.copy(GRASS_BLOCK));
 	public static final Block PRISMARINE_BRICK_WALL = register("prismarine_brick_wall", WallBlock::new, AbstractBlock.Settings.copy(PRISMARINE_BRICKS));
@@ -262,25 +262,25 @@ public class JinericBlocks {
 			settings -> new OxidizableCopperWallBlock(Oxidizable.OxidationLevel.OXIDIZED, settings),
 			AbstractBlock.Settings.copy(OXIDIZED_CUT_COPPER)
 	);
-
+	
 	public static final Block REFINERY = register(
 			"refinery",
-            RefineryBlock::new,
+			RefineryBlock::new,
 			AbstractBlock.Settings.copy(FURNACE).luminance(createLightLevelFromLitBlockState(13)).sounds(BlockSoundGroup.DEEPSLATE)
 	);
-
-//REDSTONE
+	
+	//REDSTONE
 	public static final Block REDSTONE_LANTERN = register(
-		"redstone_lantern",
-		RedstoneLanternBlock::new,
-		AbstractBlock.Settings.copy(LANTERN).luminance(state -> 7)
+			"redstone_lantern",
+			RedstoneLanternBlock::new,
+			AbstractBlock.Settings.copy(LANTERN).luminance(state -> 7)
 	);
 	public static final Block REDSTONE_CAMPFIRE = register(
 			"redstone_campfire",
 			settings -> new RedstoneCampfireBlock(false, 1, settings),
 			AbstractBlock.Settings.copy(CAMPFIRE).luminance(createLightLevelFromLitBlockState(7))
 	);
-//WOOD
+	//WOOD
 	public static final Block ACACIA_BOOKSHELF = register("acacia_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
 	public static final Block BAMBOO_BOOKSHELF = register("bamboo_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
 	public static final Block BIRCH_BOOKSHELF = register("birch_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
@@ -321,49 +321,51 @@ public class JinericBlocks {
 	public static final Block TRAPPED_BAMBOO_CHEST = registerTrappedChest("trapped_bamboo_chest", Blocks.TRAPPED_CHEST, WoodType.BAMBOO);
 	public static final Block TRAPPED_CRIMSON_CHEST = registerTrappedChest("trapped_crimson_chest", Blocks.TRAPPED_CHEST, WoodType.CRIMSON);
 	public static final Block TRAPPED_WARPED_CHEST = registerTrappedChest("trapped_warped_chest", Blocks.TRAPPED_CHEST, WoodType.WARPED);
-
+	
 	//ICE SLIPPERINESS
 	public static boolean isSlipperyBlock(BlockState state) {
 		return state.isIn(JinericBlockTags.SLIPPERY);
 	}
-
+	
 	private static ToIntFunction<BlockState> createLightLevelFromLitBlockState(int litLevel) {
 		return state -> state.get(Properties.LIT) ? litLevel : 0;
 	}
-
+	
 	private static Block registerStairsBlock(String id, Block base) {
 		return register(id, settings -> new StairsBlock(base.getDefaultState(), settings), AbstractBlock.Settings.copy(base));
 	}
-
+	
 	private static Block registerChest(String id, Block base, WoodType woodType) {
 		boolean notNether = (woodType != WoodType.WARPED || woodType != WoodType.CRIMSON);
 		return register(id, settings -> new JinericChestBlock(settings, woodType), notNether ? AbstractBlock.Settings.copy(base) : AbstractBlock.Settings.copy(base).sounds(BlockSoundGroup.NETHER_WOOD));
 	}
-
+	
 	private static Block registerTrappedChest(String id, Block base, WoodType woodType) {
 		boolean notNether = (woodType != WoodType.WARPED || woodType != WoodType.CRIMSON);
 		return register(id, settings -> new JinericTrappedChestBlock(settings, woodType), notNether ? AbstractBlock.Settings.copy(base) : AbstractBlock.Settings.copy(base).sounds(BlockSoundGroup.NETHER_WOOD));
 	}
+	
 	public static Block register(RegistryKey<Block> key, Function<AbstractBlock.Settings, Block> factory, AbstractBlock.Settings settings) {
 		Block block = factory.apply(settings.registryKey(key));
 		return Registry.register(Registries.BLOCK, key, block);
 	}
-
+	
 	public static Block register(RegistryKey<Block> key, AbstractBlock.Settings settings) {
 		return register(key, Block::new, settings);
 	}
-
+	
 	private static RegistryKey<Block> keyOf(String id) {
 		return RegistryKey.of(RegistryKeys.BLOCK, JinericMain.ofJineric(id));
 	}
-
+	
 	private static Block register(String id, Function<AbstractBlock.Settings, Block> factory, AbstractBlock.Settings settings) {
 		return register(keyOf(id), factory, settings);
 	}
-
+	
 	private static Block register(String id, AbstractBlock.Settings settings) {
 		return register(id, Block::new, settings);
 	}
-
-	public static void initialize() {}
+	
+	public static void initialize() {
+	}
 }

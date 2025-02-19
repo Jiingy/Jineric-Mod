@@ -5,7 +5,7 @@ import net.fabricmc.api.Environment;
 
 @Environment(EnvType.CLIENT)
 public class JinericEntityModels {
-
-   public static void registerEntityModels() {
-   }
+	
+	public static void registerEntityModels() {
+	}
 }

@@ -6,15 +6,15 @@ import net.minecraft.client.data.BlockStateModelGenerator;
 import net.minecraft.client.data.ItemModelGenerator;
 
 public class JinericModPackModelGenerator extends FabricModelProvider {
-   public JinericModPackModelGenerator(FabricDataOutput output) {
-      super(output);
-   }
-
-   @Override
-   public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-   }
-
-   @Override
-   public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-   }
+	public JinericModPackModelGenerator(FabricDataOutput output) {
+		super(output);
+	}
+	
+	@Override
+	public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+	}
+	
+	@Override
+	public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+	}
 }

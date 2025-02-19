@@ -13,28 +13,30 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PointedDripstoneBlock.class)
 public abstract class PointedDripstoneCanGrowMixin extends Block implements LandingBlock, Waterloggable {
-   @Shadow @Final public static BooleanProperty WATERLOGGED;
-
-   public PointedDripstoneCanGrowMixin(Settings settings) {
-      super(settings);
-   }
-
-   @Inject(
-           method = "canGrow(Lnet/minecraft/block/BlockState;Lnet/minecraft/block/BlockState;)Z",
-           at = @At("HEAD"),
-           cancellable = true
-   )
-   private static void jineric$canGrow(BlockState dripstoneBlockState, BlockState waterState, CallbackInfoReturnable<Boolean> cir) {
-      //Checks if block is == to DRIPSTONE_SLAB which is water logged and type.BOTTOM
-      if (dripstoneBlockState.isOf(JinericBlocks.DRIPSTONE_SLAB)
-              && (dripstoneBlockState.get(WATERLOGGED)
-              && (dripstoneBlockState.get(SlabBlock.TYPE) == SlabType.BOTTOM))) {
-         cir.setReturnValue(true);
-      }
-      //Checks if block is == to DRIPSTONE_STAIRS
-      if (dripstoneBlockState.isOf((JinericBlocks.DRIPSTONE_STAIRS))) {
-         cir.setReturnValue(true);
-
-      }
-   }
+	@Shadow
+	@Final
+	public static BooleanProperty WATERLOGGED;
+	
+	public PointedDripstoneCanGrowMixin(Settings settings) {
+		super(settings);
+	}
+	
+	@Inject(
+			method = "canGrow(Lnet/minecraft/block/BlockState;Lnet/minecraft/block/BlockState;)Z",
+			at = @At("HEAD"),
+			cancellable = true
+	)
+	private static void jineric$canGrow(BlockState dripstoneBlockState, BlockState waterState, CallbackInfoReturnable<Boolean> cir) {
+		//Checks if block is == to DRIPSTONE_SLAB which is water logged and type.BOTTOM
+		if (dripstoneBlockState.isOf(JinericBlocks.DRIPSTONE_SLAB)
+				&& (dripstoneBlockState.get(WATERLOGGED)
+				&& (dripstoneBlockState.get(SlabBlock.TYPE) == SlabType.BOTTOM))) {
+			cir.setReturnValue(true);
+		}
+		//Checks if block is == to DRIPSTONE_STAIRS
+		if (dripstoneBlockState.isOf((JinericBlocks.DRIPSTONE_STAIRS))) {
+			cir.setReturnValue(true);
+			
+		}
+	}
 }
