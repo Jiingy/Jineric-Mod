@@ -1,5 +1,5 @@
 {
   "textures": {
-    "particle": "minecraft:block/spruce_planks"
+    "particle": "jineric:block/spruce_chest_particle"
   }
 }

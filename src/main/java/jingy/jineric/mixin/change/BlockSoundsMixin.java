@@ -1,4 +1,4 @@
-package jingy.jineric.mixin;
+package jingy.jineric.mixin.change;
 
 import jingy.jineric.sound.JinericBlockSoundGroup;
 import jingy.jineric.tag.JinericBlockSoundTags;
@@ -13,10 +13,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(AbstractBlock.class)
-public abstract class BlockMixin {
-
-   //TODO: Likely a bad way to do this, better way would be to change the blocks themselves via mixins similar to the mixins for adding to block fanilies.
-   // Needs to be reviewed, block tags need to be added via data gen, generally just improve.
+public abstract class BlockSoundsMixin {
    @Inject(
            method = "getSoundGroup",
            at = @At(value = "HEAD"),
@@ -31,6 +28,9 @@ public abstract class BlockMixin {
       }
       else if (state.isIn(JinericBlockSoundTags.WOODEN_ACCESSORY_SOUNDS)) {
          cir.setReturnValue(JinericBlockSoundGroup.WOODEN_ACCESSORIES);
+      }
+      else if (state.isOf(Blocks.LADDER)) {
+         cir.setReturnValue(JinericBlockSoundGroup.WOODEN_LADDER);
       }
       else if (state.isIn(JinericBlockSoundTags.MUSHROOM_SOUNDS)) {
          cir.setReturnValue(BlockSoundGroup.NETHER_WART);

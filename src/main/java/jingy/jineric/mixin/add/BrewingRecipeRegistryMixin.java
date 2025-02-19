@@ -1,4 +1,4 @@
-package jingy.jineric.mixin;
+package jingy.jineric.mixin.add;
 
 import jingy.jineric.potion.JinericPotions;
 import net.minecraft.item.Items;

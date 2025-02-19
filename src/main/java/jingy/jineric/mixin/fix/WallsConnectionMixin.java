@@ -1,4 +1,4 @@
-package jingy.jineric.mixin;
+package jingy.jineric.mixin.fix;
 
 import jingy.jineric.tag.JinericBlockTags;
 import net.minecraft.block.Block;
@@ -12,8 +12,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(WallBlock.class)
-public abstract class WallBlockMixin extends Block implements Waterloggable {
-   public WallBlockMixin(Settings settings) {
+public abstract class WallsConnectionMixin extends Block implements Waterloggable {
+   public WallsConnectionMixin(Settings settings) {
       super(settings);
    }
 

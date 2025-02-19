@@ -23,7 +23,7 @@
       "base": "jineric:item/trapped_warped_chest",
       "model": {
         "type": "minecraft:chest",
-        "texture": "jineric:warped_chest"
+        "texture": "jineric:trapped_warped_chest"
       }
     },
     "pattern": "MM-dd",

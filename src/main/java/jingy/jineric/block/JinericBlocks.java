@@ -23,13 +23,11 @@ import java.util.function.ToIntFunction;
 
 import static net.minecraft.block.Blocks.*;
 
-//TODO: INITIALIZE BLOCKS BEFORE THEY ARE NEEDED BY SETTING THEM STATICALLY ON LOAD
 public class JinericBlocks {
 
 //SANDSTONE
 	public static final Block CUT_SANDSTONE_STAIRS = registerStairsBlock("cut_sandstone_stairs", CUT_SANDSTONE);
 	public static final Block CUT_SANDSTONE_WALL = register("cut_sandstone_wall", WallBlock::new, AbstractBlock.Settings.copy(CUT_SANDSTONE));
-	//TODO: RENAME TO 'POLISHED_CUT_SANDSTONE' OR OTHER VARIANT, AS SANDSTONE IS ALREADY USED IN A VANILLA CRAFTING RECIPE. CURRENTLY CRAFTED WITH 'CUT' SANDSTONE
 	public static final Block POLISHED_SANDSTONE = register("polished_sandstone", AbstractBlock.Settings.copy(SANDSTONE));
 	public static final Block POLISHED_SANDSTONE_STAIRS = registerStairsBlock("polished_sandstone_stairs", POLISHED_SANDSTONE);
 	public static final Block POLISHED_SANDSTONE_SLAB  = register("polished_sandstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(POLISHED_SANDSTONE));
@@ -123,7 +121,6 @@ public class JinericBlocks {
 	public static final Block CRACKED_TUFF_BRICK_SLAB = register("cracked_tuff_brick_slab", SlabBlock::new, AbstractBlock.Settings.copy(CRACKED_TUFF_BRICKS));
 	public static final Block CRACKED_TUFF_BRICK_STAIRS = registerStairsBlock("cracked_tuff_brick_stairs", CRACKED_TUFF_BRICKS);
 	public static final Block CRACKED_TUFF_BRICK_WALL = register("cracked_tuff_brick_wall", WallBlock::new, AbstractBlock.Settings.copy(CRACKED_TUFF_BRICKS));
-	//	TODO: RENAME TO TUFF BRICK PILLAR
 	public static final Block TUFF_TILES = register("tuff_tiles",  Block.Settings.copy(STONE_TILES).sounds(BlockSoundGroup.TUFF));
 	public static final Block TUFF_TILE_STAIRS = registerStairsBlock("tuff_tile_stairs", TUFF_TILES);
 	public static final Block TUFF_TILE_SLAB = register("tuff_tile_slab", SlabBlock::new, Block.Settings.copy(TUFF_TILES));
@@ -139,7 +136,6 @@ public class JinericBlocks {
 	public static final Block CALCITE_WALL = register("calcite_wall", WallBlock::new, AbstractBlock.Settings.copy(CALCITE));
 
 //DRIPSTONE
-	//TODO: RENAME TO 'DRIPSTONE_BLOCK[variant]'
 	public static final Block DRIPSTONE_SLAB = register("dripstone_slab", SlabBlock::new, AbstractBlock.Settings.copy(DRIPSTONE_BLOCK));
 	public static final Block DRIPSTONE_STAIRS = registerStairsBlock("dripstone_stairs", DRIPSTONE_BLOCK);
 	public static final Block DRIPSTONE_WALL = register("dripstone_wall", WallBlock::new, AbstractBlock.Settings.copy(DRIPSTONE_BLOCK));
@@ -213,7 +209,6 @@ public class JinericBlocks {
 	public static final Block STICK_BLOCK = register("stick_block", PillarBlock::new, AbstractBlock.Settings.copy(OAK_PLANKS));
 	public static final Block PAPER_BLOCK = register("paper_block", AbstractBlock.Settings.copy(AZALEA_LEAVES).sounds(BlockSoundGroup.AZALEA_LEAVES));
 
-	//TODO: FIX MIXIN THAT ADDS SLIDING TO NON-FULL BLOCKS 1.21.3
 //PACKED ICE
 	public static final Block PACKED_ICE_STAIRS = registerStairsBlock("packed_ice_stairs", PACKED_ICE);
 	public static final Block PACKED_ICE_SLAB  = register("packed_ice_slab", SlabBlock::new, AbstractBlock.Settings.copy(PACKED_ICE));
@@ -224,18 +219,18 @@ public class JinericBlocks {
 	public static final Block SNOW_BRICKS = register("snow_bricks",  JinericBlockSettings.snowBrickSettings());
 	public static final Block SNOW_BRICK_STAIRS = registerStairsBlock("snow_brick_stairs", SNOW_BRICKS);
 	public static final Block SNOW_BRICK_SLAB = register("snow_brick_slab", SlabBlock::new, AbstractBlock.Settings.copy(SNOW_BRICKS));
-    public static final Block SNOW_BRICK_WALL = register("snow_brick_wall", WallBlock::new, AbstractBlock.Settings.copy(SNOW_BRICKS));
+	public static final Block SNOW_BRICK_WALL = register("snow_brick_wall", WallBlock::new, AbstractBlock.Settings.copy(SNOW_BRICKS));
 
 //DECORATION BLOCKS
 	public static final Block FIREWEED = register("fireweed", TallFlowerBlock::new, AbstractBlock.Settings.copy(SUNFLOWER));
     public static final Block BLOSSOMED_DANDELION = register(
 			"blossomed_dandelion",
-			settings -> new BlossomedDandelion(StatusEffects.NAUSEA, 12, settings), 
+			settings -> new BlossomedDandelion(StatusEffects.NAUSEA, 12, settings),
 			AbstractBlock.Settings.copy(DANDELION)
 	);
 	public static final Block POTTED_BLOSSOMED_DANDELION = register(
 			"potted_oblossomed_dandelion",
-			settings -> new FlowerPotBlock(BLOSSOMED_DANDELION, settings), 
+			settings -> new FlowerPotBlock(BLOSSOMED_DANDELION, settings),
 			createFlowerPotSettings()
 	);
     public static final Block SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", CarvedPumpkinBlock::new, AbstractBlock.Settings.copy(JACK_O_LANTERN));
@@ -258,7 +253,7 @@ public class JinericBlocks {
 			settings -> new OxidizableCopperWallBlock(Oxidizable.OxidationLevel.WEATHERED, settings),
 			AbstractBlock.Settings.copy(WEATHERED_CUT_COPPER)
 	);
-    public static final Block OXIDIZED_CUT_COPPER_WALL = register(
+	public static final Block OXIDIZED_CUT_COPPER_WALL = register(
 			"oxidized_cut_copper_wall",
 			settings -> new OxidizableCopperWallBlock(Oxidizable.OxidationLevel.OXIDIZED, settings),
 			AbstractBlock.Settings.copy(OXIDIZED_CUT_COPPER)
@@ -279,7 +274,7 @@ public class JinericBlocks {
 			AbstractBlock.Settings.copy(WEATHERED_CUT_COPPER)
 	);
 	public static final Block WAXED_OXIDIZED_CUT_COPPER_WALL = register(
-            "waxed_oxidized_cut_copper_wall",
+			"waxed_oxidized_cut_copper_wall",
 			settings -> new OxidizableCopperWallBlock(Oxidizable.OxidationLevel.OXIDIZED, settings),
 			AbstractBlock.Settings.copy(OXIDIZED_CUT_COPPER)
 	);
@@ -292,16 +287,15 @@ public class JinericBlocks {
 
 //REDSTONE
 	public static final Block REDSTONE_LANTERN = register(
-            "redstone_lantern",
-            RedstoneLanternBlock::new,
-            AbstractBlock.Settings.copy(LANTERN).luminance(state -> 7)
+		"redstone_lantern",
+		RedstoneLanternBlock::new,
+		AbstractBlock.Settings.copy(LANTERN).luminance(state -> 7)
 	);
-    public static final Block REDSTONE_CAMPFIRE = register(
-            "redstone_campfire",
-            settings -> new RedstoneCampfireBlock(false, 1, settings),
-            AbstractBlock.Settings.copy(CAMPFIRE).luminance(createLightLevelFromLitBlockState(7))
+	public static final Block REDSTONE_CAMPFIRE = register(
+			"redstone_campfire",
+			settings -> new RedstoneCampfireBlock(false, 1, settings),
+			AbstractBlock.Settings.copy(CAMPFIRE).luminance(createLightLevelFromLitBlockState(7))
 	);
-//TODO: 1.21.3+ ADD PALE OAK WOODEN ADDITIONS
 //WOOD
     //PETRIFIED_OAK
     public static final Block PETRIFIED_OAK_LOG = register("petrified_oak_log", PillarBlock::new, AbstractBlock.Settings.copy(OAK_LOG));
@@ -384,16 +378,16 @@ public class JinericBlocks {
 	public static final Block MANGROVE_BOOKSHELF = register("mangrove_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
 	public static final Block SPRUCE_BOOKSHELF = register("spruce_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
 	public static final Block WARPED_BOOKSHELF = register("warped_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.NETHER_WOOD));
-	public static final Block ACACIA_LADDER = register("acacia_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD));
-	public static final Block BAMBOO_LADDER = register("bamboo_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD));
-	public static final Block BIRCH_LADDER = register("birch_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD));
-	public static final Block CHERRY_LADDER = register("cherry_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD));
-	public static final Block DARK_OAK_LADDER = register("dark_oak_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD));
-	public static final Block SPRUCE_LADDER = register("spruce_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD));
-	public static final Block JUNGLE_LADDER = register("jungle_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD));
-	public static final Block MANGROVE_LADDER = register("mangrove_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.CHERRY_WOOD));
-	public static final Block WARPED_LADDER = register("warped_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.NETHER_WOOD));
-	public static final Block CRIMSON_LADDER = register("crimson_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(BlockSoundGroup.NETHER_WOOD));
+	public static final Block ACACIA_LADDER = register("acacia_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(JinericBlockSoundGroup.WOODEN_LADDER));
+	public static final Block BAMBOO_LADDER = register("bamboo_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(JinericBlockSoundGroup.WOODEN_LADDER));
+	public static final Block BIRCH_LADDER = register("birch_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(JinericBlockSoundGroup.WOODEN_LADDER));
+	public static final Block CHERRY_LADDER = register("cherry_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(JinericBlockSoundGroup.WOODEN_LADDER));
+	public static final Block DARK_OAK_LADDER = register("dark_oak_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(JinericBlockSoundGroup.WOODEN_LADDER));
+	public static final Block SPRUCE_LADDER = register("spruce_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(JinericBlockSoundGroup.WOODEN_LADDER));
+	public static final Block JUNGLE_LADDER = register("jungle_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(JinericBlockSoundGroup.WOODEN_LADDER));
+	public static final Block MANGROVE_LADDER = register("mangrove_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(JinericBlockSoundGroup.WOODEN_LADDER));
+	public static final Block WARPED_LADDER = register("warped_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(JinericBlockSoundGroup.NETHER_WOODEN_LADDER));
+	public static final Block CRIMSON_LADDER = register("crimson_ladder", LadderBlock::new, AbstractBlock.Settings.copy(LADDER).sounds(JinericBlockSoundGroup.NETHER_WOODEN_LADDER));
 	public static final Block SPRUCE_CHEST = registerChest("spruce_chest", Blocks.CHEST, WoodType.SPRUCE);
 	public static final Block BIRCH_CHEST = registerChest("birch_chest", Blocks.CHEST, WoodType.BIRCH);
 	public static final Block JUNGLE_CHEST = registerChest("jungle_chest", Blocks.CHEST, WoodType.JUNGLE);

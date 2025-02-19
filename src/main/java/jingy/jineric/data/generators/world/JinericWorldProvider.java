@@ -12,9 +12,9 @@ import net.minecraft.world.gen.feature.PlacedFeature;
 
 import java.util.concurrent.CompletableFuture;
 
-public class JinericWorldGenerator extends FabricDynamicRegistryProvider {
-   public JinericWorldGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
-      super(output, registriesFuture);
+public class JinericWorldProvider extends FabricDynamicRegistryProvider {
+   public JinericWorldProvider(FabricDataOutput generator, CompletableFuture<RegistryWrapper.WrapperLookup> registries) {
+      super(generator, registries);
    }
 
    public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> registry) {

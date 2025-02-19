@@ -10,7 +10,6 @@ import java.util.Optional;
 
 @Environment(EnvType.CLIENT)
 public class JinericModels {
-   // TODO: Having 'side' and 'side_short' for the following two seems redundant. Only short side is used.
    public static final Model TEMPLATE_COLUMN_SHORT_WALL_POST = block("template_column_short_wall_post", "_post", TextureKey.END, TextureKey.SIDE);
    public static final Model TEMPLATE_COLUMN_SHORT_WALL_SIDE_LOW = block("template_column_short_wall_side_low", "_low_side", TextureKey.END, TextureKey.SIDE, JinericTextureKey.SIDE_SHORT);
    public static final Model TEMPLATE_COLUMN_SHORT_WALL_TALL_SIDE = block("template_column_short_wall_tall_side", "_tall_side", TextureKey.END, TextureKey.SIDE);

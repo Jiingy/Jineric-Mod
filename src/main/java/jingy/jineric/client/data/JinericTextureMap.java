@@ -43,7 +43,6 @@ public class JinericTextureMap {
               .put(TextureKey.BOTTOM, TextureMap.getId(baseBlock));
    }
 
-   //TODO: RENAME '_side_short' to '_short' ('side' is implied in a default name)
    public static TextureMap borderWall(BlockFamily blockFamily) {
       Block baseBlock = blockFamily.getBaseBlock();
       Block wallBlock = blockFamily.getVariant(BlockFamily.Variant.WALL);

@@ -11,6 +11,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Rarity;
 
 import java.util.function.BiFunction;
@@ -290,14 +291,13 @@ public class JinericItems {
 //REDSTONE
 	public static final Item REDSTONE_LANTERN = register(JinericBlocks.REDSTONE_LANTERN);
 //FOOD
-	//TODO: 1.21.3 MOVE TO A JinericFoodComponents CLASS LIKE VANILLA
 	public static final Item GOLDEN_POTATO = register("golden_potato", new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.6f).build()));
 	public static final Item GOLDEN_SWEET_BERRIES = register("golden_sweet_berries", new Item.Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.2f).build()));
 	public static final Item GOLDEN_BEETROOT = register("golden_beetroot", new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(1.2f).build()));
 //MISC JINERIC
 	public static final Item SOUL_JACK_O_LANTERN = register(JinericBlocks.SOUL_JACK_O_LANTERN);
 	public static final Item NETHERITE_HORSE_ARMOR = register(
-			"netherite_horse_armor", settings -> new AnimalArmorItem(ArmorMaterials.NETHERITE, AnimalArmorItem.Type.EQUESTRIAN, settings)
+			"netherite_horse_armor", settings -> new AnimalArmorItem(ArmorMaterials.NETHERITE, AnimalArmorItem.Type.EQUESTRIAN, SoundEvents.ENTITY_HORSE_ARMOR, false, settings)
 	);
 
 //WIP OR UNKNOWN ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

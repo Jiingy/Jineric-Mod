@@ -44,7 +44,6 @@ public class JinericSmithingTemplateItem extends SmithingTemplateItem {
       return new SmithingTemplateItem(
               IRON_UPGRADE_APPLIES_TO_TEXT,
               IRON_UPGRADE_INGREDIENTS_TEXT,
-              // TODO: CHANGED IN 1.21.3
 //              IRON_UPGRADE_TEXT,
               IRON_UPGRADE_BASE_SLOT_DESCRIPTION_TEXT,
               IRON_UPGRADE_ADDITIONS_SLOT_DESCRIPTION_TEXT,

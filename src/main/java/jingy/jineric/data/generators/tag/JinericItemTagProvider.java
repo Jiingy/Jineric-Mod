@@ -1,4 +1,4 @@
-package jingy.jineric.data.generators;
+package jingy.jineric.data.generators.tag;
 
 import jingy.jineric.item.JinericItems;
 import jingy.jineric.tag.JinericItemTags;
@@ -9,9 +9,8 @@ import net.minecraft.registry.tag.ItemTags;
 
 import java.util.concurrent.CompletableFuture;
 
-public class JinericItemTagGenerator extends FabricTagProvider.ItemTagProvider {
-    //  TODO: ADD ALL MODDED ITEMS TO VANILLA TAGS AND/OR JINERIC TAGS
-    public JinericItemTagGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> completableFuture) {
+public class JinericItemTagProvider extends FabricTagProvider.ItemTagProvider {
+    public JinericItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> completableFuture) {
         super(output, completableFuture);
     }
 

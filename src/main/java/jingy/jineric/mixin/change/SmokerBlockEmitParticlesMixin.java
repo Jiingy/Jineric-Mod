@@ -1,4 +1,4 @@
-package jingy.jineric.mixin;
+package jingy.jineric.mixin.change;
 
 import net.minecraft.block.AbstractFurnaceBlock;
 import net.minecraft.block.BlockState;
@@ -14,8 +14,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(SmokerBlock.class)
-public abstract class SmokerBlockMixin extends AbstractFurnaceBlock {
-    protected SmokerBlockMixin(Settings settings) {
+public abstract class SmokerBlockEmitParticlesMixin extends AbstractFurnaceBlock {
+    protected SmokerBlockEmitParticlesMixin(Settings settings) {
         super(settings);
     }
 

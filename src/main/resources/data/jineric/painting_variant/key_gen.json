@@ -1,0 +1,13 @@
+{
+  "asset_id": "jineric:key_gen",
+  "author": {
+    "color": "gray",
+    "translate": "painting.jineric.key_gen.author"
+  },
+  "height": 2,
+  "title": {
+    "color": "yellow",
+    "translate": "painting.jineric.key_gen.title"
+  },
+  "width": 4
+}

@@ -17,8 +17,6 @@ public abstract class LivingEntityFastFallingMixin extends Entity {
       super(type, world);
    }
 
-   //TODO: BROKEN IN 1.21.3, NEEDS TO TARGET 'this.setVelocity(vec3d.x, d, vec3d.z);'
-   // INSIDE OF travelMidAir()
 //   @ModifyConstant(
 //           method = "travel",
 //           constant = @Constant(
@@ -34,6 +32,6 @@ public abstract class LivingEntityFastFallingMixin extends Entity {
 //         return constant;
 //      }
 //   }
-   // TODO: CHANGE TO ModifyExpressionValue
+   // CHANGE TO ModifyExpressionValue?
    // DISCORD https://discord.com/channels/507304429255393322/807617700734042122/1069560661501296660
 }

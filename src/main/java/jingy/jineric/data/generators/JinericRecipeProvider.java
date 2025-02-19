@@ -37,8 +37,8 @@ import java.util.stream.Stream;
 import static jingy.jineric.data.family.JinericBlockFamilies.*;
 import static net.minecraft.data.family.BlockFamily.Variant.*;
 
-public class JinericRecipeGenerator extends FabricRecipeProvider {
-   public JinericRecipeGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+public class JinericRecipeProvider extends FabricRecipeProvider {
+   public JinericRecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
       super(output, registriesFuture);
    }
 
@@ -48,9 +48,6 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
 
          @Override
          public void generate() {
-            //TODO: GEN SMELTING RECIPES FOR MODDED BLOCKS
-            //TODO: GEN STONE CUTTING RECIPES
-            //TODO: GEN BASE BLOCK CRAFTING (ie; stone -> polished stone, etc)
             RegistryEntryLookup<Item> itemRegistryEntryLookup = registries.getOrThrow(RegistryKeys.ITEM);
 // ITEMS
             this.genVanillaWoodFamilyAdditions();
@@ -134,8 +131,8 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
             this.offerRefining(Blocks.PINK_TERRACOTTA, Blocks.PINK_GLAZED_TERRACOTTA, RecipeCategory.MISC, CookingRecipeCategory.MISC, "pink_glazed_terracotta");
 
 // STONECUTTING
-            //TODO: GENERATE PILLAR BLOCKS AUTOMATICALLY IN FAMILY SETS
-            //SOMEHOW SMOOTH BASALT AND SNOW BRICK STONE CUTTING RECIPES ARE GENERATING WITHOUT ME DOING ANYTHING
+            this.genStonecuttingFromFamilyBase(JinericBlocks.SNOW_BRICKS, SNOW_BRICKS);
+            this.genStonecuttingFromFamilyBase(Blocks.SMOOTH_BASALT, SMOOTH_BASALT);
             this.genStonecuttingFromFamilyBase(JinericBlocks.SMOOTH_TUFF, SMOOTH_TUFF);
             this.genStonecuttingFromFamilyBase(Blocks.STONE, POLISHED_STONE, STONE_TILES);
             this.genStonecuttingFromFamilyBase(Blocks.SMOOTH_STONE, SMOOTH_STONE);
@@ -237,9 +234,6 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
             DefaultedRegistry<Block> blockRegistry = Registries.BLOCK;
             Arrays.stream(inputFamilies).iterator().forEachRemaining(blockFamily -> {
                Stream<Block> variant = blockFamily.getVariants().values().stream();
-               //TODO: FIX
-               // In cases like cut sandstone, it is included in the 'SANDSTONE' block family as a cut variant.
-               // It is added twice as a recipe due to this. The check below has no case handling for examples like this
                if (input != blockFamily.getBaseBlock()) {
                   this.offerStonecuttingRecipe(RecipeCategory.BUILDING_BLOCKS, blockFamily.getBaseBlock(), input);
                }
@@ -278,7 +272,6 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
             });
          }
 
-         // TODO: Currently works for all jineric namespace blocks, but does not handle vanilla cases. Also poorly written.
          public void genVanillaWoodFamilyAdditions() {
             DefaultedRegistry<Block> blockRegistry = Registries.BLOCK;
             List<WoodType> woodTypes = WoodType.stream().toList();
@@ -313,7 +306,6 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
             }
          }
 
-         // TODO: 'group' IS CURRENTLY REDUNDANT, AS THE OUTPUT BLOCK IS ALWAYS USED
          public void offerRefiningBlockFamily(Block baseBlockIn, Block baseBlockOut, RecipeCategory category, CookingRecipeCategory cookingRecipeCategory, String group) {
             this.offerRefiningBlockFamily(baseBlockIn, baseBlockOut, category, cookingRecipeCategory, group, null);
          }
@@ -462,7 +454,6 @@ public class JinericRecipeGenerator extends FabricRecipeProvider {
                     .offerTo(recipeExporter);
          }
 
-         //TODO: FLIP INPUT AND OUTPUTS OF OFFER METHODS TO MATCH VANILLA
          public void offerPillar(ItemConvertible input, ItemConvertible output) {
             int count = input instanceof SlabBlock ? 1 : 2;
             this.createShaped(RecipeCategory.BUILDING_BLOCKS, output, count)

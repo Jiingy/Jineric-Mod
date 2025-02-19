@@ -5,8 +5,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.data.family.BlockFamilies;
 import net.minecraft.data.family.BlockFamily;
 
-//TODO: NO CRACKED TUFF TILES?
-//TODO: ADD DUCK MIXIN, WITH A .pillar() METHOD
 public class JinericBlockFamilies extends BlockFamilies {
    public static final BlockFamily PETRIFIED_OAK = register(JinericBlocks.PETRIFIED_OAK_PLANKS)
            .button(JinericBlocks.PETRIFIED_OAK_BUTTON)
@@ -140,8 +138,6 @@ public class JinericBlockFamilies extends BlockFamilies {
             .slab(JinericBlocks.DRIPSTONE_BRICK_SLAB)
             .wall(JinericBlocks.DRIPSTONE_BRICK_WALL)
             .chiseled(JinericBlocks.CHISELED_DRIPSTONE_BRICKS)
-            //TODO: DOUBLE CHECK REMOVING THIS DOES NOT AFFECT OTHER DATA
-//            .cracked(JinericBlocks.CRACKED_DRIPSTONE_BRICKS)
             .build();
 
     public static final BlockFamily CRACKED_DRIPSTONE_BRICKS = register(JinericBlocks.CRACKED_DRIPSTONE_BRICKS)
@@ -154,8 +150,6 @@ public class JinericBlockFamilies extends BlockFamilies {
             .stairs(JinericBlocks.DRIPSTONE_TILE_STAIRS)
             .slab(JinericBlocks.DRIPSTONE_TILE_SLAB)
             .wall(JinericBlocks.DRIPSTONE_TILE_WALL)
-            //TODO: DOUBLE CHECK REMOVING THIS DOES NOT AFFECT OTHER DATA
-//            .cracked(JinericBlocks.CRACKED_DRIPSTONE_TILES)
             .build();
 
     public static final BlockFamily CRACKED_DRIPSTONE_TILES = register(JinericBlocks.CRACKED_DRIPSTONE_TILES)

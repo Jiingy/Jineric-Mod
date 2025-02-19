@@ -9,7 +9,6 @@ import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.world.biome.FoliageColors;
 import net.minecraft.world.biome.GrassColors;
 
-//TODO: SEPARATE INTO BLOCK AND ITEM VARIANT CLASSES
 @Environment(EnvType.CLIENT)
 public class JinericColorProviders {
 
@@ -33,17 +32,8 @@ public class JinericColorProviders {
               world != null && pos != null
                       ? BiomeColors.getGrassColor(world, pos)
                       : GrassColors.getColor(0.5D, 1.0D), JinericBlocks.JUNGLE_LADDER);
-      ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) ->
-              world != null && pos != null ? BiomeColors.getFoliageColor(world, pos) : FoliageColors.getColor(0.5D, 1.0D), JinericBlocks.PETRIFIED_OAK_LEAVES
-      );
-      // ITEMS
-      //TODO 1.21.4: COLORS ARE NOW ADDED VIA DATA GEN?
-//      ColorProviderRegistry.ITEM.register((stack, tintIndex) ->
-//              GrassColors.getColor(1.0D, 1.0D), JinericItems.PETRIFIED_OAK_LEAVES
-//      );
-//      ColorProviderRegistry.ITEM.register(((stack, tintIndex) ->
-//              GrassColors.getColor(0.5D, 1.0D)), JinericItems.FULL_GRASS_BLOCK);
-//      ColorProviderRegistry.ITEM.register((((stack, tintIndex) ->
-//              tintIndex > 0 ? -1 : GrassColors.getColor(0.5D, 1.0D))), JinericItems.JUNGLE_LADDER);
+       ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) ->
+               world != null && pos != null ? BiomeColors.getFoliageColor(world, pos) : FoliageColors.getColor(0.5D, 1.0D), JinericBlocks.PETRIFIED_OAK_LEAVES
+       );
    }
 }

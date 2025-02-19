@@ -1,0 +1,13 @@
+{
+  "asset_id": "jineric:kromer",
+  "author": {
+    "color": "gray",
+    "translate": "painting.jineric.kromer.author"
+  },
+  "height": 2,
+  "title": {
+    "color": "yellow",
+    "translate": "painting.jineric.kromer.title"
+  },
+  "width": 4
+}

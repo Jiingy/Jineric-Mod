@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/template_chest",
   "textures": {
-    "particle": "minecraft:block/mangrove_planks"
+    "particle": "jineric:block/mangrove_chest_particle"
   }
 }

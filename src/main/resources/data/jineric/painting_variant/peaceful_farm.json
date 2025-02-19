@@ -1,0 +1,13 @@
+{
+  "asset_id": "jineric:peaceful_farm",
+  "author": {
+    "color": "gray",
+    "translate": "painting.jineric.peaceful_farm.author"
+  },
+  "height": 1,
+  "title": {
+    "color": "yellow",
+    "translate": "painting.jineric.peaceful_farm.title"
+  },
+  "width": 1
+}

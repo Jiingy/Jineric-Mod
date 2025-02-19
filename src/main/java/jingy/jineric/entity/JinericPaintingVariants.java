@@ -10,20 +10,15 @@ import net.minecraft.util.Formatting;
 
 import java.util.Optional;
 
-//TODO: 1.21.3 WAS CAUSING CRASH
 public class JinericPaintingVariants {
-//   public static final RegistryKey<PaintingVariant> KROMER = of("kromer");
-//   public static final RegistryKey<PaintingVariant> KEY_GEN = of("key_gen");
-   /**
-    * 'Peaceful Farm' by Adam.
-    */
-//   public static final RegistryKey<PaintingVariant> PEACEFUL_FARM = of("peaceful_farm");
+   public static final RegistryKey<PaintingVariant> KROMER = of("kromer");
+   public static final RegistryKey<PaintingVariant> KEY_GEN = of("key_gen");
+   public static final RegistryKey<PaintingVariant> PEACEFUL_FARM = of("peaceful_farm");
 
    public static void bootstrap(Registerable<PaintingVariant> registry) {
-//      register(registry, KROMER, 64, 32);
-//      register(registry, KEY_GEN, 64, 32);
-      //TODO: FIX AUTHOR IN TRANSLATION KEY
-//      register(registry, PEACEFUL_FARM, 16, 16, true);
+      register(registry, KROMER, 4, 2);
+      register(registry, KEY_GEN, 4, 2);
+      register(registry, PEACEFUL_FARM, 1, 1, true);
    }
 
    private static void register(Registerable<PaintingVariant> registry, RegistryKey<PaintingVariant> key, int width, int height) {

@@ -40,6 +40,24 @@ public class JinericBlockSoundGroup {
 			SoundEvents.BLOCK_CHERRY_WOOD_HIT,
 			SoundEvents.BLOCK_CHERRY_WOOD_FALL
 	);
+	public static final BlockSoundGroup WOODEN_LADDER = new BlockSoundGroup(
+			0.75F,
+			1.0F,
+			SoundEvents.BLOCK_WOOD_BREAK,
+			SoundEvents.BLOCK_LADDER_STEP,
+			SoundEvents.BLOCK_WOOD_PLACE,
+			SoundEvents.BLOCK_WOOD_HIT,
+			SoundEvents.BLOCK_WOOD_FALL
+	);
+	public static final BlockSoundGroup NETHER_WOODEN_LADDER = new BlockSoundGroup(
+			1.0F,
+			1.0F,
+			SoundEvents.BLOCK_NETHER_WOOD_BREAK,
+			SoundEvents.BLOCK_LADDER_STEP,
+			SoundEvents.BLOCK_NETHER_WOOD_PLACE,
+			SoundEvents.BLOCK_NETHER_WOOD_HIT,
+			SoundEvents.BLOCK_NETHER_WOOD_FALL
+	);
 	public static final BlockSoundGroup REDSTONE_DUST = new BlockSoundGroup(
 			0.75F,
 			1.1F,

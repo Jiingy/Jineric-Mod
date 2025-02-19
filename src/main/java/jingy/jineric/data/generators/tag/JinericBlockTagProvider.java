@@ -1,4 +1,4 @@
-package jingy.jineric.data.generators;
+package jingy.jineric.data.generators.tag;
 
 import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.data.family.JinericBlockFamilies;
@@ -21,10 +21,10 @@ import java.util.stream.Stream;
 
 import static jingy.jineric.block.JinericBlocks.*;
 
-public class JinericBlockTagGenerator extends FabricTagProvider.BlockTagProvider {
+public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider {
    public Map<TagKey<Block>, Block> blockTagMap = new HashMap<>();
 
-   public JinericBlockTagGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+   public JinericBlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
       super(output, registriesFuture);
    }
 
@@ -114,16 +114,16 @@ public class JinericBlockTagGenerator extends FabricTagProvider.BlockTagProvider
       // SWORD
       this.getOrCreateTagBuilder(BlockTags.SWORD_EFFICIENT);
       // BLOCK FAMILY -> TAG
-      this.blockListToTag(BlockTags.SHOVEL_MINEABLE, JinericBlocks.SNOW_BRICKS);
-      this.blockListToTag(BlockTags.SOUL_SPEED_BLOCKS,
-              JinericBlocks.CUT_SOUL_SANDSTONE,
-              JinericBlocks.POLISHED_SOUL_SANDSTONE,
-              JinericBlocks.SMOOTH_SOUL_SANDSTONE,
-              JinericBlocks.SOUL_SANDSTONE,
-              JinericBlocks.WAVY_SOUL_SANDSTONE
+      this.blockFamiliesToTag(BlockTags.SHOVEL_MINEABLE, JinericBlockFamilies.SNOW_BRICKS);
+      this.blockFamiliesToTag(BlockTags.SOUL_SPEED_BLOCKS,
+              JinericBlockFamilies.CUT_SOUL_SANDSTONE,
+              JinericBlockFamilies.POLISHED_SOUL_SANDSTONE,
+              JinericBlockFamilies.SMOOTH_SOUL_SANDSTONE,
+              JinericBlockFamilies.SOUL_SANDSTONE,
+              JinericBlockFamilies.WAVY_SOUL_SANDSTONE
       );
-      this.blockListToTag(BlockTags.DRAGON_IMMUNE, Blocks.OBSIDIAN);
-      this.blockListToTag(BlockTags.NEEDS_DIAMOND_TOOL, Blocks.OBSIDIAN);
+      this.blockFamiliesToTag(BlockTags.DRAGON_IMMUNE, JinericBlockFamilies.OBSIDIAN);
+      this.blockFamiliesToTag(BlockTags.NEEDS_DIAMOND_TOOL, JinericBlockFamilies.OBSIDIAN);
 
       // Vanilla Tags
 //      this.getOrCreateTagBuilder(BlockTags.WOOL);
@@ -349,6 +349,10 @@ public class JinericBlockTagGenerator extends FabricTagProvider.BlockTagProvider
               .forceAddTag(JinericBlockTags.WOODEN_LADDERS);
       this.getOrCreateTagBuilder(JinericBlockTags.NOT_PICKAXE_WALL)
               .add(SNOW_BRICK_WALL, SNOW_WALL);
+       this.getOrCreateTagBuilder(JinericBlockTags.CHESTS)
+               .forceAddTag(JinericBlockTags.WOODEN_CHESTS);
+       this.getOrCreateTagBuilder(JinericBlockTags.TRAPPED_CHESTS)
+               .forceAddTag(JinericBlockTags.WOODEN_TRAPPED_CHESTS);
       this.getOrCreateTagBuilder(JinericBlockTags.WOODEN_CHESTS)
               .add(SPRUCE_CHEST)
               .add(BIRCH_CHEST)
@@ -393,9 +397,6 @@ public class JinericBlockTagGenerator extends FabricTagProvider.BlockTagProvider
               .add(BAMBOO_BOOKSHELF)
               .add(CRIMSON_BOOKSHELF)
               .add(WARPED_BOOKSHELF);
-      this.getOrCreateTagBuilder(JinericBlockTags.CHESTS)
-              .forceAddTag(JinericBlockTags.WOODEN_CHESTS)
-              .forceAddTag(JinericBlockTags.WOODEN_TRAPPED_CHESTS);
       this.getOrCreateTagBuilder(JinericBlockTags.FULL_GRASS_REPLACEABLE).add(Blocks.GRASS_BLOCK);
       this.getOrCreateTagBuilder(JinericBlockTags.SLIPPERY).add(PACKED_ICE_STAIRS, PACKED_ICE_SLAB, PACKED_ICE_WALL);
          // Sounds

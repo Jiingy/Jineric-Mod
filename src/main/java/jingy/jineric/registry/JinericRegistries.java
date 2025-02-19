@@ -7,7 +7,6 @@ import jingy.jineric.tag.JinericItemTags;
 import net.fabricmc.fabric.api.registry.*;
 
 public class JinericRegistries {
-   //TODO: SPLIT INTO UNIQUE CLASSES
    public static void initializeJinericRegistries() {
       registerIsFuel();
       registerCompostable();
