@@ -28,8 +28,8 @@ import java.util.List;
 
 import static net.minecraft.client.data.BlockStateModelGenerator.createSingletonBlockState;
 
-public class JinericModelGenerator extends FabricModelProvider {
-   public JinericModelGenerator(FabricDataOutput output) {
+public class JinericModelProvider extends FabricModelProvider {
+   public JinericModelProvider(FabricDataOutput output) {
       super(output);
    }
 

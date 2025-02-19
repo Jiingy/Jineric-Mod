@@ -6,8 +6,8 @@ import net.minecraft.registry.RegistryWrapper;
 
 import java.util.concurrent.CompletableFuture;
 
-public class JinericItemTagGenerator extends FabricTagProvider.ItemTagProvider {
-    public JinericItemTagGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> completableFuture) {
+public class JinericItemTagProvider extends FabricTagProvider.ItemTagProvider {
+    public JinericItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> completableFuture) {
         super(output, completableFuture);
     }
 

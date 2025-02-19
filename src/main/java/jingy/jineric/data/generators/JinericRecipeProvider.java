@@ -37,8 +37,8 @@ import java.util.stream.Stream;
 import static jingy.jineric.data.family.JinericBlockFamilies.*;
 import static net.minecraft.data.family.BlockFamily.Variant.*;
 
-public class JinericRecipeGenerator extends FabricRecipeProvider {
-   public JinericRecipeGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+public class JinericRecipeProvider extends FabricRecipeProvider {
+   public JinericRecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
       super(output, registriesFuture);
    }
 

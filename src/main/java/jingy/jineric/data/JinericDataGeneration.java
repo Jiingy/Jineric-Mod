@@ -2,7 +2,7 @@ package jingy.jineric.data;
 
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.data.generators.*;
-import jingy.jineric.data.generators.world.JinericWorldGenerator;
+import jingy.jineric.data.generators.world.JinericWorldProvider;
 import jingy.jineric.entity.JinericPaintingVariants;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
@@ -16,19 +16,19 @@ public class JinericDataGeneration implements DataGeneratorEntrypoint {
 //      FabricDataGenerator.Pack jinericModPack = generator.createBuiltinResourcePack(JinericMain.ofJineric("jineric_mod_pack"));
 //      jinericModPack.addProvider(JinericModPackModelGenerator::new);
       FabricDataGenerator.Pack fabricDataGenPack = generator.createPack();
-      fabricDataGenPack.addProvider(JinericItemTagGenerator::new);
-      fabricDataGenPack.addProvider(JinericBlockTagGenerator::new);
+      fabricDataGenPack.addProvider(JinericItemTagProvider::new);
+      fabricDataGenPack.addProvider(JinericBlockTagProvider::new);
       fabricDataGenPack.addProvider(JinericPaintingVariantTagProvider::new);
-      fabricDataGenPack.addProvider(JinericRecipeGenerator::new);
-      fabricDataGenPack.addProvider(JinericModelGenerator::new);
-      fabricDataGenPack.addProvider(JinericBlockLootTableGenerator::new);
-      fabricDataGenPack.addProvider(JinericWorldGenerator::new);
+      fabricDataGenPack.addProvider(JinericRecipeProvider::new);
+      fabricDataGenPack.addProvider(JinericModelProvider::new);
+      fabricDataGenPack.addProvider(JinericBlockLootTableProvider::new);
+      fabricDataGenPack.addProvider(JinericWorldProvider::new);
    }
 
    @Override
    public void buildRegistry(RegistryBuilder registryBuilder) {
       registryBuilder.addRegistry(RegistryKeys.PAINTING_VARIANT, JinericPaintingVariants::bootstrap);
-      registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, JinericWorldGenerator::bootstrap);
+      registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, JinericWorldProvider::bootstrap);
    }
 
    @Override

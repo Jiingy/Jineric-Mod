@@ -21,10 +21,10 @@ import java.util.stream.Stream;
 
 import static jingy.jineric.block.JinericBlocks.*;
 
-public class JinericBlockTagGenerator extends FabricTagProvider.BlockTagProvider {
+public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider {
    public Map<TagKey<Block>, Block> blockTagMap = new HashMap<>();
 
-   public JinericBlockTagGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+   public JinericBlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
       super(output, registriesFuture);
    }
 

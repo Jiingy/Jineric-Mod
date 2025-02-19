@@ -19,8 +19,8 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;
 
-public class JinericBlockLootTableGenerator extends FabricBlockLootTableProvider {
-   public JinericBlockLootTableGenerator(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+public class JinericBlockLootTableProvider extends FabricBlockLootTableProvider {
+   public JinericBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
       super(dataOutput, registryLookup);
    }
 
