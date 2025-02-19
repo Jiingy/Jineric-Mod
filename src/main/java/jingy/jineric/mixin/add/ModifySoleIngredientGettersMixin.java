@@ -1,4 +1,4 @@
-package jingy.jineric.mixin.fix;
+package jingy.jineric.mixin.add;
 
 import com.google.common.collect.ImmutableMap;
 import jingy.jineric.recipe.JinericRecipePropertySet;
@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import java.util.Map;
 
 @Mixin(ServerRecipeManager.class)
-public abstract class FixSoleIngredientGettersMixin extends SinglePreparationResourceReloader<PreparedRecipes> implements RecipeManager {
+public abstract class ModifySoleIngredientGettersMixin extends SinglePreparationResourceReloader<PreparedRecipes> implements RecipeManager {
     @Mutable @Shadow @Final private static Map<RegistryKey<RecipePropertySet>, ServerRecipeManager.SoleIngredientGetter> SOLE_INGREDIENT_GETTERS;
 
     @Shadow

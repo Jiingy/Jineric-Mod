@@ -1,4 +1,4 @@
-package jingy.jineric.mixin;
+package jingy.jineric.mixin.fix;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(CatSitOnBlockGoal.class)
-public abstract class CatsSitOnJinericChestsMixin {
+public abstract class CatSitOnBlockGoalMixin {
 
    @WrapOperation(
            method = "isTargetPos",

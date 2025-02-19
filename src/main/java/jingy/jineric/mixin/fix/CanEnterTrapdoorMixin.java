@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(LivingEntity.class)
-public abstract class LivingEntityTrapdoorFix {
+public abstract class CanEnterTrapdoorMixin {
 
     @WrapOperation(
             method = "canEnterTrapdoor",

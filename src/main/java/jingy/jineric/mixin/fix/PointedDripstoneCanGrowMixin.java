@@ -1,4 +1,4 @@
-package jingy.jineric.mixin;
+package jingy.jineric.mixin.fix;
 
 import jingy.jineric.block.JinericBlocks;
 import net.minecraft.block.*;
@@ -12,10 +12,10 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PointedDripstoneBlock.class)
-public abstract class PointedDripstoneBlockMixin extends Block implements LandingBlock, Waterloggable {
+public abstract class PointedDripstoneCanGrowMixin extends Block implements LandingBlock, Waterloggable {
    @Shadow @Final public static BooleanProperty WATERLOGGED;
 
-   public PointedDripstoneBlockMixin(Settings settings) {
+   public PointedDripstoneCanGrowMixin(Settings settings) {
       super(settings);
    }
 

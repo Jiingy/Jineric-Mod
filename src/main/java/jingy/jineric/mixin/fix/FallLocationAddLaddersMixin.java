@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(FallLocation.class)
-public abstract class FallLocationFixMixin {
+public abstract class FallLocationAddLaddersMixin {
 
     @WrapOperation(
             method = "fromBlockState",

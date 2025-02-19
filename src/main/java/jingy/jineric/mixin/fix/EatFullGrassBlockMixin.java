@@ -1,4 +1,4 @@
-package jingy.jineric.mixin;
+package jingy.jineric.mixin.fix;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 import java.util.function.Predicate;
 
 @Mixin(EatGrassGoal.class)
-public abstract class EatGrassGoalMixin extends Goal {
+public abstract class EatFullGrassBlockMixin extends Goal {
    @Mutable @Shadow @Final private static Predicate<BlockState> SHORT_GRASS_PREDICATE;
 
    @WrapOperation(

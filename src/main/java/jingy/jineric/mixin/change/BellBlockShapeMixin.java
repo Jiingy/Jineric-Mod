@@ -1,4 +1,4 @@
-package jingy.jineric.mixin;
+package jingy.jineric.mixin.change;
 
 import net.minecraft.block.BellBlock;
 import net.minecraft.block.Block;
