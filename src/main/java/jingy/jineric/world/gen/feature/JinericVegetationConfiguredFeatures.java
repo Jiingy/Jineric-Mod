@@ -9,14 +9,14 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.PlacedFeature;
 
 public class JinericVegetationConfiguredFeatures {
-   public static final RegistryKey<ConfiguredFeature<?, ?>> TREES_WISTFUL_FOREST = JinericConfiguredFeatures.of("trees_wistful_forest");
-   public static final RegistryKey<ConfiguredFeature<?, ?>> CARVED_PATCH_PUMPKIN = JinericConfiguredFeatures.of("carved_patch_pumpkin");
-
-   public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> featureRegisterable) {
-      RegistryEntryLookup<ConfiguredFeature<?, ?>> registryEntryLookup = featureRegisterable.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
-      RegistryEntryLookup<PlacedFeature> registryLookupPlaced = featureRegisterable.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
-
-      RegistryEntry<PlacedFeature> petrifiedOakChecked = registryLookupPlaced.getOrThrow(JinericTreePlacedFeatures.PETRIFIED_OAK_CHECKED);
+	public static final RegistryKey<ConfiguredFeature<?, ?>> TREES_WISTFUL_FOREST = JinericConfiguredFeatures.of("trees_wistful_forest");
+	public static final RegistryKey<ConfiguredFeature<?, ?>> CARVED_PATCH_PUMPKIN = JinericConfiguredFeatures.of("carved_patch_pumpkin");
+	
+	public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> featureRegisterable) {
+		RegistryEntryLookup<ConfiguredFeature<?, ?>> registryEntryLookup = featureRegisterable.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
+		RegistryEntryLookup<PlacedFeature> registryLookupPlaced = featureRegisterable.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
+		
+		RegistryEntry<PlacedFeature> petrifiedOakChecked = registryLookupPlaced.getOrThrow(JinericTreePlacedFeatures.PETRIFIED_OAK_CHECKED);
 //      RegistryEntry<PlacedFeature> petrifiedOakBees002 = registryLookupPlaced.getOrThrow(JinericTreePlacedFeatures.PETRIFIED_OAK_BEES_002);
 //      RegistryEntry<PlacedFeature> petrifiedOakBees0002 = registryLookupPlaced.getOrThrow(JinericTreePlacedFeatures.PETRIFIED_OAK_BEES_0002);
 

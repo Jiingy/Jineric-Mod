@@ -7,14 +7,14 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 
 public class JinericConfiguredFeatures {
-
-   public static RegistryKey<ConfiguredFeature<?, ?>> of(String id) {
-      return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, JinericMain.ofJineric(id));
-   }
-
-   public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> featureRegisterable) {
-      JinericTreeConfiguredFeatures.bootstrap(featureRegisterable);
-      JinericVegetationConfiguredFeatures.bootstrap(featureRegisterable);
-      JinericUndergroundConfiguredFeatures.bootstrap(featureRegisterable);
-   }
+	
+	public static RegistryKey<ConfiguredFeature<?, ?>> of(String id) {
+		return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, JinericMain.ofJineric(id));
+	}
+	
+	public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> featureRegisterable) {
+		JinericTreeConfiguredFeatures.bootstrap(featureRegisterable);
+		JinericVegetationConfiguredFeatures.bootstrap(featureRegisterable);
+		JinericUndergroundConfiguredFeatures.bootstrap(featureRegisterable);
+	}
 }
