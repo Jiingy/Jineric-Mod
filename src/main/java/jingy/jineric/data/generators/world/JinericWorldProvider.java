@@ -1,6 +1,5 @@
 package jingy.jineric.data.generators.world;
 
-import jingy.jineric.world.gen.feature.JinericUndergroundConfiguredFeatures;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
 import net.minecraft.registry.Registerable;
@@ -18,8 +17,8 @@ public class JinericWorldProvider extends FabricDynamicRegistryProvider {
 	}
 	
 	public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> registry) {
-		registry.register(JinericUndergroundConfiguredFeatures.FULL_GRASS_PATCH_BONEMEAL, JinericUndergroundConfiguredFeatures.createFullGrassPatchFeature(registry));
-		registry.register(JinericUndergroundConfiguredFeatures.FULL_GRASS_VEGETATION, JinericUndergroundConfiguredFeatures.createFullGrassVegetation());
+//		registry.register(JinericUndergroundConfiguredFeatures.FULL_GRASS_PATCH_BONEMEAL, JinericUndergroundConfiguredFeatures.createFullGrassPatchFeature(registry));
+//		registry.register(JinericUndergroundConfiguredFeatures.FULL_GRASS_VEGETATION, JinericUndergroundConfiguredFeatures.createFullGrassVegetation());
 	}
 	
 	@Override
