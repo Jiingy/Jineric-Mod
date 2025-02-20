@@ -11,34 +11,34 @@ import net.minecraft.util.Formatting;
 import java.util.Optional;
 
 public class JinericPaintingVariants {
-   public static final RegistryKey<PaintingVariant> KROMER = of("kromer");
-   public static final RegistryKey<PaintingVariant> KEY_GEN = of("key_gen");
-   public static final RegistryKey<PaintingVariant> PEACEFUL_FARM = of("peaceful_farm");
-
-   public static void bootstrap(Registerable<PaintingVariant> registry) {
-      register(registry, KROMER, 4, 2);
-      register(registry, KEY_GEN, 4, 2);
-      register(registry, PEACEFUL_FARM, 1, 1, true);
-   }
-
-   private static void register(Registerable<PaintingVariant> registry, RegistryKey<PaintingVariant> key, int width, int height) {
-      register(registry, key, width, height, true);
-   }
-
-   private static void register(Registerable<PaintingVariant> registry, RegistryKey<PaintingVariant> key, int width, int height, boolean hasAuthor) {
-      registry.register(
-              key,
-              new PaintingVariant(
-                      width,
-                      height,
-                      key.getValue(),
-                      Optional.of(Text.translatable(key.getValue().toTranslationKey("painting", "title")).formatted(Formatting.YELLOW)),
-                      hasAuthor ? Optional.of(Text.translatable(key.getValue().toTranslationKey("painting", "author")).formatted(Formatting.GRAY)) : Optional.empty()
-              )
-      );
-   }
-
-   private static RegistryKey<PaintingVariant> of(String id) {
-      return RegistryKey.of(RegistryKeys.PAINTING_VARIANT, JinericMain.ofJineric(id));
-   }
+	public static final RegistryKey<PaintingVariant> KROMER = of("kromer");
+	public static final RegistryKey<PaintingVariant> KEY_GEN = of("key_gen");
+	public static final RegistryKey<PaintingVariant> PEACEFUL_FARM = of("peaceful_farm");
+	
+	public static void bootstrap(Registerable<PaintingVariant> registry) {
+		register(registry, KROMER, 4, 2);
+		register(registry, KEY_GEN, 4, 2);
+		register(registry, PEACEFUL_FARM, 1, 1, true);
+	}
+	
+	private static void register(Registerable<PaintingVariant> registry, RegistryKey<PaintingVariant> key, int width, int height) {
+		register(registry, key, width, height, true);
+	}
+	
+	private static void register(Registerable<PaintingVariant> registry, RegistryKey<PaintingVariant> key, int width, int height, boolean hasAuthor) {
+		registry.register(
+				key,
+				new PaintingVariant(
+						width,
+						height,
+						key.getValue(),
+						Optional.of(Text.translatable(key.getValue().toTranslationKey("painting", "title")).formatted(Formatting.YELLOW)),
+						hasAuthor ? Optional.of(Text.translatable(key.getValue().toTranslationKey("painting", "author")).formatted(Formatting.GRAY)) : Optional.empty()
+				)
+		);
+	}
+	
+	private static RegistryKey<PaintingVariant> of(String id) {
+		return RegistryKey.of(RegistryKeys.PAINTING_VARIANT, JinericMain.ofJineric(id));
+	}
 }

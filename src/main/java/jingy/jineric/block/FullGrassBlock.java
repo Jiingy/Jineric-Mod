@@ -13,7 +13,7 @@ public class FullGrassBlock extends GrassBlock implements Fertilizable {
 	public FullGrassBlock(Settings settings) {
 		super(settings);
 	}
-
+	
 	@Override
 	public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
 		world.getRegistryManager()
@@ -21,7 +21,7 @@ public class FullGrassBlock extends GrassBlock implements Fertilizable {
 				.flatMap(registry -> registry.getOptional(JinericUndergroundConfiguredFeatures.FULL_GRASS_PATCH_BONEMEAL))
 				.ifPresent(entry -> entry.value().generate(world, world.getChunkManager().getChunkGenerator(), random, pos.up()));
 	}
-
+	
 	@Override
 	public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
 		super.randomTick(state, world, pos, random);

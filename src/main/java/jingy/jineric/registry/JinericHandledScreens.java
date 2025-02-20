@@ -8,8 +8,8 @@ import net.minecraft.client.gui.screen.ingame.HandledScreens;
 
 @Environment(EnvType.CLIENT)
 public class JinericHandledScreens {
-
-   public static void registerHandledScreens() {
-      HandledScreens.register(JinericScreenHandlerType.REFINERY_SCREEN_HANDLER, RefineryScreen::new);
-   }
+	
+	public static void registerHandledScreens() {
+		HandledScreens.register(JinericScreenHandlerType.REFINERY_SCREEN_HANDLER, RefineryScreen::new);
+	}
 }

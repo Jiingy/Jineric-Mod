@@ -11,16 +11,16 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(FallLocation.class)
 public abstract class FallLocationAddLaddersMixin {
-
-    @WrapOperation(
-            method = "fromBlockState",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z",
-                    ordinal = 0
-            )
-    )
-    private static boolean checkJinericLadders(BlockState instance, Block block, Operation<Boolean> original) {
-        return original.call(instance, block) || instance.isIn(JinericBlockTags.LADDERS);
-    }
+	
+	@WrapOperation(
+			method = "fromBlockState",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z",
+					ordinal = 0
+			)
+	)
+	private static boolean checkJinericLadders(BlockState instance, Block block, Operation<Boolean> original) {
+		return original.call(instance, block) || instance.isIn(JinericBlockTags.LADDERS);
+	}
 }

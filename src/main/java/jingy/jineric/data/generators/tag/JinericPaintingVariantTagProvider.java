@@ -12,15 +12,15 @@ import java.util.concurrent.CompletableFuture;
 
 
 public class JinericPaintingVariantTagProvider extends FabricTagProvider<PaintingVariant> {
-    public JinericPaintingVariantTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
-        super(output, RegistryKeys.PAINTING_VARIANT, registriesFuture);
-    }
-
-    @Override
-    protected void configure(RegistryWrapper.WrapperLookup registries) {
-        this.getOrCreateTagBuilder(PaintingVariantTags.PLACEABLE)
-                .add(JinericPaintingVariants.KEY_GEN)
-                .add(JinericPaintingVariants.KROMER)
-                .add(JinericPaintingVariants.PEACEFUL_FARM);
-    }
+	public JinericPaintingVariantTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+		super(output, RegistryKeys.PAINTING_VARIANT, registriesFuture);
+	}
+	
+	@Override
+	protected void configure(RegistryWrapper.WrapperLookup registries) {
+		this.getOrCreateTagBuilder(PaintingVariantTags.PLACEABLE)
+				.add(JinericPaintingVariants.KEY_GEN)
+				.add(JinericPaintingVariants.KROMER)
+				.add(JinericPaintingVariants.PEACEFUL_FARM);
+	}
 }

@@ -11,11 +11,12 @@ import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityFastFallingMixin extends Entity {
-   @Shadow public abstract boolean hasStatusEffect(RegistryEntry<StatusEffect> effect);
-
-   public LivingEntityFastFallingMixin(EntityType<?> type, World world) {
-      super(type, world);
-   }
+	public LivingEntityFastFallingMixin(EntityType<?> type, World world) {
+		super(type, world);
+	}
+	
+	@Shadow
+	public abstract boolean hasStatusEffect(RegistryEntry<StatusEffect> effect);
 
 //   @ModifyConstant(
 //           method = "travel",
@@ -32,6 +33,6 @@ public abstract class LivingEntityFastFallingMixin extends Entity {
 //         return constant;
 //      }
 //   }
-   // CHANGE TO ModifyExpressionValue?
-   // DISCORD https://discord.com/channels/507304429255393322/807617700734042122/1069560661501296660
+	// CHANGE TO ModifyExpressionValue?
+	// DISCORD https://discord.com/channels/507304429255393322/807617700734042122/1069560661501296660
 }

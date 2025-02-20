@@ -10,12 +10,12 @@ import net.minecraft.client.render.block.entity.SignBlockEntityRenderer;
 
 @Environment(EnvType.CLIENT)
 public class JinericBlockEntityRenderer {
-
-   public static void registerBlockEntityRenderers() {
-      BlockEntityRendererFactories.register(JinericBlockEntityType.JINERIC_CHEST, ChestBlockEntityRenderer::new);
-      BlockEntityRendererFactories.register(JinericBlockEntityType.JINERIC_TRAPPED_CHEST, ChestBlockEntityRenderer::new);
-      BlockEntityRendererFactories.register(JinericBlockEntityType.JINERIC_SIGN, SignBlockEntityRenderer::new);
-      BlockEntityRendererFactories.register(JinericBlockEntityType.JINERIC_HANGING_SIGN, HangingSignBlockEntityRenderer::new);
-      BlockEntityRendererFactories.register(JinericBlockEntityType.REDSTONE_CAMPFIRE, RedstoneCampfireBlockEntityRenderer::new);
-   }
+	
+	public static void registerBlockEntityRenderers() {
+		BlockEntityRendererFactories.register(JinericBlockEntityType.JINERIC_CHEST, ChestBlockEntityRenderer::new);
+		BlockEntityRendererFactories.register(JinericBlockEntityType.JINERIC_TRAPPED_CHEST, ChestBlockEntityRenderer::new);
+		BlockEntityRendererFactories.register(JinericBlockEntityType.JINERIC_SIGN, SignBlockEntityRenderer::new);
+		BlockEntityRendererFactories.register(JinericBlockEntityType.JINERIC_HANGING_SIGN, HangingSignBlockEntityRenderer::new);
+		BlockEntityRendererFactories.register(JinericBlockEntityType.REDSTONE_CAMPFIRE, RedstoneCampfireBlockEntityRenderer::new);
+	}
 }

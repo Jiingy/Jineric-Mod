@@ -14,15 +14,18 @@ import java.util.Map;
 
 @Mixin(RecipeBookOptions.class)
 public abstract class ModifyRecipeBookOptionNamesMixin {
-   @Mutable @Final @Shadow private static Map<RecipeBookType, Pair<String, String>> CATEGORY_OPTION_NAMES;
-
-   static {
-      CATEGORY_OPTION_NAMES = ImmutableMap.<RecipeBookType, Pair<String, String>>builder()
-              .putAll(CATEGORY_OPTION_NAMES)
-              .put(
-                      JinericRecipeBookTypes.JINERIC_REFINERY,
-                      Pair.of("isRefineryGuiOpen", "isRefineryFilteringCraftable")
-              )
-              .build();
-   }
+	@Mutable
+	@Final
+	@Shadow
+	private static Map<RecipeBookType, Pair<String, String>> CATEGORY_OPTION_NAMES;
+	
+	static {
+		CATEGORY_OPTION_NAMES = ImmutableMap.<RecipeBookType, Pair<String, String>>builder()
+				.putAll(CATEGORY_OPTION_NAMES)
+				.put(
+						JinericRecipeBookTypes.JINERIC_REFINERY,
+						Pair.of("isRefineryGuiOpen", "isRefineryFilteringCraftable")
+				)
+				.build();
+	}
 }

@@ -18,42 +18,42 @@ import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 
 public class JinericUndergroundConfiguredFeatures {
-   public static final RegistryKey<ConfiguredFeature<?, ?>> FULL_GRASS_VEGETATION = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, JinericMain.ofJineric("full_grass_vegetation"));
-   public static final RegistryKey<ConfiguredFeature<?, ?>> FULL_GRASS_PATCH_BONEMEAL = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, JinericMain.ofJineric("full_grass_patch_bonemeal"));
-
-   public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> registry) {
-      registry.register(JinericUndergroundConfiguredFeatures.FULL_GRASS_PATCH_BONEMEAL, JinericUndergroundConfiguredFeatures.createFullGrassPatchFeature(registry));
-      registry.register(JinericUndergroundConfiguredFeatures.FULL_GRASS_VEGETATION, JinericUndergroundConfiguredFeatures.createFullGrassVegetation());
-   }
-
-   public static ConfiguredFeature<?, ?> createFullGrassVegetation() {
-      return new ConfiguredFeature<>(Feature.SIMPLE_BLOCK,
-              new SimpleBlockFeatureConfig(
-                      new WeightedBlockStateProvider(
-                              DataPool.<BlockState>builder()
-                                      .add(Blocks.SHORT_GRASS.getDefaultState(), 40)
-                                      .add(Blocks.TALL_GRASS.getDefaultState(), 10)
-                                      .add(Blocks.POPPY.getDefaultState(), 5)
-                                      .add(Blocks.DANDELION.getDefaultState(), 5)
-                      )
-              )
-      );
-   }
-
-   public static ConfiguredFeature<?, ?> createFullGrassPatchFeature(Registerable<ConfiguredFeature<?, ?>> registry) {
-      RegistryEntryLookup<ConfiguredFeature<?, ?>> registryEntryLookup = registry.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
-      return new ConfiguredFeature<>(Feature.VEGETATION_PATCH,
-              new VegetationPatchFeatureConfig(
-                      JinericBlockTags.FULL_GRASS_REPLACEABLE,
-                      BlockStateProvider.of(JinericBlocks.FULL_GRASS_BLOCK),
-                      PlacedFeatures.createEntry(registryEntryLookup.getOrThrow(JinericUndergroundConfiguredFeatures.FULL_GRASS_VEGETATION)),
-                      VerticalSurfaceType.FLOOR,
-                      ConstantIntProvider.create(1),
-                      0.0F,
-                      6,
-                      0.5F,
-                      UniformIntProvider.create(1, 2),
-                      0.75F
-              ));
-   }
+	public static final RegistryKey<ConfiguredFeature<?, ?>> FULL_GRASS_VEGETATION = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, JinericMain.ofJineric("full_grass_vegetation"));
+	public static final RegistryKey<ConfiguredFeature<?, ?>> FULL_GRASS_PATCH_BONEMEAL = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, JinericMain.ofJineric("full_grass_patch_bonemeal"));
+	
+	public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> registry) {
+		registry.register(JinericUndergroundConfiguredFeatures.FULL_GRASS_PATCH_BONEMEAL, JinericUndergroundConfiguredFeatures.createFullGrassPatchFeature(registry));
+		registry.register(JinericUndergroundConfiguredFeatures.FULL_GRASS_VEGETATION, JinericUndergroundConfiguredFeatures.createFullGrassVegetation());
+	}
+	
+	protected static ConfiguredFeature<?, ?> createFullGrassVegetation() {
+		return new ConfiguredFeature<>(Feature.SIMPLE_BLOCK,
+				new SimpleBlockFeatureConfig(
+						new WeightedBlockStateProvider(
+								DataPool.<BlockState>builder()
+										.add(Blocks.SHORT_GRASS.getDefaultState(), 40)
+										.add(Blocks.TALL_GRASS.getDefaultState(), 10)
+										.add(Blocks.POPPY.getDefaultState(), 5)
+										.add(Blocks.DANDELION.getDefaultState(), 5)
+						)
+				)
+		);
+	}
+	
+	protected static ConfiguredFeature<?, ?> createFullGrassPatchFeature(Registerable<ConfiguredFeature<?, ?>> registry) {
+		RegistryEntryLookup<ConfiguredFeature<?, ?>> registryEntryLookup = registry.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
+		return new ConfiguredFeature<>(Feature.VEGETATION_PATCH,
+				new VegetationPatchFeatureConfig(
+						JinericBlockTags.FULL_GRASS_REPLACEABLE,
+						BlockStateProvider.of(JinericBlocks.FULL_GRASS_BLOCK),
+						PlacedFeatures.createEntry(registryEntryLookup.getOrThrow(JinericUndergroundConfiguredFeatures.FULL_GRASS_VEGETATION)),
+						VerticalSurfaceType.FLOOR,
+						ConstantIntProvider.create(1),
+						0.0F,
+						6,
+						0.5F,
+						UniformIntProvider.create(1, 2),
+						0.75F
+				));
+	}
 }

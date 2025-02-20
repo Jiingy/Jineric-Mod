@@ -23,18 +23,18 @@ import org.apache.logging.log4j.Logger;
 public class JinericMain implements ModInitializer {
 	public static final Logger LOGGER = LogManager.getLogger("Jineric Mod");
 	public static final String MOD_ID = "jineric";
-
+	
 	public static Identifier ofJineric(String path) {
 		return Identifier.of(MOD_ID, path);
 	}
-
+	
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Jineric Mod Main - Starting initialization");
 		this.initRegistries();
 		System.out.println("Jineric Mod Main - Finished initialization");
 	}
-
+	
 	private void initRegistries() {
         JinericParticleTypes.init();
 		JinericRegistries.initializeJinericRegistries();
