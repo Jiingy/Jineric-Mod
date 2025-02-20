@@ -10,6 +10,8 @@ import jingy.jineric.data.generators.tag.JinericPaintingVariantTagProvider;
 import jingy.jineric.data.generators.world.JinericWorldProvider;
 import jingy.jineric.entity.JinericPaintingVariants;
 import jingy.jineric.world.biome.JinericBiomesProvider;
+import jingy.jineric.world.gen.feature.JinericConfiguredFeatures;
+import jingy.jineric.world.gen.feature.JinericPlacedFeatures;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.RegistryBuilder;
@@ -35,7 +37,8 @@ public class JinericDataGeneration implements DataGeneratorEntrypoint {
 	public void buildRegistry(RegistryBuilder registryBuilder) {
 		registryBuilder.addRegistry(RegistryKeys.BIOME, JinericBiomesProvider::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.PAINTING_VARIANT, JinericPaintingVariants::bootstrap);
-		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, JinericWorldProvider::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, JinericConfiguredFeatures::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, JinericPlacedFeatures::bootstrap);
 	}
 	
 	@Override

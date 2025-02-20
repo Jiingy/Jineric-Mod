@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "jineric:petrified_oak_checked",
+    "features": [
+      {
+        "chance": 0.1,
+        "feature": "jineric:petrified_oak_checked"
+      }
+    ]
+  }
+}
