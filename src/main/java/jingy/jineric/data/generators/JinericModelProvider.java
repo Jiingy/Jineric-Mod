@@ -33,22 +33,6 @@ public class JinericModelProvider extends FabricModelProvider {
 		super(output);
 	}
 	
-	public static Block blockById(String id) {
-		final Identifier identifier = JinericMain.ofJineric(id);
-		if (!Registries.BLOCK.containsId(identifier)) {
-			throw new IllegalStateException("Block is not registered: " + identifier);
-		}
-		return Registries.BLOCK.get(identifier);
-	}
-	
-	public static Item itemById(String id) {
-		final Identifier identifier = JinericMain.ofJineric(id);
-		if (!Registries.ITEM.containsId(identifier)) {
-			throw new IllegalStateException("Item is not registered: " + identifier);
-		}
-		return Registries.ITEM.get(identifier);
-	}
-	
 	@Override
 	public void generateBlockStateModels(BlockStateModelGenerator bsmg) {
 		BlockFamilies.getFamilies().filter(BlockFamily::shouldGenerateModels).forEach(blockFamily -> {
@@ -156,17 +140,19 @@ public class JinericModelProvider extends FabricModelProvider {
 	
 	public void registerFamilyVariantModels(BlockFamily blockFamily, TextureMap textureMap, BlockStateModelGenerator bsmg) {
 		for (BlockFamily.Variant familyVariant : BlockFamily.Variant.values()) {
-			switch (familyVariant) {
-				case BUTTON -> this.registerButton(blockFamily, textureMap, bsmg);
-				case DOOR -> bsmg.registerDoor(blockFamily.getVariant(BlockFamily.Variant.DOOR));
-				case FENCE_GATE -> this.registerFenceGate(blockFamily, textureMap, bsmg);
-				case SIGN -> this.registerSign(blockFamily, textureMap, bsmg);
-				case FENCE -> this.registerFence(blockFamily, textureMap, bsmg);
-				case STAIRS -> this.registerStairs(blockFamily, textureMap, bsmg);
-				case PRESSURE_PLATE -> this.registerPressurePlate(blockFamily, textureMap, bsmg);
-				case SLAB -> this.registerSlab(blockFamily, textureMap, bsmg);
-				case TRAPDOOR -> bsmg.registerTrapdoor(blockFamily.getVariant(BlockFamily.Variant.TRAPDOOR));
-				case WALL -> this.registerWall(blockFamily, this.verifyWall(blockFamily), bsmg);
+			if (blockFamily.getVariant(familyVariant) != null && Registries.BLOCK.getId(blockFamily.getVariant(familyVariant)).getNamespace().equals("jineric")) {
+				switch (familyVariant) {
+					case BUTTON -> this.registerButton(blockFamily, textureMap, bsmg);
+					case DOOR -> bsmg.registerDoor(blockFamily.getVariant(BlockFamily.Variant.DOOR));
+					case FENCE_GATE -> this.registerFenceGate(blockFamily, textureMap, bsmg);
+					case SIGN -> this.registerSign(blockFamily, textureMap, bsmg);
+					case FENCE -> this.registerFence(blockFamily, textureMap, bsmg);
+					case STAIRS -> this.registerStairs(blockFamily, textureMap, bsmg);
+					case PRESSURE_PLATE -> this.registerPressurePlate(blockFamily, textureMap, bsmg);
+					case SLAB -> this.registerSlab(blockFamily, textureMap, bsmg);
+					case TRAPDOOR -> bsmg.registerTrapdoor(blockFamily.getVariant(BlockFamily.Variant.TRAPDOOR));
+					case WALL -> this.registerWall(blockFamily, this.verifyWall(blockFamily), bsmg);
+				}
 			}
 		}
 	}
@@ -421,6 +407,22 @@ public class JinericModelProvider extends FabricModelProvider {
 	
 	private boolean isJineric(Block block) {
 		return block != null && Registries.BLOCK.getId(block).getNamespace().equals("jineric");
+	}
+	
+	public static Block blockById(String id) {
+		final Identifier identifier = JinericMain.ofJineric(id);
+		if (!Registries.BLOCK.containsId(identifier)) {
+			throw new IllegalStateException("Block is not registered: " + identifier);
+		}
+		return Registries.BLOCK.get(identifier);
+	}
+	
+	public static Item itemById(String id) {
+		final Identifier identifier = JinericMain.ofJineric(id);
+		if (!Registries.ITEM.containsId(identifier)) {
+			throw new IllegalStateException("Item is not registered: " + identifier);
+		}
+		return Registries.ITEM.get(identifier);
 	}
 	
 	@Override
