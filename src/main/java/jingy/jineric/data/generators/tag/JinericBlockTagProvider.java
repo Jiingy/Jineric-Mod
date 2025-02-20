@@ -220,8 +220,6 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 //      this.getOrCreateTagBuilder(BlockTags.CORALS);
 		this.getOrCreateTagBuilder(BlockTags.BAMBOO_PLANTABLE_ON)
 				.add(FULL_GRASS_BLOCK);
-		this.getOrCreateTagBuilder(BlockTags.BAMBOO_PLANTABLE_ON)
-				.add(FULL_GRASS_BLOCK);
 		this.getOrCreateTagBuilder(BlockTags.STANDING_SIGNS)
 				.add(JinericBlocks.PETRIFIED_OAK_SIGN);
 //      this.getOrCreateTagBuilder(BlockTags.WALL_SIGNS);
@@ -255,7 +253,7 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 				.add(REDSTONE_CAMPFIRE);
 		this.getOrCreateTagBuilder(BlockTags.GUARDED_BY_PIGLINS)
 				.forceAddTag(JinericBlockTags.CHESTS);
-		this.getOrCreateTagBuilder(BlockTags.PREVENT_MOB_SPAWNING_INSIDE);
+//		this.getOrCreateTagBuilder(BlockTags.PREVENT_MOB_SPAWNING_INSIDE);
 //      this.getOrCreateTagBuilder(BlockTags.FENCE_GATES);
 //      this.getOrCreateTagBuilder(BlockTags.UNSTABLE_BOTTOM_CENTER);
 //      this.getOrCreateTagBuilder(BlockTags.MUSHROOM_GROW_BLOCK);
