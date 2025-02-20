@@ -1,5 +1,7 @@
 package jingy.jineric.data.generators.world;
 
+import jingy.jineric.world.biome.JinericBiomeKeys;
+import jingy.jineric.world.gen.feature.JinericUndergroundConfiguredFeatures;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
 import net.minecraft.registry.Registerable;
@@ -17,15 +19,15 @@ public class JinericWorldProvider extends FabricDynamicRegistryProvider {
 	}
 	
 	public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> registry) {
-//		registry.register(JinericUndergroundConfiguredFeatures.FULL_GRASS_PATCH_BONEMEAL, JinericUndergroundConfiguredFeatures.createFullGrassPatchFeature(registry));
-//		registry.register(JinericUndergroundConfiguredFeatures.FULL_GRASS_VEGETATION, JinericUndergroundConfiguredFeatures.createFullGrassVegetation());
+		registry.register(JinericUndergroundConfiguredFeatures.FULL_GRASS_PATCH_BONEMEAL, JinericUndergroundConfiguredFeatures.createFullGrassPatchFeature(registry));
+		registry.register(JinericUndergroundConfiguredFeatures.FULL_GRASS_VEGETATION, JinericUndergroundConfiguredFeatures.createFullGrassVegetation());
 	}
 	
 	@Override
 	protected void configure(RegistryWrapper.WrapperLookup registries, Entries entries) {
 		final RegistryWrapper.Impl<Biome> biomeRegistry = registries.getOrThrow(RegistryKeys.BIOME);
-//      entries.add(JinericBiomeKeys.WISTFUL_FOREST, biomeRegistry.getOrThrow(JinericBiomeKeys.WISTFUL_FOREST).value());
-//      entries.add(JinericBiomeKeys.WISTFUL_FLOWER_FOREST, biomeRegistry.getOrThrow(JinericBiomeKeys.WISTFUL_FLOWER_FOREST).value());
+		entries.add(JinericBiomeKeys.WISTFUL_FOREST, biomeRegistry.getOrThrow(JinericBiomeKeys.WISTFUL_FOREST).value());
+		entries.add(JinericBiomeKeys.WISTFUL_FLOWER_FOREST, biomeRegistry.getOrThrow(JinericBiomeKeys.WISTFUL_FLOWER_FOREST).value());
 		
 		final RegistryWrapper.Impl<ConfiguredFeature<?, ?>> configuredFeatureRegistry = registries.getOrThrow(RegistryKeys.CONFIGURED_FEATURE);
 //      entries.add(JinericTreeConfiguredFeatures.PETRIFIED_OAK, configuredFeatureRegistry.getOrThrow(JinericTreeConfiguredFeatures.PETRIFIED_OAK).value());

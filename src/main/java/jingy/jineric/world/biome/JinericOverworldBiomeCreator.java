@@ -1,7 +1,6 @@
 package jingy.jineric.world.biome;
 
 import jingy.jineric.mixin.access.OverworldBiomeCreatorAccess;
-import jingy.jineric.world.gen.feature.JinericVegetationPlacedFeatures;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.RegistryEntryLookup;
@@ -44,14 +43,14 @@ public class JinericOverworldBiomeCreator extends OverworldBiomeCreator {
          DefaultBiomeFeatures.addDefaultGrass(builder);
          DefaultBiomeFeatures.addPlainsTallGrass(builder);
       } else {
-         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, JinericVegetationPlacedFeatures.TREES_WISTFUL_FOREST);
+//         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, JinericVegetationPlacedFeatures.TREES_WISTFUL_FOREST);
 //         DefaultBiomeFeatures.addDefaultFlowers(builder);
          DefaultBiomeFeatures.addJungleGrass(builder);
          DefaultBiomeFeatures.addPlainsTallGrass(builder);
       }
 
       DefaultBiomeFeatures.addDefaultMushrooms(builder);
-      builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, JinericVegetationPlacedFeatures.CARVED_PUMPKIN_PATCH);
+//      builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, JinericVegetationPlacedFeatures.CARVED_PUMPKIN_PATCH);
       builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_SUGAR_CANE);
 
       SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
