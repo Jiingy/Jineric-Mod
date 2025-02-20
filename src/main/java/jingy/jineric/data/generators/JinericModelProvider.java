@@ -33,22 +33,6 @@ public class JinericModelProvider extends FabricModelProvider {
 		super(output);
 	}
 	
-	public static Block blockById(String id) {
-		final Identifier identifier = JinericMain.ofJineric(id);
-		if (!Registries.BLOCK.containsId(identifier)) {
-			throw new IllegalStateException("Block is not registered: " + identifier);
-		}
-		return Registries.BLOCK.get(identifier);
-	}
-	
-	public static Item itemById(String id) {
-		final Identifier identifier = JinericMain.ofJineric(id);
-		if (!Registries.ITEM.containsId(identifier)) {
-			throw new IllegalStateException("Item is not registered: " + identifier);
-		}
-		return Registries.ITEM.get(identifier);
-	}
-	
 	@Override
 	public void generateBlockStateModels(BlockStateModelGenerator bsmg) {
 		this.registerBlockFamilyModels(bsmg);
@@ -111,11 +95,13 @@ public class JinericModelProvider extends FabricModelProvider {
 	
 	public void registerFamilyVariantModels(BlockFamily blockFamily, TextureMap textureMap, BlockStateModelGenerator bsmg) {
 		for (BlockFamily.Variant familyVariant : BlockFamily.Variant.values()) {
-			switch (familyVariant) {
-				case STAIRS -> this.registerStairs(blockFamily, textureMap, bsmg);
-				case SLAB -> this.registerSlab(blockFamily, textureMap, bsmg);
-				case WALL -> this.registerWall(blockFamily, this.verifyWall(blockFamily), bsmg);
-				case FENCE -> this.registerFence(blockFamily, textureMap, bsmg);
+			if (blockFamily.getVariant(familyVariant) != null && Registries.BLOCK.getId(blockFamily.getVariant(familyVariant)).getNamespace().equals("jineric")) {
+				switch (familyVariant) {
+					case STAIRS -> this.registerStairs(blockFamily, textureMap, bsmg);
+					case SLAB -> this.registerSlab(blockFamily, textureMap, bsmg);
+					case WALL -> this.registerWall(blockFamily, this.verifyWall(blockFamily), bsmg);
+					case FENCE -> this.registerFence(blockFamily, textureMap, bsmg);
+				}
 			}
 		}
 	}
@@ -325,6 +311,22 @@ public class JinericModelProvider extends FabricModelProvider {
 	
 	private boolean isJineric(Block block) {
 		return block != null && Registries.BLOCK.getId(block).getNamespace().equals("jineric");
+	}
+	
+	public static Block blockById(String id) {
+		final Identifier identifier = JinericMain.ofJineric(id);
+		if (!Registries.BLOCK.containsId(identifier)) {
+			throw new IllegalStateException("Block is not registered: " + identifier);
+		}
+		return Registries.BLOCK.get(identifier);
+	}
+	
+	public static Item itemById(String id) {
+		final Identifier identifier = JinericMain.ofJineric(id);
+		if (!Registries.ITEM.containsId(identifier)) {
+			throw new IllegalStateException("Item is not registered: " + identifier);
+		}
+		return Registries.ITEM.get(identifier);
 	}
 	
 	@Override
