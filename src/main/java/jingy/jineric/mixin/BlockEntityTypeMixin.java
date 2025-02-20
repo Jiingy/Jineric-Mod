@@ -1,8 +1,6 @@
 package jingy.jineric.mixin;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.SignBlock;
-import net.minecraft.block.WallSignBlock;
+import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntityType;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -18,7 +16,10 @@ public abstract class BlockEntityTypeMixin {
 			cancellable = true
 	)
 	private void supports(BlockState state, CallbackInfoReturnable<Boolean> info) {
-		if (BlockEntityType.SIGN.equals(this) && (state.getBlock() instanceof SignBlock || state.getBlock() instanceof WallSignBlock)) {
+		if ((state.getBlock() instanceof SignBlock || state.getBlock() instanceof WallSignBlock)) {
+			info.setReturnValue(true);
+		}
+		if ((state.getBlock() instanceof HangingSignBlock || state.getBlock() instanceof WallHangingSignBlock)) {
 			info.setReturnValue(true);
 		}
 	}
