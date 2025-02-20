@@ -2,6 +2,7 @@ package jingy.jineric.data.generators;
 
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.JinericBlocks;
+import jingy.jineric.data.family.JinericBlockFamilies;
 import jingy.jineric.registry.JinericWoodType;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
@@ -16,7 +17,6 @@ import net.minecraft.registry.DefaultedRegistry;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;
 
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;
 
@@ -27,7 +27,6 @@ public class JinericBlockLootTableProvider extends FabricBlockLootTableProvider 
 	
 	@Override
 	public void generate() {
-		this.genVanillaWoodFamilyAdditionDrops();
 		this.genBlockFamilyDrops();
 		this.genUniqueDrops();
 		this.genWoodSets();
@@ -55,42 +54,56 @@ public class JinericBlockLootTableProvider extends FabricBlockLootTableProvider 
 	
 	private void genWoodSets() {
 		// PETRIFIED OAK
+		this.addWoodenFamilyVariantDrops(JinericBlockFamilies.PETRIFIED_OAK, JinericWoodType.PETRIFIED_OAK);
 		this.addDrop(JinericBlocks.PETRIFIED_OAK_LOG);
 		this.addDrop(JinericBlocks.PETRIFIED_OAK_WOOD);
 		this.addDrop(JinericBlocks.STRIPPED_PETRIFIED_OAK_LOG);
 		this.addDrop(JinericBlocks.STRIPPED_PETRIFIED_OAK_WOOD);
-		this.addDrop(JinericBlocks.PETRIFIED_OAK_PLANKS);
-		this.addDrop(JinericBlocks.PETRIFIED_OAK_STAIRS);
-		this.addDrop(JinericBlocks.PETRIFIED_OAK_SLAB);
-		this.addDrop(JinericBlocks.PETRIFIED_OAK_FENCE);
-		this.addDrop(JinericBlocks.PETRIFIED_OAK_FENCE_GATE);
-		this.addDrop(JinericBlocks.PETRIFIED_OAK_DOOR, this::doorDrops);
-		this.addDrop(JinericBlocks.PETRIFIED_OAK_TRAPDOOR);
-		this.addDrop(JinericBlocks.PETRIFIED_OAK_PRESSURE_PLATE);
-		this.addDrop(JinericBlocks.PETRIFIED_OAK_BUTTON);
+		this.addDrop(JinericBlocks.PETRIFIED_OAK_HANGING_SIGN);
 		this.addDrop(JinericBlocks.PETRIFIED_OAK_LEAVES, (block) -> this.leavesDrops(block, JinericBlocks.PETRIFIED_OAK_SAPLING, SAPLING_DROP_CHANCE));
 		this.addDrop(JinericBlocks.PETRIFIED_OAK_SAPLING);
 		this.addPottedPlantDrops(JinericBlocks.POTTED_PETRIFIED_OAK_SAPLING);
 		this.addDrop(JinericBlocks.PETRIFIED_OAK_LADDER);
 		this.addDrop(JinericBlocks.PETRIFIED_OAK_BOOKSHELF, (block) -> this.drops(block, Items.BOOK, ConstantLootNumberProvider.create(3.0F)));
-		this.addDrop(JinericBlocks.PETRIFIED_OAK_SIGN);
-		this.addDrop(JinericBlocks.PETRIFIED_OAK_HANGING_SIGN);
 	}
 	
-	private void genVanillaWoodFamilyAdditionDrops() {
+	private void addWoodenFamilyVariantDrops(BlockFamily blockFamily, WoodType woodType) {
 		DefaultedRegistry<Block> blockRegistry = Registries.BLOCK;
-		List<WoodType> woodTypes = WoodType.stream().toList();
-		woodTypes.forEach(
-				woodType -> {
-					// SKIPS OAK BECAUSE JINERIC DOES NOT HAVE UNIQUE OAK AT THE MOMENT
-					if (woodType != WoodType.OAK && woodType != WoodType.PALE_OAK) {
-						this.addDrop(blockRegistry.get(JinericMain.ofJineric(woodType.name() + "_ladder")));
-						this.addDrop(blockRegistry.get(JinericMain.ofJineric(woodType.name() + "_bookshelf")), block -> this.drops(block, Items.BOOK, ConstantLootNumberProvider.create(3.0F)));
-						this.addNameableContainerDrop(blockRegistry.get(JinericMain.ofJineric(woodType.name() + "_chest")));
-						this.addNameableContainerDrop(blockRegistry.get(JinericMain.ofJineric("trapped_" + woodType.name() + "_chest")));
-					}
+		for (BlockFamily.Variant variant : BlockFamily.Variant.values()) {
+			if (blockFamily.getVariant(variant) != null && blockRegistry.getId(blockFamily.getVariant(variant)).getNamespace().matches("jineric")) {
+				if (variant == BlockFamily.Variant.DOOR) {
+					this.addDrop(blockFamily.getVariant(BlockFamily.Variant.DOOR), this::doorDrops);
+				} else {
+					this.addDrop(blockFamily.getVariant(variant));
 				}
-		);
+			}
+		}
+		String woodTypeName = woodType.name().replace("jineric:", "");
+		// SKIPS OAK BECAUSE JINERIC DOES NOT HAVE UNIQUE OAK AT THE MOMENT
+		if (woodType != WoodType.OAK && woodType != WoodType.PALE_OAK) {
+			this.addDrop(blockRegistry.get(JinericMain.ofJineric(woodTypeName + "_ladder")));
+			if (woodType != JinericWoodType.PETRIFIED_OAK) {
+				this.addNameableContainerDrop(blockRegistry.get(JinericMain.ofJineric(woodTypeName + "_chest")));
+				this.addNameableContainerDrop(blockRegistry.get(JinericMain.ofJineric("trapped_" + woodTypeName + "_chest")));
+			}
+			this.addDrop(blockRegistry.get(JinericMain.ofJineric(woodTypeName + "_bookshelf")), block -> this.drops(block, Items.BOOK, ConstantLootNumberProvider.create(3.0F)));
+		}
+	}
+	
+	public void addVanillaWoodenFamilyDrops() {
+		DefaultedRegistry<Block> blockRegistry = Registries.BLOCK;
+		for (WoodType woodType : WoodType.stream().toList()) {
+			String woodTypeName = woodType.name().replace("jineric:", "");
+			// SKIPS OAK BECAUSE JINERIC DOES NOT HAVE UNIQUE OAK AT THE MOMENT
+			if (woodType != WoodType.OAK && woodType != WoodType.PALE_OAK) {
+				this.addDrop(blockRegistry.get(JinericMain.ofJineric(woodTypeName + "_ladder")));
+				if (woodType != JinericWoodType.PETRIFIED_OAK) {
+					this.addNameableContainerDrop(blockRegistry.get(JinericMain.ofJineric(woodTypeName + "_chest")));
+					this.addNameableContainerDrop(blockRegistry.get(JinericMain.ofJineric("trapped_" + woodTypeName + "_chest")));
+				}
+				this.addDrop(blockRegistry.get(JinericMain.ofJineric(woodTypeName + "_bookshelf")), block -> this.drops(block, Items.BOOK, ConstantLootNumberProvider.create(3.0F)));
+			}
+		}
 	}
 	
 	private void addNameableContainerDrop(Block drop) {
