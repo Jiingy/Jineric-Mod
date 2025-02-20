@@ -9,6 +9,7 @@
       "access.CookingRecipeJsonBuilderAccessor",
       "access.OverworldBiomeCreatorAccess",
       "access.SmithingTemplateItemAccess",
+      "access.TreeConfiguredFeaturesAccess",
       "access.WoodTypeAccess",
       "add.BrewingRecipeRegistryMixin",
       "add.ModifyRecipeBookOptionNamesMixin",
