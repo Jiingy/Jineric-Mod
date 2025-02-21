@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_Block{jineric:cracked_dripstone_tiles}": {
+    "has_cracked_dripstone_tiles": {
       "conditions": {
         "items": [
           {
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_Block{jineric:cracked_dripstone_tiles}"
+      "has_cracked_dripstone_tiles"
     ]
   ],
   "rewards": {

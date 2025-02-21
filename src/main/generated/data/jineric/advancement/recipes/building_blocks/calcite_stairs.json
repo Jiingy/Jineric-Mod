@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_Block{minecraft:calcite}": {
+    "has_calcite": {
       "conditions": {
         "items": [
           {
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_Block{minecraft:calcite}"
+      "has_calcite"
     ]
   ],
   "rewards": {

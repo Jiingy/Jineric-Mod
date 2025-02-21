@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_Block{jineric:stone_tiles}": {
+    "has_stone_tiles": {
       "conditions": {
         "items": [
           {
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_Block{jineric:stone_tiles}"
+      "has_stone_tiles"
     ]
   ],
   "rewards": {
