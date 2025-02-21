@@ -3,7 +3,6 @@ package jingy.jineric.data.generators.tag;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.ItemTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -14,27 +13,27 @@ public class JinericItemTagProvider extends FabricTagProvider.ItemTagProvider {
 	
 	@Override
 	protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-		this.getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN);
-		this.getOrCreateTagBuilder(ItemTags.PLANKS);
-		this.getOrCreateTagBuilder(ItemTags.STAIRS);
-		this.getOrCreateTagBuilder(ItemTags.WOODEN_STAIRS);
-		this.getOrCreateTagBuilder(ItemTags.SLABS);
-		this.getOrCreateTagBuilder(ItemTags.WOODEN_SLABS);
-		this.getOrCreateTagBuilder(ItemTags.FENCES);
-		this.getOrCreateTagBuilder(ItemTags.WOODEN_FENCES);
-		this.getOrCreateTagBuilder(ItemTags.DOORS);
-		this.getOrCreateTagBuilder(ItemTags.WOODEN_DOORS);
-		this.getOrCreateTagBuilder(ItemTags.TRAPDOORS);
-		this.getOrCreateTagBuilder(ItemTags.WOODEN_TRAPDOORS);
-		this.getOrCreateTagBuilder(ItemTags.WOODEN_PRESSURE_PLATES);
-		this.getOrCreateTagBuilder(ItemTags.BUTTONS);
-		this.getOrCreateTagBuilder(ItemTags.WOODEN_BUTTONS);
-		this.getOrCreateTagBuilder(ItemTags.LEAVES);
-		this.getOrCreateTagBuilder(ItemTags.SAPLINGS);
-		this.getOrCreateTagBuilder(ItemTags.SIGNS);
-		this.getOrCreateTagBuilder(ItemTags.HANGING_SIGNS);
-		this.getOrCreateTagBuilder(ItemTags.BOATS);
-		this.getOrCreateTagBuilder(ItemTags.CHEST_BOATS);
+//		this.getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN);
+//		this.getOrCreateTagBuilder(ItemTags.PLANKS);
+//		this.getOrCreateTagBuilder(ItemTags.STAIRS);
+//		this.getOrCreateTagBuilder(ItemTags.WOODEN_STAIRS);
+//		this.getOrCreateTagBuilder(ItemTags.SLABS);
+//		this.getOrCreateTagBuilder(ItemTags.WOODEN_SLABS);
+//		this.getOrCreateTagBuilder(ItemTags.FENCES);
+//		this.getOrCreateTagBuilder(ItemTags.WOODEN_FENCES);
+//		this.getOrCreateTagBuilder(ItemTags.DOORS);
+//		this.getOrCreateTagBuilder(ItemTags.WOODEN_DOORS);
+//		this.getOrCreateTagBuilder(ItemTags.TRAPDOORS);
+//		this.getOrCreateTagBuilder(ItemTags.WOODEN_TRAPDOORS);
+//		this.getOrCreateTagBuilder(ItemTags.WOODEN_PRESSURE_PLATES);
+//		this.getOrCreateTagBuilder(ItemTags.BUTTONS);
+//		this.getOrCreateTagBuilder(ItemTags.WOODEN_BUTTONS);
+//		this.getOrCreateTagBuilder(ItemTags.LEAVES);
+//		this.getOrCreateTagBuilder(ItemTags.SAPLINGS);
+//		this.getOrCreateTagBuilder(ItemTags.SIGNS);
+//		this.getOrCreateTagBuilder(ItemTags.HANGING_SIGNS);
+//		this.getOrCreateTagBuilder(ItemTags.BOATS);
+//		this.getOrCreateTagBuilder(ItemTags.CHEST_BOATS);
 //		this.getOrCreateTagBuilder(ItemTags.BANNERS);
 //		this.getOrCreateTagBuilder(ItemTags.BUNDLES);
 //		this.getOrCreateTagBuilder(ItemTags.FISHES);
