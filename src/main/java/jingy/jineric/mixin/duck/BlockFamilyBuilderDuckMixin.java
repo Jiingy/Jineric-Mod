@@ -1,7 +1,6 @@
 package jingy.jineric.mixin.duck;
 
 import jingy.jineric.access.BlockFamilyBuilderDuckAccess;
-import jingy.jineric.access.BlockFamilyDuckAccess;
 import net.minecraft.data.family.BlockFamily;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -13,7 +12,7 @@ public abstract class BlockFamilyBuilderDuckMixin implements BlockFamilyBuilderD
 	
 	@Override
 	public BlockFamily.Builder jineric_mod$modded() {
-		((BlockFamilyDuckAccess)this.family).jineric_mod$setModded(true);
+		this.family.jineric_mod$setModded(true);
 		return (BlockFamily.Builder)(Object)this;
 	}
 }

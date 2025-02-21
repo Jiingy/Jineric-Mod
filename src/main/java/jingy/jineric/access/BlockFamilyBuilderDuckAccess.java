@@ -6,5 +6,5 @@ public interface BlockFamilyBuilderDuckAccess {
 	
 	default BlockFamily.Builder jineric_mod$modded() {
 		return null;
-	};
+	}
 }
