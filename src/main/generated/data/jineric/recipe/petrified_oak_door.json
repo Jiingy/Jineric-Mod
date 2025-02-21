@@ -1,15 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "group": "wooden_slab",
+  "category": "redstone",
+  "group": "wooden_door",
   "key": {
     "#": "jineric:petrified_oak_planks"
   },
   "pattern": [
-    "###"
+    "##",
+    "##",
+    "##"
   ],
   "result": {
-    "count": 6,
-    "id": "jineric:petrified_oak_slab"
+    "count": 3,
+    "id": "jineric:petrified_oak_door"
   }
 }

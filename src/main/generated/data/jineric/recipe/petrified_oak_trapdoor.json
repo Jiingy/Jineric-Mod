@@ -1,17 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "group": "wooden_stairs",
+  "category": "redstone",
+  "group": "wooden_trapdoor",
   "key": {
     "#": "jineric:petrified_oak_planks"
   },
   "pattern": [
-    "#  ",
-    "## ",
+    "###",
     "###"
   ],
   "result": {
-    "count": 4,
-    "id": "jineric:petrified_oak_stairs"
+    "count": 2,
+    "id": "jineric:petrified_oak_trapdoor"
   }
 }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "jineric:petrified_oak_stairs"
+        "recipe": "jineric:petrified_oak_sign"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "jineric:petrified_oak_stairs"
+      "jineric:petrified_oak_sign"
     ]
   }
 }
