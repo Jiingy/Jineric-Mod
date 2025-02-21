@@ -55,7 +55,15 @@
         }
      },
      "loom:injected_interfaces": {
-        "net/minecraft/class_1481": ["net/minecraft/class_5146"]
+        "net/minecraft/class_1481": [
+           "net/minecraft/class_5146"
+        ],
+        "net/minecraft/class_5794": [
+           "jingy/jineric/access/BlockFamilyDuckAccess"
+        ],
+        "net/minecraft/class_5794\u0024class_5795": [
+           "jingy/jineric/access/BlockFamilyBuilderDuckAccess"
+        ]
      }
    }
 }
