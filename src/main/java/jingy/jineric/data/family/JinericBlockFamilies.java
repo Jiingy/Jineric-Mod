@@ -18,6 +18,7 @@ public class JinericBlockFamilies extends BlockFamilies {
 			.trapdoor(JinericBlocks.PETRIFIED_OAK_TRAPDOOR)
 			.group("wooden")
 			.unlockCriterionName("has_planks")
+			.jineric_mod$modded()
 			.build();
 	
 	public static final BlockFamily DRIPSTONE = register(Blocks.DRIPSTONE_BLOCK)
