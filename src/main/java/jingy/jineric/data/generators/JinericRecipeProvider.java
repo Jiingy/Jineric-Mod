@@ -26,6 +26,8 @@ import net.minecraft.recipe.book.CookingRecipeCategory;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.*;
 import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.resource.featuretoggle.FeatureFlags;
+import net.minecraft.resource.featuretoggle.FeatureSet;
 import net.minecraft.util.Identifier;
 
 import java.util.Arrays;
@@ -48,15 +50,20 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 			
 			@Override
 			public void generate() {
+				BlockFamilies.getFamilies()
+						.filter(blockFamily -> blockFamily.shouldGenerateRecipes() && blockFamily.jineric_mod$isModded())
+						.forEach(blockFamily -> this.generateFamily(blockFamily, FeatureSet.of(FeatureFlags.VANILLA)));
 				RegistryEntryLookup<Item> itemRegistryEntryLookup = registries.getOrThrow(RegistryKeys.ITEM);
 // ITEMS
 				this.genVanillaWoodFamilyAdditions();
-				this.genFamilyBaseToVariants();
+				this.genVanillaFamilyAdditions();
 				this.offerGildedNuggetItem(Items.POTATO, JinericItems.GOLDEN_POTATO);
 				this.offerGildedNuggetItem(Items.SWEET_BERRIES, JinericItems.GOLDEN_SWEET_BERRIES);
 				this.offerGildedNuggetItem(Items.BEETROOT, JinericItems.GOLDEN_BEETROOT);
 				this.offerNetheriteUpgradeRecipe(Items.DIAMOND_HORSE_ARMOR, RecipeCategory.COMBAT, JinericItems.NETHERITE_HORSE_ARMOR);
 // BLOCKS
+				this.offerStairs(Blocks.SMOOTH_STONE, JinericBlocks.SMOOTH_STONE_STAIRS);
+				this.offerWallRecipe(RecipeCategory.DECORATIONS, JinericBlocks.SMOOTH_STONE_WALL, Blocks.SMOOTH_STONE);
 				this.offerFenceRecipe(Blocks.RED_NETHER_BRICKS, Items.NETHER_BRICK, JinericBlocks.RED_NETHER_BRICK_FENCE);
 				this.offerPolishedStoneRecipe(RecipeCategory.BUILDING_BLOCKS, JinericBlocks.POLISHED_STONE, Blocks.STONE);
 				this.offerPolishedStoneRecipe(RecipeCategory.BUILDING_BLOCKS, JinericBlocks.POLISHED_DRIPSTONE, Blocks.DRIPSTONE_BLOCK);
@@ -252,8 +259,8 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				});
 			}
 			
-			public void genFamilyBaseToVariants() {
-				Stream<BlockFamily> blockFamilies = BlockFamilies.getFamilies();
+			public void genVanillaFamilyAdditions() {
+				Stream<BlockFamily> blockFamilies = BlockFamilies.getFamilies().filter(blockFamily -> !blockFamily.jineric_mod$isModded());
 				blockFamilies.forEach(blockFamily -> {
 					for (Block familyVariant : blockFamily.getVariants().values()) {
 						if (Registries.BLOCK.getId(familyVariant).getNamespace().matches("jineric")) {
@@ -275,8 +282,8 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 			public void genVanillaWoodFamilyAdditions() {
 				DefaultedRegistry<Block> blockRegistry = Registries.BLOCK;
 				List<WoodType> woodTypes = WoodType.stream().toList();
-				woodTypes.forEach(woodType -> blockRegistry.stream()
-						.filter(block -> blockRegistry.getId(block).getNamespace().equals("jineric"))
+				woodTypes.forEach(woodType ->
+						blockRegistry.stream().filter(block -> blockRegistry.getId(block).getNamespace().equals("jineric"))
 						.forEach(block -> {
 							Block plank = blockRegistry.get(Identifier.of(woodType.name() + "_planks"));
 							String blockKey = block.getTranslationKey();

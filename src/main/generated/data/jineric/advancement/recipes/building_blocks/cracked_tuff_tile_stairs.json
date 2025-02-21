@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_Block{jineric:cracked_tuff_tiles}": {
+    "has_cracked_tuff_tiles": {
       "conditions": {
         "items": [
           {
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_Block{jineric:cracked_tuff_tiles}"
+      "has_cracked_tuff_tiles"
     ]
   ],
   "rewards": {
