@@ -29,7 +29,7 @@
          "jingy.jineric.base.plugins.JinericPreLaunch"
       ],
       "terrablender": [
-         "jingy.jineric.base.plugins.TerraBlenderPlugin"
+         "jingy.jineric.base.plugins.terrablender.TerraBlenderPlugin"
       ],
       "mm:early_risers": [
          "jingy.jineric.base.plugins.EarlyRiser"
