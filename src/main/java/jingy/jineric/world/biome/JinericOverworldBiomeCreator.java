@@ -51,7 +51,7 @@ public class JinericOverworldBiomeCreator extends OverworldBiomeCreator {
 		}
 		
 		DefaultBiomeFeatures.addDefaultMushrooms(builder);
-//      builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, JinericVegetationPlacedFeatures.CARVED_PUMPKIN_PATCH);
+		builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, JinericVegetationPlacedFeatures.CARVED_PUMPKIN_PATCH);
 		builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_SUGAR_CANE);
 		
 		SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
@@ -62,8 +62,15 @@ public class JinericOverworldBiomeCreator extends OverworldBiomeCreator {
 		} else {
 			spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.WOLF, 5, 4, 4));
 		}
-
-//      return OverworldBiomeCreatorAccess.invokeCreateBiome(true, 0.7F, 0.8F, spawnBuilder, builder, musicSound);
-		return OverworldBiomeCreatorAccess.invokeCreateBiome(true, 0.7F, 0.8F, 1201651, 921191, 8310072, 8310072, spawnBuilder, builder, musicSound);
+		return OverworldBiomeCreatorAccess.invokeCreateBiome(
+				true,
+				0.7F,
+				0.8F,
+				1201651,
+				921191,
+				7649089,
+				7649089,
+				spawnBuilder, builder, musicSound
+		);
 	}
 }
