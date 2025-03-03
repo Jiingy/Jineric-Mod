@@ -4,6 +4,7 @@ import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.item.JinericItems;
 import jingy.jineric.mixin.access.CookingRecipeJsonBuilderAccessor;
 import jingy.jineric.recipe.RefiningRecipe;
+import jingy.jineric.tag.JinericItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.advancement.criterion.Criteria;
@@ -62,6 +63,15 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				this.offerGildedNuggetItem(Items.BEETROOT, JinericItems.GOLDEN_BEETROOT);
 				this.offerNetheriteUpgradeRecipe(Items.DIAMOND_HORSE_ARMOR, RecipeCategory.COMBAT, JinericItems.NETHERITE_HORSE_ARMOR);
 // BLOCKS
+				this.offerPlanksRecipe(JinericBlocks.PETRIFIED_OAK_PLANKS, JinericItemTags.PETRIFIED_OAK_LOGS, 4);
+				this.offerBarkBlockRecipe(JinericBlocks.PETRIFIED_OAK_LOG, JinericBlocks.PETRIFIED_OAK_WOOD);
+				this.offerBarkBlockRecipe(JinericBlocks.STRIPPED_PETRIFIED_OAK_LOG, JinericBlocks.STRIPPED_PETRIFIED_OAK_WOOD);
+				this.offerChest(JinericBlocks.PETRIFIED_OAK_PLANKS, Blocks.CHEST);
+				this.offerBoatRecipe(JinericItems.PETRIFIED_OAK_BOAT, JinericBlocks.PETRIFIED_OAK_PLANKS);
+				this.offerChestBoatRecipe(JinericItems.PETRIFIED_OAK_CHEST_BOAT);
+				this.offerHangingSignRecipe(JinericBlocks.PETRIFIED_OAK_HANGING_SIGN, JinericBlocks.PETRIFIED_OAK_PLANKS);
+				this.offerLadder(JinericBlocks.PETRIFIED_OAK_PLANKS, JinericBlocks.PETRIFIED_OAK_LADDER);
+				this.offerBookshelf(JinericBlocks.PETRIFIED_OAK_PLANKS, JinericBlocks.PETRIFIED_OAK_BOOKSHELF);
 				this.offerStairs(Blocks.SMOOTH_STONE, JinericBlocks.SMOOTH_STONE_STAIRS);
 				this.offerWallRecipe(RecipeCategory.DECORATIONS, JinericBlocks.SMOOTH_STONE_WALL, Blocks.SMOOTH_STONE);
 				this.offerFenceRecipe(Blocks.RED_NETHER_BRICKS, Items.NETHER_BRICK, JinericBlocks.RED_NETHER_BRICK_FENCE);
@@ -456,6 +466,15 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						.pattern("#&#")
 						.criterion("has_" + inputOuter, this.conditionsFromItem(inputOuter))
 						.offerTo(recipeExporter);
+			}
+			
+			public void offerChestBoatRecipe(ItemConvertible output) {
+				this.createShapeless(RecipeCategory.TRANSPORTATION, output)
+						.input(ItemTags.BOATS)
+						.input(JinericItemTags.CHESTS)
+						.group("chest_boat")
+						.criterion("has_boat", this.conditionsFromTag(ItemTags.BOATS))
+						.offerTo(this.exporter);
 			}
 			
 			public void offerWavy(ItemConvertible output, ItemConvertible input) {
