@@ -32,7 +32,7 @@ public class JinericTreeConfiguredFeatures extends TreeConfiguredFeatures {
 				TreeConfiguredFeaturesAccess.initBuilder(
 						JinericBlocks.PETRIFIED_OAK_LOG,
 						JinericBlocks.PETRIFIED_OAK_LEAVES,
-						5, 2, 1, 2
+						6, 2, 1, 2
 				).ignoreVines().build()
 		);
 //      ConfiguredFeatures.register(featureRegistrable, PETRIFIED_OAK_BEES_002, Feature.TREE, petrifiedOak().decorators(List.of(beehiveTreeDecorator002)).build());
