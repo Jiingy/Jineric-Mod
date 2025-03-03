@@ -1,5 +1,6 @@
 package jingy.jineric.data.generators;
 
+import jingy.jineric.block.JinericBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.registry.RegistryWrapper;
@@ -13,6 +14,7 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 	
 	@Override
 	public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
-
+		translationBuilder.add(JinericBlocks.BLOSSOMED_DANDELION, "Blossomed Dandelion");
+		translationBuilder.add(JinericBlocks.ROSE, "Rose");
 	}
 }
