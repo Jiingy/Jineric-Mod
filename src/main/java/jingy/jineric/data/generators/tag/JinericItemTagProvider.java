@@ -2,12 +2,9 @@ package jingy.jineric.data.generators.tag;
 
 import jingy.jineric.item.JinericItems;
 import jingy.jineric.tag.JinericItemTags;
-import jingy.jineric.item.JinericItems;
-import jingy.jineric.tag.JinericItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.ItemTags;
 
 import java.util.concurrent.CompletableFuture;
@@ -19,7 +16,11 @@ public class JinericItemTagProvider extends FabricTagProvider.ItemTagProvider {
 	
 	@Override
 	protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-		this.getOrCreateTagBuilder(JinericItemTags.PETRIFIED_OAK_LOGS).add(JinericItems.PETRIFIED_OAK_LOG).add(JinericItems.PETRIFIED_OAK_WOOD).add(JinericItems.STRIPPED_PETRIFIED_OAK_LOG).add(JinericItems.STRIPPED_PETRIFIED_OAK_WOOD);
+		this.getOrCreateTagBuilder(JinericItemTags.PETRIFIED_OAK_LOGS)
+				.add(JinericItems.PETRIFIED_OAK_LOG)
+				.add(JinericItems.PETRIFIED_OAK_WOOD)
+				.add(JinericItems.STRIPPED_PETRIFIED_OAK_LOG)
+				.add(JinericItems.STRIPPED_PETRIFIED_OAK_WOOD);
 		this.getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN).addTag(JinericItemTags.PETRIFIED_OAK_LOGS);
 		this.getOrCreateTagBuilder(ItemTags.PLANKS).add(JinericItems.PETRIFIED_OAK_PLANKS);
 		this.getOrCreateTagBuilder(ItemTags.STAIRS).add(JinericItems.PETRIFIED_OAK_STAIRS);
