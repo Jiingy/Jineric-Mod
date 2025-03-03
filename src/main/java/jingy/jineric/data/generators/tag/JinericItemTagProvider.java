@@ -1,7 +1,10 @@
 package jingy.jineric.data.generators.tag;
 
+import jingy.jineric.item.JinericItems;
+import jingy.jineric.tag.JinericItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
 
 import java.util.concurrent.CompletableFuture;
@@ -13,6 +16,20 @@ public class JinericItemTagProvider extends FabricTagProvider.ItemTagProvider {
 	
 	@Override
 	protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+		this.getOrCreateTagBuilder(JinericItemTags.CHESTS)
+				.addTag(JinericItemTags.WOODEN_CHESTS);
+		this.getOrCreateTagBuilder(JinericItemTags.WOODEN_CHESTS)
+				.add(Items.CHEST)
+				.add(JinericItems.SPRUCE_CHEST)
+				.add(JinericItems.BIRCH_CHEST)
+				.add(JinericItems.JUNGLE_CHEST)
+				.add(JinericItems.ACACIA_CHEST)
+				.add(JinericItems.DARK_OAK_CHEST)
+				.add(JinericItems.MANGROVE_CHEST)
+				.add(JinericItems.CHERRY_CHEST)
+				.add(JinericItems.BAMBOO_CHEST)
+				.add(JinericItems.CRIMSON_CHEST)
+				.add(JinericItems.WARPED_CHEST);
 //		this.getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN);
 //		this.getOrCreateTagBuilder(ItemTags.PLANKS);
 //		this.getOrCreateTagBuilder(ItemTags.STAIRS);
