@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "bookshelf",
+  "key": {
+    "B": "minecraft:book",
+    "M": "jineric:petrified_oak_planks"
+  },
+  "pattern": [
+    "MMM",
+    "BBB",
+    "MMM"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jineric:petrified_oak_bookshelf"
+  }
+}
