@@ -68,7 +68,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				this.offerBarkBlockRecipe(JinericBlocks.STRIPPED_PETRIFIED_OAK_LOG, JinericBlocks.STRIPPED_PETRIFIED_OAK_WOOD);
 				this.offerChest(JinericBlocks.PETRIFIED_OAK_PLANKS, Blocks.CHEST);
 				this.offerBoatRecipe(JinericItems.PETRIFIED_OAK_BOAT, JinericBlocks.PETRIFIED_OAK_PLANKS);
-				this.offerChestBoatRecipe(JinericItems.PETRIFIED_OAK_CHEST_BOAT);
+				this.offerChestBoatRecipe(JinericItems.PETRIFIED_OAK_BOAT, JinericItems.PETRIFIED_OAK_CHEST_BOAT);
 				this.offerHangingSignRecipe(JinericBlocks.PETRIFIED_OAK_HANGING_SIGN, JinericBlocks.PETRIFIED_OAK_PLANKS);
 				this.offerLadder(JinericBlocks.PETRIFIED_OAK_PLANKS, JinericBlocks.PETRIFIED_OAK_LADDER);
 				this.offerBookshelf(JinericBlocks.PETRIFIED_OAK_PLANKS, JinericBlocks.PETRIFIED_OAK_BOOKSHELF);
@@ -468,10 +468,10 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						.offerTo(recipeExporter);
 			}
 			
-			public void offerChestBoatRecipe(ItemConvertible output) {
+			public void offerChestBoatRecipe(ItemConvertible input, ItemConvertible output) {
 				this.createShapeless(RecipeCategory.TRANSPORTATION, output)
-						.input(ItemTags.BOATS)
 						.input(JinericItemTags.CHESTS)
+						.input(input)
 						.group("chest_boat")
 						.criterion("has_boat", this.conditionsFromTag(ItemTags.BOATS))
 						.offerTo(this.exporter);
