@@ -234,6 +234,16 @@ public class JinericBlocks {
 			settings -> new FlowerPotBlock(BLOSSOMED_DANDELION, settings),
 			createFlowerPotSettings()
 	);
+	public static final Block ROSE = register(
+			"rose",
+			settings -> new BlossomedDandelion(StatusEffects.NAUSEA, 12, settings),
+			AbstractBlock.Settings.copy(DANDELION)
+	);
+	public static final Block POTTED_ROSE = register(
+			"potted_rose",
+			settings -> new FlowerPotBlock(ROSE, settings),
+			createFlowerPotSettings()
+	);
 	public static final Block FULL_GRASS_BLOCK = register("full_grass_block", FullGrassBlock::new, AbstractBlock.Settings.copy(GRASS_BLOCK));
 	public static final Block PRISMARINE_BRICK_WALL = register("prismarine_brick_wall", WallBlock::new, AbstractBlock.Settings.copy(PRISMARINE_BRICKS));
 	public static final Block DARK_PRISMARINE_WALL = register("dark_prismarine_wall", WallBlock::new, AbstractBlock.Settings.copy(DARK_PRISMARINE));

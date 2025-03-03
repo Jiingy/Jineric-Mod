@@ -1,10 +1,8 @@
 package jingy.jineric.item;
 
 import jingy.jineric.base.JinericMain;
-import jingy.jineric.block.JinericBlocks;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
@@ -269,6 +267,8 @@ public class JinericItemGroups {
 					entries.add(JinericItems.REDSTONE_LANTERN);
 					entries.add(JinericItems.REDSTONE_CAMPFIRE);
 					entries.add(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE);
+					entries.add(JinericItems.BLOSSOMED_DANDELION);
+					entries.add(JinericItems.ROSE);
 				}).build()
 		);
 	}

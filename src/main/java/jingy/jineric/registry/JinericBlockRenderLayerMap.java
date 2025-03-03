@@ -11,6 +11,9 @@ public class JinericBlockRenderLayerMap {
 	
 	public static void registerBlockRenderLayerMaps() {
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BLOSSOMED_DANDELION, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.POTTED_BLOSSOMED_DANDELION, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.ROSE, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.POTTED_ROSE, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.PETRIFIED_OAK_TRAPDOOR, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.PETRIFIED_OAK_DOOR, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.PETRIFIED_OAK_LADDER, RenderLayer.getCutout());

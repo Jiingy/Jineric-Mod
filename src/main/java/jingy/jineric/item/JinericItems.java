@@ -299,6 +299,9 @@ public class JinericItems {
 	public static final Item NETHERITE_HORSE_ARMOR = register(
 			"netherite_horse_armor", settings -> new AnimalArmorItem(ArmorMaterials.NETHERITE, AnimalArmorItem.Type.EQUESTRIAN, SoundEvents.ENTITY_HORSE_ARMOR, false, settings)
 	);
+	public static final Item BLOSSOMED_DANDELION = register(JinericBlocks.BLOSSOMED_DANDELION);
+	public static final Item ROSE = register(JinericBlocks.ROSE);
+	
 	
 	//WIP OR UNKNOWN ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	public static final Item IRON_UPGRADE_SMITHING_TEMPLATE = register(
@@ -308,7 +311,6 @@ public class JinericItems {
 	public static final Item REFINERY = register(JinericBlocks.REFINERY);
 	public static final Item REDSTONE_CAMPFIRE = register(JinericBlocks.REDSTONE_CAMPFIRE);
 	public static final Item FIREWEED = register(JinericBlocks.FIREWEED);
-	public static final Item BLOSSOMED_DANDELION = register(JinericBlocks.BLOSSOMED_DANDELION);
 	
 	private static RegistryKey<Item> keyOf(String id) {
 		return RegistryKey.of(RegistryKeys.ITEM, JinericMain.ofJineric(id));

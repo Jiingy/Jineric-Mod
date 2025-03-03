@@ -83,6 +83,8 @@ public class JinericModelProvider extends FabricModelProvider {
 		this.registerWall(JinericBlockFamilies.WAXED_OXIDIZED_CUT_COPPER, TextureMap.all(Blocks.OXIDIZED_CUT_COPPER), bsmg);
 		
 		bsmg.registerFlowerPotPlantAndItem(JinericBlocks.PETRIFIED_OAK_SAPLING, JinericBlocks.POTTED_PETRIFIED_OAK_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
+		bsmg.registerFlowerPotPlantAndItem(JinericBlocks.BLOSSOMED_DANDELION, JinericBlocks.POTTED_BLOSSOMED_DANDELION, BlockStateModelGenerator.CrossType.NOT_TINTED);
+		bsmg.registerFlowerPotPlantAndItem(JinericBlocks.ROSE, JinericBlocks.POTTED_ROSE, BlockStateModelGenerator.CrossType.NOT_TINTED);
 	}
 	
 	@Override
