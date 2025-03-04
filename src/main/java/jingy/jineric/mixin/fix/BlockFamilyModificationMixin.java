@@ -13,6 +13,156 @@ import org.spongepowered.asm.mixin.injection.At;
 public abstract class BlockFamilyModificationMixin {
 	
 	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
+	@Definition(id = "BIRCH", field = "Lnet/minecraft/data/family/BlockFamilies;BIRCH:Lnet/minecraft/data/family/BlockFamily;")
+	@Expression("BIRCH = @(?.build())")
+	@ModifyReceiver(
+			method = "<clinit>",
+			at = @At("MIXINEXTRAS:EXPRESSION")
+	)
+	private static BlockFamily.Builder modifyBirchFamily(BlockFamily.Builder instance) {
+		return instance
+				.jineric_mod$bookshelf(JinericBlocks.BIRCH_BOOKSHELF)
+				.jineric_mod$chest(JinericBlocks.BIRCH_CHEST)
+				.jineric_mod$trappedChest(JinericBlocks.TRAPPED_BIRCH_CHEST)
+				.jineric_mod$ladder(JinericBlocks.BIRCH_LADDER);
+	}
+	
+	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
+	@Definition(id = "SPRUCE", field = "Lnet/minecraft/data/family/BlockFamilies;SPRUCE:Lnet/minecraft/data/family/BlockFamily;")
+	@Expression("SPRUCE = @(?.build())")
+	@ModifyReceiver(
+			method = "<clinit>",
+			at = @At("MIXINEXTRAS:EXPRESSION")
+	)
+	private static BlockFamily.Builder modifySpruceFamily(BlockFamily.Builder instance) {
+		return instance
+				.jineric_mod$bookshelf(JinericBlocks.SPRUCE_BOOKSHELF)
+				.jineric_mod$chest(JinericBlocks.SPRUCE_CHEST)
+				.jineric_mod$trappedChest(JinericBlocks.TRAPPED_SPRUCE_CHEST)
+				.jineric_mod$ladder(JinericBlocks.SPRUCE_LADDER);
+	}
+	
+	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
+	@Definition(id = "DARK_OAK", field = "Lnet/minecraft/data/family/BlockFamilies;DARK_OAK:Lnet/minecraft/data/family/BlockFamily;")
+	@Expression("DARK_OAK = @(?.build())")
+	@ModifyReceiver(
+			method = "<clinit>",
+			at = @At("MIXINEXTRAS:EXPRESSION")
+	)
+	private static BlockFamily.Builder modifyDarkOakFamily(BlockFamily.Builder instance) {
+		return instance
+				.jineric_mod$bookshelf(JinericBlocks.DARK_OAK_BOOKSHELF)
+				.jineric_mod$chest(JinericBlocks.DARK_OAK_CHEST)
+				.jineric_mod$trappedChest(JinericBlocks.TRAPPED_DARK_OAK_CHEST)
+				.jineric_mod$ladder(JinericBlocks.DARK_OAK_LADDER);
+	}
+	
+	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
+	@Definition(id = "ACACIA", field = "Lnet/minecraft/data/family/BlockFamilies;ACACIA:Lnet/minecraft/data/family/BlockFamily;")
+	@Expression("ACACIA = @(?.build())")
+	@ModifyReceiver(
+			method = "<clinit>",
+			at = @At("MIXINEXTRAS:EXPRESSION")
+	)
+	private static BlockFamily.Builder modifyAcaciaFamily(BlockFamily.Builder instance) {
+		return instance
+				.jineric_mod$bookshelf(JinericBlocks.ACACIA_BOOKSHELF)
+				.jineric_mod$chest(JinericBlocks.ACACIA_CHEST)
+				.jineric_mod$trappedChest(JinericBlocks.TRAPPED_ACACIA_CHEST)
+				.jineric_mod$ladder(JinericBlocks.ACACIA_LADDER);
+	}
+	
+	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
+	@Definition(id = "JUNGLE", field = "Lnet/minecraft/data/family/BlockFamilies;JUNGLE:Lnet/minecraft/data/family/BlockFamily;")
+	@Expression("JUNGLE = @(?.build())")
+	@ModifyReceiver(
+			method = "<clinit>",
+			at = @At("MIXINEXTRAS:EXPRESSION")
+	)
+	private static BlockFamily.Builder modifyJungleFamily(BlockFamily.Builder instance) {
+		return instance
+				.jineric_mod$bookshelf(JinericBlocks.JUNGLE_BOOKSHELF)
+				.jineric_mod$chest(JinericBlocks.JUNGLE_CHEST)
+				.jineric_mod$trappedChest(JinericBlocks.TRAPPED_JUNGLE_CHEST)
+				.jineric_mod$ladder(JinericBlocks.JUNGLE_LADDER);
+	}
+	
+	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
+	@Definition(id = "BAMBOO", field = "Lnet/minecraft/data/family/BlockFamilies;BAMBOO:Lnet/minecraft/data/family/BlockFamily;")
+	@Expression("BAMBOO = @(?.build())")
+	@ModifyReceiver(
+			method = "<clinit>",
+			at = @At("MIXINEXTRAS:EXPRESSION")
+	)
+	private static BlockFamily.Builder modifyBambooFamily(BlockFamily.Builder instance) {
+		return instance
+				.jineric_mod$bookshelf(JinericBlocks.BAMBOO_BOOKSHELF)
+				.jineric_mod$chest(JinericBlocks.BAMBOO_CHEST)
+				.jineric_mod$trappedChest(JinericBlocks.TRAPPED_BAMBOO_CHEST)
+				.jineric_mod$ladder(JinericBlocks.BAMBOO_LADDER);
+	}
+	
+	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
+	@Definition(id = "MANGROVE", field = "Lnet/minecraft/data/family/BlockFamilies;MANGROVE:Lnet/minecraft/data/family/BlockFamily;")
+	@Expression("MANGROVE = @(?.build())")
+	@ModifyReceiver(
+			method = "<clinit>",
+			at = @At("MIXINEXTRAS:EXPRESSION")
+	)
+	private static BlockFamily.Builder modifyMangroveFamily(BlockFamily.Builder instance) {
+		return instance
+				.jineric_mod$bookshelf(JinericBlocks.MANGROVE_BOOKSHELF)
+				.jineric_mod$chest(JinericBlocks.MANGROVE_CHEST)
+				.jineric_mod$trappedChest(JinericBlocks.TRAPPED_MANGROVE_CHEST)
+				.jineric_mod$ladder(JinericBlocks.MANGROVE_LADDER);
+	}
+	
+	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
+	@Definition(id = "CHERRY", field = "Lnet/minecraft/data/family/BlockFamilies;CHERRY:Lnet/minecraft/data/family/BlockFamily;")
+	@Expression("CHERRY = @(?.build())")
+	@ModifyReceiver(
+			method = "<clinit>",
+			at = @At("MIXINEXTRAS:EXPRESSION")
+	)
+	private static BlockFamily.Builder modifyCherryFamily(BlockFamily.Builder instance) {
+		return instance
+				.jineric_mod$bookshelf(JinericBlocks.CHERRY_BOOKSHELF)
+				.jineric_mod$chest(JinericBlocks.CHERRY_CHEST)
+				.jineric_mod$trappedChest(JinericBlocks.TRAPPED_CHERRY_CHEST)
+				.jineric_mod$ladder(JinericBlocks.CHERRY_LADDER);
+	}
+	
+	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
+	@Definition(id = "WARPED", field = "Lnet/minecraft/data/family/BlockFamilies;WARPED:Lnet/minecraft/data/family/BlockFamily;")
+	@Expression("WARPED = @(?.build())")
+	@ModifyReceiver(
+			method = "<clinit>",
+			at = @At("MIXINEXTRAS:EXPRESSION")
+	)
+	private static BlockFamily.Builder modifyWarpedFamily(BlockFamily.Builder instance) {
+		return instance
+				.jineric_mod$bookshelf(JinericBlocks.WARPED_BOOKSHELF)
+				.jineric_mod$chest(JinericBlocks.WARPED_CHEST)
+				.jineric_mod$trappedChest(JinericBlocks.TRAPPED_WARPED_CHEST)
+				.jineric_mod$ladder(JinericBlocks.WARPED_LADDER);
+	}
+	
+	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
+	@Definition(id = "CRIMSON", field = "Lnet/minecraft/data/family/BlockFamilies;CRIMSON:Lnet/minecraft/data/family/BlockFamily;")
+	@Expression("CRIMSON = @(?.build())")
+	@ModifyReceiver(
+			method = "<clinit>",
+			at = @At("MIXINEXTRAS:EXPRESSION")
+	)
+	private static BlockFamily.Builder modifyCrimsonFamily(BlockFamily.Builder instance) {
+		return instance
+				.jineric_mod$bookshelf(JinericBlocks.CRIMSON_BOOKSHELF)
+				.jineric_mod$chest(JinericBlocks.CRIMSON_CHEST)
+				.jineric_mod$trappedChest(JinericBlocks.TRAPPED_CRIMSON_CHEST)
+				.jineric_mod$ladder(JinericBlocks.CRIMSON_LADDER);
+	}
+	
+	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
 	@Definition(id = "STONE", field = "Lnet/minecraft/data/family/BlockFamilies;STONE:Lnet/minecraft/data/family/BlockFamily;")
 	@Expression("STONE = @(?.build())")
 	@ModifyReceiver(
@@ -20,9 +170,8 @@ public abstract class BlockFamilyModificationMixin {
 			at = @At("MIXINEXTRAS:EXPRESSION")
 	)
 	private static BlockFamily.Builder modifyStoneFamily(BlockFamily.Builder instance) {
-		return instance.wall(JinericBlocks.STONE_WALL)
+		return instance.wall(JinericBlocks.STONE_WALL);
 				// MIGHT BREAK RECIPE OF STONE BRICKS
-				.polished(JinericBlocks.POLISHED_STONE);
 	}
 	
 	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
@@ -118,7 +267,10 @@ public abstract class BlockFamilyModificationMixin {
 			at = @At("MIXINEXTRAS:EXPRESSION")
 	)
 	private static BlockFamily.Builder modifyCutSandstoneFamily(BlockFamily.Builder instance) {
-		return instance.stairs(JinericBlocks.CUT_SANDSTONE_STAIRS).wall(JinericBlocks.CUT_SANDSTONE_WALL).noGenerateModels();
+		return instance
+				.stairs(JinericBlocks.CUT_SANDSTONE_STAIRS)
+				.wall(JinericBlocks.CUT_SANDSTONE_WALL)
+				.noGenerateModels();
 	}
 	
 	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
@@ -140,18 +292,10 @@ public abstract class BlockFamilyModificationMixin {
 			at = @At("MIXINEXTRAS:EXPRESSION")
 	)
 	private static BlockFamily.Builder modifyCutRedSandstoneFamily(BlockFamily.Builder instance) {
-		return instance.stairs(JinericBlocks.CUT_RED_SANDSTONE_STAIRS).wall(JinericBlocks.CUT_RED_SANDSTONE_WALL).noGenerateModels();
-	}
-	
-	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
-	@Definition(id = "TUFF_BRICK", field = "Lnet/minecraft/data/family/BlockFamilies;TUFF_BRICK:Lnet/minecraft/data/family/BlockFamily;")
-	@Expression("TUFF_BRICK = @(?.build())")
-	@ModifyReceiver(
-			method = "<clinit>",
-			at = @At("MIXINEXTRAS:EXPRESSION")
-	)
-	private static BlockFamily.Builder modifyTuffBrickFamily(BlockFamily.Builder instance) {
-		return instance.cracked(JinericBlocks.CRACKED_TUFF_BRICKS);
+		return instance
+				.stairs(JinericBlocks.CUT_RED_SANDSTONE_STAIRS)
+				.wall(JinericBlocks.CUT_RED_SANDSTONE_WALL)
+				.noGenerateModels();
 	}
 	
 	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
@@ -263,24 +407,26 @@ public abstract class BlockFamilyModificationMixin {
 	private static BlockFamily.Builder modifyRedNetherBrickFamily(BlockFamily.Builder instance) {
 		return instance.fence(JinericBlocks.RED_NETHER_BRICK_FENCE);
 	}
-
-//   @Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
-//   @Expression("COPPER = @(?.build())")
-//   @ModifyReceiver(
-//           method = "<clinit>",
-//           at = @At("MIXINEXTRAS:EXPRESSION")
-//   )
-//   private static BlockFamily.Builder modifyCopperFamily(BlockFamily.Builder instance) {
-//      return instance.wall(JinericBlocks.COPPER);
-//   }
-
-//   @Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
-//   @Expression(" = @(?.build())")
-//   @ModifyReceiver(
-//           method = "<clinit>",
-//           at = @At("MIXINEXTRAS:EXPRESSION")
-//   )
-//   private static BlockFamily.Builder modify_Family(BlockFamily.Builder instance) {
-//      return instance.wall(JinericBlocks.);
-//   }
+	
+	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
+	@Definition(id = "STONE_BRICK", field = "Lnet/minecraft/data/family/BlockFamilies;STONE_BRICK:Lnet/minecraft/data/family/BlockFamily;")
+	@Expression("STONE_BRICK = @(?.build())")
+	@ModifyReceiver(
+			method = "<clinit>",
+			at = @At("MIXINEXTRAS:EXPRESSION")
+	)
+	private static BlockFamily.Builder modifyStoneBrickFamily(BlockFamily.Builder instance) {
+		return instance.jineric_mod$pillar(JinericBlocks.STONE_BRICK_PILLAR);
+	}
+	
+	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
+	@Definition(id = "TUFF_BRICK", field = "Lnet/minecraft/data/family/BlockFamilies;TUFF_BRICK:Lnet/minecraft/data/family/BlockFamily;")
+	@Expression("TUFF_BRICK = @(?.build())")
+	@ModifyReceiver(
+			method = "<clinit>",
+			at = @At("MIXINEXTRAS:EXPRESSION")
+	)
+	private static BlockFamily.Builder modifyTuffBrickFamily(BlockFamily.Builder instance) {
+		return instance.jineric_mod$pillar(JinericBlocks.TUFF_BRICK_PILLAR);
+	}
 }
