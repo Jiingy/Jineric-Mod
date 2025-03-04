@@ -47,7 +47,7 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		builder.add(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE, "Smithing Template");
 	}
 	
-	private void tryExisting(TranslationBuilder builder) {
+	public void tryExisting(TranslationBuilder builder) {
 		try {
 			Path existingPath;
 			if (dataOutput.getModContainer().findPath("assets/jineric/lang/en_us_existing.json").isPresent()) {
@@ -59,7 +59,7 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		}
 	}
 	
-	private void addBlockFamilies(TranslationBuilder builder) {
+	public void addBlockFamilies(TranslationBuilder builder) {
 		BlockFamilies.getFamilies().forEach(blockFamily -> {
 			Block baseBlock = blockFamily.getBaseBlock();
 			this.addJineric(builder, baseBlock);
@@ -67,14 +67,14 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		});
 	}
 	
-	private void addJineric(TranslationBuilder builder, Block block) {
+	public void addJineric(TranslationBuilder builder, Block block) {
 		if (Registries.BLOCK.getId(block).getNamespace().equals("jineric")) {
 			this.add(builder, block);
 		}
 	}
 	
 	// Rewrite to use RegistryEntry instead of generic Object
-	private void add(TranslationBuilder translationBuilder, Object input) {
+	public void add(TranslationBuilder translationBuilder, Object input) {
 		String translationKey;
 		if (input instanceof Block block) {
 			translationKey = block.getTranslationKey();
@@ -86,7 +86,7 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		}
 	}
 	
-	private String parseString(String translationKey) {
+	public String parseString(String translationKey) {
 		StringBuilder dirtyTranslationKey = new StringBuilder();
 		StringBuilder translationKeyBuilder = new StringBuilder();
 		boolean addPrevChar;
@@ -106,11 +106,11 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		return toTitleCase(translationKey);
 	}
 	
-	private String stripUnderscores(String translationKey) {
+	public String stripUnderscores(String translationKey) {
 		return translationKey.replace("_", " ");
 	}
 	
-	private String toTitleCase(String translationKey) {
+	public String toTitleCase(String translationKey) {
 		StringBuilder convertedBlock = new StringBuilder();
 		boolean capitalizeNext = false;
 		boolean firstPass = true;
@@ -127,5 +127,10 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 			convertedBlock.append(ch);
 		}
 		return convertedBlock.toString();
+	}
+	
+	@Override
+	public String getName() {
+		return "jineric_language_provider";
 	}
 }
