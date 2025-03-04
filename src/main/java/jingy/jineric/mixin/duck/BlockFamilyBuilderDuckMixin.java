@@ -47,4 +47,11 @@ public abstract class BlockFamilyBuilderDuckMixin implements BlockFamilyBuilderD
 		this.family.getVariants().put(JinericBlockFamilyVariants.LADDER, block);
 		return (BlockFamily.Builder)(Object)this;
 	}
+	
+	@Override
+	public BlockFamily.Builder jineric_mod$hangingSign(Block hangingSign, Block wallHangingSign) {
+		this.family.getVariants().put(JinericBlockFamilyVariants.HANGING_SIGN, hangingSign);
+		this.family.getVariants().put(JinericBlockFamilyVariants.WALL_HANGING_SIGN, wallHangingSign);
+		return (BlockFamily.Builder)(Object)this;
+	}
 }

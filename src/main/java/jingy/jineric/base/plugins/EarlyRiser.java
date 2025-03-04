@@ -23,6 +23,8 @@ public class EarlyRiser implements Runnable {
 		ClassTinkerers.enumBuilder(blockFamily$Variant, String.class).addEnum("CHEST", "chest").build();
 		ClassTinkerers.enumBuilder(blockFamily$Variant, String.class).addEnum("TRAPPED_CHEST", "trapped_chest").build();
 		ClassTinkerers.enumBuilder(blockFamily$Variant, String.class).addEnum("LADDER", "ladder").build();
+		ClassTinkerers.enumBuilder(blockFamily$Variant, String.class).addEnum("HANGING_SIGN", "hanging_sign").build();
+		ClassTinkerers.enumBuilder(blockFamily$Variant, String.class).addEnum("WALL_HANGING_SIGN", "wall_hanging_sign").build();
 		
 		// Client
 		if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {

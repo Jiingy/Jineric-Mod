@@ -28,4 +28,8 @@ public interface BlockFamilyBuilderDuckAccess {
 	default BlockFamily.Builder jineric_mod$ladder(Block block) {
 		return null;
 	}
+	
+	default BlockFamily.Builder jineric_mod$hangingSign(Block hangingSign, Block wallHangingSign) {
+		return null;
+	}
 }
