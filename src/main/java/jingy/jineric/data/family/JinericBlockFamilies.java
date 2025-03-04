@@ -159,6 +159,7 @@ public class JinericBlockFamilies extends BlockFamilies {
 			.slab(JinericBlocks.DRIPSTONE_BRICK_SLAB)
 			.wall(JinericBlocks.DRIPSTONE_BRICK_WALL)
 			.chiseled(JinericBlocks.CHISELED_DRIPSTONE_BRICKS)
+			.jineric_mod$pillar(JinericBlocks.DRIPSTONE_BRICK_PILLAR)
 			.jineric_mod$modded()
 			.build();
 	
