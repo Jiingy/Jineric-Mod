@@ -30,6 +30,7 @@ public class JinericColorProviders {
 		ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) ->
 				world != null && pos != null
 						? BiomeColors.getGrassColor(world, pos)
-						: GrassColors.getColor(0.5D, 1.0D), JinericBlocks.JUNGLE_LADDER);
+						: GrassColors.getColor(0.5D, 1.0D), JinericBlocks.JUNGLE_LADDER
+		);
 	}
 }
