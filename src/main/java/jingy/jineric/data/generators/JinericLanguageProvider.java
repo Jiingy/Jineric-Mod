@@ -14,15 +14,18 @@ import java.nio.file.Path;
 import java.util.concurrent.CompletableFuture;
 
 public class JinericLanguageProvider extends FabricLanguageProvider {
+	public TranslationBuilder builder;
+	
 	public JinericLanguageProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
 		super(dataOutput, registryLookup);
 	}
 	
 	@Override
 	public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder builder) {
+		this.builder = builder;
 		this.tryExisting(builder);
 		//Blocks
-		this.addBlockFamilies(builder);
+		this.addBlockFamilies();
 		builder.add(JinericBlocks.SOUL_JACK_O_LANTERN, "Soul Jack o'Lantern");
 		builder.add(JinericBlocks.SUGAR_BLOCK, "Block of Sugar");
 		builder.add(JinericBlocks.ROTTEN_FLESH_BLOCK, "Block of Rotten Flesh");
@@ -47,6 +50,10 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		builder.add(JinericItems.GOLDEN_BEETROOT, "Golden Beetroot");
 		builder.add(JinericItems.NETHERITE_HORSE_ARMOR, "Netherite Horse Armor");
 		builder.add(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE, "Smithing Template");
+		builder.add(JinericItems.PETRIFIED_OAK_CHEST_BOAT, "Petrified Oak Boat with Chest");
+		this.add(JinericItems.PETRIFIED_OAK_BOAT);
+		// Translation Keys
+		builder.add("entity.jineric.petrified_oak_chest_boat", "Petrified Oak Boat with Chest");
 	}
 	
 	public void tryExisting(TranslationBuilder builder) {
@@ -61,30 +68,30 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		}
 	}
 	
-	public void addBlockFamilies(TranslationBuilder builder) {
+	public void addBlockFamilies() {
 		BlockFamilies.getFamilies().forEach(blockFamily -> {
 			Block baseBlock = blockFamily.getBaseBlock();
-			this.addJineric(builder, baseBlock);
-			blockFamily.getVariants().forEach((variant, block) -> this.addJineric(builder, block));
+			this.addJineric(baseBlock);
+			blockFamily.getVariants().forEach((variant, block) -> this.addJineric(block));
 		});
 	}
 	
-	public void addJineric(TranslationBuilder builder, Block block) {
+	public void addJineric(Block block) {
 		if (Registries.BLOCK.getId(block).getNamespace().equals("jineric")) {
-			this.add(builder, block);
+			this.add(block);
 		}
 	}
 	
 	// Rewrite to use RegistryEntry instead of generic Object
-	public void add(TranslationBuilder translationBuilder, Object input) {
+	public void add(Object input) {
 		String translationKey;
 		if (input instanceof Block block) {
 			translationKey = block.getTranslationKey();
-			translationBuilder.add(block, this.parseString(translationKey));
+			this.builder.add(block, this.parseString(translationKey));
 		}
 		else if (input instanceof Item item) {
 			translationKey = item.getTranslationKey();
-			translationBuilder.add(item, this.parseString(translationKey));
+			this.builder.add(item, this.parseString(translationKey));
 		}
 	}
 	

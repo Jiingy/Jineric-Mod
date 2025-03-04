@@ -64,8 +64,8 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				this.offerNetheriteUpgradeRecipe(Items.DIAMOND_HORSE_ARMOR, RecipeCategory.COMBAT, JinericItems.NETHERITE_HORSE_ARMOR);
 // BLOCKS
 				this.offerPlanksRecipe(JinericBlocks.PETRIFIED_OAK_PLANKS, JinericItemTags.PETRIFIED_OAK_LOGS, 4);
-				this.offerBarkBlockRecipe(JinericBlocks.PETRIFIED_OAK_LOG, JinericBlocks.PETRIFIED_OAK_WOOD);
-				this.offerBarkBlockRecipe(JinericBlocks.STRIPPED_PETRIFIED_OAK_LOG, JinericBlocks.STRIPPED_PETRIFIED_OAK_WOOD);
+				this.offerBarkBlockRecipe(JinericBlocks.PETRIFIED_OAK_WOOD, JinericBlocks.PETRIFIED_OAK_LOG);
+				this.offerBarkBlockRecipe(JinericBlocks.STRIPPED_PETRIFIED_OAK_WOOD, JinericBlocks.STRIPPED_PETRIFIED_OAK_LOG);
 				this.offerChest(JinericBlocks.PETRIFIED_OAK_PLANKS, Blocks.CHEST);
 				this.offerBoatRecipe(JinericItems.PETRIFIED_OAK_BOAT, JinericBlocks.PETRIFIED_OAK_PLANKS);
 				this.offerChestBoatRecipe(JinericItems.PETRIFIED_OAK_BOAT, JinericItems.PETRIFIED_OAK_CHEST_BOAT);
