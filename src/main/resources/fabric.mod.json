@@ -31,9 +31,6 @@
       "terrablender": [
          "jingy.jineric.base.plugins.TerraBlenderPlugin"
       ],
-      "emi": [
-         "jingy.jineric.base.plugins.JinericEmiPlugin"
-      ],
       "mm:early_risers": [
          "jingy.jineric.base.plugins.EarlyRiser"
       ]
