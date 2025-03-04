@@ -3,7 +3,7 @@
   "category": "misc",
   "cookingtime": 100,
   "experience": 0.1,
-  "group": "pink_glazed_terracotta",
+  "group": "glazed_terracotta",
   "ingredient": "minecraft:pink_terracotta",
   "result": {
     "id": "minecraft:pink_glazed_terracotta"
