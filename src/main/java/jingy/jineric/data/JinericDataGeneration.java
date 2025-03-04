@@ -1,10 +1,7 @@
 package jingy.jineric.data;
 
 import jingy.jineric.base.JinericMain;
-import jingy.jineric.data.generators.JinericBlockLootTableProvider;
-import jingy.jineric.data.generators.JinericLanguageProvider;
-import jingy.jineric.data.generators.JinericModelProvider;
-import jingy.jineric.data.generators.JinericRecipeProvider;
+import jingy.jineric.data.generators.*;
 import jingy.jineric.data.generators.tag.JinericBlockTagProvider;
 import jingy.jineric.data.generators.tag.JinericItemTagProvider;
 import jingy.jineric.data.generators.tag.JinericPaintingVariantTagProvider;
@@ -33,6 +30,7 @@ public class JinericDataGeneration implements DataGeneratorEntrypoint {
 		fabricDataGenPack.addProvider(JinericBlockLootTableProvider::new);
 		fabricDataGenPack.addProvider(JinericWorldProvider::new);
 		fabricDataGenPack.addProvider(JinericLanguageProvider::new);
+		fabricDataGenPack.addProvider(JinericBiomeTagGen::new);
 	}
 	
 	@Override
