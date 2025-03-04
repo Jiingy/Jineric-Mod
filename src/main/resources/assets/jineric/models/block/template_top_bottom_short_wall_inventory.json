@@ -13,7 +13,7 @@
 		}
 	},
 	"textures": {
-		"particle": "#post_side"
+		"particle": "#side"
 	},
 	"elements": [
 		{   "from": [ 4, 0, 4 ],
@@ -36,8 +36,7 @@
 				"south": { "uv": [ 5, 3, 11, 16 ], "texture": "#side_short", "cullface": "south" },
 				"west":  { "uv": [ 0, 3, 16, 16 ], "texture": "#side_short" },
 				"east":  { "uv": [ 0, 3, 16, 16 ], "texture": "#side_short" }
-			},
-			"__comment": "Full wall"
+			}
 		}
 	]
 }
