@@ -1,6 +1,7 @@
 package jingy.jineric.data.generators;
 
 import jingy.jineric.block.JinericBlocks;
+import jingy.jineric.data.family.JinericBlockFamilies;
 import jingy.jineric.item.JinericItems;
 import jingy.jineric.mixin.access.CookingRecipeJsonBuilderAccessor;
 import jingy.jineric.recipe.RefiningRecipe;
@@ -99,44 +100,43 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				this.offerBlockSmelting(JinericBlocks.SMOOTH_SOUL_SANDSTONE, JinericBlocks.SOUL_SANDSTONE);
 				this.offerBlockSmelting(JinericBlocks.SMOOTH_TUFF, Blocks.TUFF);
 				// Refining
-				this.offerRefiningBlockFamily(Blocks.COBBLESTONE, Blocks.STONE, RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, "stone");
-				this.offerRefiningBlockFamily(Blocks.STONE, Blocks.SMOOTH_STONE, RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, "smooth_stone");
-				this.offerRefiningBlockFamily(Blocks.TUFF, JinericBlocks.SMOOTH_TUFF, RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, "smooth_tuff");
-				this.offerRefiningBlockFamily(Blocks.SANDSTONE, Blocks.SMOOTH_SANDSTONE, RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, "smooth_sandstone");
-				this.offerRefiningBlockFamily(Blocks.RED_SANDSTONE, Blocks.SMOOTH_RED_SANDSTONE, RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, "smooth_red_sandstone");
-				this.offerRefiningBlockFamily(JinericBlocks.SOUL_SANDSTONE, JinericBlocks.SMOOTH_SOUL_SANDSTONE, RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, "smooth_soul_sandstone");
-				this.offerRefiningBlockFamily(Blocks.STONE_BRICKS, Blocks.CRACKED_STONE_BRICKS, RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, "cracked_stone_bricks");
-				this.offerRefiningBlockFamily(JinericBlocks.STONE_TILES, JinericBlocks.CRACKED_STONE_TILES, RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, "cracked_stone_tiles");
-				this.offerRefiningBlockFamily(Blocks.DEEPSLATE_BRICKS, Blocks.CRACKED_DEEPSLATE_BRICKS, RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, "cracked_deepslate_bricks");
-				this.offerRefiningBlockFamily(Blocks.DEEPSLATE_TILES, Blocks.CRACKED_DEEPSLATE_TILES, RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, "cracked_deepslate_tiles");
-				this.offerRefiningBlockFamily(JinericBlocks.DRIPSTONE_BRICKS, JinericBlocks.CRACKED_DRIPSTONE_BRICKS, RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, "cracked_dripstone_bricks");
-				this.offerRefiningBlockFamily(JinericBlocks.DRIPSTONE_TILES, JinericBlocks.CRACKED_DRIPSTONE_TILES, RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, "cracked_dripstone_tiles");
-				this.offerRefiningBlockFamily(Blocks.DRIPSTONE_BLOCK, JinericBlocks.SMOOTH_DRIPSTONE, RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, "smooth_dripstone");
-				this.offerRefiningBlockFamily(Blocks.NETHER_BRICKS, Blocks.CRACKED_NETHER_BRICKS, RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, "cracked_nether_bricks");
-				this.offerRefiningBlockFamily(Blocks.POLISHED_BLACKSTONE_BRICKS, Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS, RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, "cracked_polished_blackstone_bricks");
-				this.offerRefiningBlockFamily(Blocks.QUARTZ_BLOCK, Blocks.SMOOTH_QUARTZ, RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, "smooth_quartz");
-				this.offerRefiningBlockFamily(Blocks.COBBLED_DEEPSLATE, JinericBlocks.SMOOTH_DEEPSLATE, RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.MISC, "smooth_deepslate", Blocks.DEEPSLATE);
-				this.offerRefining(Blocks.WET_SPONGE, Blocks.SPONGE, RecipeCategory.MISC, CookingRecipeCategory.MISC, 0.2F, 100, "sponge");
-				this.offerRefining(Blocks.SAND, Blocks.GLASS, RecipeCategory.MISC, CookingRecipeCategory.MISC, "glass");
-				this.offerRefining(Blocks.CLAY, Blocks.TERRACOTTA, RecipeCategory.MISC, CookingRecipeCategory.MISC, "terracotta");
-				this.offerRefining(Blocks.BASALT, Blocks.SMOOTH_BASALT, RecipeCategory.MISC, CookingRecipeCategory.MISC, "smooth_basalt");
-				this.offerRefining(Blocks.WHITE_TERRACOTTA, Blocks.WHITE_GLAZED_TERRACOTTA, RecipeCategory.MISC, CookingRecipeCategory.MISC, "white_glazed_terracotta");
-				this.offerRefining(Blocks.LIGHT_GRAY_TERRACOTTA, Blocks.LIGHT_GRAY_GLAZED_TERRACOTTA, RecipeCategory.MISC, CookingRecipeCategory.MISC, "light_gray_glazed_terracotta");
-				this.offerRefining(Blocks.GRAY_TERRACOTTA, Blocks.GRAY_GLAZED_TERRACOTTA, RecipeCategory.MISC, CookingRecipeCategory.MISC, "gray_glazed_terracotta");
-				this.offerRefining(Blocks.BLACK_TERRACOTTA, Blocks.BLACK_GLAZED_TERRACOTTA, RecipeCategory.MISC, CookingRecipeCategory.MISC, "black_glazed_terracotta");
-				this.offerRefining(Blocks.BROWN_TERRACOTTA, Blocks.BROWN_GLAZED_TERRACOTTA, RecipeCategory.MISC, CookingRecipeCategory.MISC, "brown_glazed_terracotta");
-				this.offerRefining(Blocks.RED_TERRACOTTA, Blocks.RED_GLAZED_TERRACOTTA, RecipeCategory.MISC, CookingRecipeCategory.MISC, "red_glazed_terracotta");
-				this.offerRefining(Blocks.ORANGE_TERRACOTTA, Blocks.ORANGE_GLAZED_TERRACOTTA, RecipeCategory.MISC, CookingRecipeCategory.MISC, "orange_glazed_terracotta");
-				this.offerRefining(Blocks.YELLOW_TERRACOTTA, Blocks.YELLOW_GLAZED_TERRACOTTA, RecipeCategory.MISC, CookingRecipeCategory.MISC, "yellow_glazed_terracotta");
-				this.offerRefining(Blocks.LIME_TERRACOTTA, Blocks.LIME_GLAZED_TERRACOTTA, RecipeCategory.MISC, CookingRecipeCategory.MISC, "lime_glazed_terracotta");
-				this.offerRefining(Blocks.GREEN_TERRACOTTA, Blocks.GREEN_GLAZED_TERRACOTTA, RecipeCategory.MISC, CookingRecipeCategory.MISC, "green_glazed_terracotta");
-				this.offerRefining(Blocks.CYAN_TERRACOTTA, Blocks.CYAN_GLAZED_TERRACOTTA, RecipeCategory.MISC, CookingRecipeCategory.MISC, "cyan_glazed_terracotta");
-				this.offerRefining(Blocks.LIGHT_BLUE_TERRACOTTA, Blocks.LIGHT_BLUE_GLAZED_TERRACOTTA, RecipeCategory.MISC, CookingRecipeCategory.MISC, "light_blue_glazed_terracotta");
-				this.offerRefining(Blocks.BLUE_TERRACOTTA, Blocks.BLUE_GLAZED_TERRACOTTA, RecipeCategory.MISC, CookingRecipeCategory.MISC, "blue_glazed_terracotta");
-				this.offerRefining(Blocks.PURPLE_TERRACOTTA, Blocks.PURPLE_GLAZED_TERRACOTTA, RecipeCategory.MISC, CookingRecipeCategory.MISC, "purple_glazed_terracotta");
-				this.offerRefining(Blocks.MAGENTA_TERRACOTTA, Blocks.MAGENTA_GLAZED_TERRACOTTA, RecipeCategory.MISC, CookingRecipeCategory.MISC, "magenta_glazed_terracotta");
-				this.offerRefining(Blocks.PINK_TERRACOTTA, Blocks.PINK_GLAZED_TERRACOTTA, RecipeCategory.MISC, CookingRecipeCategory.MISC, "pink_glazed_terracotta");
-
+				this.offerRefiningBlockFamily(JinericBlockFamilies.COBBLESTONE, JinericBlockFamilies.STONE);
+				this.offerRefiningBlockFamily(JinericBlockFamilies.STONE, JinericBlockFamilies.SMOOTH_STONE);
+				this.offerRefiningBlockFamily(JinericBlockFamilies.TUFF, JinericBlockFamilies.SMOOTH_TUFF);
+				this.offerRefiningBlockFamily(JinericBlockFamilies.SANDSTONE, JinericBlockFamilies.SMOOTH_SANDSTONE);
+				this.offerRefiningBlockFamily(JinericBlockFamilies.RED_SANDSTONE, JinericBlockFamilies.SMOOTH_RED_SANDSTONE);
+				this.offerRefiningBlockFamily(JinericBlockFamilies.SOUL_SANDSTONE, JinericBlockFamilies.SMOOTH_SOUL_SANDSTONE);
+				this.offerRefiningBlockFamily(BlockFamilies.STONE_BRICK, JinericBlockFamilies.CRACKED_STONE_BRICKS);
+				this.offerRefiningBlockFamily(JinericBlockFamilies.STONE_TILES, JinericBlockFamilies.CRACKED_STONE_TILES);
+				this.offerRefiningBlockFamily(BlockFamilies.DEEPSLATE_BRICK, JinericBlockFamilies.CRACKED_DEEPSLATE_BRICKS);
+				this.offerRefiningBlockFamily(BlockFamilies.DEEPSLATE_TILE, JinericBlockFamilies.CRACKED_DEEPSLATE_TILES);
+				this.offerRefiningBlockFamily(JinericBlockFamilies.DRIPSTONE_BRICKS, JinericBlockFamilies.CRACKED_DRIPSTONE_BRICKS);
+				this.offerRefiningBlockFamily(JinericBlockFamilies.DRIPSTONE_TILES, JinericBlockFamilies.CRACKED_DRIPSTONE_TILES);
+				this.offerRefiningBlockFamily(JinericBlockFamilies.DRIPSTONE_BLOCK, JinericBlockFamilies.SMOOTH_DRIPSTONE);
+				this.offerRefiningBlockFamily(BlockFamilies.NETHER_BRICK, JinericBlockFamilies.CRACKED_NETHER_BRICKS);
+				this.offerRefiningBlockFamily(BlockFamilies.POLISHED_BLACKSTONE_BRICK, JinericBlockFamilies.CRACKED_POLISHED_BLACKSTONE_BRICKS);
+				this.offerRefiningBlockFamily(JinericBlockFamilies.QUARTZ_BLOCK, JinericBlockFamilies.SMOOTH_QUARTZ);
+				this.offerRefiningBlockFamily(JinericBlockFamilies.COBBLED_DEEPSLATE, JinericBlockFamilies.SMOOTH_DEEPSLATE, Blocks.DEEPSLATE);
+				this.offerRefining(Blocks.SAND, Blocks.GLASS);
+				this.offerRefining(Blocks.BASALT, Blocks.SMOOTH_BASALT);
+				this.offerRefining(Blocks.CLAY, Blocks.TERRACOTTA);
+				this.offerRefining(Blocks.WHITE_TERRACOTTA, Blocks.WHITE_GLAZED_TERRACOTTA, "glazed_terracotta");
+				this.offerRefining(Blocks.LIGHT_GRAY_TERRACOTTA, Blocks.LIGHT_GRAY_GLAZED_TERRACOTTA, "glazed_terracotta");
+				this.offerRefining(Blocks.GRAY_TERRACOTTA, Blocks.GRAY_GLAZED_TERRACOTTA, "glazed_terracotta");
+				this.offerRefining(Blocks.BLACK_TERRACOTTA, Blocks.BLACK_GLAZED_TERRACOTTA, "glazed_terracotta");
+				this.offerRefining(Blocks.BROWN_TERRACOTTA, Blocks.BROWN_GLAZED_TERRACOTTA, "glazed_terracotta");
+				this.offerRefining(Blocks.RED_TERRACOTTA, Blocks.RED_GLAZED_TERRACOTTA, "glazed_terracotta");
+				this.offerRefining(Blocks.ORANGE_TERRACOTTA, Blocks.ORANGE_GLAZED_TERRACOTTA, "glazed_terracotta");
+				this.offerRefining(Blocks.YELLOW_TERRACOTTA, Blocks.YELLOW_GLAZED_TERRACOTTA, "glazed_terracotta");
+				this.offerRefining(Blocks.LIME_TERRACOTTA, Blocks.LIME_GLAZED_TERRACOTTA, "glazed_terracotta");
+				this.offerRefining(Blocks.GREEN_TERRACOTTA, Blocks.GREEN_GLAZED_TERRACOTTA, "glazed_terracotta");
+				this.offerRefining(Blocks.CYAN_TERRACOTTA, Blocks.CYAN_GLAZED_TERRACOTTA, "glazed_terracotta");
+				this.offerRefining(Blocks.LIGHT_BLUE_TERRACOTTA, Blocks.LIGHT_BLUE_GLAZED_TERRACOTTA, "glazed_terracotta");
+				this.offerRefining(Blocks.BLUE_TERRACOTTA, Blocks.BLUE_GLAZED_TERRACOTTA, "glazed_terracotta");
+				this.offerRefining(Blocks.PURPLE_TERRACOTTA, Blocks.PURPLE_GLAZED_TERRACOTTA, "glazed_terracotta");
+				this.offerRefining(Blocks.MAGENTA_TERRACOTTA, Blocks.MAGENTA_GLAZED_TERRACOTTA, "glazed_terracotta");
+				this.offerRefining(Blocks.PINK_TERRACOTTA, Blocks.PINK_GLAZED_TERRACOTTA, "glazed_terracotta");
+				this.offerRefining(Blocks.WET_SPONGE, Blocks.SPONGE, RecipeCategory.MISC, CookingRecipeCategory.MISC, 0.2F);
 // STONECUTTING
 				this.genStonecuttingFromFamilyBase(JinericBlocks.SNOW_BRICKS, SNOW_BRICKS);
 				this.genStonecuttingFromFamilyBase(Blocks.SMOOTH_BASALT, SMOOTH_BASALT);
@@ -145,7 +145,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				this.genStonecuttingFromFamilyBase(Blocks.SMOOTH_STONE, SMOOTH_STONE);
 				this.genStonecuttingFromFamilyBase(Blocks.CRACKED_STONE_BRICKS, CRACKED_STONE_BRICKS);
 				this.genStonecuttingFromFamilyBase(JinericBlocks.SMOOTH_DEEPSLATE, SMOOTH_DEEPSLATE);
-				this.genStonecuttingFromFamilyBase(Blocks.DRIPSTONE_BLOCK, DRIPSTONE, POLISHED_DRIPSTONE, DRIPSTONE_BRICKS, DRIPSTONE_TILES);
+				this.genStonecuttingFromFamilyBase(Blocks.DRIPSTONE_BLOCK, DRIPSTONE_BLOCK, POLISHED_DRIPSTONE, DRIPSTONE_BRICKS, DRIPSTONE_TILES);
 				this.genStonecuttingFromFamilyBase(JinericBlocks.POLISHED_DRIPSTONE, POLISHED_DRIPSTONE, DRIPSTONE_BRICKS, DRIPSTONE_TILES);
 				this.genStonecuttingFromFamilyBase(JinericBlocks.DRIPSTONE_BRICKS, DRIPSTONE_BRICKS, DRIPSTONE_TILES);
 				this.genStonecuttingFromFamilyBase(JinericBlocks.DRIPSTONE_TILES, DRIPSTONE_TILES);
@@ -191,7 +191,6 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				this.offerStonecuttingRecipe(RecipeCategory.DECORATIONS, JinericBlocks.RED_NETHER_BRICK_FENCE, Blocks.RED_NETHER_BRICKS);
 				this.offerStonecuttingRecipe(RecipeCategory.DECORATIONS, JinericBlocks.SMOOTH_QUARTZ_WALL, Blocks.SMOOTH_QUARTZ);
 				this.offerStonecuttingRecipe(RecipeCategory.DECORATIONS, JinericBlocks.PURPUR_WALL, Blocks.PURPUR_BLOCK);
-				
 				this.createShaped(RecipeCategory.BUILDING_BLOCKS, JinericBlocks.SOUL_JACK_O_LANTERN)
 						.input('P', Blocks.CARVED_PUMPKIN)
 						.input('T', Blocks.SOUL_TORCH)
@@ -313,46 +312,20 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				}
 			}
 			
-			public void offerRefiningBlockFamily(Block baseBlockIn, Block baseBlockOut, RecipeCategory category, CookingRecipeCategory cookingRecipeCategory, String group) {
-				this.offerRefiningBlockFamily(baseBlockIn, baseBlockOut, category, cookingRecipeCategory, group, null);
+			public void offerRefiningBlockFamily(BlockFamily blockFamilyIn, BlockFamily blockFamilyOut) {
+				this.offerRefiningBlockFamily(blockFamilyIn, blockFamilyOut, null);
 			}
 			
-			public void offerRefiningBlockFamily(Block baseBlockIn, Block baseBlockOut, RecipeCategory category, CookingRecipeCategory cookingRecipeCategory, String group, Block uniqueBase) {
-				if (uniqueBase == null) {
-					this.offerRefining(variantForRefining(baseBlockIn, null), variantForRefining(baseBlockOut, null), category, cookingRecipeCategory, 0.1F, 100, group);
+			public void offerRefiningBlockFamily(BlockFamily blockFamilyIn, BlockFamily blockFamilyOut, Block uniqueBase) {
+				String group = Registries.BLOCK.getId(blockFamilyOut.getBaseBlock()).getPath();
+				if (uniqueBase != null) {
+					this.offerRefining(uniqueBase, blockFamilyOut.getBaseBlock(), RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, 0.1F, group);
 				} else {
-					this.offerRefining(uniqueBase, variantForRefining(baseBlockOut, null), category, cookingRecipeCategory, 0.1F, 100, group);
+					this.offerRefining(blockFamilyIn.getBaseBlock(), blockFamilyOut.getBaseBlock(), RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, 0.1F, group);
 				}
-				this.offerRefining(variantForRefining(baseBlockIn, STAIRS), variantForRefining(baseBlockOut, STAIRS), category, cookingRecipeCategory, 0.1F, 100, group);
-				this.offerRefining(variantForRefining(baseBlockIn, SLAB), variantForRefining(baseBlockOut, SLAB), category, cookingRecipeCategory, 0.1F, 100, group);
-				this.offerRefining(variantForRefining(baseBlockIn, WALL), variantForRefining(baseBlockOut, WALL), category, cookingRecipeCategory, 0.1F, 100, group);
-			}
-			
-			public Block variantForRefining(Block baseBlock, BlockFamily.Variant variant) {
-				Stream<BlockFamily> blockFamilies = BlockFamilies.getFamilies();
-				for (BlockFamily blockFamily : blockFamilies.toList()) {
-					if (baseBlock == blockFamily.getBaseBlock()) {
-						return sortVariant(baseBlock, variant, blockFamily);
-					}
-				}
-				return baseBlock;
-			}
-			
-			public Block sortVariant(Block baseBlock, BlockFamily.Variant variant, BlockFamily blockFamily) {
-				switch (variant) {
-					case STAIRS -> {
-						return blockFamily.getVariant(STAIRS);
-					}
-					case SLAB -> {
-						return blockFamily.getVariant(SLAB);
-					}
-					case WALL -> {
-						return blockFamily.getVariant(WALL);
-					}
-					case null, default -> {
-						return baseBlock;
-					}
-				}
+				this.offerRefining(blockFamilyIn.getVariant(STAIRS), blockFamilyOut.getVariant(STAIRS), RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, 0.1F, group);
+				this.offerRefining(blockFamilyIn.getVariant(SLAB), blockFamilyOut.getVariant(SLAB), RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, 0.1F, group);
+				this.offerRefining(blockFamilyIn.getVariant(WALL), blockFamilyOut.getVariant(WALL), RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, 0.1F, group);
 			}
 			
 			public void offerBlockSmelting(ItemConvertible output, ItemConvertible input) {
@@ -373,12 +346,22 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						.offerTo(recipeExporter);
 			}
 			
-			public void offerRefining(ItemConvertible input, ItemConvertible output, RecipeCategory category, CookingRecipeCategory cookingRecipeCategory, String group) {
-				this.offerRefining(input, output, category, cookingRecipeCategory, 0.1F, 100, group);
+			public void offerRefining(ItemConvertible input, ItemConvertible output) {
+				this.offerRefining(input, output, RecipeCategory.MISC, CookingRecipeCategory.MISC, 0.1F);
 			}
 			
-			public void offerRefining(ItemConvertible input, ItemConvertible output, RecipeCategory category, CookingRecipeCategory cookingRecipeCategory, float experience, int cookingTime, String group) {
-				this.createRefining(Ingredient.ofItem(input), output, category, cookingRecipeCategory, experience, cookingTime)
+			public void offerRefining(ItemConvertible input, ItemConvertible output, String group) {
+				this.offerRefining(input, output, RecipeCategory.MISC, CookingRecipeCategory.MISC, 0.1F, group);
+			}
+			
+			public void offerRefining(ItemConvertible input, ItemConvertible output, RecipeCategory category, CookingRecipeCategory cookingRecipeCategory, float experience) {
+				this.createRefining(Ingredient.ofItem(input), output, category, cookingRecipeCategory, experience, 100)
+						.criterion(hasItem(input), this.conditionsFromItem(input))
+						.offerTo(recipeExporter, getItemPath(output) + "_from_refining_" + getItemPath(input));
+			}
+			
+			public void offerRefining(ItemConvertible input, ItemConvertible output, RecipeCategory category, CookingRecipeCategory cookingRecipeCategory, float experience, String group) {
+				this.createRefining(Ingredient.ofItem(input), output, category, cookingRecipeCategory, experience, 100)
 						.group(group)
 						.criterion(hasItem(input), this.conditionsFromItem(input))
 						.offerTo(recipeExporter, getItemPath(output) + "_from_refining_" + getItemPath(input));
@@ -411,8 +394,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 														List.of()
 												)
 										)
-						)
-						.offerTo(recipeExporter);
+						).offerTo(recipeExporter);
 			}
 			
 			public void offerTrappedChest(ItemConvertible input, ItemConvertible output) {
