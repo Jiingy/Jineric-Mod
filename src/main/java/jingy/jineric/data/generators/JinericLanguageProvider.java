@@ -24,8 +24,14 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 	public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder builder) {
 		this.builder = builder;
 		this.tryExisting(builder);
-		//Blocks
+		//  Blocks
 		this.addBlockFamilies();
+		this.addJineric(JinericBlocks.PETRIFIED_OAK_LOG);
+		this.addJineric(JinericBlocks.PETRIFIED_OAK_WOOD);
+		this.addJineric(JinericBlocks.STRIPPED_PETRIFIED_OAK_LOG);
+		this.addJineric(JinericBlocks.STRIPPED_PETRIFIED_OAK_WOOD);
+		this.add(JinericBlocks.PETRIFIED_OAK_SAPLING);
+		this.add(JinericBlocks.PETRIFIED_OAK_LEAVES);
 		builder.add(JinericBlocks.SOUL_JACK_O_LANTERN, "Soul Jack o'Lantern");
 		builder.add(JinericBlocks.SUGAR_BLOCK, "Block of Sugar");
 		builder.add(JinericBlocks.ROTTEN_FLESH_BLOCK, "Block of Rotten Flesh");
@@ -44,7 +50,7 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		builder.add(JinericBlocks.REFINERY, "Refinery");
 		builder.add(JinericBlocks.BLOSSOMED_DANDELION, "Blossomed Dandelion");
 		builder.add(JinericBlocks.ROSE, "Rose");
-		//Items
+		//  Items
 		builder.add(JinericItems.GOLDEN_POTATO, "Golden Potato");
 		builder.add(JinericItems.GOLDEN_SWEET_BERRIES, "Golden Sweet Berries");
 		builder.add(JinericItems.GOLDEN_BEETROOT, "Golden Beetroot");
@@ -52,7 +58,7 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		builder.add(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE, "Smithing Template");
 		builder.add(JinericItems.PETRIFIED_OAK_CHEST_BOAT, "Petrified Oak Boat with Chest");
 		this.add(JinericItems.PETRIFIED_OAK_BOAT);
-		// Translation Keys
+		//  Translation Keys
 		builder.add("entity.jineric.petrified_oak_chest_boat", "Petrified Oak Boat with Chest");
 	}
 	
