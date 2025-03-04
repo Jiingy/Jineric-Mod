@@ -13,43 +13,43 @@ public abstract class BlockFamilyBuilderDuckMixin implements BlockFamilyBuilderD
 	@Shadow @Final private BlockFamily family;
 	
 	@Override
-	public BlockFamily.Builder jineric_mod$modded() {
+	public BlockFamily.Builder modded$jineric() {
 		this.family.jineric_mod$setModded(true);
 		return (BlockFamily.Builder)(Object)this;
 	}
 	
 	@Override
-	public BlockFamily.Builder jineric_mod$pillar(Block block) {
+	public BlockFamily.Builder pillar$jineric(Block block) {
 		this.family.getVariants().put(JinericBlockFamilyVariants.PILLAR, block);
 		return (BlockFamily.Builder)(Object)this;
 	}
 	
 	@Override
-	public BlockFamily.Builder jineric_mod$bookshelf(Block block) {
+	public BlockFamily.Builder bookshelf$jineric(Block block) {
 		this.family.getVariants().put(JinericBlockFamilyVariants.BOOKSHELF, block);
 		return (BlockFamily.Builder)(Object)this;
 	}
 	
 	@Override
-	public BlockFamily.Builder jineric_mod$chest(Block block) {
+	public BlockFamily.Builder chest$jineric(Block block) {
 		this.family.getVariants().put(JinericBlockFamilyVariants.CHEST, block);
 		return (BlockFamily.Builder)(Object)this;
 	}
 	
 	@Override
-	public BlockFamily.Builder jineric_mod$trappedChest(Block block) {
+	public BlockFamily.Builder trappedChest$jineric(Block block) {
 		this.family.getVariants().put(JinericBlockFamilyVariants.TRAPPED_CHEST, block);
 		return (BlockFamily.Builder)(Object)this;
 	}
 	
 	@Override
-	public BlockFamily.Builder jineric_mod$ladder(Block block) {
+	public BlockFamily.Builder ladder$jineric(Block block) {
 		this.family.getVariants().put(JinericBlockFamilyVariants.LADDER, block);
 		return (BlockFamily.Builder)(Object)this;
 	}
 	
 	@Override
-	public BlockFamily.Builder jineric_mod$hangingSign(Block hangingSign, Block wallHangingSign) {
+	public BlockFamily.Builder hangingSign$jineric(Block hangingSign, Block wallHangingSign) {
 		this.family.getVariants().put(JinericBlockFamilyVariants.HANGING_SIGN, hangingSign);
 		this.family.getVariants().put(JinericBlockFamilyVariants.WALL_HANGING_SIGN, wallHangingSign);
 		return (BlockFamily.Builder)(Object)this;

@@ -13,10 +13,9 @@ public class JinericBlockSoundTags {
 	public static final TagKey<Block> MUSHROOM_SOUNDS = register("mushroom_sounds");
 	public static final TagKey<Block> LEAF_SOUNDS = register("leaf_sounds");
 	
-	private JinericBlockSoundTags() {
-	}
-	
 	private static TagKey<Block> register(String id) {
 		return TagKey.of(Registries.BLOCK.getKey(), JinericMain.ofJineric("sounds/" + id));
 	}
+	
+	public static void initialize() {}
 }

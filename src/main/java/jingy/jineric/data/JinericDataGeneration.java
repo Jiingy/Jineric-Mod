@@ -3,6 +3,7 @@ package jingy.jineric.data;
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.data.generators.*;
 import jingy.jineric.data.generators.tag.JinericBlockTagProvider;
+import jingy.jineric.data.generators.tag.JinericEntityTypeTagProvider;
 import jingy.jineric.data.generators.tag.JinericItemTagProvider;
 import jingy.jineric.data.generators.tag.JinericPaintingVariantTagProvider;
 import jingy.jineric.data.generators.world.JinericWorldProvider;
@@ -22,15 +23,16 @@ public class JinericDataGeneration implements DataGeneratorEntrypoint {
 //      FabricDataGenerator.Pack jinericModPack = generator.createBuiltinResourcePack(JinericMain.ofJineric("jineric_mod_pack"));
 //      jinericModPack.addProvider(JinericModPackModelGenerator::new);
 		FabricDataGenerator.Pack fabricDataGenPack = generator.createPack();
-		fabricDataGenPack.addProvider(JinericItemTagProvider::new);
+		fabricDataGenPack.addProvider(JinericBiomeTagGen::new);
+		fabricDataGenPack.addProvider(JinericBlockLootTableProvider::new);
 		fabricDataGenPack.addProvider(JinericBlockTagProvider::new);
+		fabricDataGenPack.addProvider(JinericEntityTypeTagProvider::new);
+		fabricDataGenPack.addProvider(JinericItemTagProvider::new);
+		fabricDataGenPack.addProvider(JinericLanguageProvider::new);
+		fabricDataGenPack.addProvider(JinericModelProvider::new);
 		fabricDataGenPack.addProvider(JinericPaintingVariantTagProvider::new);
 		fabricDataGenPack.addProvider(JinericRecipeProvider::new);
-		fabricDataGenPack.addProvider(JinericModelProvider::new);
-		fabricDataGenPack.addProvider(JinericBlockLootTableProvider::new);
 		fabricDataGenPack.addProvider(JinericWorldProvider::new);
-		fabricDataGenPack.addProvider(JinericLanguageProvider::new);
-		fabricDataGenPack.addProvider(JinericBiomeTagGen::new);
 	}
 	
 	@Override

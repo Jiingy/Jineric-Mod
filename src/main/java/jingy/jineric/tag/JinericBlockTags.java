@@ -18,10 +18,9 @@ public class JinericBlockTags {
 	public static final TagKey<Block> LADDERS = registerBlockTag("ladders");
 	public static final TagKey<Block> WOODEN_LADDERS = registerBlockTag("wooden_ladders");
 	
-	public JinericBlockTags() {
-	}
-	
 	private static TagKey<Block> registerBlockTag(String id) {
 		return TagKey.of(Registries.BLOCK.getKey(), JinericMain.ofJineric(id));
 	}
+	
+	public static void initialize() {}
 }

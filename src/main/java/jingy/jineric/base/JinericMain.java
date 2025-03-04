@@ -14,6 +14,8 @@ import jingy.jineric.registry.JinericParticleTypes;
 import jingy.jineric.registry.JinericRegistries;
 import jingy.jineric.screen.JinericScreenHandlerType;
 import jingy.jineric.stat.JinericStats;
+import jingy.jineric.tag.JinericBlockTags;
+import jingy.jineric.tag.JinericEntityTypeTags;
 import jingy.jineric.tag.JinericItemTags;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
@@ -42,7 +44,9 @@ public class JinericMain implements ModInitializer {
 		JinericItems.initialize();
 		JinericBlockFamilies.initialize();
 		JinericScreenHandlerType.initialize();
+		JinericBlockTags.initialize();
 		JinericItemTags.initialize();
+		JinericEntityTypeTags.initialize();
 		JinericRecipeTypes.initialize();
 		JinericStats.initialize();
 		JinericRecipeSerializer.initialize();

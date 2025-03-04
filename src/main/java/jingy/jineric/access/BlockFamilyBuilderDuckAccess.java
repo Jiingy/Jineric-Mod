@@ -5,31 +5,31 @@ import net.minecraft.data.family.BlockFamily;
 
 public interface BlockFamilyBuilderDuckAccess {
 	
-	default BlockFamily.Builder jineric_mod$modded() {
+	default BlockFamily.Builder modded$jineric() {
 		return null;
 	}
 	
-	default BlockFamily.Builder jineric_mod$pillar(Block block) {
+	default BlockFamily.Builder pillar$jineric(Block block) {
 		return null;
 	}
 	
-	default BlockFamily.Builder jineric_mod$bookshelf(Block block) {
+	default BlockFamily.Builder bookshelf$jineric(Block block) {
 		return null;
 	}
 	
-	default BlockFamily.Builder jineric_mod$chest(Block block) {
+	default BlockFamily.Builder chest$jineric(Block block) {
 		return null;
 	}
 	
-	default BlockFamily.Builder jineric_mod$trappedChest(Block block) {
+	default BlockFamily.Builder trappedChest$jineric(Block block) {
 		return null;
 	}
 	
-	default BlockFamily.Builder jineric_mod$ladder(Block block) {
+	default BlockFamily.Builder ladder$jineric(Block block) {
 		return null;
 	}
 	
-	default BlockFamily.Builder jineric_mod$hangingSign(Block hangingSign, Block wallHangingSign) {
+	default BlockFamily.Builder hangingSign$jineric(Block hangingSign, Block wallHangingSign) {
 		return null;
 	}
 }

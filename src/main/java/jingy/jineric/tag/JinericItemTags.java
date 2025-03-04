@@ -17,6 +17,5 @@ public class JinericItemTags {
 		return TagKey.of(Registries.ITEM.getKey(), JinericMain.ofJineric(id));
 	}
 	
-	public static void initialize() {
-	}
+	public static void initialize() {}
 }
