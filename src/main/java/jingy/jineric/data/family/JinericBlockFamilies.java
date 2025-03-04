@@ -16,6 +16,8 @@ public class JinericBlockFamilies extends BlockFamilies {
 			.stairs(JinericBlocks.PETRIFIED_OAK_STAIRS)
 			.door(JinericBlocks.PETRIFIED_OAK_DOOR)
 			.trapdoor(JinericBlocks.PETRIFIED_OAK_TRAPDOOR)
+			.jineric_mod$bookshelf(JinericBlocks.PETRIFIED_OAK_BOOKSHELF)
+			.jineric_mod$ladder(JinericBlocks.PETRIFIED_OAK_LADDER)
 			.group("wooden")
 			.unlockCriterionName("has_planks")
 			.jineric_mod$modded()

@@ -20,6 +20,7 @@ import java.util.concurrent.CompletableFuture;
 public class JinericBlockLootTableProvider extends FabricBlockLootTableProvider {
 	Map<BlockFamily.Variant, JinericDropFactory> VARIANT_DROPS = ImmutableMap.<BlockFamily.Variant, JinericDropFactory>builder()
 			.put(BlockFamily.Variant.SLAB, block -> this.addDrop(block, this::slabDrops))
+			.put(BlockFamily.Variant.DOOR, this::addDoorDrop)
 			.put(JinericBlockFamilyVariants.BOOKSHELF, this::addBookshelfDrop)
 			.put(JinericBlockFamilyVariants.CHEST, this::addNameableContainerDrop)
 			.put(JinericBlockFamilyVariants.TRAPPED_CHEST, this::addNameableContainerDrop)
@@ -73,6 +74,10 @@ public class JinericBlockLootTableProvider extends FabricBlockLootTableProvider 
 	
 	public void addBookshelfDrop(Block input) {
 		this.addDrop(input, block -> this.drops(block, Items.BOOK, ConstantLootNumberProvider.create(3.0F)));
+	}
+	
+	public void addDoorDrop(Block input) {
+		this.addDrop(input, this::doorDrops);
 	}
 	
 	public void genFamilyDrops() {
