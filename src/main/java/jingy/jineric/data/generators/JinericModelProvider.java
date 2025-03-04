@@ -331,6 +331,6 @@ public class JinericModelProvider extends FabricModelProvider {
 	
 	@Override
 	public String getName() {
-		return "jineric_models";
+		return "Models";
 	}
 }

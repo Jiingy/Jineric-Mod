@@ -27,6 +27,6 @@ public class JinericWorldProvider extends FabricDynamicRegistryProvider {
 	
 	@Override
 	public String getName() {
-		return "jineric_world";
+		return "";
 	}
 }

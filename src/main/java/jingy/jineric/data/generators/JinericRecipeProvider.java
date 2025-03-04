@@ -490,6 +490,6 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 	
 	@Override
 	public String getName() {
-		return "jineric_recipes";
+		return "Recipes";
 	}
 }

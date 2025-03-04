@@ -449,6 +449,6 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 	
 	@Override
 	public String getName() {
-		return "jineric_block_tag_provider";
+		return "Block Tags";
 	}
 }

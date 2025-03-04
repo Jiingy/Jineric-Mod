@@ -131,6 +131,6 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 	
 	@Override
 	public String getName() {
-		return "jineric_language_provider";
+		return "Languages";
 	}
 }
