@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "jineric:petrified_oak_wood"
+            "items": "jineric:stripped_petrified_oak_log"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "jineric:petrified_oak_log"
+        "recipe": "jineric:stripped_petrified_oak_wood"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "jineric:petrified_oak_log"
+      "jineric:stripped_petrified_oak_wood"
     ]
   }
 }
