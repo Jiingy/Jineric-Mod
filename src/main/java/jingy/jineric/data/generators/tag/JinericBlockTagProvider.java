@@ -405,6 +405,7 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 		list.forEach(tagKeyBlockEntry -> blockToAdd.add(tagKeyBlockEntry.getValue()));
 		for (BlockFamily blockFamily : blockFamiliesIn) {
 			blockToAdd.addAll(blockFamily.getVariants().values().stream().toList());
+			blockToAdd.add(blockFamily.getBaseBlock());
 		}
 		blockToAdd.sort(Comparator.comparing(Block::toString));
 		blockToAdd.stream()
@@ -448,6 +449,6 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 	
 	@Override
 	public String getName() {
-		return "jineric_block_tags";
+		return "jineric_block_tag_provider";
 	}
 }
