@@ -89,7 +89,7 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 				JinericBlockFamilies.SMOOTH_TUFF,
 				JinericBlockFamilies.CRACKED_TUFF_BRICKS,
 				JinericBlockFamilies.TUFF_TILES, JinericBlockFamilies.CRACKED_TUFF_TILES,
-				JinericBlockFamilies.DRIPSTONE, JinericBlockFamilies.SMOOTH_DRIPSTONE,
+				JinericBlockFamilies.DRIPSTONE_BLOCK, JinericBlockFamilies.SMOOTH_DRIPSTONE,
 				JinericBlockFamilies.POLISHED_DRIPSTONE, JinericBlockFamilies.DRIPSTONE_BRICKS, JinericBlockFamilies.CRACKED_DRIPSTONE_BRICKS,
 				JinericBlockFamilies.DRIPSTONE_TILES, JinericBlockFamilies.CRACKED_DRIPSTONE_TILES,
 				JinericBlockFamilies.SMOOTH_SANDSTONE, JinericBlockFamilies.CUT_SANDSTONE, JinericBlockFamilies.POLISHED_SANDSTONE, JinericBlockFamilies.WAVY_SANDSTONE,

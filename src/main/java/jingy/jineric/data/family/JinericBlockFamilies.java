@@ -6,7 +6,7 @@ import net.minecraft.data.family.BlockFamilies;
 import net.minecraft.data.family.BlockFamily;
 
 public class JinericBlockFamilies extends BlockFamilies {
-	public static final BlockFamily DRIPSTONE = register(Blocks.DRIPSTONE_BLOCK)
+	public static final BlockFamily DRIPSTONE_BLOCK = register(Blocks.DRIPSTONE_BLOCK)
 			.stairs(JinericBlocks.DRIPSTONE_STAIRS)
 			.slab(JinericBlocks.DRIPSTONE_SLAB)
 			.wall(JinericBlocks.DRIPSTONE_WALL)
