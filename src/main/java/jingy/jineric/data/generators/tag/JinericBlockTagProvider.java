@@ -60,10 +60,10 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 				.add(WAXED_CUT_COPPER_WALL, WAXED_EXPOSED_CUT_COPPER_WALL, WAXED_WEATHERED_CUT_COPPER_WALL, WAXED_OXIDIZED_CUT_COPPER_WALL);
 		// AXE
 		this.getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
+				.forceAddTag(JinericBlockTags.WOODEN_BOOKSHELVES)
 				.forceAddTag(JinericBlockTags.WOODEN_CHESTS)
 				.forceAddTag(JinericBlockTags.WOODEN_TRAPPED_CHESTS)
 				.forceAddTag(JinericBlockTags.WOODEN_LADDERS)
-				.forceAddTag(JinericBlockTags.WOODEN_BOOKSHELVES)
 				.add(STICK_BLOCK)
 				.add(SOUL_JACK_O_LANTERN)
 				.add(REDSTONE_CAMPFIRE);
@@ -384,6 +384,7 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 				.add(MANGROVE_LADDER)
 				.add(CHERRY_LADDER)
 				.add(BAMBOO_LADDER)
+				.add(PETRIFIED_OAK_LADDER)
 				.add(CRIMSON_LADDER)
 				.add(WARPED_LADDER);
 		this.getOrCreateTagBuilder(JinericBlockTags.WOODEN_BOOKSHELVES)
@@ -395,6 +396,7 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 				.add(MANGROVE_BOOKSHELF)
 				.add(CHERRY_BOOKSHELF)
 				.add(BAMBOO_BOOKSHELF)
+				.add(PETRIFIED_OAK_BOOKSHELF)
 				.add(CRIMSON_BOOKSHELF)
 				.add(WARPED_BOOKSHELF);
 		this.getOrCreateTagBuilder(JinericBlockTags.FULL_GRASS_REPLACEABLE).add(Blocks.GRASS_BLOCK);
