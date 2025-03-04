@@ -26,4 +26,6 @@ bin/
 
 # fabric
 run/
+
+# private
 todo.txt
