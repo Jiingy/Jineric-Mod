@@ -3,6 +3,7 @@ package jingy.jineric.data.generators.world;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
 import net.minecraft.registry.Registerable;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.world.gen.feature.PlacedFeature;
 
@@ -18,6 +19,7 @@ public class JinericPlacedFeatureProvider extends FabricDynamicRegistryProvider 
 	
 	@Override
 	protected void configure(RegistryWrapper.WrapperLookup registries, Entries entries) {
+		entries.addAll(registries.getOrThrow(RegistryKeys.PLACED_FEATURE));
 	}
 	
 	@Override
