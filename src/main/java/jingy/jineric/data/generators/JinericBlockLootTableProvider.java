@@ -110,7 +110,7 @@ public class JinericBlockLootTableProvider extends FabricBlockLootTableProvider 
 	
 	@Override
 	public String getName() {
-		return "jineric_block_loot_table";
+		return "Block Loot Tables";
 	}
 	
 	@FunctionalInterface

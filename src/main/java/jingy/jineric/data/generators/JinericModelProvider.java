@@ -290,7 +290,7 @@ public class JinericModelProvider extends FabricModelProvider {
 		Block wall = blockFamily.getVariant(BlockFamily.Variant.WALL);
 		Identifier postId = JinericModels.TEMPLATE_COLUMN_SHORT_WALL_POST.upload(wall, textureMap, bsmg.modelCollector);
 		Identifier sideShortId = JinericModels.TEMPLATE_COLUMN_SHORT_WALL_SIDE_LOW.upload(wall, textureMap, bsmg.modelCollector);
-		Identifier sideTallId = JinericModels.TEMPLATE_COLUMN_SHORT_WALL_TALL_SIDE.upload(wall, textureMap, bsmg.modelCollector);
+		Identifier sideTallId = JinericModels.TEMPLATE_COLUMN_SHORT_WALL_SIDE_TALL.upload(wall, textureMap, bsmg.modelCollector);
 		bsmg.blockStateCollector.accept(BlockStateModelGenerator.createWallBlockState(wall, postId, sideShortId, sideTallId));
 		Identifier wallInventory = JinericModels.TEMPLATE_COLUMN_SHORT_WALL_INVENTORY.upload(wall, textureMap, bsmg.modelCollector);
 		bsmg.registerParentedItemModel(wall, wallInventory);
@@ -429,6 +429,6 @@ public class JinericModelProvider extends FabricModelProvider {
 	
 	@Override
 	public String getName() {
-		return "jineric_models";
+		return "Models";
 	}
 }

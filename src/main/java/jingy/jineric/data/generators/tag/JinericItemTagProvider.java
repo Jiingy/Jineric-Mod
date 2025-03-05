@@ -175,6 +175,6 @@ public class JinericItemTagProvider extends FabricTagProvider.ItemTagProvider {
 	
 	@Override
 	public String getName() {
-		return "jineric_item_tags";
+		return "Item Tags";
 	}
 }

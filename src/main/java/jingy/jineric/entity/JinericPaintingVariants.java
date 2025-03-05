@@ -11,9 +11,9 @@ import net.minecraft.util.Formatting;
 import java.util.Optional;
 
 public class JinericPaintingVariants {
-	public static final RegistryKey<PaintingVariant> KROMER = of("kromer");
-	public static final RegistryKey<PaintingVariant> KEY_GEN = of("key_gen");
-	public static final RegistryKey<PaintingVariant> PEACEFUL_FARM = of("peaceful_farm");
+	public static final RegistryKey<PaintingVariant> KROMER = keyOf("kromer");
+	public static final RegistryKey<PaintingVariant> KEY_GEN = keyOf("key_gen");
+	public static final RegistryKey<PaintingVariant> PEACEFUL_FARM = keyOf("peaceful_farm");
 	
 	public static void bootstrap(Registerable<PaintingVariant> registry) {
 		register(registry, KROMER, 4, 2);
@@ -29,8 +29,7 @@ public class JinericPaintingVariants {
 		registry.register(
 				key,
 				new PaintingVariant(
-						width,
-						height,
+						width, height,
 						key.getValue(),
 						Optional.of(Text.translatable(key.getValue().toTranslationKey("painting", "title")).formatted(Formatting.YELLOW)),
 						hasAuthor ? Optional.of(Text.translatable(key.getValue().toTranslationKey("painting", "author")).formatted(Formatting.GRAY)) : Optional.empty()
@@ -38,7 +37,7 @@ public class JinericPaintingVariants {
 		);
 	}
 	
-	private static RegistryKey<PaintingVariant> of(String id) {
+	private static RegistryKey<PaintingVariant> keyOf(String id) {
 		return RegistryKey.of(RegistryKeys.PAINTING_VARIANT, JinericMain.ofJineric(id));
 	}
 }

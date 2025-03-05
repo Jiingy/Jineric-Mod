@@ -22,6 +22,6 @@ public class JinericEntityTypeTagProvider extends FabricTagProvider.EntityTypeTa
 	
 	@Override
 	public String getName() {
-		return "entity_type_tag_provider";
+		return "Entity Types";
 	}
 }

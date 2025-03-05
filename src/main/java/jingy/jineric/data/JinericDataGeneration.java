@@ -6,7 +6,8 @@ import jingy.jineric.data.generators.tag.JinericBlockTagProvider;
 import jingy.jineric.data.generators.tag.JinericEntityTypeTagProvider;
 import jingy.jineric.data.generators.tag.JinericItemTagProvider;
 import jingy.jineric.data.generators.tag.JinericPaintingVariantTagProvider;
-import jingy.jineric.data.generators.world.JinericWorldProvider;
+import jingy.jineric.data.generators.world.JinericConfiguredFeatureProvider;
+import jingy.jineric.data.generators.world.JinericPlacedFeatureProvider;
 import jingy.jineric.entity.JinericPaintingVariants;
 import jingy.jineric.world.biome.JinericBiomesProvider;
 import jingy.jineric.world.gen.feature.JinericConfiguredFeatures;
@@ -32,15 +33,15 @@ public class JinericDataGeneration implements DataGeneratorEntrypoint {
 		fabricDataGenPack.addProvider(JinericModelProvider::new);
 		fabricDataGenPack.addProvider(JinericPaintingVariantTagProvider::new);
 		fabricDataGenPack.addProvider(JinericRecipeProvider::new);
-		fabricDataGenPack.addProvider(JinericWorldProvider::new);
 	}
 	
 	@Override
 	public void buildRegistry(RegistryBuilder registryBuilder) {
+		DataGeneratorEntrypoint.super.buildRegistry(registryBuilder);
 		registryBuilder.addRegistry(RegistryKeys.BIOME, JinericBiomesProvider::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, JinericConfiguredFeatureProvider::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, JinericPlacedFeatureProvider::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.PAINTING_VARIANT, JinericPaintingVariants::bootstrap);
-		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, JinericConfiguredFeatures::bootstrap);
-		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, JinericPlacedFeatures::bootstrap);
 	}
 	
 	@Override

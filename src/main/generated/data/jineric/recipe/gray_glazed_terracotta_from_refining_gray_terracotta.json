@@ -3,7 +3,7 @@
   "category": "misc",
   "cookingtime": 100,
   "experience": 0.1,
-  "group": "gray_glazed_terracotta",
+  "group": "glazed_terracotta",
   "ingredient": "minecraft:gray_terracotta",
   "result": {
     "id": "minecraft:gray_glazed_terracotta"

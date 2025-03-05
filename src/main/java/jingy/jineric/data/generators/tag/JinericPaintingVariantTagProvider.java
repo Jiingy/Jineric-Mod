@@ -23,4 +23,9 @@ public class JinericPaintingVariantTagProvider extends FabricTagProvider<Paintin
 				.add(JinericPaintingVariants.KROMER)
 				.add(JinericPaintingVariants.PEACEFUL_FARM);
 	}
+	
+	@Override
+	public String getName() {
+		return "Painting Variant Tags";
+	}
 }
