@@ -18,7 +18,7 @@ public abstract class BlockEntityTypeMixin {
 			cancellable = true
 	)
 	private void supports(BlockState state, CallbackInfoReturnable<Boolean> info) {
-		if (BlockEntityType.SIGN.equals(this) && (state.getBlock() instanceof SignBlock || state.getBlock() instanceof WallSignBlock)) {
+		if (BlockEntityType.SIGN.equals((BlockEntityType)(Object)this) && (state.getBlock() instanceof SignBlock || state.getBlock() instanceof WallSignBlock)) {
 			info.setReturnValue(true);
 		}
 	}
