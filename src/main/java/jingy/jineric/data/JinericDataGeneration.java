@@ -36,6 +36,7 @@ public class JinericDataGeneration implements DataGeneratorEntrypoint {
 	
 	@Override
 	public void buildRegistry(RegistryBuilder registryBuilder) {
+		DataGeneratorEntrypoint.super.buildRegistry(registryBuilder);
 		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, JinericConfiguredFeatureProvider::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, JinericPlacedFeatureProvider::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.PAINTING_VARIANT, JinericPaintingVariants::bootstrap);
