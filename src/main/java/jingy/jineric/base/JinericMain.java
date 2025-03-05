@@ -10,7 +10,6 @@ import jingy.jineric.recipe.JinericRecipeBookCategories;
 import jingy.jineric.recipe.JinericRecipeSerializer;
 import jingy.jineric.recipe.JinericRecipeTypes;
 import jingy.jineric.registry.JinericBlockEntityType;
-import jingy.jineric.registry.JinericParticleTypes;
 import jingy.jineric.registry.JinericRegistries;
 import jingy.jineric.screen.JinericScreenHandlerType;
 import jingy.jineric.stat.JinericStats;
@@ -38,7 +37,6 @@ public class JinericMain implements ModInitializer {
 	}
 	
 	private void initRegistries() {
-        JinericParticleTypes.init();
 		JinericRegistries.initializeJinericRegistries();
 		JinericBlocks.initialize();
 		JinericItems.initialize();

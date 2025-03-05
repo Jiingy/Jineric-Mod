@@ -2,6 +2,7 @@ package jingy.jineric.base;
 
 import jingy.jineric.client.data.JinericModels;
 import jingy.jineric.client.data.JinericTextureKey;
+import jingy.jineric.client.particle.JinericParticleFactories;
 import jingy.jineric.recipe.JinericClientRecipeBookTypes;
 import jingy.jineric.recipe.JinericRecipeBookTypes;
 import jingy.jineric.recipe.JinericRecipePropertySet;
@@ -15,6 +16,7 @@ public class JinericClientMain implements ClientModInitializer {
 	
 	@Override
 	public void onInitializeClient() {
+		JinericParticleFactories.initialize();
 		JinericTextureKey.initialize();
 		JinericModels.initialize();
 		JinericRecipeBookTypes.initialize();

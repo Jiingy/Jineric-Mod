@@ -1,5 +1,6 @@
 package jingy.jineric.block;
 
+import jingy.jineric.registry.JinericParticleTypes;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FlowerBlock;
 import net.minecraft.block.ShapeContext;
@@ -26,7 +27,25 @@ public class BlossomedDandelion extends FlowerBlock {
          double e = (double)pos.getZ() + vec3d.z;
 
 //         world.addParticle(
-//                 JinericParticleTypes.RED_DANDELION_SEED, d + random.nextDouble() / 5.0, (double)pos.getY() + (0.5 - random.nextDouble()), e + random.nextDouble() / 5.0, 0.0, 0.0, 0.0
+//                 JinericParticleTypes.BLOSSOMED_DANDELION_SEED,
+//                 d + random.nextDouble() / 5.0,
+//                 (double)pos.getY() + (0.5 - random.nextDouble()),
+//                 e + random.nextDouble() / 5.0,
+//                 0.0F,
+//                 0.0F,
+//                 0.0F
+//         );
+         world.addParticle(
+                 JinericParticleTypes.BLOSSOMED_DANDELION_SEED,
+                 d - 0.25 + random.nextDouble() / 2.0,
+                 pos.getY() + 0.5d,
+                 e - 0.25 + random.nextDouble() / 2.0,
+                 random.nextDouble(),
+                 0.0F,
+//                 ,
+                 random.nextDouble()
+//                 0.0F
+         );
 //                 ParticleTypes.HEART, pos.getX() + 0.3, pos.getY() + 0.3, pos.getZ() + 0.3, random.nextInt(), random.nextInt(), random.nextInt()
 //         );
       }

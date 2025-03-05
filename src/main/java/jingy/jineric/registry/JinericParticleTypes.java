@@ -7,12 +7,9 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
 public class JinericParticleTypes {
-   public static final SimpleParticleType RED_DANDELION_SEED = register("blossomed_dandelion_seed", false);
+   public static final SimpleParticleType BLOSSOMED_DANDELION_SEED = register("blossomed_dandelion_seed", false);
 
    private static SimpleParticleType register(String name, boolean alwaysShow) {
       return Registry.register(Registries.PARTICLE_TYPE, JinericMain.ofJineric(name), FabricParticleTypes.simple(alwaysShow));
-   }
-
-   public static void init() {
    }
 }

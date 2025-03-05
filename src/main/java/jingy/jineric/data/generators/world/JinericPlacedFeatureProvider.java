@@ -15,11 +15,17 @@ public class JinericPlacedFeatureProvider extends FabricDynamicRegistryProvider 
 	}
 	
 	public static void bootstrap(Registerable<PlacedFeature> registry) {
+	
 	}
 	
 	@Override
 	protected void configure(RegistryWrapper.WrapperLookup registries, Entries entries) {
 		entries.addAll(registries.getOrThrow(RegistryKeys.PLACED_FEATURE));
+		final RegistryWrapper.Impl<PlacedFeature> placedFeatureRegistry = registries.getOrThrow(RegistryKeys.PLACED_FEATURE);
+//		entries.add(JinericTreePlacedFeatures.PETRIFIED_OAK_CHECKED, placedFeatureRegistry.getOrThrow(JinericTreePlacedFeatures.PETRIFIED_OAK_CHECKED).value());
+//      entries.add(JinericTreePlacedFeatures.PETRIFIED_OAK_BEES_002, placedFeatureRegistry.getOrThrow(JinericTreePlacedFeatures.PETRIFIED_OAK_BEES_002).value());
+//		entries.add(JinericVegetationPlacedFeatures.TREES_WISTFUL_FOREST, placedFeatureRegistry.getOrThrow(JinericVegetationPlacedFeatures.TREES_WISTFUL_FOREST).value());
+//		entries.add(JinericVegetationPlacedFeatures.CARVED_PUMPKIN_PATCH, placedFeatureRegistry.getOrThrow(JinericVegetationPlacedFeatures.CARVED_PUMPKIN_PATCH).value());
 	}
 	
 	@Override
