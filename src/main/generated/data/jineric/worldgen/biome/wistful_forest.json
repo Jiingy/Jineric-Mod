@@ -84,8 +84,11 @@
     ],
     [
       "minecraft:glow_lichen",
-      "minecraft:forest_flowers",
       "jineric:trees_wistful_forest",
+      "jineric:patch_rose",
+      "jineric:patch_roses",
+      "jineric:patch_blossomed_dandelion",
+      "minecraft:patch_grass_badlands",
       "minecraft:patch_grass_jungle",
       "minecraft:patch_tall_grass_2",
       "minecraft:brown_mushroom_normal",
