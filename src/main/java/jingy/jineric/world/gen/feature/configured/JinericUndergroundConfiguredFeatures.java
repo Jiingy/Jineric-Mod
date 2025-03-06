@@ -1,4 +1,4 @@
-package jingy.jineric.data.generators.world;
+package jingy.jineric.world.gen.feature.configured;
 
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.JinericBlocks;
@@ -22,7 +22,8 @@ public class JinericUndergroundConfiguredFeatures {
 	public static final RegistryKey<ConfiguredFeature<?, ?>> FULL_GRASS_PATCH_BONEMEAL = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, JinericMain.ofJineric("full_grass_patch_bonemeal"));
 	
 	protected static ConfiguredFeature<?, ?> createFullGrassVegetation() {
-		return new ConfiguredFeature<>(Feature.SIMPLE_BLOCK,
+		return new ConfiguredFeature<>(
+				Feature.SIMPLE_BLOCK,
 				new SimpleBlockFeatureConfig(
 						new WeightedBlockStateProvider(
 								DataPool.<BlockState>builder()
@@ -37,7 +38,8 @@ public class JinericUndergroundConfiguredFeatures {
 	
 	protected static ConfiguredFeature<?, ?> createFullGrassPatchFeature(Registerable<ConfiguredFeature<?, ?>> registry) {
 		RegistryEntryLookup<ConfiguredFeature<?, ?>> registryEntryLookup = registry.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
-		return new ConfiguredFeature<>(Feature.VEGETATION_PATCH,
+		return new ConfiguredFeature<>(
+				Feature.VEGETATION_PATCH,
 				new VegetationPatchFeatureConfig(
 						JinericBlockTags.FULL_GRASS_REPLACEABLE,
 						BlockStateProvider.of(JinericBlocks.FULL_GRASS_BLOCK),
@@ -49,6 +51,12 @@ public class JinericUndergroundConfiguredFeatures {
 						0.5F,
 						UniformIntProvider.create(1, 2),
 						0.75F
-				));
+				)
+		);
+	}
+	
+	public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> featureRegisterable) {
+		featureRegisterable.register(JinericUndergroundConfiguredFeatures.FULL_GRASS_PATCH_BONEMEAL, JinericUndergroundConfiguredFeatures.createFullGrassPatchFeature(featureRegisterable));
+		featureRegisterable.register(JinericUndergroundConfiguredFeatures.FULL_GRASS_VEGETATION, JinericUndergroundConfiguredFeatures.createFullGrassVegetation());
 	}
 }
