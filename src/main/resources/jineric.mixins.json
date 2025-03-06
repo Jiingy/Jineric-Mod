@@ -30,6 +30,7 @@
       "fix.WallsConnectionMixin"
    ],
    "client": [
+      "access.LeavesParticleAccess",
       "access.TextureKeyAccess",
       "client.ChestBlockEntityRendererMixin"
    ],

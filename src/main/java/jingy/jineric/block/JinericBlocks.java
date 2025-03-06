@@ -4,6 +4,7 @@ import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.sapling.JinericSaplingGenerators;
 import jingy.jineric.registry.JinericBlockSetTypes;
 import jingy.jineric.registry.JinericBlockSettings;
+import jingy.jineric.registry.JinericParticleTypes;
 import jingy.jineric.registry.JinericWoodType;
 import jingy.jineric.sound.JinericBlockSoundGroup;
 import jingy.jineric.tag.JinericBlockTags;
@@ -342,7 +343,7 @@ public class JinericBlocks {
 	);
     public static final Block PETRIFIED_OAK_LEAVES = register(
 			"petrified_oak_leaves",
-            LeavesBlock::new,
+            settings -> new ParticleLeavesBlock(10, JinericParticleTypes.PETRIFIED_OAK_LEAVES, settings),
 			AbstractBlock.Settings.copy(OAK_LEAVES).sounds(BlockSoundGroup.GRASS)
 	);
     public static final Block PETRIFIED_OAK_SAPLING = register(
