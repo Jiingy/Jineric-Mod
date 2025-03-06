@@ -4,6 +4,7 @@ import jingy.jineric.registry.JinericParticleTypes;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FlowerBlock;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.component.type.SuspiciousStewEffectsComponent;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.math.BlockPos;
@@ -16,7 +17,11 @@ public class BlossomedDandelion extends FlowerBlock {
    public BlossomedDandelion(RegistryEntry<StatusEffect> stewEffect, float effectLengthInSeconds, Settings settings) {
       super(stewEffect, effectLengthInSeconds, settings);
    }
-
+   
+   public BlossomedDandelion(SuspiciousStewEffectsComponent stewEffects, Settings settings) {
+      super(stewEffects, settings);
+   }
+   
    @Override
    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
       VoxelShape voxelShape = this.getOutlineShape(state, world, pos, ShapeContext.absent());

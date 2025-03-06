@@ -227,7 +227,7 @@ public class JinericBlocks {
 	public static final Block FIREWEED = register("fireweed", TallFlowerBlock::new, AbstractBlock.Settings.copy(SUNFLOWER));
     public static final Block BLOSSOMED_DANDELION = register(
 			"blossomed_dandelion",
-			settings -> new BlossomedDandelion(StatusEffects.NAUSEA, 12, settings),
+			settings -> new BlossomedDandelion(StatusEffects.WEAVING, 11, settings),
 			AbstractBlock.Settings.copy(DANDELION)
 	);
 	public static final Block POTTED_BLOSSOMED_DANDELION = register(
@@ -237,8 +237,8 @@ public class JinericBlocks {
 	);
 	public static final Block ROSE = register(
 			"rose",
-			settings -> new BlossomedDandelion(StatusEffects.NAUSEA, 12, settings),
-			AbstractBlock.Settings.copy(DANDELION)
+			settings -> new RoseBlock(StatusEffects.LUCK, 12, settings),
+			AbstractBlock.Settings.copy(POPPY)
 	);
 	public static final Block POTTED_ROSE = register(
 			"potted_rose",
