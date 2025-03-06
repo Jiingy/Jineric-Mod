@@ -33,9 +33,6 @@ public class JinericForestRegion extends Region {
 				.weirdness(ParameterUtils.Weirdness.MID_SLICE_VARIANT_ASCENDING, ParameterUtils.Weirdness.MID_SLICE_VARIANT_DESCENDING)
 				.build().forEach(noiseHypercube -> builder.add(noiseHypercube, JinericBiomeKeys.WISTFUL_FOREST));
 		builder.build().forEach(mapper);
-		
-		
-//		this.addBiomeSimilar(mapper, BiomeKeys.FLOWER_FOREST, JinericBiomeKeys.WISTFUL_FLOWER_FOREST);
 //		this.addBiomeSimilar(mapper, BiomeKeys.FOREST, JinericBiomeKeys.WISTFUL_FOREST);
 	}
 }

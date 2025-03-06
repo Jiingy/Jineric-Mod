@@ -17,8 +17,7 @@ public class JinericMaterialRules {
 	);
 	
 	public static final MaterialRules.MaterialRule WISTFUL_FORESTS = MaterialRules.sequence(
-			MaterialRules.condition(MaterialRules.biome(JinericBiomeKeys.WISTFUL_FOREST), FULL_GRASS_BLOCK_SURFACE),
-			MaterialRules.condition(MaterialRules.biome(JinericBiomeKeys.WISTFUL_FLOWER_FOREST), FULL_GRASS_BLOCK_SURFACE)
+			MaterialRules.condition(MaterialRules.biome(JinericBiomeKeys.WISTFUL_FOREST), FULL_GRASS_BLOCK_SURFACE)
 	);
 	
 	protected static MaterialRules.MaterialRule makeRules() {

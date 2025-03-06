@@ -24,44 +24,33 @@ public class JinericOverworldBiomeCreator extends OverworldBiomeCreator {
 		return new Biome.Builder().build();
 	}
 	
-	public static Biome createWistfulForest(RegistryEntryLookup<PlacedFeature> featureLookup, RegistryEntryLookup<ConfiguredCarver<?>> carverLookup, boolean flower) {
+	public static Biome createWistfulForest(
+			RegistryEntryLookup<PlacedFeature> featureLookup, RegistryEntryLookup<ConfiguredCarver<?>> carverLookup
+	) {
+		SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
+		DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
+		spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.WOLF, 5, 4, 4));
 		GenerationSettings.LookupBackedBuilder builder = new GenerationSettings.LookupBackedBuilder(featureLookup, carverLookup);
-		OverworldBiomeCreatorAccess.invokeAddBasicFeatures(builder);
-		MusicSound musicSound;
-		if (flower) {
-			musicSound = MusicType.createIngameMusic(SoundEvents.MUSIC_OVERWORLD_FLOWER_FOREST);
-			builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.FLOWER_FOREST_FLOWERS);
-		} else {
-			musicSound = MusicType.createIngameMusic(SoundEvents.MUSIC_OVERWORLD_FOREST);
-			DefaultBiomeFeatures.addForestFlowers(builder);
-		}
+		DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
 		
+		MusicSound musicSound = MusicType.createIngameMusic(SoundEvents.MUSIC_OVERWORLD_FOREST);
+		
+		OverworldBiomeCreatorAccess.invokeAddBasicFeatures(builder);
 		DefaultBiomeFeatures.addDefaultOres(builder);
 		DefaultBiomeFeatures.addDefaultDisks(builder);
-		if (flower) {
-			builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.TREES_FLOWER_FOREST);
-			builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.FLOWER_FLOWER_FOREST);
-			DefaultBiomeFeatures.addDefaultGrass(builder);
-			DefaultBiomeFeatures.addPlainsTallGrass(builder);
-		} else {
-			builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, JinericVegetationPlacedFeatures.TREES_WISTFUL_FOREST);
-//         DefaultBiomeFeatures.addDefaultFlowers(builder);
-			DefaultBiomeFeatures.addJungleGrass(builder);
-			DefaultBiomeFeatures.addPlainsTallGrass(builder);
-		}
+		builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, JinericVegetationPlacedFeatures.TREES_WISTFUL_FOREST);
+		builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, JinericVegetationPlacedFeatures.PATCH_ROSE);
+		builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, JinericVegetationPlacedFeatures.PATCH_ROSES);
+		builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, JinericVegetationPlacedFeatures.PATCH_BLOSSOMED_DANDELION);
+		DefaultBiomeFeatures.addDefaultGrass(builder);
+		DefaultBiomeFeatures.addJungleGrass(builder);
+		DefaultBiomeFeatures.addPlainsTallGrass(builder);
 		
 		DefaultBiomeFeatures.addDefaultMushrooms(builder);
 		builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, JinericVegetationPlacedFeatures.CARVED_PUMPKIN_PATCH);
 		builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_SUGAR_CANE);
 		
-		SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
-		DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
-		DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
-		if (flower) {
-			spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.RABBIT, 4, 2, 3));
-		} else {
-			spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.WOLF, 5, 4, 4));
-		}
+		
 		return OverworldBiomeCreatorAccess.invokeCreateBiome(
 				true,
 				0.7F,
