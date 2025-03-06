@@ -2,10 +2,7 @@ package jingy.jineric.data;
 
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.data.generators.*;
-import jingy.jineric.data.generators.tag.JinericBlockTagProvider;
-import jingy.jineric.data.generators.tag.JinericEntityTypeTagProvider;
-import jingy.jineric.data.generators.tag.JinericItemTagProvider;
-import jingy.jineric.data.generators.tag.JinericPaintingVariantTagProvider;
+import jingy.jineric.data.generators.tag.*;
 import jingy.jineric.entity.JinericPaintingVariants;
 import jingy.jineric.world.biome.JinericBiomesProvider;
 import jingy.jineric.world.gen.feature.configured.JinericConfiguredFeatures;
