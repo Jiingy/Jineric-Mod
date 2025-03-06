@@ -1,6 +1,6 @@
 package jingy.jineric.block;
 
-import jingy.jineric.world.gen.feature.JinericUndergroundConfiguredFeatures;
+import jingy.jineric.world.gen.feature.configured.JinericUndergroundConfiguredFeatures;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Fertilizable;
 import net.minecraft.block.GrassBlock;

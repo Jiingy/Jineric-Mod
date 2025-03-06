@@ -1,4 +1,4 @@
-package jingy.jineric.world.gen.feature;
+package jingy.jineric.world.gen.feature.configured;
 
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.JinericBlocks;

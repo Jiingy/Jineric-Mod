@@ -1,4 +1,4 @@
-package jingy.jineric.world.gen.feature;
+package jingy.jineric.world.gen.feature.placed;
 
 import jingy.jineric.base.JinericMain;
 import net.minecraft.registry.Registerable;
@@ -7,7 +7,6 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.world.gen.feature.PlacedFeature;
 
 public class JinericPlacedFeatures {
-	
 	public static void bootstrap(Registerable<PlacedFeature> featureRegisterable) {
 		JinericTreePlacedFeatures.bootstrap(featureRegisterable);
 		JinericVegetationPlacedFeatures.bootstrap(featureRegisterable);

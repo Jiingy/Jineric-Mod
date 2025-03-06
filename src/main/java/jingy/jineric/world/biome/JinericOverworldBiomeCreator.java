@@ -1,7 +1,7 @@
 package jingy.jineric.world.biome;
 
 import jingy.jineric.mixin.access.OverworldBiomeCreatorAccess;
-import jingy.jineric.world.gen.feature.JinericVegetationPlacedFeatures;
+import jingy.jineric.world.gen.feature.placed.JinericVegetationPlacedFeatures;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.RegistryEntryLookup;

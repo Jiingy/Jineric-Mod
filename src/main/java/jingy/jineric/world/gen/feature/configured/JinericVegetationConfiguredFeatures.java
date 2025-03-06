@@ -1,6 +1,7 @@
-package jingy.jineric.world.gen.feature;
+package jingy.jineric.world.gen.feature.configured;
 
 import jingy.jineric.block.JinericBlocks;
+import jingy.jineric.world.gen.feature.placed.JinericTreePlacedFeatures;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryEntryLookup;

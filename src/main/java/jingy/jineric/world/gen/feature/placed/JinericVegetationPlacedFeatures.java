@@ -1,5 +1,6 @@
-package jingy.jineric.world.gen.feature;
+package jingy.jineric.world.gen.feature.placed;
 
+import jingy.jineric.world.gen.feature.configured.JinericVegetationConfiguredFeatures;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryEntryLookup;
 import net.minecraft.registry.RegistryKey;
