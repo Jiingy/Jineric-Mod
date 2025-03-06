@@ -1,5 +1,9 @@
 {
   "textures": [
-    "jineric:seed"
+    "jineric:pappus_puff_0",
+	"jineric:pappus_puff_1",
+	"jineric:pappus_puff_2",
+	"jineric:pappus_puff_3",
+	"jineric:pappus_puff_4"
   ]
 }
