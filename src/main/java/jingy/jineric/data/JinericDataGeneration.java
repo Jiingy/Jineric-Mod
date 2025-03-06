@@ -1,6 +1,7 @@
-package jingy.jineric.data.generators;
+package jingy.jineric.data;
 
 import jingy.jineric.base.JinericMain;
+import jingy.jineric.data.generators.*;
 import jingy.jineric.data.generators.tag.JinericBlockTagProvider;
 import jingy.jineric.data.generators.tag.JinericEntityTypeTagProvider;
 import jingy.jineric.data.generators.tag.JinericItemTagProvider;
