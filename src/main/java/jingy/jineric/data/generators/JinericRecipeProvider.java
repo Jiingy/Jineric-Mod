@@ -63,6 +63,11 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				this.offerGildedNuggetItem(Items.SWEET_BERRIES, JinericItems.GOLDEN_SWEET_BERRIES);
 				this.offerGildedNuggetItem(Items.BEETROOT, JinericItems.GOLDEN_BEETROOT);
 				this.offerNetheriteUpgradeRecipe(Items.DIAMOND_HORSE_ARMOR, RecipeCategory.COMBAT, JinericItems.NETHERITE_HORSE_ARMOR);
+				this.createShapeless(RecipeCategory.MISC, Items.RED_DYE)
+						.input(JinericBlocks.ROSE)
+						.group("red_dye")
+						.criterion("has_rose", this.conditionsFromItem(JinericBlocks.ROSE))
+						.offerTo(recipeExporter);
 // BLOCKS
 				this.offerPlanksRecipe(JinericBlocks.PETRIFIED_OAK_PLANKS, JinericItemTags.PETRIFIED_OAK_LOGS, 4);
 				this.offerBarkBlockRecipe(JinericBlocks.PETRIFIED_OAK_WOOD, JinericBlocks.PETRIFIED_OAK_LOG);
