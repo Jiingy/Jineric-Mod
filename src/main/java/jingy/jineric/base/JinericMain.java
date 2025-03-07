@@ -16,6 +16,7 @@ import jingy.jineric.stat.JinericStats;
 import jingy.jineric.tag.JinericBlockTags;
 import jingy.jineric.tag.JinericEntityTypeTags;
 import jingy.jineric.tag.JinericItemTags;
+import jingy.jineric.world.biome.JinericBiomeKeys;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
@@ -54,5 +55,6 @@ public class JinericMain implements ModInitializer {
 		JinericStatusEffects.registerStatusEffects();
 		JinericItemGroups.registerJinericItemGroups();
 		JinericItemGroups.registerItemGroups();
+		JinericBiomeKeys.initialize();
 	}
 }
