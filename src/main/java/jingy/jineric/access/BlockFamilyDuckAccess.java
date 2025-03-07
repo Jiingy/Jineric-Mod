@@ -1,4 +1,4 @@
-package jingy.jineric.mixin.duck.access;
+package jingy.jineric.access;
 
 
 public interface BlockFamilyDuckAccess {

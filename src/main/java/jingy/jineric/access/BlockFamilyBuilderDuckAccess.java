@@ -1,4 +1,4 @@
-package jingy.jineric.mixin.duck.access;
+package jingy.jineric.access;
 
 import net.minecraft.block.Block;
 import net.minecraft.data.family.BlockFamily;
