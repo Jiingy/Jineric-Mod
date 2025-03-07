@@ -55,6 +55,10 @@ public class JinericBlockLootTableProvider extends FabricBlockLootTableProvider 
 		this.addDrop(JinericBlocks.CHARCOAL_BLOCK);
 		this.addDrop(JinericBlocks.SOUL_JACK_O_LANTERN);
 		this.addDrop(JinericBlocks.FULL_GRASS_BLOCK, block -> this.drops(block, Blocks.DIRT));
+		this.addPottedPlantDrops(JinericBlocks.POTTED_BLOSSOMED_DANDELION);
+		this.addDrop(JinericBlocks.BLOSSOMED_DANDELION);
+		this.addPottedPlantDrops(JinericBlocks.POTTED_ROSE);
+		this.addDrop(JinericBlocks.ROSE);
 	}
 	
 	private void genWoodSets() {
