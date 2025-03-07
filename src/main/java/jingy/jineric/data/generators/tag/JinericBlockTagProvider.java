@@ -183,7 +183,9 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 		this.getOrCreateTagBuilder(BlockTags.LEAVES)
 				.add(JinericBlocks.PETRIFIED_OAK_LEAVES);
 //      this.getOrCreateTagBuilder(BlockTags.TRAPDOORS);
-//      this.getOrCreateTagBuilder(BlockTags.SMALL_FLOWERS);
+      this.getOrCreateTagBuilder(BlockTags.SMALL_FLOWERS)
+		      .add(ROSE)
+		      .add(BLOSSOMED_DANDELION);
 //      this.getOrCreateTagBuilder(BlockTags.BEDS);
 //      this.getOrCreateTagBuilder(BlockTags.FENCES);
 //      this.getOrCreateTagBuilder(BlockTags.TALL_FLOWERS);
@@ -206,7 +208,9 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 //      this.getOrCreateTagBuilder(BlockTags.CONCRETE_POWDER);
 //      this.getOrCreateTagBuilder(BlockTags.COMPLETES_FIND_TREE_TUTORIAL);
 //      this.getOrCreateTagBuilder(BlockTags.SHULKER_BOXES);
-//      this.getOrCreateTagBuilder(BlockTags.FLOWER_POTS);
+      this.getOrCreateTagBuilder(BlockTags.FLOWER_POTS)
+		      .add(POTTED_ROSE)
+		      .add(POTTED_BLOSSOMED_DANDELION);
 		this.getOrCreateTagBuilder(BlockTags.ENDERMAN_HOLDABLE)
 				.add(FULL_GRASS_BLOCK);
 //      this.getOrCreateTagBuilder(BlockTags.ICE);
