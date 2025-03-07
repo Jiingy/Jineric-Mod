@@ -10,6 +10,7 @@ public class JinericPlacedFeatures {
 	public static void bootstrap(Registerable<PlacedFeature> featureRegisterable) {
 		JinericTreePlacedFeatures.bootstrap(featureRegisterable);
 		JinericVegetationPlacedFeatures.bootstrap(featureRegisterable);
+		JinericMiscPlacedFeatures.bootstrap(featureRegisterable);
 	}
 	
 	public static RegistryKey<PlacedFeature> of(String id) {

@@ -22,7 +22,6 @@ public class JinericVegetationConfiguredFeatures {
 	public static final RegistryKey<ConfiguredFeature<?, ?>> PATCH_BLOSSOMED_DANDELION = JinericConfiguredFeatures.of("patch_dandelion");
 	
 	public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> featureRegisterable) {
-		RegistryEntryLookup<ConfiguredFeature<?, ?>> registryEntryLookup = featureRegisterable.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 		RegistryEntryLookup<PlacedFeature> registryLookupPlaced = featureRegisterable.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
 		RegistryEntry<PlacedFeature> petrifiedOakChecked = registryLookupPlaced.getOrThrow(JinericTreePlacedFeatures.PETRIFIED_OAK_CHECKED);
 //		RegistryEntry<PlacedFeature> petrifiedOakBees002 = registryLookupPlaced.getOrThrow(JinericTreePlacedFeatures.PETRIFIED_OAK_BEES_002);

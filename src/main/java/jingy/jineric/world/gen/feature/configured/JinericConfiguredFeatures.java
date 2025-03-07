@@ -11,6 +11,7 @@ public class JinericConfiguredFeatures {
 		JinericTreeConfiguredFeatures.bootstrap(featureRegisterable);
 		JinericVegetationConfiguredFeatures.bootstrap(featureRegisterable);
 		JinericUndergroundConfiguredFeatures.bootstrap(featureRegisterable);
+		JinericMiscConfiguredFeatures.bootstrap(featureRegisterable);
 	}
 	
 	public static RegistryKey<ConfiguredFeature<?, ?>> of(String id) {

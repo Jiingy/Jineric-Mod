@@ -35,7 +35,8 @@
     [],
     [
       "minecraft:lake_lava_underground",
-      "minecraft:lake_lava_surface"
+      "minecraft:lake_lava_surface",
+      "jineric:lake_water_surface"
     ],
     [
       "minecraft:amethyst_geode"
