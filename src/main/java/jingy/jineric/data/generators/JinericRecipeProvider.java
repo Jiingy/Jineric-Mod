@@ -63,11 +63,9 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				this.offerGildedNuggetItem(Items.SWEET_BERRIES, JinericItems.GOLDEN_SWEET_BERRIES);
 				this.offerGildedNuggetItem(Items.BEETROOT, JinericItems.GOLDEN_BEETROOT);
 				this.offerNetheriteUpgradeRecipe(Items.DIAMOND_HORSE_ARMOR, RecipeCategory.COMBAT, JinericItems.NETHERITE_HORSE_ARMOR);
-				this.createShapeless(RecipeCategory.MISC, Items.RED_DYE)
-						.input(JinericBlocks.ROSE)
-						.group("red_dye")
-						.criterion("has_rose", this.conditionsFromItem(JinericBlocks.ROSE))
-						.offerTo(recipeExporter);
+				this.offerFlowerToDye(JinericBlocks.ROSE, Items.RED_DYE, "red_dye", 1);
+				this.offerFlowerToDye(JinericBlocks.BLOSSOMED_DANDELION, Items.LIGHT_GRAY_DYE, "light_gray_dye", 1);
+				
 // BLOCKS
 				this.offerPlanksRecipe(JinericBlocks.PETRIFIED_OAK_PLANKS, JinericItemTags.PETRIFIED_OAK_LOGS, 4);
 				this.offerBarkBlockRecipe(JinericBlocks.PETRIFIED_OAK_WOOD, JinericBlocks.PETRIFIED_OAK_LOG);
@@ -488,6 +486,14 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						.input('S', input)
 						.pattern("SS")
 						.pattern("SS")
+						.criterion("has_" + input, this.conditionsFromItem(input))
+						.offerTo(recipeExporter);
+			}
+			
+			public void offerFlowerToDye(ItemConvertible input, Item output, String group, int count) {
+				this.createShapeless(RecipeCategory.MISC, output, count)
+						.input(input)
+						.group(group)
 						.criterion("has_" + input, this.conditionsFromItem(input))
 						.offerTo(recipeExporter);
 			}

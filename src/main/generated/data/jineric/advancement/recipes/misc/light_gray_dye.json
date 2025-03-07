@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_Block{jineric:rose}": {
+    "has_Block{jineric:blossomed_dandelion}": {
       "conditions": {
         "items": [
           {
-            "items": "jineric:rose"
+            "items": "jineric:blossomed_dandelion"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:red_dye"
+        "recipe": "minecraft:light_gray_dye"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_Block{jineric:rose}"
+      "has_Block{jineric:blossomed_dandelion}"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:red_dye"
+      "minecraft:light_gray_dye"
     ]
   }
 }
