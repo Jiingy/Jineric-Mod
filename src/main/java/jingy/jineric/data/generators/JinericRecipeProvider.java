@@ -18,14 +18,15 @@ import net.minecraft.data.family.BlockFamily;
 import net.minecraft.data.recipe.CookingRecipeJsonBuilder;
 import net.minecraft.data.recipe.RecipeExporter;
 import net.minecraft.data.recipe.RecipeGenerator;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.predicate.NumberRange;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.CookingRecipeCategory;
 import net.minecraft.recipe.book.RecipeCategory;
-import net.minecraft.registry.*;
+import net.minecraft.registry.DefaultedRegistry;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.resource.featuretoggle.FeatureSet;
@@ -48,13 +49,11 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 	@Override
 	protected RecipeGenerator getRecipeGenerator(RegistryWrapper.WrapperLookup wrapperLookup, RecipeExporter recipeExporter) {
 		return new RecipeGenerator(wrapperLookup, recipeExporter) {
-			
 			@Override
 			public void generate() {
 				BlockFamilies.getFamilies()
 						.filter(blockFamily -> blockFamily.shouldGenerateRecipes() && blockFamily.jineric_mod$isModded())
 						.forEach(blockFamily -> this.generateFamily(blockFamily, FeatureSet.of(FeatureFlags.VANILLA)));
-				RegistryEntryLookup<Item> itemRegistryEntryLookup = registries.getOrThrow(RegistryKeys.ITEM);
 // ITEMS
 				this.genVanillaWoodFamilyAdditions();
 				this.genVanillaFamilyAdditions();
@@ -475,15 +474,6 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 //                      Ingredient.ofItems(Items.IRON_INGOT), category, result)
 //              .criterion("has_iron_ingot", conditionsFromItem(Items.IRON_INGOT))
 //              .offerTo(recipeExporter, getItemPath(result) + "_smithing");
-//         }
-//
-//         public void offerBrickRecipe(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
-//            this.createShaped(RecipeCategory.BUILDING_BLOCKS, output, 4)
-//                    .input('#', input)
-//                    .pattern("##")
-//                    .pattern("##")
-//                    .criterion("has_" + input, conditionsFromItem(input))
-//                    .offerTo(exporter);
 //         }
 		};
 	}
