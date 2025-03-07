@@ -60,6 +60,7 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		this.add(JinericItems.PETRIFIED_OAK_BOAT);
 		//  Translation Keys
 		builder.add("entity.jineric.petrified_oak_chest_boat", "Petrified Oak Boat with Chest");
+		builder.add("biome.jineric.wistful_forest", "Wistful Forest");
 	}
 	
 	public void tryExisting(TranslationBuilder builder) {
