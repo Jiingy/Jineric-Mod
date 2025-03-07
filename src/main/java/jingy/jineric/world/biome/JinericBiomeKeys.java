@@ -11,4 +11,7 @@ public class JinericBiomeKeys {
 	private static RegistryKey<Biome> register(String id) {
 		return RegistryKey.of(RegistryKeys.BIOME, JinericMain.ofJineric(id));
 	}
+	
+	public static void initialize() {
+	}
 }
