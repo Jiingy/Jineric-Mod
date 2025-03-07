@@ -10,7 +10,7 @@ public class TerraBlenderPlugin implements TerraBlenderApi {
 
    @Override
    public void onTerraBlenderInitialized() {
-	   SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, JinericMain.MOD_ID, JinericMaterialRules.makeRules());
+	   SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, JinericMain.MOD_ID, JinericMaterialRules.createJinericDefaultRule());
 	   Regions.register(new JinericForestRegion(JinericMain.ofJineric("overworld_region"), 1));
    }
 }
