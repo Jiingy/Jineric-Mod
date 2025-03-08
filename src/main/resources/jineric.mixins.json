@@ -6,6 +6,7 @@
    "mixins": [
       "BlockEntityTypeMixin",
       "LivingEntityFastFallingMixin",
+      "access.BlocksAccess",
       "access.CookingRecipeJsonBuilderAccessor",
       "access.OverworldBiomeCreatorAccess",
       "access.SmithingTemplateItemAccess",

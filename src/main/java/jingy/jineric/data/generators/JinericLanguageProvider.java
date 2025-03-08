@@ -1,11 +1,16 @@
 package jingy.jineric.data.generators;
 
 import jingy.jineric.block.JinericBlocks;
+import jingy.jineric.data.family.JinericBlockFamilyVariants;
 import jingy.jineric.item.JinericItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.WallHangingSignBlock;
+import net.minecraft.block.WallSignBlock;
 import net.minecraft.data.family.BlockFamilies;
+import net.minecraft.data.family.BlockFamily;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;
@@ -26,10 +31,10 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		this.tryExisting(builder);
 		//  Blocks
 		this.addBlockFamilies();
-		this.addJineric(JinericBlocks.PETRIFIED_OAK_LOG);
-		this.addJineric(JinericBlocks.PETRIFIED_OAK_WOOD);
-		this.addJineric(JinericBlocks.STRIPPED_PETRIFIED_OAK_LOG);
-		this.addJineric(JinericBlocks.STRIPPED_PETRIFIED_OAK_WOOD);
+		this.add(JinericBlocks.PETRIFIED_OAK_LOG);
+		this.add(JinericBlocks.PETRIFIED_OAK_WOOD);
+		this.add(JinericBlocks.STRIPPED_PETRIFIED_OAK_LOG);
+		this.add(JinericBlocks.STRIPPED_PETRIFIED_OAK_WOOD);
 		this.add(JinericBlocks.PETRIFIED_OAK_SAPLING);
 		this.add(JinericBlocks.PETRIFIED_OAK_LEAVES);
 		builder.add(JinericBlocks.SOUL_JACK_O_LANTERN, "Soul Jack o'Lantern");
@@ -79,7 +84,11 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		BlockFamilies.getFamilies().forEach(blockFamily -> {
 			Block baseBlock = blockFamily.getBaseBlock();
 			this.addJineric(baseBlock);
-			blockFamily.getVariants().forEach((variant, block) -> this.addJineric(block));
+			blockFamily.getVariants().forEach((variant, block) -> {
+				if (variant != BlockFamily.Variant.WALL_SIGN && variant != JinericBlockFamilyVariants.WALL_HANGING_SIGN) {
+					this.addJineric(block);
+				}
+			});
 		});
 	}
 	

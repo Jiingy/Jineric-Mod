@@ -66,7 +66,6 @@ public class JinericBlockLootTableProvider extends FabricBlockLootTableProvider 
 		this.addDrop(JinericBlocks.PETRIFIED_OAK_WOOD);
 		this.addDrop(JinericBlocks.STRIPPED_PETRIFIED_OAK_LOG);
 		this.addDrop(JinericBlocks.STRIPPED_PETRIFIED_OAK_WOOD);
-		this.addDrop(JinericBlocks.PETRIFIED_OAK_HANGING_SIGN);
 		this.addDrop(JinericBlocks.PETRIFIED_OAK_LEAVES, (block) -> this.leavesDrops(block, JinericBlocks.PETRIFIED_OAK_SAPLING, SAPLING_DROP_CHANCE));
 		this.addDrop(JinericBlocks.PETRIFIED_OAK_SAPLING);
 		this.addPottedPlantDrops(JinericBlocks.POTTED_PETRIFIED_OAK_SAPLING);

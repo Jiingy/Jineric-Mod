@@ -2,6 +2,7 @@ package jingy.jineric.block;
 
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.sapling.JinericSaplingGenerators;
+import jingy.jineric.mixin.access.BlocksAccess;
 import jingy.jineric.registry.JinericBlockSetTypes;
 import jingy.jineric.registry.JinericBlockSettings;
 import jingy.jineric.registry.JinericParticleTypes;
@@ -361,22 +362,28 @@ public class JinericBlocks {
     public static final Block PETRIFIED_OAK_SIGN = register(
 			"petrified_oak_sign",
 			settings -> new SignBlock(JinericWoodType.PETRIFIED_OAK, settings),
-			AbstractBlock.Settings.copy(OAK_SIGN)
-	);
+		    AbstractBlock.Settings.create().mapColor(MapColor.OAK_TAN).solid().instrument(NoteBlockInstrument.BASS).noCollision().strength(1.0F).burnable()
+    );
     public static final Block PETRIFIED_OAK_WALL_SIGN = register(
 			"petrified_oak_wall_sign",
 			settings -> new WallSignBlock(JinericWoodType.PETRIFIED_OAK, settings),
-			AbstractBlock.Settings.copy(OAK_WALL_SIGN)
+		    BlocksAccess.copyLootTable(PETRIFIED_OAK_SIGN, true).mapColor(MapColor.OAK_TAN).solid().instrument(NoteBlockInstrument.BASS).noCollision().strength(1.0F).burnable()
 	);
     public static final Block PETRIFIED_OAK_HANGING_SIGN = register(
 			"petrified_oak_hanging_sign",
 			settings -> new HangingSignBlock(JinericWoodType.PETRIFIED_OAK, settings),
-			AbstractBlock.Settings.copy(OAK_HANGING_SIGN)
+		    AbstractBlock.Settings.create().mapColor(OAK_LOG.getDefaultMapColor()).solid().instrument(NoteBlockInstrument.BASS).noCollision().strength(1.0F).burnable()
 	);
     public static final Block PETRIFIED_OAK_WALL_HANGING_SIGN = register(
 			"petrified_oak_wall_hanging_sign",
 			settings -> new WallHangingSignBlock(JinericWoodType.PETRIFIED_OAK, settings),
-			AbstractBlock.Settings.copy(OAK_WALL_HANGING_SIGN)
+		    BlocksAccess.copyLootTable(PETRIFIED_OAK_HANGING_SIGN, true)
+				    .mapColor(OAK_LOG.getDefaultMapColor())
+				    .solid()
+				    .instrument(NoteBlockInstrument.BASS)
+				    .noCollision()
+				    .strength(1.0F)
+				    .burnable()
 	);
     public static final Block ACACIA_BOOKSHELF = register("acacia_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
 	public static final Block BAMBOO_BOOKSHELF = register("bamboo_bookshelf", AbstractBlock.Settings.copy(BOOKSHELF).sounds(BlockSoundGroup.CHISELED_BOOKSHELF));
