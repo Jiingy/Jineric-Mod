@@ -1,14 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "chest",
+  "group": "wooden_chest",
   "key": {
-    "#": "minecraft:warped_planks"
+    "P": "minecraft:warped_planks"
   },
   "pattern": [
-    "###",
-    "# #",
-    "###"
+    "PPP",
+    "P P",
+    "PPP"
   ],
   "result": {
     "count": 1,
