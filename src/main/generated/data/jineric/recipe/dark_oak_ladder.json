@@ -1,15 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "ladder",
+  "group": "wooden_ladder",
   "key": {
-    "#": "minecraft:dark_oak_planks",
-    "/": "minecraft:stick"
+    "/": "minecraft:stick",
+    "P": "minecraft:dark_oak_planks"
   },
   "pattern": [
-    "# #",
-    "#/#",
-    "# #"
+    "P P",
+    "P/P",
+    "P P"
   ],
   "result": {
     "count": 6,
