@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_Block{minecraft:cut_sandstone}": {
+    "has_cut_sandstone": {
       "conditions": {
         "items": [
           {
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_Block{minecraft:cut_sandstone}"
+      "has_cut_sandstone"
     ]
   ],
   "rewards": {
