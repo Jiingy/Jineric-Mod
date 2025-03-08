@@ -3,7 +3,7 @@
   "category": "redstone",
   "group": "trapped_chest",
   "ingredients": [
-    "minecraft:bamboo_planks",
+    "jineric:bamboo_chest",
     "minecraft:tripwire_hook"
   ],
   "result": {

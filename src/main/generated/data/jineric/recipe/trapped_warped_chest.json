@@ -3,7 +3,7 @@
   "category": "redstone",
   "group": "trapped_chest",
   "ingredients": [
-    "minecraft:warped_planks",
+    "jineric:warped_chest",
     "minecraft:tripwire_hook"
   ],
   "result": {

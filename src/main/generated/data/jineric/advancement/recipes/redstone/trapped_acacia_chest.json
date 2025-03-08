@@ -1,6 +1,16 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_acacia_chest": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jineric:acacia_chest"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_the_recipe": {
       "conditions": {
         "recipe": "jineric:trapped_acacia_chest"
@@ -21,6 +31,7 @@
   "requirements": [
     [
       "has_the_recipe",
+      "has_acacia_chest",
       "has_tripwire_hook"
     ]
   ],

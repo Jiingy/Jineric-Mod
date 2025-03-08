@@ -3,7 +3,7 @@
   "category": "redstone",
   "group": "trapped_chest",
   "ingredients": [
-    "minecraft:dark_oak_planks",
+    "jineric:dark_oak_chest",
     "minecraft:tripwire_hook"
   ],
   "result": {

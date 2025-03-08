@@ -3,7 +3,7 @@
   "category": "redstone",
   "group": "trapped_chest",
   "ingredients": [
-    "minecraft:acacia_planks",
+    "jineric:acacia_chest",
     "minecraft:tripwire_hook"
   ],
   "result": {
