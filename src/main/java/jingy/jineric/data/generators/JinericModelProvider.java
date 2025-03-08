@@ -148,7 +148,6 @@ public class JinericModelProvider extends FabricModelProvider {
 					case DOOR -> bsmg.registerDoor(blockFamily.getVariant(BlockFamily.Variant.DOOR));
 					case FENCE_GATE -> this.registerFenceGate(blockFamily, textureMap, bsmg);
 					case SIGN -> this.registerSign(blockFamily, textureMap, bsmg);
-					case FENCE -> this.registerFence(blockFamily, textureMap, bsmg);
 					case STAIRS -> this.registerStairs(blockFamily, textureMap, bsmg);
 					case PRESSURE_PLATE -> this.registerPressurePlate(blockFamily, textureMap, bsmg);
 					case SLAB -> this.registerSlab(blockFamily, textureMap, bsmg);

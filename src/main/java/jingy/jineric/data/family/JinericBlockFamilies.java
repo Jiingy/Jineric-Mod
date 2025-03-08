@@ -21,7 +21,7 @@ public class JinericBlockFamilies extends BlockFamilies {
 			.hangingSign$jineric(JinericBlocks.PETRIFIED_OAK_HANGING_SIGN, JinericBlocks.PETRIFIED_OAK_WALL_HANGING_SIGN)
 			.group("wooden")
 			.unlockCriterionName("has_planks")
-			.modded$jineric()
+			.modded$Jineric()
 			.build();
 	
 	public static final BlockFamily DRIPSTONE_BLOCK = register(Blocks.DRIPSTONE_BLOCK)

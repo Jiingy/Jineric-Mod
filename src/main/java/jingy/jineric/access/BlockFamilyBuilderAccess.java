@@ -28,4 +28,8 @@ public interface BlockFamilyBuilderAccess {
 	default BlockFamily.Builder ladder$jineric(Block block) {
 		return null;
 	}
+	
+	default BlockFamily.Builder hangingSign$jineric(Block hangingSign, Block wallHangingSign) {
+		return null;
+	}
 }
