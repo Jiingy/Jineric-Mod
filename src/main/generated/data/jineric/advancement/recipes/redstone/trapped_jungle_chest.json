@@ -1,6 +1,16 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_jungle_chest": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jineric:jungle_chest"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_the_recipe": {
       "conditions": {
         "recipe": "jineric:trapped_jungle_chest"
@@ -21,6 +31,7 @@
   "requirements": [
     [
       "has_the_recipe",
+      "has_jungle_chest",
       "has_tripwire_hook"
     ]
   ],

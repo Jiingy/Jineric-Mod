@@ -3,7 +3,7 @@
   "category": "redstone",
   "group": "trapped_chest",
   "ingredients": [
-    "minecraft:mangrove_planks",
+    "jineric:mangrove_chest",
     "minecraft:tripwire_hook"
   ],
   "result": {

@@ -154,6 +154,8 @@ public class JinericModelProvider extends FabricModelProvider {
 					case SLAB -> this.registerSlab(blockFamily, textureMap, bsmg);
 					case TRAPDOOR -> bsmg.registerTrapdoor(blockFamily.getVariant(BlockFamily.Variant.TRAPDOOR));
 					case WALL -> this.registerWall(blockFamily, this.verifyWall(blockFamily), bsmg);
+					case FENCE -> this.registerFence(blockFamily, textureMap, false, bsmg);
+					case CUSTOM_FENCE -> this.registerFence(blockFamily, textureMap, true, bsmg);
 				}
 			}
 		}
@@ -345,8 +347,10 @@ public class JinericModelProvider extends FabricModelProvider {
 		blockStateModelGenerator.registerItemModel(signBlock.asItem());
 	}
 	
-	public void registerFence(BlockFamily blockFamily, TextureMap textureMap, BlockStateModelGenerator bsmg) {
-		Block fenceBlock = blockFamily.getVariant(BlockFamily.Variant.FENCE);
+	public void registerFence(BlockFamily blockFamily, TextureMap textureMap, boolean custom, BlockStateModelGenerator bsmg) {
+		Block fenceBlock = custom
+				? blockFamily.getVariant(BlockFamily.Variant.CUSTOM_FENCE)
+				: blockFamily.getVariant(BlockFamily.Variant.FENCE);
 		if (!this.isJineric(fenceBlock)) return;
 		Identifier postModelId = Models.FENCE_POST.upload(fenceBlock, textureMap, bsmg.modelCollector);
 		Identifier sideModelId = Models.FENCE_SIDE.upload(fenceBlock, textureMap, bsmg.modelCollector);

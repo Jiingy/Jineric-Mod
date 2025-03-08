@@ -4,6 +4,7 @@ import com.llamalad7.mixinextras.expression.Definition;
 import com.llamalad7.mixinextras.expression.Expression;
 import com.llamalad7.mixinextras.injector.ModifyReceiver;
 import jingy.jineric.block.JinericBlocks;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.family.BlockFamilies;
 import net.minecraft.data.family.BlockFamily;
 import org.spongepowered.asm.mixin.Mixin;
@@ -11,6 +12,18 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(BlockFamilies.class)
 public abstract class BlockFamilyModificationMixin {
+	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
+	@Definition(id = "OAK", field = "Lnet/minecraft/data/family/BlockFamilies;OAK:Lnet/minecraft/data/family/BlockFamily;")
+	@Expression("OAK = @(?.build())")
+	@ModifyReceiver(
+			method = "<clinit>",
+			at = @At("MIXINEXTRAS:EXPRESSION")
+	)
+	private static BlockFamily.Builder modifyOakFamily(BlockFamily.Builder instance) {
+		return instance
+				.bookshelf$jineric(Blocks.BOOKSHELF)
+				.ladder$jineric(Blocks.LADDER);
+	}
 	
 	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
 	@Definition(id = "BIRCH", field = "Lnet/minecraft/data/family/BlockFamilies;BIRCH:Lnet/minecraft/data/family/BlockFamily;")
@@ -405,7 +418,7 @@ public abstract class BlockFamilyModificationMixin {
 			at = @At("MIXINEXTRAS:EXPRESSION")
 	)
 	private static BlockFamily.Builder modifyRedNetherBrickFamily(BlockFamily.Builder instance) {
-		return instance.fence(JinericBlocks.RED_NETHER_BRICK_FENCE);
+		return instance.customFence(JinericBlocks.RED_NETHER_BRICK_FENCE);
 	}
 	
 	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")

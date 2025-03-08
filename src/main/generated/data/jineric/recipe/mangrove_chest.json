@@ -1,14 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "chest",
+  "group": "wooden_chest",
   "key": {
-    "#": "minecraft:mangrove_planks"
+    "P": "minecraft:mangrove_planks"
   },
   "pattern": [
-    "###",
-    "# #",
-    "###"
+    "PPP",
+    "P P",
+    "PPP"
   ],
   "result": {
     "count": 1,
