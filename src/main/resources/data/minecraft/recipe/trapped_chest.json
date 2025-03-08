@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "wooden_trapped_chest",
+  "key": {
+    "P": "jineric:petrified_oak_planks"
+  },
+  "pattern": [
+    "PPP",
+    "P P",
+    "PPP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:trapped_chest"
+  }
+}
