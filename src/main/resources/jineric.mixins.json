@@ -17,6 +17,7 @@
       "change.SmokerBlockEmitParticlesMixin",
       "duck.BlockFamilyBuilderDuckMixin",
       "duck.BlockFamilyDuckMixin",
+      "duck.RecipeGeneratorDuckMixin",
       "fix.BlockFamilyModificationMixin",
       "fix.BlocksForGrassSpreadingMixin",
       "fix.BlocksForGrassSurvivingMixin",

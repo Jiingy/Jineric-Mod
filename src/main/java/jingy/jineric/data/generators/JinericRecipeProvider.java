@@ -1,7 +1,9 @@
 package jingy.jineric.data.generators;
 
+import com.google.common.collect.ImmutableMap;
 import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.data.family.JinericBlockFamilies;
+import jingy.jineric.data.family.JinericBlockFamilyVariants;
 import jingy.jineric.item.JinericItems;
 import jingy.jineric.mixin.access.CookingRecipeJsonBuilderAccessor;
 import jingy.jineric.recipe.RefiningRecipe;
@@ -12,12 +14,13 @@ import net.minecraft.advancement.criterion.InventoryChangedCriterion;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
-import net.minecraft.block.WoodType;
 import net.minecraft.data.family.BlockFamilies;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.data.recipe.CookingRecipeJsonBuilder;
+import net.minecraft.data.recipe.CraftingRecipeJsonBuilder;
 import net.minecraft.data.recipe.RecipeExporter;
 import net.minecraft.data.recipe.RecipeGenerator;
+import net.minecraft.item.HoneycombItem;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.predicate.NumberRange;
@@ -30,16 +33,13 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.resource.featuretoggle.FeatureSet;
-import net.minecraft.util.Identifier;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;
-
-import static jingy.jineric.data.family.JinericBlockFamilies.*;
-import static net.minecraft.data.family.BlockFamily.Variant.*;
 
 public class JinericRecipeProvider extends FabricRecipeProvider {
 	public JinericRecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
@@ -49,21 +49,48 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 	@Override
 	protected RecipeGenerator getRecipeGenerator(RegistryWrapper.WrapperLookup wrapperLookup, RecipeExporter recipeExporter) {
 		return new RecipeGenerator(wrapperLookup, recipeExporter) {
+			private static final Map<BlockFamily.Variant, BlockFamilyRecipeFactory> VARIANT_FACTORIES = ImmutableMap.<BlockFamily.Variant, RecipeGenerator.BlockFamilyRecipeFactory>builder()
+					.put(BlockFamily.Variant.BUTTON, (generator, output, input) -> generator.createButtonRecipe(output, Ingredient.ofItem(input)))
+					.put(BlockFamily.Variant.CHISELED,
+							(generator, output, input) -> generator.createChiseledBlockRecipe(RecipeCategory.BUILDING_BLOCKS, output, Ingredient.ofItem(input)))
+					.put(BlockFamily.Variant.CUT, (generator, output, input) -> generator.createCutCopperRecipe(RecipeCategory.BUILDING_BLOCKS, output, Ingredient.ofItem(input)))
+					.put(BlockFamily.Variant.DOOR, (generator, output, input) -> generator.createDoorRecipe(output, Ingredient.ofItem(input)))
+//					.put(BlockFamily.Variant.CUSTOM_FENCE, (generator, output, input) -> generator.createFenceRecipe(output, Ingredient.ofItem(input)))
+					.put(BlockFamily.Variant.FENCE, (generator, output, input) -> generator.createFenceRecipe(output, Ingredient.ofItem(input)))
+					.put(BlockFamily.Variant.CUSTOM_FENCE_GATE, (generator, output, input) -> generator.createFenceGateRecipe(output, Ingredient.ofItem(input)))
+					.put(BlockFamily.Variant.FENCE_GATE, (generator, output, input) -> generator.createFenceGateRecipe(output, Ingredient.ofItem(input)))
+					.put(BlockFamily.Variant.SIGN, (generator, output, input) -> generator.createSignRecipe(output, Ingredient.ofItem(input)))
+					.put(BlockFamily.Variant.SLAB, (generator, output, input) -> generator.createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, output, Ingredient.ofItem(input)))
+					.put(BlockFamily.Variant.STAIRS, (generator, output, input) -> generator.createStairsRecipe(output, Ingredient.ofItem(input)))
+					.put(BlockFamily.Variant.PRESSURE_PLATE,
+							(generator, output, input) -> generator.createPressurePlateRecipe(RecipeCategory.REDSTONE, output, Ingredient.ofItem(input)))
+					.put(BlockFamily.Variant.POLISHED,
+							(generator, output, input) -> generator.createCondensingRecipe(RecipeCategory.BUILDING_BLOCKS, output, Ingredient.ofItem(input)))
+					.put(BlockFamily.Variant.TRAPDOOR, (generator, output, input) -> generator.createTrapdoorRecipe(output, Ingredient.ofItem(input)))
+					.put(BlockFamily.Variant.WALL, (generator, output, input) -> generator.getWallRecipe(RecipeCategory.BUILDING_BLOCKS, output, Ingredient.ofItem(input)))
+					.put(JinericBlockFamilyVariants.BOOKSHELF, (generator, output, input) -> generator.createBookshelf$jineric(Ingredient.ofItem(input), output))
+					.put(JinericBlockFamilyVariants.CHEST, (generator, output, input) -> generator.createChest$jineric(Ingredient.ofItem(input), output))
+					.put(JinericBlockFamilyVariants.LADDER, (generator, output, input) -> generator.createLadder$jineric(Ingredient.ofItem(input), output))
+					.build();
+			
 			@Override
 			public void generate() {
 				BlockFamilies.getFamilies()
-						.filter(blockFamily -> blockFamily.shouldGenerateRecipes() && blockFamily.jineric_mod$isModded())
+						.filter(BlockFamily::shouldGenerateRecipes)
 						.forEach(blockFamily -> this.generateFamily(blockFamily, FeatureSet.of(FeatureFlags.VANILLA)));
-// ITEMS
-				this.genVanillaWoodFamilyAdditions();
-				this.genVanillaFamilyAdditions();
+				this.offerWaxingRecipes(FeatureSet.of(FeatureFlags.VANILLA));
+				
+				// ITEMS
 				this.offerGildedNuggetItem(Items.POTATO, JinericItems.GOLDEN_POTATO);
 				this.offerGildedNuggetItem(Items.SWEET_BERRIES, JinericItems.GOLDEN_SWEET_BERRIES);
 				this.offerGildedNuggetItem(Items.BEETROOT, JinericItems.GOLDEN_BEETROOT);
 				this.offerNetheriteUpgradeRecipe(Items.DIAMOND_HORSE_ARMOR, RecipeCategory.COMBAT, JinericItems.NETHERITE_HORSE_ARMOR);
-// BLOCKS
+				
+				// BLOCKS
 				this.offerStairs(Blocks.SMOOTH_STONE, JinericBlocks.SMOOTH_STONE_STAIRS);
 				this.offerWallRecipe(RecipeCategory.DECORATIONS, JinericBlocks.SMOOTH_STONE_WALL, Blocks.SMOOTH_STONE);
+				this.offerWallRecipe(RecipeCategory.DECORATIONS, JinericBlocks.PURPUR_WALL, Blocks.PURPUR_BLOCK);
+				this.offerWallRecipe(RecipeCategory.DECORATIONS, JinericBlocks.QUARTZ_WALL, Blocks.QUARTZ_BLOCK);
 				this.offerFenceRecipe(Blocks.RED_NETHER_BRICKS, Items.NETHER_BRICK, JinericBlocks.RED_NETHER_BRICK_FENCE);
 				this.offerPolishedStoneRecipe(RecipeCategory.BUILDING_BLOCKS, JinericBlocks.POLISHED_STONE, Blocks.STONE);
 				this.offerPolishedStoneRecipe(RecipeCategory.BUILDING_BLOCKS, JinericBlocks.POLISHED_DRIPSTONE, Blocks.DRIPSTONE_BLOCK);
@@ -89,6 +116,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				this.offerReversibleCompactingRecipes(RecipeCategory.MISC, Items.EGG, RecipeCategory.BUILDING_BLOCKS, JinericBlocks.EGG_BLOCK);
 				this.offerReversibleCompactingRecipes(RecipeCategory.MISC, Items.SUGAR, RecipeCategory.BUILDING_BLOCKS, JinericBlocks.SUGAR_BLOCK);
 				this.offerReversibleCompactingRecipes(RecipeCategory.MISC, Items.CHARCOAL, RecipeCategory.BUILDING_BLOCKS, JinericBlocks.CHARCOAL_BLOCK);
+				
 				// Smelting
 				this.offerBlockSmelting(JinericBlocks.CRACKED_STONE_TILES, JinericBlocks.STONE_TILES);
 				this.offerBlockSmelting(JinericBlocks.CRACKED_TUFF_TILES, JinericBlocks.TUFF_TILES);
@@ -98,6 +126,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				this.offerBlockSmelting(JinericBlocks.SMOOTH_DRIPSTONE, Blocks.DRIPSTONE_BLOCK);
 				this.offerBlockSmelting(JinericBlocks.SMOOTH_SOUL_SANDSTONE, JinericBlocks.SOUL_SANDSTONE);
 				this.offerBlockSmelting(JinericBlocks.SMOOTH_TUFF, Blocks.TUFF);
+				
 				// Refining
 				this.offerRefiningBlockFamily(JinericBlockFamilies.COBBLESTONE, JinericBlockFamilies.STONE);
 				this.offerRefiningBlockFamily(JinericBlockFamilies.STONE, JinericBlockFamilies.SMOOTH_STONE);
@@ -136,43 +165,55 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				this.offerRefining(Blocks.MAGENTA_TERRACOTTA, Blocks.MAGENTA_GLAZED_TERRACOTTA, "glazed_terracotta");
 				this.offerRefining(Blocks.PINK_TERRACOTTA, Blocks.PINK_GLAZED_TERRACOTTA, "glazed_terracotta");
 				this.offerRefining(Blocks.WET_SPONGE, Blocks.SPONGE, RecipeCategory.MISC, CookingRecipeCategory.MISC, 0.2F);
-// STONECUTTING
-				this.genStonecuttingFromFamilyBase(JinericBlocks.SNOW_BRICKS, SNOW_BRICKS);
-				this.genStonecuttingFromFamilyBase(Blocks.SMOOTH_BASALT, SMOOTH_BASALT);
-				this.genStonecuttingFromFamilyBase(JinericBlocks.SMOOTH_TUFF, SMOOTH_TUFF);
-				this.genStonecuttingFromFamilyBase(Blocks.STONE, POLISHED_STONE, STONE_TILES);
-				this.genStonecuttingFromFamilyBase(Blocks.SMOOTH_STONE, SMOOTH_STONE);
-				this.genStonecuttingFromFamilyBase(Blocks.CRACKED_STONE_BRICKS, CRACKED_STONE_BRICKS);
-				this.genStonecuttingFromFamilyBase(JinericBlocks.SMOOTH_DEEPSLATE, SMOOTH_DEEPSLATE);
-				this.genStonecuttingFromFamilyBase(Blocks.DRIPSTONE_BLOCK, DRIPSTONE_BLOCK, POLISHED_DRIPSTONE, DRIPSTONE_BRICKS, DRIPSTONE_TILES);
-				this.genStonecuttingFromFamilyBase(JinericBlocks.POLISHED_DRIPSTONE, POLISHED_DRIPSTONE, DRIPSTONE_BRICKS, DRIPSTONE_TILES);
-				this.genStonecuttingFromFamilyBase(JinericBlocks.DRIPSTONE_BRICKS, DRIPSTONE_BRICKS, DRIPSTONE_TILES);
-				this.genStonecuttingFromFamilyBase(JinericBlocks.DRIPSTONE_TILES, DRIPSTONE_TILES);
-				this.genStonecuttingFromFamilyBase(Blocks.SANDSTONE, POLISHED_SANDSTONE, WAVY_SANDSTONE);
-				this.genStonecuttingFromFamilyBase(Blocks.CUT_SANDSTONE, CUT_SANDSTONE, POLISHED_SANDSTONE);
-				this.genStonecuttingFromFamilyBase(JinericBlocks.POLISHED_SANDSTONE, POLISHED_SANDSTONE);
-				this.genStonecuttingFromFamilyBase(JinericBlocks.WAVY_SANDSTONE, WAVY_SANDSTONE);
-				this.genStonecuttingFromFamilyBase(Blocks.RED_SANDSTONE, POLISHED_RED_SANDSTONE, WAVY_RED_SANDSTONE);
-				this.genStonecuttingFromFamilyBase(Blocks.CUT_RED_SANDSTONE, CUT_RED_SANDSTONE, POLISHED_RED_SANDSTONE);
-				this.genStonecuttingFromFamilyBase(JinericBlocks.POLISHED_RED_SANDSTONE, POLISHED_RED_SANDSTONE);
-				this.genStonecuttingFromFamilyBase(JinericBlocks.WAVY_RED_SANDSTONE, WAVY_RED_SANDSTONE);
-				this.genStonecuttingFromFamilyBase(JinericBlocks.SOUL_SANDSTONE, SOUL_SANDSTONE, CUT_SOUL_SANDSTONE, POLISHED_SOUL_SANDSTONE, WAVY_SOUL_SANDSTONE);
-				this.genStonecuttingFromFamilyBase(JinericBlocks.CUT_SOUL_SANDSTONE, CUT_SOUL_SANDSTONE, POLISHED_SOUL_SANDSTONE);
-				this.genStonecuttingFromFamilyBase(JinericBlocks.POLISHED_SOUL_SANDSTONE, POLISHED_SOUL_SANDSTONE);
-				this.genStonecuttingFromFamilyBase(JinericBlocks.WAVY_SOUL_SANDSTONE, WAVY_SOUL_SANDSTONE);
-				this.genStonecuttingFromFamilyBase(Blocks.CRACKED_NETHER_BRICKS, CRACKED_NETHER_BRICKS);
-				this.genStonecuttingFromFamilyBase(Blocks.QUARTZ_BLOCK, QUARTZ_BLOCK, QUARTZ_BRICKS);
-				this.genStonecuttingFromFamilyBase(Blocks.QUARTZ_BRICKS, QUARTZ_BRICKS);
-				this.genStonecuttingFromFamilyBase(Blocks.OBSIDIAN, OBSIDIAN);
-				this.genStonecuttingFromFamilyBase(Blocks.CALCITE, CALCITE);
-				this.genStonecuttingFromFamilyBase(Blocks.CUT_COPPER, CUT_COPPER);
-				this.genStonecuttingFromFamilyBase(Blocks.EXPOSED_CUT_COPPER, EXPOSED_CUT_COPPER);
-				this.genStonecuttingFromFamilyBase(Blocks.WEATHERED_CUT_COPPER, WEATHERED_CUT_COPPER);
-				this.genStonecuttingFromFamilyBase(Blocks.OXIDIZED_CUT_COPPER, OXIDIZED_CUT_COPPER);
-				this.genStonecuttingFromFamilyBase(Blocks.WAXED_CUT_COPPER, WAXED_CUT_COPPER);
-				this.genStonecuttingFromFamilyBase(Blocks.WAXED_EXPOSED_CUT_COPPER, WAXED_EXPOSED_CUT_COPPER);
-				this.genStonecuttingFromFamilyBase(Blocks.WAXED_WEATHERED_CUT_COPPER, WAXED_WEATHERED_CUT_COPPER);
-				this.genStonecuttingFromFamilyBase(Blocks.WAXED_OXIDIZED_CUT_COPPER, WAXED_OXIDIZED_CUT_COPPER);
+				
+				// STONECUTTING
+				this.genStonecuttingFromFamilyBase(JinericBlocks.SNOW_BRICKS, JinericBlockFamilies.SNOW_BRICKS);
+				this.genStonecuttingFromFamilyBase(Blocks.SMOOTH_BASALT, JinericBlockFamilies.SMOOTH_BASALT);
+				this.genStonecuttingFromFamilyBase(JinericBlocks.SMOOTH_TUFF, JinericBlockFamilies.SMOOTH_TUFF);
+				this.genStonecuttingFromFamilyBase(Blocks.STONE, JinericBlockFamilies.POLISHED_STONE, JinericBlockFamilies.STONE_TILES);
+				this.genStonecuttingFromFamilyBase(Blocks.SMOOTH_STONE, JinericBlockFamilies.SMOOTH_STONE);
+				this.genStonecuttingFromFamilyBase(Blocks.CRACKED_STONE_BRICKS, JinericBlockFamilies.CRACKED_STONE_BRICKS);
+				this.genStonecuttingFromFamilyBase(JinericBlocks.SMOOTH_DEEPSLATE, JinericBlockFamilies.SMOOTH_DEEPSLATE);
+				this.genStonecuttingFromFamilyBase(Blocks.DRIPSTONE_BLOCK,
+						JinericBlockFamilies.DRIPSTONE_BLOCK,
+						JinericBlockFamilies.POLISHED_DRIPSTONE,
+						JinericBlockFamilies.DRIPSTONE_BRICKS,
+						JinericBlockFamilies.DRIPSTONE_TILES);
+				this.genStonecuttingFromFamilyBase(JinericBlocks.POLISHED_DRIPSTONE,
+						JinericBlockFamilies.POLISHED_DRIPSTONE,
+						JinericBlockFamilies.DRIPSTONE_BRICKS,
+						JinericBlockFamilies.DRIPSTONE_TILES);
+				this.genStonecuttingFromFamilyBase(JinericBlocks.DRIPSTONE_BRICKS, JinericBlockFamilies.DRIPSTONE_BRICKS, JinericBlockFamilies.DRIPSTONE_TILES);
+				this.genStonecuttingFromFamilyBase(JinericBlocks.DRIPSTONE_TILES, JinericBlockFamilies.DRIPSTONE_TILES);
+				this.genStonecuttingFromFamilyBase(Blocks.SANDSTONE, JinericBlockFamilies.POLISHED_SANDSTONE, JinericBlockFamilies.WAVY_SANDSTONE);
+				this.genStonecuttingFromFamilyBase(Blocks.CUT_SANDSTONE, JinericBlockFamilies.CUT_SANDSTONE, JinericBlockFamilies.POLISHED_SANDSTONE);
+				this.genStonecuttingFromFamilyBase(JinericBlocks.POLISHED_SANDSTONE, JinericBlockFamilies.POLISHED_SANDSTONE);
+				this.genStonecuttingFromFamilyBase(JinericBlocks.WAVY_SANDSTONE, JinericBlockFamilies.WAVY_SANDSTONE);
+				this.genStonecuttingFromFamilyBase(Blocks.RED_SANDSTONE, JinericBlockFamilies.POLISHED_RED_SANDSTONE, JinericBlockFamilies.WAVY_RED_SANDSTONE);
+				this.genStonecuttingFromFamilyBase(Blocks.CUT_RED_SANDSTONE, JinericBlockFamilies.CUT_RED_SANDSTONE, JinericBlockFamilies.POLISHED_RED_SANDSTONE);
+				this.genStonecuttingFromFamilyBase(JinericBlocks.POLISHED_RED_SANDSTONE, JinericBlockFamilies.POLISHED_RED_SANDSTONE);
+				this.genStonecuttingFromFamilyBase(JinericBlocks.WAVY_RED_SANDSTONE, JinericBlockFamilies.WAVY_RED_SANDSTONE);
+				this.genStonecuttingFromFamilyBase(JinericBlocks.SOUL_SANDSTONE,
+						JinericBlockFamilies.SOUL_SANDSTONE,
+						JinericBlockFamilies.CUT_SOUL_SANDSTONE,
+						JinericBlockFamilies.POLISHED_SOUL_SANDSTONE,
+						JinericBlockFamilies.WAVY_SOUL_SANDSTONE);
+				this.genStonecuttingFromFamilyBase(JinericBlocks.CUT_SOUL_SANDSTONE, JinericBlockFamilies.CUT_SOUL_SANDSTONE, JinericBlockFamilies.POLISHED_SOUL_SANDSTONE);
+				this.genStonecuttingFromFamilyBase(JinericBlocks.POLISHED_SOUL_SANDSTONE, JinericBlockFamilies.POLISHED_SOUL_SANDSTONE);
+				this.genStonecuttingFromFamilyBase(JinericBlocks.WAVY_SOUL_SANDSTONE, JinericBlockFamilies.WAVY_SOUL_SANDSTONE);
+				this.genStonecuttingFromFamilyBase(Blocks.CRACKED_NETHER_BRICKS, JinericBlockFamilies.CRACKED_NETHER_BRICKS);
+				this.genStonecuttingFromFamilyBase(Blocks.QUARTZ_BLOCK, JinericBlockFamilies.QUARTZ_BLOCK, JinericBlockFamilies.QUARTZ_BRICKS);
+				this.genStonecuttingFromFamilyBase(Blocks.QUARTZ_BRICKS, JinericBlockFamilies.QUARTZ_BRICKS);
+				this.genStonecuttingFromFamilyBase(Blocks.OBSIDIAN, JinericBlockFamilies.OBSIDIAN);
+				this.genStonecuttingFromFamilyBase(Blocks.CALCITE, JinericBlockFamilies.CALCITE);
+				this.genStonecuttingFromFamilyBase(Blocks.CUT_COPPER, JinericBlockFamilies.CUT_COPPER);
+				this.genStonecuttingFromFamilyBase(Blocks.EXPOSED_CUT_COPPER, JinericBlockFamilies.EXPOSED_CUT_COPPER);
+				this.genStonecuttingFromFamilyBase(Blocks.WEATHERED_CUT_COPPER, JinericBlockFamilies.WEATHERED_CUT_COPPER);
+				this.genStonecuttingFromFamilyBase(Blocks.OXIDIZED_CUT_COPPER, JinericBlockFamilies.OXIDIZED_CUT_COPPER);
+				this.genStonecuttingFromFamilyBase(Blocks.WAXED_CUT_COPPER, JinericBlockFamilies.WAXED_CUT_COPPER);
+				this.genStonecuttingFromFamilyBase(Blocks.WAXED_EXPOSED_CUT_COPPER, JinericBlockFamilies.WAXED_EXPOSED_CUT_COPPER);
+				this.genStonecuttingFromFamilyBase(Blocks.WAXED_WEATHERED_CUT_COPPER, JinericBlockFamilies.WAXED_WEATHERED_CUT_COPPER);
+				this.genStonecuttingFromFamilyBase(Blocks.WAXED_OXIDIZED_CUT_COPPER, JinericBlockFamilies.WAXED_OXIDIZED_CUT_COPPER);
 				this.offerStonecuttingRecipe(RecipeCategory.BUILDING_BLOCKS, JinericBlocks.CUT_SANDSTONE_STAIRS, Blocks.SANDSTONE);
 				this.offerStonecuttingRecipe(RecipeCategory.BUILDING_BLOCKS, JinericBlocks.CUT_RED_SANDSTONE_STAIRS, Blocks.RED_SANDSTONE);
 				this.offerStonecuttingRecipe(RecipeCategory.BUILDING_BLOCKS, JinericBlocks.STONE_BRICK_PILLAR, Blocks.STONE);
@@ -190,6 +231,8 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				this.offerStonecuttingRecipe(RecipeCategory.DECORATIONS, JinericBlocks.RED_NETHER_BRICK_FENCE, Blocks.RED_NETHER_BRICKS);
 				this.offerStonecuttingRecipe(RecipeCategory.DECORATIONS, JinericBlocks.SMOOTH_QUARTZ_WALL, Blocks.SMOOTH_QUARTZ);
 				this.offerStonecuttingRecipe(RecipeCategory.DECORATIONS, JinericBlocks.PURPUR_WALL, Blocks.PURPUR_BLOCK);
+				
+				// CUSTOM
 				this.createShaped(RecipeCategory.BUILDING_BLOCKS, JinericBlocks.SOUL_JACK_O_LANTERN)
 						.input('P', Blocks.CARVED_PUMPKIN)
 						.input('T', Blocks.SOUL_TORCH)
@@ -235,6 +278,51 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						.offerTo(recipeExporter);
 			}
 			
+			@Override
+			public void generateFamily(BlockFamily family, FeatureSet enabledFeatures) {
+				family.getVariants()
+						.forEach(
+								(variant, block) -> {
+									if (block.getRequiredFeatures().isSubsetOf(enabledFeatures) && Registries.BLOCK.getId(block).getNamespace().equals("jineric")) {
+										RecipeGenerator.BlockFamilyRecipeFactory blockFamilyRecipeFactory = VARIANT_FACTORIES.get(variant);
+										ItemConvertible itemConvertible = this.getVariantRecipeInput(family, variant);
+										if (blockFamilyRecipeFactory != null) {
+											CraftingRecipeJsonBuilder craftingRecipeJsonBuilder = blockFamilyRecipeFactory.create(this, block, itemConvertible);
+											family.getGroup().ifPresent(group -> craftingRecipeJsonBuilder.group(group + (variant == BlockFamily.Variant.CUT ? "" : "_" + variant.getName())));
+											craftingRecipeJsonBuilder.criterion(
+													family.getUnlockCriterionName().orElseGet(() -> hasItem(itemConvertible)), this.conditionsFromItem(itemConvertible)
+											);
+											craftingRecipeJsonBuilder.offerTo(this.exporter);
+										}
+										
+										if (variant == BlockFamily.Variant.CRACKED) {
+											this.offerCrackingRecipe(block, itemConvertible);
+										}
+										if (variant == JinericBlockFamilyVariants.TRAPPED_CHEST) {
+											this.offerTrappedChest(family.getVariant(JinericBlockFamilyVariants.CHEST), family.getVariant(JinericBlockFamilyVariants.TRAPPED_CHEST));
+										}
+									}
+								}
+						);
+			}
+
+			@Override
+			public void offerWaxingRecipes(FeatureSet enabledFeatures) {
+				HoneycombItem.UNWAXED_TO_WAXED_BLOCKS.get()
+						.forEach(
+								(unwaxed, waxed) -> {
+									if (waxed.getRequiredFeatures().isSubsetOf(enabledFeatures) && Registries.BLOCK.getId(unwaxed).getNamespace().equals("jineric")) {
+										this.createShapeless(RecipeCategory.BUILDING_BLOCKS, waxed)
+												.input(unwaxed)
+												.input(Items.HONEYCOMB)
+												.group(getItemPath(waxed))
+												.criterion(hasItem(unwaxed), this.conditionsFromItem(unwaxed))
+												.offerTo(this.exporter, convertBetween(waxed, Items.HONEYCOMB));
+									}
+								}
+						);
+			}
+			
 			public void genStonecuttingFromFamilyBase(Block input, BlockFamily... inputFamilies) {
 				DefaultedRegistry<Block> blockRegistry = Registries.BLOCK;
 				Arrays.stream(inputFamilies).iterator().forEachRemaining(blockFamily -> {
@@ -244,71 +332,17 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 					}
 					variant.filter(block -> blockRegistry.getId(block).getNamespace().equals("jineric"))
 							.forEach(block -> {
-								if (block == blockFamily.getVariant(STAIRS)) {
+								if (block == blockFamily.getVariant(BlockFamily.Variant.STAIRS)) {
 									this.offerStonecuttingRecipe(RecipeCategory.BUILDING_BLOCKS, block, input);
 								}
-								if (block == blockFamily.getVariant(SLAB)) {
+								if (block == blockFamily.getVariant(BlockFamily.Variant.SLAB)) {
 									this.offerStonecuttingRecipe(RecipeCategory.BUILDING_BLOCKS, block, input, 2);
 								}
-								if (block == blockFamily.getVariant(WALL)) {
+								if (block == blockFamily.getVariant(BlockFamily.Variant.WALL)) {
 									this.offerStonecuttingRecipe(RecipeCategory.DECORATIONS, block, input);
 								}
 							});
 				});
-			}
-			
-			public void genVanillaFamilyAdditions() {
-				Stream<BlockFamily> blockFamilies = BlockFamilies.getFamilies().filter(blockFamily -> !blockFamily.jineric_mod$isModded());
-				blockFamilies.forEach(blockFamily -> {
-					for (Block familyVariant : blockFamily.getVariants().values()) {
-						if (Registries.BLOCK.getId(familyVariant).getNamespace().matches("jineric")) {
-							if (familyVariant == blockFamily.getVariant(STAIRS)) {
-								this.offerStairs(blockFamily.getBaseBlock(), familyVariant);
-							} else if (familyVariant == blockFamily.getVariant(SLAB)) {
-								this.offerSlabRecipe(RecipeCategory.BUILDING_BLOCKS, familyVariant, blockFamily.getBaseBlock());
-							} else if (familyVariant == blockFamily.getVariant(WALL)) {
-								// Walls are generated in 'DECORATIONS' because vanilla does it that way (I do not like this).
-								this.offerWallRecipe(RecipeCategory.DECORATIONS, familyVariant, blockFamily.getBaseBlock());
-							} else if (familyVariant == blockFamily.getVariant(CHISELED)) {
-								this.offerChiseledBlockRecipe(RecipeCategory.BUILDING_BLOCKS, familyVariant, blockFamily.getVariant(SLAB));
-							}
-						}
-					}
-				});
-			}
-			
-			public void genVanillaWoodFamilyAdditions() {
-				DefaultedRegistry<Block> blockRegistry = Registries.BLOCK;
-				List<WoodType> woodTypes = WoodType.stream().toList();
-				woodTypes.forEach(woodType ->
-						blockRegistry.stream().filter(block -> blockRegistry.getId(block).getNamespace().equals("jineric"))
-						.forEach(block -> {
-							Block plank = blockRegistry.get(Identifier.of(woodType.name() + "_planks"));
-							String blockKey = block.getTranslationKey();
-							String trimmedBlockKey = blockKey
-									.replace("block.jineric.", "")
-									.replace("_ladder", "")
-									.replace("trapped_", "").replace("_chest", "")
-									.replace("_bookshelf", "");
-							if (trimmedBlockKey.equals(woodType.name())) {
-								this.offerWoodTypeBlock(blockKey, plank, block);
-							}
-						})
-				);
-			}
-			
-			public void offerWoodTypeBlock(String blockKey, Block plank, Block checkedBlock) {
-				if (blockKey.contains("_chest")) {
-					if (blockKey.contains("trapped_")) {
-						this.offerTrappedChest(plank, checkedBlock);
-					} else {
-						this.offerChest(plank, checkedBlock);
-					}
-				} else if (blockKey.contains("_ladder")) {
-					this.offerLadder(plank, checkedBlock);
-				} else if (blockKey.contains("_bookshelf")) {
-					this.offerBookshelf(plank, checkedBlock);
-				}
 			}
 			
 			public void offerRefiningBlockFamily(BlockFamily blockFamilyIn, BlockFamily blockFamilyOut) {
@@ -322,9 +356,9 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				} else {
 					this.offerRefining(blockFamilyIn.getBaseBlock(), blockFamilyOut.getBaseBlock(), RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, 0.1F, group);
 				}
-				this.offerRefining(blockFamilyIn.getVariant(STAIRS), blockFamilyOut.getVariant(STAIRS), RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, 0.1F, group);
-				this.offerRefining(blockFamilyIn.getVariant(SLAB), blockFamilyOut.getVariant(SLAB), RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, 0.1F, group);
-				this.offerRefining(blockFamilyIn.getVariant(WALL), blockFamilyOut.getVariant(WALL), RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, 0.1F, group);
+				this.offerRefining(blockFamilyIn.getVariant(BlockFamily.Variant.STAIRS), blockFamilyOut.getVariant(BlockFamily.Variant.STAIRS), RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, 0.1F, group);
+				this.offerRefining(blockFamilyIn.getVariant(BlockFamily.Variant.SLAB), blockFamilyOut.getVariant(BlockFamily.Variant.SLAB), RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, 0.1F, group);
+				this.offerRefining(blockFamilyIn.getVariant(BlockFamily.Variant.WALL), blockFamilyOut.getVariant(BlockFamily.Variant.WALL), RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, 0.1F, group);
 			}
 			
 			public void offerBlockSmelting(ItemConvertible output, ItemConvertible input) {
@@ -397,11 +431,9 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 			}
 			
 			public void offerTrappedChest(ItemConvertible input, ItemConvertible output) {
-				this.createShapeless(RecipeCategory.REDSTONE, output)
-						.input(input)
-						.input(Blocks.TRIPWIRE_HOOK)
-						.group("trapped_chest")
-						.criterion("has_tripwire_hook", this.conditionsFromItem(Blocks.TRIPWIRE_HOOK))
+				this.createTrappedChest$jineric(Ingredient.ofItem(input), output)
+						.criterion(hasItem(input), this.conditionsFromItem(input))
+						.criterion(hasItem(Items.TRIPWIRE_HOOK), this.conditionsFromItem(Items.TRIPWIRE_HOOK))
 						.offerTo(recipeExporter);
 			}
 			
