@@ -442,6 +442,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 			
 			public void offerTrappedChest(ItemConvertible input, ItemConvertible output) {
 				this.createTrappedChest$jineric(Ingredient.ofItem(input), output)
+						.group("wooden_" + getItemPath(Blocks.TRAPPED_CHEST))
 						.criterion(hasItem(input), this.conditionsFromItem(input))
 						.criterion(hasItem(Items.TRIPWIRE_HOOK), this.conditionsFromItem(Items.TRIPWIRE_HOOK))
 						.offerTo(recipeExporter);
