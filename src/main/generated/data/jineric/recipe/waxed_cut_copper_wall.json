@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
+  "category": "building",
+  "group": "waxed_cut_copper_wall",
   "key": {
     "#": "minecraft:waxed_cut_copper"
   },

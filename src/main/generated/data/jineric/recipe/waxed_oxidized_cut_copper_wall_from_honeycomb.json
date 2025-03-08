@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "waxed_oxidized_cut_copper_wall",
+  "ingredients": [
+    "jineric:oxidized_cut_copper_wall",
+    "minecraft:honeycomb"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jineric:waxed_oxidized_cut_copper_wall"
+  }
+}
