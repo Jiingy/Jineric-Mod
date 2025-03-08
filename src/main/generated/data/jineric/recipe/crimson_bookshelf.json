@@ -1,15 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "building",
-  "group": "bookshelf",
+  "group": "wooden_bookshelf",
   "key": {
     "B": "minecraft:book",
-    "M": "minecraft:crimson_planks"
+    "P": "minecraft:crimson_planks"
   },
   "pattern": [
-    "MMM",
+    "PPP",
     "BBB",
-    "MMM"
+    "PPP"
   ],
   "result": {
     "count": 1,
