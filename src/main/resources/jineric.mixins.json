@@ -29,6 +29,7 @@
       "fix.EatFullGrassBlockMixin",
       "fix.FallLocationAddLaddersMixin",
       "fix.PointedDripstoneCanGrowMixin",
+      "fix.SlipperyPartialBlocksMixin",
       "fix.WallsConnectionMixin"
    ],
    "client": [
