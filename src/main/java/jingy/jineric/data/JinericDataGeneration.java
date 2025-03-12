@@ -1,17 +1,14 @@
 package jingy.jineric.data;
 
 import jingy.jineric.base.JinericMain;
-import jingy.jineric.data.generators.JinericBlockLootTableProvider;
-import jingy.jineric.data.generators.JinericLanguageProvider;
-import jingy.jineric.data.generators.JinericModelProvider;
-import jingy.jineric.data.generators.JinericRecipeProvider;
+import jingy.jineric.data.generators.*;
 import jingy.jineric.data.generators.tag.JinericBlockTagProvider;
 import jingy.jineric.data.generators.tag.JinericEntityTypeTagProvider;
 import jingy.jineric.data.generators.tag.JinericItemTagProvider;
 import jingy.jineric.data.generators.tag.JinericPaintingVariantTagProvider;
-import jingy.jineric.data.generators.world.JinericConfiguredFeatureProvider;
-import jingy.jineric.data.generators.world.JinericPlacedFeatureProvider;
 import jingy.jineric.entity.JinericPaintingVariants;
+import jingy.jineric.world.gen.feature.configured.JinericConfiguredFeatures;
+import jingy.jineric.world.gen.feature.placed.JinericPlacedFeatures;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.RegistryBuilder;
@@ -32,12 +29,14 @@ public class JinericDataGeneration implements DataGeneratorEntrypoint {
 		fabricDataGenPack.addProvider(JinericModelProvider::new);
 		fabricDataGenPack.addProvider(JinericPaintingVariantTagProvider::new);
 		fabricDataGenPack.addProvider(JinericRecipeProvider::new);
+		fabricDataGenPack.addProvider(JinericBuiltRegistryProvider::new);
 	}
 	
 	@Override
 	public void buildRegistry(RegistryBuilder registryBuilder) {
-		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, JinericConfiguredFeatureProvider::bootstrap);
-		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, JinericPlacedFeatureProvider::bootstrap);
+		DataGeneratorEntrypoint.super.buildRegistry(registryBuilder);
+		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, JinericConfiguredFeatures::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, JinericPlacedFeatures::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.PAINTING_VARIANT, JinericPaintingVariants::bootstrap);
 	}
 	

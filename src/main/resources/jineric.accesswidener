@@ -1,2 +1,3 @@
 accessWidener v1 named
 accessible field net/minecraft/block/cauldron/CauldronBehavior$CauldronBehaviorMap map Ljava/util/Map;
+accessible class net/minecraft/data/recipe/RecipeGenerator$BlockFamilyRecipeFactory

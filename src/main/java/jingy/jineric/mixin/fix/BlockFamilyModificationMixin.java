@@ -4,6 +4,7 @@ import com.llamalad7.mixinextras.expression.Definition;
 import com.llamalad7.mixinextras.expression.Expression;
 import com.llamalad7.mixinextras.injector.ModifyReceiver;
 import jingy.jineric.block.JinericBlocks;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.family.BlockFamilies;
 import net.minecraft.data.family.BlockFamily;
 import org.spongepowered.asm.mixin.Mixin;
@@ -11,6 +12,18 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(BlockFamilies.class)
 public abstract class BlockFamilyModificationMixin {
+	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
+	@Definition(id = "OAK", field = "Lnet/minecraft/data/family/BlockFamilies;OAK:Lnet/minecraft/data/family/BlockFamily;")
+	@Expression("OAK = @(?.build())")
+	@ModifyReceiver(
+			method = "<clinit>",
+			at = @At("MIXINEXTRAS:EXPRESSION")
+	)
+	private static BlockFamily.Builder modifyOakFamily(BlockFamily.Builder instance) {
+		return instance
+				.bookshelf$jineric(Blocks.BOOKSHELF)
+				.ladder$jineric(Blocks.LADDER);
+	}
 	
 	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
 	@Definition(id = "BIRCH", field = "Lnet/minecraft/data/family/BlockFamilies;BIRCH:Lnet/minecraft/data/family/BlockFamily;")
@@ -21,10 +34,10 @@ public abstract class BlockFamilyModificationMixin {
 	)
 	private static BlockFamily.Builder modifyBirchFamily(BlockFamily.Builder instance) {
 		return instance
-				.jineric_mod$bookshelf(JinericBlocks.BIRCH_BOOKSHELF)
-				.jineric_mod$chest(JinericBlocks.BIRCH_CHEST)
-				.jineric_mod$trappedChest(JinericBlocks.TRAPPED_BIRCH_CHEST)
-				.jineric_mod$ladder(JinericBlocks.BIRCH_LADDER);
+				.bookshelf$jineric(JinericBlocks.BIRCH_BOOKSHELF)
+				.chest$jineric(JinericBlocks.BIRCH_CHEST)
+				.trappedChest$jineric(JinericBlocks.TRAPPED_BIRCH_CHEST)
+				.ladder$jineric(JinericBlocks.BIRCH_LADDER);
 	}
 	
 	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
@@ -36,10 +49,10 @@ public abstract class BlockFamilyModificationMixin {
 	)
 	private static BlockFamily.Builder modifySpruceFamily(BlockFamily.Builder instance) {
 		return instance
-				.jineric_mod$bookshelf(JinericBlocks.SPRUCE_BOOKSHELF)
-				.jineric_mod$chest(JinericBlocks.SPRUCE_CHEST)
-				.jineric_mod$trappedChest(JinericBlocks.TRAPPED_SPRUCE_CHEST)
-				.jineric_mod$ladder(JinericBlocks.SPRUCE_LADDER);
+				.bookshelf$jineric(JinericBlocks.SPRUCE_BOOKSHELF)
+				.chest$jineric(JinericBlocks.SPRUCE_CHEST)
+				.trappedChest$jineric(JinericBlocks.TRAPPED_SPRUCE_CHEST)
+				.ladder$jineric(JinericBlocks.SPRUCE_LADDER);
 	}
 	
 	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
@@ -51,10 +64,10 @@ public abstract class BlockFamilyModificationMixin {
 	)
 	private static BlockFamily.Builder modifyDarkOakFamily(BlockFamily.Builder instance) {
 		return instance
-				.jineric_mod$bookshelf(JinericBlocks.DARK_OAK_BOOKSHELF)
-				.jineric_mod$chest(JinericBlocks.DARK_OAK_CHEST)
-				.jineric_mod$trappedChest(JinericBlocks.TRAPPED_DARK_OAK_CHEST)
-				.jineric_mod$ladder(JinericBlocks.DARK_OAK_LADDER);
+				.bookshelf$jineric(JinericBlocks.DARK_OAK_BOOKSHELF)
+				.chest$jineric(JinericBlocks.DARK_OAK_CHEST)
+				.trappedChest$jineric(JinericBlocks.TRAPPED_DARK_OAK_CHEST)
+				.ladder$jineric(JinericBlocks.DARK_OAK_LADDER);
 	}
 	
 	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
@@ -66,10 +79,10 @@ public abstract class BlockFamilyModificationMixin {
 	)
 	private static BlockFamily.Builder modifyAcaciaFamily(BlockFamily.Builder instance) {
 		return instance
-				.jineric_mod$bookshelf(JinericBlocks.ACACIA_BOOKSHELF)
-				.jineric_mod$chest(JinericBlocks.ACACIA_CHEST)
-				.jineric_mod$trappedChest(JinericBlocks.TRAPPED_ACACIA_CHEST)
-				.jineric_mod$ladder(JinericBlocks.ACACIA_LADDER);
+				.bookshelf$jineric(JinericBlocks.ACACIA_BOOKSHELF)
+				.chest$jineric(JinericBlocks.ACACIA_CHEST)
+				.trappedChest$jineric(JinericBlocks.TRAPPED_ACACIA_CHEST)
+				.ladder$jineric(JinericBlocks.ACACIA_LADDER);
 	}
 	
 	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
@@ -81,10 +94,10 @@ public abstract class BlockFamilyModificationMixin {
 	)
 	private static BlockFamily.Builder modifyJungleFamily(BlockFamily.Builder instance) {
 		return instance
-				.jineric_mod$bookshelf(JinericBlocks.JUNGLE_BOOKSHELF)
-				.jineric_mod$chest(JinericBlocks.JUNGLE_CHEST)
-				.jineric_mod$trappedChest(JinericBlocks.TRAPPED_JUNGLE_CHEST)
-				.jineric_mod$ladder(JinericBlocks.JUNGLE_LADDER);
+				.bookshelf$jineric(JinericBlocks.JUNGLE_BOOKSHELF)
+				.chest$jineric(JinericBlocks.JUNGLE_CHEST)
+				.trappedChest$jineric(JinericBlocks.TRAPPED_JUNGLE_CHEST)
+				.ladder$jineric(JinericBlocks.JUNGLE_LADDER);
 	}
 	
 	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
@@ -96,10 +109,10 @@ public abstract class BlockFamilyModificationMixin {
 	)
 	private static BlockFamily.Builder modifyBambooFamily(BlockFamily.Builder instance) {
 		return instance
-				.jineric_mod$bookshelf(JinericBlocks.BAMBOO_BOOKSHELF)
-				.jineric_mod$chest(JinericBlocks.BAMBOO_CHEST)
-				.jineric_mod$trappedChest(JinericBlocks.TRAPPED_BAMBOO_CHEST)
-				.jineric_mod$ladder(JinericBlocks.BAMBOO_LADDER);
+				.bookshelf$jineric(JinericBlocks.BAMBOO_BOOKSHELF)
+				.chest$jineric(JinericBlocks.BAMBOO_CHEST)
+				.trappedChest$jineric(JinericBlocks.TRAPPED_BAMBOO_CHEST)
+				.ladder$jineric(JinericBlocks.BAMBOO_LADDER);
 	}
 	
 	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
@@ -111,10 +124,10 @@ public abstract class BlockFamilyModificationMixin {
 	)
 	private static BlockFamily.Builder modifyMangroveFamily(BlockFamily.Builder instance) {
 		return instance
-				.jineric_mod$bookshelf(JinericBlocks.MANGROVE_BOOKSHELF)
-				.jineric_mod$chest(JinericBlocks.MANGROVE_CHEST)
-				.jineric_mod$trappedChest(JinericBlocks.TRAPPED_MANGROVE_CHEST)
-				.jineric_mod$ladder(JinericBlocks.MANGROVE_LADDER);
+				.bookshelf$jineric(JinericBlocks.MANGROVE_BOOKSHELF)
+				.chest$jineric(JinericBlocks.MANGROVE_CHEST)
+				.trappedChest$jineric(JinericBlocks.TRAPPED_MANGROVE_CHEST)
+				.ladder$jineric(JinericBlocks.MANGROVE_LADDER);
 	}
 	
 	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
@@ -126,10 +139,10 @@ public abstract class BlockFamilyModificationMixin {
 	)
 	private static BlockFamily.Builder modifyCherryFamily(BlockFamily.Builder instance) {
 		return instance
-				.jineric_mod$bookshelf(JinericBlocks.CHERRY_BOOKSHELF)
-				.jineric_mod$chest(JinericBlocks.CHERRY_CHEST)
-				.jineric_mod$trappedChest(JinericBlocks.TRAPPED_CHERRY_CHEST)
-				.jineric_mod$ladder(JinericBlocks.CHERRY_LADDER);
+				.bookshelf$jineric(JinericBlocks.CHERRY_BOOKSHELF)
+				.chest$jineric(JinericBlocks.CHERRY_CHEST)
+				.trappedChest$jineric(JinericBlocks.TRAPPED_CHERRY_CHEST)
+				.ladder$jineric(JinericBlocks.CHERRY_LADDER);
 	}
 	
 	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
@@ -141,10 +154,10 @@ public abstract class BlockFamilyModificationMixin {
 	)
 	private static BlockFamily.Builder modifyWarpedFamily(BlockFamily.Builder instance) {
 		return instance
-				.jineric_mod$bookshelf(JinericBlocks.WARPED_BOOKSHELF)
-				.jineric_mod$chest(JinericBlocks.WARPED_CHEST)
-				.jineric_mod$trappedChest(JinericBlocks.TRAPPED_WARPED_CHEST)
-				.jineric_mod$ladder(JinericBlocks.WARPED_LADDER);
+				.bookshelf$jineric(JinericBlocks.WARPED_BOOKSHELF)
+				.chest$jineric(JinericBlocks.WARPED_CHEST)
+				.trappedChest$jineric(JinericBlocks.TRAPPED_WARPED_CHEST)
+				.ladder$jineric(JinericBlocks.WARPED_LADDER);
 	}
 	
 	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
@@ -156,10 +169,10 @@ public abstract class BlockFamilyModificationMixin {
 	)
 	private static BlockFamily.Builder modifyCrimsonFamily(BlockFamily.Builder instance) {
 		return instance
-				.jineric_mod$bookshelf(JinericBlocks.CRIMSON_BOOKSHELF)
-				.jineric_mod$chest(JinericBlocks.CRIMSON_CHEST)
-				.jineric_mod$trappedChest(JinericBlocks.TRAPPED_CRIMSON_CHEST)
-				.jineric_mod$ladder(JinericBlocks.CRIMSON_LADDER);
+				.bookshelf$jineric(JinericBlocks.CRIMSON_BOOKSHELF)
+				.chest$jineric(JinericBlocks.CRIMSON_CHEST)
+				.trappedChest$jineric(JinericBlocks.TRAPPED_CRIMSON_CHEST)
+				.ladder$jineric(JinericBlocks.CRIMSON_LADDER);
 	}
 	
 	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
@@ -405,7 +418,7 @@ public abstract class BlockFamilyModificationMixin {
 			at = @At("MIXINEXTRAS:EXPRESSION")
 	)
 	private static BlockFamily.Builder modifyRedNetherBrickFamily(BlockFamily.Builder instance) {
-		return instance.fence(JinericBlocks.RED_NETHER_BRICK_FENCE);
+		return instance.customFence(JinericBlocks.RED_NETHER_BRICK_FENCE);
 	}
 	
 	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
@@ -416,7 +429,7 @@ public abstract class BlockFamilyModificationMixin {
 			at = @At("MIXINEXTRAS:EXPRESSION")
 	)
 	private static BlockFamily.Builder modifyStoneBrickFamily(BlockFamily.Builder instance) {
-		return instance.jineric_mod$pillar(JinericBlocks.STONE_BRICK_PILLAR);
+		return instance.pillar$jineric(JinericBlocks.STONE_BRICK_PILLAR);
 	}
 	
 	@Definition(id = "build", method = "Lnet/minecraft/data/family/BlockFamily$Builder;build()Lnet/minecraft/data/family/BlockFamily;")
@@ -427,6 +440,6 @@ public abstract class BlockFamilyModificationMixin {
 			at = @At("MIXINEXTRAS:EXPRESSION")
 	)
 	private static BlockFamily.Builder modifyTuffBrickFamily(BlockFamily.Builder instance) {
-		return instance.jineric_mod$pillar(JinericBlocks.TUFF_BRICK_PILLAR);
+		return instance.pillar$jineric(JinericBlocks.TUFF_BRICK_PILLAR);
 	}
 }

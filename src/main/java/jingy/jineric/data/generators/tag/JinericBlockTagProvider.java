@@ -33,6 +33,7 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 		this.blockFamiliesToFamilyVariantTag(BlockTags.BUTTONS, BlockFamily.Variant.BUTTON);
 		this.blockFamiliesToFamilyVariantTag(BlockTags.DOORS, BlockFamily.Variant.DOOR);
 		this.blockFamiliesToFamilyVariantTag(BlockTags.FENCES, BlockFamily.Variant.FENCE);
+		this.blockFamiliesToFamilyVariantTag(BlockTags.FENCES, BlockFamily.Variant.CUSTOM_FENCE);
 		this.blockFamiliesToFamilyVariantTag(BlockTags.FENCE_GATES, BlockFamily.Variant.FENCE_GATE);
 		this.blockFamiliesToFamilyVariantTag(BlockTags.SIGNS, BlockFamily.Variant.SIGN);
 		this.blockFamiliesToFamilyVariantTag(BlockTags.SLABS, BlockFamily.Variant.SLAB);

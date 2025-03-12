@@ -1,14 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "chest",
+  "group": "wooden_chest",
   "key": {
-    "#": "minecraft:dark_oak_planks"
+    "P": "minecraft:dark_oak_planks"
   },
   "pattern": [
-    "###",
-    "# #",
-    "###"
+    "PPP",
+    "P P",
+    "PPP"
   ],
   "result": {
     "count": 1,

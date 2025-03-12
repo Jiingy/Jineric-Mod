@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "redstone",
-  "group": "trapped_chest",
+  "group": "wooden_trapped_chest",
   "ingredients": [
-    "minecraft:mangrove_planks",
+    "jineric:mangrove_chest",
     "minecraft:tripwire_hook"
   ],
   "result": {

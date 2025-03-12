@@ -12,7 +12,7 @@
       "issues": "https://github.com/Jiingy/Jineric-Mod/issues",
       "sources": "https://github.com/Jiingy/Jineric-Mod"
    },
-   "license": "MIT",
+   "license": "GPL-3.0",
    "icon": "assets/jineric/icon.png",
    "environment": "*",
    "entrypoints": {
@@ -40,7 +40,7 @@
    ],
    "depends": {
       "fabricloader": ">=0.16.9",
-      "minecraft": "~1.21.3",
+      "minecraft": "~1.21.4",
       "java": ">=21",
       "fabric-api": "*"
    },
@@ -59,10 +59,13 @@
            "net/minecraft/class_5146"
         ],
         "net/minecraft/class_5794": [
-           "jingy/jineric/access/BlockFamilyDuckAccess"
+           "jingy/jineric/access/BlockFamilyAccess"
         ],
         "net/minecraft/class_5794\u0024class_5795": [
-           "jingy/jineric/access/BlockFamilyBuilderDuckAccess"
+           "jingy/jineric/access/BlockFamilyBuilderAccess"
+        ],
+        "net/minecraft/class_2446": [
+           "jingy/jineric/access/RecipeGeneratorAccess"
         ]
      }
    }
