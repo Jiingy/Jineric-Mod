@@ -21,7 +21,16 @@ public class BlockStateCreators extends BlockStateModelGenerator {
 	public static BlockModelDefinitionCreator createBorderWallBlockState(Block wallBlock, WeightedVariant postModel, WeightedVariant shortSideModel, WeightedVariant shortSideLineModel, WeightedVariant tallSideModel) {
 		return MultipartBlockModelDefinitionCreator.create(wallBlock)
 				.with(createMultipartConditionBuilder().put(Properties.UP, true), postModel)
-				.with(createMultipartConditionBuilder().put(Properties.NORTH_WALL_SHAPE, WallShape.LOW), shortSideModel.)
+				.with(
+						or(
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.LOW)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.NONE)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.LOW)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.NONE),
+								
+						)
+				)
 				
 //				.with(
 //						When.create().set(Properties.UP, true),
