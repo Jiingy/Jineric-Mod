@@ -77,7 +77,7 @@ public class JinericTextureRenderLayers extends TexturedRenderLayers {
 	
 	public static SpriteIdentifier getChestTexture(BlockEntity blockEntity, ChestType chestType, boolean christmas, WoodType woodType) {
 		if (christmas) {
-			return getChestTexture(chestType, CHRISTMAS, CHRISTMAS_LEFT, CHRISTMAS_RIGHT);
+			return getChestTexture(chestType, CHRISTMAS_CHEST, CHRISTMAS_CHEST_LEFT, CHRISTMAS_CHEST_RIGHT);
 		} else if (blockEntity instanceof JinericTrappedChestBlockEntity) {
 			if (woodType == WoodType.SPRUCE) {
 				return getChestTexture(chestType, TRAPPED_SPRUCE_CHEST, TRAPPED_SPRUCE_CHEST_LEFT, TRAPPED_SPRUCE_CHEST_RIGHT);

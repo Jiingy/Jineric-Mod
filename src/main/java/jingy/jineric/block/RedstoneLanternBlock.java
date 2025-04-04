@@ -15,13 +15,18 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.minecraft.world.block.OrientationHelper;
+import net.minecraft.world.block.WireOrientation;
 import net.minecraft.world.tick.ScheduledTickView;
+import org.jetbrains.annotations.Nullable;
 
 public class RedstoneLanternBlock extends LanternBlock {
+	private static final VoxelShape STANDING_SHAPE = VoxelShapes.union(Block.createColumnShape(4.0, 7.0, 9.0), Block.createColumnShape(6.0, 0.0, 7.0));
 	protected static final VoxelShape HANGING_SHAPE = VoxelShapes.union(
 			Block.createCuboidShape(5.0, 1.0, 5.0, 11.0, 8.0, 11.0),
 			Block.createCuboidShape(6.0, 8.0, 6.0, 10.0, 10.0, 10.0),
-			Block.createCuboidShape(6.5, 10.0, 6.5, 9.5, 16.0, 9.5));
+			Block.createCuboidShape(6.5, 10.0, 6.5, 9.5, 16.0, 9.5)
+	);
 	
 	public RedstoneLanternBlock(Settings settings) {
 		super(settings);
@@ -37,11 +42,13 @@ public class RedstoneLanternBlock extends LanternBlock {
 	}
 	
 	@Override
-	public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
+	protected void onStateReplaced(BlockState state, ServerWorld world, BlockPos pos, boolean moved) {
+		// TODO: THIS CODE JUST COPIES THE REDSTONE TORCH, NEEDS FURTHER TESTING AND INVESTIGATION
+		WireOrientation wireOrientation = this.getEmissionOrientation(world, state);
 		for (Direction direction : Direction.values()) {
-			world.updateNeighborsAlways(pos.offset(direction), this);
+			world.updateNeighborsAlways(pos.offset(direction), this, OrientationHelper.withFrontNullable( wireOrientation, direction));
 		}
-		super.onStateReplaced(state, world, pos, newState, moved);
+		super.onStateReplaced(state, world, pos, moved);
 	}
 	
 	@Override
@@ -57,8 +64,13 @@ public class RedstoneLanternBlock extends LanternBlock {
 	
 	@Override
 	public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
+		this.update(world, pos, state);
+	}
+	
+	private void update(World world, BlockPos pos, BlockState state) {
+		WireOrientation wireOrientation = this.getEmissionOrientation(world, state);
 		for (Direction direction : Direction.values()) {
-			world.updateNeighborsAlways(pos.offset(direction), this);
+			world.updateNeighborsAlways(pos.offset(direction), this, OrientationHelper.withFrontNullable(wireOrientation, direction));
 		}
 	}
 	
@@ -89,5 +101,10 @@ public class RedstoneLanternBlock extends LanternBlock {
 	@Override
 	public boolean emitsRedstonePower(BlockState state) {
 		return true;
+	}
+	
+	@Nullable
+	protected WireOrientation getEmissionOrientation(World world, BlockState state) {
+		return OrientationHelper.getEmissionOrientation(world, null, Direction.UP);
 	}
 }

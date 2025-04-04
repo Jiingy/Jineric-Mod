@@ -27,234 +27,196 @@ public class BlockStateCreators extends BlockStateModelGenerator {
 										.put(Properties.NORTH_WALL_SHAPE, WallShape.LOW)
 										.put(Properties.EAST_WALL_SHAPE, WallShape.NONE)
 										.put(Properties.SOUTH_WALL_SHAPE, WallShape.LOW)
-										.put(Properties.WEST_WALL_SHAPE, WallShape.NONE),
+										.put(Properties.WEST_WALL_SHAPE, WallShape.NONE)
 								
-						)
-				)
-				
-//				.with(
-//						When.create().set(Properties.UP, true),
-//						BlockStateVariant.create().put(VariantSettings.MODEL, postModel))
-				.with(
-						When.anyOf(
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.LOW)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.NONE)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.LOW)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.NONE)
-						), BlockStateVariant.create().put(VariantSettings.MODEL, shortSideLineModel)
-				)
-				.with(
-						When.anyOf(
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.NONE)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.LOW)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.NONE)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.LOW)
 						),
-						BlockStateVariant.create()
-								.put(VariantSettings.MODEL, shortSideLineModel)
-								.put(VariantSettings.Y, VariantSettings.Rotation.R90)
+						shortSideLineModel
 				)
 				.with(
-						When.anyOf(
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.LOW)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.NONE, WallShape.TALL),
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.LOW)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.NONE, WallShape.TALL),
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.LOW)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.LOW, WallShape.TALL),
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.LOW)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.NONE, WallShape.TALL),
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.LOW)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.LOW, WallShape.TALL),
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.LOW)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.LOW, WallShape.TALL),
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.LOW)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+						or(
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.NONE)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.LOW)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.NONE)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.LOW)
 						),
-						BlockStateVariant.create()
-								.put(VariantSettings.MODEL, shortSideModel)
-								.put(VariantSettings.Y, VariantSettings.Rotation.R0)
-								.put(VariantSettings.UVLOCK, true)
+						shortSideLineModel.apply(ROTATE_Y_90)
 				)
 				.with(
-						When.anyOf(
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.LOW)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.NONE, WallShape.TALL),
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.LOW)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.NONE, WallShape.TALL),
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.LOW)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.NONE, WallShape.TALL),
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.LOW)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.NONE, WallShape.TALL),
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.LOW)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.LOW, WallShape.TALL),
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.LOW)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.LOW, WallShape.TALL),
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.LOW)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+						or(
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.LOW)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.NONE, WallShape.TALL),
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.LOW)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.NONE, WallShape.TALL),
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.LOW)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.LOW, WallShape.TALL),
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.LOW)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.NONE, WallShape.TALL),
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.LOW)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.LOW, WallShape.TALL),
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.LOW)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.LOW, WallShape.TALL),
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.LOW)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
 						),
-						BlockStateVariant.create()
-								.put(VariantSettings.MODEL, shortSideModel)
-								.put(VariantSettings.Y, VariantSettings.Rotation.R90)
-								.put(VariantSettings.UVLOCK, true)
+						shortSideModel.apply(UV_LOCK)
 				)
 				.with(
-						When.anyOf(
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.LOW)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.NONE, WallShape.TALL),
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.LOW)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.NONE, WallShape.TALL),
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.LOW)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.LOW, WallShape.TALL),
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.LOW)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.LOW, WallShape.TALL),
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.LOW)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.NONE, WallShape.TALL),
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.LOW)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.LOW, WallShape.TALL),
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.LOW)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+						or(
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.LOW)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.NONE, WallShape.TALL),
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.LOW)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.NONE, WallShape.TALL),
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.LOW)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.NONE, WallShape.TALL),
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.LOW)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.NONE, WallShape.TALL),
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.LOW)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.LOW, WallShape.TALL),
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.LOW)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.LOW, WallShape.TALL),
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.LOW)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
 						),
-						BlockStateVariant.create()
-								.put(VariantSettings.MODEL, shortSideModel)
-								.put(VariantSettings.Y, VariantSettings.Rotation.R180)
-								.put(VariantSettings.UVLOCK, true)
+						shortSideModel.apply(ROTATE_Y_90).apply(UV_LOCK)
 				)
 				.with(
-						When.anyOf(
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.LOW),
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.LOW),
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.LOW),
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.LOW),
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.LOW),
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.LOW),
-								When.create()
-										.set(Properties.NORTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.EAST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.SOUTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
-										.set(Properties.WEST_WALL_SHAPE, WallShape.LOW)
+						or(
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.LOW)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.NONE, WallShape.TALL),
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.LOW)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.NONE, WallShape.TALL),
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.LOW)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.LOW, WallShape.TALL),
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.LOW)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.LOW, WallShape.TALL),
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.LOW)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.NONE, WallShape.TALL),
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.LOW)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.LOW, WallShape.TALL),
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.LOW)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
 						),
-						BlockStateVariant.create()
-								.put(VariantSettings.MODEL, shortSideModel)
-								.put(VariantSettings.Y, VariantSettings.Rotation.R270)
-								.put(VariantSettings.UVLOCK, true)
+						shortSideModel.apply(ROTATE_Y_180).apply(UV_LOCK)
 				)
 				.with(
-						When.create().set(Properties.NORTH_WALL_SHAPE, WallShape.TALL),
-						BlockStateVariant.create()
-								.put(VariantSettings.MODEL, tallSideModel)
-								.put(VariantSettings.UVLOCK, true)
+						or(
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.LOW),
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.LOW),
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.LOW),
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.LOW),
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.LOW),
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.NONE, WallShape.TALL)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.LOW),
+								createMultipartConditionBuilder()
+										.put(Properties.NORTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.EAST_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.SOUTH_WALL_SHAPE, WallShape.LOW, WallShape.TALL)
+										.put(Properties.WEST_WALL_SHAPE, WallShape.LOW)
+						),
+						shortSideModel.apply(ROTATE_Y_270).apply(UV_LOCK)
 				)
 				.with(
-						When.create().set(Properties.EAST_WALL_SHAPE, WallShape.TALL),
-						BlockStateVariant.create()
-								.put(VariantSettings.MODEL, tallSideModel)
-								.put(VariantSettings.Y, VariantSettings.Rotation.R90)
-								.put(VariantSettings.UVLOCK, true)
+						createMultipartConditionBuilder().put(Properties.NORTH_WALL_SHAPE, WallShape.TALL),
+						tallSideModel.apply(UV_LOCK)
 				)
 				.with(
-						When.create().set(Properties.SOUTH_WALL_SHAPE, WallShape.TALL),
-						BlockStateVariant.create()
-								.put(VariantSettings.MODEL, tallSideModel)
-								.put(VariantSettings.Y, VariantSettings.Rotation.R180)
-								.put(VariantSettings.UVLOCK, true)
+						createMultipartConditionBuilder().put(Properties.EAST_WALL_SHAPE, WallShape.TALL),
+						tallSideModel.apply(ROTATE_Y_90).apply(UV_LOCK)
 				)
 				.with(
-						When.create().set(Properties.WEST_WALL_SHAPE, WallShape.TALL),
-						BlockStateVariant.create()
-								.put(VariantSettings.MODEL, tallSideModel)
-								.put(VariantSettings.Y, VariantSettings.Rotation.R270)
-								.put(VariantSettings.UVLOCK, true)
+						createMultipartConditionBuilder().put(Properties.SOUTH_WALL_SHAPE, WallShape.TALL),
+						tallSideModel.apply(ROTATE_Y_180).apply(UV_LOCK)
 				)
-				;
+				.with(
+						createMultipartConditionBuilder().put(Properties.WEST_WALL_SHAPE, WallShape.TALL),
+						tallSideModel.apply(ROTATE_Y_270).apply(UV_LOCK)
+				);
 	}
 }

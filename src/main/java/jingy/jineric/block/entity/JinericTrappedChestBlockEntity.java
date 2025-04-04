@@ -3,8 +3,12 @@ package jingy.jineric.block.entity;
 import jingy.jineric.registry.JinericBlockEntityType;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.TrappedChestBlock;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
+import net.minecraft.world.block.OrientationHelper;
+import net.minecraft.world.block.WireOrientation;
 
 public class JinericTrappedChestBlockEntity extends JinericChestBlockEntity {
 	public JinericTrappedChestBlockEntity(BlockPos blockPos, BlockState blockState) {
@@ -15,9 +19,12 @@ public class JinericTrappedChestBlockEntity extends JinericChestBlockEntity {
 	protected void onViewerCountUpdate(World world, BlockPos pos, BlockState state, int oldViewerCount, int newViewerCount) {
 		super.onViewerCountUpdate(world, pos, state, oldViewerCount, newViewerCount);
 		if (oldViewerCount != newViewerCount) {
+			WireOrientation wireOrientation = OrientationHelper.getEmissionOrientation(
+					world, state.get(TrappedChestBlock.FACING).getOpposite(), Direction.UP
+			);
 			Block block = state.getBlock();
-			world.updateNeighborsAlways(pos, block);
-			world.updateNeighborsAlways(pos.down(), block);
+			world.updateNeighborsAlways(pos, block, wireOrientation);
+			world.updateNeighborsAlways(pos.down(), block, wireOrientation);
 		}
 	}
 }

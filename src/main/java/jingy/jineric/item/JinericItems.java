@@ -4,7 +4,6 @@ import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.JinericBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.component.type.FoodComponent;
-import net.minecraft.item.AnimalArmorItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.equipment.ArmorMaterials;
@@ -12,7 +11,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Rarity;
 
 import java.util.function.BiFunction;
@@ -265,9 +263,7 @@ public class JinericItems {
 	public static final Item GOLDEN_BEETROOT = register("golden_beetroot", new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(1.2f).build()));
 	//MISC JINERIC
 	public static final Item SOUL_JACK_O_LANTERN = register(JinericBlocks.SOUL_JACK_O_LANTERN);
-	public static final Item NETHERITE_HORSE_ARMOR = register(
-			"netherite_horse_armor", settings -> new AnimalArmorItem(ArmorMaterials.NETHERITE, AnimalArmorItem.Type.EQUESTRIAN, SoundEvents.ENTITY_HORSE_ARMOR, false, settings)
-	);
+	public static final Item NETHERITE_HORSE_ARMOR = register("netherite_horse_armor", new Item.Settings().horseArmor(ArmorMaterials.NETHERITE));
 	
 	//WIP OR UNKNOWN ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	public static final Item IRON_UPGRADE_SMITHING_TEMPLATE = register(

@@ -275,10 +275,18 @@ public class JinericModelProvider extends FabricModelProvider {
 	}
 	
 	private void registerBorderWall(Block wall, TextureMap textureMap, BlockStateModelGenerator bsmg) {
-		Identifier postId = JinericModels.TEMPLATE_COLUMN_SHORT_WALL_POST.upload(wall, textureMap, bsmg.modelCollector);
-		Identifier sideShortId = JinericModels.TEMPLATE_BORDER_WALL_SIDE_LOW.upload(wall, textureMap, bsmg.modelCollector);
-		Identifier sideShortLongId = JinericModels.TEMPLATE_BORDER_WALL_SIDE_LINE_LOW.upload(wall, textureMap, bsmg.modelCollector);
-		Identifier sideTallId = JinericModels.TEMPLATE_BORDER_WALL_SIDE_TALL.upload(wall, textureMap, bsmg.modelCollector);
+		WeightedVariant postId = BlockStateModelGenerator.createWeightedVariant(
+				JinericModels.TEMPLATE_COLUMN_SHORT_WALL_POST.upload(wall, textureMap, bsmg.modelCollector)
+		);
+		WeightedVariant sideShortId = BlockStateModelGenerator.createWeightedVariant(
+				JinericModels.TEMPLATE_BORDER_WALL_SIDE_LOW.upload(wall, textureMap, bsmg.modelCollector)
+		);
+		WeightedVariant sideShortLongId = BlockStateModelGenerator.createWeightedVariant(
+				JinericModels.TEMPLATE_BORDER_WALL_SIDE_LINE_LOW.upload(wall, textureMap, bsmg.modelCollector)
+		);
+		WeightedVariant sideTallId = BlockStateModelGenerator.createWeightedVariant(
+				JinericModels.TEMPLATE_BORDER_WALL_SIDE_TALL.upload(wall, textureMap, bsmg.modelCollector)
+		);
 		bsmg.blockStateCollector.accept(BlockStateCreators.createBorderWallBlockState(wall, postId, sideShortId, sideShortLongId, sideTallId));
 		Identifier wallInventory = JinericModels.TEMPLATE_COLUMN_SHORT_WALL_INVENTORY.upload(wall, textureMap, bsmg.modelCollector);
 		bsmg.registerParentedItemModel(wall, wallInventory);

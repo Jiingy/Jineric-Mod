@@ -307,8 +307,6 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 //      this.getOrCreateTagBuilder(BlockTags.CONVERTABLE_TO_MUD);
 //      this.getOrCreateTagBuilder(BlockTags.MANGROVE_LOGS_CAN_GROW_THROUGH);
 //      this.getOrCreateTagBuilder(BlockTags.MANGROVE_ROOTS_CAN_GROW_THROUGH);
-		this.getOrCreateTagBuilder(BlockTags.DEAD_BUSH_MAY_PLACE_ON)
-				.add(FULL_GRASS_BLOCK);
 //      this.getOrCreateTagBuilder(BlockTags.SNAPS_GOAT_HORN);
 //      this.getOrCreateTagBuilder(BlockTags.REPLACEABLE_BY_TREES);
 //      this.getOrCreateTagBuilder(BlockTags.SNOW_LAYER_CANNOT_SURVIVE_ON);
