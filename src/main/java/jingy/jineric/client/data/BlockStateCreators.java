@@ -13,12 +13,12 @@ import java.util.function.Consumer;
 
 @Environment(EnvType.CLIENT)
 public class BlockStateCreators extends BlockStateModelGenerator {
-	public BlockStateCreators(Consumer<BlockStateSupplier> blockStateCollector, ItemModelOutput itemModelOutput, BiConsumer<Identifier, ModelSupplier> modelCollector) {
+	public BlockStateCreators(Consumer<BlockModelDefinitionCreator> blockStateCollector, ItemModelOutput itemModelOutput, BiConsumer<Identifier, ModelSupplier> modelCollector) {
 		super(blockStateCollector, itemModelOutput, modelCollector);
 	}
 	
-	public static BlockStateSupplier createBorderWallBlockState(Block wallBlock, Identifier postModelId, Identifier sideShortModelId, Identifier sideShortLineModelId, Identifier sideTallModelId) {
-		return MultipartBlockStateSupplier.create(wallBlock)
+	public static BlockModelDefinitionCreator createBorderWallBlockState(Block wallBlock, Identifier postModelId, Identifier sideShortModelId, Identifier sideShortLineModelId, Identifier sideTallModelId) {
+		return MultipartBlockModelDefinitionCreator.create(wallBlock)
 				.with(
 						When.create().set(Properties.UP, true),
 						BlockStateVariant.create().put(VariantSettings.MODEL, postModelId))

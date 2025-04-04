@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PointedDripstoneBlock.class)
-public abstract class PointedDripstoneCanGrowMixin extends Block implements LandingBlock, Waterloggable {
+public abstract class PointedDripstoneCanGrowMixin extends Block implements Falling, Waterloggable {
 	@Shadow
 	@Final
 	public static BooleanProperty WATERLOGGED;

@@ -9,11 +9,12 @@ import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.item.ItemDisplayContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ModelTransformationMode;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.RotationAxis;
+import net.minecraft.util.math.Vec3d;
 
 @Environment(EnvType.CLIENT)
 public class RedstoneCampfireBlockEntityRenderer implements BlockEntityRenderer<RedstoneCampfireBlockEntity> {
@@ -23,10 +24,10 @@ public class RedstoneCampfireBlockEntityRenderer implements BlockEntityRenderer<
 		this.itemRenderer = ctx.getItemRenderer();
 	}
 	
-	public void render(RedstoneCampfireBlockEntity redstoneCampfireBlockEntity, float f, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, int j) {
-		Direction direction = redstoneCampfireBlockEntity.getCachedState().get(RedstoneCampfireBlock.FACING);
-		DefaultedList<ItemStack> defaultedList = redstoneCampfireBlockEntity.getItemsBeingCooked();
-		int k = (int) redstoneCampfireBlockEntity.getPos().asLong();
+	public void render(RedstoneCampfireBlockEntity blockEntity, float tickProgress, MatrixStack matrixStack, VertexConsumerProvider vertexConsumers, int light, int overlay, Vec3d cameraPos) {
+		Direction direction = blockEntity.getCachedState().get(RedstoneCampfireBlock.FACING);
+		DefaultedList<ItemStack> defaultedList = blockEntity.getItemsBeingCooked();
+		int k = (int) blockEntity.getPos().asLong();
 		
 		for (int l = 0; l < defaultedList.size(); ++l) {
 			ItemStack itemStack = defaultedList.get(l);
@@ -39,7 +40,7 @@ public class RedstoneCampfireBlockEntityRenderer implements BlockEntityRenderer<
 				matrixStack.multiply(RotationAxis.POSITIVE_X.rotationDegrees(90.0F));
 				matrixStack.translate(-0.3125F, -0.3125F, 0.0F);
 				matrixStack.scale(0.375F, 0.375F, 0.375F);
-				this.itemRenderer.renderItem(itemStack, ModelTransformationMode.FIXED, i, j, matrixStack, vertexConsumerProvider, redstoneCampfireBlockEntity.getWorld(), k + l);
+				this.itemRenderer.renderItem(itemStack, ItemDisplayContext.FIXED, light, overlay, matrixStack, vertexConsumers, blockEntity.getWorld(), k + l);
 				matrixStack.pop();
 			}
 		}
