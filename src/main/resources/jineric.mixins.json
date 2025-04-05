@@ -6,7 +6,6 @@
    "mixins": [
       "BlockEntityTypeMixin",
       "LivingEntityFastFallingMixin",
-      "fix.SlipperyPartialBlocksMixin",
       "access.CookingRecipeJsonBuilderAccessor",
       "access.SmithingTemplateItemAccess",
       "access.WoodTypeAccess",
@@ -27,6 +26,8 @@
       "fix.EatFullGrassBlockMixin",
       "fix.FallLocationAddLaddersMixin",
       "fix.PointedDripstoneCanGrowMixin",
+      "fix.SlipperyPartialBlocksMixin",
+      "fix.SoulSpeedPartialBlocksMixin",
       "fix.WallsConnectionMixin"
    ],
    "client": [
