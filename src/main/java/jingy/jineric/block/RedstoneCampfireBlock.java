@@ -30,6 +30,8 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.block.OrientationHelper;
+import net.minecraft.world.block.WireOrientation;
 import org.jetbrains.annotations.Nullable;
 
 public class RedstoneCampfireBlock extends CampfireBlock {
@@ -44,7 +46,7 @@ public class RedstoneCampfireBlock extends CampfireBlock {
 	
 	public static void spawnRedstoneParticle(World world, BlockPos pos, boolean isSignal) {
 		Random random = world.getRandom();
-		world.addImportantParticle(
+		world.addImportantParticleClient(
 				DustParticleEffect.DEFAULT,
 				true,
 				(double) pos.getX() + 0.5 + random.nextDouble() / 3.0 * (double) (random.nextBoolean() ? 1 : -1),
@@ -73,20 +75,20 @@ public class RedstoneCampfireBlock extends CampfireBlock {
 	}
 	
 	@Override
-	public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
-		if (!state.isOf(newState.getBlock())) {
-			BlockEntity blockEntity = world.getBlockEntity(pos);
-			if (blockEntity instanceof RedstoneCampfireBlockEntity redstoneCampfireBlockEntity) {
-				ItemScatterer.spawn(world, pos, redstoneCampfireBlockEntity.getItemsBeingCooked());
-			}
-			
-			super.onStateReplaced(state, world, pos, newState, moved);
+	public void onStateReplaced(BlockState state, ServerWorld world, BlockPos pos, boolean moved) {
+		BlockEntity blockEntity = world.getBlockEntity(pos);
+		//TODO: CHECK MAY BE REDUNDANT
+		if (blockEntity instanceof RedstoneCampfireBlockEntity redstoneCampfireBlockEntity) {
+			ItemScatterer.spawn(world, pos, redstoneCampfireBlockEntity.getItemsBeingCooked());
 		}
 	}
 	
 	@Override
 	public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-		world.updateNeighborsAlways(pos, this);
+		// TODO: This code is new and I don't fully understand how it works. updating block neighbors now requires a "WireOrientation"
+		// Standard third parameter is "UP" but I have it set to "DOWN"
+		WireOrientation wireOrientation = OrientationHelper.getEmissionOrientation(world, null, Direction.DOWN);
+		world.updateNeighborsAlways(pos, this, wireOrientation);
 	}
 	
 	@Override

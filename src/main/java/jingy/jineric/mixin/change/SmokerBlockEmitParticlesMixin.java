@@ -34,7 +34,7 @@ public abstract class SmokerBlockEmitParticlesMixin extends AbstractFurnaceBlock
 		double i = axis == Direction.Axis.X ? (double) direction.getOffsetX() * 0.52 : h;
 		double j = random.nextDouble() * 6.0 / 16.0;
 		double k = axis == Direction.Axis.Z ? (double) direction.getOffsetZ() * 0.52 : h;
-		world.addParticle(ParticleTypes.FLAME, d + i, e + j, f + k, 0.0, 0.0, 0.0);
+		world.addParticleClient(ParticleTypes.FLAME, d + i, e + j, f + k, 0.0, 0.0, 0.0);
 		ci.cancel();
 	}
 }

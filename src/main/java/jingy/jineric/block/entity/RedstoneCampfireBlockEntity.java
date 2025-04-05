@@ -28,9 +28,12 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
+import net.minecraft.world.block.OrientationHelper;
+import net.minecraft.world.block.WireOrientation;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 public class RedstoneCampfireBlockEntity extends BlockEntity implements Clearable {
@@ -42,9 +45,16 @@ public class RedstoneCampfireBlockEntity extends BlockEntity implements Clearabl
 		super(JinericBlockEntityType.REDSTONE_CAMPFIRE, pos, state);
 	}
 	
-	public static void litServerTick(ServerWorld world, BlockPos pos, BlockState state, RedstoneCampfireBlockEntity blockEntity, ServerRecipeManager.MatchGetter<SingleStackRecipeInput, CampfireCookingRecipe> recipeMatchGetter) {
+	public static void litServerTick(
+			ServerWorld world,
+			BlockPos pos,
+			BlockState state,
+			RedstoneCampfireBlockEntity blockEntity,
+			ServerRecipeManager.MatchGetter<SingleStackRecipeInput, CampfireCookingRecipe> recipeMatchGetter
+	) {
 		boolean bl = false;
 		boolean powered = state.get(Properties.POWERED);
+		
 		for (int i = 0; i < blockEntity.itemsBeingCooked.size(); ++i) {
 			ItemStack itemStack = blockEntity.itemsBeingCooked.get(i);
 			if (!itemStack.isEmpty()) {
@@ -52,9 +62,9 @@ public class RedstoneCampfireBlockEntity extends BlockEntity implements Clearabl
 				blockEntity.cookingTimes[i]++;
 				if (blockEntity.cookingTimes[i] >= blockEntity.cookingTotalTimes[i]) {
 					SingleStackRecipeInput singleStackRecipeInput = new SingleStackRecipeInput(itemStack);
-					ItemStack itemStack2 = recipeMatchGetter.getFirstMatch(singleStackRecipeInput, world).map(
-							(recipeEntry) -> recipeEntry.value().craft(singleStackRecipeInput, world.getRegistryManager())
-					).orElse(itemStack);
+					ItemStack itemStack2 = recipeMatchGetter.getFirstMatch(singleStackRecipeInput, world)
+							.map((recipeEntry) -> recipeEntry.value().craft(singleStackRecipeInput, world.getRegistryManager()))
+							.orElse(itemStack);
 					if (itemStack2.isItemEnabled(world.getEnabledFeatures())) {
 						ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), itemStack2);
 						blockEntity.itemsBeingCooked.set(i, ItemStack.EMPTY);
@@ -62,7 +72,10 @@ public class RedstoneCampfireBlockEntity extends BlockEntity implements Clearabl
 						world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(state));
 					}
 				}
-				world.updateNeighborsAlways(pos, blockEntity.getCachedState().getBlock());
+				// TODO: This code is new and I don't fully understand how it works. updating block neighbors now requires a "WireOrientation"
+				// Standard third parameter is "UP" but I have it set to "DOWN"
+				WireOrientation wireOrientation = OrientationHelper.getEmissionOrientation(world, null, Direction.DOWN);
+				world.updateNeighborsAlways(pos, blockEntity.getCachedState().getBlock(), wireOrientation);
 			}
 		}
 		
@@ -118,7 +131,7 @@ public class RedstoneCampfireBlockEntity extends BlockEntity implements Clearabl
 						+ (double) ((float) direction.rotateYClockwise().getOffsetZ() * f);
 				
 				for (int k = 0; k < 4; ++k) {
-					world.addParticle(ParticleTypes.SMOKE, d, e, g, 0.0, 5.0E-4, 0.0);
+					world.addParticleClient(ParticleTypes.SMOKE, d, e, g, 0.0, 5.0E-4, 0.0);
 				}
 			}
 		}
@@ -153,15 +166,16 @@ public class RedstoneCampfireBlockEntity extends BlockEntity implements Clearabl
 		super.readNbt(nbt, registries);
 		this.itemsBeingCooked.clear();
 		Inventories.readNbt(nbt, this.itemsBeingCooked, registries);
-		if (nbt.contains("CookingTimes", NbtElement.INT_ARRAY_TYPE)) {
-			int[] is = nbt.getIntArray("CookingTimes");
-			System.arraycopy(is, 0, this.cookingTimes, 0, Math.min(this.cookingTotalTimes.length, is.length));
-		}
-		
-		if (nbt.contains("CookingTotalTimes", NbtElement.INT_ARRAY_TYPE)) {
-			int[] is = nbt.getIntArray("CookingTotalTimes");
-			System.arraycopy(is, 0, this.cookingTotalTimes, 0, Math.min(this.cookingTotalTimes.length, is.length));
-		}
+		nbt.getIntArray("CookingTimes")
+				.ifPresentOrElse(
+						is -> System.arraycopy(is, 0, this.cookingTimes, 0, Math.min(this.cookingTotalTimes.length, is.length)),
+						() -> Arrays.fill(this.cookingTimes, 0)
+				);
+		nbt.getIntArray("CookingTotalTimes")
+				.ifPresentOrElse(
+						is -> System.arraycopy(is, 0, this.cookingTotalTimes, 0, Math.min(this.cookingTotalTimes.length, is.length)),
+						() -> Arrays.fill(this.cookingTotalTimes, 0)
+				);
 	}
 	
 	@Override

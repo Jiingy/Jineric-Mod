@@ -9,7 +9,7 @@ import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryEntryLookup;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.util.collection.DataPool;
+import net.minecraft.util.collection.Pool;
 import net.minecraft.util.math.VerticalSurfaceType;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
@@ -26,7 +26,7 @@ public class JinericUndergroundConfiguredFeatures {
 				Feature.SIMPLE_BLOCK,
 				new SimpleBlockFeatureConfig(
 						new WeightedBlockStateProvider(
-								DataPool.<BlockState>builder()
+								Pool.<BlockState>builder()
 										.add(Blocks.SHORT_GRASS.getDefaultState(), 40)
 										.add(Blocks.TALL_GRASS.getDefaultState(), 10)
 										.add(Blocks.POPPY.getDefaultState(), 5)
