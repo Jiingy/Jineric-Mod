@@ -242,10 +242,10 @@ public class JinericModelProvider extends FabricModelProvider {
 	
 	private void registerLogs(WoodType woodType, BlockStateModelGenerator bsmg) {
 		String woodTypeName = woodType.name().replace("jineric:", "");
-		bsmg.registerLog(blockById(woodTypeName + "_log"))
+		bsmg.createLogTexturePool(blockById(woodTypeName + "_log"))
 				.log(blockById(woodTypeName + "_log"))
 				.wood(blockById(woodTypeName + "_wood"));
-		bsmg.registerLog(blockById("stripped_" + woodTypeName + "_log"))
+		bsmg.createLogTexturePool(blockById("stripped_" + woodTypeName + "_log"))
 				.log(blockById("stripped_" + woodTypeName + "_log"))
 				.wood(blockById("stripped_" + woodTypeName + "_wood"));
 	}
@@ -378,16 +378,16 @@ public class JinericModelProvider extends FabricModelProvider {
 	public void registerSign(BlockFamily blockFamily, TextureMap textureMap, BlockStateModelGenerator blockStateModelGenerator) {
 		Block signBlock = blockFamily.getVariants().get(BlockFamily.Variant.SIGN);
 		Block wallSignBlock = blockFamily.getVariants().get(BlockFamily.Variant.WALL_SIGN);
-		Identifier identifier = Models.PARTICLE.upload(signBlock, textureMap, blockStateModelGenerator.modelCollector);
+		WeightedVariant identifier = BlockStateModelGenerator.createWeightedVariant(
+				Models.PARTICLE.upload(signBlock, textureMap, blockStateModelGenerator.modelCollector)
+		);
 		blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(signBlock, identifier));
 		blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(wallSignBlock, identifier));
 		blockStateModelGenerator.registerItemModel(signBlock.asItem());
 	}
 	
 	public void registerFence(BlockFamily blockFamily, TextureMap textureMap, boolean custom, BlockStateModelGenerator bsmg) {
-		Block fenceBlock = custom
-				? blockFamily.getVariant(BlockFamily.Variant.CUSTOM_FENCE)
-				: blockFamily.getVariant(BlockFamily.Variant.FENCE);
+		Block fenceBlock = custom ? blockFamily.getVariant(BlockFamily.Variant.CUSTOM_FENCE) : blockFamily.getVariant(BlockFamily.Variant.FENCE);
 		if (!this.isJineric(fenceBlock)) return;
 		WeightedVariant postModelId = BlockStateModelGenerator.createWeightedVariant(
 				Models.FENCE_POST.upload(fenceBlock, textureMap, bsmg.modelCollector)
@@ -402,24 +402,39 @@ public class JinericModelProvider extends FabricModelProvider {
 	
 	public void registerFenceGate(BlockFamily blockFamily, TextureMap textureMap, BlockStateModelGenerator bsmg) {
 		Block fenceGateBlock = blockFamily.getVariant(BlockFamily.Variant.FENCE_GATE);
-		Identifier identifier = Models.TEMPLATE_FENCE_GATE_OPEN.upload(fenceGateBlock, textureMap, bsmg.modelCollector);
-		Identifier identifier2 = Models.TEMPLATE_FENCE_GATE.upload(fenceGateBlock, textureMap, bsmg.modelCollector);
-		Identifier identifier3 = Models.TEMPLATE_FENCE_GATE_WALL_OPEN.upload(fenceGateBlock, textureMap, bsmg.modelCollector);
-		Identifier identifier4 = Models.TEMPLATE_FENCE_GATE_WALL.upload(fenceGateBlock, textureMap, bsmg.modelCollector);
+		WeightedVariant identifier = BlockStateModelGenerator.createWeightedVariant(
+				Models.TEMPLATE_FENCE_GATE_OPEN.upload(fenceGateBlock, textureMap, bsmg.modelCollector)
+		);
+		WeightedVariant identifier2 = BlockStateModelGenerator.createWeightedVariant(
+				Models.TEMPLATE_FENCE_GATE.upload(fenceGateBlock, textureMap, bsmg.modelCollector));
+		WeightedVariant identifier3 = BlockStateModelGenerator.createWeightedVariant(
+				Models.TEMPLATE_FENCE_GATE_WALL_OPEN.upload(fenceGateBlock, textureMap, bsmg.modelCollector)
+		);
+		WeightedVariant identifier4 = BlockStateModelGenerator.createWeightedVariant(
+				Models.TEMPLATE_FENCE_GATE_WALL.upload(fenceGateBlock, textureMap, bsmg.modelCollector)
+		);
 		bsmg.blockStateCollector.accept(BlockStateModelGenerator.createFenceGateBlockState(fenceGateBlock, identifier, identifier2, identifier3, identifier4, true));
 	}
 	
 	public void registerPressurePlate(BlockFamily blockFamily, TextureMap textureMap, BlockStateModelGenerator bsmg) {
 		Block pressurePlateBlock = blockFamily.getVariant(BlockFamily.Variant.PRESSURE_PLATE);
-		Identifier upModelId = Models.PRESSURE_PLATE_UP.upload(pressurePlateBlock, textureMap, bsmg.modelCollector);
-		Identifier downModelId = Models.PRESSURE_PLATE_DOWN.upload(pressurePlateBlock, textureMap, bsmg.modelCollector);
+		WeightedVariant upModelId = BlockStateModelGenerator.createWeightedVariant(
+				Models.PRESSURE_PLATE_UP.upload(pressurePlateBlock, textureMap, bsmg.modelCollector)
+		);
+		WeightedVariant downModelId = BlockStateModelGenerator.createWeightedVariant(
+				Models.PRESSURE_PLATE_DOWN.upload(pressurePlateBlock, textureMap, bsmg.modelCollector)
+		);
 		bsmg.blockStateCollector.accept(BlockStateModelGenerator.createPressurePlateBlockState(pressurePlateBlock, upModelId, downModelId));
 	}
 	
 	public void registerButton(BlockFamily blockFamily, TextureMap textureMap, BlockStateModelGenerator bsmg) {
 		Block buttonBlock = blockFamily.getVariant(BlockFamily.Variant.BUTTON);
-		Identifier buttonId = Models.BUTTON.upload(buttonBlock, textureMap, bsmg.modelCollector);
-		Identifier pressedButtonId = Models.BUTTON_PRESSED.upload(buttonBlock, textureMap, bsmg.modelCollector);
+		WeightedVariant buttonId = BlockStateModelGenerator.createWeightedVariant(
+				Models.BUTTON.upload(buttonBlock, textureMap, bsmg.modelCollector)
+		);
+		WeightedVariant pressedButtonId = BlockStateModelGenerator.createWeightedVariant(
+				Models.BUTTON_PRESSED.upload(buttonBlock, textureMap, bsmg.modelCollector)
+		);
 		bsmg.blockStateCollector.accept(BlockStateModelGenerator.createButtonBlockState(buttonBlock, buttonId, pressedButtonId));
 		Identifier buttonInventory = Models.BUTTON_INVENTORY.upload(buttonBlock, textureMap, bsmg.modelCollector);
 		bsmg.registerParentedItemModel(buttonBlock, buttonInventory);

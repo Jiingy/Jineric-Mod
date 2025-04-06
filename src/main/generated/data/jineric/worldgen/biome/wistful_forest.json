@@ -85,17 +85,18 @@
     ],
     [
       "minecraft:glow_lichen",
-      "jineric:trees_wistful_forest",
-      "jineric:patch_rose",
-      "jineric:patch_roses",
-      "jineric:patch_blossomed_dandelion",
+      "minecraft:patch_tall_grass_2",
+      "minecraft:patch_bush",
       "minecraft:patch_grass_badlands",
       "minecraft:patch_grass_jungle",
-      "minecraft:patch_tall_grass_2",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
+      "jineric:trees_wistful_forest",
+      "minecraft:patch_sugar_cane",
       "jineric:carved_pumpkin_patch",
-      "minecraft:patch_sugar_cane"
+      "jineric:patch_rose",
+      "jineric:patch_roses",
+      "jineric:patch_blossomed_dandelion"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -114,6 +115,12 @@
     ],
     "axolotls": [],
     "creature": [
+      {
+        "type": "minecraft:wolf",
+        "maxCount": 5,
+        "minCount": 3,
+        "weight": 4
+      },
       {
         "type": "minecraft:sheep",
         "maxCount": 4,
@@ -137,12 +144,6 @@
         "maxCount": 4,
         "minCount": 4,
         "weight": 8
-      },
-      {
-        "type": "minecraft:wolf",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 5
       }
     ],
     "misc": [],

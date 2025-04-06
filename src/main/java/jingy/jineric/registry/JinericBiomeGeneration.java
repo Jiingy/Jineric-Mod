@@ -7,6 +7,6 @@ import net.minecraft.world.biome.BiomeKeys;
 public class JinericBiomeGeneration {
 	
 	public static void registerBiomeGeneration() {
-		BiomePlacement.replaceOverworld(BiomeKeys.PLAINS, JinericBiomeKeys.WISTFUL_FOREST, 0.1D);
+		BiomePlacement.replaceOverworld(BiomeKeys.FOREST, JinericBiomeKeys.WISTFUL_FOREST, 0.2D);
 	}
 }

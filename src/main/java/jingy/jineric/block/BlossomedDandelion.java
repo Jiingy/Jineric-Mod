@@ -30,7 +30,7 @@ public class BlossomedDandelion extends FlowerBlock {
       if (random.nextInt(12) == 0) {
          double d = (double)pos.getX() + vec3d.x;
          double e = (double)pos.getZ() + vec3d.z;
-         world.addParticle(
+         world.addParticleClient(
                  JinericParticleTypes.BLOSSOMED_DANDELION_SEED,
                  d - 0.25 + random.nextDouble() / 2.0,
                  pos.getY() + 0.5d,

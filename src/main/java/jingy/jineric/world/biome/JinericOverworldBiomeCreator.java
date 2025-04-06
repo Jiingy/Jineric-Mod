@@ -9,10 +9,7 @@ import net.minecraft.registry.RegistryEntryLookup;
 import net.minecraft.sound.MusicSound;
 import net.minecraft.sound.MusicType;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.GenerationSettings;
-import net.minecraft.world.biome.OverworldBiomeCreator;
-import net.minecraft.world.biome.SpawnSettings;
+import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.carver.ConfiguredCarver;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
@@ -27,27 +24,28 @@ public class JinericOverworldBiomeCreator extends OverworldBiomeCreator {
 	
 	public static Biome createWistfulForest(RegistryEntryLookup<PlacedFeature> featureLookup, RegistryEntryLookup<ConfiguredCarver<?>> carverLookup) {
 		SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
+		spawnBuilder.spawn(SpawnGroup.CREATURE, 4, new SpawnSettings.SpawnEntry(EntityType.WOLF, 3, 5));
 		DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
-		spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.WOLF, 5, 4, 4));
 		DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
 		
 		MusicSound musicSound = MusicType.createIngameMusic(SoundEvents.MUSIC_OVERWORLD_FOREST);
 		
 		GenerationSettings.LookupBackedBuilder lookupBackedBuilder = new GenerationSettings.LookupBackedBuilder(featureLookup, carverLookup);
 		OverworldBiomeCreatorAccess.invokeAddBasicFeatures(lookupBackedBuilder);
+		DefaultBiomeFeatures.addPlainsTallGrass(lookupBackedBuilder);
+		DefaultBiomeFeatures.addBushes(lookupBackedBuilder);
+		DefaultBiomeFeatures.addDefaultGrass(lookupBackedBuilder);
+		DefaultBiomeFeatures.addJungleGrass(lookupBackedBuilder);
+		DefaultBiomeFeatures.addDefaultMushrooms(lookupBackedBuilder);
+		lookupBackedBuilder.feature(GenerationStep.Feature.LAKES, JinericMiscPlacedFeatures.LAKE_WATER_SURFACE);
 		DefaultBiomeFeatures.addDefaultOres(lookupBackedBuilder);
 		DefaultBiomeFeatures.addDefaultDisks(lookupBackedBuilder);
-		lookupBackedBuilder.feature(GenerationStep.Feature.LAKES, JinericMiscPlacedFeatures.LAKE_WATER_SURFACE);
 		lookupBackedBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, JinericVegetationPlacedFeatures.TREES_WISTFUL_FOREST);
+		lookupBackedBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_SUGAR_CANE);
+		lookupBackedBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, JinericVegetationPlacedFeatures.CARVED_PUMPKIN_PATCH);
 		lookupBackedBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, JinericVegetationPlacedFeatures.PATCH_ROSE);
 		lookupBackedBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, JinericVegetationPlacedFeatures.PATCH_ROSES);
 		lookupBackedBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, JinericVegetationPlacedFeatures.PATCH_BLOSSOMED_DANDELION);
-		DefaultBiomeFeatures.addDefaultGrass(lookupBackedBuilder);
-		DefaultBiomeFeatures.addJungleGrass(lookupBackedBuilder);
-		DefaultBiomeFeatures.addPlainsTallGrass(lookupBackedBuilder);
-		DefaultBiomeFeatures.addDefaultMushrooms(lookupBackedBuilder);
-		lookupBackedBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, JinericVegetationPlacedFeatures.CARVED_PUMPKIN_PATCH);
-		lookupBackedBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_SUGAR_CANE);
 		
 		return OverworldBiomeCreatorAccess.invokeCreateBiome(
 				true,
@@ -57,6 +55,7 @@ public class JinericOverworldBiomeCreator extends OverworldBiomeCreator {
 				921191,
 				7649089,
 				7649089,
+				null,
 				spawnBuilder, lookupBackedBuilder, musicSound
 		);
 	}

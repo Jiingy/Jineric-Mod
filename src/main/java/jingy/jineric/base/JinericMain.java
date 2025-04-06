@@ -44,6 +44,7 @@ public class JinericMain implements ModInitializer {
 	}
 	
 	private void initRegistries() {
+		JinericBiomeKeys.initialize();
 		JinericBiomeGeneration.registerBiomeGeneration();
 		JinericRegistries.initializeJinericRegistries();
 		JinericBlocks.initialize();
@@ -62,6 +63,5 @@ public class JinericMain implements ModInitializer {
 		JinericStatusEffects.registerStatusEffects();
 		JinericItemGroups.registerJinericItemGroups();
 		JinericItemGroups.registerItemGroups();
-		JinericBiomeKeys.initialize();
 	}
 }

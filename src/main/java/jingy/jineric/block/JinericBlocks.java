@@ -344,7 +344,7 @@ public class JinericBlocks {
 	);
     public static final Block PETRIFIED_OAK_LEAVES = register(
 			"petrified_oak_leaves",
-            settings -> new ParticleLeavesBlock(10, JinericParticleTypes.PETRIFIED_OAK_LEAVES, settings),
+            settings -> new TintedParticleLeavesBlock(0.02F, settings),
 			AbstractBlock.Settings.copy(OAK_LEAVES).sounds(BlockSoundGroup.GRASS)
 	);
     public static final Block PETRIFIED_OAK_SAPLING = register(
