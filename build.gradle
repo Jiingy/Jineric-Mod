@@ -1,8 +1,8 @@
 plugins {
-	id 'fabric-loom' version '1.10-SNAPSHOT'
+	id 'fabric-loom' version "${loom_version}"
 	id "maven-publish"
 	//FIGURE OUT HERE: https://github.com/modrinth/minotaur
-	id "com.modrinth.minotaur" version "2.8.7"
+	id "com.modrinth.minotaur"version "2.8.7"
 }
 
 /* Data Generation */
@@ -72,6 +72,8 @@ processResources {
 }
 
 jar {
+	inputs.property "archivesName", project.base.archivesName
+
 	from("LICENSE") {
 		rename { "${it}_${project.base.archivesName.get()}"}
 	}
