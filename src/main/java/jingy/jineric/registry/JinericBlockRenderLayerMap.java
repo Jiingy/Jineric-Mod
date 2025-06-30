@@ -3,25 +3,27 @@ package jingy.jineric.registry;
 import jingy.jineric.block.JinericBlocks;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.minecraft.client.render.RenderLayer;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
+import net.minecraft.client.render.BlockRenderLayer;
 
 @Environment(EnvType.CLIENT)
 public class JinericBlockRenderLayerMap {
 	
 	public static void registerBlockRenderLayerMaps() {
-		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.FULL_GRASS_BLOCK, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.REDSTONE_LANTERN, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.REDSTONE_CAMPFIRE, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.SPRUCE_LADDER, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BIRCH_LADDER, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.MANGROVE_LADDER, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.CHERRY_LADDER, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.BAMBOO_LADDER, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.JUNGLE_LADDER, RenderLayer.getCutoutMipped());
-		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.ACACIA_LADDER, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.WARPED_LADDER, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.CRIMSON_LADDER, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(JinericBlocks.DARK_OAK_LADDER, RenderLayer.getCutout());
+		BlockRenderLayerMap.putBlocks(BlockRenderLayer.CUTOUT,
+				JinericBlocks.SPRUCE_LADDER,
+				JinericBlocks.BIRCH_LADDER,
+				JinericBlocks.JUNGLE_LADDER,
+				JinericBlocks.ACACIA_LADDER,
+				JinericBlocks.MANGROVE_LADDER,
+				JinericBlocks.CHERRY_LADDER,
+				JinericBlocks.BAMBOO_LADDER,
+				JinericBlocks.DARK_OAK_LADDER,
+				JinericBlocks.WARPED_LADDER,
+				JinericBlocks.CRIMSON_LADDER
+		);
+		BlockRenderLayerMap.putBlock(JinericBlocks.FULL_GRASS_BLOCK, BlockRenderLayer.CUTOUT);
+		BlockRenderLayerMap.putBlock(JinericBlocks.REDSTONE_LANTERN, BlockRenderLayer.CUTOUT);
+		BlockRenderLayerMap.putBlock(JinericBlocks.REDSTONE_CAMPFIRE, BlockRenderLayer.CUTOUT);
 	}
 }

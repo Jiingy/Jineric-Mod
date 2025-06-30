@@ -20,6 +20,8 @@ import net.minecraft.recipe.input.SingleStackRecipeInput;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.Properties;
+import net.minecraft.storage.ReadView;
+import net.minecraft.storage.WriteView;
 import net.minecraft.util.Clearable;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.collection.DefaultedList;
@@ -142,8 +144,8 @@ public class RedstoneCampfireBlockEntity extends BlockEntity implements Clearabl
 	}
 	
 	public boolean isCooking() {
-		for (int i = 0; i < this.itemsBeingCooked.size(); ++i) {
-			if (!this.itemsBeingCooked.get(i).isEmpty()) {
+		for (ItemStack itemStack : this.itemsBeingCooked) {
+			if (!itemStack.isEmpty()) {
 				return true;
 			}
 		}
@@ -159,42 +161,6 @@ public class RedstoneCampfireBlockEntity extends BlockEntity implements Clearabl
 			}
 		}
 		return outputSignal * 2;
-	}
-	
-	@Override
-	public void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
-		super.readNbt(nbt, registries);
-		this.itemsBeingCooked.clear();
-		Inventories.readNbt(nbt, this.itemsBeingCooked, registries);
-		nbt.getIntArray("CookingTimes")
-				.ifPresentOrElse(
-						is -> System.arraycopy(is, 0, this.cookingTimes, 0, Math.min(this.cookingTotalTimes.length, is.length)),
-						() -> Arrays.fill(this.cookingTimes, 0)
-				);
-		nbt.getIntArray("CookingTotalTimes")
-				.ifPresentOrElse(
-						is -> System.arraycopy(is, 0, this.cookingTotalTimes, 0, Math.min(this.cookingTotalTimes.length, is.length)),
-						() -> Arrays.fill(this.cookingTotalTimes, 0)
-				);
-	}
-	
-	@Override
-	protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
-		super.writeNbt(nbt, registries);
-		Inventories.writeNbt(nbt, this.itemsBeingCooked, registries);
-		nbt.putIntArray("CookingTimes", this.cookingTimes);
-		nbt.putIntArray("CookingTotalTimes", this.cookingTotalTimes);
-	}
-	
-	public BlockEntityUpdateS2CPacket toUpdatePacket() {
-		return BlockEntityUpdateS2CPacket.create(this);
-	}
-	
-	@Override
-	public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registries) {
-		NbtCompound nbtCompound = new NbtCompound();
-		Inventories.writeNbt(nbtCompound, this.itemsBeingCooked, registries);
-		return nbtCompound;
 	}
 	
 	public boolean addItem(ServerWorld world, @Nullable LivingEntity entity, ItemStack stack) {

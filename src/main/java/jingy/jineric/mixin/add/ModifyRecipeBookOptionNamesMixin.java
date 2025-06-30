@@ -2,6 +2,10 @@ package jingy.jineric.mixin.add;
 
 import com.google.common.collect.ImmutableMap;
 import com.mojang.datafixers.util.Pair;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import jingy.jineric.recipe.JinericClientRecipeBookTypes;
+import jingy.jineric.recipe.JinericRecipeBookCategories;
 import jingy.jineric.recipe.JinericRecipeBookTypes;
 import net.minecraft.recipe.book.RecipeBookOptions;
 import net.minecraft.recipe.book.RecipeBookType;
@@ -18,6 +22,20 @@ public abstract class ModifyRecipeBookOptionNamesMixin {
 	@Final
 	@Shadow
 	private static Map<RecipeBookType, Pair<String, String>> CATEGORY_OPTION_NAMES;
+	
+	@Mutable
+	@Final
+	@Shadow
+	public static final MapCodec<RecipeBookOptions> CODEC = RecordCodecBuilder.mapCodec(
+			instance -> instance.group(
+					
+							RecipeBookOptions.CategoryOption.CRAFTING.forGetter(options -> options.crafting),
+							RecipeBookOptions.CategoryOption.FURNACE.forGetter(options -> options.furnace),
+							RecipeBookOptions.CategoryOption.BLAST_FURNACE.forGetter(options -> options.blastFurnace),
+							RecipeBookOptions.CategoryOption.SMOKER.forGetter(options -> options.smoker)
+					)
+					.apply(instance, RecipeBookOptions::new)
+	);
 	
 	static {
 		CATEGORY_OPTION_NAMES = ImmutableMap.<RecipeBookType, Pair<String, String>>builder()

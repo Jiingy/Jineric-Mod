@@ -16,9 +16,9 @@ public class JinericItemTagProvider extends FabricTagProvider.ItemTagProvider {
 	
 	@Override
 	protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-		this.getOrCreateTagBuilder(JinericItemTags.CHESTS)
+		this.valueLookupBuilder(JinericItemTags.CHESTS)
 				.addTag(JinericItemTags.WOODEN_CHESTS);
-		this.getOrCreateTagBuilder(JinericItemTags.WOODEN_CHESTS)
+		this.valueLookupBuilder(JinericItemTags.WOODEN_CHESTS)
 				.add(Items.CHEST)
 				.add(JinericItems.SPRUCE_CHEST)
 				.add(JinericItems.BIRCH_CHEST)
