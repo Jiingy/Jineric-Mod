@@ -380,15 +380,15 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 		this.valueLookupBuilder(JinericBlockTags.SLIPPERY).add(PACKED_ICE_STAIRS, PACKED_ICE_SLAB, PACKED_ICE_WALL);
 		// Sounds
 		this.valueLookupBuilder(JinericBlockSoundTags.VEGETATION_SOUNDS)
-				.addTag(BlockTags.SMALL_FLOWERS)
-				.add(FULL_GRASS_BLOCK)
+				.addOptionalTag(BlockTags.FLOWERS)
 				.add(Blocks.GRASS_BLOCK)
 				.add(Blocks.SHORT_GRASS)
 				.add(Blocks.TALL_GRASS)
 				.add(Blocks.FERN)
 				.add(Blocks.LARGE_FERN)
 				.add(Blocks.GLOW_LICHEN)
-				.add(Blocks.VINE);
+				.add(Blocks.VINE)
+				.add(FULL_GRASS_BLOCK);
 	}
 	
 	private void putBlocksToTag(TagKey<Block> tagKey, Block... blocks) {
