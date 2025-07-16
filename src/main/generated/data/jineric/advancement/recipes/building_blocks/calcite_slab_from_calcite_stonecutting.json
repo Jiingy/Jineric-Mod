@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:calcite_slab_from_calcite_stonecutting"
+        "recipe": "jineric:calcite_slab_from_calcite_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:calcite_slab_from_calcite_stonecutting"
+      "jineric:calcite_slab_from_calcite_stonecutting"
     ]
   }
 }

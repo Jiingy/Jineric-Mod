@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:brown_glazed_terracotta_from_refining_brown_terracotta"
+        "recipe": "jineric:brown_glazed_terracotta_from_refining_brown_terracotta"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:brown_glazed_terracotta_from_refining_brown_terracotta"
+      "jineric:brown_glazed_terracotta_from_refining_brown_terracotta"
     ]
   }
 }

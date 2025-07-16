@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:white_glazed_terracotta_from_refining_white_terracotta"
+        "recipe": "jineric:white_glazed_terracotta_from_refining_white_terracotta"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:white_glazed_terracotta_from_refining_white_terracotta"
+      "jineric:white_glazed_terracotta_from_refining_white_terracotta"
     ]
   }
 }

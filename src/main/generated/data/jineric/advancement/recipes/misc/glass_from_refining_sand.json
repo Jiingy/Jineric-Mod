@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:glass_from_refining_sand"
+        "recipe": "jineric:glass_from_refining_sand"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:glass_from_refining_sand"
+      "jineric:glass_from_refining_sand"
     ]
   }
 }

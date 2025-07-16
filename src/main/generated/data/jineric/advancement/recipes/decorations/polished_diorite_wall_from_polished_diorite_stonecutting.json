@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:polished_diorite_wall_from_polished_diorite_stonecutting"
+        "recipe": "jineric:polished_diorite_wall_from_polished_diorite_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:polished_diorite_wall_from_polished_diorite_stonecutting"
+      "jineric:polished_diorite_wall_from_polished_diorite_stonecutting"
     ]
   }
 }

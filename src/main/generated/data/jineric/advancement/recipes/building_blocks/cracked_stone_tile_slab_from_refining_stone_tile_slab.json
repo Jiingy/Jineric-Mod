@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:cracked_stone_tile_slab_from_refining_stone_tile_slab"
+        "recipe": "jineric:cracked_stone_tile_slab_from_refining_stone_tile_slab"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:cracked_stone_tile_slab_from_refining_stone_tile_slab"
+      "jineric:cracked_stone_tile_slab_from_refining_stone_tile_slab"
     ]
   }
 }

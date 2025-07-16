@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:magenta_glazed_terracotta_from_refining_magenta_terracotta"
+        "recipe": "jineric:magenta_glazed_terracotta_from_refining_magenta_terracotta"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:magenta_glazed_terracotta_from_refining_magenta_terracotta"
+      "jineric:magenta_glazed_terracotta_from_refining_magenta_terracotta"
     ]
   }
 }

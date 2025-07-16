@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:cracked_nether_bricks_from_refining_nether_bricks"
+        "recipe": "jineric:cracked_nether_bricks_from_refining_nether_bricks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:cracked_nether_bricks_from_refining_nether_bricks"
+      "jineric:cracked_nether_bricks_from_refining_nether_bricks"
     ]
   }
 }

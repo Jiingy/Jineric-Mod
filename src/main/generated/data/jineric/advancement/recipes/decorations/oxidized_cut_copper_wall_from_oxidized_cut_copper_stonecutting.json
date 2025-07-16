@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:oxidized_cut_copper_wall_from_oxidized_cut_copper_stonecutting"
+        "recipe": "jineric:oxidized_cut_copper_wall_from_oxidized_cut_copper_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:oxidized_cut_copper_wall_from_oxidized_cut_copper_stonecutting"
+      "jineric:oxidized_cut_copper_wall_from_oxidized_cut_copper_stonecutting"
     ]
   }
 }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:stone_stairs_from_refining_cobblestone_stairs"
+        "recipe": "jineric:stone_stairs_from_refining_cobblestone_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:stone_stairs_from_refining_cobblestone_stairs"
+      "jineric:stone_stairs_from_refining_cobblestone_stairs"
     ]
   }
 }

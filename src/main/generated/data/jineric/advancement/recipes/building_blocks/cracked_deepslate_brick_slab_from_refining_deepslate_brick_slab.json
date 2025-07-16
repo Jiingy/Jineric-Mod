@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:cracked_deepslate_brick_slab_from_refining_deepslate_brick_slab"
+        "recipe": "jineric:cracked_deepslate_brick_slab_from_refining_deepslate_brick_slab"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:cracked_deepslate_brick_slab_from_refining_deepslate_brick_slab"
+      "jineric:cracked_deepslate_brick_slab_from_refining_deepslate_brick_slab"
     ]
   }
 }

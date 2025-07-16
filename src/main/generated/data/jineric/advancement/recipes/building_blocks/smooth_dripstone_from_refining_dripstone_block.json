@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:smooth_dripstone_from_refining_dripstone_block"
+        "recipe": "jineric:smooth_dripstone_from_refining_dripstone_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:smooth_dripstone_from_refining_dripstone_block"
+      "jineric:smooth_dripstone_from_refining_dripstone_block"
     ]
   }
 }

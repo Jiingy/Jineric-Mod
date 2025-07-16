@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:cracked_nether_brick_slab_from_cracked_nether_bricks_stonecutting"
+        "recipe": "jineric:cracked_nether_brick_slab_from_cracked_nether_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:cracked_nether_brick_slab_from_cracked_nether_bricks_stonecutting"
+      "jineric:cracked_nether_brick_slab_from_cracked_nether_bricks_stonecutting"
     ]
   }
 }

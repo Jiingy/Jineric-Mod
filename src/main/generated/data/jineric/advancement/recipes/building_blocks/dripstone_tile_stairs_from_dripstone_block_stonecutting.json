@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:dripstone_tile_stairs_from_dripstone_block_stonecutting"
+        "recipe": "jineric:dripstone_tile_stairs_from_dripstone_block_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:dripstone_tile_stairs_from_dripstone_block_stonecutting"
+      "jineric:dripstone_tile_stairs_from_dripstone_block_stonecutting"
     ]
   }
 }

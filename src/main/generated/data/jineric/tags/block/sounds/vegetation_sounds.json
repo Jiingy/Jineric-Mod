@@ -1,13 +1,16 @@
 {
   "values": [
-    "#minecraft:small_flowers",
-    "jineric:full_grass_block",
+    {
+      "id": "#minecraft:flowers",
+      "required": false
+    },
     "minecraft:grass_block",
     "minecraft:short_grass",
     "minecraft:tall_grass",
     "minecraft:fern",
     "minecraft:large_fern",
     "minecraft:glow_lichen",
-    "minecraft:vine"
+    "minecraft:vine",
+    "jineric:full_grass_block"
   ]
 }

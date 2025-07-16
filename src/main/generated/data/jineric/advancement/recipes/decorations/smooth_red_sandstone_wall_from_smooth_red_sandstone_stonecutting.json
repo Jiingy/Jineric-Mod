@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:smooth_red_sandstone_wall_from_smooth_red_sandstone_stonecutting"
+        "recipe": "jineric:smooth_red_sandstone_wall_from_smooth_red_sandstone_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:smooth_red_sandstone_wall_from_smooth_red_sandstone_stonecutting"
+      "jineric:smooth_red_sandstone_wall_from_smooth_red_sandstone_stonecutting"
     ]
   }
 }

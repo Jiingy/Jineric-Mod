@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:smooth_deepslate_from_refining_deepslate"
+        "recipe": "jineric:smooth_deepslate_from_refining_deepslate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:smooth_deepslate_from_refining_deepslate"
+      "jineric:smooth_deepslate_from_refining_deepslate"
     ]
   }
 }

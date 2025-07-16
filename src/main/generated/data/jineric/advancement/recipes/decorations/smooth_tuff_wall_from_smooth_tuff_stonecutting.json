@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:smooth_tuff_wall_from_smooth_tuff_stonecutting"
+        "recipe": "jineric:smooth_tuff_wall_from_smooth_tuff_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:smooth_tuff_wall_from_smooth_tuff_stonecutting"
+      "jineric:smooth_tuff_wall_from_smooth_tuff_stonecutting"
     ]
   }
 }

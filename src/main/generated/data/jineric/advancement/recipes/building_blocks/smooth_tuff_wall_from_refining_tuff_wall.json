@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:smooth_tuff_wall_from_refining_tuff_wall"
+        "recipe": "jineric:smooth_tuff_wall_from_refining_tuff_wall"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:smooth_tuff_wall_from_refining_tuff_wall"
+      "jineric:smooth_tuff_wall_from_refining_tuff_wall"
     ]
   }
 }
