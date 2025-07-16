@@ -7,7 +7,6 @@ import net.minecraft.entity.decoration.painting.PaintingVariant;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.PaintingVariantTags;
-import net.minecraft.registry.tag.TagBuilder;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -20,9 +19,9 @@ public class JinericPaintingVariantTagProvider extends FabricTagProvider<Paintin
 	@Override
 	protected void configure(RegistryWrapper.WrapperLookup registries) {
 		this.getTagBuilder(PaintingVariantTags.PLACEABLE)
-				.add(JinericPaintingVariants.KEY_GEN.getRegistry())
-				.add(JinericPaintingVariants.KROMER.getRegistry())
-				.add(JinericPaintingVariants.PEACEFUL_FARM.getRegistry());
+				.add(JinericPaintingVariants.KEY_GEN.getValue())
+				.add(JinericPaintingVariants.KROMER.getValue())
+				.add(JinericPaintingVariants.PEACEFUL_FARM.getValue());
 	}
 	
 	@Override
