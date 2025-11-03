@@ -17,7 +17,7 @@ public class JinericBiomeTagGen extends FabricTagProvider<Biome> {
 
    @Override
    protected void configure(RegistryWrapper.WrapperLookup arg) {
-      this.getOrCreateTagBuilder(BiomeTags.IS_OVERWORLD).add(JinericBiomeKeys.WISTFUL_FOREST);
-      this.getOrCreateTagBuilder(BiomeTags.IS_FOREST).add(JinericBiomeKeys.WISTFUL_FOREST);
+	   this.getTagBuilder(BiomeTags.IS_OVERWORLD).add(JinericBiomeKeys.WISTFUL_FOREST.getValue());
+	   this.getTagBuilder(BiomeTags.IS_FOREST).add(JinericBiomeKeys.WISTFUL_FOREST.getValue());
    }
 }

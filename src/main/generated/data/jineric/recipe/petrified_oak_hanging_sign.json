@@ -4,7 +4,7 @@
   "group": "hanging_sign",
   "key": {
     "#": "jineric:petrified_oak_planks",
-    "X": "minecraft:chain"
+    "X": "minecraft:iron_chain"
   },
   "pattern": [
     "X X",

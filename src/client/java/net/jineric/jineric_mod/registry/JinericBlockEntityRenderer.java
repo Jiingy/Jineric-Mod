@@ -18,6 +18,5 @@ public class JinericBlockEntityRenderer {
 		BlockEntityRendererFactories.register(JinericBlockEntityType.REDSTONE_CAMPFIRE, CampfireBlockEntityRenderer::new);
 		BlockEntityRendererFactories.register(JinericBlockEntityType.JINERIC_SIGN, SignBlockEntityRenderer::new);
 		BlockEntityRendererFactories.register(JinericBlockEntityType.JINERIC_HANGING_SIGN, HangingSignBlockEntityRenderer::new);
-		BlockEntityRendererFactories.register(JinericBlockEntityType.REDSTONE_CAMPFIRE, RedstoneCampfireBlockEntityRenderer::new);
 	}
 }

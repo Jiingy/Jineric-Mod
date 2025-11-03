@@ -119,7 +119,7 @@ public class JinericModelProvider extends FabricModelProvider {
 					blockById(woodTypeName + "_leaves"),
 					TexturedModel.LEAVES,
 					-12012264);
-			bsmg.registerNorthDefaultHorizontalRotation(blockById(woodTypeName + "_ladder"));
+			bsmg.registerNorthDefaultHorizontalRotatable(blockById(woodTypeName + "_ladder"));
 			bsmg.registerItemModel(blockById(woodTypeName + "_ladder"));
 			bsmg.registerHangingSign(
 					blockById("stripped_" + woodTypeName + "_log"),

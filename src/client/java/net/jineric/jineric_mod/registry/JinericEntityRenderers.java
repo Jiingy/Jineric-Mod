@@ -1,4 +1,4 @@
-package jingy.jineric.registry;
+package net.jineric.jineric_mod.registry;
 
 import jingy.jineric.entity.JinericEntityType;
 import net.fabricmc.api.EnvType;

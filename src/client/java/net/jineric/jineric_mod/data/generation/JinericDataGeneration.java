@@ -1,10 +1,7 @@
 package net.jineric.jineric_mod.data.generation;
 
 import jingy.jineric.base.JinericMain;
-import jingy.jineric.data.generators.tag.JinericBlockTagProvider;
-import jingy.jineric.data.generators.tag.JinericEntityTypeTagProvider;
-import jingy.jineric.data.generators.tag.JinericItemTagProvider;
-import jingy.jineric.data.generators.tag.JinericPaintingVariantTagProvider;
+import jingy.jineric.data.generators.tag.*;
 import jingy.jineric.entity.JinericPaintingVariants;
 import jingy.jineric.world.biome.JinericBiomesProvider;
 import jingy.jineric.world.gen.feature.configured.JinericConfiguredFeatures;
@@ -12,6 +9,8 @@ import jingy.jineric.world.gen.feature.placed.JinericPlacedFeatures;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.jineric.jineric_mod.data.generation.providers.*;
+import net.minecraft.registry.DynamicRegistryManager;
+import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryBuilder;
 import net.minecraft.registry.RegistryKeys;
 

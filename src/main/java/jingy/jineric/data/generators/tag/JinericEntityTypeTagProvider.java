@@ -15,7 +15,7 @@ public class JinericEntityTypeTagProvider extends FabricTagProvider.EntityTypeTa
 	
 	@Override
 	protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-		this.getOrCreateTagBuilder(JinericEntityTypeTags.CLASSIC_BOAT)
+		this.valueLookupBuilder(JinericEntityTypeTags.CLASSIC_BOAT)
 				.add(JinericEntityType.PETRIFIED_OAK_BOAT)
 				.add(JinericEntityType.PETRIFIED_OAK_CHEST_BOAT);
 	}

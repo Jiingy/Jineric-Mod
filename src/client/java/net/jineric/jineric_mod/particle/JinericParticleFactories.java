@@ -1,6 +1,6 @@
-package jingy.jineric.client.particle;
+package net.jineric.jineric_mod.particle;
 
-import jingy.jineric.mixin.access.LeavesParticleAccess;
+import net.jineric.jineric_mod.mixin.client.access.LeavesParticleAccess;
 import jingy.jineric.registry.JinericParticleTypes;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -10,6 +10,8 @@ import net.minecraft.client.particle.ParticleFactory;
 import net.minecraft.client.particle.SpriteProvider;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.particle.SimpleParticleType;
+import net.minecraft.util.math.random.Random;
+import org.jetbrains.annotations.Nullable;
 
 @Environment(EnvType.CLIENT)
 public class JinericParticleFactories {
@@ -27,8 +29,9 @@ public class JinericParticleFactories {
 			this.spriteProvider = spriteProvider;
 		}
 		
-		public Particle createParticle(SimpleParticleType simpleParticleType, ClientWorld clientWorld, double d, double e, double f, double g, double h, double i) {
-			return LeavesParticleAccess.invokeInit(clientWorld, d, e, f, this.spriteProvider, 0.25F, 2.0F, false, true, 1.0F, 0.0F);
+		@Override
+		public @Nullable Particle createParticle(SimpleParticleType parameters, ClientWorld world, double x, double y, double z, double velocityX, double velocityY, double velocityZ, Random random) {
+			return LeavesParticleAccess.invokeInit(world, x, y, z, this.spriteProvider.getSprite(random), 0.25F, 2.0F, false, true, 1.0F, 0.0F);
 		}
 	}
 }
