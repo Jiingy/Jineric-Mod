@@ -33,11 +33,6 @@
       "fix.SoulSpeedPartialBlocksMixin",
       "fix.WallsConnectionMixin"
    ],
-   "client": [
-      "access.TextureKeyAccess",
-      "client.ChestBlockEntityRendererMixin",
-      "client.TexturedRenderLayersMixin"
-   ],
    "injectors": {
       "defaultRequire": 1
 	}

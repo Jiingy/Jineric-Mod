@@ -7,6 +7,13 @@ plugins {
 
 /* Data Generation */
 loom {
+    splitEnvironmentSourceSets()
+    mods {
+        "jineric" {
+            sourceSet sourceSets.main
+            sourceSet sourceSets.client
+        }
+    }
 	accessWidenerPath = file("src/main/resources/jineric.accesswidener")
 }
 
@@ -19,13 +26,13 @@ fabricApi {
 /* Dependencies */
 repositories {
 	mavenCentral()
-	maven { 
-		url "https://api.modrinth.com/maven" 
+	maven {
+		url "https://api.modrinth.com/maven"
 	}
-	maven { 
+	maven {
 		url = 'https://maven.minecraftforge.net/'
 	}
-	maven { 
+	maven {
 		url "https://jitpack.io"
 	}
 	maven {
@@ -67,7 +74,7 @@ processResources {
 	inputs.property "version", project.version
 
 	filesMatching("fabric.mod.json") {
-		expand "version": project.version
+		expand "version": inputs.properties.version
 	}
 }
 
@@ -75,7 +82,7 @@ jar {
 	inputs.property "archivesName", project.base.archivesName
 
 	from("LICENSE") {
-		rename { "${it}_${project.base.archivesName.get()}"}
+		rename { "${it}_${inputs.properties.archivesName}"}
 	}
 }
 
