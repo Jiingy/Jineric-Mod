@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:dark_prismarine_wall_from_dark_prismarine_stonecutting"
+        "recipe": "jineric:dark_prismarine_wall_from_dark_prismarine_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:dark_prismarine_wall_from_dark_prismarine_stonecutting"
+      "jineric:dark_prismarine_wall_from_dark_prismarine_stonecutting"
     ]
   }
 }

@@ -1,0 +1,13 @@
+{
+   "required": true,
+   "package": "net.jineric.jineric_mod.mixin.client",
+   "compatibilityLevel": "JAVA_21",
+   "client": [
+      "ChestBlockEntityRendererMixin",
+      "TexturedRenderLayersMixin",
+      "access.TextureKeyAccess"
+   ],
+   "injectors": {
+      "defaultRequire": 1
+   }
+}

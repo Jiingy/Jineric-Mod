@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:terracotta_from_refining_clay"
+        "recipe": "jineric:terracotta_from_refining_clay"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:terracotta_from_refining_clay"
+      "jineric:terracotta_from_refining_clay"
     ]
   }
 }

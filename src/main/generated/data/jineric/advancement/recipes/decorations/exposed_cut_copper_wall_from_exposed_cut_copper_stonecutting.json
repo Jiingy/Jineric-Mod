@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:exposed_cut_copper_wall_from_exposed_cut_copper_stonecutting"
+        "recipe": "jineric:exposed_cut_copper_wall_from_exposed_cut_copper_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:exposed_cut_copper_wall_from_exposed_cut_copper_stonecutting"
+      "jineric:exposed_cut_copper_wall_from_exposed_cut_copper_stonecutting"
     ]
   }
 }

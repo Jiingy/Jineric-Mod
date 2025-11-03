@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:stone_slab_from_refining_cobblestone_slab"
+        "recipe": "jineric:stone_slab_from_refining_cobblestone_slab"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:stone_slab_from_refining_cobblestone_slab"
+      "jineric:stone_slab_from_refining_cobblestone_slab"
     ]
   }
 }

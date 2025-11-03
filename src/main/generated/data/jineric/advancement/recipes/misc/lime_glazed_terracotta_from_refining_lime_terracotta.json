@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:lime_glazed_terracotta_from_refining_lime_terracotta"
+        "recipe": "jineric:lime_glazed_terracotta_from_refining_lime_terracotta"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:lime_glazed_terracotta_from_refining_lime_terracotta"
+      "jineric:lime_glazed_terracotta_from_refining_lime_terracotta"
     ]
   }
 }

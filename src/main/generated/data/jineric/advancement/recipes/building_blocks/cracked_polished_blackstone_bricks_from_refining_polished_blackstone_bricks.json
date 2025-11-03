@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:cracked_polished_blackstone_bricks_from_refining_polished_blackstone_bricks"
+        "recipe": "jineric:cracked_polished_blackstone_bricks_from_refining_polished_blackstone_bricks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:cracked_polished_blackstone_bricks_from_refining_polished_blackstone_bricks"
+      "jineric:cracked_polished_blackstone_bricks_from_refining_polished_blackstone_bricks"
     ]
   }
 }

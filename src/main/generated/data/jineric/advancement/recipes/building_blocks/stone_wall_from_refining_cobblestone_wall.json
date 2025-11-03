@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:stone_wall_from_refining_cobblestone_wall"
+        "recipe": "jineric:stone_wall_from_refining_cobblestone_wall"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:stone_wall_from_refining_cobblestone_wall"
+      "jineric:stone_wall_from_refining_cobblestone_wall"
     ]
   }
 }

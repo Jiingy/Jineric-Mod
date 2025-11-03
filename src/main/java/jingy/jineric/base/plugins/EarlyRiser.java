@@ -11,13 +11,16 @@ public class EarlyRiser implements Runnable {
 	
 	@Override
 	public void run() {
-		MappingResolver remapper = FabricLoader.getInstance().getMappingResolver();
-		String recipeBookType = remapper.mapClassName("intermediary", "net.minecraft.class_5421");
+		//  Server
+		MappingResolver mappingResolver = FabricLoader.getInstance().getMappingResolver();
+		String recipeBookType = mappingResolver.mapClassName("intermediary", "net.minecraft.class_5421");
 		ClassTinkerers.enumBuilder(recipeBookType).addEnum("JINERIC_REFINERY").build();
-		String recipeCategory = remapper.mapClassName("intermediary", "net.minecraft.class_7800");
+		
+		String recipeCategory = mappingResolver.mapClassName("intermediary", "net.minecraft.class_7800");
 		ClassTinkerers.enumBuilder(recipeCategory, String.class).addEnum("JINERIC_BLOCK_SETS", "jineric_block_sets").build();
 		ClassTinkerers.enumBuilder(recipeCategory, String.class).addEnum("JINERIC_MISC_BLOCKS", "jineric_misc_blocks").build();
-		String blockFamily$Variant = remapper.mapClassName("intermediary", "net.minecraft.class_5794$class_5796");
+		
+		String blockFamily$Variant = mappingResolver.mapClassName("intermediary", "net.minecraft.class_5794$class_5796");
 		ClassTinkerers.enumBuilder(blockFamily$Variant, String.class).addEnum("PILLAR", "pillar").build();
 		ClassTinkerers.enumBuilder(blockFamily$Variant, String.class).addEnum("BOOKSHELF", "bookshelf").build();
 		ClassTinkerers.enumBuilder(blockFamily$Variant, String.class).addEnum("CHEST", "chest").build();
@@ -26,20 +29,50 @@ public class EarlyRiser implements Runnable {
 		ClassTinkerers.enumBuilder(blockFamily$Variant, String.class).addEnum("HANGING_SIGN", "hanging_sign").build();
 		ClassTinkerers.enumBuilder(blockFamily$Variant, String.class).addEnum("WALL_HANGING_SIGN", "wall_hanging_sign").build();
 		
+		
 		// Client
-		if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
-			String recipeBookCategory = "[L" + remapper.mapClassName("intermediary", "net.minecraft.class_10355") + ";";
-			String clientRecipeBookType = remapper.mapClassName("intermediary", "net.minecraft.class_10331");
-			
+		if (FabricLoader.getInstance().getEnvironmentType().equals(EnvType.CLIENT)) {
+			//  TODO: there is no enum in recipeBookCategory
+			String recipeBookCategory = "[L" + mappingResolver.mapClassName("intermediary", "net.minecraft.class_10355") + ";";
+			String clientRecipeBookType = mappingResolver.mapClassName("intermediary", "net.minecraft.class_10331");
 			ClassTinkerers.enumBuilder(clientRecipeBookType, recipeBookCategory).addEnum(
 					"JINERIC_REFINERY",
 					() -> new Object[]{
+					
 							new RecipeBookCategory[]{
 									JinericRecipeBookCategories.REFINERY_BLOCKS,
 									JinericRecipeBookCategories.REFINERY_MISC
 							}
 					}
 			).build();
+			
+			String chestBlockEntityRenderState$Variant = mappingResolver.mapClassName("intermediary", "net.minecraft.class_11959$class_11960");
+			ClassTinkerers.enumBuilder(chestBlockEntityRenderState$Variant)
+//					.addEnum("JINERIC_OAK")
+					.addEnum("JINERIC_SPRUCE")
+					.addEnum("JINERIC_BIRCH")
+					.addEnum("JINERIC_JUNGLE")
+					.addEnum("JINERIC_ACACIA")
+					.addEnum("JINERIC_DARK_OAK")
+					.addEnum("JINERIC_MANGROVE")
+					.addEnum("JINERIC_CHERRY")
+//					.addEnum("JINERIC_PALE_OAK")
+					.addEnum("JINERIC_BAMBOO")
+					.addEnum("JINERIC_CRIMSON")
+					.addEnum("JINERIC_WARPED")
+					.addEnum("JINERIC_TRAPPED_SPRUCE")
+//					.addEnum("JINERIC_TRAPPED_OAK")
+					.addEnum("JINERIC_TRAPPED_BIRCH")
+					.addEnum("JINERIC_TRAPPED_JUNGLE")
+					.addEnum("JINERIC_TRAPPED_ACACIA")
+					.addEnum("JINERIC_TRAPPED_DARK_OAK")
+					.addEnum("JINERIC_TRAPPED_MANGROVE")
+					.addEnum("JINERIC_TRAPPED_CHERRY")
+//					.addEnum("JINERIC_TRAPPED_PALE_OAK")
+					.addEnum("JINERIC_TRAPPED_BAMBOO")
+					.addEnum("JINERIC_TRAPPED_CRIMSON")
+					.addEnum("JINERIC_TRAPPED_WARPED")
+					.build();
 		}
 	}
 }

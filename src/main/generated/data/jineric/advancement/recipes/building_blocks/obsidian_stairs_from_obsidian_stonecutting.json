@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:obsidian_stairs_from_obsidian_stonecutting"
+        "recipe": "jineric:obsidian_stairs_from_obsidian_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:obsidian_stairs_from_obsidian_stonecutting"
+      "jineric:obsidian_stairs_from_obsidian_stonecutting"
     ]
   }
 }

@@ -18,10 +18,10 @@ public class JinericPaintingVariantTagProvider extends FabricTagProvider<Paintin
 	
 	@Override
 	protected void configure(RegistryWrapper.WrapperLookup registries) {
-		this.getOrCreateTagBuilder(PaintingVariantTags.PLACEABLE)
-				.add(JinericPaintingVariants.KEY_GEN)
-				.add(JinericPaintingVariants.KROMER)
-				.add(JinericPaintingVariants.PEACEFUL_FARM);
+		this.getTagBuilder(PaintingVariantTags.PLACEABLE)
+				.add(JinericPaintingVariants.KEY_GEN.getValue())
+				.add(JinericPaintingVariants.KROMER.getValue())
+				.add(JinericPaintingVariants.PEACEFUL_FARM.getValue());
 	}
 	
 	@Override

@@ -12,7 +12,7 @@
       "issues": "https://github.com/Jiingy/Jineric-Mod/issues",
       "sources": "https://github.com/Jiingy/Jineric-Mod"
    },
-   "license": "GPL-3.0",
+   "license": "GPL-3.0-only",
    "icon": "assets/jineric/icon.png",
    "environment": "*",
    "entrypoints": {
@@ -20,10 +20,10 @@
          "jingy.jineric.base.JinericMain"
       ],
       "client": [
-         "jingy.jineric.base.JinericClientMain"
+         "net.jineric.jineric_mod.JinericClientMain"
       ],
       "fabric-datagen": [
-         "jingy.jineric.data.JinericDataGeneration"
+         "net.jineric.jineric_mod.data.generation.JinericDataGeneration"
       ],
       "preLaunch": [
          "jingy.jineric.base.plugins.JinericPreLaunch"
@@ -36,11 +36,15 @@
       ]
    },
    "mixins": [
-      "jineric.mixins.json"
+      "jineric.mixins.json",
+      {
+         "environment": "client",
+         "config": "jineric.client.mixins.json"
+      }
    ],
    "depends": {
-      "fabricloader": ">=0.16.9",
-      "minecraft": "~1.21.5",
+      "fabricloader": ">=0.17.3",
+      "minecraft": "~1.21.10",
       "java": ">=21",
       "fabric-api": "*"
    },

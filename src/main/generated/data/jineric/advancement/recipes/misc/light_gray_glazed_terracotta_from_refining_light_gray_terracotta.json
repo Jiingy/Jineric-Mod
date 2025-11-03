@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:light_gray_glazed_terracotta_from_refining_light_gray_terracotta"
+        "recipe": "jineric:light_gray_glazed_terracotta_from_refining_light_gray_terracotta"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:light_gray_glazed_terracotta_from_refining_light_gray_terracotta"
+      "jineric:light_gray_glazed_terracotta_from_refining_light_gray_terracotta"
     ]
   }
 }

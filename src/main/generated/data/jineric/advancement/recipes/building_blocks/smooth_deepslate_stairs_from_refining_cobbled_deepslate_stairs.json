@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:smooth_deepslate_stairs_from_refining_cobbled_deepslate_stairs"
+        "recipe": "jineric:smooth_deepslate_stairs_from_refining_cobbled_deepslate_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:smooth_deepslate_stairs_from_refining_cobbled_deepslate_stairs"
+      "jineric:smooth_deepslate_stairs_from_refining_cobbled_deepslate_stairs"
     ]
   }
 }

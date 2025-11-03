@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:orange_glazed_terracotta_from_refining_orange_terracotta"
+        "recipe": "jineric:orange_glazed_terracotta_from_refining_orange_terracotta"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:orange_glazed_terracotta_from_refining_orange_terracotta"
+      "jineric:orange_glazed_terracotta_from_refining_orange_terracotta"
     ]
   }
 }

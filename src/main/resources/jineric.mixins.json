@@ -2,7 +2,9 @@
    "required": true,
    "package": "jingy.jineric.mixin",
    "compatibilityLevel": "JAVA_21",
-   "minMixinExtrasVersion": "0.5.0-beta.5",
+   "mixinextras": {
+      "minVersion": "0.5.0"
+   },
    "mixins": [
       "BlockEntityTypeMixin",
       "LivingEntityFastFallingMixin",
@@ -13,7 +15,6 @@
       "access.TreeConfiguredFeaturesAccess",
       "access.WoodTypeAccess",
       "add.BrewingRecipeRegistryMixin",
-      "add.ModifyRecipeBookOptionNamesMixin",
       "add.ModifySoleIngredientGettersMixin",
       "change.BellBlockShapeMixin",
       "change.BlockSoundsMixin",
@@ -24,19 +25,16 @@
       "fix.BlockFamilyModificationMixin",
       "fix.BlocksForGrassSpreadingMixin",
       "fix.BlocksForGrassSurvivingMixin",
+      "fix.CampfireBlockEntityMixin",
       "fix.CanEnterTrapdoorMixin",
       "fix.CatSitOnBlockGoalMixin",
       "fix.EatFullGrassBlockMixin",
       "fix.FallLocationAddLaddersMixin",
+      "fix.FixRedstoneCampfireBlockEntity",
       "fix.PointedDripstoneCanGrowMixin",
       "fix.SlipperyPartialBlocksMixin",
       "fix.SoulSpeedPartialBlocksMixin",
       "fix.WallsConnectionMixin"
-   ],
-   "client": [
-      "access.LeavesParticleAccess",
-      "access.TextureKeyAccess",
-      "client.ChestBlockEntityRendererMixin"
    ],
    "injectors": {
       "defaultRequire": 1

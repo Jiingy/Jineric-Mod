@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:polished_granite_wall_from_polished_granite_stonecutting"
+        "recipe": "jineric:polished_granite_wall_from_polished_granite_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:polished_granite_wall_from_polished_granite_stonecutting"
+      "jineric:polished_granite_wall_from_polished_granite_stonecutting"
     ]
   }
 }
