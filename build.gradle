@@ -45,7 +45,7 @@ version = project.version
 group = project.maven_group
 
 base {
-	archivesBaseName = project.archives_base_name
+	archivesName = project.archives_base_name
 }
 
 dependencies {
