@@ -1,27 +1,19 @@
 package jingy.jineric.block.entity;
 
 import jingy.jineric.block.RedstoneCampfireBlock;
-import jingy.jineric.registry.JinericBlockEntityType;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.CampfireBlockEntity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
-import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.recipe.CampfireCookingRecipe;
 import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.recipe.ServerRecipeManager;
 import net.minecraft.recipe.input.SingleStackRecipeInput;
-import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.Properties;
-import net.minecraft.storage.ReadView;
-import net.minecraft.storage.WriteView;
 import net.minecraft.util.Clearable;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.collection.DefaultedList;
@@ -35,24 +27,19 @@ import net.minecraft.world.block.WireOrientation;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Arrays;
 import java.util.Optional;
 
-public class RedstoneCampfireBlockEntity extends BlockEntity implements Clearable {
+public class RedstoneCampfireBlockEntity extends CampfireBlockEntity implements Clearable {
 	private final DefaultedList<ItemStack> itemsBeingCooked = DefaultedList.ofSize(4, ItemStack.EMPTY);
 	private final int[] cookingTimes = new int[4];
 	private final int[] cookingTotalTimes = new int[4];
 	
 	public RedstoneCampfireBlockEntity(BlockPos pos, BlockState state) {
-		super(JinericBlockEntityType.REDSTONE_CAMPFIRE, pos, state);
+		super(pos, state);
 	}
 	
-	public static void litServerTick(
-			ServerWorld world,
-			BlockPos pos,
-			BlockState state,
-			RedstoneCampfireBlockEntity blockEntity,
-			ServerRecipeManager.MatchGetter<SingleStackRecipeInput, CampfireCookingRecipe> recipeMatchGetter
+	public static void litServerTick(ServerWorld world, BlockPos pos, BlockState state, RedstoneCampfireBlockEntity blockEntity,
+	                                 ServerRecipeManager.MatchGetter<SingleStackRecipeInput, CampfireCookingRecipe> recipeMatchGetter
 	) {
 		boolean bl = false;
 		boolean powered = state.get(Properties.POWERED);
@@ -154,8 +141,7 @@ public class RedstoneCampfireBlockEntity extends BlockEntity implements Clearabl
 	
 	public int getRedstoneOutput() {
 		int outputSignal = 0;
-		for (int i = 0; i < this.itemsBeingCooked.size(); ++i) {
-			ItemStack itemStack = this.itemsBeingCooked.get(i);
+		for (ItemStack itemStack : this.itemsBeingCooked) {
 			if (!itemStack.isEmpty()) {
 				outputSignal = outputSignal + 1;
 			}
@@ -173,7 +159,7 @@ public class RedstoneCampfireBlockEntity extends BlockEntity implements Clearabl
 					return false;
 				}
 				
-				this.cookingTotalTimes[i] = ((CampfireCookingRecipe) ((RecipeEntry) optional.get()).value()).getCookingTime();
+				this.cookingTotalTimes[i] = ((CampfireCookingRecipe) ((RecipeEntry<?>) optional.get()).value()).getCookingTime();
 				this.cookingTimes[i] = 0;
 				this.itemsBeingCooked.set(i, stack.splitUnlessCreative(1, entity));
 				world.emitGameEvent(GameEvent.BLOCK_CHANGE, this.getPos(), GameEvent.Emitter.of(entity, this.getCachedState()));

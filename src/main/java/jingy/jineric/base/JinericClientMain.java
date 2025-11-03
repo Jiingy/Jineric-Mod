@@ -1,5 +1,6 @@
 package jingy.jineric.base;
 
+import jingy.jineric.block.entity.state.JinericChestBlockEntityRenderStateVariant;
 import jingy.jineric.client.data.JinericModels;
 import jingy.jineric.client.data.JinericTextureKey;
 import jingy.jineric.recipe.JinericClientRecipeBookTypes;
@@ -18,12 +19,14 @@ public class JinericClientMain implements ClientModInitializer {
 		JinericTextureKey.initialize();
 		JinericModels.initialize();
 		JinericRecipeBookTypes.initialize();
-		JinericClientRecipeBookTypes.initialize();
 		JinericRecipePropertySet.initialize();
 		JinericEntityModels.registerEntityModels();
 		JinericHandledScreens.registerHandledScreens();
 		JinericColorProviders.registerColorProviders();
 		JinericBlockEntityRenderer.registerBlockEntityRenderers();
 		JinericBlockRenderLayerMap.registerBlockRenderLayerMaps();
+		//  Enum Adders
+		JinericChestBlockEntityRenderStateVariant.initialize();
+		JinericClientRecipeBookTypes.initialize();
 	}
 }

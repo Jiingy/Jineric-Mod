@@ -136,7 +136,7 @@ public class JinericModelProvider extends FabricModelProvider {
 			this.registerChest(checkedBlock, woodType, true, bsmg);
 		}
 		if (blockKey.contains("_ladder")) {
-			bsmg.registerNorthDefaultHorizontalRotation(checkedBlock);
+			bsmg.registerNorthDefaultHorizontalRotatable(checkedBlock);
 			if (!blockKey.contains("jungle_")) {
 				bsmg.registerItemModel(checkedBlock);
 			}

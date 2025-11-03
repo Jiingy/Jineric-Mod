@@ -14,6 +14,7 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.screen.GenericContainerScreenHandler;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
@@ -64,12 +65,12 @@ public class JinericChestBlock extends ChestBlock {
 	private final WoodType type;
 	
 	public JinericChestBlock(Supplier<BlockEntityType<? extends ChestBlockEntity>> blockEntityTypeSupplier, Settings settings, WoodType type) {
-		super(blockEntityTypeSupplier, settings);
+		super(blockEntityTypeSupplier, SoundEvents.BLOCK_CHEST_OPEN, SoundEvents.BLOCK_CHEST_CLOSE, settings);
 		this.type = type;
 	}
 	
 	public JinericChestBlock(Settings settings, WoodType type) {
-		super(() -> JinericBlockEntityType.JINERIC_CHEST, settings);
+		super(() -> JinericBlockEntityType.JINERIC_CHEST, SoundEvents.BLOCK_CHEST_OPEN, SoundEvents.BLOCK_CHEST_CLOSE, settings);
 		this.type = type;
 	}
 	
@@ -121,6 +122,6 @@ public class JinericChestBlock extends ChestBlock {
 	@Nullable
 	@Override
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-		return world.isClient ? validateTicker(type, this.getExpectedEntityType(), JinericChestBlockEntity::clientTick) : null;
+		return world.isClient() ? validateTicker(type, this.getExpectedEntityType(), JinericChestBlockEntity::clientTick) : null;
 	}
 }
