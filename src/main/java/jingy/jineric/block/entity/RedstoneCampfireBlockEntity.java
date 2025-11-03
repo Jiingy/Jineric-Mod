@@ -1,137 +1,14 @@
 package jingy.jineric.block.entity;
 
-import jingy.jineric.block.RedstoneCampfireBlock;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.CampfireBlockEntity;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.particle.ParticleTypes;
-import net.minecraft.recipe.CampfireCookingRecipe;
-import net.minecraft.recipe.RecipeEntry;
-import net.minecraft.recipe.RecipeType;
-import net.minecraft.recipe.ServerRecipeManager;
-import net.minecraft.recipe.input.SingleStackRecipeInput;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.state.property.Properties;
 import net.minecraft.util.Clearable;
-import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.world.World;
-import net.minecraft.world.block.OrientationHelper;
-import net.minecraft.world.block.WireOrientation;
-import net.minecraft.world.event.GameEvent;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.Optional;
 
 public class RedstoneCampfireBlockEntity extends CampfireBlockEntity implements Clearable {
-	private final int[] cookingTimes = new int[4];
-	private final int[] cookingTotalTimes = new int[4];
-	
 	public RedstoneCampfireBlockEntity(BlockPos pos, BlockState state) {
 		super(pos, state);
-	}
-	
-	public static void litServerTick(
-			ServerWorld world, BlockPos pos, BlockState state, RedstoneCampfireBlockEntity blockEntity,
-			ServerRecipeManager.MatchGetter<SingleStackRecipeInput, CampfireCookingRecipe> recipeMatchGetter
-	) {
-		boolean bl = false;
-		boolean powered = state.get(Properties.POWERED);
-		
-		for (int i = 0; i < blockEntity.getItemsBeingCooked().size(); ++i) {
-			ItemStack itemStack = blockEntity.getItemsBeingCooked().get(i);
-			if (!itemStack.isEmpty()) {
-				bl = true;
-				blockEntity.cookingTimes[i]++;
-				if (blockEntity.cookingTimes[i] >= blockEntity.cookingTotalTimes[i]) {
-					SingleStackRecipeInput singleStackRecipeInput = new SingleStackRecipeInput(itemStack);
-					ItemStack itemStack2 = recipeMatchGetter.getFirstMatch(singleStackRecipeInput, world)
-							.map((recipeEntry) -> recipeEntry.value().craft(singleStackRecipeInput, world.getRegistryManager()))
-							.orElse(itemStack);
-					if (itemStack2.isItemEnabled(world.getEnabledFeatures())) {
-						ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), itemStack2);
-						blockEntity.getItemsBeingCooked().set(i, ItemStack.EMPTY);
-						world.updateListeners(pos, state, state, Block.NOTIFY_ALL);
-						world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(state));
-					}
-				}
-				// TODO: This code is new and I don't fully understand how it works. updating block neighbors now requires a "WireOrientation"
-				// Standard third parameter is "UP" but I have it set to "DOWN"
-				WireOrientation wireOrientation = OrientationHelper.getEmissionOrientation(world, null, Direction.DOWN);
-				world.updateNeighborsAlways(pos, blockEntity.getCachedState().getBlock(), wireOrientation);
-			}
-		}
-		
-		if (blockEntity.isCooking() && !powered) {
-			world.setBlockState(pos, state.with(Properties.POWERED, Boolean.valueOf(true)));
-		} else if (!blockEntity.isCooking() && powered) {
-			world.setBlockState(pos, state.with(Properties.POWERED, Boolean.valueOf(false)));
-		}
-		
-		if (bl) {
-			markDirty(world, pos, state);
-		}
-	}
-	
-	public static void unlitServerTick(World world, BlockPos pos, BlockState state, RedstoneCampfireBlockEntity redstoneCampfire) {
-		boolean bl = false;
-		for (int i = 0; i < redstoneCampfire.getItemsBeingCooked().size(); ++i) {
-			if (redstoneCampfire.cookingTimes[i] > 0) {
-				bl = true;
-				redstoneCampfire.cookingTimes[i] = MathHelper.clamp(redstoneCampfire.cookingTimes[i] - 2, 0, redstoneCampfire.cookingTotalTimes[i]);
-			}
-		}
-		
-		if (bl) {
-			markDirty(world, pos, state);
-		}
-	}
-	
-	public static void clientTick(World world, BlockPos pos, BlockState state, RedstoneCampfireBlockEntity campfire) {
-		Random random = world.random;
-		if (random.nextFloat() < 0.11F) {
-			for (int i = 0; i < random.nextInt(2) + 2; ++i) {
-				RedstoneCampfireBlock.spawnSmokeParticle(world, pos, state.get(RedstoneCampfireBlock.SIGNAL_FIRE), false);
-				if (state.get(Properties.SIGNAL_FIRE) && (state.get(Properties.POWERED))) {
-					RedstoneCampfireBlock.spawnRedstoneParticle(world, pos, true);
-				}
-			}
-		}
-		int i = state.get(RedstoneCampfireBlock.FACING).getHorizontalQuarterTurns();
-		
-		for (int j = 0; j < campfire.getItemsBeingCooked().size(); ++j) {
-			if (!campfire.getItemsBeingCooked().get(j).isEmpty() && random.nextFloat() < 0.2F) {
-				Direction direction = Direction.fromHorizontalDegrees(Math.floorMod(j + i, 4));
-				float f = 0.3125F;
-				double d = (double) pos.getX()
-						+ 0.5
-						- (double) ((float) direction.getOffsetX() * f)
-						+ (double) ((float) direction.rotateYClockwise().getOffsetX() * f);
-				double e = (double) pos.getY() + 0.5;
-				double g = (double) pos.getZ()
-						+ 0.5
-						- (double) ((float) direction.getOffsetZ() * f)
-						+ (double) ((float) direction.rotateYClockwise().getOffsetZ() * f);
-				
-				for (int k = 0; k < 4; ++k) {
-					world.addParticleClient(ParticleTypes.SMOKE, d, e, g, 0.0, 5.0E-4, 0.0);
-				}
-			}
-		}
-	}
-	
-	public boolean isCooking() {
-		for (ItemStack itemStack : this.getItemsBeingCooked()) {
-			if (!itemStack.isEmpty()) {
-				return true;
-			}
-		}
-		return false;
 	}
 	
 	public int getRedstoneOutput() {
@@ -142,36 +19,5 @@ public class RedstoneCampfireBlockEntity extends CampfireBlockEntity implements 
 			}
 		}
 		return outputSignal * 2;
-	}
-	
-	public boolean addItem(ServerWorld world, @Nullable LivingEntity entity, ItemStack stack) {
-		for (int i = 0; i < this.getItemsBeingCooked().size(); i++) {
-			ItemStack itemStack = this.getItemsBeingCooked().get(i);
-			if (itemStack.isEmpty()) {
-				Optional<RecipeEntry<CampfireCookingRecipe>> optional = world.getRecipeManager()
-						.getFirstMatch(RecipeType.CAMPFIRE_COOKING, new SingleStackRecipeInput(stack), world);
-				if (optional.isEmpty()) {
-					return false;
-				}
-				
-				this.cookingTotalTimes[i] = ((CampfireCookingRecipe) ((RecipeEntry<?>) optional.get()).value()).getCookingTime();
-				this.cookingTimes[i] = 0;
-				this.getItemsBeingCooked().set(i, stack.splitUnlessCreative(1, entity));
-				world.emitGameEvent(GameEvent.BLOCK_CHANGE, this.getPos(), GameEvent.Emitter.of(entity, this.getCachedState()));
-				this.updateListeners();
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	private void updateListeners() {
-		this.markDirty();
-		this.getWorld().updateListeners(this.getPos(), this.getCachedState(), this.getCachedState(), Block.NOTIFY_ALL);
-	}
-	
-	@Override
-	public void clear() {
-		this.getItemsBeingCooked().clear();
 	}
 }

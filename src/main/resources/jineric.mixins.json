@@ -25,7 +25,7 @@
       "fix.CatSitOnBlockGoalMixin",
       "fix.EatFullGrassBlockMixin",
       "fix.FallLocationAddLaddersMixin",
-      "fix.RedstoneCampfireBlockEntityType",
+      "fix.FixRedstoneCampfireBlockEntity",
       "fix.PointedDripstoneCanGrowMixin",
       "fix.SlipperyPartialBlocksMixin",
       "fix.SoulSpeedPartialBlocksMixin",
