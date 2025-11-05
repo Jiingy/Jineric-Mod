@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": "minecraft:stone",
+    "F": "minecraft:smooth_stone",
+    "T": "#jineric:cut_copper"
+  },
+  "pattern": [
+    "FTF",
+    "FEF",
+    "FFF"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jineric:copper_upgrade_smithing_template"
+  }
+}

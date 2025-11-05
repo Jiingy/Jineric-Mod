@@ -1,0 +1,96 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/oak_chestplate"
+        },
+        "when": "oak_chestplate"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/spruce_chestplate"
+        },
+        "when": "spruce_chestplate"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/birch_chestplate"
+        },
+        "when": "birch_chestplate"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/acacia_chestplate"
+        },
+        "when": "acacia_chestplate"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/cherry_chestplate"
+        },
+        "when": "cherry_chestplate"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/jungle_chestplate"
+        },
+        "when": "jungle_chestplate"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/dark_oak_chestplate"
+        },
+        "when": "dark_oak_chestplate"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/pale_oak_chestplate"
+        },
+        "when": "pale_oak_chestplate"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/crimson_chestplate"
+        },
+        "when": "crimson_chestplate"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/warped_chestplate"
+        },
+        "when": "warped_chestplate"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/mangrove_chestplate"
+        },
+        "when": "mangrove_chestplate"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/bamboo_chestplate"
+        },
+        "when": "bamboo_chestplate"
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "jineric:item/wooden_chestplate"
+    },
+    "property": "minecraft:custom_model_data"
+  }
+}

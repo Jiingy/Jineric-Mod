@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": "#minecraft:logs",
+    "S": "minecraft:stick",
+    "T": "jineric:tinder"
+  },
+  "pattern": [
+    "SSS",
+    "LTL",
+    "LLL"
+  ],
+  "result": {
+    "components": {
+      "minecraft:block_state": {
+        "lit": "false"
+      }
+    },
+    "count": 1,
+    "id": "minecraft:campfire"
+  }
+}

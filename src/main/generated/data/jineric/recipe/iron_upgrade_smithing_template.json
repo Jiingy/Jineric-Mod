@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": "minecraft:deepslate",
+    "F": "#minecraft:copper",
+    "T": "minecraft:iron_block"
+  },
+  "pattern": [
+    "FTF",
+    "FEF",
+    "FFF"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jineric:iron_upgrade_smithing_template"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/oak_helmet"
+        },
+        "when": "oak_helmet"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/spruce_helmet"
+        },
+        "when": "spruce_helmet"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/birch_helmet"
+        },
+        "when": "birch_helmet"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/acacia_helmet"
+        },
+        "when": "acacia_helmet"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/cherry_helmet"
+        },
+        "when": "cherry_helmet"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/jungle_helmet"
+        },
+        "when": "jungle_helmet"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/dark_oak_helmet"
+        },
+        "when": "dark_oak_helmet"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/pale_oak_helmet"
+        },
+        "when": "pale_oak_helmet"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/crimson_helmet"
+        },
+        "when": "crimson_helmet"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/warped_helmet"
+        },
+        "when": "warped_helmet"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/mangrove_helmet"
+        },
+        "when": "mangrove_helmet"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/bamboo_helmet"
+        },
+        "when": "bamboo_helmet"
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "jineric:item/wooden_helmet"
+    },
+    "property": "minecraft:custom_model_data"
+  }
+}

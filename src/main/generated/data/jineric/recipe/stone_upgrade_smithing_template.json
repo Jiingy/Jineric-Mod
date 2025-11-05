@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": "#c:natural_logs",
+    "M": "minecraft:smooth_stone",
+    "S": "minecraft:stone",
+    "W": "#c:natural_woods"
+  },
+  "pattern": [
+    "LML",
+    "LSL",
+    "WWW"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jineric:stone_upgrade_smithing_template"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/oak_shovel"
+        },
+        "when": "oak_shovel"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/spruce_shovel"
+        },
+        "when": "spruce_shovel"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/birch_shovel"
+        },
+        "when": "birch_shovel"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/acacia_shovel"
+        },
+        "when": "acacia_shovel"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/cherry_shovel"
+        },
+        "when": "cherry_shovel"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/jungle_shovel"
+        },
+        "when": "jungle_shovel"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/dark_oak_shovel"
+        },
+        "when": "dark_oak_shovel"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/pale_oak_shovel"
+        },
+        "when": "pale_oak_shovel"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/crimson_shovel"
+        },
+        "when": "crimson_shovel"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/warped_shovel"
+        },
+        "when": "warped_shovel"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/mangrove_shovel"
+        },
+        "when": "mangrove_shovel"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/bamboo_shovel"
+        },
+        "when": "bamboo_shovel"
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/wooden_shovel"
+    },
+    "property": "minecraft:custom_model_data"
+  }
+}

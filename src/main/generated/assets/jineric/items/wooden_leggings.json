@@ -1,0 +1,96 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/oak_leggings"
+        },
+        "when": "oak_leggings"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/spruce_leggings"
+        },
+        "when": "spruce_leggings"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/birch_leggings"
+        },
+        "when": "birch_leggings"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/acacia_leggings"
+        },
+        "when": "acacia_leggings"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/cherry_leggings"
+        },
+        "when": "cherry_leggings"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/jungle_leggings"
+        },
+        "when": "jungle_leggings"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/dark_oak_leggings"
+        },
+        "when": "dark_oak_leggings"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/pale_oak_leggings"
+        },
+        "when": "pale_oak_leggings"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/crimson_leggings"
+        },
+        "when": "crimson_leggings"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/warped_leggings"
+        },
+        "when": "warped_leggings"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/mangrove_leggings"
+        },
+        "when": "mangrove_leggings"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/bamboo_leggings"
+        },
+        "when": "bamboo_leggings"
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "jineric:item/wooden_leggings"
+    },
+    "property": "minecraft:custom_model_data"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "wooden_chestplate",
+  "key": {
+    "M": "minecraft:spruce_planks"
+  },
+  "pattern": [
+    "M M",
+    "MMM",
+    "MMM"
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_model_data": {
+        "strings": [
+          "spruce_chestplate"
+        ]
+      },
+      "minecraft:equippable": {
+        "asset_id": "minecraft:spruce_wood",
+        "slot": "chest"
+      },
+      "minecraft:item_name": {
+        "translate": "item.jineric.spruce_chestplate"
+      }
+    },
+    "count": 1,
+    "id": "jineric:wooden_chestplate"
+  }
+}

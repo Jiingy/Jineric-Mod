@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": "minecraft:deepslate",
+    "F": "minecraft:iron_ingot",
+    "T": "minecraft:diamond_block"
+  },
+  "pattern": [
+    "FTF",
+    "FEF",
+    "FFF"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jineric:diamond_upgrade_smithing_template"
+  }
+}

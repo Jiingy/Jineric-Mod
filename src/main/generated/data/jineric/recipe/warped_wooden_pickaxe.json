@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "wooden_pickaxe",
+  "key": {
+    "M": "minecraft:warped_planks",
+    "S": "minecraft:stick"
+  },
+  "pattern": [
+    "MMM",
+    " S ",
+    " S "
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_model_data": {
+        "strings": [
+          "warped_pickaxe"
+        ]
+      },
+      "minecraft:item_name": {
+        "translate": "item.jineric.warped_pickaxe"
+      }
+    },
+    "count": 1,
+    "id": "minecraft:wooden_pickaxe"
+  }
+}

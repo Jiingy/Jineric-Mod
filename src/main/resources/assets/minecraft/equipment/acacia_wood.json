@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "jineric:acacia_wood"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "jineric:acacia_wood"
+      }
+    ]
+  }
+}

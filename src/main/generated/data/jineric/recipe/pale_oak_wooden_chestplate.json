@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "wooden_chestplate",
+  "key": {
+    "M": "minecraft:pale_oak_planks"
+  },
+  "pattern": [
+    "M M",
+    "MMM",
+    "MMM"
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_model_data": {
+        "strings": [
+          "pale_oak_chestplate"
+        ]
+      },
+      "minecraft:equippable": {
+        "asset_id": "minecraft:pale_oak_wood",
+        "slot": "chest"
+      },
+      "minecraft:item_name": {
+        "translate": "item.jineric.pale_oak_chestplate"
+      }
+    },
+    "count": 1,
+    "id": "jineric:wooden_chestplate"
+  }
+}
