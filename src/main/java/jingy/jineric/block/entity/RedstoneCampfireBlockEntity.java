@@ -3,10 +3,10 @@ package jingy.jineric.block.entity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.CampfireBlockEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Clearable;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 
-public class RedstoneCampfireBlockEntity extends CampfireBlockEntity implements Clearable {
+public class RedstoneCampfireBlockEntity extends CampfireBlockEntity {
 	public RedstoneCampfireBlockEntity(BlockPos pos, BlockState state) {
 		super(pos, state);
 	}
@@ -19,5 +19,10 @@ public class RedstoneCampfireBlockEntity extends CampfireBlockEntity implements 
 			}
 		}
 		return outputSignal * 2;
+	}
+	
+	@Override
+	public Text getDisplayName() {
+		return Text.translatable("container.redstone_campfire");
 	}
 }

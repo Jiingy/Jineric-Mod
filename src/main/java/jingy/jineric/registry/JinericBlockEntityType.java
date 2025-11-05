@@ -2,10 +2,7 @@ package jingy.jineric.registry;
 
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.JinericBlocks;
-import jingy.jineric.block.entity.JinericChestBlockEntity;
-import jingy.jineric.block.entity.JinericTrappedChestBlockEntity;
-import jingy.jineric.block.entity.RedstoneCampfireBlockEntity;
-import jingy.jineric.block.entity.RefineryBlockEntity;
+import jingy.jineric.block.entity.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
@@ -15,6 +12,8 @@ public class JinericBlockEntityType {
 	
 	public static final BlockEntityType<RefineryBlockEntity> REFINERY = FabricBlockEntityTypeBuilder.create(RefineryBlockEntity::new, JinericBlocks.REFINERY).build();
 	public static final BlockEntityType<RedstoneCampfireBlockEntity> REDSTONE_CAMPFIRE = FabricBlockEntityTypeBuilder.create(RedstoneCampfireBlockEntity::new, JinericBlocks.REDSTONE_CAMPFIRE).build();
+	public static final BlockEntityType<CrucibleBlockEntity> CRUCIBLE = FabricBlockEntityTypeBuilder.create(CrucibleBlockEntity::new, JinericBlocks.STONE_CRUCIBLE).build();
+	
 	public static final BlockEntityType<JinericChestBlockEntity> JINERIC_CHEST = FabricBlockEntityTypeBuilder.create(JinericChestBlockEntity::new,
 			JinericBlocks.SPRUCE_CHEST,
 			JinericBlocks.BIRCH_CHEST,
@@ -47,6 +46,7 @@ public class JinericBlockEntityType {
 		register("campfire", REDSTONE_CAMPFIRE);
 		register("jineric_chest", JINERIC_CHEST);
 		register("jineric_trapped_chest", JINERIC_TRAPPED_CHEST);
+		register("crucible", CRUCIBLE);
 	}
 	
 	public static BlockEntityType<?> register(String id, BlockEntityType<?> blockEntityType) {

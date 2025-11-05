@@ -36,6 +36,9 @@ public class JinericBlockLootTableProvider extends FabricBlockLootTableProvider 
 	}
 	
 	public void genUniqueDrops() {
+		//  Vanilla
+		
+		//  Modded
 		this.addDrop(JinericBlocks.TUFF_BRICK_PILLAR);
 		this.addDrop(JinericBlocks.REFINERY);
 		this.addDrop(JinericBlocks.STONE_BRICK_PILLAR);
@@ -53,6 +56,8 @@ public class JinericBlockLootTableProvider extends FabricBlockLootTableProvider 
 		this.addDrop(JinericBlocks.CHARCOAL_BLOCK);
 		this.addDrop(JinericBlocks.SOUL_JACK_O_LANTERN);
 		this.addDrop(JinericBlocks.FULL_GRASS_BLOCK, block -> this.drops(block, Blocks.DIRT));
+		this.addDrop(JinericBlocks.STONE_CRUCIBLE);
+		this.addDrop(JinericBlocks.TINDER);
 	}
 	
 	public void addNameableContainerDrop(Block input) {

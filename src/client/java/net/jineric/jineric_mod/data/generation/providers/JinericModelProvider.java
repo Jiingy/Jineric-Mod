@@ -2,6 +2,8 @@ package net.jineric.jineric_mod.data.generation.providers;
 
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.JinericBlocks;
+import jingy.jineric.data.family.EquipmentFamilies;
+import jingy.jineric.data.family.EquipmentFamily;
 import jingy.jineric.data.family.JinericBlockFamilies;
 import jingy.jineric.item.JinericItems;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
@@ -14,7 +16,9 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.WoodType;
 import net.minecraft.client.data.*;
 import net.minecraft.client.render.item.model.ItemModel;
+import net.minecraft.client.render.item.model.SelectItemModel;
 import net.minecraft.client.render.item.model.special.ChestModelRenderer;
+import net.minecraft.client.render.item.property.select.CustomModelDataStringProperty;
 import net.minecraft.client.render.item.tint.GrassTintSource;
 import net.minecraft.client.render.model.json.WeightedVariant;
 import net.minecraft.data.family.BlockFamilies;
@@ -25,12 +29,17 @@ import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.function.BiConsumer;
 
 import static net.minecraft.client.data.BlockStateModelGenerator.createSingletonBlockState;
 import static net.minecraft.client.data.BlockStateModelGenerator.createWeightedVariant;
 
 public class JinericModelProvider extends FabricModelProvider {
+	public ItemModelOutput output;
+	public BiConsumer<Identifier, ModelSupplier> modelCollector;
+	
 	public JinericModelProvider(FabricDataOutput output) {
 		super(output);
 	}
@@ -76,14 +85,96 @@ public class JinericModelProvider extends FabricModelProvider {
 	}
 	
 	@Override
-	public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-		Identifier jungleLadderId = itemModelGenerator.uploadTwoLayers(JinericItems.JUNGLE_LADDER, ModelIds.getBlockModelId(JinericBlocks.JUNGLE_LADDER), JinericMain.ofJineric("block/jungle_ladder_overlay"));
-		itemModelGenerator.output.accept(JinericItems.JUNGLE_LADDER, ItemModels.tinted(jungleLadderId, new GrassTintSource()));
-		itemModelGenerator.register(JinericItems.GOLDEN_BEETROOT, Models.GENERATED);
-		itemModelGenerator.register(JinericItems.GOLDEN_POTATO, Models.GENERATED);
-		itemModelGenerator.register(JinericItems.GOLDEN_SWEET_BERRIES, Models.GENERATED);
-		itemModelGenerator.register(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE, Models.GENERATED);
-		itemModelGenerator.register(JinericItems.NETHERITE_HORSE_ARMOR, Models.GENERATED);
+	public void generateItemModels(ItemModelGenerator img) {
+		this.output = img.output;
+		this.modelCollector = img.modelCollector;
+		
+		this.registerWoodEquipmentFamily();
+		Identifier jungleLadderId = img.uploadTwoLayers(JinericItems.JUNGLE_LADDER, ModelIds.getBlockModelId(JinericBlocks.JUNGLE_LADDER), JinericMain.ofJineric("block/jungle_ladder_overlay"));
+		img.output.accept(JinericItems.JUNGLE_LADDER, ItemModels.tinted(jungleLadderId, new GrassTintSource()));
+		img.register(JinericItems.GOLDEN_BEETROOT, Models.GENERATED);
+		img.register(JinericItems.GOLDEN_POTATO, Models.GENERATED);
+		img.register(JinericItems.GOLDEN_SWEET_BERRIES, Models.GENERATED);
+		img.register(JinericItems.NETHERITE_HORSE_ARMOR, Models.GENERATED);
+		img.register(JinericItems.EMERALD_HELMET, Models.GENERATED);
+		img.register(JinericItems.EMERALD_CHESTPLATE, Models.GENERATED);
+		img.register(JinericItems.EMERALD_LEGGINGS, Models.GENERATED);
+		img.register(JinericItems.EMERALD_BOOTS, Models.GENERATED);
+		img.register(JinericItems.EMERALD_PICKAXE, Models.HANDHELD);
+		img.register(JinericItems.EMERALD_AXE, Models.HANDHELD);
+		img.register(JinericItems.EMERALD_SWORD, Models.HANDHELD);
+		img.register(JinericItems.EMERALD_SHOVEL, Models.HANDHELD);
+		img.register(JinericItems.EMERALD_HOE, Models.HANDHELD);
+		img.register(JinericItems.FLINT_PICKAXE, Models.HANDHELD);
+		img.register(JinericItems.DEEPSLATE_PICKAXE, Models.HANDHELD);
+		img.register(JinericItems.AMETHYST_PICKAXE, Models.HANDHELD);
+		img.register(JinericItems.STONE_CRUCIBLE, Models.GENERATED);
+		img.register(JinericItems.BOW_DRILL, Models.GENERATED);
+		img.register(JinericItems.STONE_UPGRADE_SMITHING_TEMPLATE, Models.GENERATED);
+		img.register(JinericItems.COPPER_UPGRADE_SMITHING_TEMPLATE, Models.GENERATED);
+		img.register(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE, Models.GENERATED);
+		img.register(JinericItems.GOLD_UPGRADE_SMITHING_TEMPLATE, Models.GENERATED);
+		img.register(JinericItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE, Models.GENERATED);
+	}
+	
+	public final void registerWoodEquipmentFamily() {
+		EquipmentFamilies.WOODEN.getVariants().forEach(this::registerWoodEquipmentFamily);
+	}
+	
+	public final void registerWoodEquipmentFamily(EquipmentFamily.Variant variant, Item item) {
+		List<SelectItemModel.SwitchCase<String>> stringList = new ArrayList<>();
+		
+		for (WoodType woodType : WoodType.stream().toList()) {
+			String woodTypeName = woodType.name();
+			String woodTypeVariant = woodTypeName + "_" + variant;
+			Identifier itemId = getPrefixItemModelId(item, woodTypeName  + "_");
+			
+			//  Generates armor item models with trim overlay
+//			List<SelectItemModel.SwitchCase<RegistryKey<ArmorTrimMaterial>>> list
+//					= new ArrayList<>(ItemModelGenerator.TRIM_MATERIALS.size()
+//			);
+//			for (ItemModelGenerator.TrimMaterial trimMaterial : ItemModelGenerator.TRIM_MATERIALS) {
+//				Identifier identifier4 = itemId.withSuffixedPath("_" + trimMaterial.assets().base().suffix() + "_trim");
+//				Identifier layer1 = trimIdPrefix.withSuffixedPath("_" + trimMaterial.assets().getAssetId(equipmentKey).suffix());
+//				ItemModel.Unbaked unbaked;
+//				this.uploadArmorWithTrim(identifier4, layer0, layer1);
+//				unbaked = ItemModels.basic(identifier4);
+//				list.add(ItemModels.switchCase(trimMaterial.materialKey, unbaked));
+//			}
+			Model model = variant.isArmor() ? Models.GENERATED : Models.HANDHELD;
+			Identifier identifier = Identifier.of(woodTypeVariant).withPrefixedPath("item/");
+			model.upload(
+					identifier,
+					TextureMap.layer0(itemId),
+					this.modelCollector
+			);
+			
+			stringList.add(
+					ItemModels.switchCase(
+							woodTypeVariant,
+							ItemModels.basic(identifier)
+					)
+			);
+		}
+		
+		if (variant.isArmor()) {
+			Models.GENERATED.upload(item, TextureMap.layer0(item), this.modelCollector);
+		}
+		
+		this.output.accept(
+				item,
+				ItemModels.select(
+						new CustomModelDataStringProperty(0),
+						ItemModels.basic(Registries.ITEM.getId(item).withPrefixedPath("item/")),
+						stringList
+				)
+		);
+	}
+	
+	public static Identifier getPrefixItemModelId(Item item, String prefix) {
+		String path = Registries.ITEM.getId(item).getPath();
+		Identifier identifier = JinericMain.ofJineric(path);
+		return identifier.withPrefixedPath("item/" + prefix);
 	}
 	
 	public void registerBlockFamilyModels(BlockStateModelGenerator bsmg) {

@@ -67,6 +67,17 @@
         ],
         "net/minecraft/class_2446": [
            "jingy/jineric/access/RecipeGeneratorAccess"
+        ],
+        "net/minecraft/class_1799": [
+           "jingy/jineric/access/ItemStackAccess"
+        ],
+        "net/minecraft/class_1792\u0024class_1793": [
+           "jingy/jineric/access/ItemSettingsAccess"
+        ],
+        "net/minecraft/class_3924": [
+           "net/minecraft/class_3908",
+           "net/minecraft/class_1275",
+           "net/minecraft/class_1263"
         ]
      }
    }

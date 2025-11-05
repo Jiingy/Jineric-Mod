@@ -3,8 +3,14 @@
    "package": "net.jineric.jineric_mod.mixin.client",
    "compatibilityLevel": "JAVA_21",
    "client": [
+      "CampfireBlockEntityRendererMixin",
       "ChestBlockEntityRendererMixin",
+      "DrawContextMixin",
+      "GameOptionsMixin",
+      "HandledScreenMixin",
+      "InGameHudMixin",
       "TexturedRenderLayersMixin",
+      "VideoOptionsScreenMixin",
       "access.TextureKeyAccess"
    ],
    "injectors": {

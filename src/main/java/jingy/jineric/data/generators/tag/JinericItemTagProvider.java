@@ -16,6 +16,7 @@ public class JinericItemTagProvider extends FabricTagProvider.ItemTagProvider {
 	
 	@Override
 	protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+		//  Modded
 		this.valueLookupBuilder(JinericItemTags.CHESTS)
 				.addTag(JinericItemTags.WOODEN_CHESTS);
 		this.valueLookupBuilder(JinericItemTags.WOODEN_CHESTS)
@@ -30,6 +31,13 @@ public class JinericItemTagProvider extends FabricTagProvider.ItemTagProvider {
 				.add(JinericItems.BAMBOO_CHEST)
 				.add(JinericItems.CRIMSON_CHEST)
 				.add(JinericItems.WARPED_CHEST);
+		this.valueLookupBuilder(JinericItemTags.CUT_COPPER)
+				.add(Items.CUT_COPPER, Items.WAXED_CUT_COPPER)
+				.add(Items.EXPOSED_CUT_COPPER, Items.WAXED_EXPOSED_CUT_COPPER)
+				.add(Items.WEATHERED_CUT_COPPER, Items.WAXED_WEATHERED_CUT_COPPER)
+				.add(Items.OXIDIZED_CUT_COPPER, Items.OXIDIZED_CUT_COPPER);
+		
+		//  Vanilla
 //		this.getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN);
 //		this.getOrCreateTagBuilder(ItemTags.PLANKS);
 //		this.getOrCreateTagBuilder(ItemTags.STAIRS);

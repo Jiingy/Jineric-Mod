@@ -1,26 +1,36 @@
 package net.jineric.jineric_mod.data.generation.providers;
 
 import com.google.common.collect.ImmutableMap;
+import jingy.jineric.access.ShapedRecipeJsonBuilderAccess;
 import jingy.jineric.block.JinericBlocks;
+import jingy.jineric.data.family.EquipmentFamilies;
+import jingy.jineric.data.family.EquipmentFamily;
 import jingy.jineric.data.family.JinericBlockFamilies;
 import jingy.jineric.data.family.JinericBlockFamilyVariants;
 import jingy.jineric.item.JinericItems;
+import jingy.jineric.item.equipment.JmEquipmentAssetKeys;
 import jingy.jineric.mixin.access.CookingRecipeJsonBuilderAccessor;
 import jingy.jineric.recipe.RefiningRecipe;
+import jingy.jineric.tag.JinericItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.advancement.criterion.InventoryChangedCriterion;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
+import net.minecraft.block.WoodType;
+import net.minecraft.component.ComponentChanges;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.BlockStateComponent;
+import net.minecraft.component.type.CustomModelDataComponent;
+import net.minecraft.component.type.EquippableComponent;
 import net.minecraft.data.family.BlockFamilies;
 import net.minecraft.data.family.BlockFamily;
-import net.minecraft.data.recipe.CookingRecipeJsonBuilder;
-import net.minecraft.data.recipe.CraftingRecipeJsonBuilder;
-import net.minecraft.data.recipe.RecipeExporter;
-import net.minecraft.data.recipe.RecipeGenerator;
+import net.minecraft.data.recipe.*;
 import net.minecraft.item.HoneycombItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.predicate.NumberRange;
@@ -33,6 +43,9 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.resource.featuretoggle.FeatureSet;
+import net.minecraft.state.property.Properties;
+import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 
 import java.util.Arrays;
 import java.util.List;
@@ -75,9 +88,12 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 			
 			@Override
 			public void generate() {
+				this.offerWoodTypeRecipes();
 				BlockFamilies.getFamilies()
 						.filter(BlockFamily::shouldGenerateRecipes)
 						.forEach(blockFamily -> this.generateFamily(blockFamily, FeatureSet.of(FeatureFlags.VANILLA)));
+//				EquipmentFamilies.stream().forEach(equipmentFamily -> this.offerEquipmentFamily());
+				
 				this.offerWaxingRecipes(FeatureSet.of(FeatureFlags.VANILLA));
 				
 				// ITEMS
@@ -232,7 +248,9 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				this.offerStonecuttingRecipe(RecipeCategory.DECORATIONS, JinericBlocks.SMOOTH_QUARTZ_WALL, Blocks.SMOOTH_QUARTZ);
 				this.offerStonecuttingRecipe(RecipeCategory.DECORATIONS, JinericBlocks.PURPUR_WALL, Blocks.PURPUR_BLOCK);
 				
-				// CUSTOM
+				//  CUSTOM
+				//  -> Modded
+				this.offerCampfireRecipe();
 				this.createShaped(RecipeCategory.BUILDING_BLOCKS, JinericBlocks.SOUL_JACK_O_LANTERN)
 						.input('P', Blocks.CARVED_PUMPKIN)
 						.input('T', Blocks.SOUL_TORCH)
@@ -276,6 +294,69 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						.pattern("GG")
 						.criterion("has_grass_block", this.conditionsFromItem(Blocks.GRASS_BLOCK))
 						.offerTo(recipeExporter);
+				this.createShaped(RecipeCategory.DECORATIONS, JinericItems.TINDER)
+						.input('T', JinericItemTags.TINDER_MATERIALS)
+						.pattern("TT")
+						.pattern("TT")
+						.criterion("has_tinder_material", this.conditionsFromTag(JinericItemTags.TINDER_MATERIALS))
+						.offerTo(recipeExporter);
+				this.createShaped(RecipeCategory.TOOLS, JinericItems.BOW_DRILL)
+						.input('B', Items.BOW).input('S', Items.STICK).input('L', ItemTags.LOGS_THAT_BURN)
+						.pattern("B")
+						.pattern("S")
+						.pattern("L")
+						.criterion("has_flammable_log", this.conditionsFromTag(ItemTags.LOGS_THAT_BURN))
+						.offerTo(recipeExporter);
+				
+				this.createShaped(RecipeCategory.MISC, JinericItems.STONE_UPGRADE_SMITHING_TEMPLATE, 1)
+						.input('M', Items.SMOOTH_STONE).input('S', Items.STONE)
+						.input('W', ConventionalItemTags.NATURAL_WOODS).input('L', ConventionalItemTags.NATURAL_LOGS)
+						.pattern("LML")
+						.pattern("LSL")
+						.pattern("WWW")
+						.criterion("has_cobblestone", this.conditionsFromItem(Items.COBBLESTONE))
+						.offerTo(recipeExporter, getItemPath(JinericItems.STONE_UPGRADE_SMITHING_TEMPLATE));
+				
+				this.createShaped(RecipeCategory.MISC, JinericItems.COPPER_UPGRADE_SMITHING_TEMPLATE, 1)
+						.input('F', Items.SMOOTH_STONE).input('T', JinericItemTags.CUT_COPPER).input('E', Items.STONE)
+						.pattern("FTF")
+						.pattern("FEF")
+						.pattern("FFF")
+						.criterion("has_copper_ingot", this.conditionsFromItem(Items.COPPER_INGOT))
+						.offerTo(recipeExporter, getItemPath(JinericItems.COPPER_UPGRADE_SMITHING_TEMPLATE));
+				
+				this.createShaped(RecipeCategory.MISC, JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE, 1)
+						.input('F', ItemTags.COPPER).input('T', Items.IRON_BLOCK).input('E', Items.DEEPSLATE)
+						.pattern("FTF")
+						.pattern("FEF")
+						.pattern("FFF")
+//						.group(getItemPath(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE))
+						.criterion("has_iron_ingot", this.conditionsFromItem(Items.IRON_INGOT))
+						.offerTo(recipeExporter, getItemPath(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE));
+				
+				this.createShaped(RecipeCategory.MISC, JinericItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE, 1)
+						.input('F', Items.IRON_INGOT).input('T', Items.DIAMOND_BLOCK).input('E', Items.DEEPSLATE)
+						.pattern("FTF")
+						.pattern("FEF")
+						.pattern("FFF")
+//						.group(getItemPath(JinericItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE))
+						.criterion("has_" + getItemPath(Items.DIAMOND), this.conditionsFromItem(Items.DIAMOND))
+						.offerTo(recipeExporter, getItemPath(JinericItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE));
+				
+				CookingRecipeJsonBuilder.createCampfireCooking(this.ingredientFromTag(ItemTags.LOGS_THAT_BURN), RecipeCategory.MISC, Items.CHARCOAL, 0.15F, 800)
+						.criterion("has_log", this.conditionsFromTag(ItemTags.LOGS_THAT_BURN))
+						.offerTo(recipeExporter, "charcoal_from_campfire_cooking");
+				
+				CookingRecipeJsonBuilder.createCampfireCooking(Ingredient.ofItem(Items.CLAY_BALL), RecipeCategory.MISC, Items.BRICK, 0.1F, 600)
+						.criterion("has_clay_ball", this.conditionsFromItem(Items.CLAY_BALL))
+						.offerTo(recipeExporter, "brick_from_campfire_cooking");
+				
+				//  -> Vanilla
+				this.createShapeless(RecipeCategory.MISC, Items.STRING, 4)
+						.input(ItemTags.WOOL)
+						.criterion("has_wool", this.conditionsFromTag(ItemTags.WOOL))
+						.group("string")
+						.offerTo(recipeExporter);
 			}
 			
 			@Override
@@ -311,16 +392,61 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				HoneycombItem.UNWAXED_TO_WAXED_BLOCKS.get()
 						.forEach(
 								(unwaxed, waxed) -> {
-									if (waxed.getRequiredFeatures().isSubsetOf(enabledFeatures) && Registries.BLOCK.getId(unwaxed).getNamespace().equals("jineric")) {
-										this.createShapeless(RecipeCategory.BUILDING_BLOCKS, waxed)
-												.input(unwaxed)
-												.input(Items.HONEYCOMB)
-												.group(getItemPath(waxed))
-												.criterion(hasItem(unwaxed), this.conditionsFromItem(unwaxed))
-												.offerTo(this.exporter, convertBetween(waxed, Items.HONEYCOMB));
+									if (waxed != null && unwaxed != null) {
+										if (waxed.getRequiredFeatures().isSubsetOf(enabledFeatures) && Registries.BLOCK.getId(unwaxed).getNamespace().equals("jineric")) {
+											this.createShapeless(RecipeCategory.BUILDING_BLOCKS, waxed)
+													.input(unwaxed)
+													.input(Items.HONEYCOMB)
+													.group(getItemPath(waxed))
+													.criterion(hasItem(unwaxed), this.conditionsFromItem(unwaxed))
+													.offerTo(this.exporter, convertBetween(waxed, Items.HONEYCOMB));
+										}
 									}
 								}
 						);
+			}
+			
+			public void offerWoodTypeRecipes() {
+				WoodType.stream().forEach(this::offerWoodenEquipmentVariants);
+			}
+			
+			public void offerWoodenEquipmentVariants(WoodType woodType) {
+				EquipmentFamily equipmentFamily = EquipmentFamilies.WOODEN;
+				equipmentFamily.getVariants().forEach((variant, item) -> {
+					String woodTypeName =  woodType.name();
+					String itemPath = getItemPath(item);
+					String woodTypeVariant = woodTypeName + "_" + variant;
+					Item plank = Registries.ITEM.get(Identifier.of(woodTypeName + "_planks"));
+					String woodenRecipeKey = woodTypeName + "_" + itemPath;
+					ShapedRecipeJsonBuilder recipeBuilder = createEquipmentVariantBase(equipmentFamily, variant, item);
+					recipeBuilder.input('M', plank);
+					ComponentChanges.Builder componentChangesBuilder = ComponentChanges.builder();
+					if (variant.isArmor()) {
+						componentChangesBuilder.add(DataComponentTypes.EQUIPPABLE, EquippableComponent.builder(variant.equipmentSlot(variant)).model(JmEquipmentAssetKeys.parseWoodenKey(woodTypeName)).build());
+					}
+					componentChangesBuilder
+							.add(DataComponentTypes.CUSTOM_MODEL_DATA, new CustomModelDataComponent(List.of(), List.of(), List.of(woodTypeVariant), List.of()))
+							.add(DataComponentTypes.ITEM_NAME, Text.translatable("item.jineric." + woodTypeVariant));
+					((ShapedRecipeJsonBuilderAccess)recipeBuilder).jineric$componentChanges(componentChangesBuilder.build());
+					recipeBuilder.criterion("has_" + getItemPath(plank), this.conditionsFromItem(plank));
+					recipeBuilder.group("wooden_" + variant);
+					recipeBuilder.offerTo(recipeExporter, woodenRecipeKey);
+				});
+			}
+			
+			public ShapedRecipeJsonBuilder createEquipmentVariantBase(EquipmentFamily family, EquipmentFamily.Variant variant, Item item) {
+				boolean armor = variant.isArmor();
+				ShapedRecipeJsonBuilder recipeBuilder = this.createShaped(item.getDefaultStack().isIn(ItemTags.SWORDS) || armor ? RecipeCategory.COMBAT : RecipeCategory.TOOLS, item);
+				Item material = family.getMaterial();
+				if (material != Items.AIR) {
+					recipeBuilder.input('M', material);
+				} else if (!armor) {
+					recipeBuilder.input('S', Items.STICK);
+				}
+				for (String patternIndex : variant.getCraftingLayout()) {
+					recipeBuilder.pattern(patternIndex);
+				}
+				return recipeBuilder;
 			}
 			
 			public void genStonecuttingFromFamilyBase(Block input, BlockFamily... inputFamilies) {
@@ -499,16 +625,32 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						.criterion("has_" + input, this.conditionsFromItem(input))
 						.offerTo(recipeExporter);
 			}
-
-//         public void offerIronUpgradeRecipe(Item input, RecipeCategory category, Item result) {
-//         SmithingTransformRecipeJsonBuilder.create(
-//                      Ingredient.ofItems(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE),
-//                      Ingredient.ofItems(input),
-//                      Ingredient.ofItems(Items.IRON_INGOT), category, result)
-//              .criterion("has_iron_ingot", conditionsFromItem(Items.IRON_INGOT))
-//              .offerTo(recipeExporter, getItemPath(result) + "_smithing");
-//         }
+			
+			private void offerCampfireRecipe() {
+				ShapedRecipeJsonBuilder builder = this.createShaped(RecipeCategory.DECORATIONS, Blocks.CAMPFIRE);
+				((ShapedRecipeJsonBuilderAccess) builder).jineric$componentChanges(
+						ComponentChanges.builder()
+								.add(DataComponentTypes.BLOCK_STATE, BlockStateComponent.DEFAULT.with(Properties.LIT, false))
+								.build()
+				);
+				builder.input('S', Items.STICK).input('T', JinericItems.TINDER).input('L', ItemTags.LOGS)
+						.pattern("SSS")
+						.pattern("LTL")
+						.pattern("LLL")
+						.criterion("has_stick", this.conditionsFromItem(Items.STICK))
+						.criterion("has_tinder", this.conditionsFromItem(JinericItems.TINDER))
+						.offerTo(recipeExporter, "jineric_replace_" + getItemPath(Items.CAMPFIRE));
+			}
 		};
+	}
+	
+	@Override
+	protected Identifier getRecipeIdentifier(Identifier identifier) {
+		if (identifier.getNamespace().equals("minecraft") && identifier.getPath().contains("jineric_replace_")) {
+			return Identifier.ofVanilla(identifier.getPath().replace("jineric_replace_", ""));
+		} else {
+			return super.getRecipeIdentifier(identifier);
+		}
 	}
 	
 	@Override

@@ -205,6 +205,8 @@ public class JinericBlocks {
 	public static final Block STICK_BLOCK = register("stick_block", PillarBlock::new, AbstractBlock.Settings.copy(OAK_PLANKS));
 	public static final Block PAPER_BLOCK = register("paper_block", AbstractBlock.Settings.copy(AZALEA_LEAVES).sounds(BlockSoundGroup.AZALEA_LEAVES));
 	
+	public static final Block TINDER = register("tinder", AbstractBlock.Settings.copy(Blocks.HAY_BLOCK));
+	
 	//PACKED ICE
 	public static final Block PACKED_ICE_STAIRS = registerStairsBlock("packed_ice_stairs", PACKED_ICE);
 	public static final Block PACKED_ICE_SLAB = register("packed_ice_slab", SlabBlock::new, AbstractBlock.Settings.copy(PACKED_ICE));
@@ -263,6 +265,8 @@ public class JinericBlocks {
 			AbstractBlock.Settings.copy(OXIDIZED_CUT_COPPER)
 	);
 	
+	//UTILITY
+	public static final Block STONE_CRUCIBLE = register("stone_crucible", CrucibleBlock::new, AbstractBlock.Settings.copy(CRAFTING_TABLE));
 	public static final Block REFINERY = register(
 			"refinery",
 			RefineryBlock::new,

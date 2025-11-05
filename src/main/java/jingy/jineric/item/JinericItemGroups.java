@@ -1,12 +1,16 @@
 package jingy.jineric.item;
 
 import jingy.jineric.base.JinericMain;
+import jingy.jineric.data.family.EquipmentFamilies;
+import jingy.jineric.data.family.EquipmentFamily;
+import jingy.jineric.item.equipment.JmEquipmentAssetKeys;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.block.WoodType;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.CustomModelDataComponent;
+import net.minecraft.component.type.EquippableComponent;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -14,16 +18,23 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
+import java.util.List;
+
 @SuppressWarnings("all")
 public class JinericItemGroups {
-	public static final Identifier MOD_ITEMS_ID = JinericMain.ofJineric("mod_items");
-	private static final RegistryKey<ItemGroup> MOD_ITEMS_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, MOD_ITEMS_ID);
+	public static final Identifier JINERIC_ITEMS = JinericMain.ofJineric("jineric_items");
+	public static final Identifier JINERIC_EQUIPMENT_ITEMS = JinericMain.ofJineric("jineric_equipment_items");
+	private static final RegistryKey<ItemGroup> MOD_ITEMS_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, JINERIC_ITEMS);
+	private static final RegistryKey<ItemGroup> JINERIC_EQUIPMENT_ITEMS_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, JINERIC_EQUIPMENT_ITEMS);
 	
 	public static void registerJinericItemGroups() {
 		Registry.register(Registries.ITEM_GROUP, MOD_ITEMS_KEY, FabricItemGroup.builder()
 				.displayName(Text.literal("Jineric Mod Items"))
 				.icon(() -> new ItemStack(JinericItems.PRISMARINE_CRYSTAL_BLOCK))
 				.entries((context, entries) -> {
+					entries.add(JinericItems.TINDER);
+					entries.add(JinericItems.BOW_DRILL);
+					entries.add(JinericItems.STONE_CRUCIBLE);
 					entries.add(JinericItems.STONE_WALL);
 					entries.add(JinericItems.SMOOTH_STONE_STAIRS);
 					entries.add(JinericItems.SMOOTH_STONE_WALL);
@@ -246,6 +257,31 @@ public class JinericItemGroups {
 					entries.add(JinericItems.REDSTONE_LANTERN);
 					entries.add(JinericItems.REDSTONE_CAMPFIRE);
 					entries.add(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE);
+				}).build()
+		);
+		
+		Registry.register(Registries.ITEM_GROUP, JINERIC_EQUIPMENT_ITEMS_KEY, FabricItemGroup.builder()
+				.displayName(Text.literal("Jineric Equipment Items"))
+				.icon(() -> new ItemStack(JinericItems.WOODEN_CHESTPLATE))
+				.entries((displayContext, entries) -> {
+					entries.add(JinericItems.EMERALD_PICKAXE);
+					entries.add(JinericItems.EMERALD_SWORD);
+					entries.add(JinericItems.EMERALD_AXE);
+					entries.add(JinericItems.EMERALD_SHOVEL);
+					entries.add(JinericItems.EMERALD_HOE);
+					entries.add(JinericItems.EMERALD_HELMET);
+					entries.add(JinericItems.EMERALD_CHESTPLATE);
+					entries.add(JinericItems.EMERALD_LEGGINGS);
+					entries.add(JinericItems.EMERALD_BOOTS);
+					entries.add(JinericItems.AMETHYST_PICKAXE);
+					entries.add(JinericItems.DEEPSLATE_PICKAXE);
+					entries.add(JinericItems.FLINT_PICKAXE);
+					entries.add(JinericItems.STONE_UPGRADE_SMITHING_TEMPLATE);
+					entries.add(JinericItems.COPPER_UPGRADE_SMITHING_TEMPLATE);
+					entries.add(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE);
+					entries.add(JinericItems.GOLD_UPGRADE_SMITHING_TEMPLATE);
+					entries.add(JinericItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE);
+					addWoodEquipment(entries, ItemGroup.StackVisibility.PARENT_AND_SEARCH_TABS);
 				}).build()
 		);
 	}
@@ -475,5 +511,34 @@ public class JinericItemGroups {
 			entries.addAfter(Items.POISONOUS_POTATO, JinericItems.GOLDEN_POTATO);
 			entries.addAfter(Items.SWEET_BERRIES, JinericItems.GOLDEN_SWEET_BERRIES);
 		}));
+	}
+	
+	private static void addWoodEquipment(ItemGroup.Entries entries, ItemGroup.StackVisibility visibility) {
+		EquipmentFamily family = EquipmentFamilies.WOODEN;
+		
+		family.getVariants().forEach((variant, item) -> {
+			for (WoodType woodType : WoodType.stream().toList()) {
+				String woodTypeName = woodType.name();
+				String woodTypeVariant = woodTypeName + "_" + variant;
+				ItemStack itemStack = new ItemStack(item);
+				Text text = Text.translatable("item.jineric." + woodTypeVariant);
+				itemStack.set(DataComponentTypes.ITEM_NAME, text);
+				itemStack.set(DataComponentTypes.CUSTOM_MODEL_DATA, new CustomModelDataComponent(List.of(), List.of(), List.of(woodTypeVariant), List.of()));
+				
+				if (variant.isArmor()) {
+					itemStack.set(
+							DataComponentTypes.EQUIPPABLE,
+							EquippableComponent.builder(variant.equipmentSlot(variant))
+									.model(JmEquipmentAssetKeys.parseWoodenKey(woodTypeName))
+									.build()
+					);
+				}
+				entries.add(itemStack, visibility);
+			}
+		});
+	}
+	
+	private static String getItemPath(Item item) {
+		return Registries.ITEM.getId(item).getPath();
 	}
 }
