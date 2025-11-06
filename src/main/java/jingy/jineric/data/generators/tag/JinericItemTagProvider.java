@@ -47,7 +47,10 @@ public class JinericItemTagProvider extends FabricTagProvider.ItemTagProvider {
 		this.valueLookupBuilder(ItemTags.CHEST_ARMOR).add(JinericItems.WOODEN_CHESTPLATE);
 		this.valueLookupBuilder(ItemTags.LEG_ARMOR).add(JinericItems.WOODEN_LEGGINGS);
 		this.valueLookupBuilder(ItemTags.FOOT_ARMOR).add(JinericItems.WOODEN_BOOTS);
-		
+		this.valueLookupBuilder(JinericItemTags.TINDER_MATERIALS)
+				.add(Items.FEATHER)
+				.add(Items.RED_MUSHROOM)
+				.add(Items.BROWN_MUSHROOM);
 		
 		//  Vanilla
 //		this.getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN);
