@@ -45,8 +45,7 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 		this.blockFamiliesToFamilyVariantTag(BlockTags.WALL_SIGNS, BlockFamily.Variant.WALL_SIGN);
 		// Needs Tool
 		this.valueLookupBuilder(BlockTags.NEEDS_DIAMOND_TOOL);
-		this.valueLookupBuilder(BlockTags.NEEDS_IRON_TOOL)
-				.forceAddTag(ConventionalBlockTags.COAL_ORES);
+		this.valueLookupBuilder(BlockTags.NEEDS_IRON_TOOL).forceAddTag(ConventionalBlockTags.COAL_ORES);
 		this.valueLookupBuilder(BlockTags.NEEDS_STONE_TOOL)
 				.add(CUT_COPPER_WALL, EXPOSED_CUT_COPPER_WALL, WEATHERED_CUT_COPPER_WALL, OXIDIZED_CUT_COPPER_WALL)
 				.add(WAXED_CUT_COPPER_WALL, WAXED_EXPOSED_CUT_COPPER_WALL, WAXED_WEATHERED_CUT_COPPER_WALL, WAXED_OXIDIZED_CUT_COPPER_WALL);
