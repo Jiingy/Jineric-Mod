@@ -363,6 +363,14 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						.criterion("has_wool", this.conditionsFromTag(ItemTags.WOOL))
 						.group("string")
 						.offerTo(recipeExporter);
+				this.createShaped(RecipeCategory.DECORATIONS, Blocks.SMITHING_TABLE)
+						.input('S', Items.SMOOTH_STONE)
+						.input('W', ItemTags.PLANKS)
+						.pattern("SS")
+						.pattern("WW")
+						.pattern("WW")
+						.criterion("has_planks", this.conditionsFromTag(ItemTags.PLANKS))
+						.offerTo(recipeExporter);
 			}
 			
 			@Override
