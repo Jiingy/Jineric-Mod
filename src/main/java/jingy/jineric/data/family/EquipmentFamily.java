@@ -2,7 +2,6 @@ package jingy.jineric.data.family;
 
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.Item;
-import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.tag.TagKey;
 
 import java.util.HashMap;
@@ -10,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 public class EquipmentFamily {
-	private final Map<Variant, Item> variants = new HashMap<>();
+	final Map<Variant, Item> variants = new HashMap<>();
 	private final Map<Item, List<String>> patterns = new HashMap<>();
 	private final Map<Item, Boolean> generateRecipe = new HashMap<>();
 	
@@ -39,6 +38,10 @@ public class EquipmentFamily {
 	
 	public Item getVariantItem(Variant variant) {
 		return this.variants.get(variant);
+	}
+	
+	public boolean hasVariantItem(Item item) {
+		return this.variants.containsValue(item);
 	}
 	
 	public Item getUpgradeMaterial() {
@@ -141,40 +144,25 @@ public class EquipmentFamily {
 	
 	public static class Variant {
 		private final String name;
-		private final boolean armor;
 		private final List<String> craftingLayout;
+		private final boolean armor;
 		
 		public Variant(final String name, boolean armor, String... craftingLayout) {
 			this.name = name;
-			this.armor = armor;
 			this.craftingLayout = List.of(craftingLayout);
+			this.armor = armor;
 		}
 		
-		public RecipeCategory variantCategory() {
-			if (this.isArmor()) {
-				return RecipeCategory.COMBAT;
-			} else {
-				return RecipeCategory.TOOLS;
-			}
-		}
-		
-		public EquipmentSlot equipmentSlot(Variant variant) {
-			EquipmentSlot equipmentSlot;
-			switch (variant.toString()) {
-				case "helmet" -> equipmentSlot = EquipmentSlot.HEAD;
-				case "chestplate" -> equipmentSlot = EquipmentSlot.CHEST;
-				case "leggings" -> equipmentSlot = EquipmentSlot.LEGS;
-				case "boots" -> equipmentSlot = EquipmentSlot.FEET;
-				case "body" -> equipmentSlot = EquipmentSlot.BODY;
-				case "saddle" -> equipmentSlot = EquipmentSlot.SADDLE;
-				default -> equipmentSlot = EquipmentSlot.MAINHAND;
-			}
-			return equipmentSlot;
-		}
-		
-		@Override
-		public String toString() {
-			return this.name;
+		public EquipmentSlot equipmentSlot() {
+			return switch (this.toString()) {
+				case "helmet" -> EquipmentSlot.HEAD;
+				case "chestplate" -> EquipmentSlot.CHEST;
+				case "leggings" -> EquipmentSlot.LEGS;
+				case "boots" -> EquipmentSlot.FEET;
+				case "body" -> EquipmentSlot.BODY;
+				case "saddle" -> EquipmentSlot.SADDLE;
+				default -> EquipmentSlot.MAINHAND;
+			};
 		}
 		
 		public List<String> getCraftingLayout() {
@@ -182,7 +170,16 @@ public class EquipmentFamily {
 		}
 		
 		public boolean isArmor() {
-			return this.armor;
+			return armor;
+		}
+		
+		public boolean isCombat() {
+			return this.armor || this == EquipmentVariants.SWORD;
+		}
+		
+		@Override
+		public String toString() {
+			return this.name;
 		}
 	}
 }

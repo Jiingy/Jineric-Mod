@@ -528,7 +528,7 @@ public class JinericItemGroups {
 				if (variant.isArmor()) {
 					itemStack.set(
 							DataComponentTypes.EQUIPPABLE,
-							EquippableComponent.builder(variant.equipmentSlot(variant))
+							EquippableComponent.builder(variant.equipmentSlot())
 									.model(JmEquipmentAssetKeys.parseWoodenKey(woodTypeName))
 									.build()
 					);

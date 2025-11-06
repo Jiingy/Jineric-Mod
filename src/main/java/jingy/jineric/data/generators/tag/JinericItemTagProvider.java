@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.ItemTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -36,6 +37,17 @@ public class JinericItemTagProvider extends FabricTagProvider.ItemTagProvider {
 				.add(Items.EXPOSED_CUT_COPPER, Items.WAXED_EXPOSED_CUT_COPPER)
 				.add(Items.WEATHERED_CUT_COPPER, Items.WAXED_WEATHERED_CUT_COPPER)
 				.add(Items.OXIDIZED_CUT_COPPER, Items.OXIDIZED_CUT_COPPER);
+		this.valueLookupBuilder(JinericItemTags.ARMOR)
+				.forceAddTag(ItemTags.HEAD_ARMOR)
+				.forceAddTag(ItemTags.CHEST_ARMOR)
+				.forceAddTag(ItemTags.LEG_ARMOR)
+				.forceAddTag(ItemTags.FOOT_ARMOR);
+		this.valueLookupBuilder(JinericItemTags.STONE_EQUIPMENT_MATERIALS).add(Items.STONE);
+		this.valueLookupBuilder(ItemTags.HEAD_ARMOR).add(JinericItems.WOODEN_HELMET);
+		this.valueLookupBuilder(ItemTags.CHEST_ARMOR).add(JinericItems.WOODEN_CHESTPLATE);
+		this.valueLookupBuilder(ItemTags.LEG_ARMOR).add(JinericItems.WOODEN_LEGGINGS);
+		this.valueLookupBuilder(ItemTags.FOOT_ARMOR).add(JinericItems.WOODEN_BOOTS);
+		
 		
 		//  Vanilla
 //		this.getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN);

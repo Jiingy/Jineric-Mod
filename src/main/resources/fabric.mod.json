@@ -74,6 +74,9 @@
         "net/minecraft/class_1792\u0024class_1793": [
            "jingy/jineric/access/ItemSettingsAccess"
         ],
+        "net/minecraft/class_8074": [
+           "jingy/jineric/access/SmithingTransformRecipeJsonBuilderAccess"
+        ],
         "net/minecraft/class_3924": [
            "net/minecraft/class_3908",
            "net/minecraft/class_1275",

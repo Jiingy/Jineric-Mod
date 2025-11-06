@@ -2,6 +2,7 @@ package jingy.jineric.data.family;
 
 import com.google.common.collect.Lists;
 import jingy.jineric.item.JinericItems;
+import jingy.jineric.tag.JinericItemTags;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.registry.tag.ItemTags;
@@ -44,7 +45,7 @@ public class EquipmentFamilies {
 			.sword(Items.STONE_SWORD)
 			.shovel(Items.STONE_SHOVEL)
 			.hoe(Items.STONE_HOE)
-			.upgradeMaterial(Items.IRON_INGOT)
+			.materialTag(JinericItemTags.STONE_EQUIPMENT_MATERIALS)
 			.build();
 	
 	public static final EquipmentFamily COPPER = register(Items.COPPER_INGOT)

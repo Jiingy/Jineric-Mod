@@ -28,6 +28,8 @@ public class JinericItemTags {
 	public static final TagKey<Item> UPGRADES_GOLD_EQUIPMENT = registerItemTag("upgrades_gold_equipment");
 	public static final TagKey<Item> UPGRADES_EMERALD_EQUIPMENT = registerItemTag("upgrades_emerald_equipment");
 	
+	public static final TagKey<Item> ARMOR = registerItemTag("armor");
+	public static final TagKey<Item> STONE_EQUIPMENT_MATERIALS = registerItemTag("stone_equipment_materials");
 	public static final TagKey<Item> EMERALD_TOOL_MATERIALS = registerItemTag("emerald_tool_materials");
 	
 	//  Vanilla

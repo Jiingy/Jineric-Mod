@@ -29,10 +29,7 @@ import net.minecraft.component.type.EquippableComponent;
 import net.minecraft.data.family.BlockFamilies;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.data.recipe.*;
-import net.minecraft.item.HoneycombItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
 import net.minecraft.predicate.NumberRange;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.CookingRecipeCategory;
@@ -41,6 +38,7 @@ import net.minecraft.registry.DefaultedRegistry;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.resource.featuretoggle.FeatureSet;
 import net.minecraft.state.property.Properties;
@@ -248,6 +246,9 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				this.offerStonecuttingRecipe(RecipeCategory.DECORATIONS, JinericBlocks.SMOOTH_QUARTZ_WALL, Blocks.SMOOTH_QUARTZ);
 				this.offerStonecuttingRecipe(RecipeCategory.DECORATIONS, JinericBlocks.PURPUR_WALL, Blocks.PURPUR_BLOCK);
 				
+				//  SMITHING
+				this.offerEquipmentFamilyUpgrade(EquipmentFamilies.WOODEN, EquipmentFamilies.STONE);
+				
 				//  CUSTOM
 				//  -> Modded
 				this.offerCampfireRecipe();
@@ -422,7 +423,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 					recipeBuilder.input('M', plank);
 					ComponentChanges.Builder componentChangesBuilder = ComponentChanges.builder();
 					if (variant.isArmor()) {
-						componentChangesBuilder.add(DataComponentTypes.EQUIPPABLE, EquippableComponent.builder(variant.equipmentSlot(variant)).model(JmEquipmentAssetKeys.parseWoodenKey(woodTypeName)).build());
+						componentChangesBuilder.add(DataComponentTypes.EQUIPPABLE, EquippableComponent.builder(variant.equipmentSlot()).model(JmEquipmentAssetKeys.parseWoodenKey(woodTypeName)).build());
 					}
 					componentChangesBuilder
 							.add(DataComponentTypes.CUSTOM_MODEL_DATA, new CustomModelDataComponent(List.of(), List.of(), List.of(woodTypeVariant), List.of()))
@@ -434,19 +435,65 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				});
 			}
 			
+			public void offerEquipmentFamilyUpgrade(EquipmentFamily inputFamily, EquipmentFamily resultFamily) {
+				inputFamily.getVariants().forEach((variant, item) -> {
+					if (resultFamily.getVariants().containsKey(variant)) {
+						Item resultVariantItem = resultFamily.getVariantItem(variant);
+						String recipeId = getItemPath(resultVariantItem) + "_smithing";
+						if (Registries.ITEM.getId(item).getNamespace().equals("minecraft")) {
+							recipeId = "jineric_replace_" + getItemPath(resultVariantItem);
+						}
+						this.offerSmithingUpgradeRecipe(
+								inputFamily.getSmithingTemplate(),
+								item,
+								resultFamily.getMaterialTag(),
+								resultVariantItem,
+								equipmentRecipeCategory(variant),
+								recipeId
+						);
+					}
+				});
+			}
+			
 			public ShapedRecipeJsonBuilder createEquipmentVariantBase(EquipmentFamily family, EquipmentFamily.Variant variant, Item item) {
-				boolean armor = variant.isArmor();
-				ShapedRecipeJsonBuilder recipeBuilder = this.createShaped(item.getDefaultStack().isIn(ItemTags.SWORDS) || armor ? RecipeCategory.COMBAT : RecipeCategory.TOOLS, item);
+				ShapedRecipeJsonBuilder recipeBuilder = this.createShaped(variant.isCombat() ? RecipeCategory.COMBAT : RecipeCategory.TOOLS, item);
 				Item material = family.getMaterial();
 				if (material != Items.AIR) {
 					recipeBuilder.input('M', material);
-				} else if (!armor) {
+				} else if (!variant.isArmor()) {
 					recipeBuilder.input('S', Items.STICK);
 				}
 				for (String patternIndex : variant.getCraftingLayout()) {
 					recipeBuilder.pattern(patternIndex);
 				}
 				return recipeBuilder;
+			}
+			
+			public void offerVanillaSmithingUpgradeRecipe(Item template, Item input, TagKey<Item> material, Item result, RecipeCategory category) {
+				this.offerSmithingUpgradeRecipe(template, input, material, result, category, "jineric_replace_" + getItemPath(result));
+			}
+			
+			public void offerSmithingUpgradeRecipe(Item template, Item input, TagKey<Item> material, Item result, RecipeCategory category) {
+				this.offerSmithingUpgradeRecipe(template, input, material, result, category, getItemPath(result) + "_smithing");
+			}
+			
+			public void offerSmithingUpgradeRecipe(Item template, Item input, TagKey<Item> material, Item result, RecipeCategory category, String recipeId) {
+				SmithingTransformRecipeJsonBuilder builder = SmithingTransformRecipeJsonBuilder.create(
+						Ingredient.ofItem(template),
+						Ingredient.ofItem(input),
+						this.ingredientFromTag(material),
+						category,
+						result
+				);
+				if (template.equals(JinericItems.STONE_UPGRADE_SMITHING_TEMPLATE)) {
+					builder.jineric$componentChanges(ComponentChanges.builder()
+							.add(DataComponentTypes.ITEM_NAME, Text.translatable(Registries.ITEM.getId(result).toTranslationKey("item")))
+							.remove(DataComponentTypes.CUSTOM_MODEL_DATA)
+							.build()
+					);
+				}
+				builder.criterion("has_" + getItemPath(input), this.conditionsFromTag(material));
+				builder.offerTo(this.exporter, recipeId);
 			}
 			
 			public void genStonecuttingFromFamilyBase(Block input, BlockFamily... inputFamilies) {
@@ -642,6 +689,14 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						.offerTo(recipeExporter, "jineric_replace_" + getItemPath(Items.CAMPFIRE));
 			}
 		};
+	}
+	
+	public static RecipeCategory equipmentRecipeCategory(EquipmentFamily.Variant variant) {
+		if (variant.isCombat()) {
+			return RecipeCategory.COMBAT;
+		} else {
+			return RecipeCategory.TOOLS;
+		}
 	}
 	
 	@Override

@@ -28,6 +28,7 @@
       "change.ItemsHaveLevelMixin",
       "change.LivingEntityLevelNotDamageMixin",
       "change.ShapedRecipeJsonBuilderApplyComponentChangesMixin",
+      "change.SmithingTransformRecipeJsonBuilderApplyComponentChangesMixin",
       "change.SmokerBlockEmitParticlesMixin",
       "duck.BlockFamilyBuilderDuckMixin",
       "duck.BlockFamilyDuckMixin",
