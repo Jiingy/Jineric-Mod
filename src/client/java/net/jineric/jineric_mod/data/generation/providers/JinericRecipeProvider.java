@@ -3,6 +3,7 @@ package net.jineric.jineric_mod.data.generation.providers;
 import com.google.common.collect.ImmutableMap;
 import jingy.jineric.access.ShapedRecipeJsonBuilderAccess;
 import jingy.jineric.block.JinericBlocks;
+import jingy.jineric.component.JmDataComponentTypes;
 import jingy.jineric.data.family.EquipmentFamilies;
 import jingy.jineric.data.family.EquipmentFamily;
 import jingy.jineric.data.family.JinericBlockFamilies;
@@ -513,6 +514,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				if (template.equals(JinericItems.STONE_UPGRADE_SMITHING_TEMPLATE)) {
 					builder.jineric$componentChanges(ComponentChanges.builder()
 							.add(DataComponentTypes.ITEM_NAME, Text.translatable(Registries.ITEM.getId(result).toTranslationKey("item")))
+							.add(JmDataComponentTypes.LEVEL, 0)
 							.remove(DataComponentTypes.CUSTOM_MODEL_DATA)
 							.build()
 					);

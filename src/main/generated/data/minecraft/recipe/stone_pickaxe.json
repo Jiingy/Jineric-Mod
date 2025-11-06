@@ -5,6 +5,7 @@
   "result": {
     "components": {
       "!minecraft:custom_model_data": {},
+      "jineric:level": 0,
       "minecraft:item_name": {
         "translate": "item.minecraft.stone_pickaxe"
       }
