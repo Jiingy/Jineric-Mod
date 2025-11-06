@@ -376,6 +376,13 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						.pattern("WW")
 						.criterion("has_planks", this.conditionsFromTag(ItemTags.PLANKS))
 						.offerTo(recipeExporter);
+				this.createShaped(RecipeCategory.DECORATIONS, Blocks.TORCH, 4)
+						.input('S', Items.STICK)
+						.input('C', Ingredient.ofItems(Items.COAL, Items.CHARCOAL))
+						.pattern("C")
+						.pattern("S")
+						.criterion("has_coal", this.conditionsFromTag(ItemTags.COALS))
+						.offerTo(recipeExporter, replaceVanilla(Items.TORCH));
 			}
 			
 			@Override
