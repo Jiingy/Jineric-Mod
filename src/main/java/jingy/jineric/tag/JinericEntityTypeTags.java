@@ -6,7 +6,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.tag.TagKey;
 
 public interface JinericEntityTypeTags {
-	
 	TagKey<EntityType<?>> LEVELS_WEAPON_NONE = register("levels_weapon_none");
 	TagKey<EntityType<?>> LEVELS_WEAPON = register("levels_weapon");
 	TagKey<EntityType<?>> LEVELS_WEAPON_LOW = register("levels_weapon_low");
