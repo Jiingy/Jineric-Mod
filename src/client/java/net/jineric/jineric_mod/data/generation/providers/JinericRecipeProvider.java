@@ -357,6 +357,11 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						.criterion(hasItem(Items.CLAY_BALL), this.conditionsFromItem(Items.CLAY_BALL))
 						.offerTo(recipeExporter);
 				
+				this.createShapeless(RecipeCategory.MISC, Items.CLAY_BALL, 2)
+						.input(JinericItems.CLAY_BRICK)
+						.criterion(hasItem(Items.CLAY_BALL), this.conditionsFromItem(Items.CLAY_BALL))
+						.offerTo(recipeExporter);
+				
 				//  -> Vanilla
 				this.createShapeless(RecipeCategory.MISC, Items.STRING, 4)
 						.input(ItemTags.WOOL)
