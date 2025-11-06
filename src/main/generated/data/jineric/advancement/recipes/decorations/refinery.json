@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_polished_deepslate": {
+    "has_charcoal": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:polished_deepslate"
+            "items": "minecraft:charcoal"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_polished_deepslate"
+      "has_charcoal"
     ]
   ],
   "rewards": {

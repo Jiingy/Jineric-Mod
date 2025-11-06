@@ -1,0 +1,15 @@
+{
+   "pack": {
+      "description": "pack.mcmeta for Jineric",
+      "min_format": 88,
+      "max_format": 88
+   },
+   "filter": {
+      "block": [
+         {
+            "namespace": "^minecraft$",
+            "path": "^recipe/furnace.json$"
+         }
+      ]
+   }
+}

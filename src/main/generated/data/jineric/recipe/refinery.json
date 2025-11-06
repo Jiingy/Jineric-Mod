@@ -2,14 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "F": "minecraft:furnace",
-    "P": "minecraft:polished_deepslate",
-    "T": "minecraft:deepslate_tiles"
+    "B": "minecraft:bricks",
+    "C": "jineric:charcoal_block",
+    "b": "minecraft:brick"
   },
   "pattern": [
-    "PPP",
-    "PFP",
-    "TTT"
+    "BBB",
+    "BbB",
+    "BCB"
   ],
   "result": {
     "count": 1,
