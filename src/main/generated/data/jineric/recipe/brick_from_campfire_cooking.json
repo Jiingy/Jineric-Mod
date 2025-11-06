@@ -3,7 +3,7 @@
   "category": "food",
   "cookingtime": 600,
   "experience": 0.1,
-  "ingredient": "minecraft:clay_ball",
+  "ingredient": "jineric:clay_brick",
   "result": {
     "id": "minecraft:brick"
   }

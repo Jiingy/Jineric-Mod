@@ -45,6 +45,7 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		builder.add(JinericBlocks.PRISMARINE_CRYSTAL_BLOCK, "Sea Crystal Block");
 		builder.add(JinericBlocks.REFINERY, "Refinery");
 		//Items
+		builder.add(JinericItems.CLAY_BRICK, "Clay Brick");
 		builder.add(JinericItems.GOLDEN_POTATO, "Golden Potato");
 		builder.add(JinericItems.GOLDEN_SWEET_BERRIES, "Golden Sweet Berries");
 		builder.add(JinericItems.GOLDEN_BEETROOT, "Golden Beetroot");
@@ -67,7 +68,7 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		
 		//  Other
 		builder.add("container.jineric.campfire", "Campfire");
-		builder.add("container.jineric.campfire.cooking_slot_description", "Add food, log, or clay ball");
+		builder.add("container.jineric.campfire.cooking_slot_description", "Add food, log, or clay brick");
 		builder.add("container.jineric.work_bench", "Work Bench");
 		builder.add("item.level", "Level: %s / %s");
 		builder.add("item.level.max", "Level: Max");

@@ -273,6 +273,7 @@ public class JinericItems {
 	public static final Item NETHERITE_HORSE_ARMOR = register("netherite_horse_armor", new Item.Settings().horseArmor(ArmorMaterials.NETHERITE));
 	public static final Item BOW_DRILL = register("bow_drill", BowDrillItem::new, new Item.Settings().maxCount(1));
 	public static final Item TINDER = register(JinericBlocks.TINDER);
+	public static final Item CLAY_BRICK = register("clay_brick");
 	
 	//EQUIPMENT
 	//WOODEN

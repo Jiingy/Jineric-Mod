@@ -347,9 +347,15 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						.criterion("has_log", this.conditionsFromTag(ItemTags.LOGS_THAT_BURN))
 						.offerTo(recipeExporter, "charcoal_from_campfire_cooking");
 				
-				CookingRecipeJsonBuilder.createCampfireCooking(Ingredient.ofItem(Items.CLAY_BALL), RecipeCategory.MISC, Items.BRICK, 0.1F, 600)
-						.criterion("has_clay_ball", this.conditionsFromItem(Items.CLAY_BALL))
+				CookingRecipeJsonBuilder.createCampfireCooking(Ingredient.ofItem(JinericItems.CLAY_BRICK), RecipeCategory.MISC, Items.BRICK, 0.1F, 600)
+						.criterion("has_clay_brick", this.conditionsFromItem(JinericItems.CLAY_BRICK))
 						.offerTo(recipeExporter, "brick_from_campfire_cooking");
+				
+				this.createShaped(RecipeCategory.MISC, JinericItems.CLAY_BRICK)
+						.input('C', Items.CLAY_BALL)
+						.pattern("CC")
+						.criterion(hasItem(Items.CLAY_BALL), this.conditionsFromItem(Items.CLAY_BALL))
+						.offerTo(recipeExporter);
 				
 				//  -> Vanilla
 				this.createShapeless(RecipeCategory.MISC, Items.STRING, 4)

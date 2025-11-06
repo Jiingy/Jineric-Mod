@@ -92,6 +92,7 @@ public class JinericModelProvider extends FabricModelProvider {
 		this.registerWoodEquipmentFamily();
 		Identifier jungleLadderId = img.uploadTwoLayers(JinericItems.JUNGLE_LADDER, ModelIds.getBlockModelId(JinericBlocks.JUNGLE_LADDER), JinericMain.ofJineric("block/jungle_ladder_overlay"));
 		img.output.accept(JinericItems.JUNGLE_LADDER, ItemModels.tinted(jungleLadderId, new GrassTintSource()));
+		img.register(JinericItems.CLAY_BRICK, Models.GENERATED);
 		img.register(JinericItems.GOLDEN_BEETROOT, Models.GENERATED);
 		img.register(JinericItems.GOLDEN_POTATO, Models.GENERATED);
 		img.register(JinericItems.GOLDEN_SWEET_BERRIES, Models.GENERATED);

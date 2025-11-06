@@ -26,13 +26,14 @@ public class CampfireScreen extends HandledScreen<CampfireScreenHandler> {
 	private static final Identifier EMPTY_SLOT_LOG_TEXTURE = JinericMain.ofJineric("container/slot/log");
 	private static final Identifier EMPTY_SLOT_CHICKEN_TEXTURE = JinericMain.ofJineric("container/slot/chicken");
 	private static final Identifier EMPTY_SLOT_CLAY_BALL_TEXTURE = JinericMain.ofJineric("container/slot/clay_ball");
+	private static final Identifier EMPTY_SLOT_CLAY_BRICK_TEXTURE = JinericMain.ofJineric("container/slot/clay_brick");
 	
 	private static final Text COOKING_SLOT_TEXT = Text.translatable("container.jineric.campfire.cooking_slot_description");
 	
 	private static final List<Identifier> COOKING_SLOTS = List.of(
 			EMPTY_SLOT_LOG_TEXTURE,
 			EMPTY_SLOT_CHICKEN_TEXTURE,
-			EMPTY_SLOT_CLAY_BALL_TEXTURE
+			EMPTY_SLOT_CLAY_BRICK_TEXTURE
 	);
 	
 	public CampfireScreen(CampfireScreenHandler handler, PlayerInventory inventory, Text title) {
