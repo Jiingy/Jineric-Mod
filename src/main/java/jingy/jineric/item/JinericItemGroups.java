@@ -256,7 +256,11 @@ public class JinericItemGroups {
 				entries.add(JinericItems.GOLDEN_BEETROOT);
 				entries.add(JinericItems.REDSTONE_LANTERN);
 				entries.add(JinericItems.REDSTONE_CAMPFIRE);
+				entries.add(JinericItems.STONE_UPGRADE_SMITHING_TEMPLATE);
+				entries.add(JinericItems.COPPER_UPGRADE_SMITHING_TEMPLATE);
 				entries.add(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE);
+				entries.add(JinericItems.GOLD_UPGRADE_SMITHING_TEMPLATE);
+				entries.add(JinericItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE);
 			}).build();
 	
 	public static final ItemGroup BLOCKS = FabricItemGroup.builder()
