@@ -49,6 +49,6 @@ public class JinericMain implements ModInitializer {
 		JinericBlockEntityType.registerBlockEntityTypes();
 		JinericStatusEffects.registerStatusEffects();
 		JinericItemGroups.registerJinericItemGroups();
-		JinericItemGroups.registerItemGroups();
+		JinericItemGroups.modifyVanillaGroups();
 	}
 }
