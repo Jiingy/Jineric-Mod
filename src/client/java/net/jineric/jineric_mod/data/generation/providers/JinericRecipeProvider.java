@@ -459,7 +459,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						Item resultVariantItem = resultFamily.getVariantItem(variant);
 						String recipeId = getItemPath(resultVariantItem) + "_smithing";
 						if (Registries.ITEM.getId(item).getNamespace().equals("minecraft")) {
-							recipeId = "jineric_replace_" + getItemPath(resultVariantItem);
+							recipeId = replaceVanilla(resultVariantItem);
 						}
 						this.offerSmithingUpgradeRecipe(
 								inputFamily.getSmithingTemplate(),
@@ -488,7 +488,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 			}
 			
 			public void offerVanillaSmithingUpgradeRecipe(Item template, Item input, TagKey<Item> material, Item result, RecipeCategory category) {
-				this.offerSmithingUpgradeRecipe(template, input, material, result, category, "jineric_replace_" + getItemPath(result));
+				this.offerSmithingUpgradeRecipe(template, input, material, result, category, replaceVanilla(result));
 			}
 			
 			public void offerSmithingUpgradeRecipe(Item template, Item input, TagKey<Item> material, Item result, RecipeCategory category) {
@@ -704,7 +704,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						.pattern("LLL")
 						.criterion("has_stick", this.conditionsFromItem(Items.STICK))
 						.criterion("has_tinder", this.conditionsFromItem(JinericItems.TINDER))
-						.offerTo(recipeExporter, "jineric_replace_" + getItemPath(Items.CAMPFIRE));
+						.offerTo(recipeExporter, replaceVanilla(Items.CAMPFIRE));
 			}
 		};
 	}
@@ -715,6 +715,10 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 		} else {
 			return RecipeCategory.TOOLS;
 		}
+	}
+	
+	public static String replaceVanilla(Item replacedResult) {
+		return "jineric_replace_" + RecipeGenerator.getItemPath(replacedResult);
 	}
 	
 	@Override
