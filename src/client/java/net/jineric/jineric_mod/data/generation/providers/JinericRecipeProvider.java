@@ -375,7 +375,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						.pattern("WW")
 						.pattern("WW")
 						.criterion("has_planks", this.conditionsFromTag(ItemTags.PLANKS))
-						.offerTo(recipeExporter);
+						.offerTo(recipeExporter, replaceVanilla(Blocks.SMITHING_TABLE));
 				this.createShaped(RecipeCategory.DECORATIONS, Blocks.TORCH, 4)
 						.input('S', Items.STICK)
 						.input('C', Ingredient.ofItems(Items.COAL, Items.CHARCOAL))
@@ -724,7 +724,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 		}
 	}
 	
-	public static String replaceVanilla(Item replacedResult) {
+	public static String replaceVanilla(ItemConvertible replacedResult) {
 		return "jineric_replace_" + RecipeGenerator.getItemPath(replacedResult);
 	}
 	

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "jineric:smithing_table"
+        "recipe": "minecraft:smithing_table"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "jineric:smithing_table"
+      "minecraft:smithing_table"
     ]
   }
 }
