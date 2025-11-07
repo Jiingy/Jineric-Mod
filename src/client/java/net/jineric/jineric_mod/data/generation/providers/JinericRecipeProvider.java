@@ -510,6 +510,10 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 //         }
 		};
 	}
+
+    public static String replaceVanilla(ItemConvertible replacedResult) {
+        return "jineric_replace_" + RecipeGenerator.getItemPath(replacedResult);
+    }
 	
 	@Override
 	public String getName() {
