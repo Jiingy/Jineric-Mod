@@ -276,6 +276,13 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						.pattern("GG")
 						.criterion("has_grass_block", this.conditionsFromItem(Blocks.GRASS_BLOCK))
 						.offerTo(recipeExporter);
+
+                this.createShaped(RecipeCategory.BUILDING_BLOCKS, Blocks.STONE_BRICKS, 4)
+                        .input('S', JinericBlocks.POLISHED_STONE)
+                        .pattern("SS")
+                        .pattern("SS")
+                        .criterion("has_polished_stone", this.conditionsFromItem(JinericBlocks.POLISHED_STONE))
+                        .offerTo(recipeExporter, replaceVanilla(Blocks.STONE_BRICKS));
 			}
 			
 			@Override
