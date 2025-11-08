@@ -33,6 +33,7 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.resource.featuretoggle.FeatureSet;
+import net.minecraft.util.Identifier;
 
 import java.util.Arrays;
 import java.util.List;
@@ -520,6 +521,15 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 
     public static String replaceVanilla(ItemConvertible replacedResult) {
         return "jineric_replace_" + RecipeGenerator.getItemPath(replacedResult);
+    }
+
+    @Override
+    protected Identifier getRecipeIdentifier(Identifier identifier) {
+        if (identifier.getNamespace().equals("minecraft") && identifier.getPath().contains("jineric_replace_")) {
+            return Identifier.ofVanilla(identifier.getPath().replace("jineric_replace_", ""));
+        } else {
+            return super.getRecipeIdentifier(identifier);
+        }
     }
 	
 	@Override
