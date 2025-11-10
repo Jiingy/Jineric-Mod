@@ -1,9 +1,10 @@
 package jingy.jineric.block;
 
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.TrappedChestBlock;
 import net.minecraft.block.WoodType;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.entity.ChestBlockEntity;
 import net.minecraft.block.entity.TrappedChestBlockEntity;
 import net.minecraft.stat.Stat;
@@ -14,9 +15,10 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.BlockView;
 
-public class WoodenTrappedChestBlock extends WoodenChestBlock {
-	public WoodenTrappedChestBlock(Settings settings, WoodType type) {
-		super(() -> BlockEntityType.TRAPPED_CHEST, settings, type);
+public class WoodenTrappedChestBlock0 extends TrappedChestBlock {
+	
+	public WoodenTrappedChestBlock0(AbstractBlock.Settings settings, WoodType woodType) {
+		super(settings);
 	}
 	
 	@Override

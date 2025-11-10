@@ -5,7 +5,6 @@ import jingy.jineric.item.JinericItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.data.family.BlockFamilies;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -47,6 +46,28 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		builder.add(JinericItems.GOLDEN_BEETROOT, "Golden Beetroot");
 		builder.add(JinericItems.NETHERITE_HORSE_ARMOR, "Netherite Horse Armor");
 		builder.add(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE, "Smithing Template");
+			// Containers
+		builder.add("container.oak_chest", "Oak Chest");
+		builder.add("container.spruce_chest", "Spruce Chest");
+		builder.add("container.birch_chest", "Birch Chest");
+		builder.add("container.jungle_chest", "Jungle Chest");
+		builder.add("container.acacia_chest", "Acacia Chest");
+		builder.add("container.dark_oak_chest", "Dark Oak Chest");
+		builder.add("container.mangrove_chest", "Mangrove Chest");
+		builder.add("container.cherry_chest", "Cherry Chest");
+		builder.add("container.bamboo_chest", "Bamboo Chest");
+		builder.add("container.pale_oak_chest", "Pale Oak Chest");
+		builder.add("container.crimson_chest", "Crimson Chest");
+		builder.add("container.warped_chest", "Warped Chest");
+		
+		builder.add("container.unaffected_copper_chest", "Copper Chest");
+		builder.add("container.exposed_copper_chest", "Exposed Copper Chest");
+		builder.add("container.weathered_copper_chest", "Weathered Copper Chest");
+		builder.add("container.oxidized_copper_chest", "Oxidized Copper Chest");
+		builder.add("container.double_unaffected_copper_chest", "Double Copper Chest");
+		builder.add("container.double_exposed_copper_chest", "Double Exposed Copper Chest");
+		builder.add("container.double_weathered_copper_chest", "Double Weathered Copper Chest");
+		builder.add("container.double_oxidized_copper_chest", "Double Oxidized Copper Chest");
 	}
 	
 	public void tryExisting(TranslationBuilder builder) {

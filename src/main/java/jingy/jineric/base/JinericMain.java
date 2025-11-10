@@ -35,7 +35,6 @@ public class JinericMain implements ModInitializer {
 	}
 	
 	private void initRegistries() {
-		JinericRegistries.initializeJinericRegistries();
 		JinericBlocks.initialize();
 		JinericItems.initialize();
 		JinericBlockFamilies.initialize();
@@ -50,5 +49,6 @@ public class JinericMain implements ModInitializer {
 		JinericStatusEffects.registerStatusEffects();
 		JinericItemGroups.registerJinericItemGroups();
 		JinericItemGroups.modifyVanillaGroups();
+		JinericRegistries.initializeJinericRegistries();
 	}
 }
