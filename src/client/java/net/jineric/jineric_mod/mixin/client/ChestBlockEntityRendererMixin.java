@@ -1,8 +1,8 @@
 package net.jineric.jineric_mod.mixin.client;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import jingy.jineric.block.JinericChestBlock;
-import jingy.jineric.block.JinericTrappedChestBlock;
+import jingy.jineric.block.WoodenChestBlock;
+import jingy.jineric.block.WoodenTrappedChestBlock;
 import net.jineric.jineric_mod.block.entity.state.JinericChestBlockEntityRenderStateVariant;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -42,7 +42,7 @@ public abstract class ChestBlockEntityRendererMixin<T extends BlockEntity & LidO
 //	private SpriteIdentifier jineric$getJinericChestTexture(ChestBlockEntityRenderState.Variant variant, ChestType type, Operation<SpriteIdentifier> original) {
 //		boolean christmas = variant.equals(ChestBlockEntityRenderState.Variant.CHRISTMAS);
 //		BlockState blockState = this.blockEntity.getCachedState();
-//		WoodType woodType = JinericChestBlock.getWoodType(blockState.getBlock());
+//		WoodType woodType = WoodenChestBlock.getWoodType(blockState.getBlock());
 //		if (this.blockEntity instanceof JinericChestBlockEntity chestBlockEntity) {
 //			return JinericTextureRenderLayers.getChestTexture(chestBlockEntity, type, christmas, woodType);
 //		} else {
@@ -55,7 +55,7 @@ public abstract class ChestBlockEntityRendererMixin<T extends BlockEntity & LidO
 			at = @At(value = "RETURN", ordinal = 4)
 	)
 	private ChestBlockEntityRenderState.Variant getIdsForJinericChests(ChestBlockEntityRenderState.Variant original, BlockEntity blockEntity, boolean christmas) {
-		if (blockEntity.getCachedState().getBlock() instanceof JinericTrappedChestBlock trappedChestBlock) {
+		if (blockEntity.getCachedState().getBlock() instanceof WoodenTrappedChestBlock trappedChestBlock) {
 			return switch (trappedChestBlock.getWoodType().name()) {
 //				case "oak" -> JinericChestBlockEntityRenderStateVariant.JINERIC_TRAPPED_OAK;
 				case "spruce" -> JinericChestBlockEntityRenderStateVariant.JINERIC_TRAPPED_SPRUCE;
@@ -71,7 +71,7 @@ public abstract class ChestBlockEntityRendererMixin<T extends BlockEntity & LidO
 				case "warped" -> JinericChestBlockEntityRenderStateVariant.JINERIC_TRAPPED_WARPED;
 				default -> throw new IllegalStateException("Unexpected value: " + trappedChestBlock.getWoodType().name());
 			};
-		} else if (blockEntity.getCachedState().getBlock() instanceof JinericChestBlock chestBlock) {
+		} else if (blockEntity.getCachedState().getBlock() instanceof WoodenChestBlock chestBlock) {
 			return switch (chestBlock.getWoodType().name()) {
 //				case "oak" -> JinericChestBlockEntityRenderStateVariant.JINERIC_OAK;
 				case "spruce" -> JinericChestBlockEntityRenderStateVariant.JINERIC_SPRUCE;

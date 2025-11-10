@@ -2,6 +2,7 @@ package jingy.jineric.block;
 
 import jingy.jineric.block.entity.JinericChestBlockEntity;
 import jingy.jineric.registry.JinericBlockEntityType;
+import jingy.jineric.tag.JinericBlockTags;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -24,7 +25,7 @@ import java.util.Optional;
 import java.util.function.BiPredicate;
 import java.util.function.Supplier;
 
-public class JinericChestBlock extends ChestBlock {
+public class WoodenChestBlock extends ChestBlock {
 	private static final DoubleBlockProperties.PropertyRetriever<JinericChestBlockEntity, Optional<NamedScreenHandlerFactory>> NAME_RETRIEVER = new DoubleBlockProperties.PropertyRetriever<>() {
 		public Optional<NamedScreenHandlerFactory> getFromBoth(JinericChestBlockEntity jinericChestBlockEntity, JinericChestBlockEntity jinericChestBlockEntity2) {
 			final Inventory inventory = new DoubleInventory(jinericChestBlockEntity, jinericChestBlockEntity2);
@@ -47,7 +48,7 @@ public class JinericChestBlock extends ChestBlock {
 						return jinericChestBlockEntity.getDisplayName();
 					} else {
 						BlockState blockState = jinericChestBlockEntity.getCachedState();
-						WoodType woodType = JinericChestBlock.getWoodType(blockState.getBlock());
+						WoodType woodType = WoodenChestBlock.getWoodType(blockState.getBlock());
 						return (jinericChestBlockEntity2.hasCustomName() ? jinericChestBlockEntity2.getDisplayName() : jinericChestBlockEntity.getChestTypeKey(woodType));
 					}
 				}
@@ -64,20 +65,20 @@ public class JinericChestBlock extends ChestBlock {
 	};
 	private final WoodType type;
 	
-	public JinericChestBlock(Supplier<BlockEntityType<? extends ChestBlockEntity>> blockEntityTypeSupplier, Settings settings, WoodType type) {
+	public WoodenChestBlock(Supplier<BlockEntityType<? extends ChestBlockEntity>> blockEntityTypeSupplier, Settings settings, WoodType type) {
 		super(blockEntityTypeSupplier, SoundEvents.BLOCK_CHEST_OPEN, SoundEvents.BLOCK_CHEST_CLOSE, settings);
 		this.type = type;
 	}
 	
-	public JinericChestBlock(Settings settings, WoodType type) {
+	public WoodenChestBlock(Settings settings, WoodType type) {
 		super(() -> JinericBlockEntityType.JINERIC_CHEST, SoundEvents.BLOCK_CHEST_OPEN, SoundEvents.BLOCK_CHEST_CLOSE, settings);
 		this.type = type;
 	}
 	
 	public static WoodType getWoodType(Block block) {
 		WoodType woodType;
-		if (block instanceof JinericChestBlock) {
-			woodType = ((JinericChestBlock) block).getWoodType();
+		if (block instanceof WoodenChestBlock) {
+			woodType = ((WoodenChestBlock) block).getWoodType();
 		} else {
 			woodType = WoodType.OAK;
 		}
@@ -104,11 +105,11 @@ public class JinericChestBlock extends ChestBlock {
 		if (ignoreBlocked) {
 			biPredicate = (worldx, posx) -> false;
 		} else {
-			biPredicate = JinericChestBlock::isChestBlocked;
+			biPredicate = WoodenChestBlock::isChestBlocked;
 		}
 		return DoubleBlockProperties.toPropertySource(
 				(BlockEntityType<? extends JinericChestBlockEntity>) this.entityTypeRetriever.get(),
-				JinericChestBlock::getDoubleBlockType, JinericChestBlock::getFacing,
+				WoodenChestBlock::getDoubleBlockType, WoodenChestBlock::getFacing,
 				FACING, state, world, pos, biPredicate
 		);
 	}
@@ -123,5 +124,10 @@ public class JinericChestBlock extends ChestBlock {
 	@Override
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
 		return world.isClient() ? validateTicker(type, this.getExpectedEntityType(), JinericChestBlockEntity::clientTick) : null;
+	}
+	
+	@Override
+	protected boolean keepBlockEntityWhenReplacedWith(BlockState state) {
+		return state.isIn(JinericBlockTags.WOODEN_CHESTS);
 	}
 }
