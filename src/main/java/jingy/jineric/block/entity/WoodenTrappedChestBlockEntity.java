@@ -10,8 +10,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.block.OrientationHelper;
 import net.minecraft.world.block.WireOrientation;
 
-public class JinericTrappedChestBlockEntity extends JinericChestBlockEntity {
-	public JinericTrappedChestBlockEntity(BlockPos blockPos, BlockState blockState) {
+public class WoodenTrappedChestBlockEntity extends WoodenChestBlockEntity {
+	public WoodenTrappedChestBlockEntity(BlockPos blockPos, BlockState blockState) {
 		super(JinericBlockEntityType.JINERIC_TRAPPED_CHEST, blockPos, blockState);
 	}
 	

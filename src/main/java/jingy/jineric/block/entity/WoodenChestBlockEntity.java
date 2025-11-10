@@ -8,12 +8,12 @@ import net.minecraft.block.entity.ChestBlockEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 
-public class JinericChestBlockEntity extends ChestBlockEntity {
-	public JinericChestBlockEntity(BlockEntityType<?> type, BlockPos blockPos, BlockState blockState) {
+public class WoodenChestBlockEntity extends ChestBlockEntity {
+	public WoodenChestBlockEntity(BlockEntityType<?> type, BlockPos blockPos, BlockState blockState) {
 		super(type, blockPos, blockState);
 	}
 	
-	public JinericChestBlockEntity(BlockPos blockPos, BlockState state) {
+	public WoodenChestBlockEntity(BlockPos blockPos, BlockState state) {
 		this(JinericBlockEntityType.JINERIC_CHEST, blockPos, state);
 	}
 	

@@ -1,6 +1,6 @@
 package jingy.jineric.block;
 
-import jingy.jineric.block.entity.JinericChestBlockEntity;
+import jingy.jineric.block.entity.WoodenChestBlockEntity;
 import jingy.jineric.registry.JinericBlockEntityType;
 import jingy.jineric.tag.JinericBlockTags;
 import net.minecraft.block.*;
@@ -26,16 +26,16 @@ import java.util.function.BiPredicate;
 import java.util.function.Supplier;
 
 public class WoodenChestBlock extends ChestBlock {
-	private static final DoubleBlockProperties.PropertyRetriever<JinericChestBlockEntity, Optional<NamedScreenHandlerFactory>> NAME_RETRIEVER = new DoubleBlockProperties.PropertyRetriever<>() {
-		public Optional<NamedScreenHandlerFactory> getFromBoth(JinericChestBlockEntity jinericChestBlockEntity, JinericChestBlockEntity jinericChestBlockEntity2) {
-			final Inventory inventory = new DoubleInventory(jinericChestBlockEntity, jinericChestBlockEntity2);
+	private static final DoubleBlockProperties.PropertyRetriever<WoodenChestBlockEntity, Optional<NamedScreenHandlerFactory>> NAME_RETRIEVER = new DoubleBlockProperties.PropertyRetriever<>() {
+		public Optional<NamedScreenHandlerFactory> getFromBoth(WoodenChestBlockEntity woodenChestBlockEntity, WoodenChestBlockEntity woodenChestBlockEntity2) {
+			final Inventory inventory = new DoubleInventory(woodenChestBlockEntity, woodenChestBlockEntity2);
 			return Optional.of(new NamedScreenHandlerFactory() {
 				@Nullable
 				@Override
 				public ScreenHandler createMenu(int i, PlayerInventory playerInventory, PlayerEntity playerEntity) {
-					if (jinericChestBlockEntity.checkUnlocked(playerEntity) && jinericChestBlockEntity2.checkUnlocked(playerEntity)) {
-						jinericChestBlockEntity.generateLoot(playerInventory.player);
-						jinericChestBlockEntity2.generateLoot(playerInventory.player);
+					if (woodenChestBlockEntity.checkUnlocked(playerEntity) && woodenChestBlockEntity2.checkUnlocked(playerEntity)) {
+						woodenChestBlockEntity.generateLoot(playerInventory.player);
+						woodenChestBlockEntity2.generateLoot(playerInventory.player);
 						return GenericContainerScreenHandler.createGeneric9x6(i, playerInventory, inventory);
 					} else {
 						return null;
@@ -44,18 +44,18 @@ public class WoodenChestBlock extends ChestBlock {
 				
 				@Override
 				public net.minecraft.text.Text getDisplayName() {
-					if (jinericChestBlockEntity.hasCustomName()) {
-						return jinericChestBlockEntity.getDisplayName();
+					if (woodenChestBlockEntity.hasCustomName()) {
+						return woodenChestBlockEntity.getDisplayName();
 					} else {
-						BlockState blockState = jinericChestBlockEntity.getCachedState();
+						BlockState blockState = woodenChestBlockEntity.getCachedState();
 						WoodType woodType = WoodenChestBlock.getWoodType(blockState.getBlock());
-						return (jinericChestBlockEntity2.hasCustomName() ? jinericChestBlockEntity2.getDisplayName() : jinericChestBlockEntity.getChestTypeKey(woodType));
+						return (woodenChestBlockEntity2.hasCustomName() ? woodenChestBlockEntity2.getDisplayName() : woodenChestBlockEntity.getChestTypeKey(woodType));
 					}
 				}
 			});
 		}
 		
-		public Optional<NamedScreenHandlerFactory> getFrom(JinericChestBlockEntity chestBlockEntity) {
+		public Optional<NamedScreenHandlerFactory> getFrom(WoodenChestBlockEntity chestBlockEntity) {
 			return Optional.of(chestBlockEntity);
 		}
 		
@@ -87,19 +87,19 @@ public class WoodenChestBlock extends ChestBlock {
 	
 	@Override
 	public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-		return new JinericChestBlockEntity(JinericBlockEntityType.JINERIC_CHEST, pos, state);
+		return new WoodenChestBlockEntity(JinericBlockEntityType.JINERIC_CHEST, pos, state);
 	}
 	
 	public WoodType getWoodType() {
 		return this.type;
 	}
 	
-	public BlockEntityType<? extends JinericChestBlockEntity> getExpectedEntityType() {
+	public BlockEntityType<? extends WoodenChestBlockEntity> getExpectedEntityType() {
 		return (BlockEntityType) this.entityTypeRetriever.get();
 	}
 	
 	@Override
-	public DoubleBlockProperties.PropertySource<? extends JinericChestBlockEntity> getBlockEntitySource(
+	public DoubleBlockProperties.PropertySource<? extends WoodenChestBlockEntity> getBlockEntitySource(
 			BlockState state, World world, BlockPos pos, boolean ignoreBlocked) {
 		BiPredicate<WorldAccess, BlockPos> biPredicate;
 		if (ignoreBlocked) {
@@ -108,7 +108,7 @@ public class WoodenChestBlock extends ChestBlock {
 			biPredicate = WoodenChestBlock::isChestBlocked;
 		}
 		return DoubleBlockProperties.toPropertySource(
-				(BlockEntityType<? extends JinericChestBlockEntity>) this.entityTypeRetriever.get(),
+				(BlockEntityType<? extends WoodenChestBlockEntity>) this.entityTypeRetriever.get(),
 				WoodenChestBlock::getDoubleBlockType, WoodenChestBlock::getFacing,
 				FACING, state, world, pos, biPredicate
 		);
@@ -123,7 +123,7 @@ public class WoodenChestBlock extends ChestBlock {
 	@Nullable
 	@Override
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-		return world.isClient() ? validateTicker(type, this.getExpectedEntityType(), JinericChestBlockEntity::clientTick) : null;
+		return world.isClient() ? validateTicker(type, this.getExpectedEntityType(), WoodenChestBlockEntity::clientTick) : null;
 	}
 	
 	@Override

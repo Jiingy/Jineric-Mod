@@ -25,6 +25,7 @@
       "fix.CampfireBlockEntityMixin",
       "fix.CanEnterTrapdoorMixin",
       "fix.CatSitOnBlockGoalMixin",
+      "fix.ChestBlock$2Mixin",
       "fix.EatJmGrassBlockMixin",
       "fix.FallLocationAddLaddersMixin",
       "fix.FixRedstoneCampfireBlockEntity",

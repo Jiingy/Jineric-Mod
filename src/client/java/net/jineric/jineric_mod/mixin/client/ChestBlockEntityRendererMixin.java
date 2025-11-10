@@ -3,52 +3,21 @@ package net.jineric.jineric_mod.mixin.client;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import jingy.jineric.block.WoodenChestBlock;
 import jingy.jineric.block.WoodenTrappedChestBlock;
-import net.jineric.jineric_mod.block.entity.state.JinericChestBlockEntityRenderStateVariant;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.jineric.jineric_mod.block.entity.state.JinericChestBlockEntityRenderStateVariant;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.LidOpenable;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.ChestBlockEntityRenderer;
 import net.minecraft.client.render.block.entity.state.ChestBlockEntityRenderState;
-import net.minecraft.client.render.command.ModelCommandRenderer;
-import net.minecraft.util.math.Vec3d;
-import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Environment(EnvType.CLIENT)
 @Mixin(ChestBlockEntityRenderer.class)
 public abstract class ChestBlockEntityRendererMixin<T extends BlockEntity & LidOpenable> implements BlockEntityRenderer<T, ChestBlockEntityRenderState> {
-	@Unique private BlockEntity blockEntity;
-	
-//	@Inject(
-//			method = "updateRenderState(Lnet/minecraft/block/entity/BlockEntity;Lnet/minecraft/client/render/block/entity/state/ChestBlockEntityRenderState;FLnet/minecraft/util/math/Vec3d;Lnet/minecraft/client/render/command/ModelCommandRenderer$CrumblingOverlayCommand;)V",
-//			at = @At(value = "TAIL")
-//	)
-	private void setBlockEntity(T blockEntity, ChestBlockEntityRenderState chestBlockEntityRenderState, float f, Vec3d vec3d, @Nullable ModelCommandRenderer.CrumblingOverlayCommand crumblingOverlayCommand, CallbackInfo ci) {
-		this.blockEntity = blockEntity;
-	}
-	
-//	@WrapOperation(
-//			method = "render(Lnet/minecraft/client/render/block/entity/state/ChestBlockEntityRenderState;Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/command/OrderedRenderCommandQueue;Lnet/minecraft/client/render/state/CameraRenderState;)V",
-//			at = @At(
-//					value = "INVOKE",
-//					target = "Lnet/minecraft/client/render/TexturedRenderLayers;getChestTextureId(Lnet/minecraft/client/render/block/entity/state/ChestBlockEntityRenderState$Variant;Lnet/minecraft/block/enums/ChestType;)Lnet/minecraft/client/util/SpriteIdentifier;"
-//			)
-//	)
-//	private SpriteIdentifier jineric$getJinericChestTexture(ChestBlockEntityRenderState.Variant variant, ChestType type, Operation<SpriteIdentifier> original) {
-//		boolean christmas = variant.equals(ChestBlockEntityRenderState.Variant.CHRISTMAS);
-//		BlockState blockState = this.blockEntity.getCachedState();
-//		WoodType woodType = WoodenChestBlock.getWoodType(blockState.getBlock());
-//		if (this.blockEntity instanceof JinericChestBlockEntity chestBlockEntity) {
-//			return JinericTextureRenderLayers.getChestTexture(chestBlockEntity, type, christmas, woodType);
-//		} else {
-//			return original.call(variant, type);
-//		}
-//	}
 	
 	@ModifyReturnValue(
 			method = "getVariant",

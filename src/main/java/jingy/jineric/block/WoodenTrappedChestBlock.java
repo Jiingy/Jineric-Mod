@@ -1,6 +1,6 @@
 package jingy.jineric.block;
 
-import jingy.jineric.block.entity.JinericTrappedChestBlockEntity;
+import jingy.jineric.block.entity.WoodenTrappedChestBlockEntity;
 import jingy.jineric.registry.JinericBlockEntityType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.WoodType;
@@ -21,7 +21,7 @@ public class WoodenTrappedChestBlock extends WoodenChestBlock {
 	
 	@Override
 	public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-		return new JinericTrappedChestBlockEntity(pos, state);
+		return new WoodenTrappedChestBlockEntity(pos, state);
 	}
 	
 	@Override
