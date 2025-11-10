@@ -306,7 +306,7 @@ public class JinericBlocks {
 	public static final Block JUNGLE_CHEST = registerChest("jungle_chest", Blocks.CHEST, WoodType.JUNGLE);
 	public static final Block ACACIA_CHEST = registerChest("acacia_chest", Blocks.CHEST, WoodType.ACACIA);
 	public static final Block DARK_OAK_CHEST = registerChest("dark_oak_chest", Blocks.CHEST, WoodType.DARK_OAK);
-	public static final Block MANGROVE_CHEST = registerChest("mangrove_chest", Blocks.TRAPPED_CHEST, WoodType.MANGROVE);
+	public static final Block MANGROVE_CHEST = registerChest("mangrove_chest", Blocks.CHEST, WoodType.MANGROVE);
 	public static final Block CHERRY_CHEST = registerChest("cherry_chest", Blocks.CHEST, WoodType.CHERRY);
 	public static final Block BAMBOO_CHEST = registerChest("bamboo_chest", Blocks.CHEST, WoodType.BAMBOO);
 	public static final Block CRIMSON_CHEST = registerChest("crimson_chest", Blocks.CHEST, WoodType.CRIMSON);
