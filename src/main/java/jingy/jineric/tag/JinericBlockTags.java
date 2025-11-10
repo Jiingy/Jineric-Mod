@@ -8,7 +8,7 @@ import net.minecraft.registry.tag.TagKey;
 public class JinericBlockTags {
 	public static final TagKey<Block> NOT_PICKAXE_WALL = registerBlockTag("not_pickaxe_wall");
 	public static final TagKey<Block> SLIPPERY = registerBlockTag("slippery");
-	public static final TagKey<Block> FULL_GRASS_REPLACEABLE = registerBlockTag("full_grass_block_replaceable");
+	public static final TagKey<Block> JM_GRASS_BLOCK_REPLACEABLE = registerBlockTag("jm_grass_block_replaceable");
 	public static final TagKey<Block> WOODEN_BOOKSHELVES = registerBlockTag("wooden_bookshelves");
 	public static final TagKey<Block> CHESTS = registerBlockTag("chests");
 	public static final TagKey<Block> TRAPPED_CHESTS = registerBlockTag("trapped_chests");

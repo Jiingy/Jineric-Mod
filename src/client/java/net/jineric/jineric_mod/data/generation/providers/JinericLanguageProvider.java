@@ -5,6 +5,7 @@ import jingy.jineric.item.JinericItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.family.BlockFamilies;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -21,7 +22,8 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 	@Override
 	public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder builder) {
 		this.tryExisting(builder);
-		//Blocks
+		// Modded
+			//  Blocks
 		this.addBlockFamilies(builder);
 		builder.add(JinericBlocks.SOUL_JACK_O_LANTERN, "Soul Jack o'Lantern");
 		builder.add(JinericBlocks.SUGAR_BLOCK, "Block of Sugar");
@@ -30,7 +32,7 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		builder.add(JinericBlocks.CHARCOAL_BLOCK, "Block of Charcoal");
 		builder.add(JinericBlocks.STICK_BLOCK, "Bundle of Sticks");
 		builder.add(JinericBlocks.PAPER_BLOCK, "Stack of Paper");
-		builder.add(JinericBlocks.FULL_GRASS_BLOCK, "Full Grass Block");
+		builder.add(JinericBlocks.GRASS_BLOCK, "Block of Grass");
 		builder.add(JinericBlocks.BONE_MEAL_BLOCK, "Block of Bone Meal");
 		builder.add(JinericBlocks.EGG_BLOCK, "Batch of Eggs");
 		builder.add(JinericBlocks.ENDER_PEARL_BLOCK, "Block of Ender Pearls");
@@ -39,7 +41,7 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		builder.add(JinericBlocks.REDSTONE_CAMPFIRE, "Redstone Campfire");
 		builder.add(JinericBlocks.PRISMARINE_CRYSTAL_BLOCK, "Sea Crystal Block");
 		builder.add(JinericBlocks.REFINERY, "Refinery");
-		//Items
+			//Items
 		builder.add(JinericItems.GOLDEN_POTATO, "Golden Potato");
 		builder.add(JinericItems.GOLDEN_SWEET_BERRIES, "Golden Sweet Berries");
 		builder.add(JinericItems.GOLDEN_BEETROOT, "Golden Beetroot");

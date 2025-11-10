@@ -1,6 +1,6 @@
 package net.jineric.jineric_mod.registry;
 
-import jingy.jineric.block.FullGrassBlock;
+import jingy.jineric.block.JmGrassBlock;
 import jingy.jineric.block.JinericBlocks;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -15,7 +15,7 @@ public class JinericColorProviders {
 		// BLOCKS
 		ColorProviderRegistry.BLOCK.register(
 				((state, world, pos, tintIndex) -> {
-					boolean snowy = state.get(FullGrassBlock.SNOWY);
+					boolean snowy = state.get(JmGrassBlock.SNOWY);
 					if (world != null && pos != null) {
 						if (snowy) {
 							return tintIndex > 0 ? -1 : BiomeColors.getGrassColor(world, pos);
@@ -25,7 +25,7 @@ public class JinericColorProviders {
 					} else {
 						return GrassColors.getColor(0.5D, 1.0D);
 					}
-				}), JinericBlocks.FULL_GRASS_BLOCK
+				}), JinericBlocks.GRASS_BLOCK
 		);
 		ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) ->
 				world != null && pos != null

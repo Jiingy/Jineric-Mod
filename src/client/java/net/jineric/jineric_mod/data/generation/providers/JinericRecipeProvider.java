@@ -270,7 +270,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						.group("")
 						.criterion("has_polished_deepslate", conditionsFromItem(Items.POLISHED_DEEPSLATE))
 						.offerTo(recipeExporter);
-				this.createShaped(RecipeCategory.BUILDING_BLOCKS, JinericBlocks.FULL_GRASS_BLOCK, 3)
+				this.createShaped(RecipeCategory.BUILDING_BLOCKS, JinericBlocks.GRASS_BLOCK, 3)
 						.input('G', Blocks.GRASS_BLOCK)
 						.pattern("GG")
 						.pattern("GG")

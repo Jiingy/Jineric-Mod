@@ -25,7 +25,7 @@
       "fix.CampfireBlockEntityMixin",
       "fix.CanEnterTrapdoorMixin",
       "fix.CatSitOnBlockGoalMixin",
-      "fix.EatFullGrassBlockMixin",
+      "fix.EatJmGrassBlockMixin",
       "fix.FallLocationAddLaddersMixin",
       "fix.FixRedstoneCampfireBlockEntity",
       "fix.PointedDripstoneCanGrowMixin",

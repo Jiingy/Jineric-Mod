@@ -19,14 +19,10 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 import java.util.function.Predicate;
 
 @Mixin(EatGrassGoal.class)
-public abstract class EatFullGrassBlockMixin extends Goal {
-	@Mutable
-	@Shadow
-	@Final
-	private static Predicate<BlockState> EDIBLE_PREDICATE;
-	
+public abstract class EatJmGrassBlockMixin extends Goal {
+	@Mutable @Shadow @Final private static Predicate<BlockState> EDIBLE_PREDICATE;
 	static {
-		EDIBLE_PREDICATE = EDIBLE_PREDICATE.or(BlockStatePredicate.forBlock(JinericBlocks.FULL_GRASS_BLOCK));
+		EDIBLE_PREDICATE = EDIBLE_PREDICATE.or(BlockStatePredicate.forBlock(JinericBlocks.GRASS_BLOCK));
 	}
 	
 	@WrapOperation(
@@ -36,8 +32,8 @@ public abstract class EatFullGrassBlockMixin extends Goal {
 					target = "net/minecraft/block/BlockState.isOf(Lnet/minecraft/block/Block;)Z"
 			)
 	)
-	private boolean jineric$canStartFullGrassBlockCheck(BlockState instance, Block block, Operation<Boolean> original) {
-		return original.call(instance, block) || instance.isOf(JinericBlocks.FULL_GRASS_BLOCK);
+	private boolean canStartJmGrassBlockCheck(BlockState instance, Block block, Operation<Boolean> original) {
+		return original.call(instance, block) || instance.isOf(JinericBlocks.GRASS_BLOCK);
 	}
 	
 	@WrapOperation(
@@ -47,8 +43,8 @@ public abstract class EatFullGrassBlockMixin extends Goal {
 					target = "net/minecraft/block/BlockState.isOf(Lnet/minecraft/block/Block;)Z"
 			)
 	)
-	private boolean jineric$tickFullGrassBlockCheck(BlockState instance, Block block, Operation<Boolean> original) {
-		return original.call(instance, block) || instance.isOf(JinericBlocks.FULL_GRASS_BLOCK);
+	private boolean tickJmGrassBlockCheck(BlockState instance, Block block, Operation<Boolean> original) {
+		return original.call(instance, block) || instance.isOf(JinericBlocks.GRASS_BLOCK);
 	}
 	
 	@ModifyArg(
@@ -58,7 +54,7 @@ public abstract class EatFullGrassBlockMixin extends Goal {
 					target = "Lnet/minecraft/block/Block;getRawIdFromState(Lnet/minecraft/block/BlockState;)I"
 			)
 	)
-	private BlockState jineric$FullGrassRawIdFromState(@Nullable BlockState state) {
-		return JinericBlocks.FULL_GRASS_BLOCK.getDefaultState();
+	private BlockState jmGrassBlockRawIdFromState(@Nullable BlockState state) {
+		return JinericBlocks.GRASS_BLOCK.getDefaultState();
 	}
 }

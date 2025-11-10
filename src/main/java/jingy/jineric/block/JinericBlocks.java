@@ -219,7 +219,7 @@ public class JinericBlocks {
 	
 	//DECORATION BLOCKS
 	public static final Block SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", CarvedPumpkinBlock::new, AbstractBlock.Settings.copy(JACK_O_LANTERN));
-	public static final Block FULL_GRASS_BLOCK = register("full_grass_block", FullGrassBlock::new, AbstractBlock.Settings.copy(GRASS_BLOCK));
+	public static final Block GRASS_BLOCK = register("grass_block", JmGrassBlock::new, AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK));
 	public static final Block PRISMARINE_BRICK_WALL = register("prismarine_brick_wall", WallBlock::new, AbstractBlock.Settings.copy(PRISMARINE_BRICKS));
 	public static final Block DARK_PRISMARINE_WALL = register("dark_prismarine_wall", WallBlock::new, AbstractBlock.Settings.copy(DARK_PRISMARINE));
 	public static final Block CUT_COPPER_WALL = register(

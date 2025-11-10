@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "jineric:full_grass_block"
+        "recipe": "jineric:grass_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "jineric:full_grass_block"
+      "jineric:grass_block"
     ]
   }
 }

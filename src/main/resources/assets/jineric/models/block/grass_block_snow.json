@@ -1,10 +1,10 @@
 {
   "parent": "block/block",
   "textures": {
-    "particle": "jineric:block/full_grass_block",
-    "end": "jineric:block/full_grass_block",
-    "side": "jineric:block/full_grass_block",
-    "overlay": "jineric:block/full_grass_block_snow"
+    "particle": "jineric:block/grass_block",
+    "end": "jineric:block/grass_block",
+    "side": "jineric:block/grass_block",
+    "overlay": "jineric:block/grass_block_snow"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],
