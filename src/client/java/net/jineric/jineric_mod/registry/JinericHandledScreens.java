@@ -10,6 +10,6 @@ import net.minecraft.client.gui.screen.ingame.HandledScreens;
 public class JinericHandledScreens {
 	
 	public static void registerHandledScreens() {
-		HandledScreens.register(JinericScreenHandlerType.REFINERY_SCREEN_HANDLER, RefineryScreen::new);
+		HandledScreens.register(JinericScreenHandlerType.REFINERY, RefineryScreen::new);
 	}
 }
