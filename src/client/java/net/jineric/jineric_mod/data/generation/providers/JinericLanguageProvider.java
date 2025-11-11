@@ -25,7 +25,8 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 	@Override
 	public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder builder) {
 		this.tryExisting(builder);
-		//Blocks
+		// Modded
+			//  Blocks
 		this.addBlockFamilies(builder);
 		this.addWoodenEquipmentFamilies(builder);
 		builder.add(JinericBlocks.SOUL_JACK_O_LANTERN, "Soul Jack o'Lantern");
@@ -35,7 +36,7 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		builder.add(JinericBlocks.CHARCOAL_BLOCK, "Block of Charcoal");
 		builder.add(JinericBlocks.STICK_BLOCK, "Bundle of Sticks");
 		builder.add(JinericBlocks.PAPER_BLOCK, "Stack of Paper");
-		builder.add(JinericBlocks.FULL_GRASS_BLOCK, "Full Grass Block");
+		builder.add(JinericBlocks.GRASS_BLOCK, "Block of Grass");
 		builder.add(JinericBlocks.BONE_MEAL_BLOCK, "Block of Bone Meal");
 		builder.add(JinericBlocks.EGG_BLOCK, "Batch of Eggs");
 		builder.add(JinericBlocks.ENDER_PEARL_BLOCK, "Block of Ender Pearls");
@@ -44,7 +45,7 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		builder.add(JinericBlocks.REDSTONE_CAMPFIRE, "Redstone Campfire");
 		builder.add(JinericBlocks.PRISMARINE_CRYSTAL_BLOCK, "Sea Crystal Block");
 		builder.add(JinericBlocks.REFINERY, "Refinery");
-		//Items
+			//Items
 		builder.add(JinericItems.CLAY_BRICK, "Clay Brick");
 		builder.add(JinericItems.GOLDEN_POTATO, "Golden Potato");
 		builder.add(JinericItems.GOLDEN_SWEET_BERRIES, "Golden Sweet Berries");
@@ -65,22 +66,39 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		builder.add("item.jineric.smithing_template.iron_upgrade.ingredients", "Iron Ingot");
 		builder.add("item.jineric.smithing_template.gold_upgrade.ingredients", "Gold Ingot");
 		builder.add("item.jineric.smithing_template.diamond_upgrade.ingredients", "Diamond");
-		
-		//  Other
-		builder.add("container.jineric.campfire", "Campfire");
-		builder.add("container.jineric.campfire.cooking_slot_description", "Add food, log, or clay brick");
-		builder.add("container.jineric.work_bench", "Work Bench");
-		builder.add("item.level", "Level: %s / %s");
-		builder.add("item.level.max", "Level: Max");
-		
 		builder.add("item.jineric.smithing_template.stone_upgrade.base_slot_description", "Add wooden armor, weapon, or tool");
 		builder.add("item.jineric.smithing_template.stone_upgrade.additions_slot_description", "Add Stone");
 		builder.add("item.jineric.smithing_template.iron_upgrade.base_slot_description", "Add stone weapon or tool");
 		builder.add("item.jineric.smithing_template.iron_upgrade.additions_slot_description", "Add Iron Ingot");
 		builder.add("item.jineric.smithing_template.diamond_upgrade.base_slot_description", "Add iron armor, weapon, or tool");
 		builder.add("item.jineric.smithing_template.diamond_upgrade.additions_slot_description", "Add Diamond");
-		
-		//  Game Options
+		builder.add("item.level", "Level: %s / %s");
+		builder.add("item.level.max", "Level: Max");
+			// Containers
+		//TODO DURABILITY: remove `jineric`
+		builder.add("container.jineric.campfire", "Campfire");
+		builder.add("container.jineric.campfire.cooking_slot_description", "Add food, log, or clay brick");
+		builder.add("container.oak_chest", "Oak Chest");
+		builder.add("container.spruce_chest", "Spruce Chest");
+		builder.add("container.birch_chest", "Birch Chest");
+		builder.add("container.jungle_chest", "Jungle Chest");
+		builder.add("container.acacia_chest", "Acacia Chest");
+		builder.add("container.dark_oak_chest", "Dark Oak Chest");
+		builder.add("container.mangrove_chest", "Mangrove Chest");
+		builder.add("container.cherry_chest", "Cherry Chest");
+		builder.add("container.bamboo_chest", "Bamboo Chest");
+		builder.add("container.pale_oak_chest", "Pale Oak Chest");
+		builder.add("container.crimson_chest", "Crimson Chest");
+		builder.add("container.warped_chest", "Warped Chest");
+		builder.add("container.unaffected_copper_chest", "Copper Chest");
+		builder.add("container.exposed_copper_chest", "Exposed Copper Chest");
+		builder.add("container.weathered_copper_chest", "Weathered Copper Chest");
+		builder.add("container.oxidized_copper_chest", "Oxidized Copper Chest");
+		builder.add("container.double_unaffected_copper_chest", "Double Copper Chest");
+		builder.add("container.double_exposed_copper_chest", "Double Exposed Copper Chest");
+		builder.add("container.double_weathered_copper_chest", "Double Weathered Copper Chest");
+		builder.add("container.double_oxidized_copper_chest", "Double Oxidized Copper Chest");
+			//  Options
 		builder.add("options.jineric.itemLevelBarMode", "Item Level Bar");
 		builder.add("options.jineric.itemLevelBar.always", "Always");
 		builder.add("options.jineric.itemLevelBar.hover", "Hover");

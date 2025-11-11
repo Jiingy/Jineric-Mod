@@ -38,7 +38,6 @@ public abstract class FixRedstoneCampfireBlockEntity extends BlockEntity {
 	)
 	private static BlockEntityType<?> setBlockEntityType(BlockEntityType<?> type, BlockPos pos, BlockState state) {
 		if (state.getBlock() instanceof RedstoneCampfireBlock) {
-			System.out.println("TRUTH NUKE");
 			return JinericBlockEntityType.REDSTONE_CAMPFIRE;
 		} else {
 			return BlockEntityType.CAMPFIRE;

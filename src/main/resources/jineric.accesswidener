@@ -1,4 +1,4 @@
-accessWidener v1 named
+accessWidener v2 named
 accessible field net/minecraft/block/cauldron/CauldronBehavior$CauldronBehaviorMap map Ljava/util/Map;
 accessible field net/minecraft/client/data/ItemModelGenerator$TrimMaterial materialKey Lnet/minecraft/registry/RegistryKey;
 accessible class net/minecraft/data/recipe/RecipeGenerator$BlockFamilyRecipeFactory

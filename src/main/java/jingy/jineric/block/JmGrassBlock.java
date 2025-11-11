@@ -9,8 +9,8 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 
-public class FullGrassBlock extends GrassBlock implements Fertilizable {
-	public FullGrassBlock(Settings settings) {
+public class JmGrassBlock extends GrassBlock implements Fertilizable {
+	public JmGrassBlock(Settings settings) {
 		super(settings);
 	}
 	
@@ -18,7 +18,7 @@ public class FullGrassBlock extends GrassBlock implements Fertilizable {
 	public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
 		world.getRegistryManager()
 				.getOptional(RegistryKeys.CONFIGURED_FEATURE)
-				.flatMap(registry -> registry.getOptional(JinericUndergroundConfiguredFeatures.FULL_GRASS_PATCH_BONEMEAL))
+				.flatMap(registry -> registry.getOptional(JinericUndergroundConfiguredFeatures.JM_GRASS_BLOCK_PATCH_BONEMEAL))
 				.ifPresent(entry -> entry.value().generate(world, world.getChunkManager().getChunkGenerator(), random, pos.up()));
 	}
 	

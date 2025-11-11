@@ -55,7 +55,7 @@ public class JinericBlockLootTableProvider extends FabricBlockLootTableProvider 
 		this.addDrop(JinericBlocks.FLINT_BLOCK);
 		this.addDrop(JinericBlocks.CHARCOAL_BLOCK);
 		this.addDrop(JinericBlocks.SOUL_JACK_O_LANTERN);
-		this.addDrop(JinericBlocks.FULL_GRASS_BLOCK, block -> this.drops(block, Blocks.DIRT));
+		this.addDrop(JinericBlocks.GRASS_BLOCK, block -> this.drops(block, Blocks.DIRT));
 		this.addDrop(JinericBlocks.STONE_CRUCIBLE);
 		this.addDrop(JinericBlocks.TINDER);
 	}

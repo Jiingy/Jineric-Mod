@@ -1,8 +1,8 @@
 package net.jineric.jineric_mod.mixin.client;
 
-import net.jineric.jineric_mod.block.entity.state.JinericChestBlockEntityRenderStateVariant;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.jineric.jineric_mod.block.entity.state.JinericChestBlockEntityRenderStateVariant;
 import net.minecraft.block.enums.ChestType;
 import net.minecraft.client.render.TexturedRenderLayers;
 import net.minecraft.client.render.block.entity.state.ChestBlockEntityRenderState;
@@ -28,11 +28,12 @@ public abstract class TexturedRenderLayersMixin {
 			cancellable = true
 	)
 	private static void accountForJinericChestTextures(ChestBlockEntityRenderState.Variant variant, ChestType type, CallbackInfoReturnable<SpriteIdentifier> cir) {
-		//  TODO: Inefficient way to do this, but it works for now
 		Map<ChestBlockEntityRenderState.Variant, JinericChestBlockEntityRenderStateVariant> variantSpriteMap = JinericChestBlockEntityRenderStateVariant.VARIANT_TO_SPRITE_ID;
-		if (variantSpriteMap.keySet().stream().anyMatch(jinericVariant -> jinericVariant.equals(variant))) {
+		if (variant.name().contains("JINERIC_")) {
 			JinericChestBlockEntityRenderStateVariant stateVariant = variantSpriteMap.get(variant);
-			cir.setReturnValue(getChestTextureId(type, stateVariant.getNormal(), stateVariant.getLeft(), stateVariant.getRight()));
+			cir.setReturnValue(getChestTextureId(type, stateVariant.normal(), stateVariant.left(), stateVariant.right()));
+		} else {
+			throw new RuntimeException("Provided `variant` is not from Jineric!");
 		}
 	}
 }

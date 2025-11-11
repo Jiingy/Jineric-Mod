@@ -1,11 +1,12 @@
 package jingy.jineric.block;
 
-import jingy.jineric.block.entity.JinericTrappedChestBlockEntity;
-import jingy.jineric.registry.JinericBlockEntityType;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.TrappedChestBlock;
 import net.minecraft.block.WoodType;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.ChestBlockEntity;
+import net.minecraft.block.entity.TrappedChestBlockEntity;
 import net.minecraft.stat.Stat;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.Identifier;
@@ -14,14 +15,15 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.BlockView;
 
-public class JinericTrappedChestBlock extends JinericChestBlock {
-	public JinericTrappedChestBlock(Settings settings, WoodType type) {
-		super(() -> JinericBlockEntityType.JINERIC_TRAPPED_CHEST, settings, type);
+public class WoodenTrappedChestBlock0 extends TrappedChestBlock {
+	
+	public WoodenTrappedChestBlock0(AbstractBlock.Settings settings, WoodType woodType) {
+		super(settings);
 	}
 	
 	@Override
 	public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-		return new JinericTrappedChestBlockEntity(pos, state);
+		return new TrappedChestBlockEntity(pos, state);
 	}
 	
 	@Override

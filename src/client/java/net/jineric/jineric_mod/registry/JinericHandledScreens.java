@@ -12,7 +12,8 @@ import net.minecraft.client.gui.screen.ingame.HandledScreens;
 public class JinericHandledScreens {
 	
 	public static void registerHandledScreens() {
-		HandledScreens.register(JinericScreenHandlerType.REFINERY_SCREEN_HANDLER, RefineryScreen::new);
+		HandledScreens.register(JinericScreenHandlerType.REFINERY, RefineryScreen::new);
+		//  TODO: RENAME
 		HandledScreens.register(JinericScreenHandlerType.CAMPFIRE_SCREEN_HANDLER, CampfireScreen::new);
 		HandledScreens.register(JinericScreenHandlerType.CRUCIBLE_SCREEN_HANDLER, CrucibleScreen::new);
 	}

@@ -22,7 +22,7 @@ public class JinericBlockRenderLayerMap {
 				JinericBlocks.WARPED_LADDER,
 				JinericBlocks.CRIMSON_LADDER
 		);
-		BlockRenderLayerMap.putBlock(JinericBlocks.FULL_GRASS_BLOCK, BlockRenderLayer.CUTOUT);
+		BlockRenderLayerMap.putBlock(JinericBlocks.GRASS_BLOCK, BlockRenderLayer.CUTOUT);
 		BlockRenderLayerMap.putBlock(JinericBlocks.REDSTONE_LANTERN, BlockRenderLayer.CUTOUT);
 		BlockRenderLayerMap.putBlock(JinericBlocks.REDSTONE_CAMPFIRE, BlockRenderLayer.CUTOUT);
 	}

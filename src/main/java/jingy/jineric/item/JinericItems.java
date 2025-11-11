@@ -177,7 +177,7 @@ public class JinericItems {
 	public static final Item OBSIDIAN_STAIRS = register(JinericBlocks.OBSIDIAN_STAIRS);
 	public static final Item OBSIDIAN_SLAB = register(JinericBlocks.OBSIDIAN_SLAB);
 	public static final Item OBSIDIAN_WALL = register(JinericBlocks.OBSIDIAN_WALL);
-	public static final Item FULL_GRASS_BLOCK = register(JinericBlocks.FULL_GRASS_BLOCK);
+	public static final Item FULL_GRASS_BLOCK = register(JinericBlocks.GRASS_BLOCK);
 	//NETHER
 	public static final Item QUARTZ_WALL = register(JinericBlocks.QUARTZ_WALL);
 	public static final Item SMOOTH_QUARTZ_WALL = register(JinericBlocks.SMOOTH_QUARTZ_WALL);

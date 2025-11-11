@@ -221,7 +221,7 @@ public class JinericBlocks {
 	
 	//DECORATION BLOCKS
 	public static final Block SOUL_JACK_O_LANTERN = register("soul_jack_o_lantern", CarvedPumpkinBlock::new, AbstractBlock.Settings.copy(JACK_O_LANTERN));
-	public static final Block FULL_GRASS_BLOCK = register("full_grass_block", FullGrassBlock::new, AbstractBlock.Settings.copy(GRASS_BLOCK));
+	public static final Block GRASS_BLOCK = register("grass_block", JmGrassBlock::new, AbstractBlock.Settings.copy(Blocks.GRASS_BLOCK));
 	public static final Block PRISMARINE_BRICK_WALL = register("prismarine_brick_wall", WallBlock::new, AbstractBlock.Settings.copy(PRISMARINE_BRICKS));
 	public static final Block DARK_PRISMARINE_WALL = register("dark_prismarine_wall", WallBlock::new, AbstractBlock.Settings.copy(DARK_PRISMARINE));
 	public static final Block CUT_COPPER_WALL = register(
@@ -310,7 +310,7 @@ public class JinericBlocks {
 	public static final Block JUNGLE_CHEST = registerChest("jungle_chest", Blocks.CHEST, WoodType.JUNGLE);
 	public static final Block ACACIA_CHEST = registerChest("acacia_chest", Blocks.CHEST, WoodType.ACACIA);
 	public static final Block DARK_OAK_CHEST = registerChest("dark_oak_chest", Blocks.CHEST, WoodType.DARK_OAK);
-	public static final Block MANGROVE_CHEST = registerChest("mangrove_chest", Blocks.TRAPPED_CHEST, WoodType.MANGROVE);
+	public static final Block MANGROVE_CHEST = registerChest("mangrove_chest", Blocks.CHEST, WoodType.MANGROVE);
 	public static final Block CHERRY_CHEST = registerChest("cherry_chest", Blocks.CHEST, WoodType.CHERRY);
 	public static final Block BAMBOO_CHEST = registerChest("bamboo_chest", Blocks.CHEST, WoodType.BAMBOO);
 	public static final Block CRIMSON_CHEST = registerChest("crimson_chest", Blocks.CHEST, WoodType.CRIMSON);
@@ -341,12 +341,12 @@ public class JinericBlocks {
 	
 	private static Block registerChest(String id, Block base, WoodType woodType) {
 		boolean notNether = (woodType != WoodType.WARPED || woodType != WoodType.CRIMSON);
-		return register(id, settings -> new JinericChestBlock(settings, woodType), notNether ? AbstractBlock.Settings.copy(base) : AbstractBlock.Settings.copy(base).sounds(BlockSoundGroup.NETHER_WOOD));
+		return register(id, settings -> new WoodenChestBlock(settings, woodType), notNether ? AbstractBlock.Settings.copy(base) : AbstractBlock.Settings.copy(base).sounds(BlockSoundGroup.NETHER_WOOD));
 	}
 	
 	private static Block registerTrappedChest(String id, Block base, WoodType woodType) {
 		boolean notNether = (woodType != WoodType.WARPED || woodType != WoodType.CRIMSON);
-		return register(id, settings -> new JinericTrappedChestBlock(settings, woodType), notNether ? AbstractBlock.Settings.copy(base) : AbstractBlock.Settings.copy(base).sounds(BlockSoundGroup.NETHER_WOOD));
+		return register(id, settings -> new WoodenTrappedChestBlock(settings, woodType), notNether ? AbstractBlock.Settings.copy(base) : AbstractBlock.Settings.copy(base).sounds(BlockSoundGroup.NETHER_WOOD));
 	}
 	
 	public static Block register(RegistryKey<Block> key, Function<AbstractBlock.Settings, Block> factory, AbstractBlock.Settings settings) {

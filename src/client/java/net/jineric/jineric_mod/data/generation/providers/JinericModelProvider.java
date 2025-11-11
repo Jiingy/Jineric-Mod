@@ -63,7 +63,7 @@ public class JinericModelProvider extends FabricModelProvider {
 		bsmg.registerCooker(JinericBlocks.REFINERY, TexturedModel.ORIENTABLE);
 		bsmg.registerCampfire(JinericBlocks.REDSTONE_CAMPFIRE);
 		bsmg.registerLantern(JinericBlocks.REDSTONE_LANTERN);
-		bsmg.registerTintedItemModel(JinericBlocks.FULL_GRASS_BLOCK, ModelIds.getBlockModelId(JinericBlocks.FULL_GRASS_BLOCK), new GrassTintSource());
+		bsmg.registerTintedItemModel(JinericBlocks.GRASS_BLOCK, ModelIds.getBlockModelId(JinericBlocks.GRASS_BLOCK), new GrassTintSource());
 		bsmg.registerAxisRotated(JinericBlocks.STONE_BRICK_PILLAR, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
 		bsmg.registerAxisRotated(JinericBlocks.TUFF_BRICK_PILLAR, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
 		bsmg.registerAxisRotated(JinericBlocks.DRIPSTONE_BRICK_PILLAR, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);

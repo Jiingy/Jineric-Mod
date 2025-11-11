@@ -18,9 +18,9 @@ public abstract class BlocksForGrassSpreadingMixin {
 			at = @At(value = "RETURN", target = "net/minecraft/block/SpreadableBlock.canSurvive(Lnet/minecraft/block/BlockState;Lnet/minecraft/world/WorldView;Lnet/minecraft/util/math/BlockPos;)Z"),
 			cancellable = true
 	)
-	private static void jineric$cannotSpreadIfFullGrassBlock(BlockState state, WorldView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
+	private static void jineric$cannotSpreadIfJmGrassBlock(BlockState state, WorldView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
 		BlockPos posAbove = pos.up();
-		if (world.getBlockState(posAbove).isOf(JinericBlocks.FULL_GRASS_BLOCK)) {
+		if (world.getBlockState(posAbove).isOf(JinericBlocks.GRASS_BLOCK)) {
 			cir.setReturnValue(false);
 		}
 	}

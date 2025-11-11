@@ -18,10 +18,10 @@ import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 
 public class JinericUndergroundConfiguredFeatures {
-	public static final RegistryKey<ConfiguredFeature<?, ?>> FULL_GRASS_VEGETATION = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, JinericMain.ofJineric("full_grass_vegetation"));
-	public static final RegistryKey<ConfiguredFeature<?, ?>> FULL_GRASS_PATCH_BONEMEAL = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, JinericMain.ofJineric("full_grass_patch_bonemeal"));
+	public static final RegistryKey<ConfiguredFeature<?, ?>> JM_GRASS_BLOCK_VEGETATION = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, JinericMain.ofJineric("jm_grass_block_vegetation"));
+	public static final RegistryKey<ConfiguredFeature<?, ?>> JM_GRASS_BLOCK_PATCH_BONEMEAL = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, JinericMain.ofJineric("jm_grass_block_patch_bonemeal"));
 	
-	protected static ConfiguredFeature<?, ?> createFullGrassVegetation() {
+	protected static ConfiguredFeature<?, ?> createJmGrassBlockVegetation() {
 		return new ConfiguredFeature<>(
 				Feature.SIMPLE_BLOCK,
 				new SimpleBlockFeatureConfig(
@@ -36,14 +36,14 @@ public class JinericUndergroundConfiguredFeatures {
 		);
 	}
 	
-	protected static ConfiguredFeature<?, ?> createFullGrassPatchFeature(Registerable<ConfiguredFeature<?, ?>> registry) {
+	protected static ConfiguredFeature<?, ?> createJmGrassBlockPatchFeature(Registerable<ConfiguredFeature<?, ?>> registry) {
 		RegistryEntryLookup<ConfiguredFeature<?, ?>> registryEntryLookup = registry.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 		return new ConfiguredFeature<>(
 				Feature.VEGETATION_PATCH,
 				new VegetationPatchFeatureConfig(
-						JinericBlockTags.FULL_GRASS_REPLACEABLE,
-						BlockStateProvider.of(JinericBlocks.FULL_GRASS_BLOCK),
-						PlacedFeatures.createEntry(registryEntryLookup.getOrThrow(JinericUndergroundConfiguredFeatures.FULL_GRASS_VEGETATION)),
+						JinericBlockTags.JM_GRASS_BLOCK_REPLACEABLE,
+						BlockStateProvider.of(JinericBlocks.GRASS_BLOCK),
+						PlacedFeatures.createEntry(registryEntryLookup.getOrThrow(JinericUndergroundConfiguredFeatures.JM_GRASS_BLOCK_VEGETATION)),
 						VerticalSurfaceType.FLOOR,
 						ConstantIntProvider.create(1),
 						0.0F,
@@ -56,7 +56,7 @@ public class JinericUndergroundConfiguredFeatures {
 	}
 	
 	public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> featureRegisterable) {
-		featureRegisterable.register(JinericUndergroundConfiguredFeatures.FULL_GRASS_PATCH_BONEMEAL, JinericUndergroundConfiguredFeatures.createFullGrassPatchFeature(featureRegisterable));
-		featureRegisterable.register(JinericUndergroundConfiguredFeatures.FULL_GRASS_VEGETATION, JinericUndergroundConfiguredFeatures.createFullGrassVegetation());
+		featureRegisterable.register(JinericUndergroundConfiguredFeatures.JM_GRASS_BLOCK_PATCH_BONEMEAL, JinericUndergroundConfiguredFeatures.createJmGrassBlockPatchFeature(featureRegisterable));
+		featureRegisterable.register(JinericUndergroundConfiguredFeatures.JM_GRASS_BLOCK_VEGETATION, JinericUndergroundConfiguredFeatures.createJmGrassBlockVegetation());
 	}
 }

@@ -111,7 +111,7 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 		);
 		// SHOVEL
 		this.valueLookupBuilder(BlockTags.SHOVEL_MINEABLE)
-				.add(FULL_GRASS_BLOCK)
+				.add(GRASS_BLOCK)
 				.add(SUGAR_BLOCK);
 		// SWORD
 		this.valueLookupBuilder(BlockTags.SWORD_EFFICIENT);
@@ -190,7 +190,7 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 //      this.valueLookupBuilder(BlockTags.COPPER_ORES);
 //      this.valueLookupBuilder(BlockTags.CANDLES);
 		this.valueLookupBuilder(BlockTags.DIRT)
-				.add(FULL_GRASS_BLOCK);
+				.add(GRASS_BLOCK);
 //      this.valueLookupBuilder(BlockTags.TERRACOTTA);
 //      this.valueLookupBuilder(BlockTags.BADLANDS_TERRACOTTA);
 //      this.valueLookupBuilder(BlockTags.CONCRETE_POWDER);
@@ -198,10 +198,10 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 //      this.valueLookupBuilder(BlockTags.SHULKER_BOXES);
 //      this.valueLookupBuilder(BlockTags.FLOWER_POTS);
 		this.valueLookupBuilder(BlockTags.ENDERMAN_HOLDABLE)
-				.add(FULL_GRASS_BLOCK);
+				.add(GRASS_BLOCK);
 //      this.valueLookupBuilder(BlockTags.ICE);
 		this.valueLookupBuilder(BlockTags.VALID_SPAWN)
-				.add(FULL_GRASS_BLOCK);
+				.add(GRASS_BLOCK);
 //      this.valueLookupBuilder(BlockTags.IMPERMEABLE);
 //      this.valueLookupBuilder(BlockTags.UNDERWATER_BONEMEALS);
 //      this.valueLookupBuilder(BlockTags.CORAL_BLOCKS);
@@ -209,7 +209,7 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 //      this.valueLookupBuilder(BlockTags.CORAL_PLANTS);
 //      this.valueLookupBuilder(BlockTags.CORALS);
 		this.valueLookupBuilder(BlockTags.BAMBOO_PLANTABLE_ON)
-				.add(FULL_GRASS_BLOCK);
+				.add(GRASS_BLOCK);
 //      this.valueLookupBuilder(BlockTags.STANDING_SIGNS);
 //      this.valueLookupBuilder(BlockTags.WALL_SIGNS);
 //      this.valueLookupBuilder(BlockTags.SIGNS);
@@ -252,9 +252,9 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 //      this.valueLookupBuilder(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
 //      this.valueLookupBuilder(BlockTags.BASE_STONE_NETHER);
 		this.valueLookupBuilder(BlockTags.OVERWORLD_CARVER_REPLACEABLES)
-				.add(FULL_GRASS_BLOCK);
+				.add(GRASS_BLOCK);
 		this.valueLookupBuilder(BlockTags.NETHER_CARVER_REPLACEABLES)
-				.add(FULL_GRASS_BLOCK);
+				.add(GRASS_BLOCK);
 //      this.valueLookupBuilder(BlockTags.CANDLE_CAKES);
 //      this.valueLookupBuilder(BlockTags.CAULDRONS);
 //      this.valueLookupBuilder(BlockTags.CRYSTAL_SOUND_BLOCKS);
@@ -266,45 +266,45 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 //      this.valueLookupBuilder(BlockTags.DRIPSTONE_REPLACEABLE_BLOCKS);
 //      this.valueLookupBuilder(BlockTags.CAVE_VINES);
 		this.valueLookupBuilder(BlockTags.MOSS_REPLACEABLE)
-				.add(FULL_GRASS_BLOCK);
+				.add(GRASS_BLOCK);
 		this.valueLookupBuilder(BlockTags.LUSH_GROUND_REPLACEABLE)
-				.add(FULL_GRASS_BLOCK);
+				.add(GRASS_BLOCK);
 		this.valueLookupBuilder(BlockTags.AZALEA_ROOT_REPLACEABLE)
-				.add(FULL_GRASS_BLOCK);
+				.add(GRASS_BLOCK);
 //      this.valueLookupBuilder(BlockTags.SMALL_DRIPLEAF_PLACEABLE);
 		this.valueLookupBuilder(BlockTags.BIG_DRIPLEAF_PLACEABLE)
-				.add(FULL_GRASS_BLOCK);
+				.add(GRASS_BLOCK);
 //      this.valueLookupBuilder(BlockTags.SNOW);
 //      this.valueLookupBuilder(BlockTags.FEATURES_CANNOT_REPLACE);
 //      this.valueLookupBuilder(BlockTags.LAVA_POOL_STONE_CANNOT_REPLACE);
 //      this.valueLookupBuilder(BlockTags.GEODE_INVALID_BLOCKS);
 //      this.valueLookupBuilder(BlockTags.FROG_PREFER_JUMP_TO);
 		this.valueLookupBuilder(BlockTags.SCULK_REPLACEABLE)
-				.add(FULL_GRASS_BLOCK);
+				.add(GRASS_BLOCK);
 		this.valueLookupBuilder(BlockTags.SCULK_REPLACEABLE_WORLD_GEN)
-				.add(FULL_GRASS_BLOCK);
+				.add(GRASS_BLOCK);
 //      this.valueLookupBuilder(BlockTags.ANCIENT_CITY_REPLACEABLE);
 //      this.valueLookupBuilder(BlockTags.VIBRATION_RESONATORS);
 		this.valueLookupBuilder(BlockTags.ANIMALS_SPAWNABLE_ON)
-				.add(FULL_GRASS_BLOCK);
+				.add(GRASS_BLOCK);
 //      this.valueLookupBuilder(BlockTags.ARMADILLO_SPAWNABLE_ON);
 //      this.valueLookupBuilder(BlockTags.AXOLOTLS_SPAWNABLE_ON);
 //      this.valueLookupBuilder(BlockTags.GOATS_SPAWNABLE_ON);
 //      this.valueLookupBuilder(BlockTags.MOOSHROOMS_SPAWNABLE_ON);
 		this.valueLookupBuilder(BlockTags.PARROTS_SPAWNABLE_ON)
-				.add(FULL_GRASS_BLOCK);
+				.add(GRASS_BLOCK);
 //      this.valueLookupBuilder(BlockTags.POLAR_BEARS_SPAWNABLE_ON_ALTERNATE);
 		this.valueLookupBuilder(BlockTags.RABBITS_SPAWNABLE_ON)
-				.add(FULL_GRASS_BLOCK);
+				.add(GRASS_BLOCK);
 		this.valueLookupBuilder(BlockTags.FOXES_SPAWNABLE_ON)
-				.add(FULL_GRASS_BLOCK);
+				.add(GRASS_BLOCK);
 		this.valueLookupBuilder(BlockTags.WOLVES_SPAWNABLE_ON)
-				.add(FULL_GRASS_BLOCK);
+				.add(GRASS_BLOCK);
 		this.valueLookupBuilder(BlockTags.FROGS_SPAWNABLE_ON)
-				.add(FULL_GRASS_BLOCK);
+				.add(GRASS_BLOCK);
 //      this.valueLookupBuilder(BlockTags.BATS_SPAWNABLE_ON);
 		this.valueLookupBuilder(BlockTags.AZALEA_GROWS_ON)
-				.add(FULL_GRASS_BLOCK);
+				.add(GRASS_BLOCK);
 //      this.valueLookupBuilder(BlockTags.CONVERTABLE_TO_MUD);
 //      this.valueLookupBuilder(BlockTags.MANGROVE_LOGS_CAN_GROW_THROUGH);
 //      this.valueLookupBuilder(BlockTags.MANGROVE_ROOTS_CAN_GROW_THROUGH);
@@ -314,7 +314,7 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 //      this.valueLookupBuilder(BlockTags.SNOW_LAYER_CAN_SURVIVE_ON);
 //      this.valueLookupBuilder(BlockTags.INVALID_SPAWN_INSIDE);
 		this.valueLookupBuilder(BlockTags.SNIFFER_DIGGABLE_BLOCK)
-				.add(FULL_GRASS_BLOCK);
+				.add(GRASS_BLOCK);
 //      this.valueLookupBuilder(BlockTags.SNIFFER_EGG_HATCH_BOOST);
 //      this.valueLookupBuilder(BlockTags.TRAIL_RUINS_REPLACEABLE);
 //      this.valueLookupBuilder(BlockTags.REPLACEABLE);
@@ -377,7 +377,7 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 				.add(BAMBOO_BOOKSHELF)
 				.add(CRIMSON_BOOKSHELF)
 				.add(WARPED_BOOKSHELF);
-		this.valueLookupBuilder(JinericBlockTags.FULL_GRASS_REPLACEABLE).add(Blocks.GRASS_BLOCK);
+		this.valueLookupBuilder(JinericBlockTags.JM_GRASS_BLOCK_REPLACEABLE).add(Blocks.GRASS_BLOCK);
 		this.valueLookupBuilder(JinericBlockTags.SLIPPERY).add(PACKED_ICE_STAIRS, PACKED_ICE_SLAB, PACKED_ICE_WALL);
 		// Sounds
 		this.valueLookupBuilder(JinericBlockSoundTags.VEGETATION_SOUNDS)
@@ -389,7 +389,7 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 				.add(Blocks.LARGE_FERN)
 				.add(Blocks.GLOW_LICHEN)
 				.add(Blocks.VINE)
-				.add(FULL_GRASS_BLOCK);
+				.add(GRASS_BLOCK);
 	}
 	
 	private void putBlocksToTag(TagKey<Block> tagKey, Block... blocks) {

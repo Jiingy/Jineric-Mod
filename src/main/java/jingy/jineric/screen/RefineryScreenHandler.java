@@ -11,7 +11,7 @@ import net.minecraft.screen.PropertyDelegate;
 
 public class RefineryScreenHandler extends AbstractFurnaceScreenHandler {
 	public RefineryScreenHandler(int syncId, PlayerInventory playerInventory) {
-		super(JinericScreenHandlerType.REFINERY_SCREEN_HANDLER, JinericRecipeTypes.REFINING, JinericRecipePropertySet.REFINERY_INPUT,
+		super(JinericScreenHandlerType.REFINERY, JinericRecipeTypes.REFINING, JinericRecipePropertySet.REFINERY_INPUT,
 //  Broken in 1.21.7 - Hopefully shouldn't break anything...
 //				JinericRecipeBookTypes.JINERIC_REFINERY,
 				RecipeBookType.FURNACE,
@@ -19,7 +19,7 @@ public class RefineryScreenHandler extends AbstractFurnaceScreenHandler {
 	}
 	
 	public RefineryScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate propertyDelegate) {
-		super(JinericScreenHandlerType.REFINERY_SCREEN_HANDLER,
+		super(JinericScreenHandlerType.REFINERY,
 				JinericRecipeTypes.REFINING,
 				JinericRecipePropertySet.REFINERY_INPUT,
 				JinericRecipeBookTypes.JINERIC_REFINERY,

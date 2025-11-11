@@ -7,17 +7,17 @@
     "ground_state": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "jineric:full_grass_block",
+        "Name": "jineric:grass_block",
         "Properties": {
           "snowy": "false"
         }
       }
     },
-    "replaceable": "#jineric:full_grass_block_replaceable",
+    "replaceable": "#jineric:jm_grass_block_replaceable",
     "surface": "floor",
     "vegetation_chance": 0.5,
     "vegetation_feature": {
-      "feature": "jineric:full_grass_vegetation",
+      "feature": "jineric:jm_grass_block_vegetation",
       "placement": []
     },
     "vertical_range": 6,
