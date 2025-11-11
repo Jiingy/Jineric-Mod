@@ -32,8 +32,6 @@ public abstract class TexturedRenderLayersMixin {
 		if (variant.name().contains("JINERIC_")) {
 			JinericChestBlockEntityRenderStateVariant stateVariant = variantSpriteMap.get(variant);
 			cir.setReturnValue(getChestTextureId(type, stateVariant.normal(), stateVariant.left(), stateVariant.right()));
-		} else {
-			throw new RuntimeException("Provided `variant` is not from Jineric!");
 		}
 	}
 }
