@@ -22,6 +22,11 @@ public class JinericScreenHandlerType {
 			JinericMain.ofJineric("crucible"),
 			new ScreenHandlerType<>(CrucibleScreenHandler::new, null)
 	);
+	public final static ScreenHandlerType<FoundryScreenHandler> FOUNDRY = Registry.register(
+			Registries.SCREEN_HANDLER,
+			JinericMain.ofJineric("foundry"),
+			new ScreenHandlerType<>(FoundryScreenHandler::new, FeatureSet.empty())
+	);
 	
 	public static void initialize() {
 	}

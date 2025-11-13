@@ -76,6 +76,7 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		builder.add("item.level.max", "Level: Max");
 			// Containers
 		//TODO DURABILITY: remove `jineric`
+		builder.add("container.jineric.foundry", "Foundry");
 		builder.add("container.jineric.campfire", "Campfire");
 		builder.add("container.jineric.campfire.cooking_slot_description", "Add food, log, or clay brick");
 		builder.add("container.oak_chest", "Oak Chest");

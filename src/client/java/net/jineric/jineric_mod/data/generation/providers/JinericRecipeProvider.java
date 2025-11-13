@@ -11,6 +11,7 @@ import jingy.jineric.data.family.JinericBlockFamilyVariants;
 import jingy.jineric.item.JinericItems;
 import jingy.jineric.item.equipment.JmEquipmentAssetKeys;
 import jingy.jineric.mixin.access.CookingRecipeJsonBuilderAccessor;
+import jingy.jineric.recipe.FoundryRecipeJsonBuilder;
 import jingy.jineric.recipe.RefiningRecipe;
 import jingy.jineric.tag.JinericItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -30,7 +31,10 @@ import net.minecraft.component.type.EquippableComponent;
 import net.minecraft.data.family.BlockFamilies;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.data.recipe.*;
-import net.minecraft.item.*;
+import net.minecraft.item.HoneycombItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.Items;
 import net.minecraft.predicate.NumberRange;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.CookingRecipeCategory;
@@ -391,6 +395,11 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
                         .pattern("SS")
                         .criterion("has_polished_stone", this.conditionsFromItem(JinericBlocks.POLISHED_STONE))
                         .offerTo(recipeExporter, replaceVanilla(Blocks.STONE_BRICKS));
+				
+				FoundryRecipeJsonBuilder.createFoundrySmelting(Ingredient.ofItem(Items.RAW_COPPER), 16, RecipeCategory.BUILDING_BLOCKS, Items.COPPER_INGOT, 0.2f, 400)
+						.group("copper_ingot")
+						.criterion("has_raw_copper", this.conditionsFromItem(Items.RAW_COPPER))
+						.offerTo(recipeExporter);
 			}
 			
 			@Override
