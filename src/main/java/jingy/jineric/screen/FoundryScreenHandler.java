@@ -42,15 +42,15 @@ public class FoundryScreenHandler extends AbstractFurnaceScreenHandler {
 			}
 			//  Is player slot (inventory + hotbar)
 			else if (slotIndex != 0 && slotIndex != 1) {
-				if (movingSlotStack.isOf(Items.CHARCOAL)) {
-					//  Try insert to fuel slot
-					if (!this.insertItem(movingSlotStack, 1, 2, false)) {
+				if (movingSlotStack.isOf(Items.RAW_COPPER)) {
+					//  Try insert to input slot
+					if (!this.insertItem(movingSlotStack, 0, 1, false)) {
 						return emptyStack;
 					}
 				}
-				else if (movingSlotStack.isOf(Items.RAW_COPPER)) {
-					//  Try insert to input slot
-					if (!this.insertItem(movingSlotStack, 0, 1, false)) {
+				else if (movingSlotStack.isOf(Items.CHARCOAL)) {
+					//  Try insert to fuel slot
+					if (!this.insertItem(movingSlotStack, 1, 2, false)) {
 						return emptyStack;
 					}
 				}
