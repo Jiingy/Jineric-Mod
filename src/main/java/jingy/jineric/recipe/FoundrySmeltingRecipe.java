@@ -21,7 +21,7 @@ public class FoundrySmeltingRecipe extends AbstractCookingRecipe {
 		this.inputCount = inputCount;
 	}
 	
-	public int inputCount() {
+	public int getInputCount() {
 		return inputCount;
 	}
 	
@@ -60,7 +60,7 @@ public class FoundrySmeltingRecipe extends AbstractCookingRecipe {
 									Codec.STRING.optionalFieldOf("group", "").forGetter(SingleStackRecipe::getGroup),
 									CookingRecipeCategory.CODEC.fieldOf("category").orElse(CookingRecipeCategory.MISC).forGetter(AbstractCookingRecipe::getCategory),
 									Ingredient.CODEC.fieldOf("ingredient").forGetter(SingleStackRecipe::ingredient),
-									Codec.INT.fieldOf("inputCount").orElse(defaultInputCount).forGetter(FoundrySmeltingRecipe::inputCount),
+									Codec.INT.fieldOf("input_count").orElse(defaultInputCount).forGetter(FoundrySmeltingRecipe::getInputCount),
 									ItemStack.VALIDATED_UNCOUNTED_CODEC.fieldOf("result").forGetter(SingleStackRecipe::result),
 									Codec.FLOAT.fieldOf("experience").orElse(0.0F).forGetter(AbstractCookingRecipe::getExperience),
 									Codec.INT.fieldOf("cookingtime").orElse(defaultCookingTime).forGetter(AbstractCookingRecipe::getCookingTime)
@@ -71,7 +71,7 @@ public class FoundrySmeltingRecipe extends AbstractCookingRecipe {
 					PacketCodecs.STRING, SingleStackRecipe::getGroup,
 					CookingRecipeCategory.PACKET_CODEC, AbstractCookingRecipe::getCategory,
 					Ingredient.PACKET_CODEC, SingleStackRecipe::ingredient,
-					PacketCodecs.INTEGER, FoundrySmeltingRecipe::inputCount,
+					PacketCodecs.INTEGER, FoundrySmeltingRecipe::getInputCount,
 					ItemStack.PACKET_CODEC, SingleStackRecipe::result,
 					PacketCodecs.FLOAT, AbstractCookingRecipe::getExperience,
 					PacketCodecs.INTEGER, AbstractCookingRecipe::getCookingTime,
