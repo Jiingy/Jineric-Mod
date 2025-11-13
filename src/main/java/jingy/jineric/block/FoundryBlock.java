@@ -28,8 +28,6 @@ public class FoundryBlock extends AbstractFurnaceBlock {
 		return CODEC;
 	}
 	
-	
-	
 	@Override
 	public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
 		return new FoundryBlockEntity(pos, state);

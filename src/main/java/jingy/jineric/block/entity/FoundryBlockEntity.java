@@ -60,7 +60,6 @@ public class FoundryBlockEntity extends AbstractFurnaceBlockEntity {
 			
 			if (inputSlotHasStack) {
 				recipeEntry = blockEntity.matchGetter.getFirstMatch(singleStackRecipeInput, world).orElse(null);
-				//  TODO FOUNDRY: May not be the most optimal way to do this. Currently pauses the smelting progress when stack is > 0 && stack < recipeCount
 				assert recipeEntry != null;
 				if (recipeEntry.value() instanceof FoundrySmeltingRecipe foundrySmeltingRecipe) {
 					if (inputSlotStack.getCount() < foundrySmeltingRecipe.getInputCount()) {
