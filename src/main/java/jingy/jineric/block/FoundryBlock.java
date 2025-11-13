@@ -5,10 +5,12 @@ import jingy.jineric.block.entity.FoundryBlockEntity;
 import jingy.jineric.registry.JinericBlockEntityType;
 import net.minecraft.block.AbstractFurnaceBlock;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -46,5 +48,14 @@ public class FoundryBlock extends AbstractFurnaceBlock {
 	@Override
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
 		return validateTicker(world, type, JinericBlockEntityType.FOUNDRY);
+	}
+	
+	@Nullable
+	protected static <T extends BlockEntity> BlockEntityTicker<T> validateTicker(
+			World world, BlockEntityType<T> givenType, BlockEntityType<? extends AbstractFurnaceBlockEntity> expectedType
+	) {
+		return world instanceof ServerWorld serverWorld
+				? validateTicker(givenType, expectedType, (worldx, pos, state, blockEntity) -> FoundryBlockEntity.tick(serverWorld, pos, state, blockEntity))
+				: null;
 	}
 }
