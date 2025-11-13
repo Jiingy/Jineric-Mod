@@ -23,7 +23,7 @@ public class RefineryBlockEntity extends AbstractFurnaceBlockEntity {
 	}
 	
 	@Override
-	protected int getFuelTime(FuelRegistry fuel, ItemStack stack) {
+	public int getFuelTime(FuelRegistry fuel, ItemStack stack) {
 		return super.getFuelTime(fuel, stack) / 2;
 	}
 	
