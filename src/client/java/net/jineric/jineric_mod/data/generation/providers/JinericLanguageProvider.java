@@ -45,6 +45,7 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		builder.add(JinericBlocks.REDSTONE_CAMPFIRE, "Redstone Campfire");
 		builder.add(JinericBlocks.PRISMARINE_CRYSTAL_BLOCK, "Sea Crystal Block");
 		builder.add(JinericBlocks.REFINERY, "Refinery");
+		builder.add(JinericBlocks.FOUNDRY, "Foundry");
 			//Items
 		builder.add(JinericItems.CLAY_BRICK, "Clay Brick");
 		builder.add(JinericItems.GOLDEN_POTATO, "Golden Potato");
