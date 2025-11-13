@@ -34,7 +34,7 @@ public class FoundryBlockEntity extends AbstractFurnaceBlockEntity {
 	
 	@Override
 	protected Text getContainerName() {
-		return Text.of("container.foundry");
+		return Text.translatable("container.jineric.foundry");
 	}
 	
 	@Override
