@@ -1,14 +1,14 @@
 package net.jineric.jineric_mod;
 
-import net.jineric.jineric_mod.block.entity.state.JinericChestBlockEntityRenderStateVariant;
-import net.jineric.jineric_mod.data.JinericModels;
-import net.jineric.jineric_mod.data.JinericTextureKey;
-import net.jineric.jineric_mod.recipe.JinericClientRecipeBookTypes;
-import jingy.jineric.recipe.JinericRecipeBookTypes;
+import jingy.jineric.recipe.JinericRecipeBookType;
 import jingy.jineric.recipe.JinericRecipePropertySet;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.jineric.jineric_mod.block.entity.state.JinericChestBlockEntityRenderStateVariant;
+import net.jineric.jineric_mod.data.JinericModels;
+import net.jineric.jineric_mod.data.JinericTextureKey;
+import net.jineric.jineric_mod.recipe.JinericClientRecipeBookTypes;
 import net.jineric.jineric_mod.registry.*;
 
 @Environment(EnvType.CLIENT)
@@ -18,7 +18,7 @@ public class JinericClientMain implements ClientModInitializer {
 	public void onInitializeClient() {
 		JinericTextureKey.initialize();
 		JinericModels.initialize();
-		JinericRecipeBookTypes.initialize();
+		JinericRecipeBookType.initialize();
 		JinericRecipePropertySet.initialize();
 		JinericEntityModels.registerEntityModels();
 		JinericHandledScreens.registerHandledScreens();

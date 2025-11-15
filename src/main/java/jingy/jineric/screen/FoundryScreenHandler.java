@@ -1,5 +1,6 @@
 package jingy.jineric.screen;
 
+import jingy.jineric.recipe.JinericRecipeBookType;
 import jingy.jineric.recipe.JinericRecipePropertySet;
 import jingy.jineric.recipe.JinericRecipeTypes;
 import net.minecraft.entity.player.PlayerEntity;
@@ -7,20 +8,23 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.recipe.book.RecipeBookType;
 import net.minecraft.screen.AbstractFurnaceScreenHandler;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.slot.Slot;
 
 public class FoundryScreenHandler extends AbstractFurnaceScreenHandler {
 	public FoundryScreenHandler(int syncId, PlayerInventory playerInventory) {
-		super(JinericScreenHandlerType.FOUNDRY, JinericRecipeTypes.FOUNDRY_SMELTING, JinericRecipePropertySet.FOUNDRY_INPUT, RecipeBookType.BLAST_FURNACE, syncId, playerInventory);
+		super(
+				JinericScreenHandlerType.FOUNDRY, JinericRecipeTypes.FOUNDRY_SMELTING,
+				JinericRecipePropertySet.FOUNDRY_INPUT, JinericRecipeBookType.JINERIC_FOUNDRY,
+				syncId, playerInventory
+		);
 	}
 	
 	public FoundryScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate propertyDelegate) {
 		super(
 				JinericScreenHandlerType.FOUNDRY, JinericRecipeTypes.FOUNDRY_SMELTING,
-				JinericRecipePropertySet.FOUNDRY_INPUT, RecipeBookType.BLAST_FURNACE,
+				JinericRecipePropertySet.FOUNDRY_INPUT, JinericRecipeBookType.JINERIC_FOUNDRY,
 				syncId, playerInventory, inventory, propertyDelegate
 		);
 	}

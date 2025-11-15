@@ -6,7 +6,9 @@ import net.fabricmc.api.Environment;
 
 @Environment(EnvType.CLIENT)
 public class JinericClientRecipeBookTypes {
-	public static final net.minecraft.client.recipebook.RecipeBookType JINERIC_REFINERY = ClassTinkerers.getEnum(net.minecraft.client.recipebook.RecipeBookType.class, "JINERIC_REFINERY");
+	private static final Class<net.minecraft.client.recipebook.RecipeBookType> RECIPE_BOOK_TYPE_CLASS = net.minecraft.client.recipebook.RecipeBookType.class;
+	public static final net.minecraft.client.recipebook.RecipeBookType JINERIC_REFINERY = ClassTinkerers.getEnum(RECIPE_BOOK_TYPE_CLASS, "JINERIC_REFINERY");
+	public static final net.minecraft.client.recipebook.RecipeBookType JINERIC_FOUNDRY = ClassTinkerers.getEnum(RECIPE_BOOK_TYPE_CLASS, "JINERIC_FOUNDRY");
 	
 	public static void initialize() {}
 }

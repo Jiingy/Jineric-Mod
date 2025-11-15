@@ -11,5 +11,5 @@ public class JmConfig {
 	public static boolean MODIFY_VANILLA_ANVIL = true;
 	
 	public static boolean DURABILITY = false;
-	
+	public static boolean REPLACE_VANILLA_RECIPE_BOOK = true;
 }
