@@ -75,6 +75,8 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		builder.add("item.jineric.smithing_template.diamond_upgrade.additions_slot_description", "Add Diamond");
 		builder.add("item.level", "Level: %s / %s");
 		builder.add("item.level.max", "Level: Max");
+			//  GUI
+		builder.add("gui.jineric.recipe_book.toggle_recipes.foundry_smeltable", "Showing Smeltable");
 			// Containers
 		//TODO DURABILITY: remove `jineric`
 		builder.add("container.jineric.foundry", "Foundry");

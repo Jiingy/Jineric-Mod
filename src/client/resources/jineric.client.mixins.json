@@ -9,10 +9,12 @@
       "GameOptionsMixin",
       "HandledScreenMixin",
       "InGameHudMixin",
+      "RecipeBookScreenMixin",
       "RecipeBookWidgetMixin",
       "TexturedRenderLayersMixin",
       "VideoOptionsScreenMixin",
       "access.TextureKeyAccess",
+      "access.overrides.RecipeBookScreenOverrides",
       "duck.ClientPlayNetworkHandlerMixin"
    ],
    "injectors": {
