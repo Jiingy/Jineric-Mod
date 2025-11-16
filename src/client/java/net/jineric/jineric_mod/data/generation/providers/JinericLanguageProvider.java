@@ -77,6 +77,7 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		builder.add("item.level.max", "Level: Max");
 			//  GUI
 		builder.add("gui.jineric.recipe_book.toggle_recipes.foundry_smeltable", "Showing Smeltable");
+		builder.add("gui.jineric.recipe_book.toggle_recipes.refinable", "Showing Refinable");
 			// Containers
 		//TODO DURABILITY: remove `jineric`
 		builder.add("container.jineric.foundry", "Foundry");
