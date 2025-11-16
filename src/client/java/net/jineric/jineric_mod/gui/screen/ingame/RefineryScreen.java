@@ -1,6 +1,7 @@
 package net.jineric.jineric_mod.gui.screen.ingame;
 
 import jingy.jineric.base.JinericMain;
+import net.jineric.jineric_mod.gui.screen.recipebook.RefineryRecipeBookWidget;
 import net.jineric.jineric_mod.recipe.JinericClientRecipeBookTypes;
 import jingy.jineric.recipe.JinericRecipeBookCategories;
 import jingy.jineric.screen.RefineryScreenHandler;
@@ -29,5 +30,10 @@ public class RefineryScreen extends AbstractFurnaceScreen<RefineryScreenHandler>
 	
 	public RefineryScreen(RefineryScreenHandler container, PlayerInventory inventory, Text title) {
 		super(container, inventory, title, TOGGLE_REFINABLE_TEXT, TEXTURE, LIT_PROGRESS_TEXTURE, BURN_PROGRESS_TEXTURE, TABS);
+	}
+	
+	@Override
+	public RecipeBookWidget<?> jineric$recipeBookWidget() {
+		return new RefineryRecipeBookWidget(this.handler, TOGGLE_REFINABLE_TEXT, TABS);
 	}
 }
