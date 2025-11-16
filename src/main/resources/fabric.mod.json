@@ -59,6 +59,9 @@
         }
      },
      "loom:injected_interfaces": {
+        "net/minecraft/class_10260": [
+           "net/jineric/jineric_mod/access/RecipeBookScreenAccess"
+        ],
         "net/minecraft/class_5794": [
            "jingy/jineric/access/BlockFamilyAccess"
         ],
