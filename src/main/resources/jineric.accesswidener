@@ -3,6 +3,7 @@ accessible field net/minecraft/block/cauldron/CauldronBehavior$CauldronBehaviorM
 accessible field net/minecraft/client/data/ItemModelGenerator$TrimMaterial materialKey Lnet/minecraft/registry/RegistryKey;
 accessible class net/minecraft/data/recipe/RecipeGenerator$BlockFamilyRecipeFactory
 accessible class net/minecraft/client/option/GameOptions$OptionVisitor
+accessible class net/minecraft/client/gui/screen/recipebook/GhostRecipe$CyclingItem
 accessible method net/minecraft/recipe/SingleStackRecipe result ()Lnet/minecraft/item/ItemStack;
 
 accessible method net/minecraft/block/entity/AbstractFurnaceBlockEntity isBurning ()Z
