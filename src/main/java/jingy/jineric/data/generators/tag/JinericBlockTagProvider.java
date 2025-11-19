@@ -53,7 +53,9 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 		this.valueLookupBuilder(BlockTags.INCORRECT_FOR_NETHERITE_TOOL);
 		this.valueLookupBuilder(BlockTags.INCORRECT_FOR_DIAMOND_TOOL);
 		this.valueLookupBuilder(BlockTags.INCORRECT_FOR_IRON_TOOL);
-		this.valueLookupBuilder(BlockTags.INCORRECT_FOR_STONE_TOOL);
+		this.valueLookupBuilder(BlockTags.INCORRECT_FOR_COPPER_TOOL);
+		this.valueLookupBuilder(BlockTags.INCORRECT_FOR_STONE_TOOL)
+				.forceAddTag(BlockTags.IRON_ORES);
 		this.valueLookupBuilder(BlockTags.INCORRECT_FOR_GOLD_TOOL)
 				.add(CUT_COPPER_WALL, EXPOSED_CUT_COPPER_WALL, WEATHERED_CUT_COPPER_WALL, OXIDIZED_CUT_COPPER_WALL)
 				.add(WAXED_CUT_COPPER_WALL, WAXED_EXPOSED_CUT_COPPER_WALL, WAXED_WEATHERED_CUT_COPPER_WALL, WAXED_OXIDIZED_CUT_COPPER_WALL);
