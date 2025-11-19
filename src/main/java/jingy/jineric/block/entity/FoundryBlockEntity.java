@@ -26,7 +26,6 @@ import net.minecraft.util.math.MathHelper;
 import org.jetbrains.annotations.Nullable;
 
 public class FoundryBlockEntity extends AbstractFurnaceBlockEntity {
-	private DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
 	
 	public FoundryBlockEntity(BlockPos blockPos, BlockState blockState) {
 		super(JinericBlockEntityType.FOUNDRY, blockPos, blockState, JinericRecipeTypes.FOUNDRY_SMELTING);
@@ -62,7 +61,7 @@ public class FoundryBlockEntity extends AbstractFurnaceBlockEntity {
 				recipeEntry = blockEntity.matchGetter.getFirstMatch(singleStackRecipeInput, world).orElse(null);
 				assert recipeEntry != null;
 				if (recipeEntry.value() instanceof FoundrySmeltingRecipe foundrySmeltingRecipe) {
-					if (inputSlotStack.getCount() < foundrySmeltingRecipe.getInputCount()) {
+					if (inputSlotStack.getCount() < foundrySmeltingRecipe.jineric$getInputCount()) {
 						return;
 					}
 				}
@@ -88,7 +87,7 @@ public class FoundryBlockEntity extends AbstractFurnaceBlockEntity {
 
 			if (blockEntity.isBurning() && canAcceptRecipeOutput(world.getRegistryManager(), recipeEntry, singleStackRecipeInput, blockEntity.inventory, maxStackCount)) {
 				if (recipeEntry.value() instanceof FoundrySmeltingRecipe foundrySmeltingRecipe) {
-					if (inputSlotStack.getCount() >= foundrySmeltingRecipe.getInputCount()) {
+					if (inputSlotStack.getCount() >= foundrySmeltingRecipe.jineric$getInputCount()) {
 						blockEntity.cookingTimeSpent++;
 					} else {
 						degradeCookTime(blockEntity);
@@ -145,7 +144,7 @@ public class FoundryBlockEntity extends AbstractFurnaceBlockEntity {
 			}
 			
 			if (recipeEntry.value() instanceof FoundrySmeltingRecipe foundrySmeltingRecipe) {
-				inputStack.decrement(foundrySmeltingRecipe.getInputCount());
+				inputStack.decrement(foundrySmeltingRecipe.jineric$getInputCount());
 			} else {
 				inputStack.decrement(1);
 			}
@@ -156,6 +155,6 @@ public class FoundryBlockEntity extends AbstractFurnaceBlockEntity {
 	}
 	
 	private static void degradeCookTime(AbstractFurnaceBlockEntity blockEntity) {
-		blockEntity.cookingTimeSpent = MathHelper.clamp(blockEntity.cookingTimeSpent - 2, 0, blockEntity.cookingTotalTime);
+		blockEntity.cookingTimeSpent = MathHelper.clamp(blockEntity.cookingTimeSpent - 1, 0, blockEntity.cookingTotalTime);
 	}
 }

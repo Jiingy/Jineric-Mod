@@ -2,22 +2,31 @@
    "required": true,
    "package": "net.jineric.jineric_mod.mixin.client",
    "compatibilityLevel": "JAVA_21",
+   "mixinextras": {
+      "minVersion": "0.5.0"
+   },
    "client": [
       "CampfireBlockEntityRendererMixin",
       "ChestBlockEntityRendererMixin",
       "DrawContextMixin",
       "GameOptionsMixin",
+      "GhostRecipeMixin",
       "HandledScreenMixin",
       "InGameHudMixin",
       "RecipeBookScreenMixin",
       "RecipeBookWidgetMixin",
       "TexturedRenderLayersMixin",
       "VideoOptionsScreenMixin",
+      "access.RecipeBookWidgetAccessor",
       "access.TextureKeyAccess",
+      "access.overrides.GhostRecipeOverrides",
       "access.overrides.RecipeBookScreenOverrides",
       "duck.ClientPlayNetworkHandlerMixin"
    ],
    "injectors": {
       "defaultRequire": 1
-   }
+   },
+   "mixins": [
+      "access.GhostRecipeAccessor"
+   ]
 }

@@ -15,18 +15,13 @@ import java.util.Map;
 
 @Mixin(ServerRecipeManager.class)
 public abstract class ModifySoleIngredientGettersMixin extends SinglePreparationResourceReloader<PreparedRecipes> implements RecipeManager {
-	@Mutable
-	@Shadow
-	@Final
-	private static Map<RegistryKey<RecipePropertySet>, ServerRecipeManager.SoleIngredientGetter> SOLE_INGREDIENT_GETTERS;
+	@Mutable @Shadow @Final private static Map<RegistryKey<RecipePropertySet>, ServerRecipeManager.SoleIngredientGetter> SOLE_INGREDIENT_GETTERS;
 	
 	static {
 		SOLE_INGREDIENT_GETTERS = ImmutableMap.<RegistryKey<RecipePropertySet>, ServerRecipeManager.SoleIngredientGetter>builder()
 				.putAll(SOLE_INGREDIENT_GETTERS)
-				.put(
-						JinericRecipePropertySet.REFINERY_INPUT,
-						cookingIngredientGetter(JinericRecipeTypes.REFINING)
-				)
+				.put(JinericRecipePropertySet.REFINERY_INPUT, cookingIngredientGetter(JinericRecipeTypes.REFINING))
+				.put(JinericRecipePropertySet.FOUNDRY_INPUT, cookingIngredientGetter(JinericRecipeTypes.FOUNDRY_SMELTING))
 				.build();
 	}
 	

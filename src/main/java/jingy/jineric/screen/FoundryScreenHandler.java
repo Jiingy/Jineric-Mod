@@ -13,6 +13,7 @@ import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.slot.Slot;
 
 public class FoundryScreenHandler extends AbstractFurnaceScreenHandler {
+	
 	public FoundryScreenHandler(int syncId, PlayerInventory playerInventory) {
 		super(
 				JinericScreenHandlerType.FOUNDRY, JinericRecipeTypes.FOUNDRY_SMELTING,
@@ -46,7 +47,7 @@ public class FoundryScreenHandler extends AbstractFurnaceScreenHandler {
 			}
 			//  Is player slot (inventory + hotbar)
 			else if (slotIndex != 0 && slotIndex != 1) {
-				if (movingSlotStack.isOf(Items.RAW_COPPER)) {
+				if (this.isFoundrySmeltable(movingSlotStack)) {
 					//  Try insert to input slot
 					if (!this.insertItem(movingSlotStack, 0, 1, false)) {
 						return emptyStack;
@@ -90,5 +91,9 @@ public class FoundryScreenHandler extends AbstractFurnaceScreenHandler {
 			movingSlot.onTakeItem(player, movingSlotStack);
 		}
 		return movedSlotStack;
+	}
+	
+	private boolean isFoundrySmeltable(ItemStack checkedStack) {
+		return this.world.getRecipeManager().getPropertySet(JinericRecipePropertySet.FOUNDRY_INPUT).canUse(checkedStack);
 	}
 }
