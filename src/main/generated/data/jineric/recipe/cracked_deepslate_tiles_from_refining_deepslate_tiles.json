@@ -3,7 +3,6 @@
   "category": "blocks",
   "cookingtime": 100,
   "experience": 0.1,
-  "group": "cracked_deepslate_tiles",
   "ingredient": "minecraft:deepslate_tiles",
   "result": {
     "id": "minecraft:cracked_deepslate_tiles"
