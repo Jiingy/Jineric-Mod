@@ -5,6 +5,7 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import jingy.jineric.access.RecipeAccess;
 import jingy.jineric.item.JinericItems;
+import jingy.jineric.recipe.book.JinericRecipeBookCategories;
 import jingy.jineric.recipe.display.FoundryRecipeDisplay;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

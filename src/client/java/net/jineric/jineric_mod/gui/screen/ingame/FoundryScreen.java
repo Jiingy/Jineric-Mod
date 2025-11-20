@@ -1,7 +1,7 @@
 package net.jineric.jineric_mod.gui.screen.ingame;
 
 import jingy.jineric.base.JinericMain;
-import jingy.jineric.recipe.JinericRecipeBookCategories;
+import jingy.jineric.recipe.book.JinericRecipeBookCategories;
 import jingy.jineric.screen.FoundryScreenHandler;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
