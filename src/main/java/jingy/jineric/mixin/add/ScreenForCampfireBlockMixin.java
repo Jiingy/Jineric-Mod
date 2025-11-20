@@ -13,21 +13,29 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(CampfireBlock.class)
 public abstract class ScreenForCampfireBlockMixin extends BlockWithEntity implements Waterloggable {
+	@Shadow public static boolean canBeLit(BlockState state) {
+		return false;
+	}
+	
 	protected ScreenForCampfireBlockMixin(Settings settings) {
 		super(settings);
 	}
 	
-	//  IMPLEMENTED CLASS OVERRIDES
 	@Override
 	protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
 		BlockEntity blockEntity = world.getBlockEntity(pos);
-		if (!world.isClient() && blockEntity instanceof CampfireBlockEntity campfireBlockEntity) {
-			player.openHandledScreen(campfireBlockEntity);
-			player.incrementStat(Stats.INTERACT_WITH_CAMPFIRE);
+		if (!canBeLit(state)) {
+			if (!world.isClient() && blockEntity instanceof CampfireBlockEntity campfireBlockEntity) {
+				player.openHandledScreen(campfireBlockEntity);
+				player.incrementStat(Stats.INTERACT_WITH_CAMPFIRE);
+			}
+			return ActionResult.SUCCESS;
+		} else {
+			return ActionResult.PASS_TO_DEFAULT_BLOCK_ACTION;
 		}
-		return ActionResult.SUCCESS;
 	}
 }
