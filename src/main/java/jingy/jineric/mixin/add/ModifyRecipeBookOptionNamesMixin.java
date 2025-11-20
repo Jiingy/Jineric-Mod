@@ -10,7 +10,7 @@ public abstract class ModifyRecipeBookOptionNamesMixin {
 //		CATEGORY_OPTION_NAMES = ImmutableMap.<RecipeBookType, Pair<String, String>>builder()
 //				.putAll(CATEGORY_OPTION_NAMES)
 //				.put(
-//						JinericRecipeBookTypes.JINERIC_REFINERY,
+//						JinericRecipeBookType.JINERIC_REFINERY,
 //						Pair.of("isRefineryGuiOpen", "isRefineryFilteringCraftable")
 //				)
 //				.build();

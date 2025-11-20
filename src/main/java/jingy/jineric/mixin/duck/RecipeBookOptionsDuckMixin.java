@@ -1,7 +1,7 @@
 package jingy.jineric.mixin.duck;
 
 import jingy.jineric.access.RecipeBookOptionsAccess;
-import jingy.jineric.recipe.book.JinericRecipeBookTypes;
+import jingy.jineric.recipe.book.JinericRecipeBookType;
 import net.minecraft.recipe.book.RecipeBookOptions;
 import net.minecraft.recipe.book.RecipeBookType;
 import org.spongepowered.asm.mixin.*;
@@ -63,7 +63,7 @@ public class RecipeBookOptionsDuckMixin implements RecipeBookOptionsAccess {
 			cancellable = true
 	)
 	private void getRefineryOption(RecipeBookType type, CallbackInfoReturnable<RecipeBookOptions.CategoryOption> cir) {
-		if (type.equals(JinericRecipeBookTypes.JINERIC_REFINERY)) {
+		if (type.equals(JinericRecipeBookType.JINERIC_REFINERY)) {
 			cir.setReturnValue(this.blastFurnace);
 			cir.cancel();
 		}
@@ -75,7 +75,7 @@ public class RecipeBookOptionsDuckMixin implements RecipeBookOptionsAccess {
 			cancellable = true
 	)
 	private void caseRefinery(RecipeBookType type, UnaryOperator<RecipeBookOptions.CategoryOption> modifier, CallbackInfo ci) {
-		if (type.equals(JinericRecipeBookTypes.JINERIC_REFINERY)) {
+		if (type.equals(JinericRecipeBookType.JINERIC_REFINERY)) {
 //			this.refinery = modifier.apply(this.jineric_mod$getRefinery());
 			ci.cancel();
 		}
