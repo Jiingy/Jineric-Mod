@@ -242,6 +242,7 @@
   "container.exposed_copper_chest": "Exposed Copper Chest",
   "container.jineric.campfire": "Campfire",
   "container.jineric.campfire.cooking_slot_description": "Add food, log, or clay brick",
+  "container.jineric.campfire.tinder_slot_description": "Ignore this slot, it does nothing",
   "container.jineric.foundry": "Foundry",
   "container.jungle_chest": "Jungle Chest",
   "container.mangrove_chest": "Mangrove Chest",

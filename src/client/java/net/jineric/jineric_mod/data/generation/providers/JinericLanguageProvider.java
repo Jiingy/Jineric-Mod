@@ -83,6 +83,7 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		builder.add("container.jineric.foundry", "Foundry");
 		builder.add("container.jineric.campfire", "Campfire");
 		builder.add("container.jineric.campfire.cooking_slot_description", "Add food, log, or clay brick");
+		builder.add("container.jineric.campfire.tinder_slot_description", "Ignore this slot, it does nothing");
 		builder.add("container.oak_chest", "Oak Chest");
 		builder.add("container.spruce_chest", "Spruce Chest");
 		builder.add("container.birch_chest", "Birch Chest");

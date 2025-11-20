@@ -29,6 +29,7 @@ public class CampfireScreen extends HandledScreen<CampfireScreenHandler> {
 	private static final Identifier EMPTY_SLOT_CLAY_BRICK_TEXTURE = JinericMain.ofJineric("container/slot/clay_brick");
 	
 	private static final Text COOKING_SLOT_TEXT = Text.translatable("container.jineric.campfire.cooking_slot_description");
+	private static final Text TINDER_SLOT_TEXT = Text.translatable("container.jineric.campfire.tinder_slot_description");
 	
 	private static final List<Identifier> COOKING_SLOTS = List.of(
 			EMPTY_SLOT_LOG_TEXTURE,
@@ -69,8 +70,12 @@ public class CampfireScreen extends HandledScreen<CampfireScreenHandler> {
 	
 	private void renderSlotTooltip(DrawContext context, int mouseX, int mouseY) {
 		if (this.focusedSlot != null) {
-			if (!this.focusedSlot.hasStack() && this.focusedSlot instanceof CampfireLogSlog) {
-				context.drawOrderedTooltip(this.textRenderer, this.textRenderer.wrapLines(COOKING_SLOT_TEXT, 115), mouseX, mouseY);
+			if (!this.focusedSlot.hasStack()) {
+				if (this.focusedSlot instanceof CampfireLogSlog) {
+					context.drawOrderedTooltip(this.textRenderer, this.textRenderer.wrapLines(COOKING_SLOT_TEXT, 115), mouseX, mouseY);
+				} else if (this.focusedSlot.getIndex() == 4) {
+					context.drawOrderedTooltip(this.textRenderer, this.textRenderer.wrapLines(TINDER_SLOT_TEXT, 115), mouseX, mouseY);
+				}
 			} else {
 				this.drawMouseoverTooltip(context, mouseX, mouseY);
 			}
