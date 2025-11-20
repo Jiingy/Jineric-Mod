@@ -3,7 +3,6 @@
   "category": "blocks",
   "cookingtime": 100,
   "experience": 0.1,
-  "group": "smooth_dripstone",
   "ingredient": "jineric:dripstone_stairs",
   "result": {
     "id": "jineric:smooth_dripstone_stairs"

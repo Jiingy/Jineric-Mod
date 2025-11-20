@@ -3,7 +3,6 @@
   "category": "misc",
   "cookingtime": 100,
   "experience": 0.1,
-  "group": "glazed_terracotta",
   "ingredient": "minecraft:cyan_terracotta",
   "result": {
     "id": "minecraft:cyan_glazed_terracotta"

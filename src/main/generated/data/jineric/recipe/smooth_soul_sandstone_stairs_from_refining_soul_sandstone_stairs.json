@@ -3,7 +3,6 @@
   "category": "blocks",
   "cookingtime": 100,
   "experience": 0.1,
-  "group": "smooth_soul_sandstone",
   "ingredient": "jineric:soul_sandstone_stairs",
   "result": {
     "id": "jineric:smooth_soul_sandstone_stairs"

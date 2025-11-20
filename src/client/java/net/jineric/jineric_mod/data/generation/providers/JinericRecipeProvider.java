@@ -166,22 +166,22 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				this.offerRefining(Blocks.SAND, Blocks.GLASS);
 				this.offerRefining(Blocks.BASALT, Blocks.SMOOTH_BASALT);
 				this.offerRefining(Blocks.CLAY, Blocks.TERRACOTTA);
-				this.offerRefining(Blocks.WHITE_TERRACOTTA, Blocks.WHITE_GLAZED_TERRACOTTA, "glazed_terracotta");
-				this.offerRefining(Blocks.LIGHT_GRAY_TERRACOTTA, Blocks.LIGHT_GRAY_GLAZED_TERRACOTTA, "glazed_terracotta");
-				this.offerRefining(Blocks.GRAY_TERRACOTTA, Blocks.GRAY_GLAZED_TERRACOTTA, "glazed_terracotta");
-				this.offerRefining(Blocks.BLACK_TERRACOTTA, Blocks.BLACK_GLAZED_TERRACOTTA, "glazed_terracotta");
-				this.offerRefining(Blocks.BROWN_TERRACOTTA, Blocks.BROWN_GLAZED_TERRACOTTA, "glazed_terracotta");
-				this.offerRefining(Blocks.RED_TERRACOTTA, Blocks.RED_GLAZED_TERRACOTTA, "glazed_terracotta");
-				this.offerRefining(Blocks.ORANGE_TERRACOTTA, Blocks.ORANGE_GLAZED_TERRACOTTA, "glazed_terracotta");
-				this.offerRefining(Blocks.YELLOW_TERRACOTTA, Blocks.YELLOW_GLAZED_TERRACOTTA, "glazed_terracotta");
-				this.offerRefining(Blocks.LIME_TERRACOTTA, Blocks.LIME_GLAZED_TERRACOTTA, "glazed_terracotta");
-				this.offerRefining(Blocks.GREEN_TERRACOTTA, Blocks.GREEN_GLAZED_TERRACOTTA, "glazed_terracotta");
-				this.offerRefining(Blocks.CYAN_TERRACOTTA, Blocks.CYAN_GLAZED_TERRACOTTA, "glazed_terracotta");
-				this.offerRefining(Blocks.LIGHT_BLUE_TERRACOTTA, Blocks.LIGHT_BLUE_GLAZED_TERRACOTTA, "glazed_terracotta");
-				this.offerRefining(Blocks.BLUE_TERRACOTTA, Blocks.BLUE_GLAZED_TERRACOTTA, "glazed_terracotta");
-				this.offerRefining(Blocks.PURPLE_TERRACOTTA, Blocks.PURPLE_GLAZED_TERRACOTTA, "glazed_terracotta");
-				this.offerRefining(Blocks.MAGENTA_TERRACOTTA, Blocks.MAGENTA_GLAZED_TERRACOTTA, "glazed_terracotta");
-				this.offerRefining(Blocks.PINK_TERRACOTTA, Blocks.PINK_GLAZED_TERRACOTTA, "glazed_terracotta");
+				this.offerRefining(Blocks.WHITE_TERRACOTTA, Blocks.WHITE_GLAZED_TERRACOTTA);
+				this.offerRefining(Blocks.LIGHT_GRAY_TERRACOTTA, Blocks.LIGHT_GRAY_GLAZED_TERRACOTTA);
+				this.offerRefining(Blocks.GRAY_TERRACOTTA, Blocks.GRAY_GLAZED_TERRACOTTA);
+				this.offerRefining(Blocks.BLACK_TERRACOTTA, Blocks.BLACK_GLAZED_TERRACOTTA);
+				this.offerRefining(Blocks.BROWN_TERRACOTTA, Blocks.BROWN_GLAZED_TERRACOTTA);
+				this.offerRefining(Blocks.RED_TERRACOTTA, Blocks.RED_GLAZED_TERRACOTTA);
+				this.offerRefining(Blocks.ORANGE_TERRACOTTA, Blocks.ORANGE_GLAZED_TERRACOTTA);
+				this.offerRefining(Blocks.YELLOW_TERRACOTTA, Blocks.YELLOW_GLAZED_TERRACOTTA);
+				this.offerRefining(Blocks.LIME_TERRACOTTA, Blocks.LIME_GLAZED_TERRACOTTA);
+				this.offerRefining(Blocks.GREEN_TERRACOTTA, Blocks.GREEN_GLAZED_TERRACOTTA);
+				this.offerRefining(Blocks.CYAN_TERRACOTTA, Blocks.CYAN_GLAZED_TERRACOTTA);
+				this.offerRefining(Blocks.LIGHT_BLUE_TERRACOTTA, Blocks.LIGHT_BLUE_GLAZED_TERRACOTTA);
+				this.offerRefining(Blocks.BLUE_TERRACOTTA, Blocks.BLUE_GLAZED_TERRACOTTA);
+				this.offerRefining(Blocks.PURPLE_TERRACOTTA, Blocks.PURPLE_GLAZED_TERRACOTTA);
+				this.offerRefining(Blocks.MAGENTA_TERRACOTTA, Blocks.MAGENTA_GLAZED_TERRACOTTA);
+				this.offerRefining(Blocks.PINK_TERRACOTTA, Blocks.PINK_GLAZED_TERRACOTTA);
 				this.offerRefining(Blocks.WET_SPONGE, Blocks.SPONGE, RecipeCategory.MISC, CookingRecipeCategory.MISC, 0.2F);
 				
 				// STONECUTTING
@@ -570,7 +570,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 			}
 			
 			public void offerRefiningBlockFamily(BlockFamily blockFamilyIn, BlockFamily blockFamilyOut, Block uniqueBase) {
-				String group = Registries.BLOCK.getId(blockFamilyOut.getBaseBlock()).getPath();
+				String group = ""; //Registries.BLOCK.getId(blockFamilyOut.getBaseBlock()).getPath()
 				if (uniqueBase != null) {
 					this.offerRefining(uniqueBase, blockFamilyOut.getBaseBlock(), RecipeCategory.BUILDING_BLOCKS, CookingRecipeCategory.BLOCKS, 0.1F, group);
 				} else {

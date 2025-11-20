@@ -3,7 +3,6 @@
   "category": "blocks",
   "cookingtime": 100,
   "experience": 0.1,
-  "group": "smooth_red_sandstone",
   "ingredient": "minecraft:red_sandstone_slab",
   "result": {
     "id": "minecraft:smooth_red_sandstone_slab"
