@@ -3,7 +3,7 @@ package net.jineric.jineric_mod.gui.screen.ingame;
 import jingy.jineric.base.JinericMain;
 import net.jineric.jineric_mod.gui.screen.recipebook.RefineryRecipeBookWidget;
 import net.jineric.jineric_mod.recipe.JinericClientRecipeBookTypes;
-import jingy.jineric.recipe.JinericRecipeBookCategories;
+import jingy.jineric.recipe.book.JinericRecipeBookCategories;
 import jingy.jineric.screen.RefineryScreenHandler;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
