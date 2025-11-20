@@ -1,6 +1,6 @@
 package jingy.jineric.screen;
 
-import jingy.jineric.recipe.JinericRecipeBookTypes;
+import jingy.jineric.recipe.book.JinericRecipeBookTypes;
 import jingy.jineric.recipe.JinericRecipePropertySet;
 import jingy.jineric.recipe.JinericRecipeTypes;
 import net.minecraft.entity.player.PlayerInventory;

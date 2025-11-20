@@ -1,6 +1,7 @@
 package jingy.jineric.recipe;
 
 import jingy.jineric.item.JinericItems;
+import jingy.jineric.recipe.book.JinericRecipeBookCategories;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.AbstractCookingRecipe;

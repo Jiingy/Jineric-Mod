@@ -1,7 +1,7 @@
 package jingy.jineric.base.plugins;
 
 import com.chocohead.mm.api.ClassTinkerers;
-import jingy.jineric.recipe.JinericRecipeBookCategories;
+import jingy.jineric.recipe.book.JinericRecipeBookCategories;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.MappingResolver;

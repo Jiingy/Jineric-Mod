@@ -4,7 +4,7 @@ import net.jineric.jineric_mod.block.entity.state.JinericChestBlockEntityRenderS
 import net.jineric.jineric_mod.data.JinericModels;
 import net.jineric.jineric_mod.data.JinericTextureKey;
 import net.jineric.jineric_mod.recipe.JinericClientRecipeBookTypes;
-import jingy.jineric.recipe.JinericRecipeBookTypes;
+import jingy.jineric.recipe.book.JinericRecipeBookTypes;
 import jingy.jineric.recipe.JinericRecipePropertySet;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;

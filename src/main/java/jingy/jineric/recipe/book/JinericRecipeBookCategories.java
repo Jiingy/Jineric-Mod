@@ -1,4 +1,4 @@
-package jingy.jineric.recipe;
+package jingy.jineric.recipe.book;
 
 import jingy.jineric.base.JinericMain;
 import net.minecraft.recipe.book.RecipeBookCategory;

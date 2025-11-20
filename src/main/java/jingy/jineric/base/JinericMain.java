@@ -6,7 +6,7 @@ import jingy.jineric.entity.effect.JinericStatusEffects;
 import jingy.jineric.item.JinericItemGroups;
 import jingy.jineric.item.JinericItems;
 import jingy.jineric.potion.JinericPotions;
-import jingy.jineric.recipe.JinericRecipeBookCategories;
+import jingy.jineric.recipe.book.JinericRecipeBookCategories;
 import jingy.jineric.recipe.JinericRecipeSerializer;
 import jingy.jineric.recipe.JinericRecipeTypes;
 import jingy.jineric.registry.JinericBlockEntityType;
