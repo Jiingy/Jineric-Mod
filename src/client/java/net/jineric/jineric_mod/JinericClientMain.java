@@ -1,6 +1,6 @@
 package net.jineric.jineric_mod;
 
-import jingy.jineric.recipe.JinericRecipeBookType;
+import jingy.jineric.recipe.book.JinericRecipeBookType;
 import jingy.jineric.recipe.JinericRecipePropertySet;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;

@@ -4,7 +4,6 @@ import com.google.common.annotations.VisibleForTesting;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import jingy.jineric.mixin.access.CategoryOptionAccessor;
-import jingy.jineric.recipe.JinericRecipeBookType;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.recipe.book.RecipeBookOptions;
