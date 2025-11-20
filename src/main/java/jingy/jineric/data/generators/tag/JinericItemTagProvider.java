@@ -4,6 +4,7 @@ import jingy.jineric.item.JinericItems;
 import jingy.jineric.tag.JinericItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
@@ -17,6 +18,7 @@ public class JinericItemTagProvider extends FabricTagProvider.ItemTagProvider {
 	
 	@Override
 	protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+		
 		//  Modded
 		this.valueLookupBuilder(JinericItemTags.CHESTS)
 				.addTag(JinericItemTags.WOODEN_CHESTS);
@@ -51,7 +53,16 @@ public class JinericItemTagProvider extends FabricTagProvider.ItemTagProvider {
 				.add(Items.FEATHER)
 				.add(Items.RED_MUSHROOM)
 				.add(Items.BROWN_MUSHROOM);
-		
+		this.valueLookupBuilder(JinericItemTags.LOGS)
+				.forceAddTag(ConventionalItemTags.NATURAL_LOGS)
+				.forceAddTag(ConventionalItemTags.STRIPPED_LOGS);
+		this.valueLookupBuilder(JinericItemTags.WOODS)
+				.forceAddTag(ConventionalItemTags.NATURAL_WOODS)
+				.forceAddTag(ConventionalItemTags.STRIPPED_WOODS);
+		this.valueLookupBuilder(JinericItemTags.LOGS_AND_WOODS)
+				.forceAddTag(JinericItemTags.LOGS)
+				.forceAddTag(JinericItemTags.WOODS);
+				
 		//  Vanilla
 //		this.getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN);
 //		this.getOrCreateTagBuilder(ItemTags.PLANKS);

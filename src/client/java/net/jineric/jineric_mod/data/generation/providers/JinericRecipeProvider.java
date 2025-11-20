@@ -16,7 +16,6 @@ import jingy.jineric.recipe.RefiningRecipe;
 import jingy.jineric.tag.JinericItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.advancement.criterion.InventoryChangedCriterion;
 import net.minecraft.block.Block;
@@ -315,7 +314,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 
 				this.createShaped(RecipeCategory.MISC, JinericItems.STONE_UPGRADE_SMITHING_TEMPLATE, 1)
 						.input('M', Items.SMOOTH_STONE).input('S', Items.STONE)
-						.input('W', ConventionalItemTags.NATURAL_WOODS).input('L', ConventionalItemTags.NATURAL_LOGS)
+						.input('W', JinericItemTags.WOODS).input('L', JinericItemTags.LOGS)
 						.pattern("LML")
 						.pattern("LSL")
 						.pattern("WWW")

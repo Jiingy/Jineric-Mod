@@ -2,10 +2,10 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "L": "#c:natural_logs",
+    "L": "#jineric:logs",
     "M": "minecraft:smooth_stone",
     "S": "minecraft:stone",
-    "W": "#c:natural_woods"
+    "W": "#jineric:woods"
   },
   "pattern": [
     "LML",

@@ -34,6 +34,9 @@ public class JinericItemTags {
 	
 	//  Vanilla
 	public static final TagKey<Item> CUT_COPPER = registerItemTag("cut_copper");
+	public static final TagKey<Item> LOGS_AND_WOODS = registerItemTag("logs_and_woods");
+	public static final TagKey<Item> LOGS = registerItemTag("logs");
+	public static final TagKey<Item> WOODS = registerItemTag("woods");
 	
 	private static TagKey<Item> registerItemTag(String id) {
 		return TagKey.of(Registries.ITEM.getKey(), JinericMain.ofJineric(id));
