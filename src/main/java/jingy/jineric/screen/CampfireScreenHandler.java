@@ -10,10 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.RecipePropertySet;
 import net.minecraft.screen.*;
 import net.minecraft.screen.slot.Slot;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-
-import java.util.Optional;
 
 public class CampfireScreenHandler extends ScreenHandler implements ScreenHandlerListener {
 	private final PlayerEntity player;
@@ -38,8 +35,6 @@ public class CampfireScreenHandler extends ScreenHandler implements ScreenHandle
 		
 		//  Tinder Slot
 		for (int index = 0; index < 4; index++) {
-			Optional<BlockPos> blockPos = context.get((world1, blockPos1) -> blockPos1);
-
 			//  4 Firing Slots
 			int logSlotIndex = index + 1;
 			this.addSlot(
@@ -65,13 +60,69 @@ public class CampfireScreenHandler extends ScreenHandler implements ScreenHandle
 		return this.world.getRecipeManager().getPropertySet(RecipePropertySet.CAMPFIRE_INPUT).canUse(itemStack);
 	}
 	
-	//  CUSTOM
-	
-	
-	//  OVERRIDES
 	@Override
-	public ItemStack quickMove(PlayerEntity player, int slot) {
-		return null;
+	public ItemStack quickMove(PlayerEntity player, int slotIndex) {
+		ItemStack emptyStack = ItemStack.EMPTY;
+		ItemStack movedSlotStack = emptyStack;
+		Slot movingSlot = this.slots.get(slotIndex);
+		if (movingSlot.hasStack()) {
+			ItemStack movingSlotStack = movingSlot.getStack();
+			movedSlotStack = movingSlotStack.copy();
+			// Is one of the cooking slots
+			int cookingIndexStart = 0;
+			int cookingIndexEnd = 4;
+			int playerIndexStart = 5;
+			int inventoryIndexEnd = 31;
+			int playerIndexEnd = 41;
+			if (slotIndex >= 0 && slotIndex < cookingIndexEnd) {
+				//  Try cooking slot to player inventory
+				if (!this.insertItem(movingSlotStack, 5, playerIndexEnd, true)) {
+					return emptyStack;
+				}
+			}
+			//  Is player slot
+			else if (slotIndex >= playerIndexStart) {
+				//  Is cookable item
+				if (this.isCampfireCookable(movingSlotStack)) {
+					//  Try insert into a cooking slot
+					if (!this.insertItem(movingSlotStack, cookingIndexStart, playerIndexStart, false)) {
+						return emptyStack;
+					}
+				}
+				//  Is inventory slot
+				else if (slotIndex < inventoryIndexEnd) {
+					//  Try insert to hotbar
+					if (!this.insertItem(movingSlotStack, 32, playerIndexEnd, false)) {
+						return emptyStack;
+					}
+				}
+				//  Is hotbar slot
+				else {
+					//  Try insert to inventory
+					if (!this.insertItem(movingSlotStack, playerIndexStart, inventoryIndexEnd, false)) {
+						return emptyStack;
+					}
+				}
+			}
+			
+			//  If movingSlotStack has nothing in it on shift-click, do nothing
+			//  Otherwise, mark the inventory as dirty (changed) due to slot changing
+			if (movingSlotStack.isEmpty()) {
+				movingSlot.setStack(emptyStack);
+			} else {
+				movingSlot.markDirty();
+			}
+			
+			if (movingSlotStack.getCount() == movedSlotStack.getCount()) {
+				return emptyStack;
+			}
+			movingSlot.onTakeItem(player, movingSlotStack);
+		}
+		return movedSlotStack;
+	}
+	
+	private boolean isCampfireCookable(ItemStack checkedStack) {
+		return this.world.getRecipeManager().getPropertySet(RecipePropertySet.CAMPFIRE_INPUT).canUse(checkedStack);
 	}
 	
 	@Override

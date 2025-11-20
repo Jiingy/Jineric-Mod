@@ -80,6 +80,4 @@ public class CampfireLogSlog extends Slot {
 	public int getMaxItemCount() {
 		return 1;
 	}
-	
-	
 }
