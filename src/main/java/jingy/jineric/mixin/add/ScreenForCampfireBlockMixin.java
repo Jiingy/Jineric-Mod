@@ -7,6 +7,8 @@ import net.minecraft.block.Waterloggable;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.CampfireBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.FlintAndSteelItem;
+import net.minecraft.item.Items;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.hit.BlockHitResult;
@@ -28,14 +30,14 @@ public abstract class ScreenForCampfireBlockMixin extends BlockWithEntity implem
 	@Override
 	protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
 		BlockEntity blockEntity = world.getBlockEntity(pos);
-		if (!canBeLit(state)) {
+		if ((player.isHolding(itemStack -> itemStack.getItem() instanceof FlintAndSteelItem) || player.isHolding(Items.FIRE_CHARGE)) && canBeLit(state)) {
+			return ActionResult.PASS_TO_DEFAULT_BLOCK_ACTION;
+		} else {
 			if (!world.isClient() && blockEntity instanceof CampfireBlockEntity campfireBlockEntity) {
 				player.openHandledScreen(campfireBlockEntity);
 				player.incrementStat(Stats.INTERACT_WITH_CAMPFIRE);
 			}
-			return ActionResult.SUCCESS;
-		} else {
-			return ActionResult.PASS_TO_DEFAULT_BLOCK_ACTION;
 		}
+		return ActionResult.SUCCESS;
 	}
 }
