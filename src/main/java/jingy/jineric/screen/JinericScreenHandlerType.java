@@ -27,6 +27,11 @@ public class JinericScreenHandlerType {
 			JinericMain.ofJineric("foundry"),
 			new ScreenHandlerType<>(FoundryScreenHandler::new, FeatureSet.empty())
 	);
+	public final static ScreenHandlerType<KilnScreenHandler> KILN = Registry.register(
+			Registries.SCREEN_HANDLER,
+			JinericMain.ofJineric("kiln"),
+			new ScreenHandlerType<>(KilnScreenHandler::new, FeatureSet.empty())
+	);
 	
 	public static void initialize() {
 	}

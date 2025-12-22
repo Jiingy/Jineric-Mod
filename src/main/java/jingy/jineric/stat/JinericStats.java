@@ -9,6 +9,7 @@ import net.minecraft.util.Identifier;
 
 public class JinericStats {
 	public static final Identifier INTERACT_WITH_REFINERY = register("interact_with_refinery", StatFormatter.DEFAULT);
+	public static final Identifier INTERACT_WITH_KILN = register("interact_with_kiln", StatFormatter.DEFAULT);
 	
 	private static Identifier register(String id, StatFormatter formatter) {
 		Identifier identifier = JinericMain.ofJineric(id);

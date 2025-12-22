@@ -356,6 +356,7 @@ public class JinericItems {
 //	);
 	public static final Item REFINERY = register(JinericBlocks.REFINERY);
 	public static final Item FOUNDRY = register(JinericBlocks.FOUNDRY);
+	public static final Item KILN = register(JinericBlocks.KILN);
 	public static final Item REDSTONE_CAMPFIRE = register(JinericBlocks.REDSTONE_CAMPFIRE);
 	public static final Item STONE_CRUCIBLE = register(JinericBlocks.STONE_CRUCIBLE);
 	

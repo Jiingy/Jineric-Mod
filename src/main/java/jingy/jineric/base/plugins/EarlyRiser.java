@@ -17,6 +17,7 @@ public class EarlyRiser implements Runnable {
 		ClassTinkerers.enumBuilder(recipeBookType)
 				.addEnum("JINERIC_REFINERY")
 				.addEnum("JINERIC_FOUNDRY")
+				.addEnum("JINERIC_KILN")
 				.build();
 		
 		String recipeCategory = mappingResolver.mapClassName("intermediary", "net.minecraft.class_7800");
@@ -46,6 +47,12 @@ public class EarlyRiser implements Runnable {
 							() -> new Object[] {
 									new RecipeBookCategory[] {
 											JinericRecipeBookCategories.FOUNDRY
+									}
+							})
+					.addEnum("JINERIC_KILN",
+							() -> new Object[] {
+									new RecipeBookCategory[] {
+											JinericRecipeBookCategories.KILN
 									}
 							})
 					.build();

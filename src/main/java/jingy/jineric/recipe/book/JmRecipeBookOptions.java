@@ -14,11 +14,13 @@ import java.util.function.UnaryOperator;
 public class JmRecipeBookOptions {
 	public static final MapCodec<RecipeBookOptions.CategoryOption> REFINERY = CategoryOptionAccessor.callCreateCodec("isRefineryGuiOpen", "isRefineryFilteringCraftable");
 	public static final MapCodec<RecipeBookOptions.CategoryOption> FOUNDRY = CategoryOptionAccessor.callCreateCodec("isFoundryGuiOpen", "isFoundryFilteringCraftable");
+	public static final MapCodec<RecipeBookOptions.CategoryOption> KILN = CategoryOptionAccessor.callCreateCodec("isKilnGuiOpen", "isKilnFilteringCraftable");
 	
 	public static final PacketCodec<PacketByteBuf, JmRecipeBookOptions> PACKET_CODEC = PacketCodec.tuple(
 			//  Modded
 			RecipeBookOptions.CategoryOption.PACKET_CODEC, options -> options.refinery,
 			RecipeBookOptions.CategoryOption.PACKET_CODEC, options -> options.foundry,
+			RecipeBookOptions.CategoryOption.PACKET_CODEC, options -> options.kiln,
 			//  Vanilla
 			RecipeBookOptions.CategoryOption.PACKET_CODEC, options -> options.crafting,
 			RecipeBookOptions.CategoryOption.PACKET_CODEC, options -> options.furnace,
@@ -31,6 +33,7 @@ public class JmRecipeBookOptions {
 					//  Modded
 					REFINERY.forGetter(options -> options.refinery),
 					FOUNDRY.forGetter(options -> options.foundry),
+					KILN.forGetter(options -> options.kiln),
 					//  Vanilla
 					RecipeBookOptions.CategoryOption.CRAFTING.forGetter(options -> options.crafting),
 					RecipeBookOptions.CategoryOption.FURNACE.forGetter(options -> options.furnace),
@@ -42,6 +45,7 @@ public class JmRecipeBookOptions {
 	//  Modded
 	private RecipeBookOptions.CategoryOption refinery;
 	private RecipeBookOptions.CategoryOption foundry;
+	private RecipeBookOptions.CategoryOption kiln;
 	//  Vanilla
 	private RecipeBookOptions.CategoryOption crafting;
 	private RecipeBookOptions.CategoryOption furnace;
@@ -55,6 +59,7 @@ public class JmRecipeBookOptions {
 				RecipeBookOptions.CategoryOption.DEFAULT,
 				RecipeBookOptions.CategoryOption.DEFAULT,
 				RecipeBookOptions.CategoryOption.DEFAULT,
+				RecipeBookOptions.CategoryOption.DEFAULT,
 				RecipeBookOptions.CategoryOption.DEFAULT
 		);
 	}
@@ -63,6 +68,7 @@ public class JmRecipeBookOptions {
 			//  Modded
 			RecipeBookOptions.CategoryOption refinery,
 			RecipeBookOptions.CategoryOption foundry,
+			RecipeBookOptions.CategoryOption kiln,
 			//  Vanilla
 			RecipeBookOptions.CategoryOption crafting,
 			RecipeBookOptions.CategoryOption furnace,
@@ -72,6 +78,7 @@ public class JmRecipeBookOptions {
 		//  Modded
 		this.refinery = refinery;
 		this.foundry = foundry;
+		this.kiln = kiln;
 		//  Vanilla
 		this.crafting = crafting;
 		this.furnace = furnace;
@@ -86,7 +93,10 @@ public class JmRecipeBookOptions {
 			return this.refinery;
 		} else if (type.equals(JinericRecipeBookType.JINERIC_FOUNDRY)) {
 			return this.foundry;
-		} else {
+		} else if (type.equals(JinericRecipeBookType.JINERIC_KILN)) {
+			return this.kiln;
+		}
+		else {
 			//  Vanilla
 			return switch (type) {
 				case CRAFTING -> this.crafting;
@@ -105,6 +115,10 @@ public class JmRecipeBookOptions {
 		}
 		if (type.equals(JinericRecipeBookType.JINERIC_FOUNDRY)) {
 			this.foundry = modifier.apply(this.foundry);
+			return;
+		}
+		if (type.equals(JinericRecipeBookType.JINERIC_KILN)) {
+			this.kiln = modifier.apply(this.kiln);
 			return;
 		}
 		//  Vanilla
@@ -144,6 +158,7 @@ public class JmRecipeBookOptions {
 				//  Modded
 				this.refinery,
 				this.foundry,
+				this.kiln,
 				//  Vanilla
 				this.crafting,
 				this.furnace,
@@ -156,6 +171,7 @@ public class JmRecipeBookOptions {
 		//  Modded
 		this.refinery = other.refinery;
 		this.foundry = other.foundry;
+		this.kiln = other.kiln;
 		//  Vanilla
 		this.crafting = other.crafting;
 		this.furnace = other.furnace;

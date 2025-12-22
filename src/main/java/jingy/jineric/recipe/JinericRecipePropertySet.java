@@ -7,6 +7,7 @@ import net.minecraft.registry.RegistryKey;
 public class JinericRecipePropertySet {
 	public static final RegistryKey<RecipePropertySet> REFINERY_INPUT = register("refinery_input");
 	public static final RegistryKey<RecipePropertySet> FOUNDRY_INPUT = register("foundry_input");
+	public static final RegistryKey<RecipePropertySet> KILN_INPUT = register("kiln_input");
 	
 	private static RegistryKey<RecipePropertySet> register(String id) {
 		return RegistryKey.of(RecipePropertySet.REGISTRY, JinericMain.ofJineric(id));
