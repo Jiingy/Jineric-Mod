@@ -70,7 +70,6 @@ public abstract class RecipeBookMixin implements RecipeBookAccess {
 		if (this.moddedRecipeBook) {
 			this.jineric$getOptions().setFilteringCraftable(category, filtering);
 		} else {
-			System.out.println("RETURNING VANILLA setFilteringCraftable");
 			original.call(instance, category, filtering);
 		}
 	}
