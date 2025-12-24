@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "jineric:block/foundry"
+    "model": "jineric:block/foundry_unlit"
   }
 }
