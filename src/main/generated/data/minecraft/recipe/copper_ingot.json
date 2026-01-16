@@ -1,7 +1,7 @@
 {
   "type": "jineric:foundry_smelting",
   "category": "misc",
-  "cookingtime": 1800,
+  "cookingtime": 1600,
   "experience": 0.2,
   "group": "copper_ingot",
   "ingredient": "minecraft:raw_copper",
