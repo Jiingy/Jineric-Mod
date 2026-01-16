@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "wooden_sword",
+  "key": {
+    "M": "minecraft:jungle_planks",
+    "S": "minecraft:stick"
+  },
+  "pattern": [
+    "M",
+    "M",
+    "S"
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_model_data": {
+        "strings": [
+          "jungle_sword"
+        ]
+      },
+      "minecraft:item_name": {
+        "translate": "item.jineric.jungle_sword"
+      }
+    },
+    "count": 1,
+    "id": "minecraft:wooden_sword"
+  }
+}

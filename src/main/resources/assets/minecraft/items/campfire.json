@@ -1,0 +1,22 @@
+{
+   "model": {
+      "type": "minecraft:select",
+      "property": "minecraft:component",
+      "component": "minecraft:block_state",
+      "cases": [
+         {
+            "when": {
+               "lit": "false"
+            },
+            "model": {
+               "type": "minecraft:model",
+               "model": "jineric:item/unlit_campfire"
+            }
+         }
+      ],
+      "fallback": {
+         "type": "minecraft:model",
+         "model": "minecraft:item/campfire"
+      }
+   }
+}

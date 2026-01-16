@@ -1,0 +1,96 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/oak_sword"
+        },
+        "when": "oak_sword"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/spruce_sword"
+        },
+        "when": "spruce_sword"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/birch_sword"
+        },
+        "when": "birch_sword"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/acacia_sword"
+        },
+        "when": "acacia_sword"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/cherry_sword"
+        },
+        "when": "cherry_sword"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/jungle_sword"
+        },
+        "when": "jungle_sword"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/dark_oak_sword"
+        },
+        "when": "dark_oak_sword"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/pale_oak_sword"
+        },
+        "when": "pale_oak_sword"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/crimson_sword"
+        },
+        "when": "crimson_sword"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/warped_sword"
+        },
+        "when": "warped_sword"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/mangrove_sword"
+        },
+        "when": "mangrove_sword"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/bamboo_sword"
+        },
+        "when": "bamboo_sword"
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/wooden_sword"
+    },
+    "property": "minecraft:custom_model_data"
+  }
+}

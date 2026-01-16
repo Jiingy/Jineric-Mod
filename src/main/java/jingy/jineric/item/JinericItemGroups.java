@@ -19,6 +19,8 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import java.util.Comparator;
 
+import java.util.List;
+
 @SuppressWarnings("all")
 public class JinericItemGroups {
 	private static final ResourceKey<CreativeModeTab> CONTENT_KEY = ResourceKey.create(Registries.CREATIVE_MODE_TAB, JinericMain.ofJineric("0_content"));
@@ -250,7 +252,11 @@ public class JinericItemGroups {
 				entries.accept(JinericItems.GOLDEN_BEETROOT);
 				entries.accept(JinericItems.REDSTONE_LANTERN);
 				entries.accept(JinericItems.REDSTONE_CAMPFIRE);
+				entries.accept(JinericItems.STONE_UPGRADE_SMITHING_TEMPLATE);
+				entries.accept(JinericItems.COPPER_UPGRADE_SMITHING_TEMPLATE);
 				entries.accept(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE);
+				entries.accept(JinericItems.GOLD_UPGRADE_SMITHING_TEMPLATE);
+				entries.accept(JinericItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE);
 			}).build();
 	
 	public static final CreativeModeTab BLOCKS = FabricItemGroup.builder()
@@ -277,6 +283,7 @@ public class JinericItemGroups {
 						.forEach(item -> {
 							entries.accept(item);
 						});
+				addWoodEquipment(entries, ItemGroup.StackVisibility.PARENT_AND_SEARCH_TABS);
 			}).build();
 	
 	public static void registerJinericItemGroups() {
@@ -510,5 +517,34 @@ public class JinericItemGroups {
 			entries.addAfter(Items.POISONOUS_POTATO, JinericItems.GOLDEN_POTATO);
 			entries.addAfter(Items.SWEET_BERRIES, JinericItems.GOLDEN_SWEET_BERRIES);
 		}));
+	}
+	
+	private static void addWoodEquipment(ItemGroup.Entries entries, ItemGroup.StackVisibility visibility) {
+		EquipmentFamily family = EquipmentFamilies.WOODEN;
+		
+		family.getVariants().forEach((variant, item) -> {
+			for (WoodType woodType : WoodType.stream().toList()) {
+				String woodTypeName = woodType.name();
+				String woodTypeVariant = woodTypeName + "_" + variant;
+				ItemStack itemStack = new ItemStack(item);
+				Text text = Text.translatable("item.jineric." + woodTypeVariant);
+				itemStack.set(DataComponentTypes.ITEM_NAME, text);
+				itemStack.set(DataComponentTypes.CUSTOM_MODEL_DATA, new CustomModelDataComponent(List.of(), List.of(), List.of(woodTypeVariant), List.of()));
+				
+				if (variant.isArmor()) {
+					itemStack.set(
+							DataComponentTypes.EQUIPPABLE,
+							EquippableComponent.builder(variant.equipmentSlot())
+									.model(JmEquipmentAssetKeys.parseWoodenKey(woodTypeName))
+									.build()
+					);
+				}
+				entries.add(itemStack, visibility);
+			}
+		});
+	}
+	
+	private static String getItemPath(Item item) {
+		return Registries.ITEM.getId(item).getPath();
 	}
 }

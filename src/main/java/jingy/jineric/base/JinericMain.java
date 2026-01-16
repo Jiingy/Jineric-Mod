@@ -5,6 +5,7 @@ import jingy.jineric.data.family.JinericBlockFamilies;
 import jingy.jineric.entity.effect.JinericStatusEffects;
 import jingy.jineric.item.JinericItemGroups;
 import jingy.jineric.item.JinericItems;
+import jingy.jineric.network.packet.JmPlayPackets;
 import jingy.jineric.potion.JinericPotions;
 import jingy.jineric.recipe.book.JinericRecipeBookCategories;
 import jingy.jineric.recipe.JinericRecipeSerializer;
@@ -35,6 +36,8 @@ public class JinericMain implements ModInitializer {
 	}
 	
 	private void initRegistries() {
+		JmPlayPackets.initialize();
+//		PayloadTypeRegistry.playS2C().register(JmRecipeBookSettingsS2CPacket.ID, JmRecipeBookSettingsS2CPacket.CODEC);
 		JinericBlocks.initialize();
 		JinericItems.initialize();
 		JinericBlockFamilies.initialize();

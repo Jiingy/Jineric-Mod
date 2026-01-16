@@ -1,0 +1,19 @@
+{
+  "values": [
+    "minecraft:stray",
+    "minecraft:bogged",
+    "minecraft:witch",
+    "minecraft:blaze",
+    "minecraft:guardian",
+    "minecraft:husk",
+    "minecraft:wither_skeleton",
+    "minecraft:cave_spider",
+    "minecraft:vindicator",
+    "minecraft:ghast",
+    "minecraft:hoglin",
+    "minecraft:zoglin",
+    "minecraft:breeze",
+    "minecraft:magma_cube",
+    "minecraft:enderman"
+  ]
+}

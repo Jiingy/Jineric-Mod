@@ -1,0 +1,96 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/oak_boots"
+        },
+        "when": "oak_boots"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/spruce_boots"
+        },
+        "when": "spruce_boots"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/birch_boots"
+        },
+        "when": "birch_boots"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/acacia_boots"
+        },
+        "when": "acacia_boots"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/cherry_boots"
+        },
+        "when": "cherry_boots"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/jungle_boots"
+        },
+        "when": "jungle_boots"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/dark_oak_boots"
+        },
+        "when": "dark_oak_boots"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/pale_oak_boots"
+        },
+        "when": "pale_oak_boots"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/crimson_boots"
+        },
+        "when": "crimson_boots"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/warped_boots"
+        },
+        "when": "warped_boots"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/mangrove_boots"
+        },
+        "when": "mangrove_boots"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/bamboo_boots"
+        },
+        "when": "bamboo_boots"
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "jineric:item/wooden_boots"
+    },
+    "property": "minecraft:custom_model_data"
+  }
+}

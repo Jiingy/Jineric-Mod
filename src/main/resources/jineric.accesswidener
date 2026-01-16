@@ -1,3 +1,18 @@
-accessWidener	v2	named
-accessible	field	net/minecraft/core/cauldron/CauldronInteraction$InteractionMap	map	Ljava/util/Map;
-accessible	class	net/minecraft/data/recipes/RecipeProvider$FamilyRecipeProvider
+accessWidener v2 named
+accessible field net/minecraft/core/cauldron/CauldronInteraction$InteractionMap	map	Ljava/util/Map;
+accessible class net/minecraft/data/recipes/RecipeProvider$FamilyRecipeProvider
+
+accessible field net/minecraft/client/data/ItemModelGenerator$TrimMaterial materialKey Lnet/minecraft/registry/RegistryKey;
+accessible class net/minecraft/client/option/GameOptions$OptionVisitor
+accessible class net/minecraft/client/gui/screen/recipebook/GhostRecipe$CyclingItem
+accessible method net/minecraft/recipe/SingleStackRecipe result ()Lnet/minecraft/item/ItemStack;
+accessible method net/minecraft/block/entity/AbstractFurnaceBlockEntity isBurning ()Z
+accessible method net/minecraft/block/entity/AbstractFurnaceBlockEntity canAcceptRecipeOutput (Lnet/minecraft/registry/DynamicRegistryManager;Lnet/minecraft/recipe/RecipeEntry;Lnet/minecraft/recipe/input/SingleStackRecipeInput;Lnet/minecraft/util/collection/DefaultedList;I)Z
+accessible method net/minecraft/block/entity/AbstractFurnaceBlockEntity getFuelTime (Lnet/minecraft/item/FuelRegistry;Lnet/minecraft/item/ItemStack;)I
+accessible method net/minecraft/block/entity/AbstractFurnaceBlockEntity getCookTime (Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/block/entity/AbstractFurnaceBlockEntity;)I
+accessible field net/minecraft/block/entity/AbstractFurnaceBlockEntity litTimeRemaining I
+accessible field net/minecraft/block/entity/AbstractFurnaceBlockEntity litTotalTime I
+accessible field net/minecraft/block/entity/AbstractFurnaceBlockEntity inventory Lnet/minecraft/util/collection/DefaultedList;
+accessible field net/minecraft/block/entity/AbstractFurnaceBlockEntity matchGetter Lnet/minecraft/recipe/ServerRecipeManager$MatchGetter;
+accessible field net/minecraft/block/entity/AbstractFurnaceBlockEntity cookingTimeSpent I
+accessible field net/minecraft/block/entity/AbstractFurnaceBlockEntity cookingTotalTime I

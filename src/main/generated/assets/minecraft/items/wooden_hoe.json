@@ -1,0 +1,96 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/oak_hoe"
+        },
+        "when": "oak_hoe"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/spruce_hoe"
+        },
+        "when": "spruce_hoe"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/birch_hoe"
+        },
+        "when": "birch_hoe"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/acacia_hoe"
+        },
+        "when": "acacia_hoe"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/cherry_hoe"
+        },
+        "when": "cherry_hoe"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/jungle_hoe"
+        },
+        "when": "jungle_hoe"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/dark_oak_hoe"
+        },
+        "when": "dark_oak_hoe"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/pale_oak_hoe"
+        },
+        "when": "pale_oak_hoe"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/crimson_hoe"
+        },
+        "when": "crimson_hoe"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/warped_hoe"
+        },
+        "when": "warped_hoe"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/mangrove_hoe"
+        },
+        "when": "mangrove_hoe"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/bamboo_hoe"
+        },
+        "when": "bamboo_hoe"
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/wooden_hoe"
+    },
+    "property": "minecraft:custom_model_data"
+  }
+}

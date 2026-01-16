@@ -27,7 +27,9 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.function.BiConsumer;
 
 import static net.minecraft.client.data.models.BlockModelGenerators.createSimpleBlock;
 import static net.minecraft.client.data.models.BlockModelGenerators.plainVariant;
@@ -79,13 +81,93 @@ public class JinericModelProvider extends FabricModelProvider {
 	
 	@Override
 	public void generateItemModels(ItemModelGenerators itemModelGenerator) {
+		this.registerWoodEquipmentFamily();
 		Identifier jungleLadderId = itemModelGenerator.generateLayeredItem(JinericItems.JUNGLE_LADDER, ModelLocationUtils.getModelLocation(JinericBlocks.JUNGLE_LADDER), JinericMain.ofJineric("block/jungle_ladder_overlay"));
 		itemModelGenerator.itemModelOutput.accept(JinericItems.JUNGLE_LADDER, ItemModelUtils.tintedModel(jungleLadderId, new GrassColorSource()));
+		itemModelGenerator.createFlatItemModel(JinericItems.CLAY_BRICK, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.createFlatItemModel(JinericItems.GOLDEN_BEETROOT, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.createFlatItemModel(JinericItems.GOLDEN_POTATO, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.createFlatItemModel(JinericItems.GOLDEN_SWEET_BERRIES, ModelTemplates.FLAT_ITEM);
-		itemModelGenerator.createFlatItemModel(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.createFlatItemModel(JinericItems.NETHERITE_HORSE_ARMOR, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.createFlatItemModel(JinericItems.EMERALD_HELMET, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.createFlatItemModel(JinericItems.EMERALD_CHESTPLATE, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.createFlatItemModel(JinericItems.EMERALD_LEGGINGS, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.createFlatItemModel(JinericItems.EMERALD_BOOTS, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.createFlatItemModel(JinericItems.EMERALD_PICKAXE, ModelTemplates.FLAT_HANDHELD_ITEM);
+		itemModelGenerator.createFlatItemModel(JinericItems.EMERALD_AXE, ModelTemplates.FLAT_HANDHELD_ITEM);
+		itemModelGenerator.createFlatItemModel(JinericItems.EMERALD_SWORD, ModelTemplates.FLAT_HANDHELD_ITEM);
+		itemModelGenerator.createFlatItemModel(JinericItems.EMERALD_SHOVEL, ModelTemplates.FLAT_HANDHELD_ITEM);
+		itemModelGenerator.createFlatItemModel(JinericItems.EMERALD_HOE, ModelTemplates.FLAT_HANDHELD_ITEM);
+		itemModelGenerator.createFlatItemModel(JinericItems.FLINT_PICKAXE, ModelTemplates.FLAT_HANDHELD_ITEM);
+		itemModelGenerator.createFlatItemModel(JinericItems.DEEPSLATE_PICKAXE, ModelTemplates.FLAT_HANDHELD_ITEM);
+		itemModelGenerator.createFlatItemModel(JinericItems.AMETHYST_PICKAXE, ModelTemplates.FLAT_HANDHELD_ITEM);
+		itemModelGenerator.createFlatItemModel(JinericItems.STONE_CRUCIBLE, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.createFlatItemModel(JinericItems.BOW_DRILL, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.createFlatItemModel(JinericItems.STONE_UPGRADE_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.createFlatItemModel(JinericItems.COPPER_UPGRADE_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.createFlatItemModel(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.createFlatItemModel(JinericItems.GOLD_UPGRADE_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.createFlatItemModel(JinericItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+	}
+	
+	public final void registerWoodEquipmentFamily() {
+		EquipmentFamilies.WOODEN.getVariants().forEach(this::registerWoodEquipmentFamily);
+	}
+	
+	public final void registerWoodEquipmentFamily(EquipmentFamily.Variant variant, Item item) {
+		List<SelectItemModel.SwitchCase<String>> stringList = new ArrayList<>();
+		
+		for (WoodType woodType : WoodType.stream().toList()) {
+			String woodTypeName = woodType.name();
+			String woodTypeVariant = woodTypeName + "_" + variant;
+			Identifier itemId = getPrefixItemModelId(item, woodTypeName  + "_");
+			
+			//  Generates armor item models with trim overlay
+//			List<SelectItemModel.SwitchCase<RegistryKey<ArmorTrimMaterial>>> list
+//					= new ArrayList<>(ItemModelGenerator.TRIM_MATERIALS.size()
+//			);
+//			for (ItemModelGenerator.TrimMaterial trimMaterial : ItemModelGenerator.TRIM_MATERIALS) {
+//				Identifier identifier4 = itemId.withSuffixedPath("_" + trimMaterial.assets().base().suffix() + "_trim");
+//				Identifier layer1 = trimIdPrefix.withSuffixedPath("_" + trimMaterial.assets().getAssetId(equipmentKey).suffix());
+//				ItemModel.Unbaked unbaked;
+//				this.uploadArmorWithTrim(identifier4, layer0, layer1);
+//				unbaked = ItemModels.basic(identifier4);
+//				list.add(ItemModels.switchCase(trimMaterial.materialKey, unbaked));
+//			}
+			Model model = variant.isArmor() ? ModelTemplates.FLAT_ITEM : Models.FLAT_HANDHELD_ITEM;
+			Identifier identifier = Identifier.of(woodTypeVariant).withPrefixedPath("item/");
+			model.upload(
+					identifier,
+					TextureMap.layer0(itemId),
+					this.modelCollector
+			);
+			
+			stringList.add(
+					ItemModels.switchCase(
+							woodTypeVariant,
+							ItemModels.basic(identifier)
+					)
+			);
+		}
+		
+		if (variant.isArmor()) {
+			ModelTemplates.FLAT_ITEM.upload(item, TextureMap.layer0(item), this.modelCollector);
+		}
+		
+		this.output.accept(
+				item,
+				ItemModels.select(
+						new CustomModelDataStringProperty(0),
+						ItemModels.basic(Registries.ITEM.getId(item).withPrefixedPath("item/")),
+						stringList
+				)
+		);
+	}
+	
+	public static Identifier getPrefixItemModelId(Item item, String prefix) {
+		String path = Registries.ITEM.getId(item).getPath();
+		Identifier identifier = JinericMain.ofJineric(path);
+		return identifier.withPrefixedPath("item/" + prefix);
 	}
 	
 	public void registerBlockFamilyModels(BlockModelGenerators bsmg) {

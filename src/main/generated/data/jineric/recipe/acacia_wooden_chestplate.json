@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "wooden_chestplate",
+  "key": {
+    "M": "minecraft:acacia_planks"
+  },
+  "pattern": [
+    "M M",
+    "MMM",
+    "MMM"
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_model_data": {
+        "strings": [
+          "acacia_chestplate"
+        ]
+      },
+      "minecraft:equippable": {
+        "asset_id": "minecraft:acacia_wood",
+        "slot": "chest"
+      },
+      "minecraft:item_name": {
+        "translate": "item.jineric.acacia_chestplate"
+      }
+    },
+    "count": 1,
+    "id": "jineric:wooden_chestplate"
+  }
+}

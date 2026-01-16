@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "wooden_leggings",
+  "key": {
+    "M": "minecraft:birch_planks"
+  },
+  "pattern": [
+    "MMM",
+    "M M",
+    "M M"
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_model_data": {
+        "strings": [
+          "birch_leggings"
+        ]
+      },
+      "minecraft:equippable": {
+        "asset_id": "minecraft:birch_wood",
+        "slot": "legs"
+      },
+      "minecraft:item_name": {
+        "translate": "item.jineric.birch_leggings"
+      }
+    },
+    "count": 1,
+    "id": "jineric:wooden_leggings"
+  }
+}

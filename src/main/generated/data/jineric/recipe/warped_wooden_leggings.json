@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "wooden_leggings",
+  "key": {
+    "M": "minecraft:warped_planks"
+  },
+  "pattern": [
+    "MMM",
+    "M M",
+    "M M"
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_model_data": {
+        "strings": [
+          "warped_leggings"
+        ]
+      },
+      "minecraft:equippable": {
+        "asset_id": "minecraft:warped_wood",
+        "slot": "legs"
+      },
+      "minecraft:item_name": {
+        "translate": "item.jineric.warped_leggings"
+      }
+    },
+    "count": 1,
+    "id": "jineric:wooden_leggings"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "wooden_sword",
+  "key": {
+    "M": "minecraft:dark_oak_planks",
+    "S": "minecraft:stick"
+  },
+  "pattern": [
+    "M",
+    "M",
+    "S"
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_model_data": {
+        "strings": [
+          "dark_oak_sword"
+        ]
+      },
+      "minecraft:item_name": {
+        "translate": "item.jineric.dark_oak_sword"
+      }
+    },
+    "count": 1,
+    "id": "minecraft:wooden_sword"
+  }
+}

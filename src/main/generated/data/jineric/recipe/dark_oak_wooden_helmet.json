@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "wooden_helmet",
+  "key": {
+    "M": "minecraft:dark_oak_planks"
+  },
+  "pattern": [
+    "MMM",
+    "M M"
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_model_data": {
+        "strings": [
+          "dark_oak_helmet"
+        ]
+      },
+      "minecraft:equippable": {
+        "asset_id": "minecraft:dark_oak_wood",
+        "slot": "head"
+      },
+      "minecraft:item_name": {
+        "translate": "item.jineric.dark_oak_helmet"
+      }
+    },
+    "count": 1,
+    "id": "jineric:wooden_helmet"
+  }
+}

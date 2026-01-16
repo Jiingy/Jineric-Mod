@@ -218,6 +218,8 @@ public class JinericBlocks {
 	public static final Block STICK_BLOCK = register("stick_block", RotatedPillarBlock::new, BlockBehaviour.Properties.ofFullCopy(OAK_PLANKS));
 	public static final Block PAPER_BLOCK = register("paper_block", BlockBehaviour.Properties.ofFullCopy(AZALEA_LEAVES).sound(SoundType.AZALEA_LEAVES));
 	
+	public static final Block TINDER = register("tinder", AbstractBlock.Settings.copy(Blocks.HAY_BLOCK));
+	
 	//PACKED ICE
 	public static final Block PACKED_ICE_STAIRS = registerStairsBlock("packed_ice_stairs", PACKED_ICE);
 	public static final Block PACKED_ICE_SLAB = register("packed_ice_slab", SlabBlock::new, BlockBehaviour.Properties.ofFullCopy(PACKED_ICE));
@@ -276,10 +278,17 @@ public class JinericBlocks {
 			BlockBehaviour.Properties.ofFullCopy(OXIDIZED_CUT_COPPER)
 	);
 	
+	//UTILITY
+	public static final Block STONE_CRUCIBLE = register("stone_crucible", CrucibleBlock::new, AbstractBlock.Settings.copy(CRAFTING_TABLE));
 	public static final Block REFINERY = register(
 			"refinery",
 			RefineryBlock::new,
 			BlockBehaviour.Properties.ofFullCopy(FURNACE).lightLevel(createLightLevelFromLitBlockState(13)).sound(SoundType.DEEPSLATE)
+	);
+	public static final Block FOUNDRY = register(
+			"foundry",
+			FoundryBlock::new,
+			AbstractBlock.Settings.copy(FURNACE).luminance(createLightLevelFromLitBlockState(13)).sounds(BlockSoundGroup.STONE)
 	);
 	
 	//REDSTONE

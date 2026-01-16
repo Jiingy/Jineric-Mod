@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "wooden_axe",
+  "key": {
+    "M": "minecraft:crimson_planks",
+    "S": "minecraft:stick"
+  },
+  "pattern": [
+    "MM",
+    "MS",
+    " S"
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_model_data": {
+        "strings": [
+          "crimson_axe"
+        ]
+      },
+      "minecraft:item_name": {
+        "translate": "item.jineric.crimson_axe"
+      }
+    },
+    "count": 1,
+    "id": "minecraft:wooden_axe"
+  }
+}

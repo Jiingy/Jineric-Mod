@@ -20,18 +20,13 @@ import java.util.Map;
 
 @Mixin(RecipeManager.class)
 public abstract class ModifySoleIngredientGettersMixin extends SimplePreparableReloadListener<RecipeMap> implements RecipeAccess {
-	@Mutable
-	@Shadow
-	@Final
-	private static Map<ResourceKey<RecipePropertySet>, RecipeManager.IngredientExtractor> RECIPE_PROPERTY_SETS;
+	@Mutable @Shadow @Final private static Map<ResourceKey<RecipePropertySet>, RecipeManager.IngredientExtractor> RECIPE_PROPERTY_SETS;
 	
 	static {
 		RECIPE_PROPERTY_SETS = ImmutableMap.<ResourceKey<RecipePropertySet>, RecipeManager.IngredientExtractor>builder()
 				.putAll(RECIPE_PROPERTY_SETS)
-				.put(
-						JinericRecipePropertySet.REFINERY_INPUT,
-						forSingleInput(JinericRecipeTypes.REFINING)
-				)
+				.put(JinericRecipePropertySet.REFINERY_INPUT, forSingleInput(JinericRecipeTypes.REFINING))
+				.put(JinericRecipePropertySet.FOUNDRY_INPUT, forSingleInput(JinericRecipeTypes.FOUNDRY_SMELTING))
 				.build();
 	}
 	

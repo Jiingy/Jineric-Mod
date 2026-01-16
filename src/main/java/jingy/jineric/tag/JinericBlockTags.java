@@ -17,6 +17,15 @@ public class JinericBlockTags {
 	public static final TagKey<Block> LADDERS = registerBlockTag("ladders");
 	public static final TagKey<Block> WOODEN_LADDERS = registerBlockTag("wooden_ladders");
 	
+	public static final TagKey<Block> INCORRECT_FOR_EMERALD_TOOL = registerBlockTag("incorrect_for_emerald_tool");
+	public static final TagKey<Block> BOOSTS_WOODEN_EQUIPMENT_LEVEL = registerBlockTag("boosts_wooden_equipment_level");
+	public static final TagKey<Block> BOOSTS_STONE_EQUIPMENT_LEVEL = registerBlockTag("boosts_stone_equipment_level");
+	public static final TagKey<Block> BOOSTS_COPPER_EQUIPMENT_LEVEL = registerBlockTag("boosts_copper_equipment_level");
+	public static final TagKey<Block> BOOSTS_IRON_EQUIPMENT_LEVEL = registerBlockTag("boosts_iron_equipment_level");
+	public static final TagKey<Block> BOOSTS_GOLD_EQUIPMENT_LEVEL = registerBlockTag("boosts_gold_equipment_level");
+	public static final TagKey<Block> BOOSTS_DIAMOND_EQUIPMENT_LEVEL = registerBlockTag("boosts_diamond_equipment_level");
+	public static final TagKey<Block> BOOSTS_NETHERITE_EQUIPMENT_LEVEL = registerBlockTag("boosts_netherite_equipment_level");
+	
 	private static TagKey<Block> registerBlockTag(String id) {
 		return TagKey.create(BuiltInRegistries.BLOCK.key(), JinericMain.ofJineric(id));
 	}

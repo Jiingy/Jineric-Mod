@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "wooden_chestplate",
+  "key": {
+    "M": "minecraft:bamboo_planks"
+  },
+  "pattern": [
+    "M M",
+    "MMM",
+    "MMM"
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_model_data": {
+        "strings": [
+          "bamboo_chestplate"
+        ]
+      },
+      "minecraft:equippable": {
+        "asset_id": "minecraft:bamboo_wood",
+        "slot": "chest"
+      },
+      "minecraft:item_name": {
+        "translate": "item.jineric.bamboo_chestplate"
+      }
+    },
+    "count": 1,
+    "id": "jineric:wooden_chestplate"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "wooden_boots",
+  "key": {
+    "M": "minecraft:cherry_planks"
+  },
+  "pattern": [
+    "M M",
+    "M M"
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_model_data": {
+        "strings": [
+          "cherry_boots"
+        ]
+      },
+      "minecraft:equippable": {
+        "asset_id": "minecraft:cherry_wood",
+        "slot": "feet"
+      },
+      "minecraft:item_name": {
+        "translate": "item.jineric.cherry_boots"
+      }
+    },
+    "count": 1,
+    "id": "jineric:wooden_boots"
+  }
+}

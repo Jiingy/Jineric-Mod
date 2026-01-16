@@ -59,6 +59,9 @@
         }
      },
      "loom:injected_interfaces": {
+        "net/minecraft/class_10260": [
+           "net/jineric/jineric_mod/access/RecipeBookScreenAccess"
+        ],
         "net/minecraft/class_5794": [
            "jingy/jineric/access/BlockFamilyAccess"
         ],
@@ -67,6 +70,20 @@
         ],
         "net/minecraft/class_2446": [
            "jingy/jineric/access/RecipeGeneratorAccess"
+        ],
+        "net/minecraft/class_1799": [
+           "jingy/jineric/access/ItemStackAccess"
+        ],
+        "net/minecraft/class_1792\u0024class_1793": [
+           "jingy/jineric/access/ItemSettingsAccess"
+        ],
+        "net/minecraft/class_8074": [
+           "jingy/jineric/access/SmithingTransformRecipeJsonBuilderAccess"
+        ],
+        "net/minecraft/class_3924": [
+           "net/minecraft/class_3908",
+           "net/minecraft/class_1275",
+           "net/minecraft/class_1263"
         ]
      }
    }

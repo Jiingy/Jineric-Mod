@@ -6,7 +6,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.CampfireBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class RedstoneCampfireBlockEntity extends CampfireBlockEntity implements Clearable {
+public class RedstoneCampfireBlockEntity extends CampfireBlockEntity {
 	public RedstoneCampfireBlockEntity(BlockPos pos, BlockState state) {
 		super(pos, state);
 	}
@@ -19,5 +19,10 @@ public class RedstoneCampfireBlockEntity extends CampfireBlockEntity implements 
 			}
 		}
 		return outputSignal * 2;
+	}
+	
+	@Override
+	public Component getDisplayName() {
+		return Component.translatable("container.redstone_campfire");
 	}
 }

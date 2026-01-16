@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "jineric:item/acacia_wooden_sword"
+  }
+}

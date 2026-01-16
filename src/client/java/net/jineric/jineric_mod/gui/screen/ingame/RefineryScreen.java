@@ -1,6 +1,7 @@
 package net.jineric.jineric_mod.gui.screen.ingame;
 
 import jingy.jineric.base.JinericMain;
+import net.jineric.jineric_mod.recipe.JinericClientRecipeBookTypes;
 import jingy.jineric.recipe.book.JinericRecipeBookCategories;
 import jingy.jineric.screen.RefineryScreenHandler;
 import net.fabricmc.api.EnvType;
@@ -20,7 +21,7 @@ public class RefineryScreen extends AbstractFurnaceScreen<RefineryScreenHandler>
 	private static final Identifier LIT_PROGRESS_TEXTURE = JinericMain.ofJineric("container/refinery/lit_progress");
 	private static final Identifier BURN_PROGRESS_TEXTURE = JinericMain.ofJineric("container/refinery/burn_progress");
 	private static final Identifier TEXTURE = JinericMain.ofJineric("textures/gui/container/refinery.png");
-	private static final Component TOGGLE_REFINABLE_TEXT = Component.translatable("gui.recipebook.toggleRecipes.refinable");
+	private static final Component TOGGLE_REFINABLE_TEXT = Component.translatable("gui.jineric.recipe_book.toggle_recipes.refinable");
 	private static final List<RecipeBookComponent.TabInfo> TABS = List.of(
 			new RecipeBookComponent.TabInfo(JinericClientRecipeBookTypes.JINERIC_REFINERY),
 			new RecipeBookComponent.TabInfo(Items.STONE, JinericRecipeBookCategories.REFINERY_BLOCKS),
@@ -29,5 +30,10 @@ public class RefineryScreen extends AbstractFurnaceScreen<RefineryScreenHandler>
 	
 	public RefineryScreen(RefineryScreenHandler container, Inventory inventory, Component title) {
 		super(container, inventory, title, TOGGLE_REFINABLE_TEXT, TEXTURE, LIT_PROGRESS_TEXTURE, BURN_PROGRESS_TEXTURE, TABS);
+	}
+	
+	@Override
+	public RecipeBookWidget<?> jineric$recipeBookWidget() {
+		return new RefineryRecipeBookWidget(this.handler, TOGGLE_REFINABLE_TEXT, TABS);
 	}
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "jineric:item/dark_oak_wooden_axe"
+  }
+}

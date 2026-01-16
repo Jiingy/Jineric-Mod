@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": "minecraft:clay_ball"
+  },
+  "pattern": [
+    "CC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jineric:clay_brick"
+  }
+}

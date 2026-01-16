@@ -14,7 +14,10 @@ public class EarlyRiser implements Runnable {
 		//  Server
 		MappingResolver mappingResolver = FabricLoader.getInstance().getMappingResolver();
 		String recipeBookType = mappingResolver.mapClassName("intermediary", "net.minecraft.class_5421");
-		ClassTinkerers.enumBuilder(recipeBookType).addEnum("JINERIC_REFINERY").build();
+		ClassTinkerers.enumBuilder(recipeBookType)
+				.addEnum("JINERIC_REFINERY")
+				.addEnum("JINERIC_FOUNDRY")
+				.build();
 		
 		String recipeCategory = mappingResolver.mapClassName("intermediary", "net.minecraft.class_7800");
 		ClassTinkerers.enumBuilder(recipeCategory, String.class).addEnum("JINERIC_BLOCK_SETS", "jineric_block_sets").build();
@@ -27,22 +30,27 @@ public class EarlyRiser implements Runnable {
 		ClassTinkerers.enumBuilder(blockFamily$Variant, String.class).addEnum("TRAPPED_CHEST", "trapped_chest").build();
 		ClassTinkerers.enumBuilder(blockFamily$Variant, String.class).addEnum("LADDER", "ladder").build();
 		
-		
 		// Client
 		if (FabricLoader.getInstance().getEnvironmentType().equals(EnvType.CLIENT)) {
-			//  TODO: there is no enum in recipeBookCategory
 			String recipeBookCategory = "[L" + mappingResolver.mapClassName("intermediary", "net.minecraft.class_10355") + ";";
-			String clientRecipeBookType = mappingResolver.mapClassName("intermediary", "net.minecraft.class_10331");
-			ClassTinkerers.enumBuilder(clientRecipeBookType, recipeBookCategory).addEnum(
-					"JINERIC_REFINERY",
-					() -> new Object[]{
-					
-							new RecipeBookCategory[]{
-									JinericRecipeBookCategories.REFINERY_BLOCKS,
-									JinericRecipeBookCategories.REFINERY_MISC
-							}
-					}
-			).build();
+			String recipeBookTypeClient = mappingResolver.mapClassName("intermediary", "net.minecraft.class_10331");
+			ClassTinkerers.enumBuilder(recipeBookTypeClient, recipeBookCategory)
+					.addEnum("JINERIC_REFINERY",
+							() -> new Object[]{
+									new RecipeBookCategory[]{
+											JinericRecipeBookCategories.REFINERY_BLOCKS,
+											JinericRecipeBookCategories.REFINERY_MISC
+									}
+							})
+					.addEnum("JINERIC_FOUNDRY",
+							() -> new Object[] {
+									new RecipeBookCategory[] {
+											JinericRecipeBookCategories.FOUNDRY
+									}
+							})
+					.build();
+			
+			
 			
 			String chestBlockEntityRenderState$Variant = mappingResolver.mapClassName("intermediary", "net.minecraft.class_11959$class_11960");
 			ClassTinkerers.enumBuilder(chestBlockEntityRenderState$Variant)

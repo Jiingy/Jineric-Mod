@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "wooden_axe",
+  "key": {
+    "M": "minecraft:pale_oak_planks",
+    "S": "minecraft:stick"
+  },
+  "pattern": [
+    "MM",
+    "MS",
+    " S"
+  ],
+  "result": {
+    "components": {
+      "minecraft:custom_model_data": {
+        "strings": [
+          "pale_oak_axe"
+        ]
+      },
+      "minecraft:item_name": {
+        "translate": "item.jineric.pale_oak_axe"
+      }
+    },
+    "count": 1,
+    "id": "minecraft:wooden_axe"
+  }
+}

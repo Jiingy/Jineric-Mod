@@ -1,0 +1,96 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/oak_pickaxe"
+        },
+        "when": "oak_pickaxe"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/spruce_pickaxe"
+        },
+        "when": "spruce_pickaxe"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/birch_pickaxe"
+        },
+        "when": "birch_pickaxe"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/acacia_pickaxe"
+        },
+        "when": "acacia_pickaxe"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/cherry_pickaxe"
+        },
+        "when": "cherry_pickaxe"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/jungle_pickaxe"
+        },
+        "when": "jungle_pickaxe"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/dark_oak_pickaxe"
+        },
+        "when": "dark_oak_pickaxe"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/pale_oak_pickaxe"
+        },
+        "when": "pale_oak_pickaxe"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/crimson_pickaxe"
+        },
+        "when": "crimson_pickaxe"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/warped_pickaxe"
+        },
+        "when": "warped_pickaxe"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/mangrove_pickaxe"
+        },
+        "when": "mangrove_pickaxe"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/bamboo_pickaxe"
+        },
+        "when": "bamboo_pickaxe"
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/wooden_pickaxe"
+    },
+    "property": "minecraft:custom_model_data"
+  }
+}

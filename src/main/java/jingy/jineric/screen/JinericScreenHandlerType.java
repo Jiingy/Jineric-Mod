@@ -12,6 +12,21 @@ public class JinericScreenHandlerType {
 			JinericMain.ofJineric("refinery"),
 			new MenuType<>(RefineryScreenHandler::new, FeatureFlagSet.of())
 	);
+	public final static ScreenHandlerType<CampfireScreenHandler> CAMPFIRE_SCREEN_HANDLER = Registry.register(
+			Registries.SCREEN_HANDLER,
+			JinericMain.ofJineric("campfire"),
+			new ScreenHandlerType<>(CampfireScreenHandler::new, null)
+	);
+	public final static ScreenHandlerType<CrucibleScreenHandler> CRUCIBLE_SCREEN_HANDLER = Registry.register(
+			Registries.SCREEN_HANDLER,
+			JinericMain.ofJineric("crucible"),
+			new ScreenHandlerType<>(CrucibleScreenHandler::new, null)
+	);
+	public final static ScreenHandlerType<FoundryScreenHandler> FOUNDRY = Registry.register(
+			Registries.SCREEN_HANDLER,
+			JinericMain.ofJineric("foundry"),
+			new ScreenHandlerType<>(FoundryScreenHandler::new, FeatureSet.empty())
+	);
 	
 	public static void initialize() {
 	}

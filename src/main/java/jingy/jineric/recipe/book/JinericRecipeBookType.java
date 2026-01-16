@@ -5,6 +5,7 @@ import net.minecraft.world.inventory.RecipeBookType;
 
 public class JinericRecipeBookType {
 	public static final RecipeBookType JINERIC_REFINERY = ClassTinkerers.getEnum(RecipeBookType.class, "JINERIC_REFINERY");
+	public static final RecipeBookType JINERIC_FOUNDRY = ClassTinkerers.getEnum(RecipeBookType.class, "JINERIC_FOUNDRY");
 	
 	public static void initialize() {
 	}

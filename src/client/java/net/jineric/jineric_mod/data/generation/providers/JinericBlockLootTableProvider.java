@@ -53,6 +53,8 @@ public class JinericBlockLootTableProvider extends FabricBlockLootTableProvider 
 		this.dropSelf(JinericBlocks.CHARCOAL_BLOCK);
 		this.dropSelf(JinericBlocks.SOUL_JACK_O_LANTERN);
 		this.add(JinericBlocks.GRASS_BLOCK, block -> this.createSingleItemTableWithSilkTouch(block, Blocks.DIRT));
+		this.dropSelf(JinericBlocks.STONE_CRUCIBLE);
+		this.dropSelf(JinericBlocks.TINDER);
 	}
 	
 	public void addBookshelfDrop(Block input) {
