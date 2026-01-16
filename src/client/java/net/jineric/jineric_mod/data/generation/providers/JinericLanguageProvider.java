@@ -4,22 +4,22 @@ import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.item.JinericItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
-import net.minecraft.block.Block;
-import net.minecraft.data.family.BlockFamilies;
-import net.minecraft.item.Item;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.data.BlockFamilies;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 
 import java.nio.file.Path;
 import java.util.concurrent.CompletableFuture;
 
 public class JinericLanguageProvider extends FabricLanguageProvider {
-	public JinericLanguageProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+	public JinericLanguageProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
 		super(dataOutput, registryLookup);
 	}
 	
 	@Override
-	public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder builder) {
+	public void generateTranslations(HolderLookup.Provider registryLookup, TranslationBuilder builder) {
 		this.tryExisting(builder);
 		// Modded
 			//  Blocks
@@ -83,7 +83,7 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 	}
 	
 	public void addBlockFamilies(TranslationBuilder builder) {
-		BlockFamilies.getFamilies().forEach(blockFamily -> {
+		BlockFamilies.getAllFamilies().forEach(blockFamily -> {
 			Block baseBlock = blockFamily.getBaseBlock();
 			this.addJineric(builder, baseBlock);
 			blockFamily.getVariants().forEach((variant, block) -> this.addJineric(builder, block));
@@ -91,7 +91,7 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 	}
 	
 	public void addJineric(TranslationBuilder builder, Block block) {
-		if (Registries.BLOCK.getId(block).getNamespace().equals("jineric")) {
+		if (BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals("jineric")) {
 			this.add(builder, block);
 		}
 	}
@@ -100,11 +100,11 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 	public void add(TranslationBuilder translationBuilder, Object input) {
 		String translationKey;
 		if (input instanceof Block block) {
-			translationKey = block.getTranslationKey();
+			translationKey = block.getDescriptionId();
 			translationBuilder.add(block, this.parseString(translationKey));
 		}
 		else if (input instanceof Item item) {
-			translationKey = item.getTranslationKey();
+			translationKey = item.getDescriptionId();
 			translationBuilder.add(item, this.parseString(translationKey));
 		}
 	}

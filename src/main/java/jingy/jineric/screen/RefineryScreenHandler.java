@@ -1,16 +1,16 @@
 package jingy.jineric.screen;
 
 import jingy.jineric.recipe.book.JinericRecipeBookType;
+import net.minecraft.world.Container;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.AbstractFurnaceMenu;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.RecipeBookType;
 import jingy.jineric.recipe.JinericRecipePropertySet;
 import jingy.jineric.recipe.JinericRecipeTypes;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.Inventory;
-import net.minecraft.recipe.book.RecipeBookType;
-import net.minecraft.screen.AbstractFurnaceScreenHandler;
-import net.minecraft.screen.PropertyDelegate;
 
-public class RefineryScreenHandler extends AbstractFurnaceScreenHandler {
-	public RefineryScreenHandler(int syncId, PlayerInventory playerInventory) {
+public class RefineryScreenHandler extends AbstractFurnaceMenu {
+	public RefineryScreenHandler(int syncId, Inventory playerInventory) {
 		super(JinericScreenHandlerType.REFINERY, JinericRecipeTypes.REFINING, JinericRecipePropertySet.REFINERY_INPUT,
 //  Broken in 1.21.7 - Hopefully shouldn't break anything...
 //				JinericRecipeBookType.JINERIC_REFINERY,
@@ -18,7 +18,7 @@ public class RefineryScreenHandler extends AbstractFurnaceScreenHandler {
 				syncId, playerInventory);
 	}
 	
-	public RefineryScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate propertyDelegate) {
+	public RefineryScreenHandler(int syncId, Inventory playerInventory, Container inventory, ContainerData propertyDelegate) {
 		super(JinericScreenHandlerType.REFINERY,
 				JinericRecipeTypes.REFINING,
 				JinericRecipePropertySet.REFINERY_INPUT,

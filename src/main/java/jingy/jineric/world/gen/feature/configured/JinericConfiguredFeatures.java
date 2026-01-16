@@ -1,10 +1,10 @@
 package jingy.jineric.world.gen.feature.configured;
 
-import net.minecraft.registry.Registerable;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 
 public class JinericConfiguredFeatures {
-	public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> featureRegisterable) {
+	public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> featureRegisterable) {
 		JinericUndergroundConfiguredFeatures.bootstrap(featureRegisterable);
 	}
 }

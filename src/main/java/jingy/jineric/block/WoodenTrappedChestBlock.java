@@ -1,46 +1,46 @@
 package jingy.jineric.block;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.WoodType;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.block.entity.ChestBlockEntity;
-import net.minecraft.block.entity.TrappedChestBlockEntity;
-import net.minecraft.stat.Stat;
-import net.minecraft.stat.Stats;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.BlockView;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.resources.Identifier;
+import net.minecraft.stats.Stat;
+import net.minecraft.stats.Stats;
+import net.minecraft.util.Mth;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.ChestBlockEntity;
+import net.minecraft.world.level.block.entity.TrappedChestBlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.WoodType;
 
 public class WoodenTrappedChestBlock extends WoodenChestBlock {
-	public WoodenTrappedChestBlock(Settings settings, WoodType type) {
+	public WoodenTrappedChestBlock(Properties settings, WoodType type) {
 		super(() -> BlockEntityType.TRAPPED_CHEST, settings, type);
 	}
 	
 	@Override
-	public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
 		return new TrappedChestBlockEntity(pos, state);
 	}
 	
 	@Override
-	protected Stat<Identifier> getOpenStat() {
-		return Stats.CUSTOM.getOrCreateStat(Stats.TRIGGER_TRAPPED_CHEST);
+	protected Stat<Identifier> getOpenChestStat() {
+		return Stats.CUSTOM.get(Stats.TRIGGER_TRAPPED_CHEST);
 	}
 	
 	@Override
-	public boolean emitsRedstonePower(BlockState state) {
+	public boolean isSignalSource(BlockState state) {
 		return true;
 	}
 	
 	@Override
-	public int getWeakRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
-		return MathHelper.clamp(ChestBlockEntity.getPlayersLookingInChestCount(world, pos), 0, 15);
+	public int getSignal(BlockState state, BlockGetter world, BlockPos pos, Direction direction) {
+		return Mth.clamp(ChestBlockEntity.getOpenCount(world, pos), 0, 15);
 	}
 	
 	@Override
-	public int getStrongRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
-		return direction == Direction.UP ? state.getWeakRedstonePower(world, pos, direction) : 0;
+	public int getDirectSignal(BlockState state, BlockGetter world, BlockPos pos, Direction direction) {
+		return direction == Direction.UP ? state.getSignal(world, pos, direction) : 0;
 	}
 }

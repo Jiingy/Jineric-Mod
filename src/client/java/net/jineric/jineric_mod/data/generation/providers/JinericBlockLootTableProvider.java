@@ -5,27 +5,27 @@ import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.data.family.JinericBlockFamilyVariants;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.data.family.BlockFamilies;
-import net.minecraft.data.family.BlockFamily;
-import net.minecraft.item.Items;
-import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.data.BlockFamilies;
+import net.minecraft.data.BlockFamily;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 public class JinericBlockLootTableProvider extends FabricBlockLootTableProvider {
 	Map<BlockFamily.Variant, JinericDropFactory> VARIANT_DROPS = ImmutableMap.<BlockFamily.Variant, JinericDropFactory>builder()
-			.put(BlockFamily.Variant.SLAB, block -> this.addDrop(block, this::slabDrops))
+			.put(BlockFamily.Variant.SLAB, blockDrop -> this.add(blockDrop, this::createSlabItemTable))
 			.put(JinericBlockFamilyVariants.BOOKSHELF, this::addBookshelfDrop)
-			.put(JinericBlockFamilyVariants.CHEST, this::addNameableContainerDrop)
-			.put(JinericBlockFamilyVariants.TRAPPED_CHEST, this::addNameableContainerDrop)
+			.put(JinericBlockFamilyVariants.CHEST, this::createNameableBlockEntityTable)
+			.put(JinericBlockFamilyVariants.TRAPPED_CHEST, this::createNameableBlockEntityTable)
 			.build();
 	
-	public JinericBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+	public JinericBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
 		super(dataOutput, registryLookup);
 	}
 	
@@ -36,38 +36,34 @@ public class JinericBlockLootTableProvider extends FabricBlockLootTableProvider 
 	}
 	
 	public void genUniqueDrops() {
-		this.addDrop(JinericBlocks.TUFF_BRICK_PILLAR);
-		this.addDrop(JinericBlocks.REFINERY);
-		this.addDrop(JinericBlocks.STONE_BRICK_PILLAR);
-		this.addDrop(JinericBlocks.DRIPSTONE_BRICK_PILLAR);
-		this.addDrop(JinericBlocks.BLAZE_ROD_BLOCK);
-		this.addDrop(JinericBlocks.ENDER_PEARL_BLOCK);
-		this.addDrop(JinericBlocks.PAPER_BLOCK);
-		this.addDrop(JinericBlocks.EGG_BLOCK);
-		this.addDrop(JinericBlocks.STICK_BLOCK);
-		this.addDrop(JinericBlocks.ROTTEN_FLESH_BLOCK);
-		this.addDrop(JinericBlocks.SUGAR_BLOCK);
-		this.addDrop(JinericBlocks.PRISMARINE_CRYSTAL_BLOCK);
-		this.addDrop(JinericBlocks.BONE_MEAL_BLOCK);
-		this.addDrop(JinericBlocks.FLINT_BLOCK);
-		this.addDrop(JinericBlocks.CHARCOAL_BLOCK);
-		this.addDrop(JinericBlocks.SOUL_JACK_O_LANTERN);
-		this.addDrop(JinericBlocks.GRASS_BLOCK, block -> this.drops(block, Blocks.DIRT));
-	}
-	
-	public void addNameableContainerDrop(Block input) {
-		this.addDrop(input, this::nameableContainerDrops);
+		this.dropSelf(JinericBlocks.TUFF_BRICK_PILLAR);
+		this.dropSelf(JinericBlocks.REFINERY);
+		this.dropSelf(JinericBlocks.STONE_BRICK_PILLAR);
+		this.dropSelf(JinericBlocks.DRIPSTONE_BRICK_PILLAR);
+		this.dropSelf(JinericBlocks.BLAZE_ROD_BLOCK);
+		this.dropSelf(JinericBlocks.ENDER_PEARL_BLOCK);
+		this.dropSelf(JinericBlocks.PAPER_BLOCK);
+		this.dropSelf(JinericBlocks.EGG_BLOCK);
+		this.dropSelf(JinericBlocks.STICK_BLOCK);
+		this.dropSelf(JinericBlocks.ROTTEN_FLESH_BLOCK);
+		this.dropSelf(JinericBlocks.SUGAR_BLOCK);
+		this.dropSelf(JinericBlocks.PRISMARINE_CRYSTAL_BLOCK);
+		this.dropSelf(JinericBlocks.BONE_MEAL_BLOCK);
+		this.dropSelf(JinericBlocks.FLINT_BLOCK);
+		this.dropSelf(JinericBlocks.CHARCOAL_BLOCK);
+		this.dropSelf(JinericBlocks.SOUL_JACK_O_LANTERN);
+		this.add(JinericBlocks.GRASS_BLOCK, block -> this.createSingleItemTableWithSilkTouch(block, Blocks.DIRT));
 	}
 	
 	public void addBookshelfDrop(Block input) {
-		this.addDrop(input, block -> this.drops(block, Items.BOOK, ConstantLootNumberProvider.create(3.0F)));
+		this.add(input, block -> this.createSingleItemTableWithSilkTouch(block, Items.BOOK, ConstantValue.exactly(3.0F)));
 	}
 	
 	public void genFamilyDrops() {
-		BlockFamilies.getFamilies().forEach(blockFamily -> {
+		BlockFamilies.getAllFamilies().forEach(blockFamily -> {
 			Block baseBlock = blockFamily.getBaseBlock();
 			if (this.jinericNamespace(baseBlock)) {
-				this.addDrop(baseBlock);
+				this.dropSelf(baseBlock);
 			}
 			this.genFamilyVariantDrops(blockFamily);
 		});
@@ -78,17 +74,17 @@ public class JinericBlockLootTableProvider extends FabricBlockLootTableProvider 
 			if (this.jinericNamespace(block)) {
 				JinericDropFactory dropFactory = VARIANT_DROPS.get(variant);
 				if (dropFactory != null) {
-					dropFactory.addDrop(block);
+					dropFactory.dropSelf(block);
 				}
 				if (!VARIANT_DROPS.containsKey(variant)) {
-					this.addDrop(block);
+					this.dropSelf(block);
 				}
 			}
 		});
 	}
 	
 	private boolean jinericNamespace(Block block) {
-		return block != null && Registries.BLOCK.getId(block).getNamespace().equals("jineric");
+		return block != null && BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals("jineric");
 	}
 	
 	@Override
@@ -98,6 +94,6 @@ public class JinericBlockLootTableProvider extends FabricBlockLootTableProvider 
 	
 	@FunctionalInterface
 	public interface JinericDropFactory {
-		void addDrop(Block blockDrop);
+		void dropSelf(Block blockDrop);
 	}
 }

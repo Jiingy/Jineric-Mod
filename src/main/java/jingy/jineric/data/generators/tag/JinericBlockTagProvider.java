@@ -6,15 +6,14 @@ import jingy.jineric.tag.JinericBlockSoundTags;
 import jingy.jineric.tag.JinericBlockTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.data.family.BlockFamilies;
-import net.minecraft.data.family.BlockFamily;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.registry.tag.TagKey;
-
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.data.BlockFamilies;
+import net.minecraft.data.BlockFamily;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;
@@ -24,12 +23,12 @@ import static jingy.jineric.block.JinericBlocks.*;
 public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 	public Map<TagKey<Block>, Block> blockTagMap = new HashMap<>();
 	
-	public JinericBlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+	public JinericBlockTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
 		super(output, registriesFuture);
 	}
 	
 	@Override
-	protected void configure(RegistryWrapper.WrapperLookup arg) {
+	protected void addTags(HolderLookup.Provider arg) {
 		this.blockFamiliesToFamilyVariantTag(BlockTags.BUTTONS, BlockFamily.Variant.BUTTON);
 		this.blockFamiliesToFamilyVariantTag(BlockTags.DOORS, BlockFamily.Variant.DOOR);
 		this.blockFamiliesToFamilyVariantTag(BlockTags.FENCES, BlockFamily.Variant.FENCE);
@@ -60,7 +59,7 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 				.add(CUT_COPPER_WALL, EXPOSED_CUT_COPPER_WALL, WEATHERED_CUT_COPPER_WALL, OXIDIZED_CUT_COPPER_WALL)
 				.add(WAXED_CUT_COPPER_WALL, WAXED_EXPOSED_CUT_COPPER_WALL, WAXED_WEATHERED_CUT_COPPER_WALL, WAXED_OXIDIZED_CUT_COPPER_WALL);
 		// AXE
-		this.valueLookupBuilder(BlockTags.AXE_MINEABLE)
+		this.valueLookupBuilder(BlockTags.MINEABLE_WITH_AXE)
 				.addTag(JinericBlockTags.WOODEN_CHESTS)
 				.addTag(JinericBlockTags.WOODEN_TRAPPED_CHESTS)
 				.addTag(JinericBlockTags.WOODEN_LADDERS)
@@ -69,11 +68,11 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 				.add(SOUL_JACK_O_LANTERN)
 				.add(REDSTONE_CAMPFIRE);
 		// HOE
-		this.valueLookupBuilder(BlockTags.HOE_MINEABLE)
+		this.valueLookupBuilder(BlockTags.MINEABLE_WITH_HOE)
 				.add(ROTTEN_FLESH_BLOCK)
 				.add(PAPER_BLOCK);
 		// PICKAXE
-		this.putBlocksToTag(BlockTags.PICKAXE_MINEABLE,
+		this.putBlocksToTag(BlockTags.MINEABLE_WITH_PICKAXE,
 				JinericBlocks.CUT_COPPER_WALL, JinericBlocks.EXPOSED_CUT_COPPER_WALL, JinericBlocks.WEATHERED_CUT_COPPER_WALL, JinericBlocks.OXIDIZED_CUT_COPPER_WALL,
 				JinericBlocks.WAXED_CUT_COPPER_WALL, JinericBlocks.WAXED_EXPOSED_CUT_COPPER_WALL, JinericBlocks.WAXED_WEATHERED_CUT_COPPER_WALL, JinericBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL,
 				JinericBlocks.BLAZE_ROD_BLOCK, JinericBlocks.EGG_BLOCK, JinericBlocks.PRISMARINE_CRYSTAL_BLOCK, JinericBlocks.BONE_MEAL_BLOCK, JinericBlocks.FLINT_BLOCK, JinericBlocks.CHARCOAL_BLOCK,
@@ -81,7 +80,7 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 				JinericBlocks.REDSTONE_LANTERN,
 				JinericBlocks.REFINERY
 		);
-		this.blockFamiliesToTag(BlockTags.PICKAXE_MINEABLE,
+		this.blockFamiliesToTag(BlockTags.MINEABLE_WITH_PICKAXE,
 				JinericBlockFamilies.STONE, JinericBlockFamilies.SMOOTH_STONE,
 				JinericBlockFamilies.POLISHED_STONE,
 				JinericBlockFamilies.CRACKED_STONE_BRICKS,
@@ -102,20 +101,20 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 				JinericBlockFamilies.CALCITE,
 				JinericBlockFamilies.SNOW_BRICKS, JinericBlockFamilies.PACKED_ICE,
 				JinericBlockFamilies.OBSIDIAN,
-				JinericBlockFamilies.QUARTZ_BLOCK, JinericBlockFamilies.SMOOTH_QUARTZ, JinericBlockFamilies.QUARTZ_BRICKS,
-				JinericBlockFamilies.CRACKED_NETHER_BRICKS, JinericBlockFamilies.RED_NETHER_BRICK,
+				JinericBlockFamilies.QUARTZ, JinericBlockFamilies.SMOOTH_QUARTZ, JinericBlockFamilies.QUARTZ_BRICKS,
+				JinericBlockFamilies.CRACKED_NETHER_BRICKS, JinericBlockFamilies.RED_NETHER_BRICKS,
 				JinericBlockFamilies.CRACKED_POLISHED_BLACKSTONE_BRICKS,
 				JinericBlockFamilies.SMOOTH_BASALT,
 				JinericBlockFamilies.PURPUR
 		);
 		// SHOVEL
-		this.valueLookupBuilder(BlockTags.SHOVEL_MINEABLE)
+		this.valueLookupBuilder(BlockTags.MINEABLE_WITH_SHOVEL)
 				.add(GRASS_BLOCK)
 				.add(SUGAR_BLOCK);
 		// SWORD
 		this.valueLookupBuilder(BlockTags.SWORD_EFFICIENT);
 		// BLOCK FAMILY -> TAG
-		this.blockFamiliesToTag(BlockTags.SHOVEL_MINEABLE, JinericBlockFamilies.SNOW_BRICKS);
+		this.blockFamiliesToTag(BlockTags.MINEABLE_WITH_SHOVEL, JinericBlockFamilies.SNOW_BRICKS);
 		this.blockFamiliesToTag(BlockTags.SOUL_SPEED_BLOCKS,
 				JinericBlockFamilies.CUT_SOUL_SANDSTONE,
 				JinericBlockFamilies.POLISHED_SOUL_SANDSTONE,
@@ -408,37 +407,37 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 		}
 		blockToAdd.sort(Comparator.comparing(Block::toString));
 		blockToAdd.stream()
-				.filter(block -> Registries.BLOCK.getId(block).getNamespace().equals("jineric") && !block.getDefaultState().isIn(tagKey))
+				.filter(block -> BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals("jineric") && !block.defaultBlockState().is(tagKey))
 				.forEach(block -> this.valueLookupBuilder(tagKey).add(block));
 	}
 	
 	private void blockListToTag(TagKey<Block> tagKey, Block... baseBlockIn) {
 		for (Block block : baseBlockIn) {
-			List<BlockFamily> blockFamilies = BlockFamilies.getFamilies().toList();
+			List<BlockFamily> blockFamilies = BlockFamilies.getAllFamilies().toList();
 			blockFamilies.forEach(blockFamily -> {
 				Map<BlockFamily.Variant, Block> variants = blockFamily.getVariants();
 				if (blockFamily.getBaseBlock() == block) {
-					variants.values().stream().filter(testBlock -> !testBlock.getDefaultState().isIn(tagKey) && Registries.BLOCK.getId(testBlock).getNamespace().equals("jineric"))
+					variants.values().stream().filter(testBlock -> !testBlock.defaultBlockState().is(tagKey) && BuiltInRegistries.BLOCK.getKey(testBlock).getNamespace().equals("jineric"))
 							.forEach((blockVariant) -> this.valueLookupBuilder(tagKey).add(blockVariant));
 				}
 			});
-			if (Registries.BLOCK.getId(block).getNamespace().equals("jineric")) {
+			if (BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals("jineric")) {
 				this.valueLookupBuilder(tagKey).add(block);
 			}
 		}
 	}
 	
 	private void blockFamiliesToFamilyVariantTag(TagKey<Block> blockTag, BlockFamily.Variant familyVariantIn) {
-		List<BlockFamily> familyList = new ArrayList<>(BlockFamilies.getFamilies().toList());
+		List<BlockFamily> familyList = new ArrayList<>(BlockFamilies.getAllFamilies().toList());
 		familyList.sort(Comparator.comparing(blockFamily -> {
-			Block familyVariant = blockFamily.getVariant(familyVariantIn);
-			return familyVariant != null ? blockFamily.getVariant(familyVariantIn).toString() : blockFamily.getBaseBlock().toString();
+			Block familyVariant = blockFamily.get(familyVariantIn);
+			return familyVariant != null ? blockFamily.get(familyVariantIn).toString() : blockFamily.getBaseBlock().toString();
 		}));
 		familyList.forEach(
 				(blockFamily) -> {
-					if (blockFamily.getVariant(familyVariantIn) != null) {
-						Block familyVariantBlock = blockFamily.getVariant(familyVariantIn);
-						if (Registries.BLOCK.getId(familyVariantBlock).getNamespace().equals("jineric")) {
+					if (blockFamily.get(familyVariantIn) != null) {
+						Block familyVariantBlock = blockFamily.get(familyVariantIn);
+						if (BuiltInRegistries.BLOCK.getKey(familyVariantBlock).getNamespace().equals("jineric")) {
 							this.valueLookupBuilder(blockTag).add(familyVariantBlock);
 						}
 					}

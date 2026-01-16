@@ -1,9 +1,9 @@
 package jingy.jineric.world.gen.feature.placed;
 
-import net.minecraft.registry.Registerable;
-import net.minecraft.world.gen.feature.PlacedFeature;
+import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 public class JinericPlacedFeatures {
-	public static void bootstrap(Registerable<PlacedFeature> featureRegisterable) {
+	public static void bootstrap(BootstrapContext<PlacedFeature> featureRegisterable) {
 	}
 }

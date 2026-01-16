@@ -2,17 +2,16 @@ package jingy.jineric.item;
 
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.JinericBlocks;
-import net.minecraft.block.Block;
-import net.minecraft.component.type.FoodComponent;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.equipment.ArmorMaterials;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.util.Rarity;
-
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.equipment.ArmorMaterials;
+import net.minecraft.world.level.block.Block;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
@@ -258,38 +257,38 @@ public class JinericItems {
 	//REDSTONE
 	public static final Item REDSTONE_LANTERN = register(JinericBlocks.REDSTONE_LANTERN);
 	//FOOD
-	public static final Item GOLDEN_POTATO = register("golden_potato", new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.6f).build()));
-	public static final Item GOLDEN_SWEET_BERRIES = register("golden_sweet_berries", new Item.Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.2f).build()));
-	public static final Item GOLDEN_BEETROOT = register("golden_beetroot", new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(1.2f).build()));
+	public static final Item GOLDEN_POTATO = register("golden_potato", new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.6f).build()));
+	public static final Item GOLDEN_SWEET_BERRIES = register("golden_sweet_berries", new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.2f).build()));
+	public static final Item GOLDEN_BEETROOT = register("golden_beetroot", new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(1.2f).build()));
 	//MISC JINERIC
 	public static final Item SOUL_JACK_O_LANTERN = register(JinericBlocks.SOUL_JACK_O_LANTERN);
-	public static final Item NETHERITE_HORSE_ARMOR = register("netherite_horse_armor", new Item.Settings().horseArmor(ArmorMaterials.NETHERITE));
+	public static final Item NETHERITE_HORSE_ARMOR = register("netherite_horse_armor", new Item.Properties().horseArmor(ArmorMaterials.NETHERITE));
 	
 	//WIP OR UNKNOWN ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	public static final Item IRON_UPGRADE_SMITHING_TEMPLATE = register(
-			"iron_upgrade_smithing_template", JinericSmithingTemplateItem::createIronUpgrade, new Item.Settings().rarity(Rarity.COMMON)
+			"iron_upgrade_smithing_template", JinericSmithingTemplateItem::createIronUpgrade, new Item.Properties().rarity(Rarity.COMMON)
 	);
 	
 	public static final Item REFINERY = register(JinericBlocks.REFINERY);
 	public static final Item REDSTONE_CAMPFIRE = register(JinericBlocks.REDSTONE_CAMPFIRE);
 	
-	private static RegistryKey<Item> keyOf(String id) {
-		return RegistryKey.of(RegistryKeys.ITEM, JinericMain.ofJineric(id));
+	private static ResourceKey<Item> keyOf(String id) {
+		return ResourceKey.create(Registries.ITEM, JinericMain.ofJineric(id));
 	}
 	
-	private static RegistryKey<Item> keyOf(RegistryKey<Block> blockKey) {
-		return RegistryKey.of(RegistryKeys.ITEM, blockKey.getValue());
+	private static ResourceKey<Item> keyOf(ResourceKey<Block> blockKey) {
+		return ResourceKey.create(Registries.ITEM, blockKey.identifier());
 	}
 	
 	private static Item register(Block block) {
 		return register(block, BlockItem::new);
 	}
 	
-	private static Item register(Block block, Item.Settings settings) {
+	private static Item register(Block block, Item.Properties settings) {
 		return register(block, BlockItem::new, settings);
 	}
 	
-	private static Item register(Block block, UnaryOperator<Item.Settings> settingsOperator) {
+	private static Item register(Block block, UnaryOperator<Item.Properties> settingsOperator) {
 		return register(block, (blockx, settings) -> new BlockItem(blockx, settingsOperator.apply(settings)));
 	}
 	
@@ -297,49 +296,49 @@ public class JinericItems {
 		Item item = register(block);
 		
 		for (Block block2 : blocks) {
-			Item.BLOCK_ITEMS.put(block2, item);
+			Item.BY_BLOCK.put(block2, item);
 		}
 		
 		return item;
 	}
 	
-	private static Item register(Block block, BiFunction<Block, Item.Settings, Item> factory) {
-		return register(block, factory, new Item.Settings());
+	private static Item register(Block block, BiFunction<Block, Item.Properties, Item> factory) {
+		return register(block, factory, new Item.Properties());
 	}
 	
-	private static Item register(Block block, BiFunction<Block, Item.Settings, Item> factory, Item.Settings settings) {
+	private static Item register(Block block, BiFunction<Block, Item.Properties, Item> factory, Item.Properties settings) {
 		return register(
-				keyOf(block.getRegistryEntry().registryKey()), itemSettings -> factory.apply(block, itemSettings), settings.useBlockPrefixedTranslationKey()
+				keyOf(block.builtInRegistryHolder().key()), itemSettings -> factory.apply(block, itemSettings), settings.useBlockDescriptionPrefix()
 		);
 	}
 	
-	private static Item register(String id, Function<Item.Settings, Item> factory) {
-		return register(keyOf(id), factory, new Item.Settings());
+	private static Item register(String id, Function<Item.Properties, Item> factory) {
+		return register(keyOf(id), factory, new Item.Properties());
 	}
 	
-	private static Item register(String id, Function<Item.Settings, Item> factory, Item.Settings settings) {
+	private static Item register(String id, Function<Item.Properties, Item> factory, Item.Properties settings) {
 		return register(keyOf(id), factory, settings);
 	}
 	
-	private static Item register(String id, Item.Settings settings) {
+	private static Item register(String id, Item.Properties settings) {
 		return register(keyOf(id), Item::new, settings);
 	}
 	
 	private static Item register(String id) {
-		return register(keyOf(id), Item::new, new Item.Settings());
+		return register(keyOf(id), Item::new, new Item.Properties());
 	}
 	
-	private static Item register(RegistryKey<Item> key, Function<Item.Settings, Item> factory) {
-		return register(key, factory, new Item.Settings());
+	private static Item register(ResourceKey<Item> key, Function<Item.Properties, Item> factory) {
+		return register(key, factory, new Item.Properties());
 	}
 	
-	private static Item register(RegistryKey<Item> key, Function<Item.Settings, Item> factory, Item.Settings settings) {
-		Item item = factory.apply(settings.registryKey(key));
+	private static Item register(ResourceKey<Item> key, Function<Item.Properties, Item> factory, Item.Properties settings) {
+		Item item = factory.apply(settings.setId(key));
 		if (item instanceof BlockItem blockItem) {
-			blockItem.appendBlocks(Item.BLOCK_ITEMS, item);
+			blockItem.registerBlocks(Item.BY_BLOCK, item);
 		}
 		
-		return Registry.register(Registries.ITEM, key, item);
+		return Registry.register(BuiltInRegistries.ITEM, key, item);
 	}
 	
 	public static void initialize() {

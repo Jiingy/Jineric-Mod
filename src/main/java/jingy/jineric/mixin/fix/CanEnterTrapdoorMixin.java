@@ -3,9 +3,9 @@ package jingy.jineric.mixin.fix;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import jingy.jineric.tag.JinericBlockTags;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
@@ -13,13 +13,13 @@ import org.spongepowered.asm.mixin.injection.At;
 public abstract class CanEnterTrapdoorMixin {
 	
 	@WrapOperation(
-			method = "canEnterTrapdoor",
+			method = "trapdoorUsableAsLadder",
 			at = @At(
 					value = "INVOKE",
-					target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z"
+					target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/world/level/block/Block;)Z"
 			)
 	)
 	private boolean checkJinericLadder(BlockState instance, Block block, Operation<Boolean> original) {
-		return original.call(instance, block) || instance.isIn(JinericBlockTags.LADDERS);
+		return original.call(instance, block) || instance.is(JinericBlockTags.LADDERS);
 	}
 }

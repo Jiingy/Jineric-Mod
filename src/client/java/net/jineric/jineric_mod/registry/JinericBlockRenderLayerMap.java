@@ -4,13 +4,13 @@ import jingy.jineric.block.JinericBlocks;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
-import net.minecraft.client.render.BlockRenderLayer;
+import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 
 @Environment(EnvType.CLIENT)
 public class JinericBlockRenderLayerMap {
 	
 	public static void registerBlockRenderLayerMaps() {
-		BlockRenderLayerMap.putBlocks(BlockRenderLayer.CUTOUT,
+		BlockRenderLayerMap.putBlocks(ChunkSectionLayer.CUTOUT,
 				JinericBlocks.SPRUCE_LADDER,
 				JinericBlocks.BIRCH_LADDER,
 				JinericBlocks.JUNGLE_LADDER,
@@ -22,8 +22,8 @@ public class JinericBlockRenderLayerMap {
 				JinericBlocks.WARPED_LADDER,
 				JinericBlocks.CRIMSON_LADDER
 		);
-		BlockRenderLayerMap.putBlock(JinericBlocks.GRASS_BLOCK, BlockRenderLayer.CUTOUT);
-		BlockRenderLayerMap.putBlock(JinericBlocks.REDSTONE_LANTERN, BlockRenderLayer.CUTOUT);
-		BlockRenderLayerMap.putBlock(JinericBlocks.REDSTONE_CAMPFIRE, BlockRenderLayer.CUTOUT);
+		BlockRenderLayerMap.putBlock(JinericBlocks.GRASS_BLOCK, ChunkSectionLayer.CUTOUT);
+		BlockRenderLayerMap.putBlock(JinericBlocks.REDSTONE_LANTERN, ChunkSectionLayer.CUTOUT);
+		BlockRenderLayerMap.putBlock(JinericBlocks.REDSTONE_CAMPFIRE, ChunkSectionLayer.CUTOUT);
 	}
 }

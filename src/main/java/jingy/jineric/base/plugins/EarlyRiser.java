@@ -5,7 +5,7 @@ import jingy.jineric.recipe.book.JinericRecipeBookCategories;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.MappingResolver;
-import net.minecraft.recipe.book.RecipeBookCategory;
+import net.minecraft.world.item.crafting.RecipeBookCategory;
 
 public class EarlyRiser implements Runnable {
 	

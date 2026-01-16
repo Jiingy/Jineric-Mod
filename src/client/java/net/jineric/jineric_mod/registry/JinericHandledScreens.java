@@ -4,12 +4,12 @@ import jingy.jineric.screen.JinericScreenHandlerType;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.jineric.jineric_mod.gui.screen.ingame.RefineryScreen;
-import net.minecraft.client.gui.screen.ingame.HandledScreens;
+import net.minecraft.client.gui.screens.MenuScreens;
 
 @Environment(EnvType.CLIENT)
 public class JinericHandledScreens {
 	
 	public static void registerHandledScreens() {
-		HandledScreens.register(JinericScreenHandlerType.REFINERY, RefineryScreen::new);
+		MenuScreens.register(JinericScreenHandlerType.REFINERY, RefineryScreen::new);
 	}
 }

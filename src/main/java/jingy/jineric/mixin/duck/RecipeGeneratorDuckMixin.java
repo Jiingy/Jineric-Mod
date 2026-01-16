@@ -1,60 +1,63 @@
 package jingy.jineric.mixin.duck;
 
 import jingy.jineric.access.RecipeGeneratorAccess;
-import net.minecraft.advancement.AdvancementCriterion;
-import net.minecraft.advancement.criterion.Criteria;
-import net.minecraft.advancement.criterion.InventoryChangedCriterion;
-import net.minecraft.block.Blocks;
-import net.minecraft.data.recipe.*;
-import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.Items;
-import net.minecraft.predicate.NumberRange;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.advancements.Criterion;
+import net.minecraft.advancements.criterion.InventoryChangeTrigger;
+import net.minecraft.advancements.criterion.MinMaxBounds;
+import net.minecraft.data.recipes.RecipeBuilder;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
 import java.util.List;
 import java.util.Optional;
 
-@Mixin(RecipeGenerator.class)
+@Mixin(RecipeProvider.class)
 public abstract class RecipeGeneratorDuckMixin implements RecipeGeneratorAccess {
-	@Shadow public static String hasItem(ItemConvertible item) {return null;}
-	@Shadow public abstract AdvancementCriterion<InventoryChangedCriterion.Conditions> conditionsFromItem(ItemConvertible item);
-	@Shadow public abstract ShapelessRecipeJsonBuilder createShapeless(RecipeCategory category, ItemConvertible output);
-	@Shadow public abstract ShapedRecipeJsonBuilder createShaped(RecipeCategory category, ItemConvertible output);
-	@Shadow public abstract ShapedRecipeJsonBuilder createShaped(RecipeCategory category, ItemConvertible output, int count);
+	@Shadow public static String getHasName(ItemLike item) {return null;}
+	@Shadow public abstract Criterion<InventoryChangeTrigger.TriggerInstance> has(ItemLike item);
+	@Shadow public abstract ShapelessRecipeBuilder shapeless(RecipeCategory category, ItemLike output);
+	@Shadow public abstract ShapedRecipeBuilder shaped(RecipeCategory category, ItemLike output);
+	@Shadow public abstract ShapedRecipeBuilder shaped(RecipeCategory category, ItemLike output, int count);
 	
 	@Override
-	public CraftingRecipeJsonBuilder createBookshelf$jineric(Ingredient input, ItemConvertible output) {
-		return this.createShaped(RecipeCategory.BUILDING_BLOCKS, output, 1)
+	public RecipeBuilder bookshelfBuilder$jineric(Ingredient input, ItemLike output) {
+		return this.shaped(RecipeCategory.BUILDING_BLOCKS, output, 1)
 				.group("bookshelf")
-				.input('P', input)
-				.input('B', Items.BOOK)
+				.define('P', input)
+				.define('B', Items.BOOK)
 				.pattern("PPP")
 				.pattern("BBB")
 				.pattern("PPP")
-				.criterion(
-						hasItem(Items.BOOK),
-						conditionsFromItem(Items.BOOK)
+				.unlockedBy(
+						getHasName(Items.BOOK),
+						has(Items.BOOK)
 				);
 	}
 	
 	@Override
-	public CraftingRecipeJsonBuilder createChest$jineric(Ingredient input, ItemConvertible output) {
-		return this.createShaped(RecipeCategory.DECORATIONS, output)
+	public RecipeBuilder chestBuilder$jineric(Ingredient input, ItemLike output) {
+		return this.shaped(RecipeCategory.DECORATIONS, output)
 				.group("chest")
-				.input('P', input)
+				.define('P', input)
 				.pattern("PPP")
 				.pattern("P P")
 				.pattern("PPP")
-				.criterion(
+				.unlockedBy(
 						"has_lots_of_items",
-						Criteria.INVENTORY_CHANGED
-								.create(
-										new InventoryChangedCriterion.Conditions(
+						CriteriaTriggers.INVENTORY_CHANGED
+								.createCriterion(
+										new InventoryChangeTrigger.TriggerInstance(
 												Optional.empty(),
-												new InventoryChangedCriterion.Conditions.Slots(NumberRange.IntRange.atLeast(10), NumberRange.IntRange.ANY, NumberRange.IntRange.ANY),
+												new InventoryChangeTrigger.TriggerInstance.Slots(MinMaxBounds.Ints.atLeast(10), MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY),
 												List.of()
 										)
 								)
@@ -62,19 +65,19 @@ public abstract class RecipeGeneratorDuckMixin implements RecipeGeneratorAccess 
 	}
 	
 	@Override
-	public CraftingRecipeJsonBuilder createTrappedChest$jineric(Ingredient input, ItemConvertible output) {
-		return this.createShapeless(RecipeCategory.REDSTONE, output)
+	public RecipeBuilder trappedChestBuilder$jineric(Ingredient input, ItemLike output) {
+		return this.shapeless(RecipeCategory.REDSTONE, output)
 				.group("trapped_chest")
-				.input(input)
-				.input(Blocks.TRIPWIRE_HOOK);
+				.requires(input)
+				.requires(Blocks.TRIPWIRE_HOOK);
 	}
 	
 	@Override
-	public CraftingRecipeJsonBuilder createLadder$jineric(Ingredient input, ItemConvertible output) {
-		return this.createShaped(RecipeCategory.DECORATIONS, output, 6)
+	public RecipeBuilder ladderBuilder$jineric(Ingredient input, ItemLike output) {
+		return this.shaped(RecipeCategory.DECORATIONS, output, 6)
 				.group("ladder")
-				.input('P', input)
-				.input('/', Items.STICK)
+				.define('P', input)
+				.define('/', Items.STICK)
 				.pattern("P P")
 				.pattern("P/P")
 				.pattern("P P");

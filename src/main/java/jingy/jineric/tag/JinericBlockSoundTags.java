@@ -1,9 +1,9 @@
 package jingy.jineric.tag;
 
 import jingy.jineric.base.JinericMain;
-import net.minecraft.block.Block;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.tag.TagKey;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.block.Block;
 
 public class JinericBlockSoundTags {
 	public static final TagKey<Block> VEGETATION_SOUNDS = register("vegetation_sounds");
@@ -17,6 +17,6 @@ public class JinericBlockSoundTags {
 	}
 	
 	private static TagKey<Block> register(String id) {
-		return TagKey.of(Registries.BLOCK.getKey(), JinericMain.ofJineric("sounds/" + id));
+		return TagKey.create(BuiltInRegistries.BLOCK.key(), JinericMain.ofJineric("sounds/" + id));
 	}
 }

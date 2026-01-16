@@ -1,22 +1,22 @@
 package jingy.jineric.mixin;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.world.World;
+import net.minecraft.core.Holder;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityFastFallingMixin extends Entity {
-	public LivingEntityFastFallingMixin(EntityType<?> type, World world) {
+	public LivingEntityFastFallingMixin(EntityType<?> type, Level world) {
 		super(type, world);
 	}
 	
 	@Shadow
-	public abstract boolean hasStatusEffect(RegistryEntry<StatusEffect> effect);
+	public abstract boolean hasEffect(Holder<MobEffect> effect);
 
 //   @ModifyConstant(
 //           method = "travel",

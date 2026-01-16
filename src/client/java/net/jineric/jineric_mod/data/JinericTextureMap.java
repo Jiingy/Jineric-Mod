@@ -3,77 +3,77 @@ package net.jineric.jineric_mod.data;
 import jingy.jineric.base.JinericMain;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.block.Block;
-import net.minecraft.client.data.TextureKey;
-import net.minecraft.client.data.TextureMap;
-import net.minecraft.data.family.BlockFamily;
-import net.minecraft.registry.Registries;
-import net.minecraft.util.Identifier;
+import net.minecraft.client.data.models.model.TextureMapping;
+import net.minecraft.client.data.models.model.TextureSlot;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.data.BlockFamily;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.Nullable;
 
 @Environment(EnvType.CLIENT)
 public class JinericTextureMap {
 	
-	public static TextureMap bareSideEnd(Block side, Block end) {
-		return new TextureMap().put(TextureKey.SIDE, TextureMap.getId(side)).put(TextureKey.END, TextureMap.getId(end));
+	public static TextureMapping bareSideEnd(Block side, Block end) {
+		return new TextureMapping().put(TextureSlot.SIDE, TextureMapping.getBlockTexture(side)).put(TextureSlot.END, TextureMapping.getBlockTexture(end));
 	}
 	
-	public static TextureMap bareSideEnd(Block block) {
-		return new TextureMap().put(TextureKey.SIDE, TextureMap.getId(block)).put(TextureKey.END, TextureMap.getId(block));
+	public static TextureMapping bareSideEnd(Block block) {
+		return new TextureMapping().put(TextureSlot.SIDE, TextureMapping.getBlockTexture(block)).put(TextureSlot.END, TextureMapping.getBlockTexture(block));
 	}
 	
-	public static TextureMap sidedSlab(BlockFamily blockFamily) {
+	public static TextureMapping sidedSlab(BlockFamily blockFamily) {
 		Block baseBlock = blockFamily.getBaseBlock();
-		Block slabBlock = blockFamily.getVariant(BlockFamily.Variant.SLAB);
+		Block slabBlock = blockFamily.get(BlockFamily.Variant.SLAB);
 		// Subject to change later
-		return new TextureMap()
-				.put(TextureKey.TOP, TextureMap.getId(baseBlock))
-				.put(TextureKey.SIDE, TextureMap.getSubId(slabBlock, "_side"))
-				.put(TextureKey.BOTTOM, TextureMap.getId(baseBlock))
-				.put(TextureKey.END, TextureMap.getId(baseBlock));
+		return new TextureMapping()
+				.put(TextureSlot.TOP, TextureMapping.getBlockTexture(baseBlock))
+				.put(TextureSlot.SIDE, TextureMapping.getBlockTexture(slabBlock, "_side"))
+				.put(TextureSlot.BOTTOM, TextureMapping.getBlockTexture(baseBlock))
+				.put(TextureSlot.END, TextureMapping.getBlockTexture(baseBlock));
 	}
 	
-	public static TextureMap borderStairs(BlockFamily blockFamily) {
+	public static TextureMapping borderStairs(BlockFamily blockFamily) {
 		Block baseBlock = blockFamily.getBaseBlock();
-		Block stairsBlock = blockFamily.getVariant(BlockFamily.Variant.STAIRS);
+		Block stairsBlock = blockFamily.get(BlockFamily.Variant.STAIRS);
 		// Subject to change later
-		return new TextureMap()
-				.put(TextureKey.TOP, TextureMap.getId(baseBlock))
-				.put(TextureKey.SIDE, TextureMap.getId(baseBlock))
-				.put(TextureKey.BOTTOM, TextureMap.getId(baseBlock));
+		return new TextureMapping()
+				.put(TextureSlot.TOP, TextureMapping.getBlockTexture(baseBlock))
+				.put(TextureSlot.SIDE, TextureMapping.getBlockTexture(baseBlock))
+				.put(TextureSlot.BOTTOM, TextureMapping.getBlockTexture(baseBlock));
 	}
 	
-	public static TextureMap borderWall(BlockFamily blockFamily) {
+	public static TextureMapping borderWall(BlockFamily blockFamily) {
 		Block baseBlock = blockFamily.getBaseBlock();
-		Block wallBlock = blockFamily.getVariant(BlockFamily.Variant.WALL);
-		return new TextureMap()
-				.put(TextureKey.END, TextureMap.getSubId(wallBlock, "_end"))
-				.put(JinericTextureKey.SIDE_SHORT, TextureMap.getSubId(wallBlock, "_side_short"))
-				.put(TextureKey.SIDE, TextureMap.getId(baseBlock))
-				.put(JinericTextureKey.SIDE_LINE_END, TextureMap.getSubId(wallBlock, "_side_line_end"))
-				.put(TextureKey.TOP, TextureMap.getSubId(wallBlock, "_top"));
+		Block wallBlock = blockFamily.get(BlockFamily.Variant.WALL);
+		return new TextureMapping()
+				.put(TextureSlot.END, TextureMapping.getBlockTexture(wallBlock, "_end"))
+				.put(JinericTextureKey.SIDE_SHORT, TextureMapping.getBlockTexture(wallBlock, "_side_short"))
+				.put(TextureSlot.SIDE, TextureMapping.getBlockTexture(baseBlock))
+				.put(JinericTextureKey.SIDE_LINE_END, TextureMapping.getBlockTexture(wallBlock, "_side_line_end"))
+				.put(TextureSlot.TOP, TextureMapping.getBlockTexture(wallBlock, "_top"));
 	}
 	
-	public static TextureMap topBottomShort(BlockFamily blockFamily) {
+	public static TextureMapping topBottomShort(BlockFamily blockFamily) {
 		Block baseBlock = blockFamily.getBaseBlock();
-		return new TextureMap()
-				.put(TextureKey.TOP, TextureMap.getSubId(baseBlock, "_top"))
-				.put(TextureKey.BOTTOM, TextureMap.getSubId(baseBlock, "_bottom"))
-				.put(TextureKey.SIDE, TextureMap.getId(baseBlock))
-				.put(JinericTextureKey.SIDE_SHORT, TextureMap.getSubId(baseBlock, "_short"));
+		return new TextureMapping()
+				.put(TextureSlot.TOP, TextureMapping.getBlockTexture(baseBlock, "_top"))
+				.put(TextureSlot.BOTTOM, TextureMapping.getBlockTexture(baseBlock, "_bottom"))
+				.put(TextureSlot.SIDE, TextureMapping.getBlockTexture(baseBlock))
+				.put(JinericTextureKey.SIDE_SHORT, TextureMapping.getBlockTexture(baseBlock, "_short"));
 	}
 	
-	public static TextureMap columnShort(BlockFamily blockFamily, @Nullable BlockFamily blockTopFix) {
+	public static TextureMapping columnShort(BlockFamily blockFamily, @Nullable BlockFamily blockTopFix) {
 		Block baseBlock = blockFamily.getBaseBlock();
-		return new TextureMap()
+		return new TextureMapping()
 				// Sandstone texture naming sucks, this circumvents it in a lazy way.
-				.put(TextureKey.END, TextureMap.getSubId(blockTopFix != null ? blockTopFix.getBaseBlock() : blockFamily.getBaseBlock(), "_top"))
-				.put(TextureKey.SIDE, TextureMap.getId(baseBlock))
+				.put(TextureSlot.END, TextureMapping.getBlockTexture(blockTopFix != null ? blockTopFix.getBaseBlock() : blockFamily.getBaseBlock(), "_top"))
+				.put(TextureSlot.SIDE, TextureMapping.getBlockTexture(baseBlock))
 				.put(JinericTextureKey.SIDE_SHORT, JinericTextureMap.getMcSubIdToJineric(baseBlock, "_short"));
 	}
 	
 	public static Identifier getMcSubIdToJineric(Block block, String suffix) {
-		Identifier identifier = Registries.BLOCK.getId(block);
+		Identifier identifier = BuiltInRegistries.BLOCK.getKey(block);
 		return JinericMain.ofJineric(identifier.getPath()).withPath(path -> "block/" + path + suffix);
 	}
 }

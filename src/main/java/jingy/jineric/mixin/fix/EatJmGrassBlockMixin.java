@@ -3,11 +3,11 @@ package jingy.jineric.mixin.fix;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import jingy.jineric.block.JinericBlocks;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.ai.goal.EatGrassGoal;
-import net.minecraft.entity.ai.goal.Goal;
-import net.minecraft.predicate.block.BlockStatePredicate;
+import net.minecraft.world.entity.ai.goal.EatBlockGoal;
+import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.predicate.BlockStatePredicate;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,43 +18,43 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 import java.util.function.Predicate;
 
-@Mixin(EatGrassGoal.class)
+@Mixin(EatBlockGoal.class)
 public abstract class EatJmGrassBlockMixin extends Goal {
-	@Mutable @Shadow @Final private static Predicate<BlockState> EDIBLE_PREDICATE;
+	@Mutable @Shadow @Final private static Predicate<BlockState> IS_EDIBLE;
 	static {
-		EDIBLE_PREDICATE = EDIBLE_PREDICATE.or(BlockStatePredicate.forBlock(JinericBlocks.GRASS_BLOCK));
+		IS_EDIBLE = IS_EDIBLE.or(BlockStatePredicate.forBlock(JinericBlocks.GRASS_BLOCK));
 	}
 	
 	@WrapOperation(
-			method = "canStart",
+			method = "canUse",
 			at = @At(
 					value = "INVOKE",
-					target = "net/minecraft/block/BlockState.isOf(Lnet/minecraft/block/Block;)Z"
+					target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/world/level/block/Block;)Z"
 			)
 	)
 	private boolean canStartJmGrassBlockCheck(BlockState instance, Block block, Operation<Boolean> original) {
-		return original.call(instance, block) || instance.isOf(JinericBlocks.GRASS_BLOCK);
+		return original.call(instance, block) || instance.is(JinericBlocks.GRASS_BLOCK);
 	}
 	
 	@WrapOperation(
 			method = "tick",
 			at = @At(
 					value = "INVOKE",
-					target = "net/minecraft/block/BlockState.isOf(Lnet/minecraft/block/Block;)Z"
+					target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/world/level/block/Block;)Z"
 			)
 	)
 	private boolean tickJmGrassBlockCheck(BlockState instance, Block block, Operation<Boolean> original) {
-		return original.call(instance, block) || instance.isOf(JinericBlocks.GRASS_BLOCK);
+		return original.call(instance, block) || instance.is(JinericBlocks.GRASS_BLOCK);
 	}
 	
 	@ModifyArg(
 			method = "tick",
 			at = @At(
 					value = "INVOKE",
-					target = "Lnet/minecraft/block/Block;getRawIdFromState(Lnet/minecraft/block/BlockState;)I"
+					target = "Lnet/minecraft/world/level/block/Block;getId(Lnet/minecraft/world/level/block/state/BlockState;)I"
 			)
 	)
 	private BlockState jmGrassBlockRawIdFromState(@Nullable BlockState state) {
-		return JinericBlocks.GRASS_BLOCK.getDefaultState();
+		return JinericBlocks.GRASS_BLOCK.defaultBlockState();
 	}
 }
