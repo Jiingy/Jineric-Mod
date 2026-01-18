@@ -24,9 +24,4 @@ public class KilnScreenHandler extends AbstractFurnaceMenu {
 				syncId, playerInventory, inventory, propertyDelegate
 		);
 	}
-	
-//	@Override
-//	public RecipeBookType getCategory() {
-//		return JinericRecipeBookType.JINERIC_KILN;
-//	}
 }
