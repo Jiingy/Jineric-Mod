@@ -1,10 +1,9 @@
 package jingy.jineric.item;
 
 import jingy.jineric.tag.JinericEntityTypeTags;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.registry.tag.TagKey;
-
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import java.util.Map;
 
 public class WeaponUpgrader {
@@ -18,18 +17,18 @@ public class WeaponUpgrader {
 	);
 	
 	public static int setLevelIncrease(LivingEntity livingEntity) {
-		if (livingEntity.getType().isIn(JinericEntityTypeTags.LEVELS_WEAPON_NONE)) {
+		if (livingEntity.getType().is(JinericEntityTypeTags.LEVELS_WEAPON_NONE)) {
 			return 0;
 		}
-		if (livingEntity.getType().isIn(JinericEntityTypeTags.LEVELS_WEAPON_LOW)) {
+		if (livingEntity.getType().is(JinericEntityTypeTags.LEVELS_WEAPON_LOW)) {
 			return 1;
-		} else if (livingEntity.getType().isIn(JinericEntityTypeTags.LEVELS_WEAPON_MEDIUM)) {
+		} else if (livingEntity.getType().is(JinericEntityTypeTags.LEVELS_WEAPON_MEDIUM)) {
 			return 2;
-		} else if (livingEntity.getType().isIn(JinericEntityTypeTags.LEVELS_WEAPON_MEDIUM_PLUS)) {
+		} else if (livingEntity.getType().is(JinericEntityTypeTags.LEVELS_WEAPON_MEDIUM_PLUS)) {
 			return 3;
-		} else if (livingEntity.getType().isIn(JinericEntityTypeTags.LEVELS_WEAPON_HIGH)) {
+		} else if (livingEntity.getType().is(JinericEntityTypeTags.LEVELS_WEAPON_HIGH)) {
 			return 4;
-		} else if (livingEntity.getType().isIn(JinericEntityTypeTags.LEVELS_WEAPON_EXTREME)) {
+		} else if (livingEntity.getType().is(JinericEntityTypeTags.LEVELS_WEAPON_EXTREME)) {
 			return 5;
 		} else {
 			return 0;

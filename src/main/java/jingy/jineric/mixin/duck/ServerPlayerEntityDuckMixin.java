@@ -2,11 +2,11 @@ package jingy.jineric.mixin.duck;
 
 import jingy.jineric.access.ServerPlayerEntityAccess;
 import jingy.jineric.server.network.JmServerRecipeBook;
-import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.level.ServerPlayer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 
-@Mixin(ServerPlayerEntity.class)
+@Mixin(ServerPlayer.class)
 public abstract class ServerPlayerEntityDuckMixin implements ServerPlayerEntityAccess {
 	@Unique private JmServerRecipeBook jmRecipeBook;
 	

@@ -2,9 +2,9 @@ package net.jineric.jineric_mod.mixin.client;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.jineric.jineric_mod.option.JmGameOptions;
-import net.minecraft.client.gui.screen.option.VideoOptionsScreen;
-import net.minecraft.client.option.GameOptions;
-import net.minecraft.client.option.SimpleOption;
+import net.minecraft.client.OptionInstance;
+import net.minecraft.client.Options;
+import net.minecraft.client.gui.screens.options.VideoSettingsScreen;
 import org.apache.commons.lang3.ArrayUtils;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -12,19 +12,19 @@ import org.spongepowered.asm.mixin.injection.At;
 
 import java.util.Arrays;
 
-@Mixin(VideoOptionsScreen.class)
+@Mixin(VideoSettingsScreen.class)
 public abstract class VideoOptionsScreenMixin {
 	
 	@ModifyReturnValue(
 			method = "getOptions",
 			at = @At("RETURN")
 	)
-	private static SimpleOption<?>[] addModdedGameOptions(SimpleOption<?>[] original, GameOptions gameOptions) {
+	private static OptionInstance<?>[] addModdedGameOptions(OptionInstance<?>[] original, Options gameOptions) {
 		
 		//  Add modded options to specific indexes of the vanilla GameOptions array
-		SimpleOption<?>[] newOptionsArray = ArrayUtils
+		OptionInstance<?>[] newOptionsArray = ArrayUtils
 				.insert(
-						putAfter(original, gameOptions.getAttackIndicator()),
+						putAfter(original, gameOptions.attackIndicator()),
 						original,
 						JmGameOptions.getItemLevelBarMode()
 				)
@@ -33,7 +33,7 @@ public abstract class VideoOptionsScreenMixin {
 	}
 	
 	@Unique
-	private static int putAfter(SimpleOption<?>[] original, SimpleOption<?> option) {
+	private static int putAfter(OptionInstance<?>[] original, OptionInstance<?> option) {
 		return Arrays.stream(original).toList().indexOf(option) + 1;
 	}
 }

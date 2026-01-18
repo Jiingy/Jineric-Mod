@@ -6,12 +6,16 @@ import jingy.jineric.tag.JinericBlockSoundTags;
 import jingy.jineric.tag.JinericBlockTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;
@@ -26,7 +30,7 @@ public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider 
 	}
 	
 	@Override
-	protected void addTags(HolderLookup.Provider arg) {
+	protected void addTags(HolderLookup.Provider holderLookupProvider) {
 		this.blockFamiliesToFamilyVariantTag(BlockTags.BUTTONS, BlockFamily.Variant.BUTTON);
 		this.blockFamiliesToFamilyVariantTag(BlockTags.DOORS, BlockFamily.Variant.DOOR);
 		this.blockFamiliesToFamilyVariantTag(BlockTags.FENCES, BlockFamily.Variant.FENCE);

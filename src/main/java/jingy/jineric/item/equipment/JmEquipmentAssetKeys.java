@@ -1,27 +1,27 @@
 package jingy.jineric.item.equipment;
 
-import net.minecraft.item.equipment.EquipmentAsset;
-import net.minecraft.item.equipment.EquipmentAssetKeys;
-import net.minecraft.registry.RegistryKey;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.equipment.EquipmentAsset;
+import net.minecraft.world.item.equipment.EquipmentAssets;
 
 public interface JmEquipmentAssetKeys {
-	RegistryKey<EquipmentAsset> WOOD = EquipmentAssetKeys.register("wood");
-	RegistryKey<EquipmentAsset> OAK_WOOD = EquipmentAssetKeys.register("oak_wood");
-	RegistryKey<EquipmentAsset> SPRUCE_WOOD = EquipmentAssetKeys.register("spruce_wood");
-	RegistryKey<EquipmentAsset> BIRCH_WOOD = EquipmentAssetKeys.register("birch_wood");
-	RegistryKey<EquipmentAsset> JUNGLE_WOOD = EquipmentAssetKeys.register("jungle_wood");
-	RegistryKey<EquipmentAsset> ACACIA_WOOD = EquipmentAssetKeys.register("acacia_wood");
-	RegistryKey<EquipmentAsset> DARK_OAK_WOOD = EquipmentAssetKeys.register("dark_oak_wood");
-	RegistryKey<EquipmentAsset> MANGROVE_WOOD = EquipmentAssetKeys.register("mangrove_wood");
-	RegistryKey<EquipmentAsset> CHERRY_WOOD = EquipmentAssetKeys.register("cherry_wood");
-	RegistryKey<EquipmentAsset> PALE_OAK_WOOD = EquipmentAssetKeys.register("pale_oak_wood");
-	RegistryKey<EquipmentAsset> BAMBOO_WOOD = EquipmentAssetKeys.register("bamboo_wood");
-	RegistryKey<EquipmentAsset> CRIMSON_WOOD = EquipmentAssetKeys.register("crimson_wood");
-	RegistryKey<EquipmentAsset> WARPED_WOOD = EquipmentAssetKeys.register("warped_wood");
-	RegistryKey<EquipmentAsset> EMERALD = EquipmentAssetKeys.register("emerald");
+	ResourceKey<EquipmentAsset> WOOD = EquipmentAssets.createId("wood");
+	ResourceKey<EquipmentAsset> OAK_WOOD = EquipmentAssets.createId("oak_wood");
+	ResourceKey<EquipmentAsset> SPRUCE_WOOD = EquipmentAssets.createId("spruce_wood");
+	ResourceKey<EquipmentAsset> BIRCH_WOOD = EquipmentAssets.createId("birch_wood");
+	ResourceKey<EquipmentAsset> JUNGLE_WOOD = EquipmentAssets.createId("jungle_wood");
+	ResourceKey<EquipmentAsset> ACACIA_WOOD = EquipmentAssets.createId("acacia_wood");
+	ResourceKey<EquipmentAsset> DARK_OAK_WOOD = EquipmentAssets.createId("dark_oak_wood");
+	ResourceKey<EquipmentAsset> MANGROVE_WOOD = EquipmentAssets.createId("mangrove_wood");
+	ResourceKey<EquipmentAsset> CHERRY_WOOD = EquipmentAssets.createId("cherry_wood");
+	ResourceKey<EquipmentAsset> PALE_OAK_WOOD = EquipmentAssets.createId("pale_oak_wood");
+	ResourceKey<EquipmentAsset> BAMBOO_WOOD = EquipmentAssets.createId("bamboo_wood");
+	ResourceKey<EquipmentAsset> CRIMSON_WOOD = EquipmentAssets.createId("crimson_wood");
+	ResourceKey<EquipmentAsset> WARPED_WOOD = EquipmentAssets.createId("warped_wood");
+	ResourceKey<EquipmentAsset> EMERALD = EquipmentAssets.createId("emerald");
 	
-	static RegistryKey<EquipmentAsset> parseWoodenKey(String woodType) {
-		RegistryKey<EquipmentAsset> assetKey;
+	static ResourceKey<EquipmentAsset> parseWoodenKey(String woodType) {
+		ResourceKey<EquipmentAsset> assetKey;
 		switch (woodType) {
 			case "oak" -> assetKey = JmEquipmentAssetKeys.OAK_WOOD;
 			case "spruce" -> assetKey = JmEquipmentAssetKeys.SPRUCE_WOOD;

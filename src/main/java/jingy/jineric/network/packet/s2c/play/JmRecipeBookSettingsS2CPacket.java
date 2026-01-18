@@ -3,14 +3,14 @@ package jingy.jineric.network.packet.s2c.play;
 import jingy.jineric.access.ClientPlayPacketListenerAccess;
 import jingy.jineric.network.packet.JmPlayPackets;
 import jingy.jineric.recipe.book.JmRecipeBookOptions;
-import net.minecraft.network.PacketByteBuf;
-import net.minecraft.network.codec.PacketCodec;
-import net.minecraft.network.listener.ClientPlayPacketListener;
-import net.minecraft.network.packet.Packet;
-import net.minecraft.network.packet.PacketType;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.PacketType;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 
-public record JmRecipeBookSettingsS2CPacket(JmRecipeBookOptions bookSettings) implements Packet<ClientPlayPacketListener> {
-	public static final PacketCodec<PacketByteBuf, JmRecipeBookSettingsS2CPacket> CODEC = PacketCodec.tuple(
+public record JmRecipeBookSettingsS2CPacket(JmRecipeBookOptions bookSettings) implements Packet<ClientGamePacketListener> {
+	public static final StreamCodec<FriendlyByteBuf, JmRecipeBookSettingsS2CPacket> CODEC = StreamCodec.composite(
 			JmRecipeBookOptions.PACKET_CODEC,
 			JmRecipeBookSettingsS2CPacket::bookSettings,
 			JmRecipeBookSettingsS2CPacket::new
@@ -20,11 +20,12 @@ public record JmRecipeBookSettingsS2CPacket(JmRecipeBookOptions bookSettings) im
 //	public static final CustomPayload.Id<JmRecipeBookSettingsS2CPacket> ID = new CustomPayload.Id<>(Identifier.of("jineric", "recipe_book_settings"));
 	
 	@Override
-	public PacketType<? extends Packet<ClientPlayPacketListener>> getPacketType() {
+	public PacketType<? extends Packet<ClientGamePacketListener>> type() {
 		return JmPlayPackets.RECIPE_BOOK_SETTINGS;
 	}
 	
-	public void apply(ClientPlayPacketListener clientPlayPacketListener) {
+	@Override
+	public void handle(ClientGamePacketListener clientPlayPacketListener) {
 		((ClientPlayPacketListenerAccess)clientPlayPacketListener).jineric_mod$onJmRecipeBookSettings(this);
 	}
 	

@@ -1,12 +1,11 @@
 package jingy.jineric.data.family;
 
-import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.Item;
-import net.minecraft.registry.tag.TagKey;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.Item;
 
 public class EquipmentFamily {
 	final Map<Variant, Item> variants = new HashMap<>();

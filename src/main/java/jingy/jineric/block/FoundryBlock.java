@@ -3,72 +3,72 @@ package jingy.jineric.block;
 import com.mojang.serialization.MapCodec;
 import jingy.jineric.block.entity.FoundryBlockEntity;
 import jingy.jineric.registry.JinericBlockEntityType;
-import net.minecraft.block.AbstractFurnaceBlock;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.ShapeContext;
-import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityTicker;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.stat.Stats;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.stats.Stats;
 import net.minecraft.util.Util;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.AbstractFurnaceBlock;
+import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
 public class FoundryBlock extends AbstractFurnaceBlock {
-	public static final MapCodec<FoundryBlock> CODEC = createCodec(FoundryBlock::new);
+	public static final MapCodec<FoundryBlock> CODEC = simpleCodec(FoundryBlock::new);
 	public static final VoxelShape FOUNDRY_SHAPE = Util.make(() -> {
-				VoxelShape bottom = FoundryBlock.createColumnShape(14.0, 0, 13.0);
-				VoxelShape top = FoundryBlock.createColumnShape(12.0, 13.0, 16.0);
-		return VoxelShapes.union(top, bottom);
+				VoxelShape bottom = FoundryBlock.column(14.0, 0, 13.0);
+				VoxelShape top = FoundryBlock.column(12.0, 13.0, 16.0);
+		return Shapes.or(top, bottom);
 	});
 	
-	protected FoundryBlock(Settings settings) {
+	protected FoundryBlock(Properties settings) {
 		super(settings);
 	}
 	
 	@Override
-	protected MapCodec<FoundryBlock> getCodec() {
+	protected MapCodec<FoundryBlock> codec() {
 		return CODEC;
 	}
 	
 	@Override
-	public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+	public @Nullable BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
 		return new FoundryBlockEntity(pos, state);
 	}
 	
 	@Override
-	protected void openScreen(World world, BlockPos pos, PlayerEntity player) {
-		BlockEntity blockEntity = world.getBlockEntity(pos);
+	protected void openContainer(Level level, BlockPos pos, Player player) {
+		BlockEntity blockEntity = level.getBlockEntity(pos);
 		if (blockEntity instanceof FoundryBlockEntity foundryBlockEntity) {
-			player.openHandledScreen(foundryBlockEntity);
-			player.incrementStat(Stats.INTERACT_WITH_BLAST_FURNACE);
+			player.openMenu(foundryBlockEntity);
+			player.awardStat(Stats.INTERACT_WITH_BLAST_FURNACE);
 		}
 	}
 	
 	@Override
-	protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+	protected VoxelShape getShape(BlockState state, BlockGetter blockGetter, BlockPos pos, CollisionContext context) {
 		return FOUNDRY_SHAPE;
 	}
 	
 	@Nullable
 	@Override
-	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-		return validateTicker(world, type, JinericBlockEntityType.FOUNDRY);
+	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+		return createFurnaceTicker(level, type, JinericBlockEntityType.FOUNDRY);
 	}
 	
 	@Nullable
-	protected static <T extends BlockEntity> BlockEntityTicker<T> validateTicker(
-			World world, BlockEntityType<T> givenType, BlockEntityType<? extends AbstractFurnaceBlockEntity> expectedType
+	protected static <T extends BlockEntity> BlockEntityTicker<T> createFurnaceTicker(
+			Level level, BlockEntityType<T> givenType, BlockEntityType<? extends AbstractFurnaceBlockEntity> expectedType
 	) {
-		return world instanceof ServerWorld serverWorld
-				? validateTicker(givenType, expectedType, (worldx, pos, state, blockEntity) -> FoundryBlockEntity.tick(serverWorld, pos, state, blockEntity))
+		return level instanceof ServerLevel serverWorld
+				? createTickerHelper(givenType, expectedType, (worldx, pos, state, blockEntity) -> FoundryBlockEntity.serverTick(serverWorld, pos, state, blockEntity))
 				: null;
 	}
 }

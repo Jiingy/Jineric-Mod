@@ -35,12 +35,12 @@ public class WoodenTrappedChestBlock extends WoodenChestBlock {
 	}
 	
 	@Override
-	public int getSignal(BlockState state, BlockGetter world, BlockPos pos, Direction direction) {
-		return Mth.clamp(ChestBlockEntity.getOpenCount(world, pos), 0, 15);
+	public int getSignal(BlockState state, BlockGetter blockGetter, BlockPos pos, Direction direction) {
+		return Mth.clamp(ChestBlockEntity.getOpenCount(blockGetter, pos), 0, 15);
 	}
 	
 	@Override
-	public int getDirectSignal(BlockState state, BlockGetter world, BlockPos pos, Direction direction) {
-		return direction == Direction.UP ? state.getSignal(world, pos, direction) : 0;
+	public int getDirectSignal(BlockState state, BlockGetter blockGetter, BlockPos pos, Direction direction) {
+		return direction == Direction.UP ? state.getSignal(blockGetter, pos, direction) : 0;
 	}
 }

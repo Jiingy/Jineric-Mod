@@ -2,17 +2,17 @@ package jingy.jineric.mixin.access;
 
 import jingy.jineric.access.ItemStackAccess;
 import jingy.jineric.component.JmDataComponentTypes;
-import net.minecraft.component.ComponentHolder;
-import net.minecraft.component.ComponentType;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.MathHelper;
+import net.minecraft.core.component.DataComponentHolder;
+import net.minecraft.core.component.DataComponentType;
+import net.minecraft.util.Mth;
+import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(ItemStack.class)
-public abstract class ItemStackOverrides implements ItemStackAccess, ComponentHolder {
-	@Shadow @Nullable public abstract <T> T set(ComponentType<T> type, @Nullable T value);
+public abstract class ItemStackOverrides implements ItemStackAccess, DataComponentHolder {
+	@Shadow @Nullable public abstract <T> T set(DataComponentType<T> type, @Nullable T value);
 	
 	@Override
 	public boolean jineric$isLeveled() {
@@ -21,12 +21,12 @@ public abstract class ItemStackOverrides implements ItemStackAccess, ComponentHo
 	
 	@Override
 	public boolean jineric$isUpgradable() {
-		return this.contains(JmDataComponentTypes.MAX_LEVEL);
+		return this.has(JmDataComponentTypes.MAX_LEVEL);
 	}
 	
 	@Override
 	public void jineric$setLevel(int level) {
-		this.set(JmDataComponentTypes.LEVEL, MathHelper.clamp(level, 0, this.jineric$getMaxLevel()));
+		this.set(JmDataComponentTypes.LEVEL, Mth.clamp(level, 0, this.jineric$getMaxLevel()));
 	}
 	
 	@Override

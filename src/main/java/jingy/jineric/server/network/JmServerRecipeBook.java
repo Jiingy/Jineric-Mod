@@ -7,11 +7,11 @@ import jingy.jineric.access.RecipeBookAccess;
 import jingy.jineric.mixin.access.ServerRecipeBookAccess;
 import jingy.jineric.network.packet.s2c.play.JmRecipeBookSettingsS2CPacket;
 import jingy.jineric.recipe.book.JmRecipeBookOptions;
-import net.minecraft.network.packet.s2c.play.RecipeBookAddS2CPacket;
-import net.minecraft.recipe.Recipe;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.server.network.ServerRecipeBook;
+import net.minecraft.network.protocol.game.ClientboundRecipeBookAddPacket;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.stats.ServerRecipeBook;
+import net.minecraft.world.item.crafting.Recipe;
 import org.slf4j.Logger;
 
 import java.util.ArrayList;
@@ -22,12 +22,12 @@ import java.util.function.Predicate;
 public class JmServerRecipeBook extends ServerRecipeBook {
 	private static final Logger LOGGER = LogUtils.getLogger();
 	
-	public JmServerRecipeBook(DisplayCollector collector) {
+	public JmServerRecipeBook(DisplayResolver collector) {
 		super(collector);
 	}
 	
-	private void handleList(List<RegistryKey<Recipe<?>>> recipes, Consumer<RegistryKey<Recipe<?>>> handler, Predicate<RegistryKey<Recipe<?>>> validPredicate) {
-		for (RegistryKey<Recipe<?>> registryKey : recipes) {
+	private void loadRecipes(List<ResourceKey<Recipe<?>>> recipes, Consumer<ResourceKey<Recipe<?>>> handler, Predicate<ResourceKey<Recipe<?>>> validPredicate) {
+		for (ResourceKey<Recipe<?>> registryKey : recipes) {
 			if (!validPredicate.test(registryKey)) {
 				LOGGER.error("Tried to load unrecognized recipe: {} removed now.", registryKey);
 			} else {
@@ -37,50 +37,50 @@ public class JmServerRecipeBook extends ServerRecipeBook {
 	}
 	
 	@Override
-	public void sendInitRecipesPacket(ServerPlayerEntity player) {
+	public void sendInitialRecipeBook(ServerPlayer player) {
 		JmRecipeBookOptions bookOptions = ((RecipeBookAccess)this).jineric$getOptions();
-		player.networkHandler.sendPacket(new JmRecipeBookSettingsS2CPacket(bookOptions.copy()));
+		player.connection.send(new JmRecipeBookSettingsS2CPacket(bookOptions.copy()));
 		//  TODO RECIPE BOOK: Code commented out due to my CustomPayload not working, and being unable to fix it without internet
 //		ServerPlayNetworking.send(player, new JmRecipeBookSettingsS2CPacket(bookOptions.copy()));
-		List<RecipeBookAddS2CPacket.Entry> list = new ArrayList(this.unlocked.size());
+		List<ClientboundRecipeBookAddPacket.Entry> list = new ArrayList(this.known.size());
 		
-		for (RegistryKey<Recipe<?>> registryKey : this.unlocked) {
-			((ServerRecipeBookAccess)this).getCollector().displaysForRecipe(registryKey, display -> list.add(new RecipeBookAddS2CPacket.Entry(display, false, this.highlighted.contains(registryKey))));
+		for (ResourceKey<Recipe<?>> registryKey : this.known) {
+			((ServerRecipeBookAccess)this).getCollector().displaysForRecipe(registryKey, display -> list.add(new ClientboundRecipeBookAddPacket.Entry(display, false, this.highlight.contains(registryKey))));
 		}
 		
-		player.networkHandler.sendPacket(new RecipeBookAddS2CPacket(list, true));
+		player.connection.send(new ClientboundRecipeBookAddPacket(list, true));
 	}
 	
 	public void copyFrom(JmServerRecipeBook recipeBook) {
 		this.unpack(recipeBook.jmPack());
 	}
 	
-	public Packed jmPack() {
-		return new Packed(((RecipeBookAccess)this).jineric$getOptions().copy(), List.copyOf(this.unlocked), List.copyOf(this.highlighted));
+	public jingy.jineric.server.network.JmServerRecipeBook.Packed jmPack() {
+		return new jingy.jineric.server.network.JmServerRecipeBook.Packed(((RecipeBookAccess)this).jineric$getOptions().copy(), List.copyOf(this.known), List.copyOf(this.highlight));
 	}
 	
-	private void unpack(Packed packed) {
-		this.unlocked.clear();
-		this.highlighted.clear();
+	private void unpack(jingy.jineric.server.network.JmServerRecipeBook.Packed packed) {
+		this.known.clear();
+		this.highlight.clear();
 		((RecipeBookAccess)this).jineric$getOptions().copyFrom(packed.settings);
-		this.unlocked.addAll(packed.known);
-		this.highlighted.addAll(packed.highlight);
+		this.known.addAll(packed.known);
+		this.highlight.addAll(packed.highlight);
 	}
 	
-	public void unpack(Packed packed, Predicate<RegistryKey<Recipe<?>>> validPredicate) {
+	public void unpack(jingy.jineric.server.network.JmServerRecipeBook.Packed packed, Predicate<ResourceKey<Recipe<?>>> validPredicate) {
 		((RecipeBookAccess)this).jineric$getOptions().copyFrom(packed.settings);
-		this.handleList(packed.known, this.unlocked::add, validPredicate);
-		this.handleList(packed.highlight, this.highlighted::add, validPredicate);
+		this.loadRecipes(packed.known, this.known::add, validPredicate);
+		this.loadRecipes(packed.highlight, this.highlight::add, validPredicate);
 	}
 	
-	public record Packed(JmRecipeBookOptions settings, List<RegistryKey<Recipe<?>>> known, List<RegistryKey<Recipe<?>>> highlight) {
-		public static final Codec<Packed> CODEC = RecordCodecBuilder.create(
+	public record Packed(JmRecipeBookOptions settings, List<ResourceKey<Recipe<?>>> known, List<ResourceKey<Recipe<?>>> highlight) {
+		public static final Codec<jingy.jineric.server.network.JmServerRecipeBook.Packed> CODEC = RecordCodecBuilder.create(
 				instance -> instance.group(
-								JmRecipeBookOptions.CODEC.forGetter(Packed::settings),
-								Recipe.KEY_CODEC.listOf().fieldOf("recipes").forGetter(Packed::known),
-								Recipe.KEY_CODEC.listOf().fieldOf("toBeDisplayed").forGetter(Packed::highlight)
+								JmRecipeBookOptions.CODEC.forGetter(jingy.jineric.server.network.JmServerRecipeBook.Packed::settings),
+								Recipe.KEY_CODEC.listOf().fieldOf("recipes").forGetter(jingy.jineric.server.network.JmServerRecipeBook.Packed::known),
+								Recipe.KEY_CODEC.listOf().fieldOf("toBeDisplayed").forGetter(jingy.jineric.server.network.JmServerRecipeBook.Packed::highlight)
 						)
-						.apply(instance, Packed::new)
+						.apply(instance, jingy.jineric.server.network.JmServerRecipeBook.Packed::new)
 		);
 	}
 }

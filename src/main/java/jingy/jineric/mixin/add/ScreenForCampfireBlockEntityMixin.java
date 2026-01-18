@@ -4,25 +4,21 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import jingy.jineric.access.CampfireBlockEntityAccess;
 import jingy.jineric.screen.CampfireScreenHandler;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.block.entity.CampfireBlockEntity;
-import net.minecraft.component.ComponentMap;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.Inventories;
-import net.minecraft.inventory.Inventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.screen.ArrayPropertyDelegate;
-import net.minecraft.screen.NamedScreenHandlerFactory;
-import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.ScreenHandlerContext;
-import net.minecraft.text.Text;
-import net.minecraft.util.Clearable;
-import net.minecraft.util.Nameable;
-import net.minecraft.util.collection.DefaultedList;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.NonNullList;
+import net.minecraft.core.component.DataComponentMap;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.*;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.inventory.SimpleContainerData;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.CampfireBlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -32,23 +28,20 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 @Mixin(CampfireBlockEntity.class)
-public abstract class ScreenForCampfireBlockEntityMixin extends BlockEntity implements Inventory, NamedScreenHandlerFactory, Nameable, Clearable, CampfireBlockEntityAccess {
+public abstract class ScreenForCampfireBlockEntityMixin extends BlockEntity implements Container, MenuProvider, Nameable, Clearable, CampfireBlockEntityAccess {
 	//  VANILLA
-	@Shadow public abstract DefaultedList<ItemStack> getItemsBeingCooked();
-	@Shadow protected abstract void updateListeners();
-	@Shadow @Final private DefaultedList<ItemStack> itemsBeingCooked;
-	@Shadow @Final private int[] cookingTimes;
-	@Shadow @Final private int[] cookingTotalTimes;
-	
+	@Shadow protected abstract void markUpdated();
+	@Shadow @Final private int[] cookingProgress;
+	@Shadow @Final private int[] cookingTime;
+	@Shadow public abstract NonNullList<ItemStack> getItems();
 	//  MODDED
 	int[] cookingTimesCopy = new int[4];
 	int[] cookingTotalTimesCopy = new int[4];
-	
 	//TOOD: ADD
-	@Nullable private Text customName;
+	@Nullable private Component customName;
 	
 	@Unique
-	protected final ArrayPropertyDelegate propertyDelegate = new ArrayPropertyDelegate(4) {
+	protected final SimpleContainerData simpleContainerData = new SimpleContainerData(4) {
 		@Override
 		public int get(int index) {
 			return switch (index) {
@@ -64,7 +57,7 @@ public abstract class ScreenForCampfireBlockEntityMixin extends BlockEntity impl
 		}
 		
 		@Override
-		public int size() {
+		public int getCount() {
 			return 2;
 		}
 	};
@@ -77,7 +70,7 @@ public abstract class ScreenForCampfireBlockEntityMixin extends BlockEntity impl
 	@ModifyArg(
 			method = "<init>",
 			at = @At(value = "INVOKE",
-					target = "Lnet/minecraft/util/collection/DefaultedList;ofSize(ILjava/lang/Object;)Lnet/minecraft/util/collection/DefaultedList;"
+					target = "Lnet/minecraft/core/NonNullList;withSize(ILjava/lang/Object;)Lnet/minecraft/core/NonNullList;"
 			)
 	)
 	private int expandSizeOfInventoryToFive(int size) {
@@ -85,39 +78,38 @@ public abstract class ScreenForCampfireBlockEntityMixin extends BlockEntity impl
 	}
 	
 	@WrapOperation(
-			method = "litServerTick",
+			method = "cookTick",
 			at = @At(value = "INVOKE",
-					target = "Lnet/minecraft/util/collection/DefaultedList;size()I"
-			)
+					target = "Lnet/minecraft/core/NonNullList;size()I")
 	)
-	private static int litTickOnlyCookItems(DefaultedList<ItemStack> instance, Operation<Integer> original) {
+	private static int litTickOnlyCookItems(NonNullList<ItemStack> instance, Operation<Integer> original) {
 		return 4;
 	}
 	
 	@WrapOperation(
-			method = "unlitServerTick",
+			method = "cooldownTick",
 			at = @At(value = "INVOKE",
-					target = "Lnet/minecraft/util/collection/DefaultedList;size()I")
+					target = "Lnet/minecraft/core/NonNullList;size()I")
 	)
-	private static int unlitTickOnlyCookItems(DefaultedList<ItemStack> instance, Operation<Integer> original) {
+	private static int unlitTickOnlyCookItems(NonNullList<ItemStack> instance, Operation<Integer> original) {
 		return 4;
 	}
 	
 	@WrapOperation(
-			method = "clientTick",
+			method = "particleTick",
 			at = @At(value = "INVOKE",
-					target = "Lnet/minecraft/util/collection/DefaultedList;size()I")
+					target = "Lnet/minecraft/core/NonNullList;size()I")
 	)
-	private static int clientTickOnlyCookItems(DefaultedList<ItemStack> instance, Operation<Integer> original) {
+	private static int clientTickOnlyCookItems(NonNullList<ItemStack> instance, Operation<Integer> original) {
 		return 4;
 	}
 	
 	@WrapOperation(
-			method = "addItem",
+			method = "placeFood",
 			at = @At(value = "INVOKE",
-					target = "Lnet/minecraft/util/collection/DefaultedList;size()I")
+					target = "Lnet/minecraft/core/NonNullList;size()I")
 	)
-	private static int addItemOnlyCookItems(DefaultedList<ItemStack> instance, Operation<Integer> original) {
+	private static int addItemOnlyCookItems(NonNullList<ItemStack> instance, Operation<Integer> original) {
 		return 4;
 	}
 	
@@ -127,19 +119,19 @@ public abstract class ScreenForCampfireBlockEntityMixin extends BlockEntity impl
 	@Unique
 	@Override
 	public int jineric$getCookingTime(int index) {
-		return cookingTimes[index];
+		return cookingProgress[index];
 	}
 	
 	@Unique
 	@Override
 	public int[] jineric$getCookingTimes() {
-		return cookingTimes;
+		return cookingProgress;
 	}
 	
 	@Unique
 	@Override
 	public void jineric$setCookingTimes(int time) {
-		for (int index : this.cookingTimes) {
+		for (int index : this.cookingProgress) {
 			this.jineric$setCookingTime(index, time);
 		}
 	}
@@ -147,25 +139,25 @@ public abstract class ScreenForCampfireBlockEntityMixin extends BlockEntity impl
 	@Unique
 	@Override
 	public void jineric$setCookingTime(int index, int cookingTimes) {
-		this.cookingTimes[index] = cookingTimes;
+		this.cookingProgress[index] = cookingTimes;
 	}
 	//  cookingTotalTimes
 	@Unique
 	@Override
 	public int[] jineric$getCookingTotalTimes() {
-		return cookingTotalTimes;
+		return cookingTime;
 	}
 	
 	@Unique
 	@Override
 	public int jineric$getCookingTotalTime(int index) {
-		return cookingTotalTimes[index];
+		return cookingTime[index];
 	}
 	
 	@Unique
 	@Override
 	public void jineric$setCookingTotalTimes(int time) {
-		for (int index : this.cookingTotalTimes) {
+		for (int index : this.cookingTime) {
 			this.jineric$setCookingTotalTime(index, time);
 		}
 	}
@@ -173,30 +165,30 @@ public abstract class ScreenForCampfireBlockEntityMixin extends BlockEntity impl
 	@Unique
 	@Override
 	public void jineric$setCookingTotalTime(int index, int cookingTotalTimes) {
-		this.cookingTotalTimes[index] = cookingTotalTimes;
+		this.cookingTime[index] = cookingTotalTimes;
 	}
 	
 	
 	
 //  OVERRIDES
 	@Override
-	public int size() {
-		return this.getItemsBeingCooked().size();
+	public int getContainerSize() {
+		return this.getItems().size();
 	}
 	
 	@Override
-	public boolean canTransferTo(Inventory hopperInventory, int slot, ItemStack stack) {
+	public boolean canTakeItem(Container hopperInventory, int slot, ItemStack stack) {
 		return false;
 	}
 	
 	@Override
-	public boolean isValid(int slot, ItemStack stack) {
+	public boolean canPlaceItem(int slot, ItemStack stack) {
 		return false;
 	}
 	
 	@Override
 	public boolean isEmpty() {
-		for (ItemStack itemStack : this.getItemsBeingCooked()) {
+		for (ItemStack itemStack : this.getItems()) {
 			if (!itemStack.isEmpty()) {
 				return false;
 			}
@@ -205,44 +197,44 @@ public abstract class ScreenForCampfireBlockEntityMixin extends BlockEntity impl
 	}
 	
 	@Override
-	public ItemStack removeStack(int slot, int amount) {
-		return Inventories.splitStack(this.getItemsBeingCooked(), slot, amount);
+	public ItemStack removeItem(int slot, int amount) {
+		return ContainerHelper.removeItem(this.getItems(), slot, amount);
 	}
 	
 	@Override
-	public void setStack(int slot, ItemStack stack) {
-		this.getItemsBeingCooked().set(slot, stack);
-		stack.capCount(this.getMaxCount(stack));
+	public void setItem(int slot, ItemStack stack) {
+		this.getItems().set(slot, stack);
+		stack.limitSize(this.getMaxStackSize(stack));
 	}
 	
 	@Override
-	public ItemStack getStack(int slot) {
-		return this.getItemsBeingCooked().get(slot);
+	public ItemStack getItem(int slot) {
+		return this.getItems().get(slot);
 	}
 	
 	@Override
-	public boolean canPlayerUse(PlayerEntity player) {
-		return Inventory.canPlayerUse(this, player);
+	public boolean stillValid(Player player) {
+		return Container.stillValidBlockEntity(this, player);
 	}
 	
 	@Nullable
 	@Override
-	public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
-		return new CampfireScreenHandler(syncId, playerInventory, ScreenHandlerContext.create(this.world, this.getPos()), (CampfireBlockEntity)(Object)this, this.propertyDelegate);
+	public AbstractContainerMenu createMenu(int syncId, Inventory playerInventory, Player player) {
+		return new CampfireScreenHandler(syncId, playerInventory, ContainerLevelAccess.create(this.level, this.getBlockPos()), (CampfireBlockEntity)(Object)this, this.simpleContainerData);
 	}
 	
 	@Override
-	public Text getName() {
-		return this.customName != null ? this.customName : Text.translatable("container.jineric.campfire");
+	public Component getName() {
+		return this.customName != null ? this.customName : Component.translatable("container.jineric.campfire");
 	}
 	
 	@Override
-	public Text getDisplayName() {
-		return Text.translatable("container.jineric.campfire");
+	public Component getDisplayName() {
+		return Component.translatable("container.jineric.campfire");
 	}
 	
 	@Override
-	public void setComponents(ComponentMap components) {
+	public void setComponents(DataComponentMap components) {
 		super.setComponents(components);
 	}
 }

@@ -6,42 +6,42 @@ import com.llamalad7.mixinextras.sugar.Local;
 import jingy.jineric.config.JmConfig;
 import net.fabricmc.fabric.api.item.v1.FabricItem;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.ItemStack;
-import net.minecraft.registry.tag.ItemTags;
-import net.minecraft.resource.featuretoggle.ToggleableFeature;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.flag.FeatureElement;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(Item.class)
-public abstract class ItemsLevelMixin implements ToggleableFeature, ItemConvertible, FabricItem {
+public abstract class ItemsLevelMixin implements FeatureElement, ItemLike, FabricItem {
 	
 	@WrapOperation(
-			method = "postMine",
+			method = "mineBlock",
 			at = @At(
 					value = "INVOKE",
-					target = "Lnet/minecraft/item/ItemStack;damage(ILnet/minecraft/entity/LivingEntity;Lnet/minecraft/entity/EquipmentSlot;)V"
+					target = "Lnet/minecraft/world/item/ItemStack;hurtAndBreak(ILnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/EquipmentSlot;)V"
 			)
 	)
 	private void increaseToolLevelForMining(
 			ItemStack instance, int amount, LivingEntity miner, EquipmentSlot slot, Operation<Void> original,
 			@Local(index = 3, name = "state", ordinal = 0, argsOnly = true)BlockState state
 	) {
-		if (instance.isIn(ItemTags.PICKAXES) && state.isIn(ConventionalBlockTags.ORES)) {
-			instance.damage(amount * 2, miner, EquipmentSlot.MAINHAND);
+		if (instance.is(ItemTags.PICKAXES) && state.is(ConventionalBlockTags.ORES)) {
+			instance.hurtAndBreak(amount * 2, miner, EquipmentSlot.MAINHAND);
 		} else {
 			original.call(instance, amount, miner, slot);
 		}
 	}
 	
 	@WrapOperation(// Uses an item's level instead of damage for the bar rendering
-			method = "getItemBarStep",
+			method = "getBarWidth",
 			at = @At(value = "INVOKE",
-					target = "Lnet/minecraft/item/ItemStack;getDamage()I")
+					target = "Lnet/minecraft/world/item/ItemStack;getDamageValue()I")
 	)
 	private int getLevel(ItemStack instance, Operation<Integer> original) {
 		if (JmConfig.MODE_UPGRADE) {
@@ -53,9 +53,9 @@ public abstract class ItemsLevelMixin implements ToggleableFeature, ItemConverti
 	}
 	
 	@WrapOperation(// Uses an item's max level instead of max damage for the bar rendering
-			method = "getItemBarStep",
+			method = "getBarWidth",
 			at = @At(value = "INVOKE",
-					target = "Lnet/minecraft/item/ItemStack;getMaxDamage()I"
+					target = "Lnet/minecraft/world/item/ItemStack;getMaxDamage()I"
 			)
 	)
 	private int getMaxLevel(ItemStack instance, Operation<Integer> original) {
@@ -68,10 +68,10 @@ public abstract class ItemsLevelMixin implements ToggleableFeature, ItemConverti
 	}
 	
 	@WrapOperation(
-			method = "getItemBarColor",
+			method = "getBarColor",
 			at = @At(
 					value = "INVOKE",
-					target = "Lnet/minecraft/item/ItemStack;getDamage()I"
+					target = "Lnet/minecraft/world/item/ItemStack;getDamageValue()I"
 			)
 	)
 	private int getLevelColor(ItemStack instance, Operation<Integer> original) {
@@ -82,10 +82,10 @@ public abstract class ItemsLevelMixin implements ToggleableFeature, ItemConverti
 	}
 	
 	@WrapOperation(
-			method = "getItemBarColor",
+			method = "getBarColor",
 			at = @At(
 					value = "INVOKE",
-					target = "Lnet/minecraft/item/ItemStack;getMaxDamage()I"
+					target = "Lnet/minecraft/world/item/ItemStack;getMaxDamage()I"
 			)
 	)
 	private int getMaxLevelColor(ItemStack instance, Operation<Integer> original) {

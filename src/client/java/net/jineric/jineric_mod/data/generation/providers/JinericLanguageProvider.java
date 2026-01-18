@@ -1,6 +1,7 @@
 package net.jineric.jineric_mod.data.generation.providers;
 
 import jingy.jineric.block.JinericBlocks;
+import jingy.jineric.data.family.EquipmentFamilies;
 import jingy.jineric.item.JinericItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -10,6 +11,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import org.apache.commons.lang3.text.WordUtils;
 
 import java.nio.file.Path;
@@ -131,7 +133,7 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 	
 	public void addWoodenEquipmentFamilies(TranslationBuilder builder) {
 		EquipmentFamilies.WOODEN.getVariants().forEach((variant, item) -> {
-			for (WoodType woodType : WoodType.stream().toList()) {
+			for (WoodType woodType : WoodType.values().toList()) {
 				String materialPath = woodType.name();
 				String key = "item.jineric." + materialPath + "_" + variant;
 				String value = WordUtils.capitalizeFully(materialPath.replace("_", " "));

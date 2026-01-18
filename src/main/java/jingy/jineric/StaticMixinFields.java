@@ -1,6 +1,6 @@
 package jingy.jineric;
 
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.ItemStack;
 
 public class StaticMixinFields {
 	public static int SELECTED_SLOT;

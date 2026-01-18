@@ -13,13 +13,15 @@ import net.minecraft.world.level.block.entity.FuelValues;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class RefineryBlockEntity extends AbstractFurnaceBlockEntity {
+	private static final Component DEFAULT_NAME = Component.translatable("container.refinery");
+	
 	public RefineryBlockEntity(BlockPos blockPos, BlockState state) {
 		super(JinericBlockEntityType.REFINERY, blockPos, state, JinericRecipeTypes.REFINING);
 	}
 	
 	@Override
 	protected Component getDefaultName() {
-		return Component.translatable("container.refinery");
+		return DEFAULT_NAME;
 	}
 	
 	@Override

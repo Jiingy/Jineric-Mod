@@ -27,7 +27,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiConsumer;
 
@@ -35,12 +34,16 @@ import static net.minecraft.client.data.models.BlockModelGenerators.createSimple
 import static net.minecraft.client.data.models.BlockModelGenerators.plainVariant;
 
 public class JinericModelProvider extends FabricModelProvider {
+	
+	private BiConsumer<Identifier, ModelInstance> itemModelOutput;
+	
 	public JinericModelProvider(FabricDataOutput output) {
 		super(output);
 	}
 	
 	@Override
 	public void generateBlockStateModels(BlockModelGenerators bmg) {
+		this.itemModelOutput = bmg.modelOutput;
 		this.registerBlockFamilyModels(bmg);
 		this.registerWoodSetModels(bmg);
 		bmg.createTrivialCube(JinericBlocks.PRISMARINE_CRYSTAL_BLOCK);
@@ -110,64 +113,65 @@ public class JinericModelProvider extends FabricModelProvider {
 		itemModelGenerator.createFlatItemModel(JinericItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
 	}
 	
+	//TODO: can't be assed to fix this right now
 	public final void registerWoodEquipmentFamily() {
-		EquipmentFamilies.WOODEN.getVariants().forEach(this::registerWoodEquipmentFamily);
+//		EquipmentFamilies.WOODEN.getVariants().forEach(this::registerWoodEquipmentFamily);
 	}
 	
-	public final void registerWoodEquipmentFamily(EquipmentFamily.Variant variant, Item item) {
-		List<SelectItemModel.SwitchCase<String>> stringList = new ArrayList<>();
-		
-		for (WoodType woodType : WoodType.stream().toList()) {
-			String woodTypeName = woodType.name();
-			String woodTypeVariant = woodTypeName + "_" + variant;
-			Identifier itemId = getPrefixItemModelId(item, woodTypeName  + "_");
-			
-			//  Generates armor item models with trim overlay
-//			List<SelectItemModel.SwitchCase<RegistryKey<ArmorTrimMaterial>>> list
-//					= new ArrayList<>(ItemModelGenerator.TRIM_MATERIALS.size()
+//	public final void registerWoodEquipmentFamily(EquipmentFamily.Variant variant, Item item) {
+//		List<SelectItemModel.SwitchCase<ResourceKey<TrimMaterial>>> list = new ArrayList(TRIM_MATERIAL_MODELS.size());
+//
+//		for (WoodType woodType : WoodType.values().toList()) {
+//			String woodTypeName = woodType.name();
+//			String woodTypeVariant = woodTypeName + "_" + variant;
+//			Identifier itemId = getPrefixItemModelId(item, woodTypeName  + "_");
+//
+//			//  Generates armor item models with trim overlay
+////			List<SelectItemModel.SwitchCase<RegistryKey<ArmorTrimMaterial>>> list
+////					= new ArrayList<>(ItemModelGenerator.TRIM_MATERIALS.size()
+////			);
+////			for (ItemModelGenerator.TrimMaterial trimMaterial : ItemModelGenerator.TRIM_MATERIALS) {
+////				Identifier identifier4 = itemId.withSuffixedPath("_" + trimMaterial.assets().base().suffix() + "_trim");
+////				Identifier layer1 = trimIdPrefix.withSuffixedPath("_" + trimMaterial.assets().getAssetId(equipmentKey).suffix());
+////				ItemModel.Unbaked unbaked;
+////				this.uploadArmorWithTrim(identifier4, layer0, layer1);
+////				unbaked = ItemModels.basic(identifier4);
+////				list.add(ItemModels.switchCase(trimMaterial.materialKey, unbaked));
+////			}
+//			ModelTemplate model = variant.isArmor() ? ModelTemplates.FLAT_ITEM : ModelTemplates.FLAT_HANDHELD_ITEM;
+//			Identifier identifier = Identifier.parse(woodTypeVariant).withPrefix("item/");
+//			model.create(
+//					identifier,
+//					TextureMapping.layer0(itemId),
+//					this.itemModelOutput
 //			);
-//			for (ItemModelGenerator.TrimMaterial trimMaterial : ItemModelGenerator.TRIM_MATERIALS) {
-//				Identifier identifier4 = itemId.withSuffixedPath("_" + trimMaterial.assets().base().suffix() + "_trim");
-//				Identifier layer1 = trimIdPrefix.withSuffixedPath("_" + trimMaterial.assets().getAssetId(equipmentKey).suffix());
-//				ItemModel.Unbaked unbaked;
-//				this.uploadArmorWithTrim(identifier4, layer0, layer1);
-//				unbaked = ItemModels.basic(identifier4);
-//				list.add(ItemModels.switchCase(trimMaterial.materialKey, unbaked));
-//			}
-			Model model = variant.isArmor() ? ModelTemplates.FLAT_ITEM : Models.FLAT_HANDHELD_ITEM;
-			Identifier identifier = Identifier.of(woodTypeVariant).withPrefixedPath("item/");
-			model.upload(
-					identifier,
-					TextureMap.layer0(itemId),
-					this.modelCollector
-			);
-			
-			stringList.add(
-					ItemModels.switchCase(
-							woodTypeVariant,
-							ItemModels.basic(identifier)
-					)
-			);
-		}
-		
-		if (variant.isArmor()) {
-			ModelTemplates.FLAT_ITEM.upload(item, TextureMap.layer0(item), this.modelCollector);
-		}
-		
-		this.output.accept(
-				item,
-				ItemModels.select(
-						new CustomModelDataStringProperty(0),
-						ItemModels.basic(Registries.ITEM.getId(item).withPrefixedPath("item/")),
-						stringList
-				)
-		);
-	}
+//
+//			list.add(
+//					ItemModelUtils.when(
+//							woodTypeVariant,
+//							ItemModelUtils.plainModel(identifier)
+//					)
+//			);
+//		}
+//
+//		if (variant.isArmor()) {
+//			ModelTemplates.FLAT_ITEM.create(item, TextureMapping.layer0(item), this.itemModelOutput);
+//		}
+//
+//		this.itemModelOutput.accept(
+//				item,
+//				ItemModelUtils.select(
+//						new TrimMaterialProperty(),
+//						ItemModelUtils.plainModel(BuiltInRegistries.ITEM.getKey(item).withPrefix("item/")),
+//						list
+//				)
+//		);
+//	}
 	
 	public static Identifier getPrefixItemModelId(Item item, String prefix) {
-		String path = Registries.ITEM.getId(item).getPath();
+		String path = BuiltInRegistries.ITEM.getKey(item).getPath();
 		Identifier identifier = JinericMain.ofJineric(path);
-		return identifier.withPrefixedPath("item/" + prefix);
+		return identifier.withPrefix("item/" + prefix);
 	}
 	
 	public void registerBlockFamilyModels(BlockModelGenerators bsmg) {
@@ -330,10 +334,10 @@ public class JinericModelProvider extends FabricModelProvider {
 		MultiVariant postId = plainVariant(
 				JinericModels.TEMPLATE_COLUMN_SHORT_WALL_POST.create(wall, textureMap, bsmg.modelOutput)
 		);
-		MultiVariant sideShortId = BlockModelGenerators.plainVariant(
+		MultiVariant sideShortId = plainVariant(
 				JinericModels.TEMPLATE_COLUMN_SHORT_WALL_SIDE_LOW.create(wall, textureMap, bsmg.modelOutput)
 		);
-		MultiVariant sideTallId = BlockModelGenerators.plainVariant(
+		MultiVariant sideTallId = plainVariant(
 				JinericModels.TEMPLATE_COLUMN_SHORT_WALL_SIDE_TALL.create(wall, textureMap, bsmg.modelOutput)
 		);
 		bsmg.blockStateOutput.accept(BlockModelGenerators.createWall(wall, postId, sideShortId, sideTallId));
@@ -344,13 +348,13 @@ public class JinericModelProvider extends FabricModelProvider {
 	private void registerTopBottomWall(BlockFamily blockFamily, BlockModelGenerators bsmg) {
 		TextureMapping textureMap = JinericTextureMap.topBottomShort(blockFamily);
 		Block wall = blockFamily.get(BlockFamily.Variant.WALL);
-		MultiVariant postId  = BlockModelGenerators.plainVariant(
+		MultiVariant postId  = plainVariant(
 				JinericModels.TEMPLATE_TOP_BOTTOM_SHORT_WALL_POST.create(wall, textureMap, bsmg.modelOutput)
 		);
-		MultiVariant sideShortId = BlockModelGenerators.plainVariant(
+		MultiVariant sideShortId = plainVariant(
 				JinericModels.TEMPLATE_TOP_BOTTOM_SHORT_WALL_SIDE_LOW.create(wall, textureMap, bsmg.modelOutput)
 		);
-		MultiVariant sideTallId = BlockModelGenerators.plainVariant(
+		MultiVariant sideTallId = plainVariant(
 				JinericModels.TEMPLATE_TOP_BOTTOM_SHORT_WALL_SIDE_TALL.create(wall, textureMap, bsmg.modelOutput)
 		);
 		bsmg.blockStateOutput.accept(BlockModelGenerators.createWall(wall, postId, sideShortId, sideTallId));
@@ -359,16 +363,16 @@ public class JinericModelProvider extends FabricModelProvider {
 	}
 	
 	private void registerBorderWall(Block wall, TextureMapping textureMap, BlockModelGenerators bsmg) {
-		MultiVariant postId = BlockModelGenerators.plainVariant(
+		MultiVariant postId = plainVariant(
 				JinericModels.TEMPLATE_COLUMN_SHORT_WALL_POST.create(wall, textureMap, bsmg.modelOutput)
 		);
-		MultiVariant sideShortId = BlockModelGenerators.plainVariant(
+		MultiVariant sideShortId = plainVariant(
 				JinericModels.TEMPLATE_BORDER_WALL_SIDE_LOW.create(wall, textureMap, bsmg.modelOutput)
 		);
-		MultiVariant sideShortLongId = BlockModelGenerators.plainVariant(
+		MultiVariant sideShortLongId = plainVariant(
 				JinericModels.TEMPLATE_BORDER_WALL_SIDE_LINE_LOW.create(wall, textureMap, bsmg.modelOutput)
 		);
-		MultiVariant sideTallId = BlockModelGenerators.plainVariant(
+		MultiVariant sideTallId = plainVariant(
 				JinericModels.TEMPLATE_BORDER_WALL_SIDE_TALL.create(wall, textureMap, bsmg.modelOutput)
 		);
 		bsmg.blockStateOutput.accept(BlockStateCreators.createBorderWallBlockState(wall, postId, sideShortId, sideShortLongId, sideTallId));

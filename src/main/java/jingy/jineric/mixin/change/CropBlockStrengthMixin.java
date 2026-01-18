@@ -1,7 +1,7 @@
 package jingy.jineric.mixin.change;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.CropBlock;
+import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
@@ -13,10 +13,10 @@ public abstract class CropBlockStrengthMixin {
 			method = "<init>",
 			at = @At(
 					value = "INVOKE",
-					target = "Lnet/minecraft/block/PlantBlock;<init>(Lnet/minecraft/block/AbstractBlock$Settings;)V"
+					target = "Lnet/minecraft/world/level/block/VegetationBlock;<init>(Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;)V"
 			)
 	)
-	private static AbstractBlock.Settings modifyCropBlockSettings(AbstractBlock.Settings settings) {
+	private static BlockBehaviour.Properties modifyCropBlockSettings(BlockBehaviour.Properties settings) {
 		settings.strength(0.66F);
 		return settings;
 	}

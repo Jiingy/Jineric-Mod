@@ -1,6 +1,6 @@
 package net.jineric.jineric_mod.access;
 
-import net.minecraft.recipe.display.RecipeDisplay;
+import net.minecraft.world.item.crafting.display.RecipeDisplay;
 
 public interface GhostRecipeAccess {
 	default RecipeDisplay jineric$getRecipeDisplay() {

@@ -1,10 +1,12 @@
 package jingy.jineric.screen;
 
-import jingy.jineric.recipe.book.JinericRecipeBookType;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.inventory.RecipeBookType;
 import jingy.jineric.recipe.JinericRecipePropertySet;
 import jingy.jineric.recipe.JinericRecipeTypes;
+import jingy.jineric.recipe.book.JinericRecipeBookType;
+import net.minecraft.world.Container;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.AbstractFurnaceMenu;
+import net.minecraft.world.inventory.ContainerData;
 
 public class RefineryScreenHandler extends AbstractFurnaceMenu {
 	public RefineryScreenHandler(int syncId, Inventory playerInventory) {

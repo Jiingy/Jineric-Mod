@@ -1,9 +1,9 @@
 package jingy.jineric.mixin.duck;
 
 import jingy.jineric.access.ClientPlayPacketListenerAccess;
-import net.minecraft.network.listener.ClientPlayPacketListener;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import org.spongepowered.asm.mixin.Mixin;
 
-@Mixin(ClientPlayPacketListener.class)
+@Mixin(ClientGamePacketListener.class)
 public interface ClientPlayPacketListenerDuckMixin extends ClientPlayPacketListenerAccess {
 }

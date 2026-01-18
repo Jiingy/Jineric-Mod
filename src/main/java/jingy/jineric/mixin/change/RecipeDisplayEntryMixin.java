@@ -3,10 +3,10 @@ package jingy.jineric.mixin.change;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import jingy.jineric.mixin.access.RecipeFinderAccessor;
 import jingy.jineric.recipe.display.FoundryRecipeDisplay;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.recipe.RecipeDisplayEntry;
-import net.minecraft.recipe.RecipeFinder;
-import net.minecraft.recipe.display.RecipeDisplay;
+import net.minecraft.world.entity.player.StackedItemContents;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.display.RecipeDisplay;
+import net.minecraft.world.item.crafting.display.RecipeDisplayEntry;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -21,15 +21,15 @@ public abstract class RecipeDisplayEntryMixin {
 	@Shadow @Final private RecipeDisplay display;
 	
 	@ModifyReturnValue(
-			method = "isCraftable",
+			method = "canCraft",
 			at = @At(
 					value = "RETURN"
 			)
 	)
-	private boolean checkInputStackCountForResult(boolean original, RecipeFinder finder) {
+	private boolean checkInputStackCountForResult(boolean original, StackedItemContents finder) {
 		if (this.display instanceof FoundryRecipeDisplay foundryRecipeDisplay) {
 			return this.craftingRequirements.filter(
-					ingredients -> ((RecipeFinderAccessor) finder).callIsCraftable(ingredients, foundryRecipeDisplay.inputCount(), null)
+					ingredients -> ((RecipeFinderAccessor) finder).callCanCraft(ingredients, foundryRecipeDisplay.inputCount(), null)
 			).isPresent();
 		} else {
 			return original;

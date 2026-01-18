@@ -2,23 +2,25 @@ package jingy.jineric.item;
 
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.JinericBlocks;
+import jingy.jineric.data.family.EquipmentFamilies;
+import jingy.jineric.data.family.EquipmentFamily;
+import jingy.jineric.item.equipment.JmEquipmentAssetKeys;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.DefaultedRegistry;
 import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.CustomModelData;
+import net.minecraft.world.item.equipment.Equippable;
 import net.minecraft.world.level.block.Block;
-import java.util.Comparator;
+import net.minecraft.world.level.block.state.properties.WoodType;
 
+import java.util.Comparator;
 import java.util.List;
 
 @SuppressWarnings("all")
@@ -283,7 +285,7 @@ public class JinericItemGroups {
 						.forEach(item -> {
 							entries.accept(item);
 						});
-				addWoodEquipment(entries, ItemGroup.StackVisibility.PARENT_AND_SEARCH_TABS);
+				addWoodEquipment(entries, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 			}).build();
 	
 	public static void registerJinericItemGroups() {
@@ -519,32 +521,32 @@ public class JinericItemGroups {
 		}));
 	}
 	
-	private static void addWoodEquipment(ItemGroup.Entries entries, ItemGroup.StackVisibility visibility) {
+	private static void addWoodEquipment(CreativeModeTab.Output entries, CreativeModeTab.TabVisibility visibility) {
 		EquipmentFamily family = EquipmentFamilies.WOODEN;
 		
 		family.getVariants().forEach((variant, item) -> {
-			for (WoodType woodType : WoodType.stream().toList()) {
+			for (WoodType woodType : WoodType.values().toList()) {
 				String woodTypeName = woodType.name();
 				String woodTypeVariant = woodTypeName + "_" + variant;
 				ItemStack itemStack = new ItemStack(item);
-				Text text = Text.translatable("item.jineric." + woodTypeVariant);
-				itemStack.set(DataComponentTypes.ITEM_NAME, text);
-				itemStack.set(DataComponentTypes.CUSTOM_MODEL_DATA, new CustomModelDataComponent(List.of(), List.of(), List.of(woodTypeVariant), List.of()));
+				Component text = Component.translatable("item.jineric." + woodTypeVariant);
+				itemStack.set(DataComponents.ITEM_NAME, text);
+				itemStack.set(DataComponents.CUSTOM_MODEL_DATA, new CustomModelData(List.of(), List.of(), List.of(woodTypeVariant), List.of()));
 				
 				if (variant.isArmor()) {
 					itemStack.set(
-							DataComponentTypes.EQUIPPABLE,
-							EquippableComponent.builder(variant.equipmentSlot())
-									.model(JmEquipmentAssetKeys.parseWoodenKey(woodTypeName))
+							DataComponents.EQUIPPABLE,
+							Equippable.builder(variant.equipmentSlot())
+									.setAsset(JmEquipmentAssetKeys.parseWoodenKey(woodTypeName))
 									.build()
 					);
 				}
-				entries.add(itemStack, visibility);
+				entries.accept(itemStack, visibility);
 			}
 		});
 	}
 	
 	private static String getItemPath(Item item) {
-		return Registries.ITEM.getId(item).getPath();
+		return BuiltInRegistries.ITEM.getKey(item).getPath();
 	}
 }

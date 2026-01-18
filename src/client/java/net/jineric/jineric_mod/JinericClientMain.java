@@ -21,7 +21,7 @@ public class JinericClientMain implements ClientModInitializer {
 		JinericRecipeBookType.initialize();
 		JinericRecipePropertySet.initialize();
 		JinericEntityModels.registerEntityModels();
-		JinericHandledScreens.registerHandledScreens();
+		JinericHandledScreens.registerMenuScreens();
 		JinericColorProviders.registerColorProviders();
 		JinericBlockEntityRenderer.registerBlockEntityRenderers();
 		JinericBlockRenderLayerMap.registerBlockRenderLayerMaps();

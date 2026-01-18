@@ -3,11 +3,14 @@ package net.jineric.jineric_mod.registry;
 import jingy.jineric.screen.JinericScreenHandlerType;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.jineric.jineric_mod.gui.screen.ingame.CampfireScreen;
+import net.jineric.jineric_mod.gui.screen.ingame.CrucibleScreen;
+import net.jineric.jineric_mod.gui.screen.ingame.FoundryScreen;
 import net.jineric.jineric_mod.gui.screen.ingame.RefineryScreen;
 import net.minecraft.client.gui.screens.MenuScreens;
 
 @Environment(EnvType.CLIENT)
-public class JinericMenuScreens {
+public class JinericHandledScreens {
 	
 	public static void registerMenuScreens() {
 		MenuScreens.register(JinericScreenHandlerType.REFINERY, RefineryScreen::new);

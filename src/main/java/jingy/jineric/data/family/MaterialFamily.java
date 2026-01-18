@@ -1,7 +1,7 @@
 package jingy.jineric.data.family;
 
-import net.minecraft.data.family.BlockFamilies;
-import net.minecraft.data.family.BlockFamily;
+import net.minecraft.data.BlockFamilies;
+import net.minecraft.data.BlockFamily;
 
 public class MaterialFamily {
 	private EquipmentFamily equipmentFamily;
@@ -33,7 +33,7 @@ public class MaterialFamily {
 		
 		public static final MaterialFamily OAK = register()
 				.equipmentFamily(EquipmentFamilies.WOODEN)
-				.blockFamily(BlockFamilies.OAK)
+				.blockFamily(BlockFamilies.OAK_PLANKS)
 				.build();
 		
 		public static Builder register() {

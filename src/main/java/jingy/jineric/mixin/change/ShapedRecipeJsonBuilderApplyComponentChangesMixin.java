@@ -1,38 +1,38 @@
 package jingy.jineric.mixin.change;
 
 import jingy.jineric.access.ShapedRecipeJsonBuilderAccess;
-import net.minecraft.component.ComponentChanges;
-import net.minecraft.data.recipe.CraftingRecipeJsonBuilder;
-import net.minecraft.data.recipe.ShapedRecipeJsonBuilder;
-import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.RawShapedRecipe;
-import net.minecraft.recipe.book.CraftingRecipeCategory;
+import net.minecraft.core.component.DataComponentPatch;
+import net.minecraft.data.recipes.RecipeBuilder;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.CraftingBookCategory;
+import net.minecraft.world.item.crafting.ShapedRecipePattern;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
-@Mixin(ShapedRecipeJsonBuilder.class)
-public abstract class ShapedRecipeJsonBuilderApplyComponentChangesMixin implements CraftingRecipeJsonBuilder, ShapedRecipeJsonBuilderAccess {
-    @Unique private ComponentChanges componentChanges = ComponentChanges.EMPTY;
+@Mixin(ShapedRecipeBuilder.class)
+public abstract class ShapedRecipeJsonBuilderApplyComponentChangesMixin implements RecipeBuilder, ShapedRecipeJsonBuilderAccess {
+    @Unique private DataComponentPatch componentChanges = DataComponentPatch.EMPTY;
 
     @Override
-    public ShapedRecipeJsonBuilder jineric$componentChanges(ComponentChanges componentChanges) {
+    public ShapedRecipeBuilder jineric$componentChanges(DataComponentPatch componentChanges) {
         this.componentChanges = componentChanges;
-        return ((ShapedRecipeJsonBuilder)(Object) this);
+        return ((ShapedRecipeBuilder)(Object) this);
     }
 
     @ModifyArg(
-            method = "offerTo",
+            method = "save",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/recipe/ShapedRecipe;<init>(Ljava/lang/String;Lnet/minecraft/recipe/book/CraftingRecipeCategory;Lnet/minecraft/recipe/RawShapedRecipe;Lnet/minecraft/item/ItemStack;Z)V"
+                    target = "Lnet/minecraft/world/item/crafting/ShapedRecipe;<init>(Ljava/lang/String;Lnet/minecraft/world/item/crafting/CraftingBookCategory;Lnet/minecraft/world/item/crafting/ShapedRecipePattern;Lnet/minecraft/world/item/ItemStack;Z)V"
             ),
             index = 3
     )
-    private ItemStack applyComponentChanges(String group, CraftingRecipeCategory category, RawShapedRecipe raw, ItemStack original, boolean showNotification) {
+    private ItemStack applyComponentChanges(String group, CraftingBookCategory category, ShapedRecipePattern raw, ItemStack original, boolean showNotification) {
         if (!componentChanges.isEmpty()) {
-			original.applyChanges(this.componentChanges);
+			original.applyComponentsAndValidate(this.componentChanges);
         }
         return original;
     }

@@ -12,20 +12,20 @@ public class JinericScreenHandlerType {
 			JinericMain.ofJineric("refinery"),
 			new MenuType<>(RefineryScreenHandler::new, FeatureFlagSet.of())
 	);
-	public final static ScreenHandlerType<CampfireScreenHandler> CAMPFIRE_SCREEN_HANDLER = Registry.register(
-			Registries.SCREEN_HANDLER,
+	public final static MenuType<CampfireScreenHandler> CAMPFIRE_SCREEN_HANDLER = Registry.register(
+			BuiltInRegistries.MENU,
 			JinericMain.ofJineric("campfire"),
-			new ScreenHandlerType<>(CampfireScreenHandler::new, null)
+			new MenuType<>(CampfireScreenHandler::new, null)
 	);
-	public final static ScreenHandlerType<CrucibleScreenHandler> CRUCIBLE_SCREEN_HANDLER = Registry.register(
-			Registries.SCREEN_HANDLER,
+	public final static MenuType<CrucibleScreenHandler> CRUCIBLE_SCREEN_HANDLER = Registry.register(
+			BuiltInRegistries.MENU,
 			JinericMain.ofJineric("crucible"),
-			new ScreenHandlerType<>(CrucibleScreenHandler::new, null)
+			new MenuType<>(CrucibleScreenHandler::new, null)
 	);
-	public final static ScreenHandlerType<FoundryScreenHandler> FOUNDRY = Registry.register(
-			Registries.SCREEN_HANDLER,
+	public final static MenuType<FoundryScreenHandler> FOUNDRY = Registry.register(
+			BuiltInRegistries.MENU,
 			JinericMain.ofJineric("foundry"),
-			new ScreenHandlerType<>(FoundryScreenHandler::new, FeatureSet.empty())
+			new MenuType<>(FoundryScreenHandler::new, FeatureFlagSet.of())
 	);
 	
 	public static void initialize() {

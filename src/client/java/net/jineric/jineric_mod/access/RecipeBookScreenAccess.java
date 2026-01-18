@@ -1,9 +1,9 @@
 package net.jineric.jineric_mod.access;
 
-import net.minecraft.client.gui.screen.recipebook.RecipeBookWidget;
+import net.minecraft.client.gui.screens.recipebook.RecipeBookComponent;
 
 public interface RecipeBookScreenAccess {
-	default RecipeBookWidget<?> jineric$recipeBookWidget() {
+	default RecipeBookComponent<?> jineric$recipeBookWidget() {
 		throw new RuntimeException();
 	}
 }

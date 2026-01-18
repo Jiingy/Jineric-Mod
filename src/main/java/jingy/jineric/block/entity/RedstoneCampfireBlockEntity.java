@@ -1,7 +1,7 @@
 package jingy.jineric.block.entity;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.Clearable;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.CampfireBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;

@@ -2,7 +2,7 @@ package jingy.jineric.item.equipment;
 
 import jingy.jineric.tag.JinericBlockTags;
 import jingy.jineric.tag.JinericItemTags;
-import net.minecraft.item.ToolMaterial;
+import net.minecraft.world.item.ToolMaterial;
 
 public class JmToolMaterials {
 	public static final ToolMaterial FLINT = new ToolMaterial(JinericBlockTags.INCORRECT_FOR_EMERALD_TOOL, 550, 7.0F, 2.0F, 26, JinericItemTags.EMERALD_TOOL_MATERIALS);

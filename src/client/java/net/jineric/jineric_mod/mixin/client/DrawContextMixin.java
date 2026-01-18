@@ -4,37 +4,37 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import jingy.jineric.StaticMixinFields;
 import net.jineric.jineric_mod.option.JmGameOptions;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.Hand;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 
-@Mixin(DrawContext.class)
+@Mixin(GuiGraphics.class)
 public abstract class DrawContextMixin {
-	@Shadow @Final private MinecraftClient client;
+	@Shadow @Final private Minecraft minecraft;
 	
 	@WrapOperation(
-			method = "drawItemBar",
+			method = "renderItemBar",
 			at = @At(
 					value = "INVOKE",
-					target = "Lnet/minecraft/item/ItemStack;isItemBarVisible()Z"
+					target = "Lnet/minecraft/world/item/ItemStack;isBarVisible()Z"
 			)
 	)
 	private boolean applyItemLevelBarMode(ItemStack instance, Operation<Boolean> original) {
-		if (instance.jineric$isUpgradable() && this.canShowLevelBar(instance) && this.client.player != null) {
-			ClientPlayerEntity clientPlayer = this.client.player;
-			switch (JmGameOptions.getItemLevelBarMode().getValue()) {
+		if (instance.jineric$isUpgradable() && this.canShowLevelBar(instance) && this.minecraft.player != null) {
+			LocalPlayer clientPlayer = this.minecraft.player;
+			switch (JmGameOptions.getItemLevelBarMode().get()) {
 				case ALWAYS -> {return true;}
 				case HOVER -> {
-					if (instance == clientPlayer.currentScreenHandler.getCursorStack()
-							|| instance == clientPlayer.getStackInHand(Hand.MAIN_HAND)
-							|| instance == clientPlayer.getStackInHand(Hand.OFF_HAND)
+					if (instance == clientPlayer.containerMenu.getCarried()
+							|| instance == clientPlayer.getItemInHand(InteractionHand.MAIN_HAND)
+							|| instance == clientPlayer.getItemInHand(InteractionHand.OFF_HAND)
 							|| instance == StaticMixinFields.FOCUSSED_HANDLED_SCREEN_ITEM_STACK
 //							|| instance == this.client.player.getActiveItem()
 					) {
