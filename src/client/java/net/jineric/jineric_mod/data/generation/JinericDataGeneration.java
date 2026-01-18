@@ -11,8 +11,8 @@ import jingy.jineric.world.gen.feature.placed.JinericPlacedFeatures;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.jineric.jineric_mod.data.generation.providers.*;
-import net.minecraft.registry.RegistryBuilder;
-import net.minecraft.registry.RegistryKeys;
+import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.core.registries.Registries;
 
 public class JinericDataGeneration implements DataGeneratorEntrypoint {
 	
@@ -33,11 +33,11 @@ public class JinericDataGeneration implements DataGeneratorEntrypoint {
 	}
 	
 	@Override
-	public void buildRegistry(RegistryBuilder registryBuilder) {
+	public void buildRegistry(RegistrySetBuilder registryBuilder) {
 		DataGeneratorEntrypoint.super.buildRegistry(registryBuilder);
-		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, JinericConfiguredFeatures::bootstrap);
-		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, JinericPlacedFeatures::bootstrap);
-		registryBuilder.addRegistry(RegistryKeys.PAINTING_VARIANT, JinericPaintingVariants::bootstrap);
+		registryBuilder.add(Registries.CONFIGURED_FEATURE, JinericConfiguredFeatures::bootstrap);
+		registryBuilder.add(Registries.PLACED_FEATURE, JinericPlacedFeatures::bootstrap);
+		registryBuilder.add(Registries.PAINTING_VARIANT, JinericPaintingVariants::bootstrap);
 	}
 	
 	@Override

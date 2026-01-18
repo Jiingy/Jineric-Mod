@@ -1,25 +1,25 @@
 package jingy.jineric.item;
 
-import net.minecraft.item.FlintAndSteelItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUsageContext;
-import net.minecraft.util.ActionResult;
-import net.minecraft.world.World;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.item.FlintAndSteelItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.Level;
 
 public class BowDrillItem extends FlintAndSteelItem {
-    public BowDrillItem(Settings settings) {
+    public BowDrillItem(Properties settings) {
         super(settings);
     }
 
     @Override
-    public ActionResult useOnBlock(ItemUsageContext context) {
-        return super.useOnBlock(context) == ActionResult.SUCCESS ? this.breakBowDrill(context) : ActionResult.FAIL;
+    public InteractionResult useOn(UseOnContext context) {
+        return super.useOn(context) == InteractionResult.SUCCESS ? this.breakBowDrill(context) : InteractionResult.FAIL;
     }
 
-    public ActionResult breakBowDrill(ItemUsageContext context) {
-        ItemStack itemStack = context.getStack();
-        World world = context.getWorld();
-        itemStack.decrement(itemStack.getCount());
-        return ActionResult.SUCCESS;
+    public InteractionResult breakBowDrill(UseOnContext context) {
+        ItemStack itemStack = context.getItemInHand();
+        Level world = context.getLevel();
+        itemStack.shrink(itemStack.getCount());
+        return InteractionResult.SUCCESS;
     }
 }

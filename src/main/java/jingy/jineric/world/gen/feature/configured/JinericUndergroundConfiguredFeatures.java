@@ -3,59 +3,63 @@ package jingy.jineric.world.gen.feature.configured;
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.tag.JinericBlockTags;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.registry.Registerable;
-import net.minecraft.registry.RegistryEntryLookup;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.util.collection.Pool;
-import net.minecraft.util.math.VerticalSurfaceType;
-import net.minecraft.util.math.intprovider.ConstantIntProvider;
-import net.minecraft.util.math.intprovider.UniformIntProvider;
-import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.stateprovider.BlockStateProvider;
-import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
+import net.minecraft.core.HolderGetter;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.util.random.WeightedList;
+import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.VegetationPatchConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
+import net.minecraft.world.level.levelgen.placement.CaveSurface;
 
 public class JinericUndergroundConfiguredFeatures {
-	public static final RegistryKey<ConfiguredFeature<?, ?>> JM_GRASS_BLOCK_VEGETATION = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, JinericMain.ofJineric("jm_grass_block_vegetation"));
-	public static final RegistryKey<ConfiguredFeature<?, ?>> JM_GRASS_BLOCK_PATCH_BONEMEAL = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, JinericMain.ofJineric("jm_grass_block_patch_bonemeal"));
+	public static final ResourceKey<ConfiguredFeature<?, ?>> JM_GRASS_BLOCK_VEGETATION = ResourceKey.create(Registries.CONFIGURED_FEATURE, JinericMain.ofJineric("jm_grass_block_vegetation"));
+	public static final ResourceKey<ConfiguredFeature<?, ?>> JM_GRASS_BLOCK_PATCH_BONEMEAL = ResourceKey.create(Registries.CONFIGURED_FEATURE, JinericMain.ofJineric("jm_grass_block_patch_bonemeal"));
 	
 	protected static ConfiguredFeature<?, ?> createJmGrassBlockVegetation() {
 		return new ConfiguredFeature<>(
 				Feature.SIMPLE_BLOCK,
-				new SimpleBlockFeatureConfig(
-						new WeightedBlockStateProvider(
-								Pool.<BlockState>builder()
-										.add(Blocks.SHORT_GRASS.getDefaultState(), 40)
-										.add(Blocks.TALL_GRASS.getDefaultState(), 10)
-										.add(Blocks.POPPY.getDefaultState(), 5)
-										.add(Blocks.DANDELION.getDefaultState(), 5)
+				new SimpleBlockConfiguration(
+						new WeightedStateProvider(
+								WeightedList.<BlockState>builder()
+										.add(Blocks.SHORT_GRASS.defaultBlockState(), 40)
+										.add(Blocks.TALL_GRASS.defaultBlockState(), 10)
+										.add(Blocks.POPPY.defaultBlockState(), 5)
+										.add(Blocks.DANDELION.defaultBlockState(), 5)
 						)
 				)
 		);
 	}
 	
-	protected static ConfiguredFeature<?, ?> createJmGrassBlockPatchFeature(Registerable<ConfiguredFeature<?, ?>> registry) {
-		RegistryEntryLookup<ConfiguredFeature<?, ?>> registryEntryLookup = registry.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
+	protected static ConfiguredFeature<?, ?> createJmGrassBlockPatchFeature(BootstrapContext<ConfiguredFeature<?, ?>> registry) {
+		HolderGetter<ConfiguredFeature<?, ?>> registryEntryLookup = registry.lookup(Registries.CONFIGURED_FEATURE);
 		return new ConfiguredFeature<>(
 				Feature.VEGETATION_PATCH,
-				new VegetationPatchFeatureConfig(
+				new VegetationPatchConfiguration(
 						JinericBlockTags.JM_GRASS_BLOCK_REPLACEABLE,
-						BlockStateProvider.of(JinericBlocks.GRASS_BLOCK),
-						PlacedFeatures.createEntry(registryEntryLookup.getOrThrow(JinericUndergroundConfiguredFeatures.JM_GRASS_BLOCK_VEGETATION)),
-						VerticalSurfaceType.FLOOR,
-						ConstantIntProvider.create(1),
+						BlockStateProvider.simple(JinericBlocks.GRASS_BLOCK),
+						PlacementUtils.inlinePlaced(registryEntryLookup.getOrThrow(JinericUndergroundConfiguredFeatures.JM_GRASS_BLOCK_VEGETATION)),
+						CaveSurface.FLOOR,
+						ConstantInt.of(1),
 						0.0F,
 						6,
 						0.5F,
-						UniformIntProvider.create(1, 2),
+						UniformInt.of(1, 2),
 						0.75F
 				)
 		);
 	}
 	
-	public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> featureRegisterable) {
+	public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> featureRegisterable) {
 		featureRegisterable.register(JinericUndergroundConfiguredFeatures.JM_GRASS_BLOCK_PATCH_BONEMEAL, JinericUndergroundConfiguredFeatures.createJmGrassBlockPatchFeature(featureRegisterable));
 		featureRegisterable.register(JinericUndergroundConfiguredFeatures.JM_GRASS_BLOCK_VEGETATION, JinericUndergroundConfiguredFeatures.createJmGrassBlockVegetation());
 	}

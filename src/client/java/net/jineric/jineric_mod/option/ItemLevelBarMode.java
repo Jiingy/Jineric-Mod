@@ -1,49 +1,33 @@
 package net.jineric.jineric_mod.option;
 
+import com.mojang.serialization.Codec;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.util.TranslatableOption;
-import net.minecraft.util.function.ValueLists;
-
-import java.util.function.IntFunction;
+import net.minecraft.network.chat.Component;
+import net.minecraft.util.StringRepresentable;
 
 @Environment(EnvType.CLIENT)
-public enum ItemLevelBarMode implements TranslatableOption {
-	ALWAYS(0, "options.jineric.itemLevelBar.always"),
-	HOVER(1, "options.jineric.itemLevelBar.hover"),
-	NEVER(2, "options.jineric.itemLevelBar.never")
+public enum ItemLevelBarMode implements StringRepresentable {
+	ALWAYS("always", "options.jineric.itemLevelBar.always"),
+	HOVER("hover", "options.jineric.itemLevelBar.hover"),
+	NEVER("never", "options.jineric.itemLevelBar.never")
 	;
 	
-	private static final IntFunction<ItemLevelBarMode> BY_ID = ValueLists.createIndexToValueFunction(ItemLevelBarMode::getId, values(), ValueLists.OutOfBoundsHandling.WRAP);
-	private final int id;
-	private final String translationKey;
+	public static final Codec<ItemLevelBarMode> CODEC = StringRepresentable.fromEnum(ItemLevelBarMode::values);
+	private final String serializedName;
+	private final Component caption;
 	
-	ItemLevelBarMode(int id, String translationKey) {
-		this.id = id;
-		this.translationKey = translationKey;
+	ItemLevelBarMode(final String serializedName, final String caption) {
+		this.serializedName = serializedName;
+		this.caption = Component.translatable(caption);
+	}
+	
+	public Component caption() {
+		return this.caption;
 	}
 	
 	@Override
-	public int getId() {
-		return this.id;
-	}
-	
-	@Override
-	public String getTranslationKey() {
-		return this.translationKey;
-	}
-	
-	
-	@Override
-	public String toString() {
-		return switch (this) {
-			case ALWAYS -> "always";
-			case HOVER -> "hover";
-			case NEVER -> "never";
-		};
-	}
-	
-	public static ItemLevelBarMode get(int id) {
-		return BY_ID.apply(id);
+	public String getSerializedName() {
+		return serializedName;
 	}
 }

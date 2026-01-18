@@ -3,38 +3,37 @@ package jingy.jineric.block;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import jingy.jineric.tag.JinericBlockTags;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.ChestBlock;
-import net.minecraft.block.WoodType;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.block.entity.ChestBlockEntity;
-import net.minecraft.block.enums.ChestType;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.world.WorldView;
-import net.minecraft.world.tick.ScheduledTickView;
-
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
+import net.minecraft.world.level.block.ChestBlock;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.ChestBlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.ChestType;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import java.util.function.Supplier;
 
 public class WoodenChestBlock extends ChestBlock {
 	public static final MapCodec<WoodenChestBlock> CODEC = RecordCodecBuilder.mapCodec(
 			instance -> instance.group(
-					createSettingsCodec(),
+					propertiesCodec(),
 							WoodType.CODEC.fieldOf("wood_type").forGetter(WoodenChestBlock::getWoodType)
 					)
 					.apply(instance, WoodenChestBlock::new)
 	);
 	private final WoodType type;
 	
-	public WoodenChestBlock(Supplier<BlockEntityType<? extends ChestBlockEntity>> blockEntityTypeSupplier, Settings settings, WoodType type) {
-		super(blockEntityTypeSupplier, SoundEvents.BLOCK_CHEST_OPEN, SoundEvents.BLOCK_CHEST_CLOSE, settings);
+	public WoodenChestBlock(Supplier<BlockEntityType<? extends ChestBlockEntity>> blockEntityTypeSupplier, Properties settings, WoodType type) {
+		super(blockEntityTypeSupplier, SoundEvents.CHEST_OPEN, SoundEvents.CHEST_CLOSE, settings);
 		this.type = type;
 	}
 	
-	public WoodenChestBlock(Settings settings, WoodType type) {
-		super(() -> BlockEntityType.CHEST, SoundEvents.BLOCK_CHEST_OPEN, SoundEvents.BLOCK_CHEST_CLOSE, settings);
+	public WoodenChestBlock(Properties settings, WoodType type) {
+		super(() -> BlockEntityType.CHEST, SoundEvents.CHEST_OPEN, SoundEvents.CHEST_CLOSE, settings);
 		this.type = type;
 	}
 	
@@ -43,28 +42,28 @@ public class WoodenChestBlock extends ChestBlock {
 	}
 	
 	@Override
-	protected BlockState getStateForNeighborUpdate(
-			BlockState state, WorldView world, ScheduledTickView tickView,
+	protected BlockState updateShape(
+			BlockState state, LevelReader world, ScheduledTickAccess tickView,
 			BlockPos pos, Direction direction, BlockPos neighborPos,
-			BlockState neighborState, Random random
+			BlockState neighborState, RandomSource random
 	) {
-		BlockState blockState = super.getStateForNeighborUpdate(state, world, tickView, pos, direction, neighborPos, neighborState, random);
-		if (this.canMergeWith(neighborState)) {
-			ChestType chestType = blockState.get(ChestBlock.CHEST_TYPE);
-			if (!chestType.equals(ChestType.SINGLE) && getFacing(blockState) == direction) {
-				return neighborState.getBlock().getStateWithProperties(blockState);
+		BlockState blockState = super.updateShape(state, world, tickView, pos, direction, neighborPos, neighborState, random);
+		if (this.chestCanConnectTo(neighborState)) {
+			ChestType chestType = blockState.getValue(ChestBlock.TYPE);
+			if (!chestType.equals(ChestType.SINGLE) && getConnectedDirection(blockState) == direction) {
+				return neighborState.getBlock().withPropertiesOf(blockState);
 			}
 		}
 		return blockState;
 	}
 	
 	@Override
-	protected boolean keepBlockEntityWhenReplacedWith(BlockState state) {
-		return state.isIn(JinericBlockTags.WOODEN_CHESTS);
+	protected boolean shouldChangedStateKeepBlockEntity(BlockState state) {
+		return state.is(JinericBlockTags.WOODEN_CHESTS);
 	}
 	
 	@Override
-	public MapCodec<WoodenChestBlock> getCodec() {
+	public MapCodec<WoodenChestBlock> codec() {
 		return CODEC;
 	}
 }

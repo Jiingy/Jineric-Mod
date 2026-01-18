@@ -1,12 +1,12 @@
 package net.jineric.jineric_mod.registry;
 
-import jingy.jineric.block.JmGrassBlock;
 import jingy.jineric.block.JinericBlocks;
+import jingy.jineric.block.JmGrassBlock;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
-import net.minecraft.client.color.world.BiomeColors;
-import net.minecraft.world.biome.GrassColors;
+import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.world.level.GrassColor;
 
 @Environment(EnvType.CLIENT)
 public class JinericColorProviders {
@@ -15,22 +15,22 @@ public class JinericColorProviders {
 		// BLOCKS
 		ColorProviderRegistry.BLOCK.register(
 				((state, world, pos, tintIndex) -> {
-					boolean snowy = state.get(JmGrassBlock.SNOWY);
+					boolean snowy = state.getValue(JmGrassBlock.SNOWY);
 					if (world != null && pos != null) {
 						if (snowy) {
-							return tintIndex > 0 ? -1 : BiomeColors.getGrassColor(world, pos);
+							return tintIndex > 0 ? -1 : BiomeColors.getAverageGrassColor(world, pos);
 						} else {
-							return tintIndex > 0 ? 1 : BiomeColors.getGrassColor(world, pos);
+							return tintIndex > 0 ? 1 : BiomeColors.getAverageGrassColor(world, pos);
 						}
 					} else {
-						return GrassColors.getColor(0.5D, 1.0D);
+						return GrassColor.get(0.5D, 1.0D);
 					}
 				}), JinericBlocks.GRASS_BLOCK
 		);
 		ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) ->
 				world != null && pos != null
-						? BiomeColors.getGrassColor(world, pos)
-						: GrassColors.getColor(0.5D, 1.0D), JinericBlocks.JUNGLE_LADDER
+						? BiomeColors.getAverageGrassColor(world, pos)
+						: GrassColor.get(0.5D, 1.0D), JinericBlocks.JUNGLE_LADDER
 		);
 	}
 }

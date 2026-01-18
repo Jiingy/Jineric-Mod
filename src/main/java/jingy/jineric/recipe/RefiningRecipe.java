@@ -2,22 +2,22 @@ package jingy.jineric.recipe;
 
 import jingy.jineric.item.JinericItems;
 import jingy.jineric.recipe.book.JinericRecipeBookCategories;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.AbstractCookingRecipe;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.recipe.RecipeSerializer;
-import net.minecraft.recipe.RecipeType;
-import net.minecraft.recipe.book.CookingRecipeCategory;
-import net.minecraft.recipe.book.RecipeBookCategory;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.AbstractCookingRecipe;
+import net.minecraft.world.item.crafting.CookingBookCategory;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeBookCategory;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.RecipeType;
 
 public class RefiningRecipe extends AbstractCookingRecipe {
-	public RefiningRecipe(String group, CookingRecipeCategory category, Ingredient input, ItemStack output, float experience, int cookTime) {
+	public RefiningRecipe(String group, CookingBookCategory category, Ingredient input, ItemStack output, float experience, int cookTime) {
 		super(group, category, input, output, experience, cookTime);
 	}
 	
 	@Override
-	protected Item getCookerItem() {
+	protected Item furnaceIcon() {
 		return JinericItems.REFINERY;
 	}
 	
@@ -32,8 +32,8 @@ public class RefiningRecipe extends AbstractCookingRecipe {
 	}
 	
 	@Override
-	public RecipeBookCategory getRecipeBookCategory() {
-		return switch (this.getCategory()) {
+	public RecipeBookCategory recipeBookCategory() {
+		return switch (this.category()) {
 			case BLOCKS -> JinericRecipeBookCategories.REFINERY_BLOCKS;
 			case FOOD, MISC -> JinericRecipeBookCategories.REFINERY_MISC;
 		};

@@ -1,12 +1,12 @@
 package jingy.jineric.mixin.change;
 
 import jingy.jineric.access.SmithingTransformRecipeJsonBuilderAccess;
-import net.minecraft.component.ComponentChanges;
-import net.minecraft.data.recipe.SmithingTransformRecipeJsonBuilder;
-import net.minecraft.item.Item;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.recipe.TransmuteRecipeResult;
-import net.minecraft.registry.Registries;
+import net.minecraft.core.component.DataComponentPatch;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.data.recipes.SmithingTransformRecipeBuilder;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.TransmuteResult;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -16,29 +16,29 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 import java.util.Optional;
 
-@Mixin(SmithingTransformRecipeJsonBuilder.class)
+@Mixin(SmithingTransformRecipeBuilder.class)
 public abstract class SmithingTransformRecipeJsonBuilderApplyComponentChangesMixin implements SmithingTransformRecipeJsonBuilderAccess {
 	@Shadow @Final private Item result;
-	@Unique private ComponentChanges componentChanges = ComponentChanges.EMPTY;
+	@Unique private DataComponentPatch componentChanges = DataComponentPatch.EMPTY;
 
     @Override
-    public SmithingTransformRecipeJsonBuilder jineric$componentChanges(ComponentChanges componentChanges) {
+    public SmithingTransformRecipeBuilder jineric$componentChanges(DataComponentPatch componentChanges) {
         this.componentChanges = componentChanges;
-        return ((SmithingTransformRecipeJsonBuilder)(Object) this);
+        return ((SmithingTransformRecipeBuilder)(Object) this);
     }
 
     @ModifyArg(
-            method = "offerTo(Lnet/minecraft/data/recipe/RecipeExporter;Lnet/minecraft/registry/RegistryKey;)V",
+            method = "save(Lnet/minecraft/data/recipes/RecipeOutput;Lnet/minecraft/resources/ResourceKey;)V",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/recipe/SmithingTransformRecipe;<init>(Ljava/util/Optional;Lnet/minecraft/recipe/Ingredient;Ljava/util/Optional;Lnet/minecraft/recipe/TransmuteRecipeResult;)V"
+                    target = "Lnet/minecraft/world/item/crafting/SmithingTransformRecipe;<init>(Ljava/util/Optional;Lnet/minecraft/world/item/crafting/Ingredient;Ljava/util/Optional;Lnet/minecraft/world/item/crafting/TransmuteResult;)V"
             ),
             index = 3
     )
-    private TransmuteRecipeResult applyComponentChanges(Optional<Ingredient> template, Ingredient base, Optional<Ingredient> addition, TransmuteRecipeResult original) {
+    private TransmuteResult applyComponentChanges(Optional<Ingredient> template, Ingredient base, Optional<Ingredient> addition, TransmuteResult original) {
         if (!componentChanges.isEmpty()) {
-			return new TransmuteRecipeResult(
-					Registries.ITEM.getEntry(this.result), 1, this.componentChanges
+			return new TransmuteResult(
+					BuiltInRegistries.ITEM.wrapAsHolder(this.result), 1, this.componentChanges
 			);
         } else {
 	        return original;

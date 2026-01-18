@@ -2,51 +2,51 @@ package jingy.jineric.mixin.change;
 
 import jingy.jineric.sound.JinericBlockSoundGroup;
 import jingy.jineric.tag.JinericBlockSoundTags;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(AbstractBlock.class)
+@Mixin(BlockBehaviour.class)
 public abstract class BlockSoundsMixin {
 	@Inject(
-			method = "getSoundGroup",
+			method = "getSoundType",
 			at = @At(value = "HEAD"),
 			cancellable = true
 	)
-	private void jineric$CustomSoundGroups(BlockState state, CallbackInfoReturnable<BlockSoundGroup> cir) {
-		if (state.isIn(JinericBlockSoundTags.LEAF_SOUNDS)) {
-			cir.setReturnValue(BlockSoundGroup.AZALEA_LEAVES);
-		} else if (state.isIn(JinericBlockSoundTags.WOODEN_BLOCK_SOUNDS)) {
+	private void jineric$CustomSoundGroups(BlockState state, CallbackInfoReturnable<SoundType> cir) {
+		if (state.is(JinericBlockSoundTags.LEAF_SOUNDS)) {
+			cir.setReturnValue(SoundType.AZALEA_LEAVES);
+		} else if (state.is(JinericBlockSoundTags.WOODEN_BLOCK_SOUNDS)) {
 			cir.setReturnValue(JinericBlockSoundGroup.WOODEN_BLOCKS);
-		} else if (state.isIn(JinericBlockSoundTags.WOODEN_ACCESSORY_SOUNDS)) {
+		} else if (state.is(JinericBlockSoundTags.WOODEN_ACCESSORY_SOUNDS)) {
 			cir.setReturnValue(JinericBlockSoundGroup.WOODEN_ACCESSORIES);
-		} else if (state.isOf(Blocks.LADDER)) {
+		} else if (state.is(Blocks.LADDER)) {
 			cir.setReturnValue(JinericBlockSoundGroup.WOODEN_LADDER);
-		} else if (state.isIn(JinericBlockSoundTags.MUSHROOM_SOUNDS)) {
-			cir.setReturnValue(BlockSoundGroup.NETHER_WART);
-		} else if (state.isIn(JinericBlockSoundTags.VEGETATION_SOUNDS)) {
-			cir.setReturnValue(BlockSoundGroup.MOSS_BLOCK);
-		} else if (state.isOf(Blocks.REDSTONE_WIRE)) {
+		} else if (state.is(JinericBlockSoundTags.MUSHROOM_SOUNDS)) {
+			cir.setReturnValue(SoundType.NETHER_WART);
+		} else if (state.is(JinericBlockSoundTags.VEGETATION_SOUNDS)) {
+			cir.setReturnValue(SoundType.MOSS);
+		} else if (state.is(Blocks.REDSTONE_WIRE)) {
 			cir.setReturnValue(JinericBlockSoundGroup.REDSTONE_DUST);
-		} else if (state.isOf(Blocks.TRIPWIRE)) {
-			cir.setReturnValue(BlockSoundGroup.WOOL);
-		} else if (state.isOf(Blocks.COBBLESTONE) || state.isOf(Blocks.INFESTED_COBBLESTONE)) {
+		} else if (state.is(Blocks.TRIPWIRE)) {
+			cir.setReturnValue(SoundType.WOOL);
+		} else if (state.is(Blocks.COBBLESTONE) || state.is(Blocks.INFESTED_COBBLESTONE)) {
 			cir.setReturnValue(JinericBlockSoundGroup.COBBLED_STONES);
-		} else if (state.isIn(BlockTags.SAPLINGS)) {
-			cir.setReturnValue(BlockSoundGroup.CHERRY_SAPLING);
-		} else if (state.isIn(JinericBlockSoundTags.WOODEN_NETHER_BLOCK_SOUNDS)) {
-			cir.setReturnValue(BlockSoundGroup.NETHER_WOOD);
-		} else if (state.isOf(Blocks.SKELETON_SKULL)
-				|| state.isOf(Blocks.SKELETON_WALL_SKULL)
-				|| state.isOf(Blocks.WITHER_SKELETON_SKULL)
-				|| state.isOf(Blocks.WITHER_SKELETON_WALL_SKULL)) {
-			cir.setReturnValue(BlockSoundGroup.BONE);
+		} else if (state.is(BlockTags.SAPLINGS)) {
+			cir.setReturnValue(SoundType.CHERRY_SAPLING);
+		} else if (state.is(JinericBlockSoundTags.WOODEN_NETHER_BLOCK_SOUNDS)) {
+			cir.setReturnValue(SoundType.NETHER_WOOD);
+		} else if (state.is(Blocks.SKELETON_SKULL)
+				|| state.is(Blocks.SKELETON_WALL_SKULL)
+				|| state.is(Blocks.WITHER_SKELETON_SKULL)
+				|| state.is(Blocks.WITHER_SKELETON_WALL_SKULL)) {
+			cir.setReturnValue(SoundType.BONE_BLOCK);
 		}
 	}
 }

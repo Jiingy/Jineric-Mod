@@ -1,53 +1,52 @@
 package jingy.jineric.screen;
 
 import jingy.jineric.block.JinericBlocks;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.Inventory;
-import net.minecraft.inventory.SimpleInventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.book.RecipeBookType;
-import net.minecraft.screen.AbstractCraftingScreenHandler;
-import net.minecraft.screen.ScreenHandlerContext;
-import net.minecraft.screen.slot.Slot;
+import net.minecraft.world.Container;
+import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractCraftingMenu;
+import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.inventory.RecipeBookType;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
 
 import java.util.List;
 
-public class CrucibleScreenHandler extends AbstractCraftingScreenHandler {
-	private final ScreenHandlerContext context;
-	
+public class CrucibleScreenHandler extends AbstractCraftingMenu {
+	private final ContainerLevelAccess containerLevelAccess;
 	private final Slot outputSlot;
-	private final PlayerEntity player;
+	private final Player player;
 	
-	private final Inventory inputs = new SimpleInventory(9) {
+	private final Container inputs = new SimpleContainer(9) {
 		@Override
-		public void markDirty() {
-			super.markDirty();
-			CrucibleScreenHandler.this.onContentChanged(this);
+		public void setChanged() {
+			super.setChanged();
+			CrucibleScreenHandler.this.slotsChanged(this);
 		}
 	};
 	
-	private final Inventory output = new SimpleInventory(1) {
+	private final Container output = new SimpleContainer(1) {
 		@Override
-		public void markDirty() {
-			super.markDirty();
+		public void setChanged() {
+			super.setChanged();
 		}
 	};
 	
-	public CrucibleScreenHandler(int syncId, PlayerInventory playerInventory) {
-		this(syncId, playerInventory, ScreenHandlerContext.EMPTY);
+	public CrucibleScreenHandler(int syncId, Inventory playerInventory) {
+		this(syncId, playerInventory, ContainerLevelAccess.NULL);
 	}
 	
-	public CrucibleScreenHandler(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
+	public CrucibleScreenHandler(int syncId, Inventory playerInventory, ContainerLevelAccess containerLevelAccess) {
 		super(JinericScreenHandlerType.CRUCIBLE_SCREEN_HANDLER, syncId, 3, 3);
-		this.context = context;
+		this.containerLevelAccess = containerLevelAccess;
 		this.player = playerInventory.player;
 		
 		
 		
 		this.outputSlot = this.addSlot(new Slot(this.output, 0, 114, 33) {
 			@Override
-			public boolean canInsert(ItemStack stack) {
+			public boolean mayPlace(ItemStack stack) {
 				return false;
 			}
 		});
@@ -63,7 +62,7 @@ public class CrucibleScreenHandler extends AbstractCraftingScreenHandler {
 		}
 	}
 	
-	private void addPlayerInventorySlots(PlayerInventory playerInventory) {
+	private void addPlayerInventorySlots(Inventory playerInventory) {
 		for (int i = 0; i < 3; ++i) {
 			for (int j = 0; j < 9; ++j) {
 				this.addSlot(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
@@ -76,43 +75,44 @@ public class CrucibleScreenHandler extends AbstractCraftingScreenHandler {
 	}
 	
 	@Override
-	public ItemStack quickMove(PlayerEntity player, int slot) {
+	public ItemStack quickMoveStack(Player player, int slot) {
 		ItemStack itemStack = ItemStack.EMPTY;
 		Slot slotIndex = this.slots.get(slot);
-		if (slotIndex.hasStack()) {
-			ItemStack itemStackFromSlotIndex = slotIndex.getStack();
+		if (slotIndex.hasItem()) {
+			ItemStack itemStackFromSlotIndex = slotIndex.getItem();
 			itemStack = itemStackFromSlotIndex.copy();
 		}
 		return itemStack;
 	}
 	
 	@Override
-	public void onClosed(PlayerEntity player) {
-		super.onClosed(player);
-		this.context.run((world, pos) -> this.dropInventory(player, this.inputs));
+	public void removed(Player player) {
+		super.removed(player);
+		this.containerLevelAccess.execute((world, pos) -> this.clearContainer(player, this.inputs));
 	}
 	
-	public Slot getOutputSlot() {
+	@Override
+	public Slot getResultSlot() {
 		return outputSlot;
 	}
 	
 	@Override
-	public boolean canUse(PlayerEntity player) {
-		return canUse(this.context, player, JinericBlocks.STONE_CRUCIBLE);
-	}
-	
-	@Override
-	public List<Slot> getInputSlots() {
+	public List<Slot> getInputGridSlots() {
 		return this.slots.subList(1, 10);
 	}
 	
 	@Override
-	protected PlayerEntity getPlayer() {
+	protected Player owner() {
 		return this.player;
 	}
 	
 	@Override
-	public RecipeBookType getCategory() {
+	public RecipeBookType getRecipeBookType() {
 		return null;
+	}
+	
+	@Override
+	public boolean stillValid(Player player) {
+		return stillValid(this.containerLevelAccess, player, JinericBlocks.STONE_CRUCIBLE);
 	}
 }

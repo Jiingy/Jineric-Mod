@@ -4,61 +4,60 @@ import jingy.jineric.recipe.FoundrySmeltingRecipe;
 import jingy.jineric.recipe.JinericRecipeTypes;
 import jingy.jineric.registry.JinericBlockEntityType;
 import jingy.jineric.screen.FoundryScreenHandler;
-import net.minecraft.block.AbstractFurnaceBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.recipe.AbstractCookingRecipe;
-import net.minecraft.recipe.RecipeEntry;
-import net.minecraft.recipe.input.SingleStackRecipeInput;
-import net.minecraft.registry.DynamicRegistryManager;
-import net.minecraft.screen.ScreenHandler;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.text.Text;
-import net.minecraft.util.collection.DefaultedList;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.NonNullList;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.AbstractCookingRecipe;
+import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.SingleRecipeInput;
+import net.minecraft.world.level.block.AbstractFurnaceBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
 public class FoundryBlockEntity extends AbstractFurnaceBlockEntity {
-	
 	public FoundryBlockEntity(BlockPos blockPos, BlockState blockState) {
 		super(JinericBlockEntityType.FOUNDRY, blockPos, blockState, JinericRecipeTypes.FOUNDRY_SMELTING);
 	}
 	
 	@Override
-	protected Text getContainerName() {
-		return Text.translatable("container.jineric.foundry");
+	protected Component getDefaultName() {
+		return Component.translatable("container.jineric.foundry");
 	}
 	
 	@Override
-	protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
-		return new FoundryScreenHandler(syncId, playerInventory, this, this.propertyDelegate);
+	protected AbstractContainerMenu createMenu(int syncId, Inventory playerInventory) {
+		return new FoundryScreenHandler(syncId, playerInventory, this, this.dataAccess);
 	}
 	
-	public static void tick(ServerWorld world, BlockPos pos, BlockState state, AbstractFurnaceBlockEntity blockEntity) {
-		boolean isBurning = blockEntity.isBurning();
+	public static void serverTick(ServerLevel world, BlockPos pos, BlockState state, AbstractFurnaceBlockEntity blockEntity) {
+		boolean isBurning = blockEntity.isLit();
 		boolean markDirty = false;
-		if (blockEntity.isBurning()) {
+		if (blockEntity.isLit()) {
 			blockEntity.litTimeRemaining--;
 		}
 		
-		ItemStack inputSlotStack = blockEntity.inventory.get(INPUT_SLOT_INDEX);
-		ItemStack fuelSlotStack = blockEntity.inventory.get(FUEL_SLOT_INDEX);
+		ItemStack inputSlotStack = blockEntity.items.get(SLOT_INPUT);
+		ItemStack fuelSlotStack = blockEntity.items.get(SLOT_FUEL);
 		boolean inputSlotHasStack = !inputSlotStack.isEmpty();
 		boolean fuelSlotHasStack = !fuelSlotStack.isEmpty();
 		
-		if (blockEntity.isBurning() || fuelSlotHasStack && inputSlotHasStack) {
-			SingleStackRecipeInput singleStackRecipeInput = new SingleStackRecipeInput(inputSlotStack);
-			RecipeEntry<? extends AbstractCookingRecipe> recipeEntry;
+		if (blockEntity.isLit() || fuelSlotHasStack && inputSlotHasStack) {
+			SingleRecipeInput singleStackRecipeInput = new SingleRecipeInput(inputSlotStack);
+			RecipeHolder<? extends AbstractCookingRecipe> recipeEntry;
 			
 			if (inputSlotHasStack) {
-				recipeEntry = blockEntity.matchGetter.getFirstMatch(singleStackRecipeInput, world).orElse(null);
+				recipeEntry = blockEntity.quickCheck.getRecipeFor(singleStackRecipeInput, world).orElse(null);
 				assert recipeEntry != null;
 				if (recipeEntry.value() instanceof FoundrySmeltingRecipe foundrySmeltingRecipe) {
 					if (inputSlotStack.getCount() < foundrySmeltingRecipe.jineric$getInputCount()) {
@@ -69,84 +68,84 @@ public class FoundryBlockEntity extends AbstractFurnaceBlockEntity {
 				recipeEntry = null;
 			}
 
-			int maxStackCount = blockEntity.getMaxCountPerStack();
-			if (!blockEntity.isBurning() && canAcceptRecipeOutput(world.getRegistryManager(), recipeEntry, singleStackRecipeInput, blockEntity.inventory, maxStackCount)) {
-				blockEntity.litTimeRemaining = blockEntity.getFuelTime(world.getFuelRegistry(), fuelSlotStack);
+			int maxStackCount = blockEntity.getMaxStackSize();
+			if (!blockEntity.isLit() && canBurn(world.registryAccess(), recipeEntry, singleStackRecipeInput, blockEntity.items, maxStackCount)) {
+				blockEntity.litTimeRemaining = blockEntity.getBurnDuration(world.fuelValues(), fuelSlotStack);
 				blockEntity.litTotalTime = blockEntity.litTimeRemaining;
-				if (blockEntity.isBurning()) {
+				if (blockEntity.isLit()) {
 					markDirty = true;
 					if (fuelSlotHasStack) {
 						Item fuelItem = fuelSlotStack.getItem();
-						fuelSlotStack.decrement(1);
+						fuelSlotStack.shrink(1);
 						if (fuelSlotStack.isEmpty()) {
-							blockEntity.inventory.set(1, fuelItem.getRecipeRemainder());
+							blockEntity.items.set(1, fuelItem.getCraftingRemainder());
 						}
 					}
 				}
 			}
 
-			if (blockEntity.isBurning() && canAcceptRecipeOutput(world.getRegistryManager(), recipeEntry, singleStackRecipeInput, blockEntity.inventory, maxStackCount)) {
+			if (blockEntity.isLit() && canBurn(world.registryAccess(), recipeEntry, singleStackRecipeInput, blockEntity.items, maxStackCount)) {
 				if (recipeEntry.value() instanceof FoundrySmeltingRecipe foundrySmeltingRecipe) {
 					if (inputSlotStack.getCount() >= foundrySmeltingRecipe.jineric$getInputCount()) {
-						blockEntity.cookingTimeSpent++;
+						blockEntity.cookingTimer++;
 					} else {
 						degradeCookTime(blockEntity);
 					}
 				} else {
-					blockEntity.cookingTimeSpent++;
+					blockEntity.cookingTimer++;
 				}
-				if (blockEntity.cookingTimeSpent == blockEntity.cookingTotalTime) {
-					blockEntity.cookingTimeSpent = 0;
-					blockEntity.cookingTotalTime = getCookTime(world, blockEntity);
-					if (craftRecipe(world.getRegistryManager(), recipeEntry, singleStackRecipeInput, blockEntity.inventory, maxStackCount)) {
-						blockEntity.setLastRecipe(recipeEntry);
+				if (blockEntity.cookingTimer == blockEntity.cookingTotalTime) {
+					blockEntity.cookingTimer = 0;
+					blockEntity.cookingTotalTime = getTotalCookTime(world, blockEntity);
+					if (craftRecipe(world.registryAccess(), recipeEntry, singleStackRecipeInput, blockEntity.items, maxStackCount)) {
+						blockEntity.setRecipeUsed(recipeEntry);
 					}
 
 					markDirty = true;
 				}
 			} else {
-				blockEntity.cookingTimeSpent = 0;
+				blockEntity.cookingTimer = 0;
 			}
-		} else if (!blockEntity.isBurning() && blockEntity.cookingTimeSpent > 0) {
+		} else if (!blockEntity.isLit() && blockEntity.cookingTimer > 0) {
 			degradeCookTime(blockEntity);
 		}
 
-		if (isBurning != blockEntity.isBurning()) {
+		if (isBurning != blockEntity.isLit()) {
 			markDirty = true;
-			state = state.with(AbstractFurnaceBlock.LIT, blockEntity.isBurning());
-			world.setBlockState(pos, state, Block.NOTIFY_ALL);
+			state = state.setValue(AbstractFurnaceBlock.LIT, blockEntity.isLit());
+			world.setBlock(pos, state, Block.UPDATE_ALL);
 		}
 
 		if (markDirty) {
-			markDirty(world, pos, state);
+			setChanged(world, pos, state);
 		}
 	}
 	
 	private static boolean craftRecipe(
-			DynamicRegistryManager dynamicRegistryManager,
-			@Nullable RecipeEntry<? extends AbstractCookingRecipe> recipeEntry,
-			SingleStackRecipeInput input,
-			DefaultedList<ItemStack> inventory,
+			RegistryAccess dynamicRegistryManager,
+			@Nullable RecipeHolder<? extends AbstractCookingRecipe> recipeEntry,
+			SingleRecipeInput input,
+			NonNullList<ItemStack> inventory,
 			int maxCount
 	) {
-		if (recipeEntry != null && canAcceptRecipeOutput(dynamicRegistryManager, recipeEntry, input, inventory, maxCount)) {
-			ItemStack inputStack = inventory.get(INPUT_SLOT_INDEX);
-			ItemStack craftedOutputStack = recipeEntry.value().craft(input, dynamicRegistryManager);
-			ItemStack outputStack = inventory.get(OUTPUT_SLOT_INDEX);
+		if (recipeEntry != null && canBurn(dynamicRegistryManager, recipeEntry, input, inventory, maxCount)) {
+			ItemStack inputStack = inventory.get(SLOT_INPUT);
+			ItemStack craftedOutputStack = recipeEntry.value().assemble(input, dynamicRegistryManager);
+			ItemStack outputStack = inventory.get(SLOT_RESULT);
 			if (outputStack.isEmpty()) {
-				inventory.set(OUTPUT_SLOT_INDEX, craftedOutputStack.copy());
-			} else if (ItemStack.areItemsAndComponentsEqual(outputStack, craftedOutputStack)) {
-				outputStack.increment(1);
+				inventory.set(SLOT_RESULT, craftedOutputStack.copy());
+			} else if (ItemStack.isSameItemSameComponents(outputStack, craftedOutputStack)) {
+				outputStack.grow(1);
 			}
 			
-			if (inputStack.isOf(Blocks.WET_SPONGE.asItem()) && !inventory.get(FUEL_SLOT_INDEX).isEmpty() && inventory.get(1).isOf(Items.BUCKET)) {
-				inventory.set(FUEL_SLOT_INDEX, new ItemStack(Items.WATER_BUCKET));
+			if (inputStack.is(Blocks.WET_SPONGE.asItem()) && !inventory.get(SLOT_FUEL).isEmpty() && inventory.get(1).is(Items.BUCKET)) {
+				inventory.set(SLOT_FUEL, new ItemStack(Items.WATER_BUCKET));
 			}
 			
 			if (recipeEntry.value() instanceof FoundrySmeltingRecipe foundrySmeltingRecipe) {
-				inputStack.decrement(foundrySmeltingRecipe.jineric$getInputCount());
+				inputStack.shrink(foundrySmeltingRecipe.jineric$getInputCount());
 			} else {
-				inputStack.decrement(1);
+				inputStack.shrink(1);
 			}
 			return true;
 		} else {
@@ -155,6 +154,6 @@ public class FoundryBlockEntity extends AbstractFurnaceBlockEntity {
 	}
 	
 	private static void degradeCookTime(AbstractFurnaceBlockEntity blockEntity) {
-		blockEntity.cookingTimeSpent = MathHelper.clamp(blockEntity.cookingTimeSpent - 1, 0, blockEntity.cookingTotalTime);
+		blockEntity.cookingTimer = Mth.clamp(blockEntity.cookingTimer - 1, 0, blockEntity.cookingTotalTime);
 	}
 }

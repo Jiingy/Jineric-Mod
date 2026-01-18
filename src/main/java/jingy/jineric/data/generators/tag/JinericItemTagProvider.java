@@ -5,20 +5,19 @@ import jingy.jineric.tag.JinericItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
-import net.minecraft.item.Items;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Items;
 
 import java.util.concurrent.CompletableFuture;
 
 public class JinericItemTagProvider extends FabricTagProvider.ItemTagProvider {
-	public JinericItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> completableFuture) {
+	public JinericItemTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> completableFuture) {
 		super(output, completableFuture);
 	}
 	
 	@Override
-	protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-		
+	protected void addTags(HolderLookup.Provider holderLookup) {
 		//  Modded
 		this.valueLookupBuilder(JinericItemTags.CHESTS)
 				.addTag(JinericItemTags.WOODEN_CHESTS);
@@ -141,7 +140,7 @@ public class JinericItemTagProvider extends FabricTagProvider.ItemTagProvider {
 //		this.getOrCreateTagBuilder(ItemTags.HEAD_ARMOR);
 //		this.getOrCreateTagBuilder(ItemTags.SKULLS);
 //		this.getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR);
-//		wrapperLookup.getOrThrow(RegistryKeys.TRIM_MATERIAL)
+//		holderLookup.getOrThrow(RegistryKeys.TRIM_MATERIAL)
 //				.streamEntries()
 //				.sorted(Comparator.comparing(reference -> reference.registryKey().getValue()))
 //				.forEach(reference -> this.getOrCreateTagBuilder(ItemTags.TRIM_MATERIALS).add(((ArmorTrimMaterial)reference.value()).ingredient().value()))

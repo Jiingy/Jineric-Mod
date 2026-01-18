@@ -1,6 +1,6 @@
 package jingy.jineric.mixin.change;
 
-import net.minecraft.item.ToolMaterial;
+import net.minecraft.world.item.ToolMaterial;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArgs;
@@ -12,7 +12,7 @@ public abstract class ModifyVanillaToolMaterialMixin {
 	@ModifyArgs(
 			method = "<clinit>",
 			at = @At(value = "INVOKE",
-					target = "Lnet/minecraft/item/ToolMaterial;<init>(Lnet/minecraft/registry/tag/TagKey;IFFILnet/minecraft/registry/tag/TagKey;)V",
+					target = "Lnet/minecraft/world/item/ToolMaterial;<init>(Lnet/minecraft/tags/TagKey;IFFILnet/minecraft/tags/TagKey;)V",
 					ordinal = 0
 			)
 	)
@@ -23,7 +23,7 @@ public abstract class ModifyVanillaToolMaterialMixin {
 	@ModifyArgs(
 			method = "<clinit>",
 			at = @At(value = "INVOKE",
-					target = "Lnet/minecraft/item/ToolMaterial;<init>(Lnet/minecraft/registry/tag/TagKey;IFFILnet/minecraft/registry/tag/TagKey;)V",
+					target = "Lnet/minecraft/world/item/ToolMaterial;<init>(Lnet/minecraft/tags/TagKey;IFFILnet/minecraft/tags/TagKey;)V",
 					ordinal = 1
 			)
 	)

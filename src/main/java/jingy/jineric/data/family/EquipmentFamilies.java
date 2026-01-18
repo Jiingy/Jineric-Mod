@@ -3,9 +3,9 @@ package jingy.jineric.data.family;
 import com.google.common.collect.Lists;
 import jingy.jineric.item.JinericItems;
 import jingy.jineric.tag.JinericItemTags;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import org.apache.commons.lang3.function.TriConsumer;
 
 import java.util.List;

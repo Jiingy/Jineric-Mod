@@ -2,44 +2,44 @@ package jingy.jineric.block.entity;
 
 import jingy.jineric.registry.JinericBlockEntityType;
 import jingy.jineric.screen.CrucibleScreenHandler;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.LockableContainerBlockEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.screen.ScreenHandler;
-import net.minecraft.text.Text;
-import net.minecraft.util.collection.DefaultedList;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.NonNullList;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 
-public class CrucibleBlockEntity extends LockableContainerBlockEntity {
-	private DefaultedList<ItemStack> inventory = DefaultedList.ofSize(10, ItemStack.EMPTY);
+public class CrucibleBlockEntity extends BaseContainerBlockEntity {
+	private NonNullList<ItemStack> inventory = NonNullList.withSize(10, ItemStack.EMPTY);
 	
 	public CrucibleBlockEntity(BlockPos pos, BlockState state) {
 		super(JinericBlockEntityType.CRUCIBLE, pos, state);
 	}
 	
 	@Override
-	protected Text getContainerName() {
-		return Text.translatable("container.crucible");
+	protected Component getDefaultName() {
+		return Component.translatable("container.crucible");
 	}
 	
 	@Override
-	protected DefaultedList<ItemStack> getHeldStacks() {
+	protected NonNullList<ItemStack> getItems() {
 		return this.inventory;
 	}
 	
 	@Override
-	protected void setHeldStacks(DefaultedList<ItemStack> inventory) {
+	protected void setItems(NonNullList<ItemStack> inventory) {
 		this.inventory = inventory;
 	}
 	
 	@Override
-	protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
-		return new CrucibleScreenHandler(syncId, playerInventory);
+	protected AbstractContainerMenu createMenu(int syncId, Inventory inventory) {
+		return new CrucibleScreenHandler(syncId, inventory);
 	}
 	
 	@Override
-	public int size() {
+	public int getContainerSize() {
 		return this.inventory.size();
 	}
 }

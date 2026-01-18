@@ -1,20 +1,21 @@
 package jingy.jineric.access;
 
-import net.minecraft.data.recipe.CraftingRecipeJsonBuilder;
-import net.minecraft.item.ItemConvertible;
-import net.minecraft.recipe.Ingredient;
+import net.minecraft.data.recipes.RecipeBuilder;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.ItemLike;
 
 public interface RecipeGeneratorAccess {
-	default CraftingRecipeJsonBuilder createBookshelf$jineric(Ingredient input, ItemConvertible output) {
+	default RecipeBuilder bookshelfBuilder$jineric(Ingredient input, ItemLike output) {
 		return null;
 	}
-	default CraftingRecipeJsonBuilder createChest$jineric(Ingredient input, ItemConvertible output) {
+	default RecipeBuilder chestBuilder$jineric(Ingredient input, ItemLike output) {
 		return null;
 	}
-	default CraftingRecipeJsonBuilder createTrappedChest$jineric(Ingredient input, ItemConvertible output) {
+	default RecipeBuilder trappedChestBuilder$jineric(Ingredient input, ItemLike output) {
 		return null;
 	}
-	default CraftingRecipeJsonBuilder createLadder$jineric(Ingredient input, ItemConvertible output) {
+	default RecipeBuilder ladderBuilder$jineric(Ingredient input, ItemLike output) {
 		return null;
 	}
 }

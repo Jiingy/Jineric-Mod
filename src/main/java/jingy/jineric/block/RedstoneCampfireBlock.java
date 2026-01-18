@@ -2,50 +2,50 @@ package jingy.jineric.block;
 
 import jingy.jineric.block.entity.RedstoneCampfireBlockEntity;
 import jingy.jineric.registry.JinericBlockEntityType;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.CampfireBlock;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityTicker;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.recipe.CampfireCookingRecipe;
-import net.minecraft.recipe.RecipeType;
-import net.minecraft.recipe.ServerRecipeManager;
-import net.minecraft.recipe.input.SingleStackRecipeInput;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.item.crafting.CampfireCookingRecipe;
+import net.minecraft.world.item.crafting.RecipeManager;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.SingleRecipeInput;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CampfireBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import org.jetbrains.annotations.Nullable;
 
 public class RedstoneCampfireBlock extends CampfireBlock {
-	public static final BooleanProperty POWERED = Properties.POWERED;
+	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 	
-	public RedstoneCampfireBlock(boolean emitsParticles, int fireDamage, Settings settings) {
+	public RedstoneCampfireBlock(boolean emitsParticles, int fireDamage, Properties settings) {
 		super(emitsParticles, fireDamage, settings);
-		this.setDefaultState(this.stateManager.getDefaultState().with(POWERED, Boolean.FALSE));
+		this.registerDefaultState(this.stateDefinition.any().setValue(POWERED, Boolean.FALSE));
 	}
 	
 	@Override
-	protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		builder.add(LIT, SIGNAL_FIRE, WATERLOGGED, FACING, POWERED);
 	}
 	
 	@Override
-	public boolean emitsRedstonePower(BlockState state) {
+	public boolean isSignalSource(BlockState state) {
 		return true;
 	}
 	
 	@Override
-	public int getWeakRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
+	public int getSignal(BlockState state, BlockGetter world, BlockPos pos, Direction direction) {
 		BlockEntity blockEntity = world.getBlockEntity(pos);
 		if (blockEntity instanceof RedstoneCampfireBlockEntity redstoneCampfireBlockEntity) {
-			if (state.get(POWERED) && state.get(LIT)) {
-				return state.get(SIGNAL_FIRE) ? redstoneCampfireBlockEntity.getRedstoneOutput() * 2 : redstoneCampfireBlockEntity.getRedstoneOutput();
+			if (state.getValue(POWERED) && state.getValue(LIT)) {
+				return state.getValue(SIGNAL_FIRE) ? redstoneCampfireBlockEntity.getRedstoneOutput() * 2 : redstoneCampfireBlockEntity.getRedstoneOutput();
 			} else {
 				return 0;
 			}
@@ -54,26 +54,26 @@ public class RedstoneCampfireBlock extends CampfireBlock {
 	}
 	
 	@Override
-	public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
 		return new RedstoneCampfireBlockEntity(pos, state);
 	}
 	
 	@Nullable
 	@Override
-	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-		if (world instanceof ServerWorld serverWorld) {
-			if (state.get(LIT)) {
-				ServerRecipeManager.MatchGetter<SingleStackRecipeInput, CampfireCookingRecipe> matchGetter = ServerRecipeManager.createCachedMatchGetter(RecipeType.CAMPFIRE_COOKING);
-				return validateTicker(
+	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level world, BlockState state, BlockEntityType<T> type) {
+		if (world instanceof ServerLevel serverWorld) {
+			if (state.getValue(LIT)) {
+				RecipeManager.CachedCheck<SingleRecipeInput, CampfireCookingRecipe> matchGetter = RecipeManager.createCheck(RecipeType.CAMPFIRE_COOKING);
+				return createTickerHelper(
 						type,
 						JinericBlockEntityType.REDSTONE_CAMPFIRE,
-						(worldx, pos, tickerState, blockEntity) -> RedstoneCampfireBlockEntity.litServerTick(serverWorld, pos, tickerState, blockEntity, matchGetter)
+						(worldx, pos, tickerState, blockEntity) -> RedstoneCampfireBlockEntity.cookTick(serverWorld, pos, tickerState, blockEntity, matchGetter)
 				);
 			} else {
-				return validateTicker(type, JinericBlockEntityType.REDSTONE_CAMPFIRE, RedstoneCampfireBlockEntity::unlitServerTick);
+				return createTickerHelper(type, JinericBlockEntityType.REDSTONE_CAMPFIRE, RedstoneCampfireBlockEntity::cooldownTick);
 			}
 		} else {
-			return state.get(LIT) ? validateTicker(type, JinericBlockEntityType.REDSTONE_CAMPFIRE, RedstoneCampfireBlockEntity::clientTick) : null;
+			return state.getValue(LIT) ? createTickerHelper(type, JinericBlockEntityType.REDSTONE_CAMPFIRE, RedstoneCampfireBlockEntity::particleTick) : null;
 		}
 	}
 }

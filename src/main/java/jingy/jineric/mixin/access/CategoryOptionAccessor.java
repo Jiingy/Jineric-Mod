@@ -1,22 +1,22 @@
 package jingy.jineric.mixin.access;
 
 import com.mojang.serialization.MapCodec;
-import net.minecraft.recipe.book.RecipeBookOptions;
+import net.minecraft.stats.RecipeBookSettings;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
-@Mixin(net.minecraft.recipe.book.RecipeBookOptions.CategoryOption.class)
+@Mixin(net.minecraft.stats.RecipeBookSettings.TypeSettings.class)
 public interface CategoryOptionAccessor {
 	
-	@Invoker("createCodec")
-	static MapCodec<RecipeBookOptions.CategoryOption> callCreateCodec(String guiOpenField, String filteringCraftableField) {
+	@Invoker("codec")
+	static MapCodec<RecipeBookSettings.TypeSettings> callCreateCodec(String guiOpenField, String filteringCraftableField) {
 		throw new UnsupportedOperationException();
 	}
 	
 	@Accessor
-	boolean isGuiOpen();
+	boolean isOpen();
 	
 	@Accessor
-	boolean isFilteringCraftable();
+	boolean isFiltering();
 }

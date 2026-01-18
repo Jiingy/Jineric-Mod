@@ -1,16 +1,16 @@
 package jingy.jineric.recipe;
 
 import jingy.jineric.base.JinericMain;
-import net.minecraft.recipe.RecipePropertySet;
-import net.minecraft.registry.RegistryKey;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.crafting.RecipePropertySet;
 
 public class JinericRecipePropertySet {
-	public static final RegistryKey<RecipePropertySet> REFINERY_INPUT = register("refinery_input");
-	public static final RegistryKey<RecipePropertySet> FOUNDRY_INPUT = register("foundry_input");
+	public static final ResourceKey<RecipePropertySet> REFINERY_INPUT = register("refinery_input");
+	public static final ResourceKey<RecipePropertySet> FOUNDRY_INPUT = register("foundry_input");
 	public static final RegistryKey<RecipePropertySet> KILN_INPUT = register("kiln_input");
 	
-	private static RegistryKey<RecipePropertySet> register(String id) {
-		return RegistryKey.of(RecipePropertySet.REGISTRY, JinericMain.ofJineric(id));
+	private static ResourceKey<RecipePropertySet> register(String id) {
+		return ResourceKey.create(RecipePropertySet.TYPE_KEY, JinericMain.ofJineric(id));
 	}
 	
 	public static void initialize() {

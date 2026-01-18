@@ -1,10 +1,10 @@
 package jingy.jineric.recipe;
 
 import jingy.jineric.base.JinericMain;
-import net.minecraft.recipe.Recipe;
-import net.minecraft.recipe.RecipeType;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeType;
 
 public interface JinericRecipeTypes {
 	RecipeType<RefiningRecipe> REFINING = register("refining");
@@ -12,7 +12,7 @@ public interface JinericRecipeTypes {
 	RecipeType<FoundrySmeltingRecipe> KILN_FIRING = register("kiln_firing");
 	
 	static <T extends Recipe<?>> RecipeType<T> register(String id) {
-		return Registry.register(Registries.RECIPE_TYPE, JinericMain.ofJineric(id), new RecipeType<T>() {
+		return Registry.register(BuiltInRegistries.RECIPE_TYPE, JinericMain.ofJineric(id), new RecipeType<T>() {
 			public String toString() {
 				return id;
 			}

@@ -3,25 +3,24 @@ package jingy.jineric.data.generators.tag;
 import jingy.jineric.entity.JinericPaintingVariants;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.minecraft.entity.decoration.painting.PaintingVariant;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.PaintingVariantTags;
-
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.tags.PaintingVariantTags;
+import net.minecraft.world.entity.decoration.painting.PaintingVariant;
 import java.util.concurrent.CompletableFuture;
 
 
 public class JinericPaintingVariantTagProvider extends FabricTagProvider<PaintingVariant> {
-	public JinericPaintingVariantTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
-		super(output, RegistryKeys.PAINTING_VARIANT, registriesFuture);
+	public JinericPaintingVariantTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+		super(output, Registries.PAINTING_VARIANT, registriesFuture);
 	}
 	
 	@Override
-	protected void configure(RegistryWrapper.WrapperLookup registries) {
-		this.getTagBuilder(PaintingVariantTags.PLACEABLE)
-				.add(JinericPaintingVariants.KEY_GEN.getValue())
-				.add(JinericPaintingVariants.KROMER.getValue())
-				.add(JinericPaintingVariants.PEACEFUL_FARM.getValue());
+	protected void addTags(HolderLookup.Provider registries) {
+		this.getOrCreateRawBuilder(PaintingVariantTags.PLACEABLE)
+				.addElement(JinericPaintingVariants.KEY_GEN.identifier())
+				.addElement(JinericPaintingVariants.KROMER.identifier())
+				.addElement(JinericPaintingVariants.PEACEFUL_FARM.identifier());
 	}
 	
 	@Override

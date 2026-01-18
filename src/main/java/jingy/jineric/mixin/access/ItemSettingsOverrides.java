@@ -2,22 +2,21 @@ package jingy.jineric.mixin.access;
 
 import jingy.jineric.access.ItemSettingsAccess;
 import jingy.jineric.component.JmDataComponentTypes;
-import net.minecraft.component.ComponentType;
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.item.Item;
+import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.world.item.Item;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
-@Mixin(Item.Settings.class)
+@Mixin(Item.Properties.class)
 public abstract class ItemSettingsOverrides implements ItemSettingsAccess {
-	@Shadow
-	public abstract <T> Item.Settings component(ComponentType<T> type, T value);
+	@Shadow public abstract <T> Item.Properties component(DataComponentType<T> type, T value);
 	
 	@Override
-	public Item.Settings jineric$maxLevel(int max) {
+	public Item.Properties jineric$maxLevel(int max) {
 		this.component(JmDataComponentTypes.LEVEL, 0);
 		this.component(JmDataComponentTypes.MAX_LEVEL, max);
-		this.component(DataComponentTypes.MAX_STACK_SIZE, 1);
-		return ((Item.Settings) (Object) this);
+		this.component(DataComponents.MAX_STACK_SIZE, 1);
+		return ((Item.Properties) (Object) this);
 	}
 }

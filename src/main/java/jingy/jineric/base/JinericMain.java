@@ -16,7 +16,7 @@ import jingy.jineric.screen.JinericScreenHandlerType;
 import jingy.jineric.stat.JinericStats;
 import jingy.jineric.tag.JinericItemTags;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.util.Identifier;
+import net.minecraft.resources.Identifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -25,7 +25,7 @@ public class JinericMain implements ModInitializer {
 	public static final String MOD_ID = "jineric";
 	
 	public static Identifier ofJineric(String path) {
-		return Identifier.of(MOD_ID, path);
+		return Identifier.fromNamespaceAndPath(MOD_ID, path);
 	}
 	
 	@Override

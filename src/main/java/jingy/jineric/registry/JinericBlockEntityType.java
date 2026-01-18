@@ -4,9 +4,9 @@ import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.block.entity.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 
 public class JinericBlockEntityType {
 	public static final BlockEntityType<RefineryBlockEntity> REFINERY = FabricBlockEntityTypeBuilder.create(RefineryBlockEntity::new, JinericBlocks.REFINERY).build();
@@ -48,7 +48,7 @@ public class JinericBlockEntityType {
 	}
 	
 	public static BlockEntityType<?> register(String id, BlockEntityType<?> blockEntityType) {
-		return Registry.register(Registries.BLOCK_ENTITY_TYPE, JinericMain.ofJineric(id), blockEntityType);
+		return Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, JinericMain.ofJineric(id), blockEntityType);
 	}
 }
 

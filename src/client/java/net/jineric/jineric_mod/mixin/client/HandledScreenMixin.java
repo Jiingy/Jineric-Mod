@@ -1,10 +1,10 @@
 package net.jineric.jineric_mod.mixin.client;
 
 import jingy.jineric.StaticMixinFields;
-import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.screen.ingame.HandledScreen;
-import net.minecraft.item.ItemStack;
-import net.minecraft.screen.slot.Slot;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -13,30 +13,30 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(HandledScreen.class)
+@Mixin(AbstractContainerScreen.class)
 public abstract class HandledScreenMixin {
-	@Shadow @Nullable protected Slot focusedSlot;
+	@Shadow @Nullable protected Slot hoveredSlot;
 	
 	@Inject(
-			method = "renderMain",
+			method = "renderContents",
 			at = @At(
 					value = "INVOKE",
-					target = "Lnet/minecraft/client/gui/screen/ingame/HandledScreen;drawSlotHighlightBack(Lnet/minecraft/client/gui/DrawContext;)V"
+					target = "Lnet/minecraft/client/gui/screens/inventory/AbstractContainerScreen;renderSlotHighlightBack(Lnet/minecraft/client/gui/GuiGraphics;)V"
 			)
 	)
-	private void getFocussedSlot(DrawContext context, int mouseX, int mouseY, float deltaTicks, CallbackInfo ci) {
-		if (this.focusedSlot != null) {
-			StaticMixinFields.FOCUSSED_HANDLED_SCREEN_ITEM_STACK = this.focusedSlot.getStack();
+	private void getFocussedSlot(GuiGraphics context, int mouseX, int mouseY, float deltaTicks, CallbackInfo ci) {
+		if (this.hoveredSlot != null) {
+			StaticMixinFields.FOCUSSED_HANDLED_SCREEN_ITEM_STACK = this.hoveredSlot.getItem();
 		} else {
 			resetFocussedItem();
 		}
 	}
 	
 	@Inject(
-			method = "close",
+			method = "onClose",
 			at = @At(
 					value = "INVOKE",
-					target = "Lnet/minecraft/client/gui/screen/ingame/HandledScreen;resetTooltipSubmenus(Lnet/minecraft/screen/slot/Slot;)V"
+					target = "Lnet/minecraft/client/gui/screens/inventory/AbstractContainerScreen;onStopHovering(Lnet/minecraft/world/inventory/Slot;)V"
 			)
 	)
 	private void resetItemLevelBar(CallbackInfo ci) {

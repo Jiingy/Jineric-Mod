@@ -2,7 +2,7 @@ package jingy.jineric.mixin.duck;
 
 import jingy.jineric.access.RecipeBookAccess;
 import jingy.jineric.recipe.book.JmRecipeBookOptions;
-import net.minecraft.recipe.book.RecipeBook;
+import net.minecraft.stats.RecipeBook;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 

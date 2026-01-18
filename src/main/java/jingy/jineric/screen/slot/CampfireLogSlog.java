@@ -2,82 +2,80 @@ package jingy.jineric.screen.slot;
 
 import jingy.jineric.access.CampfireBlockEntityAccess;
 import jingy.jineric.screen.CampfireScreenHandler;
-import net.minecraft.block.Block;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.CampfireBlockEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.Inventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.CampfireCookingRecipe;
-import net.minecraft.recipe.RecipeEntry;
-import net.minecraft.recipe.RecipeType;
-import net.minecraft.recipe.input.SingleStackRecipeInput;
-import net.minecraft.screen.ScreenHandlerContext;
-import net.minecraft.screen.slot.Slot;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.event.GameEvent;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.Container;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.CampfireCookingRecipe;
+import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.SingleRecipeInput;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.CampfireBlockEntity;
+import net.minecraft.world.level.gameevent.GameEvent;
 
 import java.util.Optional;
 
 public class CampfireLogSlog extends Slot {
 	private final CampfireScreenHandler handler;
-	private final Inventory inventory;
-	private final PlayerEntity player;
-	private final ScreenHandlerContext context;
+	private final Player player;
+	private final ContainerLevelAccess context;
 	
-	public CampfireLogSlog(CampfireScreenHandler handler, PlayerEntity player, ScreenHandlerContext context, Inventory inventory, int index, int x, int y) {
+	public CampfireLogSlog(CampfireScreenHandler handler, Player player, ContainerLevelAccess context, Container inventory, int index, int x, int y) {
 		super(inventory, index, x, y);
 		this.handler = handler;
 		this.player = player;
 		this.context = context;
-		this.inventory = inventory;
 	}
 	
 	@Override
-	public void onTakeItem(PlayerEntity player, ItemStack stack) {
+	public void onTake(Player player, ItemStack stack) {
 		this.slotStacksToBlockEntity(ItemStack.EMPTY);
-		super.onTakeItem(player, stack);
+		super.onTake(player, stack);
 	}
 	
 	@Override
-	public void setStack(ItemStack stack) {
+	public void setByPlayer(ItemStack stack) {
 		this.slotStacksToBlockEntity(stack);
-		super.setStack(stack);
+		super.setByPlayer(stack);
 	}
 	
 	public void slotStacksToBlockEntity(ItemStack newStack) {
-		int index = this.getIndex();
-		this.context.run((world, pos) -> {
-			if (world.getBlockEntity(pos) instanceof CampfireBlockEntity campfireBlockEntity && this.getIndex() < 4) {
-				if (world instanceof ServerWorld serverWorld) {
-					Optional<RecipeEntry<CampfireCookingRecipe>> optional = serverWorld.getRecipeManager().getFirstMatch(RecipeType.CAMPFIRE_COOKING, new SingleStackRecipeInput(newStack), world);
+		int index = this.getContainerSlot();
+		this.context.execute((world, pos) -> {
+			if (world.getBlockEntity(pos) instanceof CampfireBlockEntity campfireBlockEntity && index < 4) {
+				if (world instanceof ServerLevel serverWorld) {
+					Optional<RecipeHolder<CampfireCookingRecipe>> optional = serverWorld.recipeAccess().getRecipeFor(RecipeType.CAMPFIRE_COOKING, new SingleRecipeInput(newStack), world);
 					this.emitUpdates(serverWorld, pos, campfireBlockEntity);
 					
 					if (optional.isEmpty() || newStack.isEmpty()) {
 						return;
 					}
-					((CampfireBlockEntityAccess)campfireBlockEntity).jineric$setCookingTotalTime(index, ((CampfireCookingRecipe)((RecipeEntry<?>)optional.get()).value()).getCookingTime());
+					((CampfireBlockEntityAccess)campfireBlockEntity).jineric$setCookingTotalTime(index, ((CampfireCookingRecipe)((RecipeHolder<?>)optional.get()).value()).cookingTime());
 					((CampfireBlockEntityAccess)campfireBlockEntity).jineric$setCookingTime(index, 0);
-					campfireBlockEntity.getItemsBeingCooked().set(index, newStack);
+					campfireBlockEntity.getItems().set(index, newStack);
 				}
 			}
 		});
 	}
 	
-	public void emitUpdates(ServerWorld world, BlockPos pos, BlockEntity campfireBlockEntity) {
-		world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, campfireBlockEntity.getCachedState()));
-		campfireBlockEntity.markDirty();
-		world.updateListeners(pos, campfireBlockEntity.getCachedState(), campfireBlockEntity.getCachedState(), Block.NOTIFY_ALL);
+	public void emitUpdates(ServerLevel world, BlockPos pos, BlockEntity campfireBlockEntity) {
+		world.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, campfireBlockEntity.getBlockState()));
+		campfireBlockEntity.setChanged();
+		world.sendBlockUpdated(pos, campfireBlockEntity.getBlockState(), campfireBlockEntity.getBlockState(), Block.UPDATE_ALL);
 	}
 	
 	@Override
-	public boolean canInsert(ItemStack itemStack) {
-		return this.handler.isCampfireRecipeItem(itemStack) && this.inventory.getStack(this.getIndex()).isEmpty();
+	public boolean mayPlace(ItemStack itemStack) {
+		return this.handler.isCampfireRecipeItem(itemStack) && this.container.getItem(this.getContainerSlot()).isEmpty();
 	}
 	
 	@Override
-	public int getMaxItemCount() {
+	public int getMaxStackSize() {
 		return 1;
 	}
 }

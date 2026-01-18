@@ -1,43 +1,43 @@
 package jingy.jineric.recipe;
 
-import net.minecraft.advancement.Advancement;
-import net.minecraft.advancement.AdvancementCriterion;
-import net.minecraft.advancement.AdvancementRequirements;
-import net.minecraft.advancement.AdvancementRewards;
-import net.minecraft.advancement.criterion.RecipeUnlockedCriterion;
-import net.minecraft.data.recipe.CraftingRecipeJsonBuilder;
-import net.minecraft.data.recipe.RecipeExporter;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.recipe.Recipe;
-import net.minecraft.recipe.book.CookingRecipeCategory;
-import net.minecraft.recipe.book.RecipeCategory;
-import net.minecraft.registry.RegistryKey;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
+import net.minecraft.advancements.Advancement;
+import net.minecraft.advancements.AdvancementRequirements;
+import net.minecraft.advancements.AdvancementRewards;
+import net.minecraft.advancements.Criterion;
+import net.minecraft.advancements.criterion.RecipeUnlockedTrigger;
+import net.minecraft.data.recipes.RecipeBuilder;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.CookingBookCategory;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.level.ItemLike;
 
-public class FoundryRecipeJsonBuilder implements CraftingRecipeJsonBuilder {
+public class FoundryRecipeJsonBuilder implements RecipeBuilder {
 	private final RecipeCategory category;
-	private final CookingRecipeCategory cookingCategory;
+	private final CookingBookCategory cookingCategory;
 	private final Item output;
 	private final Ingredient input;
 	private final int inputCount;
 	private final float experience;
 	private final int cookingTime;
-	private final Map<String, AdvancementCriterion<?>> criteria = new LinkedHashMap();
+	private final Map<String, Criterion<?>> criteria = new LinkedHashMap();
 	@Nullable
 	private String group;
 	private final FoundrySmeltingRecipe.RecipeFactory recipeFactory;
 	
 	private FoundryRecipeJsonBuilder(
 			RecipeCategory category,
-			CookingRecipeCategory cookingCategory,
-			ItemConvertible output,
+			CookingBookCategory cookingCategory,
+			ItemLike output,
 			Ingredient input,
 			int inputCount,
 			float experience,
@@ -58,19 +58,19 @@ public class FoundryRecipeJsonBuilder implements CraftingRecipeJsonBuilder {
 			Ingredient input,
 			int inputCount,
 			RecipeCategory category,
-			ItemConvertible output,
+			ItemLike output,
 			float experience,
 			int cookingTime,
 			FoundrySmeltingRecipe.RecipeFactory recipeFactory
 	) {
-		return new FoundryRecipeJsonBuilder(category, CookingRecipeCategory.MISC, output, input, inputCount, experience, cookingTime, recipeFactory);
+		return new FoundryRecipeJsonBuilder(category, CookingBookCategory.MISC, output, input, inputCount, experience, cookingTime, recipeFactory);
 	}
 	
-	public static FoundryRecipeJsonBuilder createFoundrySmelting(Ingredient input, int inputCount, RecipeCategory category, ItemConvertible output, float experience, int cookingTime) {
-		return new FoundryRecipeJsonBuilder(category, CookingRecipeCategory.MISC, output, input, inputCount, experience, cookingTime, FoundrySmeltingRecipe::new);
+	public static FoundryRecipeJsonBuilder createFoundrySmelting(Ingredient input, int inputCount, RecipeCategory category, ItemLike output, float experience, int cookingTime) {
+		return new FoundryRecipeJsonBuilder(category, CookingBookCategory.MISC, output, input, inputCount, experience, cookingTime, FoundrySmeltingRecipe::new);
 	}
 	
-	public FoundryRecipeJsonBuilder criterion(String string, AdvancementCriterion<?> advancementCriterion) {
+	public FoundryRecipeJsonBuilder unlockedBy(String string, Criterion<?> advancementCriterion) {
 		this.criteria.put(string, advancementCriterion);
 		return this;
 	}
@@ -81,26 +81,26 @@ public class FoundryRecipeJsonBuilder implements CraftingRecipeJsonBuilder {
 	}
 	
 	@Override
-	public Item getOutputItem() {
+	public Item getResult() {
 		return this.output;
 	}
 	
 	@Override
-	public void offerTo(RecipeExporter exporter, RegistryKey<Recipe<?>> recipeKey) {
+	public void save(RecipeOutput exporter, ResourceKey<Recipe<?>> recipeKey) {
 		this.validate(recipeKey);
-		Advancement.Builder builder = exporter.getAdvancementBuilder()
-				.criterion("has_the_recipe", RecipeUnlockedCriterion.create(recipeKey))
+		Advancement.Builder builder = exporter.advancement()
+				.addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(recipeKey))
 				.rewards(AdvancementRewards.Builder.recipe(recipeKey))
-				.criteriaMerger(AdvancementRequirements.CriterionMerger.OR);
-		this.criteria.forEach(builder::criterion);
+				.requirements(AdvancementRequirements.Strategy.OR);
+		this.criteria.forEach(builder::addCriterion);
 		FoundrySmeltingRecipe foundrySmeltingRecipe = this.recipeFactory
 				.create(Objects.requireNonNullElse(this.group, ""), this.cookingCategory, this.input, this.inputCount, new ItemStack(this.output), this.experience, this.cookingTime);
-		exporter.accept(recipeKey, foundrySmeltingRecipe, builder.build(recipeKey.getValue().withPrefixedPath("recipes/" + this.category.getName() + "/")));
+		exporter.accept(recipeKey, foundrySmeltingRecipe, builder.build(recipeKey.identifier().withPrefix("recipes/" + this.category.getFolderName() + "/")));
 	}
 	
-	private void validate(RegistryKey<Recipe<?>> recipeKey) {
+	private void validate(ResourceKey<Recipe<?>> recipeKey) {
 		if (this.criteria.isEmpty()) {
-			throw new IllegalStateException("No way of obtaining recipe " + recipeKey.getValue());
+			throw new IllegalStateException("No way of obtaining recipe " + recipeKey.identifier());
 		}
 	}
 }

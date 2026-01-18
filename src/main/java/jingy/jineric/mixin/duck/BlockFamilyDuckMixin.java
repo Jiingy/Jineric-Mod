@@ -1,7 +1,7 @@
 package jingy.jineric.mixin.duck;
 
 import jingy.jineric.access.BlockFamilyAccess;
-import net.minecraft.data.family.BlockFamily;
+import net.minecraft.data.BlockFamily;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 

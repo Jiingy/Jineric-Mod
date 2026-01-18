@@ -1,24 +1,24 @@
 package jingy.jineric.item;
 
-import jingy.jineric.config.JmConfig;
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.JinericBlocks;
+import jingy.jineric.config.JmConfig;
 import jingy.jineric.item.equipment.JmArmorMaterials;
 import jingy.jineric.item.equipment.JmEquipmentAssetKeys;
 import jingy.jineric.item.equipment.JmToolMaterials;
 import jingy.jineric.item.template.JmSmithingTemplateItem;
-import net.minecraft.block.Block;
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.EquippableComponent;
-import net.minecraft.component.type.FoodComponent;
-import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.*;
-import net.minecraft.item.equipment.ArmorMaterials;
-import net.minecraft.item.equipment.EquipmentType;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
+import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.equipment.ArmorMaterials;
+import net.minecraft.world.item.equipment.ArmorType;
+import net.minecraft.world.item.equipment.Equippable;
+import net.minecraft.world.level.block.Block;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;
@@ -265,94 +265,94 @@ public class JinericItems {
 	//REDSTONE
 	public static final Item REDSTONE_LANTERN = register(JinericBlocks.REDSTONE_LANTERN);
 	//FOOD
-	public static final Item GOLDEN_POTATO = register("golden_potato", new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.6f).build()));
-	public static final Item GOLDEN_SWEET_BERRIES = register("golden_sweet_berries", new Item.Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.2f).build()));
-	public static final Item GOLDEN_BEETROOT = register("golden_beetroot", new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(1.2f).build()));
+	public static final Item GOLDEN_POTATO = register("golden_potato", new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.6f).build()));
+	public static final Item GOLDEN_SWEET_BERRIES = register("golden_sweet_berries", new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.2f).build()));
+	public static final Item GOLDEN_BEETROOT = register("golden_beetroot", new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(1.2f).build()));
 	//MISC JINERIC
 	public static final Item SOUL_JACK_O_LANTERN = register(JinericBlocks.SOUL_JACK_O_LANTERN);
-	public static final Item NETHERITE_HORSE_ARMOR = register("netherite_horse_armor", new Item.Settings().horseArmor(ArmorMaterials.NETHERITE));
-	public static final Item BOW_DRILL = register("bow_drill", BowDrillItem::new, new Item.Settings().maxCount(1));
+	public static final Item NETHERITE_HORSE_ARMOR = register("netherite_horse_armor", new Item.Properties().horseArmor(ArmorMaterials.NETHERITE));
+	public static final Item BOW_DRILL = register("bow_drill", BowDrillItem::new, new Item.Properties().stacksTo(1));
 	public static final Item TINDER = register(JinericBlocks.TINDER);
 	public static final Item CLAY_BRICK = register("clay_brick");
 	
 	//EQUIPMENT
 	//WOODEN
 	public static final Item WOODEN_HELMET = register("wooden_helmet",
-			new Item.Settings()
-					.armor(JmArmorMaterials.WOODEN, EquipmentType.HELMET)
-					.component(DataComponentTypes.EQUIPPABLE, EquippableComponent.builder(EquipmentSlot.HEAD).model(JmEquipmentAssetKeys.WOOD).build())
+			new Item.Properties()
+					.humanoidArmor(JmArmorMaterials.WOODEN, ArmorType.HELMET)
+					.component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.HEAD).setAsset(JmEquipmentAssetKeys.WOOD).build())
 	);
 	public static final Item WOODEN_CHESTPLATE = register("wooden_chestplate",
-			new Item.Settings()
-					.armor(JmArmorMaterials.WOODEN, EquipmentType.CHESTPLATE)
-					.component(DataComponentTypes.EQUIPPABLE, EquippableComponent.builder(EquipmentSlot.CHEST).model(JmEquipmentAssetKeys.WOOD).build())
+			new Item.Properties()
+					.humanoidArmor(JmArmorMaterials.WOODEN, ArmorType.CHESTPLATE)
+					.component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.CHEST).setAsset(JmEquipmentAssetKeys.WOOD).build())
 	);
 	public static final Item WOODEN_LEGGINGS = register("wooden_leggings",
-			new Item.Settings()
-					.armor(JmArmorMaterials.WOODEN, EquipmentType.LEGGINGS)
-					.component(DataComponentTypes.EQUIPPABLE, EquippableComponent.builder(EquipmentSlot.LEGS).model(JmEquipmentAssetKeys.WOOD).build())
+			new Item.Properties()
+					.humanoidArmor(JmArmorMaterials.WOODEN, ArmorType.LEGGINGS)
+					.component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.LEGS).setAsset(JmEquipmentAssetKeys.WOOD).build())
 	);
 	public static final Item WOODEN_BOOTS = register("wooden_boots",
-			new Item.Settings()
-					.armor(JmArmorMaterials.WOODEN, EquipmentType.BOOTS)
-					.component(DataComponentTypes.EQUIPPABLE, EquippableComponent.builder(EquipmentSlot.FEET).model(JmEquipmentAssetKeys.EMERALD).build())
+			new Item.Properties()
+					.humanoidArmor(JmArmorMaterials.WOODEN, ArmorType.BOOTS)
+					.component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.FEET).setAsset(JmEquipmentAssetKeys.EMERALD).build())
 	);
 	//EMERALD
 	public static final Item EMERALD_HELMET = register("emerald_helmet",
-			new Item.Settings()
-					.armor(JmArmorMaterials.EMERALD, EquipmentType.HELMET)
-					.component(DataComponentTypes.EQUIPPABLE, EquippableComponent.builder(EquipmentSlot.HEAD).model(JmEquipmentAssetKeys.EMERALD).build())
+			new Item.Properties()
+					.humanoidArmor(JmArmorMaterials.EMERALD, ArmorType.HELMET)
+					.component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.HEAD).setAsset(JmEquipmentAssetKeys.EMERALD).build())
 	);
 	public static final Item EMERALD_CHESTPLATE = register("emerald_chestplate",
-			new Item.Settings()
-					.armor(JmArmorMaterials.EMERALD, EquipmentType.CHESTPLATE)
-					.component(DataComponentTypes.EQUIPPABLE, EquippableComponent.builder(EquipmentSlot.CHEST).model(JmEquipmentAssetKeys.EMERALD).build())
+			new Item.Properties()
+					.humanoidArmor(JmArmorMaterials.EMERALD, ArmorType.CHESTPLATE)
+					.component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.CHEST).setAsset(JmEquipmentAssetKeys.EMERALD).build())
 	);
 	public static final Item EMERALD_LEGGINGS = register("emerald_leggings",
-			new Item.Settings()
-					.armor(JmArmorMaterials.EMERALD, EquipmentType.LEGGINGS)
-					.component(DataComponentTypes.EQUIPPABLE, EquippableComponent.builder(EquipmentSlot.LEGS).model(JmEquipmentAssetKeys.EMERALD).build())
+			new Item.Properties()
+					.humanoidArmor(JmArmorMaterials.EMERALD, ArmorType.LEGGINGS)
+					.component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.LEGS).setAsset(JmEquipmentAssetKeys.EMERALD).build())
 	);
 	public static final Item EMERALD_BOOTS = register("emerald_boots",
-			new Item.Settings()
-					.armor(JmArmorMaterials.EMERALD, EquipmentType.BOOTS)
-					.component(DataComponentTypes.EQUIPPABLE, EquippableComponent.builder(EquipmentSlot.FEET).model(JmEquipmentAssetKeys.EMERALD).build())
+			new Item.Properties()
+					.humanoidArmor(JmArmorMaterials.EMERALD, ArmorType.BOOTS)
+					.component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.FEET).setAsset(JmEquipmentAssetKeys.EMERALD).build())
 	);
-	public static final Item EMERALD_SWORD = register("emerald_sword", new Item.Settings().sword(JmToolMaterials.EMERALD, 3.0F, -2.4F));
+	public static final Item EMERALD_SWORD = register("emerald_sword", new Item.Properties().sword(JmToolMaterials.EMERALD, 3.0F, -2.4F));
 	public static final Item EMERALD_SHOVEL = register("emerald_shovel", settings -> new ShovelItem(JmToolMaterials.EMERALD, 1.5F, -3.0F, settings));
-	public static final Item EMERALD_PICKAXE = register("emerald_pickaxe", new Item.Settings().pickaxe(JmToolMaterials.EMERALD, 1.0F, -2.8F));
+	public static final Item EMERALD_PICKAXE = register("emerald_pickaxe", new Item.Properties().pickaxe(JmToolMaterials.EMERALD, 1.0F, -2.8F));
 	public static final Item EMERALD_AXE = register("emerald_axe", settings -> new AxeItem(JmToolMaterials.EMERALD, 5.0F, -3.0F, settings));
 	public static final Item EMERALD_HOE = register("emerald_hoe", settings -> new HoeItem(JmToolMaterials.EMERALD, -3.0F, 0.0F, settings));
 	
-	public static final Item FLINT_PICKAXE = register("flint_pickaxe", new Item.Settings().pickaxe(JmToolMaterials.FLINT, 1.0F, -2.8F));
-	public static final Item DEEPSLATE_PICKAXE = register("deepslate_pickaxe", new Item.Settings().pickaxe(JmToolMaterials.DEEPSLATE, 1.0F, -2.8F));
-	public static final Item AMETHYST_PICKAXE = register("amethyst_pickaxe", new Item.Settings().pickaxe(JmToolMaterials.AMETHYST, 1.0F, -2.8F));
+	public static final Item FLINT_PICKAXE = register("flint_pickaxe", new Item.Properties().pickaxe(JmToolMaterials.FLINT, 1.0F, -2.8F));
+	public static final Item DEEPSLATE_PICKAXE = register("deepslate_pickaxe", new Item.Properties().pickaxe(JmToolMaterials.DEEPSLATE, 1.0F, -2.8F));
+	public static final Item AMETHYST_PICKAXE = register("amethyst_pickaxe", new Item.Properties().pickaxe(JmToolMaterials.AMETHYST, 1.0F, -2.8F));
 	
 	//TEMPLATES
 	public static final Item STONE_UPGRADE_SMITHING_TEMPLATE = register("stone_upgrade_smithing_template",
 			JmSmithingTemplateItem::createStoneUpgrade,
-			JmConfig.UPGRADE_TEMPLATE ? new Item.Settings().jineric$maxLevel(2) : new Item.Settings()
+			JmConfig.UPGRADE_TEMPLATE ? new Item.Properties().jineric$maxLevel(2) : new Item.Properties()
 	);
 	public static final Item COPPER_UPGRADE_SMITHING_TEMPLATE = register("copper_upgrade_smithing_template",
 			JmSmithingTemplateItem::createCopperUpgrade,
-			JmConfig.UPGRADE_TEMPLATE ? new Item.Settings().jineric$maxLevel(4) : new Item.Settings()
+			JmConfig.UPGRADE_TEMPLATE ? new Item.Properties().jineric$maxLevel(4) : new Item.Properties()
 	);
 	public static final Item IRON_UPGRADE_SMITHING_TEMPLATE = register("iron_upgrade_smithing_template",
 			JmSmithingTemplateItem::createIronUpgrade,
-			JmConfig.UPGRADE_TEMPLATE ? new Item.Settings().jineric$maxLevel(8) : new Item.Settings()
+			JmConfig.UPGRADE_TEMPLATE ? new Item.Properties().jineric$maxLevel(8) : new Item.Properties()
 	);
 	public static final Item GOLD_UPGRADE_SMITHING_TEMPLATE = register("gold_upgrade_smithing_template",
 			JmSmithingTemplateItem::createGoldUpgrade,
-			JmConfig.UPGRADE_TEMPLATE ? new Item.Settings().jineric$maxLevel(16) : new Item.Settings()
+			JmConfig.UPGRADE_TEMPLATE ? new Item.Properties().jineric$maxLevel(16) : new Item.Properties()
 	);
 	public static final Item DIAMOND_UPGRADE_SMITHING_TEMPLATE = register("diamond_upgrade_smithing_template",
 			JmSmithingTemplateItem::createDiamondUpgrade,
-			JmConfig.UPGRADE_TEMPLATE ? new Item.Settings().jineric$maxLevel(32) : new Item.Settings()
+			JmConfig.UPGRADE_TEMPLATE ? new Item.Properties().jineric$maxLevel(32) : new Item.Properties()
 	);
 	
 	//WIP OR UNKNOWN ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //	public static final Item IRON_UPGRADE_SMITHING_TEMPLATE = register(
-//			"iron_upgrade_smithing_template", JinericSmithingTemplateItem::createIronUpgrade, new Item.Settings().rarity(Rarity.COMMON)
+//			"iron_upgrade_smithing_template", JinericSmithingTemplateItem::createIronUpgrade, new Item.Properties().rarity(Rarity.COMMON)
 //	);
 	public static final Item REFINERY = register(JinericBlocks.REFINERY);
 	public static final Item FOUNDRY = register(JinericBlocks.FOUNDRY);
@@ -360,23 +360,23 @@ public class JinericItems {
 	public static final Item REDSTONE_CAMPFIRE = register(JinericBlocks.REDSTONE_CAMPFIRE);
 	public static final Item STONE_CRUCIBLE = register(JinericBlocks.STONE_CRUCIBLE);
 	
-	private static RegistryKey<Item> keyOf(String id) {
-		return RegistryKey.of(RegistryKeys.ITEM, JinericMain.ofJineric(id));
+	private static ResourceKey<Item> keyOf(String id) {
+		return ResourceKey.create(Registries.ITEM, JinericMain.ofJineric(id));
 	}
 	
-	private static RegistryKey<Item> keyOf(RegistryKey<Block> blockKey) {
-		return RegistryKey.of(RegistryKeys.ITEM, blockKey.getValue());
+	private static ResourceKey<Item> keyOf(ResourceKey<Block> blockKey) {
+		return ResourceKey.create(Registries.ITEM, blockKey.identifier());
 	}
 	
 	private static Item register(Block block) {
 		return register(block, BlockItem::new);
 	}
 	
-	private static Item register(Block block, Item.Settings settings) {
+	private static Item register(Block block, Item.Properties settings) {
 		return register(block, BlockItem::new, settings);
 	}
 	
-	private static Item register(Block block, UnaryOperator<Item.Settings> settingsOperator) {
+	private static Item register(Block block, UnaryOperator<Item.Properties> settingsOperator) {
 		return register(block, (blockx, settings) -> new BlockItem(blockx, settingsOperator.apply(settings)));
 	}
 	
@@ -384,49 +384,49 @@ public class JinericItems {
 		Item item = register(block);
 		
 		for (Block block2 : blocks) {
-			Item.BLOCK_ITEMS.put(block2, item);
+			Item.BY_BLOCK.put(block2, item);
 		}
 		
 		return item;
 	}
 	
-	private static Item register(Block block, BiFunction<Block, Item.Settings, Item> factory) {
-		return register(block, factory, new Item.Settings());
+	private static Item register(Block block, BiFunction<Block, Item.Properties, Item> factory) {
+		return register(block, factory, new Item.Properties());
 	}
 	
-	private static Item register(Block block, BiFunction<Block, Item.Settings, Item> factory, Item.Settings settings) {
+	private static Item register(Block block, BiFunction<Block, Item.Properties, Item> factory, Item.Properties settings) {
 		return register(
-				keyOf(block.getRegistryEntry().registryKey()), itemSettings -> factory.apply(block, itemSettings), settings.useBlockPrefixedTranslationKey()
+				keyOf(block.builtInRegistryHolder().key()), itemSettings -> factory.apply(block, itemSettings), settings.useBlockDescriptionPrefix()
 		);
 	}
 	
-	private static Item register(String id, Function<Item.Settings, Item> factory) {
-		return register(keyOf(id), factory, new Item.Settings());
+	private static Item register(String id, Function<Item.Properties, Item> factory) {
+		return register(keyOf(id), factory, new Item.Properties());
 	}
 	
-	private static Item register(String id, Function<Item.Settings, Item> factory, Item.Settings settings) {
+	private static Item register(String id, Function<Item.Properties, Item> factory, Item.Properties settings) {
 		return register(keyOf(id), factory, settings);
 	}
 	
-	private static Item register(String id, Item.Settings settings) {
+	private static Item register(String id, Item.Properties settings) {
 		return register(keyOf(id), Item::new, settings);
 	}
 	
 	private static Item register(String id) {
-		return register(keyOf(id), Item::new, new Item.Settings());
+		return register(keyOf(id), Item::new, new Item.Properties());
 	}
 	
-	private static Item register(RegistryKey<Item> key, Function<Item.Settings, Item> factory) {
-		return register(key, factory, new Item.Settings());
+	private static Item register(ResourceKey<Item> key, Function<Item.Properties, Item> factory) {
+		return register(key, factory, new Item.Properties());
 	}
 	
-	private static Item register(RegistryKey<Item> key, Function<Item.Settings, Item> factory, Item.Settings settings) {
-		Item item = factory.apply(settings.registryKey(key));
+	private static Item register(ResourceKey<Item> key, Function<Item.Properties, Item> factory, Item.Properties settings) {
+		Item item = factory.apply(settings.setId(key));
 		if (item instanceof BlockItem blockItem) {
-			blockItem.appendBlocks(Item.BLOCK_ITEMS, item);
+			blockItem.registerBlocks(Item.BY_BLOCK, item);
 		}
 		
-		return Registry.register(Registries.ITEM, key, item);
+		return Registry.register(BuiltInRegistries.ITEM, key, item);
 	}
 	
 	public static void initialize() {

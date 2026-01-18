@@ -1,7 +1,7 @@
 package jingy.jineric.data.family;
 
 import com.chocohead.mm.api.ClassTinkerers;
-import net.minecraft.data.family.BlockFamily;
+import net.minecraft.data.BlockFamily;
 
 public class JinericBlockFamilyVariants {
 	public static final BlockFamily.Variant PILLAR = ClassTinkerers.getEnum(BlockFamily.Variant.class, "PILLAR");

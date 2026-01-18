@@ -1,9 +1,9 @@
 package jingy.jineric.tag;
 
 import jingy.jineric.base.JinericMain;
-import net.minecraft.entity.EntityType;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.tag.TagKey;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.EntityType;
 
 public interface JinericEntityTypeTags {
 	TagKey<EntityType<?>> LEVELS_WEAPON_NONE = register("levels_weapon_none");
@@ -15,6 +15,6 @@ public interface JinericEntityTypeTags {
 	TagKey<EntityType<?>> LEVELS_WEAPON_EXTREME = register("levels_weapon_extreme");
 	
 	private static TagKey<EntityType<?>> register(String id) {
-		return TagKey.of(Registries.ENTITY_TYPE.getKey(), JinericMain.ofJineric(id));
+		return TagKey.create(BuiltInRegistries.ENTITY_TYPE.key(), JinericMain.ofJineric(id));
 	}
 }

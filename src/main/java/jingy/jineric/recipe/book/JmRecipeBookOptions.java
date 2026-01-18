@@ -4,28 +4,27 @@ import com.google.common.annotations.VisibleForTesting;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import jingy.jineric.mixin.access.CategoryOptionAccessor;
-import net.minecraft.network.PacketByteBuf;
-import net.minecraft.network.codec.PacketCodec;
-import net.minecraft.recipe.book.RecipeBookOptions;
-import net.minecraft.recipe.book.RecipeBookType;
-
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.stats.RecipeBookSettings;
+import net.minecraft.world.inventory.RecipeBookType;
 import java.util.function.UnaryOperator;
 
 public class JmRecipeBookOptions {
-	public static final MapCodec<RecipeBookOptions.CategoryOption> REFINERY = CategoryOptionAccessor.callCreateCodec("isRefineryGuiOpen", "isRefineryFilteringCraftable");
-	public static final MapCodec<RecipeBookOptions.CategoryOption> FOUNDRY = CategoryOptionAccessor.callCreateCodec("isFoundryGuiOpen", "isFoundryFilteringCraftable");
+	public static final MapCodec<RecipeBookSettings.TypeSettings> REFINERY = CategoryOptionAccessor.callCreateCodec("isRefineryGuiOpen", "isRefineryFilteringCraftable");
+	public static final MapCodec<RecipeBookSettings.TypeSettings> FOUNDRY = CategoryOptionAccessor.callCreateCodec("isFoundryGuiOpen", "isFoundryFilteringCraftable");
 	public static final MapCodec<RecipeBookOptions.CategoryOption> KILN = CategoryOptionAccessor.callCreateCodec("isKilnGuiOpen", "isKilnFilteringCraftable");
 	
-	public static final PacketCodec<PacketByteBuf, JmRecipeBookOptions> PACKET_CODEC = PacketCodec.tuple(
+	public static final StreamCodec<FriendlyByteBuf, JmRecipeBookOptions> PACKET_CODEC = StreamCodec.composite(
 			//  Modded
-			RecipeBookOptions.CategoryOption.PACKET_CODEC, options -> options.refinery,
-			RecipeBookOptions.CategoryOption.PACKET_CODEC, options -> options.foundry,
+			RecipeBookSettings.TypeSettings.STREAM_CODEC, options -> options.refinery,
+			RecipeBookSettings.TypeSettings.STREAM_CODEC, options -> options.foundry,
 			RecipeBookOptions.CategoryOption.PACKET_CODEC, options -> options.kiln,
 			//  Vanilla
-			RecipeBookOptions.CategoryOption.PACKET_CODEC, options -> options.crafting,
-			RecipeBookOptions.CategoryOption.PACKET_CODEC, options -> options.furnace,
-			RecipeBookOptions.CategoryOption.PACKET_CODEC, options -> options.blastFurnace,
-			RecipeBookOptions.CategoryOption.PACKET_CODEC, options -> options.smoker,
+			RecipeBookSettings.TypeSettings.STREAM_CODEC, options -> options.crafting,
+			RecipeBookSettings.TypeSettings.STREAM_CODEC, options -> options.furnace,
+			RecipeBookSettings.TypeSettings.STREAM_CODEC, options -> options.blastFurnace,
+			RecipeBookSettings.TypeSettings.STREAM_CODEC, options -> options.smoker,
 			JmRecipeBookOptions::new
 	);
 	public static final MapCodec<JmRecipeBookOptions> CODEC = RecordCodecBuilder.mapCodec(
@@ -35,45 +34,45 @@ public class JmRecipeBookOptions {
 					FOUNDRY.forGetter(options -> options.foundry),
 					KILN.forGetter(options -> options.kiln),
 					//  Vanilla
-					RecipeBookOptions.CategoryOption.CRAFTING.forGetter(options -> options.crafting),
-					RecipeBookOptions.CategoryOption.FURNACE.forGetter(options -> options.furnace),
-					RecipeBookOptions.CategoryOption.BLAST_FURNACE.forGetter(options -> options.blastFurnace),
-					RecipeBookOptions.CategoryOption.SMOKER.forGetter(options -> options.smoker)
+					RecipeBookSettings.TypeSettings.CRAFTING_MAP_CODEC.forGetter(options -> options.crafting),
+					RecipeBookSettings.TypeSettings.FURNACE_MAP_CODEC.forGetter(options -> options.furnace),
+					RecipeBookSettings.TypeSettings.BLAST_FURNACE_MAP_CODEC.forGetter(options -> options.blastFurnace),
+					RecipeBookSettings.TypeSettings.SMOKER_MAP_CODEC.forGetter(options -> options.smoker)
 			).apply(instance, JmRecipeBookOptions::new)
 	);
 	
 	//  Modded
-	private RecipeBookOptions.CategoryOption refinery;
-	private RecipeBookOptions.CategoryOption foundry;
+	private RecipeBookSettings.TypeSettings refinery;
+	private RecipeBookSettings.TypeSettings foundry;
 	private RecipeBookOptions.CategoryOption kiln;
 	//  Vanilla
-	private RecipeBookOptions.CategoryOption crafting;
-	private RecipeBookOptions.CategoryOption furnace;
-	private RecipeBookOptions.CategoryOption blastFurnace;
-	private RecipeBookOptions.CategoryOption smoker;
+	private RecipeBookSettings.TypeSettings crafting;
+	private RecipeBookSettings.TypeSettings furnace;
+	private RecipeBookSettings.TypeSettings blastFurnace;
+	private RecipeBookSettings.TypeSettings smoker;
 	
 	public JmRecipeBookOptions() {
 		this(
-				RecipeBookOptions.CategoryOption.DEFAULT,
-				RecipeBookOptions.CategoryOption.DEFAULT,
-				RecipeBookOptions.CategoryOption.DEFAULT,
-				RecipeBookOptions.CategoryOption.DEFAULT,
-				RecipeBookOptions.CategoryOption.DEFAULT,
-				RecipeBookOptions.CategoryOption.DEFAULT,
+				RecipeBookSettings.TypeSettings.DEFAULT,
+				RecipeBookSettings.TypeSettings.DEFAULT,
+				RecipeBookSettings.TypeSettings.DEFAULT,
+				RecipeBookSettings.TypeSettings.DEFAULT,
+				RecipeBookSettings.TypeSettings.DEFAULT,
+				RecipeBookSettings.TypeSettings.DEFAULT,
 				RecipeBookOptions.CategoryOption.DEFAULT
 		);
 	}
 	
 	private JmRecipeBookOptions(
 			//  Modded
-			RecipeBookOptions.CategoryOption refinery,
-			RecipeBookOptions.CategoryOption foundry,
+			RecipeBookSettings.TypeSettings refinery,
+			RecipeBookSettings.TypeSettings foundry,
 			RecipeBookOptions.CategoryOption kiln,
 			//  Vanilla
-			RecipeBookOptions.CategoryOption crafting,
-			RecipeBookOptions.CategoryOption furnace,
-			RecipeBookOptions.CategoryOption blastFurnace,
-			RecipeBookOptions.CategoryOption smoker
+			RecipeBookSettings.TypeSettings crafting,
+			RecipeBookSettings.TypeSettings furnace,
+			RecipeBookSettings.TypeSettings blastFurnace,
+			RecipeBookSettings.TypeSettings smoker
 	) {
 		//  Modded
 		this.refinery = refinery;
@@ -87,7 +86,7 @@ public class JmRecipeBookOptions {
 	}
 	
 	@VisibleForTesting
-	public RecipeBookOptions.CategoryOption getOption(RecipeBookType type) {
+	public RecipeBookSettings.TypeSettings getOption(RecipeBookType type) {
 		//  Modded
 		if (type.equals(JinericRecipeBookType.JINERIC_REFINERY)) {
 			return this.refinery;
@@ -107,7 +106,7 @@ public class JmRecipeBookOptions {
 		}
 	}
 	
-	private void apply(RecipeBookType type, UnaryOperator<RecipeBookOptions.CategoryOption> modifier) {
+	private void apply(RecipeBookType type, UnaryOperator<RecipeBookSettings.TypeSettings> modifier) {
 		//  Modded
 		if (type.equals(JinericRecipeBookType.JINERIC_REFINERY)) {
 			this.refinery = modifier.apply(this.refinery);
@@ -138,19 +137,19 @@ public class JmRecipeBookOptions {
 	}
 	
 	public boolean isGuiOpen(RecipeBookType category) {
-		return ((CategoryOptionAccessor)(Object)this.getOption(category)).isGuiOpen();
+		return ((CategoryOptionAccessor)(Object)this.getOption(category)).isOpen();
 	}
 	
 	public void setGuiOpen(RecipeBookType category, boolean open) {
-		this.apply(category, option -> option.withGuiOpen(open));
+		this.apply(category, option -> option.setOpen(open));
 	}
 	
 	public boolean isFilteringCraftable(RecipeBookType category) {
-		return ((CategoryOptionAccessor)(Object)this.getOption(category)).isFilteringCraftable();
+		return ((CategoryOptionAccessor)(Object)this.getOption(category)).isFiltering();
 	}
 	
 	public void setFilteringCraftable(RecipeBookType category, boolean filtering) {
-		this.apply(category, option -> option.withFilteringCraftable(filtering));
+		this.apply(category, option -> option.setFiltering(filtering));
 	}
 	
 	public JmRecipeBookOptions copy() {

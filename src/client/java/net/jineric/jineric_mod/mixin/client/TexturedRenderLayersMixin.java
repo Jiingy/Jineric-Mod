@@ -3,10 +3,10 @@ package net.jineric.jineric_mod.mixin.client;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.jineric.jineric_mod.block.entity.state.JinericChestBlockEntityRenderStateVariant;
-import net.minecraft.block.enums.ChestType;
-import net.minecraft.client.render.TexturedRenderLayers;
-import net.minecraft.client.render.block.entity.state.ChestBlockEntityRenderState;
-import net.minecraft.client.util.SpriteIdentifier;
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.blockentity.state.ChestRenderState;
+import net.minecraft.client.resources.model.Material;
+import net.minecraft.world.level.block.state.properties.ChestType;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -16,22 +16,22 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.Map;
 
 @Environment(EnvType.CLIENT)
-@Mixin(TexturedRenderLayers.class)
+@Mixin(Sheets.class)
 public abstract class TexturedRenderLayersMixin {
-	@Shadow private static SpriteIdentifier getChestTextureId(ChestType type, SpriteIdentifier single, SpriteIdentifier left, SpriteIdentifier right) {
+	@Shadow private static Material chooseMaterial(ChestType chestType, Material material, Material material2, Material material3) {
 		return null;
 	}
 	
 	@Inject(
-			method = "getChestTextureId(Lnet/minecraft/client/render/block/entity/state/ChestBlockEntityRenderState$Variant;Lnet/minecraft/block/enums/ChestType;)Lnet/minecraft/client/util/SpriteIdentifier;",
+			method = "chooseMaterial(Lnet/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType;Lnet/minecraft/world/level/block/state/properties/ChestType;)Lnet/minecraft/client/resources/model/Material;",
 			at = @At("HEAD"),
 			cancellable = true
 	)
-	private static void accountForJinericChestTextures(ChestBlockEntityRenderState.Variant variant, ChestType type, CallbackInfoReturnable<SpriteIdentifier> cir) {
-		Map<ChestBlockEntityRenderState.Variant, JinericChestBlockEntityRenderStateVariant> variantSpriteMap = JinericChestBlockEntityRenderStateVariant.VARIANT_TO_SPRITE_ID;
+	private static void accountForJinericChestTextures(ChestRenderState.ChestMaterialType variant, ChestType type, CallbackInfoReturnable<Material> cir) {
+		Map<ChestRenderState.ChestMaterialType, JinericChestBlockEntityRenderStateVariant> variantSpriteMap = JinericChestBlockEntityRenderStateVariant.VARIANT_TO_SPRITE_ID;
 		if (variant.name().contains("JINERIC_")) {
 			JinericChestBlockEntityRenderStateVariant stateVariant = variantSpriteMap.get(variant);
-			cir.setReturnValue(getChestTextureId(type, stateVariant.normal(), stateVariant.left(), stateVariant.right()));
+			cir.setReturnValue(chooseMaterial(type, stateVariant.normal(), stateVariant.left(), stateVariant.right()));
 		}
 	}
 }

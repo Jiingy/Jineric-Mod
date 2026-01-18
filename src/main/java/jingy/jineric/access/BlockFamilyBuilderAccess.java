@@ -1,7 +1,7 @@
 package jingy.jineric.access;
 
-import net.minecraft.block.Block;
-import net.minecraft.data.family.BlockFamily;
+import net.minecraft.data.BlockFamily;
+import net.minecraft.world.level.block.Block;
 
 public interface BlockFamilyBuilderAccess {
 	

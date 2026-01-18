@@ -2,8 +2,8 @@ package jingy.jineric.mixin.duck;
 
 import jingy.jineric.access.BlockFamilyBuilderAccess;
 import jingy.jineric.data.family.JinericBlockFamilyVariants;
-import net.minecraft.block.Block;
-import net.minecraft.data.family.BlockFamily;
+import net.minecraft.data.BlockFamily;
+import net.minecraft.world.level.block.Block;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

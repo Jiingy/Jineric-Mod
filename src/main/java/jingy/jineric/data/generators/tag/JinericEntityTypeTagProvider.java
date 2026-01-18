@@ -3,18 +3,18 @@ package jingy.jineric.data.generators.tag;
 import jingy.jineric.tag.JinericEntityTypeTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.minecraft.entity.EntityType;
-import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.world.entity.EntityType;
 
 import java.util.concurrent.CompletableFuture;
 
 public class JinericEntityTypeTagProvider extends FabricTagProvider.EntityTypeTagProvider {
-	public JinericEntityTypeTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> completableFuture) {
+	public JinericEntityTypeTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> completableFuture) {
 		super(output, completableFuture);
 	}
 	
 	@Override
-	protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+	protected void addTags(HolderLookup.Provider holderLookupProvider) {
 		//  Non-farm animals which provide no value for killing, or are passive.
 		this.valueLookupBuilder(JinericEntityTypeTags.LEVELS_WEAPON_NONE)
 				.add(EntityType.ALLAY)
@@ -124,6 +124,6 @@ public class JinericEntityTypeTagProvider extends FabricTagProvider.EntityTypeTa
 	
 	@Override
 	public String getName() {
-		return "entity_type";
+		return "Entity Types";
 	}
 }

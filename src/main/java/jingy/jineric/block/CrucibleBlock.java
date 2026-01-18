@@ -4,59 +4,60 @@ import com.mojang.serialization.MapCodec;
 import jingy.jineric.block.entity.CrucibleBlockEntity;
 import jingy.jineric.screen.CrucibleScreenHandler;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.BlockWithEntity;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.screen.NamedScreenHandlerFactory;
-import net.minecraft.screen.ScreenHandlerContext;
-import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
-import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.SimpleMenuProvider;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
-public class CrucibleBlock extends BlockWithEntity {
+public class CrucibleBlock extends BaseEntityBlock {
 	
-	public CrucibleBlock(Settings settings) {
+	public CrucibleBlock(BlockBehaviour.Properties settings) {
 		super(settings);
 	}
 	
 	@Override
-	protected MapCodec<? extends BlockWithEntity> getCodec() {
+	protected MapCodec<? extends BaseEntityBlock> codec() {
 		return null;
 	}
 	
 	@Override
-	protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-		if (!world.isClient() && world.getBlockEntity(pos) instanceof CrucibleBlockEntity crucibleBlockEntity) {
-			player.openHandledScreen(crucibleBlockEntity);
-			return ActionResult.PASS;
+	protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
+		if (!level.isClientSide() && level.getBlockEntity(pos) instanceof CrucibleBlockEntity crucibleBlockEntity) {
+			player.openMenu(crucibleBlockEntity);
+			return InteractionResult.PASS;
 		}
-		return super.onUse(state, world, pos, player, hit);
+		return super.useWithoutItem(state, level, pos, player, hit);
 	}
 	
 	@Override
-	protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-		if (stack.isIn(ConventionalItemTags.RAW_MATERIALS)) {
-			stack.decrement(1);
-			return ActionResult.PASS;
+	protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+		if (stack.is(ConventionalItemTags.RAW_MATERIALS)) {
+			stack.shrink(1);
+			return InteractionResult.PASS;
 		} else {
-			return super.onUseWithItem(stack, state, world, pos, player, hand, hit);
+			return super.useItemOn(stack, state, level, pos, player, hand, hit);
 		}
 	}
 	
 	@Override
-	protected @Nullable NamedScreenHandlerFactory createScreenHandlerFactory(BlockState state, World world, BlockPos pos) {
-		return new SimpleNamedScreenHandlerFactory((syncId, playerInventory, player) -> new CrucibleScreenHandler(syncId, playerInventory, ScreenHandlerContext.create(world, pos)), Text.of("Crucible"));
+	protected @Nullable MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) {
+		return new SimpleMenuProvider((syncId, playerInventory, player) -> new CrucibleScreenHandler(syncId, playerInventory, ContainerLevelAccess.create(level, pos)), Component.literal("Crucible"));
 	}
 	
 	@Override
-	public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+	public @Nullable BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
 		return new CrucibleBlockEntity(pos, state);
 	}
 }

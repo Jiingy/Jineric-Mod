@@ -4,18 +4,18 @@ import com.llamalad7.mixinextras.sugar.Local;
 import jingy.jineric.block.RedstoneCampfireBlock;
 import jingy.jineric.block.entity.RedstoneCampfireBlockEntity;
 import jingy.jineric.registry.JinericBlockEntityType;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.block.entity.CampfireBlockEntity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.CampfireCookingRecipe;
-import net.minecraft.recipe.ServerRecipeManager;
-import net.minecraft.recipe.input.SingleStackRecipeInput;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.CampfireCookingRecipe;
+import net.minecraft.world.item.crafting.RecipeManager;
+import net.minecraft.world.item.crafting.SingleRecipeInput;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.CampfireBlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -32,7 +32,7 @@ public abstract class FixRedstoneCampfireBlockEntity extends BlockEntity {
 	@ModifyArg(
 			method = "<init>",
 			at = @At(value = "INVOKE",
-					target = "Lnet/minecraft/block/entity/BlockEntity;<init>(Lnet/minecraft/block/entity/BlockEntityType;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;)V"
+					target = "Lnet/minecraft/world/level/block/entity/BlockEntity;<init>(Lnet/minecraft/world/level/block/entity/BlockEntityType;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)V"
 			),
 			index = 0
 	)
@@ -45,29 +45,29 @@ public abstract class FixRedstoneCampfireBlockEntity extends BlockEntity {
 	}
 	
 	@Inject(
-			method = "addItem",
+			method = "placeFood",
 			at = @At(value = "INVOKE",
-					target = "Lnet/minecraft/server/world/ServerWorld;emitGameEvent(Lnet/minecraft/registry/entry/RegistryEntry;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/event/GameEvent$Emitter;)V"
+					target = "Lnet/minecraft/server/level/ServerLevel;gameEvent(Lnet/minecraft/core/Holder;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/gameevent/GameEvent$Context;)V"
 			)
 	)
-	private void setPoweredStateOnAddItem(ServerWorld world, LivingEntity entity, ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
-		if (world.getBlockEntity(this.getPos()) instanceof RedstoneCampfireBlockEntity redstoneCampfireBlockEntity) {
-			world.setBlockState(this.getPos(), redstoneCampfireBlockEntity.getCachedState().with(Properties.POWERED, true));
+	private void setPoweredStateOnAddItem(ServerLevel world, LivingEntity entity, ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
+		if (world.getBlockEntity(this.getBlockPos()) instanceof RedstoneCampfireBlockEntity redstoneCampfireBlockEntity) {
+			world.setBlockAndUpdate(this.getBlockPos(), redstoneCampfireBlockEntity.getBlockState().setValue(BlockStateProperties.POWERED, true));
 		}
 	}
 	
 	@Inject(
-			method = "litServerTick",
+			method = "cookTick",
 			at = @At(value = "INVOKE",
-					target = "Lnet/minecraft/server/world/ServerWorld;emitGameEvent(Lnet/minecraft/registry/entry/RegistryEntry;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/event/GameEvent$Emitter;)V"
+					target = "Lnet/minecraft/server/level/ServerLevel;gameEvent(Lnet/minecraft/core/Holder;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/gameevent/GameEvent$Context;)V"
 			)
 	)
 	private static void unpowerIfEmpty(
-			ServerWorld world, BlockPos pos, BlockState state, CampfireBlockEntity blockEntity, ServerRecipeManager.MatchGetter<SingleStackRecipeInput, CampfireCookingRecipe> recipeMatchGetter, CallbackInfo ci,
+			ServerLevel world, BlockPos pos, BlockState state, CampfireBlockEntity blockEntity, RecipeManager.CachedCheck<SingleRecipeInput, CampfireCookingRecipe> recipeMatchGetter, CallbackInfo ci,
 			@Local(index = 6)int index
 	) {
 		if (blockEntity instanceof RedstoneCampfireBlockEntity && index == 0) {
-			world.setBlockState(pos, state.with(Properties.POWERED, false));
+			world.setBlockAndUpdate(pos, state.setValue(BlockStateProperties.POWERED, false));
 		}
 	}
 }
