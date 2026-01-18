@@ -293,7 +293,7 @@ public class JinericBlocks {
 	public static final Block KILN = register(
 			"kiln",
 			KilnBlock::new,
-			AbstractBlock.Settings.copy(FURNACE).luminance(createLightLevelFromLitBlockState(13)).sounds(BlockSoundGroup.DEEPSLATE)
+			BlockBehaviour.Properties.ofFullCopy(FURNACE).lightLevel(createLightLevelFromLitBlockState(13)).sound(SoundType.DEEPSLATE)
 	);
 	
 	//REDSTONE

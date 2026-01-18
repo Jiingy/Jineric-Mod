@@ -3,14 +3,13 @@ package jingy.jineric.screen;
 import jingy.jineric.recipe.JinericRecipePropertySet;
 import jingy.jineric.recipe.JinericRecipeTypes;
 import jingy.jineric.recipe.book.JinericRecipeBookType;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.Inventory;
-import net.minecraft.recipe.book.RecipeBookType;
-import net.minecraft.screen.AbstractFurnaceScreenHandler;
-import net.minecraft.screen.PropertyDelegate;
+import net.minecraft.world.Container;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.AbstractFurnaceMenu;
+import net.minecraft.world.inventory.ContainerData;
 
-public class KilnScreenHandler extends AbstractFurnaceScreenHandler {
-	public KilnScreenHandler(int syncId, PlayerInventory playerInventory) {
+public class KilnScreenHandler extends AbstractFurnaceMenu {
+	public KilnScreenHandler(int syncId, Inventory playerInventory) {
 		super(
 				JinericScreenHandlerType.KILN, JinericRecipeTypes.KILN_FIRING,
 				JinericRecipePropertySet.KILN_INPUT, JinericRecipeBookType.JINERIC_KILN,
@@ -18,7 +17,7 @@ public class KilnScreenHandler extends AbstractFurnaceScreenHandler {
 		);
 	}
 	
-	public KilnScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate propertyDelegate) {
+	public KilnScreenHandler(int syncId, Inventory playerInventory, Container inventory, ContainerData propertyDelegate) {
 		super(
 				JinericScreenHandlerType.KILN, JinericRecipeTypes.KILN_FIRING,
 				JinericRecipePropertySet.KILN_INPUT, JinericRecipeBookType.JINERIC_KILN,
@@ -26,8 +25,8 @@ public class KilnScreenHandler extends AbstractFurnaceScreenHandler {
 		);
 	}
 	
-	@Override
-	public RecipeBookType getCategory() {
-		return JinericRecipeBookType.JINERIC_KILN;
-	}
+//	@Override
+//	public RecipeBookType getCategory() {
+//		return JinericRecipeBookType.JINERIC_KILN;
+//	}
 }

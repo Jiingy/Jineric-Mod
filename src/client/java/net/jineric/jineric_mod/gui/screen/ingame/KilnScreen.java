@@ -8,12 +8,12 @@ import net.fabricmc.api.Environment;
 import net.jineric.jineric_mod.access.RecipeBookScreenAccess;
 import net.jineric.jineric_mod.gui.screen.recipebook.FoundryRecipeBookWidget;
 import net.jineric.jineric_mod.recipe.JinericClientRecipeBookTypes;
-import net.minecraft.client.gui.screen.ingame.AbstractFurnaceScreen;
-import net.minecraft.client.gui.screen.recipebook.RecipeBookWidget;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.item.Items;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
+import net.minecraft.client.gui.screens.inventory.AbstractFurnaceScreen;
+import net.minecraft.client.gui.screens.recipebook.RecipeBookComponent;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.item.Items;
 
 import java.util.List;
 
@@ -22,14 +22,14 @@ public class KilnScreen extends AbstractFurnaceScreen<KilnScreenHandler> impleme
 	private static final Identifier LIT_PROGRESS_TEXTURE = JinericMain.ofJineric("container/kiln/lit_progress");
 	private static final Identifier BURN_PROGRESS_TEXTURE = JinericMain.ofJineric("container/kiln/burn_progress");
 	private static final Identifier TEXTURE = JinericMain.ofJineric("textures/gui/container/kiln.png");
-	private static final Text TOGGLE_KILN_SMELTABLE_TEXT = Text.translatable("gui.jineric.recipe_book.toggle_recipes.kiln_smeltable");
+	private static final Component TOGGLE_KILN_SMELTABLE_TEXT = Component.translatable("gui.jineric.recipe_book.toggle_recipes.kiln_smeltable");
 	
-	private static final List<RecipeBookWidget.Tab> TABS = List.of(
-			new RecipeBookWidget.Tab(JinericClientRecipeBookTypes.JINERIC_KILN),
-			new RecipeBookWidget.Tab(Items.TERRACOTTA, JinericRecipeBookCategories.KILN)
+	private static final List<RecipeBookComponent.TabInfo> TABS = List.of(
+			new RecipeBookComponent.TabInfo(JinericClientRecipeBookTypes.JINERIC_KILN),
+			new RecipeBookComponent.TabInfo(Items.TERRACOTTA, JinericRecipeBookCategories.KILN)
 	);
 	
-	public KilnScreen(KilnScreenHandler handler, PlayerInventory playerInventory, Text title) {
+	public KilnScreen(KilnScreenHandler handler, Inventory playerInventory, Component title) {
 		super(
 				handler, playerInventory, title,
 				TOGGLE_KILN_SMELTABLE_TEXT, TEXTURE, LIT_PROGRESS_TEXTURE, BURN_PROGRESS_TEXTURE, TABS
@@ -37,8 +37,8 @@ public class KilnScreen extends AbstractFurnaceScreen<KilnScreenHandler> impleme
 	}
 	
 	@Override
-	public RecipeBookWidget<?> jineric$recipeBookWidget() {
-		return new FoundryRecipeBookWidget(this.handler, TOGGLE_KILN_SMELTABLE_TEXT, TABS);
+	public RecipeBookComponent<?> jineric$recipeBookWidget() {
+		return new FoundryRecipeBookWidget(this.menu, TOGGLE_KILN_SMELTABLE_TEXT, TABS);
 	}
 	
 	

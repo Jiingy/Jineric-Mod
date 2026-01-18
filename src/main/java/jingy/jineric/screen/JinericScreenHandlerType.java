@@ -27,10 +27,10 @@ public class JinericScreenHandlerType {
 			JinericMain.ofJineric("foundry"),
 			new MenuType<>(FoundryScreenHandler::new, FeatureFlagSet.of())
 	);
-	public final static ScreenHandlerType<KilnScreenHandler> KILN = Registry.register(
-			Registries.SCREEN_HANDLER,
+	public final static MenuType<KilnScreenHandler> KILN = Registry.register(
+			BuiltInRegistries.MENU,
 			JinericMain.ofJineric("kiln"),
-			new ScreenHandlerType<>(KilnScreenHandler::new, FeatureSet.empty())
+			new MenuType<>(KilnScreenHandler::new, FeatureFlagSet.of())
 	);
 	
 	public static void initialize() {

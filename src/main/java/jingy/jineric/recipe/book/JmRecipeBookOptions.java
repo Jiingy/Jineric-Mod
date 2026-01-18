@@ -13,13 +13,13 @@ import java.util.function.UnaryOperator;
 public class JmRecipeBookOptions {
 	public static final MapCodec<RecipeBookSettings.TypeSettings> REFINERY = CategoryOptionAccessor.callCreateCodec("isRefineryGuiOpen", "isRefineryFilteringCraftable");
 	public static final MapCodec<RecipeBookSettings.TypeSettings> FOUNDRY = CategoryOptionAccessor.callCreateCodec("isFoundryGuiOpen", "isFoundryFilteringCraftable");
-	public static final MapCodec<RecipeBookOptions.CategoryOption> KILN = CategoryOptionAccessor.callCreateCodec("isKilnGuiOpen", "isKilnFilteringCraftable");
+	public static final MapCodec<RecipeBookSettings.TypeSettings> KILN = CategoryOptionAccessor.callCreateCodec("isKilnGuiOpen", "isKilnFilteringCraftable");
 	
 	public static final StreamCodec<FriendlyByteBuf, JmRecipeBookOptions> PACKET_CODEC = StreamCodec.composite(
 			//  Modded
 			RecipeBookSettings.TypeSettings.STREAM_CODEC, options -> options.refinery,
 			RecipeBookSettings.TypeSettings.STREAM_CODEC, options -> options.foundry,
-			RecipeBookOptions.CategoryOption.PACKET_CODEC, options -> options.kiln,
+			RecipeBookSettings.TypeSettings.STREAM_CODEC, options -> options.kiln,
 			//  Vanilla
 			RecipeBookSettings.TypeSettings.STREAM_CODEC, options -> options.crafting,
 			RecipeBookSettings.TypeSettings.STREAM_CODEC, options -> options.furnace,
@@ -44,7 +44,7 @@ public class JmRecipeBookOptions {
 	//  Modded
 	private RecipeBookSettings.TypeSettings refinery;
 	private RecipeBookSettings.TypeSettings foundry;
-	private RecipeBookOptions.CategoryOption kiln;
+	private RecipeBookSettings.TypeSettings kiln;
 	//  Vanilla
 	private RecipeBookSettings.TypeSettings crafting;
 	private RecipeBookSettings.TypeSettings furnace;
@@ -59,7 +59,7 @@ public class JmRecipeBookOptions {
 				RecipeBookSettings.TypeSettings.DEFAULT,
 				RecipeBookSettings.TypeSettings.DEFAULT,
 				RecipeBookSettings.TypeSettings.DEFAULT,
-				RecipeBookOptions.CategoryOption.DEFAULT
+				RecipeBookSettings.TypeSettings.DEFAULT
 		);
 	}
 	
@@ -67,7 +67,7 @@ public class JmRecipeBookOptions {
 			//  Modded
 			RecipeBookSettings.TypeSettings refinery,
 			RecipeBookSettings.TypeSettings foundry,
-			RecipeBookOptions.CategoryOption kiln,
+			RecipeBookSettings.TypeSettings kiln,
 			//  Vanilla
 			RecipeBookSettings.TypeSettings crafting,
 			RecipeBookSettings.TypeSettings furnace,
