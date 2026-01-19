@@ -13,36 +13,40 @@ public class EarlyRiser implements Runnable {
 	public void run() {
 		//  Server
 		MappingResolver mappingResolver = FabricLoader.getInstance().getMappingResolver();
+		
 		String recipeBookType = mappingResolver.mapClassName("intermediary", "net.minecraft.class_5421");
-		ClassTinkerers.enumBuilder(recipeBookType).addEnum("JINERIC_REFINERY").build();
+		ClassTinkerers.enumBuilder(recipeBookType)
+				.addEnum("JINERIC_REFINERY")
+				.build();
 		
 		String recipeCategory = mappingResolver.mapClassName("intermediary", "net.minecraft.class_7800");
-		ClassTinkerers.enumBuilder(recipeCategory, String.class).addEnum("JINERIC_BLOCK_SETS", "jineric_block_sets").build();
-		ClassTinkerers.enumBuilder(recipeCategory, String.class).addEnum("JINERIC_MISC_BLOCKS", "jineric_misc_blocks").build();
+		ClassTinkerers.enumBuilder(recipeCategory, String.class)
+				.addEnum("JINERIC_BLOCK_SETS", "jineric_block_sets")
+				.addEnum("JINERIC_MISC_BLOCKS", "jineric_misc_blocks")
+				.build();
 		
 		String blockFamily$Variant = mappingResolver.mapClassName("intermediary", "net.minecraft.class_5794$class_5796");
-		ClassTinkerers.enumBuilder(blockFamily$Variant, String.class).addEnum("PILLAR", "pillar").build();
-		ClassTinkerers.enumBuilder(blockFamily$Variant, String.class).addEnum("BOOKSHELF", "bookshelf").build();
-		ClassTinkerers.enumBuilder(blockFamily$Variant, String.class).addEnum("CHEST", "chest").build();
-		ClassTinkerers.enumBuilder(blockFamily$Variant, String.class).addEnum("TRAPPED_CHEST", "trapped_chest").build();
-		ClassTinkerers.enumBuilder(blockFamily$Variant, String.class).addEnum("LADDER", "ladder").build();
+		ClassTinkerers.enumBuilder(blockFamily$Variant, String.class)
+				.addEnum("PILLAR", "pillar")
+				.addEnum("BOOKSHELF", "bookshelf")
+				.addEnum("CHEST", "chest")
+				.addEnum("TRAPPED_CHEST", "trapped_chest")
+				.addEnum("LADDER", "ladder")
+				.build();
 		
-		
-		// Client
+		//  Client
 		if (FabricLoader.getInstance().getEnvironmentType().equals(EnvType.CLIENT)) {
-			//  TODO: there is no enum in recipeBookCategory
 			String recipeBookCategory = "[L" + mappingResolver.mapClassName("intermediary", "net.minecraft.class_10355") + ";";
 			String clientRecipeBookType = mappingResolver.mapClassName("intermediary", "net.minecraft.class_10331");
-			ClassTinkerers.enumBuilder(clientRecipeBookType, recipeBookCategory).addEnum(
-					"JINERIC_REFINERY",
-					() -> new Object[]{
-					
-							new RecipeBookCategory[]{
-									JinericRecipeBookCategories.REFINERY_BLOCKS,
-									JinericRecipeBookCategories.REFINERY_MISC
-							}
-					}
-			).build();
+			ClassTinkerers.enumBuilder(clientRecipeBookType, recipeBookCategory)
+					.addEnum("JINERIC_REFINERY",
+							() -> new Object[]{
+									new RecipeBookCategory[]{
+											JinericRecipeBookCategories.REFINERY_BLOCKS,
+											JinericRecipeBookCategories.REFINERY_MISC
+									}}
+					)
+					.build();
 			
 			String chestBlockEntityRenderState$Variant = mappingResolver.mapClassName("intermediary", "net.minecraft.class_11959$class_11960");
 			ClassTinkerers.enumBuilder(chestBlockEntityRenderState$Variant)
