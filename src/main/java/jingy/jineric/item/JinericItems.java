@@ -351,9 +351,6 @@ public class JinericItems {
 	);
 	
 	//WIP OR UNKNOWN ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//	public static final Item IRON_UPGRADE_SMITHING_TEMPLATE = register(
-//			"iron_upgrade_smithing_template", JinericSmithingTemplateItem::createIronUpgrade, new Item.Properties().rarity(Rarity.COMMON)
-//	);
 	public static final Item REFINERY = register(JinericBlocks.REFINERY);
 	public static final Item FOUNDRY = register(JinericBlocks.FOUNDRY);
 	public static final Item REDSTONE_CAMPFIRE = register(JinericBlocks.REDSTONE_CAMPFIRE);
