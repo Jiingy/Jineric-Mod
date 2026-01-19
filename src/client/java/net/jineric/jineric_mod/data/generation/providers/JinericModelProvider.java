@@ -81,11 +81,11 @@ public class JinericModelProvider extends FabricModelProvider {
 	public void generateItemModels(ItemModelGenerators itemModelGenerator) {
 		Identifier jungleLadderId = itemModelGenerator.generateLayeredItem(JinericItems.JUNGLE_LADDER, ModelLocationUtils.getModelLocation(JinericBlocks.JUNGLE_LADDER), JinericMain.ofJineric("block/jungle_ladder_overlay"));
 		itemModelGenerator.itemModelOutput.accept(JinericItems.JUNGLE_LADDER, ItemModelUtils.tintedModel(jungleLadderId, new GrassColorSource()));
-		itemModelGenerator.createFlatItemModel(JinericItems.GOLDEN_BEETROOT, ModelTemplates.FLAT_ITEM);
-		itemModelGenerator.createFlatItemModel(JinericItems.GOLDEN_POTATO, ModelTemplates.FLAT_ITEM);
-		itemModelGenerator.createFlatItemModel(JinericItems.GOLDEN_SWEET_BERRIES, ModelTemplates.FLAT_ITEM);
-		itemModelGenerator.createFlatItemModel(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
-		itemModelGenerator.createFlatItemModel(JinericItems.NETHERITE_HORSE_ARMOR, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(JinericItems.GOLDEN_BEETROOT, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(JinericItems.GOLDEN_POTATO, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(JinericItems.GOLDEN_SWEET_BERRIES, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(JinericItems.NETHERITE_HORSE_ARMOR, ModelTemplates.FLAT_ITEM);
 	}
 	
 	public void registerBlockFamilyModels(BlockModelGenerators bsmg) {
