@@ -355,6 +355,7 @@ public class JinericItems {
 	public static final Item FOUNDRY = register(JinericBlocks.FOUNDRY);
 	public static final Item REDSTONE_CAMPFIRE = register(JinericBlocks.REDSTONE_CAMPFIRE);
 	public static final Item STONE_CRUCIBLE = register(JinericBlocks.STONE_CRUCIBLE);
+	public static final Item SANDY_CLAY_LOAM = register("sandy_clay_loam");
 	
 	private static ResourceKey<Item> keyOf(String id) {
 		return ResourceKey.create(Registries.ITEM, JinericMain.ofJineric(id));
