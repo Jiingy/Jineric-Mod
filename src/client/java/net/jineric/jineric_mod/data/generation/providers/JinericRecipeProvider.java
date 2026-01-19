@@ -18,7 +18,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.data.recipes.*;
-import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
@@ -30,7 +29,6 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SlabBlock;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 import java.util.List;
@@ -45,7 +43,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 	}
 	
 	@Override
-	protected @NotNull RecipeProvider createRecipeProvider(HolderLookup.@NotNull Provider wrapperLookup, @NotNull RecipeOutput recipeOutput) {
+	protected RecipeProvider createRecipeProvider(HolderLookup.Provider wrapperLookup, RecipeOutput recipeOutput) {
 		return new RecipeProvider(wrapperLookup, recipeOutput) {
 			
 			private static final Map<BlockFamily.Variant, RecipeProvider.FamilyRecipeProvider> SHAPE_BUILDERS = ImmutableMap.<BlockFamily.Variant, RecipeProvider.FamilyRecipeProvider>builder()
@@ -67,7 +65,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 							(recipeProvider, output, input) -> recipeProvider.polishedBuilder(RecipeCategory.BUILDING_BLOCKS, output, Ingredient.of(input)))
 					.put(BlockFamily.Variant.TRAPDOOR, (recipeProvider, output, input) -> recipeProvider.trapdoorBuilder(output, Ingredient.of(input)))
 					.put(BlockFamily.Variant.WALL,
-							(recipeProvider, output, input) -> recipeProvider.wallBuilder(RecipeCategory.DECORATIONS, output, Ingredient.of(input)))
+							(recipeProvider, output, input) -> recipeProvider.wallBuilder(RecipeCategory.BUILDING_BLOCKS, output, Ingredient.of(input)))
 					.put(JinericBlockFamilyVariants.BOOKSHELF, (recipeProvider, output, input) -> recipeProvider.bookshelfBuilder$jineric(Ingredient.of(input), output))
 					.put(JinericBlockFamilyVariants.CHEST, (recipeProvider, output, input) -> recipeProvider.chestBuilder$jineric(Ingredient.of(input), output))
 					.put(JinericBlockFamilyVariants.LADDER, (recipeProvider, output, input) -> recipeProvider.ladderBuilder$jineric(Ingredient.of(input), output))
@@ -279,7 +277,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 			}
 			
 			@Override
-			public void generateRecipes(@NotNull BlockFamily blockFamily, @NotNull FeatureFlagSet featureFlagSet) {
+			public void generateRecipes(BlockFamily blockFamily, FeatureFlagSet featureFlagSet) {
 				blockFamily.getVariants()
 						.forEach(
 								(variant, block) -> {
@@ -288,7 +286,9 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 										ItemLike itemLike = this.getBaseBlock(blockFamily, variant);
 										if (blockFamilyRecipeFactory != null) {
 											RecipeBuilder craftingRecipeJsonBuilder = blockFamilyRecipeFactory.create(this, block, itemLike);
-											blockFamily.getRecipeGroupPrefix().ifPresent(group -> craftingRecipeJsonBuilder.group(group + (variant == BlockFamily.Variant.CUT ? "" : "_" + variant.name())));
+											blockFamily.getRecipeGroupPrefix().ifPresent(group -> craftingRecipeJsonBuilder.group(
+													group + (variant == BlockFamily.Variant.CUT ? "" : "_" + variant.getRecipeGroup()))
+											);
 											craftingRecipeJsonBuilder.unlockedBy(
 													blockFamily.getRecipeUnlockedBy().orElseGet(() -> getHasName(itemLike)), this.has(itemLike)
 											);
@@ -338,7 +338,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 									this.stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, block, input, 2);
 								}
 								if (block == blockFamily.get(BlockFamily.Variant.WALL)) {
-									this.stonecutterResultFromBase(RecipeCategory.DECORATIONS, block, input);
+									this.stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, block, input);
 								}
 							});
 				});
