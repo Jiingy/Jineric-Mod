@@ -21,8 +21,8 @@ public class JinericBlockLootTableProvider extends FabricBlockLootTableProvider 
 	Map<BlockFamily.Variant, JinericDropFactory> VARIANT_DROPS = ImmutableMap.<BlockFamily.Variant, JinericDropFactory>builder()
 			.put(BlockFamily.Variant.SLAB, blockDrop -> this.add(blockDrop, this::createSlabItemTable))
 			.put(JinericBlockFamilyVariants.BOOKSHELF, this::addBookshelfDrop)
-			.put(JinericBlockFamilyVariants.CHEST, this::createNameableBlockEntityTable)
-			.put(JinericBlockFamilyVariants.TRAPPED_CHEST, this::createNameableBlockEntityTable)
+			.put(JinericBlockFamilyVariants.CHEST, this::dropSelfNameableBlockEntityTable)
+			.put(JinericBlockFamilyVariants.TRAPPED_CHEST, this::dropSelfNameableBlockEntityTable)
 			.build();
 	
 	public JinericBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
@@ -53,6 +53,10 @@ public class JinericBlockLootTableProvider extends FabricBlockLootTableProvider 
 		this.dropSelf(JinericBlocks.CHARCOAL_BLOCK);
 		this.dropSelf(JinericBlocks.SOUL_JACK_O_LANTERN);
 		this.add(JinericBlocks.GRASS_BLOCK, block -> this.createSingleItemTableWithSilkTouch(block, Blocks.DIRT));
+	}
+	
+	public void dropSelfNameableBlockEntityTable(Block input) {
+		this.add(input, this::createNameableBlockEntityTable);
 	}
 	
 	public void addBookshelfDrop(Block input) {
