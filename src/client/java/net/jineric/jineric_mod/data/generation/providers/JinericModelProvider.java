@@ -53,7 +53,7 @@ public class JinericModelProvider extends FabricModelProvider {
 		bmg.createRotatedPillarWithHorizontalVariant(JinericBlocks.STICK_BLOCK, TexturedModel.COLUMN, TexturedModel.COLUMN_HORIZONTAL);
 		bmg.createTrivialBlock(JinericBlocks.PAPER_BLOCK, TexturedModel.COLUMN);
 		bmg.createTrivialBlock(JinericBlocks.BLAZE_ROD_BLOCK, TexturedModel.COLUMN);
-		bmg.createFurnace(JinericBlocks.REFINERY, TexturedModel.ORIENTABLE);
+		bmg.createFurnace(JinericBlocks.REFINERY, TexturedModel.ORIENTABLE_ONLY_TOP);
 		bmg.createCampfires(JinericBlocks.REDSTONE_CAMPFIRE);
 		bmg.createLantern(JinericBlocks.REDSTONE_LANTERN);
 		bmg.registerSimpleTintedItemModel(JinericBlocks.GRASS_BLOCK, ModelLocationUtils.getModelLocation(JinericBlocks.GRASS_BLOCK), new GrassColorSource());
