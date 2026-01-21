@@ -2,10 +2,7 @@ package jingy.jineric.registry;
 
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.JinericBlocks;
-import jingy.jineric.block.entity.CrucibleBlockEntity;
-import jingy.jineric.block.entity.FoundryBlockEntity;
-import jingy.jineric.block.entity.RedstoneCampfireBlockEntity;
-import jingy.jineric.block.entity.RefineryBlockEntity;
+import jingy.jineric.block.entity.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -16,6 +13,7 @@ public class JinericBlockEntityType {
 	public static final BlockEntityType<RedstoneCampfireBlockEntity> REDSTONE_CAMPFIRE = FabricBlockEntityTypeBuilder.create(RedstoneCampfireBlockEntity::new, JinericBlocks.REDSTONE_CAMPFIRE).build();
 	public static final BlockEntityType<CrucibleBlockEntity> CRUCIBLE = FabricBlockEntityTypeBuilder.create(CrucibleBlockEntity::new, JinericBlocks.STONE_CRUCIBLE).build();
 	public static final BlockEntityType<FoundryBlockEntity> FOUNDRY = FabricBlockEntityTypeBuilder.create(FoundryBlockEntity::new, JinericBlocks.FOUNDRY).build();
+	public static final BlockEntityType<KilnBlockEntity> KILN = FabricBlockEntityTypeBuilder.create(KilnBlockEntity::new, JinericBlocks.KILN).build();
 	
 	public static void registerBlockEntityTypes() {
 		//  Modded
@@ -23,6 +21,7 @@ public class JinericBlockEntityType {
 		register("campfire", REDSTONE_CAMPFIRE);
 		register("crucible", CRUCIBLE);
 		register("foundry", FOUNDRY);
+		register("kiln", KILN);
 		//  Vanilla
 			// Chest
 		BlockEntityType.CHEST.addSupportedBlock(JinericBlocks.SPRUCE_CHEST);

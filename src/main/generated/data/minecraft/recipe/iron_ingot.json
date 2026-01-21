@@ -1,7 +1,7 @@
 {
   "type": "jineric:foundry_smelting",
   "category": "misc",
-  "cookingtime": 2400,
+  "cookingtime": 1800,
   "experience": 0.3,
   "group": "iron_ingot",
   "ingredient": "minecraft:raw_iron",

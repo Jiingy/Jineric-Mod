@@ -290,6 +290,11 @@ public class JinericBlocks {
 			FoundryBlock::new,
 			BlockBehaviour.Properties.ofFullCopy(FURNACE).lightLevel(createLightLevelFromLitBlockState(13)).sound(SoundType.STONE)
 	);
+	public static final Block KILN = register(
+			"kiln",
+			KilnBlock::new,
+			BlockBehaviour.Properties.ofFullCopy(FURNACE).lightLevel(createLightLevelFromLitBlockState(13)).sound(SoundType.DEEPSLATE)
+	);
 	
 	//REDSTONE
 	public static final Block REDSTONE_LANTERN = register(

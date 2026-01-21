@@ -16,20 +16,15 @@ import java.util.Arrays;
 public abstract class VideoOptionsScreenMixin {
 	
 	@ModifyReturnValue(
-			method = "getOptions",
+			method = "preferenceOptions",
 			at = @At("RETURN")
 	)
 	private static OptionInstance<?>[] addModdedGameOptions(OptionInstance<?>[] original, Options gameOptions) {
-		
 		//  Add modded options to specific indexes of the vanilla GameOptions array
-		OptionInstance<?>[] newOptionsArray = ArrayUtils
+		return ArrayUtils
 				.insert(
-						putAfter(original, gameOptions.attackIndicator()),
-						original,
-						JmGameOptions.getItemLevelBarMode()
-				)
-		;
-		return newOptionsArray;
+						putAfter(original, gameOptions.attackIndicator()), original, JmGameOptions.getItemLevelBarMode()
+				);
 	}
 	
 	@Unique

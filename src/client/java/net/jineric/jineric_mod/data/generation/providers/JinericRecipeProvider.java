@@ -409,12 +409,12 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
                         .unlockedBy("has_polished_stone", this.has(JinericBlocks.POLISHED_STONE))
                         .save(recipeOutput, replaceVanilla(Blocks.STONE_BRICKS));
 				
-				FoundryRecipeJsonBuilder.createFoundrySmelting(Ingredient.of(Items.RAW_COPPER), 24, RecipeCategory.MISC, Items.COPPER_INGOT, 0.2f, 1600)
+				FoundryRecipeJsonBuilder.createFoundrySmelting(Ingredient.of(Items.RAW_COPPER), 48, RecipeCategory.MISC, Items.COPPER_INGOT, 0.2f, 1400)
 						.group("copper_ingot")
 						.unlockedBy("has_raw_copper", this.has(Items.RAW_COPPER))
 						.save(recipeOutput);
 				
-				FoundryRecipeJsonBuilder.createFoundrySmelting(Ingredient.of(Items.RAW_IRON), 24, RecipeCategory.MISC, Items.IRON_INGOT, 0.3f, 2400)
+				FoundryRecipeJsonBuilder.createFoundrySmelting(Ingredient.of(Items.RAW_IRON), 24, RecipeCategory.MISC, Items.IRON_INGOT, 0.3f, 1800)
 						.group("iron_ingot")
 						.unlockedBy("has_raw_iron", this.has(Items.RAW_IRON))
 						.save(recipeOutput);
