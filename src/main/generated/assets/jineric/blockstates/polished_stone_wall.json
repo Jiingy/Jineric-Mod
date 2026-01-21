@@ -42,8 +42,7 @@
     {
       "apply": {
         "model": "jineric:block/polished_stone_wall_side_low",
-        "uvlock": true,
-        "y": 0
+        "uvlock": true
       },
       "when": {
         "OR": [

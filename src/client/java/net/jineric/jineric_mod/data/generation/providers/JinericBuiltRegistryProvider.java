@@ -14,9 +14,9 @@ public class JinericBuiltRegistryProvider extends FabricDynamicRegistryProvider 
 	
 	@Override
 	protected void configure(HolderLookup.Provider registries, Entries entries) {
-		entries.addAll(registries.getOrThrow(Registries.CONFIGURED_FEATURE).value());
-		entries.addAll(registries.getOrThrow(Registries.PLACED_FEATURE).value());
-		entries.addAll(registries.getOrThrow(Registries.PAINTING_VARIANT).value());
+		entries.addAll(registries.lookupOrThrow(Registries.CONFIGURED_FEATURE));
+		entries.addAll(registries.lookupOrThrow(Registries.PLACED_FEATURE));
+		entries.addAll(registries.lookupOrThrow(Registries.PAINTING_VARIANT));
 	}
 	
 	@Override
