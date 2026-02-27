@@ -89,7 +89,6 @@ public class JinericModelProvider extends FabricModelProvider {
 		itemModelGenerator.generateFlatItem(JinericItems.GOLDEN_BEETROOT, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.generateFlatItem(JinericItems.GOLDEN_POTATO, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.generateFlatItem(JinericItems.GOLDEN_SWEET_BERRIES, ModelTemplates.FLAT_ITEM);
-		itemModelGenerator.generateFlatItem(JinericItems.NETHERITE_HORSE_ARMOR, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.generateFlatItem(JinericItems.EMERALD_HELMET, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.generateFlatItem(JinericItems.EMERALD_CHESTPLATE, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.generateFlatItem(JinericItems.EMERALD_LEGGINGS, ModelTemplates.FLAT_ITEM);

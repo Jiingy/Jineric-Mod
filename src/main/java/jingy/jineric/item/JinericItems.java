@@ -270,7 +270,6 @@ public class JinericItems {
 	public static final Item GOLDEN_BEETROOT = register("golden_beetroot", new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(1.2f).build()));
 	//MISC JINERIC
 	public static final Item SOUL_JACK_O_LANTERN = register(JinericBlocks.SOUL_JACK_O_LANTERN);
-	public static final Item NETHERITE_HORSE_ARMOR = register("netherite_horse_armor", new Item.Properties().horseArmor(ArmorMaterials.NETHERITE));
 	public static final Item BOW_DRILL = register("bow_drill", BowDrillItem::new, new Item.Properties().stacksTo(1));
 	public static final Item TINDER = register(JinericBlocks.TINDER);
 	public static final Item CLAY_BRICK = register("clay_brick");

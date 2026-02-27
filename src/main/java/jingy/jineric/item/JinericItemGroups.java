@@ -247,7 +247,6 @@ public class JinericItemGroups {
 				entries.accept(JinericItems.CRIMSON_LADDER);
 				entries.accept(JinericItems.WARPED_LADDER);
 				entries.accept(JinericItems.SOUL_JACK_O_LANTERN);
-				entries.accept(JinericItems.NETHERITE_HORSE_ARMOR);
 				entries.accept(JinericItems.REFINERY);
 				entries.accept(JinericItems.GOLDEN_POTATO);
 				entries.accept(JinericItems.GOLDEN_SWEET_BERRIES);
@@ -511,7 +510,6 @@ public class JinericItemGroups {
 		}));
 		
 		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COMBAT).register((entries -> {
-			entries.addAfter(Items.DIAMOND_HORSE_ARMOR, JinericItems.NETHERITE_HORSE_ARMOR);
 		}));
 		
 		ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FOOD_AND_DRINKS).register((entries -> {

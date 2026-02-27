@@ -116,7 +116,6 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				this.gildedNuggetItem(Items.POTATO, JinericItems.GOLDEN_POTATO);
 				this.gildedNuggetItem(Items.SWEET_BERRIES, JinericItems.GOLDEN_SWEET_BERRIES);
 				this.gildedNuggetItem(Items.BEETROOT, JinericItems.GOLDEN_BEETROOT);
-				this.netheriteSmithing(Items.DIAMOND_HORSE_ARMOR, RecipeCategory.COMBAT, JinericItems.NETHERITE_HORSE_ARMOR);
 				
 				// BLOCKS
 				this.stairs(Blocks.SMOOTH_STONE, JinericBlocks.SMOOTH_STONE_STAIRS);

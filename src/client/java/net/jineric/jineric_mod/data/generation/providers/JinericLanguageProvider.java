@@ -51,7 +51,6 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		builder.add(JinericItems.GOLDEN_POTATO, "Golden Potato");
 		builder.add(JinericItems.GOLDEN_SWEET_BERRIES, "Golden Sweet Berries");
 		builder.add(JinericItems.GOLDEN_BEETROOT, "Golden Beetroot");
-		builder.add(JinericItems.NETHERITE_HORSE_ARMOR, "Netherite Horse Armor");
 		builder.add(JinericItems.STONE_UPGRADE_SMITHING_TEMPLATE, "Stone Upgrade");
 		builder.add(JinericItems.COPPER_UPGRADE_SMITHING_TEMPLATE, "Copper Upgrade");
 		builder.add(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE, "Iron Upgrade");
