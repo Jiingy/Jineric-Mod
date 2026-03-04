@@ -262,7 +262,6 @@ public class JinericItems {
 	public static final Item GOLDEN_BEETROOT = register("golden_beetroot", new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(1.2f).build()));
 	//MISC JINERIC
 	public static final Item SOUL_JACK_O_LANTERN = register(JinericBlocks.SOUL_JACK_O_LANTERN);
-	public static final Item NETHERITE_HORSE_ARMOR = register("netherite_horse_armor", new Item.Properties().horseArmor(ArmorMaterials.NETHERITE));
 	
 	//WIP OR UNKNOWN ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	public static final Item IRON_UPGRADE_SMITHING_TEMPLATE = register(

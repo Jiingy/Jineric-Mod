@@ -85,7 +85,6 @@ public class JinericModelProvider extends FabricModelProvider {
 		itemModelGenerator.generateFlatItem(JinericItems.GOLDEN_POTATO, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.generateFlatItem(JinericItems.GOLDEN_SWEET_BERRIES, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.generateFlatItem(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
-		itemModelGenerator.generateFlatItem(JinericItems.NETHERITE_HORSE_ARMOR, ModelTemplates.FLAT_ITEM);
 	}
 	
 	public void registerBlockFamilyModels(BlockModelGenerators bsmg) {
