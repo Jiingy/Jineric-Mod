@@ -5,6 +5,7 @@ import jingy.jineric.registry.JinericBlockEntityType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.crafting.CampfireCookingRecipe;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -32,7 +33,13 @@ public class RedstoneCampfireBlock extends CampfireBlock {
 	
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-		builder.add(LIT, SIGNAL_FIRE, WATERLOGGED, FACING, POWERED);
+		super.createBlockStateDefinition(builder);
+		builder.add(POWERED);
+	}
+	
+	@Override
+	public void animateTick(BlockState blockState, Level level, BlockPos blockPos, RandomSource randomSource) {
+		super.animateTick(blockState, level, blockPos, randomSource);
 	}
 	
 	@Override
