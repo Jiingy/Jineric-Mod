@@ -1,4 +1,4 @@
-accessWidener	v2	named
+accessWidener	v2	official
 accessible	field	net/minecraft/core/cauldron/CauldronInteraction$InteractionMap	map	Ljava/util/Map;
 accessible	class	net/minecraft/data/recipes/RecipeProvider$FamilyRecipeProvider
 accessible	field	net/minecraft/client/data/models/ItemModelGenerators$TrimMaterialData	materialKey	Lnet/minecraft/resources/ResourceKey;
