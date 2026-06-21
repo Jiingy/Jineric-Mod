@@ -1,8 +1,6 @@
 plugins {
-	id 'fabric-loom' version "${loom_version}"
+	id 'net.fabricmc.fabric-loom' version "${loom_version}"
 	id "maven-publish"
-	//FIGURE OUT HERE: https://github.com/modrinth/minotaur
-	id "com.modrinth.minotaur"version "2.8.7"
 }
 
 /* Data Generation */
@@ -36,16 +34,16 @@ repositories {
 		url "https://jitpack.io"
 	}
 	maven {
-		name = "TerraformersMC"
-		url = "https://maven.terraformersmc.com/"
+		url = "https://maven.shedaniel.me/"
 	}
 	maven {
-		url = "https://maven.shedaniel.me/"
+		name = "TerraformersMC"
+		url = "https://maven.terraformersmc.com/releases/"
 	}
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 21
+	it.options.release = 25
 }
 
 version = project.version
@@ -56,41 +54,43 @@ base {
 }
 
 dependencies {
-    mappings loom.officialMojangMappings()
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
-	modImplementation "com.github.glitchfiend:TerraBlender-fabric:${project.minecraft_version}-${project.terrablender_version}"
-	modApi "com.terraformersmc:modmenu:${project.mod_menu_version}"
-	modApi "me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}"
-//	modApi "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
+	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+	implementation "com.github.glitchfiend:TerraBlender-fabric:${project.minecraft_version}-${project.terrablender_version}"
+	api "com.terraformersmc:modmenu:${project.mod_menu_version}"
+//	api("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") {exclude(group: "net.fabricmc.fabric-api")}
+//	api "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
 	include(implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:${project.mixin_extras_version}")))
-	include(modImplementation("com.terraformersmc:biolith-fabric:${project.biolith_version}"))
+	include(implementation("com.terraformersmc:biolith-fabric:${project.biolith_version}"))
 	include(implementation ('com.github.Chocohead:Fabric-ASM:v2.3'))
 }
 
 /* Resource Processing */
 processResources {
-	inputs.property "version", project.version
+	def version = project.version
+	inputs.property "version", version
 
 	filesMatching("fabric.mod.json") {
-		expand "version": inputs.properties.version
+		expand "version": version
 	}
 }
 
 jar {
-	inputs.property "archivesName", project.base.archivesName
+	def projectName = project.name
+	inputs.property "projectName", projectName
 
 	from("LICENSE") {
-		rename { "${it}_${inputs.properties.archivesName}"}
+		rename { "${it}_$projectName"}
 	}
 }
 
 /* Publishing */
 java {
 	withSourcesJar()
-	sourceCompatibility = JavaVersion.VERSION_21
-	targetCompatibility = JavaVersion.VERSION_21
+
+	sourceCompatibility = JavaVersion.VERSION_25
+	targetCompatibility = JavaVersion.VERSION_25
 }
 
 publishing {
