@@ -1,17 +1,12 @@
 accessWidener	v2	official
-accessible	field	net/minecraft/core/cauldron/CauldronInteraction$InteractionMap	map	Ljava/util/Map;
-accessible	class	net/minecraft/data/recipes/RecipeProvider$FamilyRecipeProvider
-accessible	field	net/minecraft/client/data/models/ItemModelGenerators$TrimMaterialData	materialKey	Lnet/minecraft/resources/ResourceKey;
 accessible	class	net/minecraft/client/Options$OptionAccess
 accessible	class	net/minecraft/client/gui/screens/recipebook/GhostSlots$GhostSlot
-accessible	method	net/minecraft/world/item/crafting/SingleItemRecipe	result	()Lnet/minecraft/world/item/ItemStack;
-accessible	method	net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity	isLit	()Z
-accessible	method	net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity	canBurn	(Lnet/minecraft/core/RegistryAccess;Lnet/minecraft/world/item/crafting/RecipeHolder;Lnet/minecraft/world/item/crafting/SingleRecipeInput;Lnet/minecraft/core/NonNullList;I)Z
 accessible	method	net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity	getBurnDuration	(Lnet/minecraft/world/level/block/entity/FuelValues;Lnet/minecraft/world/item/ItemStack;)I
 accessible	method	net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity	getTotalCookTime	(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity;)I
 accessible	field	net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity	litTimeRemaining	I
 accessible	field	net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity	litTotalTime	I
-accessible field net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity items Lnet/minecraft/core/NonNullList;
+accessible  field   net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity items Lnet/minecraft/core/NonNullList;
 accessible	field	net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity	quickCheck	Lnet/minecraft/world/item/crafting/RecipeManager$CachedCheck;
 accessible	field	net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity	cookingTimer	I
 accessible	field	net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity	cookingTotalTime	I
+accessible	field	net/minecraft/client/data/models/ItemModelGenerators$TrimMaterialData	materialKey	Lnet/minecraft/resources/ResourceKey;
