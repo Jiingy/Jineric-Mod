@@ -3,13 +3,12 @@ package jingy.jineric.base;
 import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.data.family.JinericBlockFamilies;
 import jingy.jineric.entity.effect.JinericStatusEffects;
-import jingy.jineric.item.JinericItemGroups;
 import jingy.jineric.item.JinericItems;
+import jingy.jineric.item.JmCreativeModeTabs;
 import jingy.jineric.network.packet.JmPlayPackets;
 import jingy.jineric.potion.JinericPotions;
-import jingy.jineric.recipe.book.JinericRecipeBookCategories;
-import jingy.jineric.recipe.JinericRecipeSerializer;
 import jingy.jineric.recipe.JinericRecipeTypes;
+import jingy.jineric.recipe.book.JinericRecipeBookCategories;
 import jingy.jineric.registry.JinericBlockEntityType;
 import jingy.jineric.registry.JinericRegistries;
 import jingy.jineric.screen.JinericScreenHandlerType;
@@ -50,8 +49,8 @@ public class JinericMain implements ModInitializer {
 		JinericRecipeBookCategories.initialize();
 		JinericBlockEntityType.registerBlockEntityTypes();
 		JinericStatusEffects.registerStatusEffects();
-		JinericItemGroups.registerJinericItemGroups();
-		JinericItemGroups.modifyVanillaGroups();
+		JmCreativeModeTabs.registerJinericItemGroups();
+		JmCreativeModeTabs.modifyVanillaGroups();
 		JinericRegistries.initializeJinericRegistries();
 	}
 }
