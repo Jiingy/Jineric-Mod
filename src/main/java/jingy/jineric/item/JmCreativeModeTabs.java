@@ -23,7 +23,7 @@ import java.util.Comparator;
 import java.util.List;
 
 @SuppressWarnings("all")
-public class JinericItemGroups {
+public class JmCreativeModeTabs {
 	private static final ResourceKey<CreativeModeTab> CONTENT_KEY = ResourceKey.create(Registries.CREATIVE_MODE_TAB, JinericMain.ofJineric("0_content"));
 	private static final ResourceKey<CreativeModeTab> BLOCKS_KEY = ResourceKey.create(Registries.CREATIVE_MODE_TAB, JinericMain.ofJineric("1_blocks"));
 	private static final ResourceKey<CreativeModeTab> ITEMS_KEY = ResourceKey.create(Registries.CREATIVE_MODE_TAB, JinericMain.ofJineric("2_items"));
