@@ -2,11 +2,7 @@ package net.jineric.jineric_mod.data.generation.providers;
 
 import com.google.common.collect.ImmutableMap;
 import jingy.jineric.access.ShapedRecipeJsonBuilderAccess;
-import jingy.jineric.access.ShapedRecipeJsonBuilderAccess;
 import jingy.jineric.block.JinericBlocks;
-import jingy.jineric.component.JmDataComponentTypes;
-import jingy.jineric.data.family.EquipmentFamilies;
-import jingy.jineric.data.family.EquipmentFamily;
 import jingy.jineric.component.JmDataComponentTypes;
 import jingy.jineric.data.family.EquipmentFamilies;
 import jingy.jineric.data.family.EquipmentFamily;
@@ -15,18 +11,14 @@ import jingy.jineric.data.family.JinericBlockFamilyVariants;
 import jingy.jineric.item.JinericItems;
 import jingy.jineric.item.equipment.JmEquipmentAssetKeys;
 import jingy.jineric.mixin.access.CookingRecipeJsonBuilderAccessor;
-import jingy.jineric.recipe.FoundryRecipeJsonBuilder;
 import jingy.jineric.recipe.RefiningRecipe;
 import jingy.jineric.tag.JinericItemTags;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.advancements.criterion.InventoryChangeTrigger;
 import net.minecraft.advancements.criterion.MinMaxBounds;
 import net.minecraft.core.DefaultedRegistry;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.component.DataComponentPatch;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -36,11 +28,13 @@ import net.minecraft.data.recipes.*;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.HoneycombItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.BlockItemStateProperties;
 import net.minecraft.world.item.component.CustomModelData;
 import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -49,17 +43,8 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.state.properties.WoodType;
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.component.BlockItemStateProperties;
-import net.minecraft.world.item.component.CustomModelData;
-import net.minecraft.world.item.equipment.Equippable;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.WoodType;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 import java.util.List;
@@ -77,7 +62,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 	protected RecipeProvider createRecipeProvider(HolderLookup.Provider wrapperLookup, RecipeOutput recipeOutput) {
 		return new RecipeProvider(wrapperLookup, recipeOutput) {
 			
-			private static final Map<BlockFamily.Variant, RecipeProvider.FamilyRecipeProvider> SHAPE_BUILDERS = ImmutableMap.<BlockFamily.Variant, RecipeProvider.FamilyRecipeProvider>builder()
+			private static final Map<BlockFamily.Variant, RecipeProvider.FamilyCraftingRecipeProvider> SHAPE_BUILDERS = ImmutableMap.<BlockFamily.Variant, RecipeProvider.FamilyCraftingRecipeProvider>builder()
 					.put(BlockFamily.Variant.BUTTON, (recipeProvider, output, input) -> recipeProvider.buttonBuilder(output, Ingredient.of(input)))
 					.put(BlockFamily.Variant.CHISELED,
 							(recipeProvider, output, input) -> recipeProvider.chiseledBuilder(RecipeCategory.BUILDING_BLOCKS, output, Ingredient.of(input)))
@@ -106,7 +91,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 			public void buildRecipes() {
 				this.offerWoodTypeRecipes();
 				BlockFamilies.getAllFamilies()
-						.filter(BlockFamily::shouldGenerateRecipe)
+						.filter(BlockFamily::shouldGenerateCraftingRecipe)
 						.forEach(blockFamily -> this.generateRecipes(blockFamily, FeatureFlagSet.of(FeatureFlags.VANILLA)));
 //				EquipmentFamilies.stream().forEach(equipmentFamily -> this.offerEquipmentFamily());
 
@@ -407,16 +392,6 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
                         .pattern("SS")
                         .unlockedBy("has_polished_stone", this.has(JinericBlocks.POLISHED_STONE))
                         .save(recipeOutput, replaceVanilla(Blocks.STONE_BRICKS));
-				
-				FoundryRecipeJsonBuilder.createFoundrySmelting(Ingredient.of(Items.RAW_COPPER), 48, RecipeCategory.MISC, Items.COPPER_INGOT, 0.2f, 1400)
-						.group("copper_ingot")
-						.unlockedBy("has_raw_copper", this.has(Items.RAW_COPPER))
-						.save(recipeOutput);
-				
-				FoundryRecipeJsonBuilder.createFoundrySmelting(Ingredient.of(Items.RAW_IRON), 24, RecipeCategory.MISC, Items.IRON_INGOT, 0.3f, 1800)
-						.group("iron_ingot")
-						.unlockedBy("has_raw_iron", this.has(Items.RAW_IRON))
-						.save(recipeOutput);
 			}
 			
 			@Override

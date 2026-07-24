@@ -4,8 +4,8 @@ import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.data.family.JinericBlockFamilies;
 import jingy.jineric.tag.JinericBlockSoundTags;
 import jingy.jineric.tag.JinericBlockTags;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -22,10 +22,10 @@ import java.util.stream.Stream;
 
 import static jingy.jineric.block.JinericBlocks.*;
 
-public class JinericBlockTagProvider extends FabricTagProvider.BlockTagProvider {
+public class JinericBlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
 	public Map<TagKey<Block>, Block> blockTagMap = new HashMap<>();
 	
-	public JinericBlockTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+	public JinericBlockTagProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
 		super(output, registriesFuture);
 	}
 	
