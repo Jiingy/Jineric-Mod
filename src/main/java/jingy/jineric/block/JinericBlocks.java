@@ -328,25 +328,25 @@ public class JinericBlocks {
 		return register(id, settings -> new WoodenTrappedChestBlock(settings, woodType), notNether ? BlockBehaviour.Properties.ofFullCopy(base) : BlockBehaviour.Properties.ofFullCopy(base).sound(SoundType.NETHER_WOOD));
 	}
 	
-	public static Block register(ResourceKey<Block> key, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties settings) {
-		Block block = factory.apply(settings.setId(key));
-		return Registry.register(BuiltInRegistries.BLOCK, key, block);
+	public static Block register(final ResourceKey<Block> id, final Function<BlockBehaviour.Properties, Block> factory, final BlockBehaviour.Properties properties) {
+		Block block = factory.apply(properties.setId(id));
+		return Registry.register(BuiltInRegistries.BLOCK, id, block);
 	}
 	
-	public static Block register(ResourceKey<Block> key, BlockBehaviour.Properties settings) {
-		return register(key, Block::new, settings);
+	public static Block register(final ResourceKey<Block> key, final BlockBehaviour.Properties properties) {
+		return register(key, Block::new, properties);
 	}
 	
-	private static ResourceKey<Block> keyOf(String id) {
-		return ResourceKey.create(Registries.BLOCK, JinericMain.ofJineric(id));
+	private static ResourceKey<Block> jinericBlockId(final String name) {
+		return ResourceKey.create(Registries.BLOCK, JinericMain.ofJineric(name));
 	}
 	
-	private static Block register(String id, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties settings) {
-		return register(keyOf(id), factory, settings);
+	private static Block register(String id, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties properties) {
+		return register(jinericBlockId(id), factory, properties);
 	}
 	
-	private static Block register(String id, BlockBehaviour.Properties settings) {
-		return register(id, Block::new, settings);
+	private static Block register(final String id, final BlockBehaviour.Properties properties) {
+		return register(id, Block::new, properties);
 	}
 	
 	public static void initialize() {
