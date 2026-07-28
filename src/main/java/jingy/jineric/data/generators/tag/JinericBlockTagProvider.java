@@ -46,9 +46,7 @@ public class JinericBlockTagProvider extends FabricTagsProvider.BlockTagsProvide
 		// Needs Tool
 		this.valueLookupBuilder(BlockTags.NEEDS_DIAMOND_TOOL);
 		this.valueLookupBuilder(BlockTags.NEEDS_IRON_TOOL).forceAddTag(ConventionalBlockTags.COAL_ORES);
-		this.valueLookupBuilder(BlockTags.NEEDS_STONE_TOOL)
-				.add(CUT_COPPER_WALL, EXPOSED_CUT_COPPER_WALL, WEATHERED_CUT_COPPER_WALL, OXIDIZED_CUT_COPPER_WALL)
-				.add(WAXED_CUT_COPPER_WALL, WAXED_EXPOSED_CUT_COPPER_WALL, WAXED_WEATHERED_CUT_COPPER_WALL, WAXED_OXIDIZED_CUT_COPPER_WALL);
+		this.valueLookupBuilder(BlockTags.NEEDS_STONE_TOOL).addAll(CUT_COPPER_WALLS.asList());
 		// Incorrect for Tool
 		this.valueLookupBuilder(BlockTags.INCORRECT_FOR_NETHERITE_TOOL);
 		this.valueLookupBuilder(BlockTags.INCORRECT_FOR_DIAMOND_TOOL);
@@ -56,12 +54,8 @@ public class JinericBlockTagProvider extends FabricTagsProvider.BlockTagsProvide
 		this.valueLookupBuilder(BlockTags.INCORRECT_FOR_COPPER_TOOL);
 		this.valueLookupBuilder(BlockTags.INCORRECT_FOR_STONE_TOOL)
 				.forceAddTag(BlockTags.IRON_ORES);
-		this.valueLookupBuilder(BlockTags.INCORRECT_FOR_GOLD_TOOL)
-				.add(CUT_COPPER_WALL, EXPOSED_CUT_COPPER_WALL, WEATHERED_CUT_COPPER_WALL, OXIDIZED_CUT_COPPER_WALL)
-				.add(WAXED_CUT_COPPER_WALL, WAXED_EXPOSED_CUT_COPPER_WALL, WAXED_WEATHERED_CUT_COPPER_WALL, WAXED_OXIDIZED_CUT_COPPER_WALL);
-		this.valueLookupBuilder(BlockTags.INCORRECT_FOR_WOODEN_TOOL)
-				.add(CUT_COPPER_WALL, EXPOSED_CUT_COPPER_WALL, WEATHERED_CUT_COPPER_WALL, OXIDIZED_CUT_COPPER_WALL)
-				.add(WAXED_CUT_COPPER_WALL, WAXED_EXPOSED_CUT_COPPER_WALL, WAXED_WEATHERED_CUT_COPPER_WALL, WAXED_OXIDIZED_CUT_COPPER_WALL);
+		this.valueLookupBuilder(BlockTags.INCORRECT_FOR_GOLD_TOOL).addAll(CUT_COPPER_WALLS.asList());
+		this.valueLookupBuilder(BlockTags.INCORRECT_FOR_WOODEN_TOOL).addAll(CUT_COPPER_WALLS.asList());
 		// AXE
 		this.valueLookupBuilder(BlockTags.MINEABLE_WITH_AXE)
 				.addTag(JinericBlockTags.WOODEN_CHESTS)
@@ -76,14 +70,19 @@ public class JinericBlockTagProvider extends FabricTagsProvider.BlockTagsProvide
 				.add(ROTTEN_FLESH_BLOCK)
 				.add(PAPER_BLOCK);
 		// PICKAXE
-		this.putBlocksToTag(BlockTags.MINEABLE_WITH_PICKAXE,
-				JinericBlocks.CUT_COPPER_WALL, JinericBlocks.EXPOSED_CUT_COPPER_WALL, JinericBlocks.WEATHERED_CUT_COPPER_WALL, JinericBlocks.OXIDIZED_CUT_COPPER_WALL,
-				JinericBlocks.WAXED_CUT_COPPER_WALL, JinericBlocks.WAXED_EXPOSED_CUT_COPPER_WALL, JinericBlocks.WAXED_WEATHERED_CUT_COPPER_WALL, JinericBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL,
-				JinericBlocks.BLAZE_ROD_BLOCK, JinericBlocks.EGG_BLOCK, JinericBlocks.PRISMARINE_CRYSTAL_BLOCK, JinericBlocks.BONE_MEAL_BLOCK, JinericBlocks.FLINT_BLOCK, JinericBlocks.CHARCOAL_BLOCK,
-				JinericBlocks.STONE_BRICK_PILLAR, JinericBlocks.TUFF_BRICK_PILLAR, JinericBlocks.DRIPSTONE_BRICK_PILLAR,
-				JinericBlocks.REDSTONE_LANTERN,
-				JinericBlocks.REFINERY
-		);
+		this.valueLookupBuilder(BlockTags.MINEABLE_WITH_PICKAXE)
+				.addAll(CUT_COPPER_WALLS.asList())
+				.add(JinericBlocks.BLAZE_ROD_BLOCK)
+				.add(JinericBlocks.EGG_BLOCK)
+				.add(JinericBlocks.PRISMARINE_CRYSTAL_BLOCK)
+				.add(JinericBlocks.BONE_MEAL_BLOCK)
+				.add(JinericBlocks.FLINT_BLOCK)
+				.add(JinericBlocks.CHARCOAL_BLOCK)
+				.add(JinericBlocks.STONE_BRICK_PILLAR)
+				.add(JinericBlocks.TUFF_BRICK_PILLAR)
+				.add(JinericBlocks.DRIPSTONE_BRICK_PILLAR)
+				.add(JinericBlocks.REDSTONE_LANTERN)
+				.add(JinericBlocks.REFINERY);
 		this.blockFamiliesToTag(BlockTags.MINEABLE_WITH_PICKAXE,
 				JinericBlockFamilies.STONE, JinericBlockFamilies.SMOOTH_STONE,
 				JinericBlockFamilies.POLISHED_STONE,

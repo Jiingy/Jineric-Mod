@@ -9,18 +9,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.ColorRGBA;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.CarvedPumpkinBlock;
-import net.minecraft.world.level.block.ColoredFallingBlock;
-import net.minecraft.world.level.block.FenceBlock;
-import net.minecraft.world.level.block.LadderBlock;
-import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.StairBlock;
-import net.minecraft.world.level.block.WallBlock;
-import net.minecraft.world.level.block.WeatheringCopper;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -237,47 +226,14 @@ public class JinericBlocks {
 	public static final Block GRASS_BLOCK = register("grass_block", JmGrassBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK));
 	public static final Block PRISMARINE_BRICK_WALL = register("prismarine_brick_wall", WallBlock::new, BlockBehaviour.Properties.ofFullCopy(PRISMARINE_BRICKS));
 	public static final Block DARK_PRISMARINE_WALL = register("dark_prismarine_wall", WallBlock::new, BlockBehaviour.Properties.ofFullCopy(DARK_PRISMARINE));
-	public static final Block CUT_COPPER_WALL = register(
+	public static final WeatheringCopperBlocks CUT_COPPER_WALLS = WeatheringCopperBlocks.create(
 			"cut_copper_wall",
-			settings -> new OxidizableCopperWallBlock(WeatheringCopper.WeatherState.UNAFFECTED, settings),
-			BlockBehaviour.Properties.ofFullCopy(CUT_COPPER)
+			JinericBlocks::register,
+			WallBlock::new,
+			WeatheringCopperWallBlock::new,
+            _ -> BlockBehaviour.Properties.ofFullCopy(CUT_COPPER)
 	);
-	public static final Block EXPOSED_CUT_COPPER_WALL = register(
-			"exposed_cut_copper_wall",
-			settings -> new OxidizableCopperWallBlock(WeatheringCopper.WeatherState.EXPOSED, settings),
-			BlockBehaviour.Properties.ofFullCopy(EXPOSED_CUT_COPPER)
-	);
-	public static final Block WEATHERED_CUT_COPPER_WALL = register(
-			"weathered_cut_copper_wall",
-			settings -> new OxidizableCopperWallBlock(WeatheringCopper.WeatherState.WEATHERED, settings),
-			BlockBehaviour.Properties.ofFullCopy(WEATHERED_CUT_COPPER)
-	);
-	public static final Block OXIDIZED_CUT_COPPER_WALL = register(
-			"oxidized_cut_copper_wall",
-			settings -> new OxidizableCopperWallBlock(WeatheringCopper.WeatherState.OXIDIZED, settings),
-			BlockBehaviour.Properties.ofFullCopy(OXIDIZED_CUT_COPPER)
-	);
-	public static final Block WAXED_CUT_COPPER_WALL = register(
-			"waxed_cut_copper_wall",
-			settings -> new OxidizableCopperWallBlock(WeatheringCopper.WeatherState.UNAFFECTED, settings),
-			BlockBehaviour.Properties.ofFullCopy(CUT_COPPER)
-	);
-	public static final Block WAXED_EXPOSED_CUT_COPPER_WALL = register(
-			"waxed_exposed_cut_copper_wall",
-			settings -> new OxidizableCopperWallBlock(WeatheringCopper.WeatherState.EXPOSED, settings),
-			BlockBehaviour.Properties.ofFullCopy(EXPOSED_CUT_COPPER)
-	);
-	public static final Block WAXED_WEATHERED_CUT_COPPER_WALL = register(
-			"waxed_weathered_cut_copper_wall",
-			settings -> new OxidizableCopperWallBlock(WeatheringCopper.WeatherState.WEATHERED, settings),
-			BlockBehaviour.Properties.ofFullCopy(WEATHERED_CUT_COPPER)
-	);
-	public static final Block WAXED_OXIDIZED_CUT_COPPER_WALL = register(
-			"waxed_oxidized_cut_copper_wall",
-			settings -> new OxidizableCopperWallBlock(WeatheringCopper.WeatherState.OXIDIZED, settings),
-			BlockBehaviour.Properties.ofFullCopy(OXIDIZED_CUT_COPPER)
-	);
-	
+
 	//UTILITY
 	public static final Block STONE_CRUCIBLE = register("stone_crucible", CrucibleBlock::new, BlockBehaviour.Properties.ofFullCopy(CRAFTING_TABLE));
 	public static final Block REFINERY = register(
