@@ -199,14 +199,7 @@ public class JinericItems {
 	
 	//COPPER
 	//CUT
-	public static final Item CUT_COPPER_WALL = register(JinericBlocks.CUT_COPPER_WALL);
-	public static final Item EXPOSED_CUT_COPPER_WALL = register(JinericBlocks.EXPOSED_CUT_COPPER_WALL);
-	public static final Item WEATHERED_CUT_COPPER_WALL = register(JinericBlocks.WEATHERED_CUT_COPPER_WALL);
-	public static final Item OXIDIZED_CUT_COPPER_WALL = register(JinericBlocks.OXIDIZED_CUT_COPPER_WALL);
-	public static final Item WAXED_CUT_COPPER_WALL = register(JinericBlocks.WAXED_CUT_COPPER_WALL);
-	public static final Item WAXED_EXPOSED_CUT_COPPER_WALL = register(JinericBlocks.WAXED_EXPOSED_CUT_COPPER_WALL);
-	public static final Item WAXED_WEATHERED_CUT_COPPER_WALL = register(JinericBlocks.WAXED_WEATHERED_CUT_COPPER_WALL);
-	public static final Item WAXED_OXIDIZED_CUT_COPPER_WALL = register(JinericBlocks.WAXED_OXIDIZED_CUT_COPPER_WALL);
+	public static final WeatheringCopperItems CUT_COPPER_WALL = WeatheringCopperItems.create(JinericBlocks.CUT_COPPER_WALLS, JinericItems::register);
 	//ITEM STORAGE
 	public static final Item CHARCOAL_BLOCK = register(JinericBlocks.CHARCOAL_BLOCK);
 	public static final Item FLINT_BLOCK = register(JinericBlocks.FLINT_BLOCK);
