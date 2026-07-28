@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(SpreadingSnowyBlock.class)
-public abstract class BlocksForGrassSurvivingMixin {
+public abstract class SurviveUnderGrassBlockMixin {
 	
 	@Inject(
 			method = "canStayAlive",
@@ -22,7 +22,7 @@ public abstract class BlocksForGrassSurvivingMixin {
 			),
 			cancellable = true
 	)
-	private static void canSurviveIfJmGrassBlock(
+	private static void canSurviveUnder(
 			BlockState state, LevelReader level, BlockPos pos, CallbackInfoReturnable<Boolean> cir,
 			@Local(type = BlockState.class, name = "aboveState") BlockState aboveState
 	) {
