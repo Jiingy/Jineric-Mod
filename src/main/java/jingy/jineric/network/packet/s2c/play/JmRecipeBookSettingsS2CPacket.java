@@ -1,6 +1,6 @@
 package jingy.jineric.network.packet.s2c.play;
 
-import jingy.jineric.access.ClientPlayPacketListenerAccess;
+import jingy.jineric.access.JmClientGamePacketListener;
 import jingy.jineric.network.packet.JmPlayPackets;
 import jingy.jineric.recipe.book.JmRecipeBookOptions;
 import net.minecraft.network.FriendlyByteBuf;
@@ -26,7 +26,7 @@ public record JmRecipeBookSettingsS2CPacket(JmRecipeBookOptions bookSettings) im
 	
 	@Override
 	public void handle(ClientGamePacketListener clientPlayPacketListener) {
-		((ClientPlayPacketListenerAccess)clientPlayPacketListener).jineric_mod$onJmRecipeBookSettings(this);
+		((JmClientGamePacketListener)clientPlayPacketListener).jineric_mod$onJmRecipeBookSettings(this);
 	}
 	
 //	@Override

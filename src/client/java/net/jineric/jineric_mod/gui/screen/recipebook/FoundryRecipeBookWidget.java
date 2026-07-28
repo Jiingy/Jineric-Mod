@@ -4,7 +4,7 @@ import jingy.jineric.base.JinericMain;
 import jingy.jineric.recipe.display.FoundryRecipeDisplay;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.jineric.jineric_mod.access.GhostRecipeAccess;
+import net.jineric.jineric_mod.access.JmGhostSlots;
 import net.jineric.jineric_mod.mixin.client.access.GhostRecipeAccessor;
 import net.jineric.jineric_mod.mixin.client.access.RecipeBookWidgetAccessor;
 import net.minecraft.client.gui.GuiGraphics;
@@ -60,7 +60,7 @@ public class FoundryRecipeBookWidget extends FurnaceRecipeBookComponent {
 		ghostRecipeAccessor.callSetResult(this.menu.getResultSlot(), context, recipeDisplay.result());
 		if (recipeDisplay instanceof FoundryRecipeDisplay foundryRecipeDisplay) {
 			NonNullList<Slot> screenHandlerSlots = this.menu.slots;
-			((GhostRecipeAccess)ghostRecipe).jineric$setRecipeDisplay(recipeDisplay);
+			((JmGhostSlots)ghostRecipe).jineric$setRecipeDisplay(recipeDisplay);
 			ghostRecipeAccessor.callSetInput(screenHandlerSlots.get(0), context, foundryRecipeDisplay.ingredient());
 			Slot fuelSlot = screenHandlerSlots.get(1);
 			if (fuelSlot.getItem().isEmpty()) {

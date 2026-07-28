@@ -1,6 +1,6 @@
 package jingy.jineric.screen.slot;
 
-import jingy.jineric.access.CampfireBlockEntityAccess;
+import jingy.jineric.access.JmCampfireBlockEntity;
 import jingy.jineric.screen.CampfireScreenHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -55,8 +55,8 @@ public class CampfireLogSlog extends Slot {
 					if (optional.isEmpty() || newStack.isEmpty()) {
 						return;
 					}
-					((CampfireBlockEntityAccess)campfireBlockEntity).jineric$setCookingTotalTime(index, ((CampfireCookingRecipe)((RecipeHolder<?>)optional.get()).value()).cookingTime());
-					((CampfireBlockEntityAccess)campfireBlockEntity).jineric$setCookingTime(index, 0);
+					((JmCampfireBlockEntity)campfireBlockEntity).jineric$setCookingTotalTime(index, ((CampfireCookingRecipe)((RecipeHolder<?>)optional.get()).value()).cookingTime());
+					((JmCampfireBlockEntity)campfireBlockEntity).jineric$setCookingTime(index, 0);
 					campfireBlockEntity.getItems().set(index, newStack);
 				}
 			}

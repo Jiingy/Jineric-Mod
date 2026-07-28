@@ -3,7 +3,7 @@ package jingy.jineric.server.network;
 import com.mojang.logging.LogUtils;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import jingy.jineric.access.RecipeBookAccess;
+import jingy.jineric.access.JmRecipeBook;
 import jingy.jineric.mixin.access.ServerRecipeBookAccess;
 import jingy.jineric.network.packet.s2c.play.JmRecipeBookSettingsS2CPacket;
 import jingy.jineric.recipe.book.JmRecipeBookOptions;
@@ -38,7 +38,7 @@ public class JmServerRecipeBook extends ServerRecipeBook {
 	
 	@Override
 	public void sendInitialRecipeBook(ServerPlayer player) {
-		JmRecipeBookOptions bookOptions = ((RecipeBookAccess)this).jineric$getOptions();
+		JmRecipeBookOptions bookOptions = ((JmRecipeBook)this).jineric$getOptions();
 		player.connection.send(new JmRecipeBookSettingsS2CPacket(bookOptions.copy()));
 		//  TODO RECIPE BOOK: Code commented out due to my CustomPayload not working, and being unable to fix it without internet
 //		ServerPlayNetworking.send(player, new JmRecipeBookSettingsS2CPacket(bookOptions.copy()));
@@ -56,19 +56,19 @@ public class JmServerRecipeBook extends ServerRecipeBook {
 	}
 	
 	public jingy.jineric.server.network.JmServerRecipeBook.Packed jmPack() {
-		return new jingy.jineric.server.network.JmServerRecipeBook.Packed(((RecipeBookAccess)this).jineric$getOptions().copy(), List.copyOf(this.known), List.copyOf(this.highlight));
+		return new jingy.jineric.server.network.JmServerRecipeBook.Packed(((JmRecipeBook)this).jineric$getOptions().copy(), List.copyOf(this.known), List.copyOf(this.highlight));
 	}
 	
 	private void unpack(jingy.jineric.server.network.JmServerRecipeBook.Packed packed) {
 		this.known.clear();
 		this.highlight.clear();
-		((RecipeBookAccess)this).jineric$getOptions().copyFrom(packed.settings);
+		((JmRecipeBook)this).jineric$getOptions().copyFrom(packed.settings);
 		this.known.addAll(packed.known);
 		this.highlight.addAll(packed.highlight);
 	}
 	
 	public void unpack(jingy.jineric.server.network.JmServerRecipeBook.Packed packed, Predicate<ResourceKey<Recipe<?>>> validPredicate) {
-		((RecipeBookAccess)this).jineric$getOptions().copyFrom(packed.settings);
+		((JmRecipeBook)this).jineric$getOptions().copyFrom(packed.settings);
 		this.loadRecipes(packed.known, this.known::add, validPredicate);
 		this.loadRecipes(packed.highlight, this.highlight::add, validPredicate);
 	}
