@@ -3,9 +3,9 @@ package jingy.jineric.registry;
 import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.tag.JinericBlockTags;
 import jingy.jineric.tag.JinericItemTags;
-import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
+import net.fabricmc.fabric.api.registry.CompostableRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
-import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
+import net.fabricmc.fabric.api.registry.FuelValueEvents;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 
 public class JinericRegistries {
@@ -19,16 +19,17 @@ public class JinericRegistries {
 	}
 	
 	private static void registerIsFuel() {
-		FuelRegistryEvents.BUILD.register((builder, context) -> builder
-				.add(JinericItemTags.WOODEN_BOOKSHELVES, 300)
-				.add(JinericItemTags.WOODEN_CHESTS, 300)
-				.add(JinericItemTags.WOODEN_TRAPPED_CHESTS, 300)
-				.add(JinericItemTags.WOODEN_LADDERS, 300)
-		);
+		FuelValueEvents.BUILD.register((builder, context) -> {
+			builder.add(JinericItemTags.WOODEN_BOOKSHELVES, 300)
+					.add(JinericItemTags.WOODEN_CHESTS, 300)
+					.add(JinericItemTags.WOODEN_TRAPPED_CHESTS, 300)
+					.add(JinericItemTags.WOODEN_LADDERS, 300);
+		});
 	}
 	
 	private static void registerCompostable() {
-		CompostingChanceRegistry registry = CompostingChanceRegistry.INSTANCE;
+		CompostableRegistry registry = CompostableRegistry.INSTANCE;
+
 	}
 	
 	private static void registerStrippable() {
