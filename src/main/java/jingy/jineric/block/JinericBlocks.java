@@ -201,7 +201,7 @@ public class JinericBlocks {
 	public static final Block CHARCOAL_BLOCK = register("charcoal_block", BlockBehaviour.Properties.ofFullCopy(COAL_BLOCK));
 	public static final Block BONE_MEAL_BLOCK = register("bone_meal_block", BlockBehaviour.Properties.ofFullCopy(BONE_BLOCK));
 	public static final Block ENDER_PEARL_BLOCK = register("ender_pearl_block", BlockBehaviour.Properties.ofFullCopy(HONEY_BLOCK));
-	public static final Block PRISMARINE_CRYSTAL_BLOCK = register("prismarine_crystal_block", BlockBehaviour.Properties.ofFullCopy(SEA_LANTERN).lightLevel(state -> 4).requiresCorrectToolForDrops());
+	public static final Block PRISMARINE_CRYSTAL_BLOCK = register("prismarine_crystal_block", BlockBehaviour.Properties.ofFullCopy(SEA_LANTERN).lightLevel(_ -> 4).requiresCorrectToolForDrops());
 	public static final Block BLAZE_ROD_BLOCK = register("blaze_rod_block", BlockBehaviour.Properties.ofFullCopy(CHARCOAL_BLOCK));
 	public static final Block EGG_BLOCK = register("egg_block", BlockBehaviour.Properties.ofFullCopy(CALCITE).sound(SoundType.CALCITE).strength(0.50F));
 	public static final Block STICK_BLOCK = register("stick_block", RotatedPillarBlock::new, BlockBehaviour.Properties.ofFullCopy(OAK_PLANKS));
@@ -256,7 +256,7 @@ public class JinericBlocks {
 	public static final Block REDSTONE_LANTERN = register(
 			"redstone_lantern",
 			RedstoneLanternBlock::new,
-			BlockBehaviour.Properties.ofFullCopy(LANTERN).lightLevel(state -> 7)
+			BlockBehaviour.Properties.ofFullCopy(LANTERN).lightLevel(_ -> 7)
 	);
 	public static final Block REDSTONE_CAMPFIRE = register(
 			"redstone_campfire",
