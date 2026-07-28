@@ -38,7 +38,7 @@ public abstract class ScreenForCampfireBlockEntityMixin extends BlockEntity impl
 	int[] cookingTimesCopy = new int[4];
 	int[] cookingTotalTimesCopy = new int[4];
 	//TOOD: ADD
-	@Nullable private Component customName;
+	@Nullable private Component name;
 	
 	@Unique
 	protected final SimpleContainerData simpleContainerData = new SimpleContainerData(4) {
@@ -225,7 +225,7 @@ public abstract class ScreenForCampfireBlockEntityMixin extends BlockEntity impl
 	
 	@Override
 	public Component getName() {
-		return this.customName != null ? this.customName : Component.translatable("container.jineric.campfire");
+		return this.name != null ? this.name : Component.translatable("container.jineric.campfire");
 	}
 	
 	@Override
