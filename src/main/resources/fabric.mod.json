@@ -59,31 +59,31 @@
         }
      },
      "loom:injected_interfaces": {
-        "net/minecraft/class_10260": [
-           "net/jineric/jineric_mod/access/RecipeBookScreenAccess"
+        "net/minecraft/client/gui/screens/inventory/AbstractRecipeBookScreen": [
+           "net/jineric/jineric_mod/access/JmAbstractRecipeBookScreen"
         ],
-        "net/minecraft/class_5794": [
-           "jingy/jineric/access/BlockFamilyAccess"
+        "net/minecraft/data/BlockFamily": [
+           "jingy/jineric/access/JmBlockFamily"
         ],
-        "net/minecraft/class_5794\u0024class_5795": [
-           "jingy/jineric/access/BlockFamilyBuilderAccess"
+        "net/minecraft/data/BlockFamily$Builder": [
+           "jingy/jineric/access/JmBlockFamilyBuilder"
         ],
-        "net/minecraft/class_2446": [
-           "jingy/jineric/access/RecipeGeneratorAccess"
+        "net/minecraft/data/recipes/RecipeProvider": [
+           "jingy/jineric/access/JmRecipeProvider"
         ],
-        "net/minecraft/class_1799": [
-           "jingy/jineric/access/ItemStackAccess"
+        "net/minecraft/world/item/ItemStack": [
+           "jingy/jineric/access/JmItemStack"
         ],
-        "net/minecraft/class_1792\u0024class_1793": [
-           "jingy/jineric/access/ItemSettingsAccess"
+        "net/minecraft/world/item/Item$Properties": [
+           "jingy/jineric/access/JmJmItemProperties"
         ],
-        "net/minecraft/class_8074": [
-           "jingy/jineric/access/SmithingTransformRecipeJsonBuilderAccess"
+        "net/minecraft/data/recipes/SmithingTransformRecipeBuilder": [
+           "jingy/jineric/access/JmSmithingTransformRecipeBuilder"
         ],
-        "net/minecraft/class_3924": [
-           "net/minecraft/class_3908",
-           "net/minecraft/class_1275",
-           "net/minecraft/class_1263"
+        "net/minecraft/world/level/block/entity/CampfireBlockEntity": [
+           "net/minecraft/world/level/block/entity/MenuProvider",
+           "net/minecraft/world/Nameable",
+           "net/minecraft/world/Container"
         ]
      }
    }

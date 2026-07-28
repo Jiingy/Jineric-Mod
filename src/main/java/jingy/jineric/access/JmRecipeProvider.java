@@ -1,11 +1,10 @@
 package jingy.jineric.access;
 
 import net.minecraft.data.recipes.RecipeBuilder;
-import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 
-public interface RecipeGeneratorAccess {
+public interface JmRecipeProvider {
 	default RecipeBuilder bookshelfBuilder$jineric(Ingredient input, ItemLike output) {
 		return null;
 	}

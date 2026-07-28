@@ -1,6 +1,6 @@
 package jingy.jineric.access;
 
-public interface CampfireBlockEntityAccess {
+public interface JmCampfireBlockEntity {
 	
 	default int jineric$getCookingTime(int index) {
 		throw new RuntimeException("Failed to apply!");

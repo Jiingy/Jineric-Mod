@@ -1,6 +1,6 @@
 package jingy.jineric.access;
 
-public interface ItemStackAccess {
+public interface JmItemStack {
 	
 	default boolean jineric$isLeveled() {
 		throw new RuntimeException("ItemStackAccess.jineric$isLeveled failed");

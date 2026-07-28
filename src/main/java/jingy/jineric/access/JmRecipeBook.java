@@ -2,7 +2,7 @@ package jingy.jineric.access;
 
 import jingy.jineric.recipe.book.JmRecipeBookOptions;
 
-public interface RecipeBookAccess {
+public interface JmRecipeBook {
 	default JmRecipeBookOptions jineric$getOptions() {
 		throw new RuntimeException("getOptions$jineric() did not apply!");
 	}

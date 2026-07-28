@@ -2,7 +2,7 @@ package jingy.jineric.access;
 
 import jingy.jineric.server.network.JmServerRecipeBook;
 
-public interface ServerPlayerEntityAccess {
+public interface JmServerPlayer {
 	default JmServerRecipeBook jineric$getRecipeBook() {
 		throw new RuntimeException();
 	}
