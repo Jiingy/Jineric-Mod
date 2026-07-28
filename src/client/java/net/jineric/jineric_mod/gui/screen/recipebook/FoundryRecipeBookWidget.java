@@ -4,7 +4,7 @@ import jingy.jineric.base.JinericMain;
 import jingy.jineric.recipe.display.FoundryRecipeDisplay;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.jineric.jineric_mod.access.JmGhostSlots;
+import net.jineric.jineric_mod.base.injected_interfaces.JmGhostSlots;
 import net.jineric.jineric_mod.mixin.client.access.GhostSlotsAccessor;
 import net.jineric.jineric_mod.mixin.client.access.RecipeBookComponentAccessor;
 import net.minecraft.client.gui.GuiGraphics;

@@ -1,4 +1,4 @@
-package net.jineric.jineric_mod.access;
+package net.jineric.jineric_mod.base.injected_interfaces;
 
 import net.minecraft.world.item.crafting.display.RecipeDisplay;
 

@@ -6,7 +6,7 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
 import jingy.jineric.recipe.display.FoundryRecipeDisplay;
-import net.jineric.jineric_mod.access.JmGhostSlots;
+import net.jineric.jineric_mod.base.injected_interfaces.JmGhostSlots;
 import net.minecraft.client.gui.screens.recipebook.GhostSlots;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;

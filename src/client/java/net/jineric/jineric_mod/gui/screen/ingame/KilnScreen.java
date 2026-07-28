@@ -5,7 +5,7 @@ import jingy.jineric.recipe.book.JinericRecipeBookCategories;
 import jingy.jineric.screen.KilnScreenHandler;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.jineric.jineric_mod.access.JmAbstractRecipeBookScreen;
+import net.jineric.jineric_mod.base.injected_interfaces.JmAbstractRecipeBookScreen;
 import net.jineric.jineric_mod.gui.screen.recipebook.FoundryRecipeBookWidget;
 import net.jineric.jineric_mod.recipe.JinericClientRecipeBookTypes;
 import net.minecraft.client.gui.screens.inventory.AbstractFurnaceScreen;

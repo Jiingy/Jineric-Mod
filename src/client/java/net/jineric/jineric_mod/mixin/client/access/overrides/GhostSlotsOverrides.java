@@ -1,6 +1,6 @@
 package net.jineric.jineric_mod.mixin.client.access.overrides;
 
-import net.jineric.jineric_mod.access.JmGhostSlots;
+import net.jineric.jineric_mod.base.injected_interfaces.JmGhostSlots;
 import net.minecraft.client.gui.screens.recipebook.GhostSlots;
 import net.minecraft.world.item.crafting.display.RecipeDisplay;
 import org.spongepowered.asm.mixin.Mixin;
