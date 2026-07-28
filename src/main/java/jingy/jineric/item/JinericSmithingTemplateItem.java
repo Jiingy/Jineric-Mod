@@ -1,7 +1,7 @@
 package jingy.jineric.item;
 
 import jingy.jineric.base.JinericMain;
-import jingy.jineric.mixin.access.SmithingTemplateItemAccessor;
+import jingy.jineric.mixin.accessor.SmithingTemplateItemAccessor;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;

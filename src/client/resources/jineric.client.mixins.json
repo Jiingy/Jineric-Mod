@@ -17,16 +17,16 @@
       "RecipeBookWidgetMixin",
       "SheetsMixin",
       "VideoSettingsScreenMixin",
-      "access.RecipeBookComponentAccessor",
-      "access.TextureSlotAccessor",
-      "access.overrides.AbstractRecipeBookScreenOverrides",
-      "access.overrides.GhostSlotsOverrides",
+      "accessor.RecipeBookComponentAccessor",
+      "accessor.TextureSlotAccessor",
+      "accessor.overrides.AbstractRecipeBookScreenOverrides",
+      "accessor.overrides.GhostSlotsOverrides",
       "duck.ClientPacketListenerDuckMixin"
    ],
    "injectors": {
       "defaultRequire": 1
    },
    "mixins": [
-      "access.GhostSlotsAccessor"
+      "accessor.GhostSlotsAccessor"
    ]
 }

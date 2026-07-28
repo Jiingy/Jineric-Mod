@@ -1,4 +1,4 @@
-package jingy.jineric.mixin.access;
+package jingy.jineric.mixin.accessor;
 
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;

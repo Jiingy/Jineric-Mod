@@ -1,4 +1,4 @@
-package net.jineric.jineric_mod.mixin.client.access;
+package net.jineric.jineric_mod.mixin.client.accessor;
 
 import net.minecraft.client.data.models.model.TextureSlot;
 import org.jetbrains.annotations.Nullable;

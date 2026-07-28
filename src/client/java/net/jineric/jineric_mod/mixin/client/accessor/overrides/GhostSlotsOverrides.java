@@ -1,4 +1,4 @@
-package net.jineric.jineric_mod.mixin.client.access.overrides;
+package net.jineric.jineric_mod.mixin.client.accessor.overrides;
 
 import net.jineric.jineric_mod.base.injected_interfaces.JmGhostSlots;
 import net.minecraft.client.gui.screens.recipebook.GhostSlots;

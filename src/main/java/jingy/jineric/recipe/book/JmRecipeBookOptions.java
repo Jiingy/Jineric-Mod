@@ -3,7 +3,7 @@ package jingy.jineric.recipe.book;
 import com.google.common.annotations.VisibleForTesting;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import jingy.jineric.mixin.access.RecipeBookSettingsTypeSettingsAccessor;
+import jingy.jineric.mixin.accessor.RecipeBookSettingsTypeSettingsAccessor;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.stats.RecipeBookSettings;

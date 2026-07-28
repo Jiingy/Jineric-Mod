@@ -1,4 +1,4 @@
-package jingy.jineric.mixin.access;
+package jingy.jineric.mixin.accessor;
 
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.SmithingTemplateItem;

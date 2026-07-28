@@ -1,4 +1,4 @@
-package jingy.jineric.mixin.access;
+package jingy.jineric.mixin.accessor;
 
 import jingy.jineric.base.injected_interfaces.JmItemProperties;
 import jingy.jineric.component.JmDataComponentTypes;

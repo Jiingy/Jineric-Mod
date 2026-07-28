@@ -10,7 +10,7 @@ import jingy.jineric.data.family.JinericBlockFamilies;
 import jingy.jineric.data.family.JinericBlockFamilyVariants;
 import jingy.jineric.item.JinericItems;
 import jingy.jineric.item.equipment.JmEquipmentAssetKeys;
-import jingy.jineric.mixin.access.SimpleCookingRecipeBuilderAccessor;
+import jingy.jineric.mixin.accessor.SimpleCookingRecipeBuilderAccessor;
 import jingy.jineric.recipe.RefiningRecipe;
 import jingy.jineric.tag.JinericItemTags;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;

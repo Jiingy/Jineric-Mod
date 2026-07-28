@@ -1,4 +1,4 @@
-package jingy.jineric.mixin.access;
+package jingy.jineric.mixin.accessor;
 
 import net.minecraft.core.Holder;
 import net.minecraft.world.entity.player.StackedContents;

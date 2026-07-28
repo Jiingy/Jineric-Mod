@@ -1,7 +1,7 @@
 package jingy.jineric.mixin.change;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import jingy.jineric.mixin.access.RecipeFinderAccessor;
+import jingy.jineric.mixin.accessor.RecipeFinderAccessor;
 import jingy.jineric.recipe.display.FoundryRecipeDisplay;
 import net.minecraft.world.entity.player.StackedItemContents;
 import net.minecraft.world.item.crafting.Ingredient;

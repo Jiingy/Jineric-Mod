@@ -2,7 +2,7 @@ package net.jineric.jineric_mod.data;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.jineric.jineric_mod.mixin.client.access.TextureSlotAccessor;
+import net.jineric.jineric_mod.mixin.client.accessor.TextureSlotAccessor;
 import net.minecraft.client.data.models.model.TextureSlot;
 
 @Environment(EnvType.CLIENT)

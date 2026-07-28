@@ -1,4 +1,4 @@
-package jingy.jineric.mixin.access;
+package jingy.jineric.mixin.accessor;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.stats.RecipeBookSettings;
