@@ -43,9 +43,9 @@
       }
    ],
    "depends": {
-      "fabricloader": ">=0.17.3",
-      "minecraft": "~1.21.11",
-      "java": ">=21",
+      "fabricloader": ">=0.19.3",
+      "minecraft": "~26.2",
+      "java": ">=25",
       "fabric-api": "*"
    },
    "accessWidener": "jineric.accesswidener",
@@ -60,25 +60,25 @@
      },
      "loom:injected_interfaces": {
         "net/minecraft/client/gui/screens/inventory/AbstractRecipeBookScreen": [
-           "net/jineric/jineric_mod/access/JmAbstractRecipeBookScreen"
+           "net/jineric/jineric_mod/base/injected_interfaces/JmAbstractRecipeBookScreen"
         ],
         "net/minecraft/data/BlockFamily": [
-           "jingy/jineric/access/JmBlockFamily"
+           "jingy/jineric/base/injected_interfaces/JmBlockFamily"
         ],
         "net/minecraft/data/BlockFamily$Builder": [
-           "jingy/jineric/access/JmBlockFamilyBuilder"
+           "jingy/jineric/base/injected_interfaces/JmBlockFamilyBuilder"
         ],
         "net/minecraft/data/recipes/RecipeProvider": [
-           "jingy/jineric/access/JmRecipeProvider"
+           "jingy/jineric/base/injected_interfaces/JmRecipeProvider"
         ],
         "net/minecraft/world/item/ItemStack": [
-           "jingy/jineric/access/JmItemStack"
+           "jingy/jineric/base/injected_interfaces/JmItemStack"
         ],
         "net/minecraft/world/item/Item$Properties": [
-           "jingy/jineric/access/JmItemProperties"
+           "jingy/jineric/base/injected_interfaces/JmItemProperties"
         ],
         "net/minecraft/data/recipes/SmithingTransformRecipeBuilder": [
-           "jingy/jineric/access/JmSmithingTransformRecipeBuilder"
+           "jingy/jineric/base/injected_interfaces/JmSmithingTransformRecipeBuilder"
         ],
         "net/minecraft/world/level/block/entity/CampfireBlockEntity": [
            "net/minecraft/world/level/block/entity/MenuProvider",
