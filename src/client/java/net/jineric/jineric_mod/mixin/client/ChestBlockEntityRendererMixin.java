@@ -24,8 +24,8 @@ public abstract class ChestBlockEntityRendererMixin<T extends BlockEntity & LidB
 					ordinal = 4
 			)
 	)
-	private ChestRenderState.ChestMaterialType getIdsForJinericChests(ChestRenderState.ChestMaterialType original, BlockEntity blockEntity, boolean christmas) {
-		if (blockEntity.getBlockState().getBlock() instanceof WoodenChestBlock woodenChestBlock) {
+	private static ChestRenderState.ChestMaterialType getIdsForJinericChests(ChestRenderState.ChestMaterialType original, BlockEntity entity, boolean xmasTextures) {
+		if (entity.getBlockState().getBlock() instanceof WoodenChestBlock woodenChestBlock) {
 			return switch (woodenChestBlock.getWoodType().name()) {
 //				case "oak" -> JinericChestBlockEntityRenderStateVariant.JINERIC_OAK;
 				case "spruce" -> JinericChestBlockEntityRenderStateVariant.SPRUCE;
@@ -53,8 +53,8 @@ public abstract class ChestBlockEntityRendererMixin<T extends BlockEntity & LidB
 					ordinal = 2
 			)
 	)
-	private ChestRenderState.ChestMaterialType idsForWoodenTrappedChests(ChestRenderState.ChestMaterialType original, BlockEntity blockEntity, boolean christmas) {
-		if (blockEntity.getBlockState().getBlock() instanceof WoodenChestBlock woodenChestBlock) {
+	private static ChestRenderState.ChestMaterialType idsForWoodenTrappedChests(ChestRenderState.ChestMaterialType original, BlockEntity entity, boolean xmasTextures) {
+		if (entity.getBlockState().getBlock() instanceof WoodenChestBlock woodenChestBlock) {
 			return switch (woodenChestBlock.getWoodType().name()) {
 //				case "oak" -> JinericChestBlockEntityRenderStateVariant.JINERIC_TRAPPED_OAK;
 				case "spruce" -> JinericChestBlockEntityRenderStateVariant.TRAPPED_SPRUCE;
