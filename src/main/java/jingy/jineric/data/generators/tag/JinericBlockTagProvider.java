@@ -209,7 +209,7 @@ public class JinericBlockTagProvider extends FabricTagsProvider.BlockTagsProvide
 //      this.valueLookupBuilder(BlockTags.WALL_CORALS);
 //      this.valueLookupBuilder(BlockTags.CORAL_PLANTS);
 //      this.valueLookupBuilder(BlockTags.CORALS);
-		this.valueLookupBuilder(BlockTags.BAMBOO_PLANTABLE_ON)
+		this.valueLookupBuilder(BlockTags.SUPPORTS_BAMBOO)
 				.add(GRASS_BLOCK);
 //      this.valueLookupBuilder(BlockTags.STANDING_SIGNS);
 //      this.valueLookupBuilder(BlockTags.WALL_SIGNS);
@@ -273,7 +273,7 @@ public class JinericBlockTagProvider extends FabricTagsProvider.BlockTagsProvide
 		this.valueLookupBuilder(BlockTags.AZALEA_ROOT_REPLACEABLE)
 				.add(GRASS_BLOCK);
 //      this.valueLookupBuilder(BlockTags.SMALL_DRIPLEAF_PLACEABLE);
-		this.valueLookupBuilder(BlockTags.BIG_DRIPLEAF_PLACEABLE)
+		this.valueLookupBuilder(BlockTags.SUPPORTS_BIG_DRIPLEAF)
 				.add(GRASS_BLOCK);
 //      this.valueLookupBuilder(BlockTags.SNOW);
 //      this.valueLookupBuilder(BlockTags.FEATURES_CANNOT_REPLACE);
@@ -393,12 +393,6 @@ public class JinericBlockTagProvider extends FabricTagsProvider.BlockTagsProvide
 				.add(GRASS_BLOCK);
 	}
 	
-	private void putBlocksToTag(TagKey<Block> tagKey, Block... blocks) {
-		for (Block block : blocks) {
-			this.blockTagMap.put(tagKey, block);
-		}
-	}
-	
 	private void blockFamiliesToTag(TagKey<Block> tagKey, BlockFamily... blockFamiliesIn) {
 		List<Block> blockToAdd = new ArrayList<>();
 		Stream<Map.Entry<TagKey<Block>, Block>> list = this.blockTagMap.entrySet().stream()
@@ -412,22 +406,6 @@ public class JinericBlockTagProvider extends FabricTagsProvider.BlockTagsProvide
 		blockToAdd.stream()
 				.filter(block -> BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals("jineric") && !block.defaultBlockState().is(tagKey))
 				.forEach(block -> this.valueLookupBuilder(tagKey).add(block));
-	}
-	
-	private void blockListToTag(TagKey<Block> tagKey, Block... baseBlockIn) {
-		for (Block block : baseBlockIn) {
-			List<BlockFamily> blockFamilies = BlockFamilies.getAllFamilies().toList();
-			blockFamilies.forEach(blockFamily -> {
-				Map<BlockFamily.Variant, Block> variants = blockFamily.getVariants();
-				if (blockFamily.getBaseBlock() == block) {
-					variants.values().stream().filter(testBlock -> !testBlock.defaultBlockState().is(tagKey) && BuiltInRegistries.BLOCK.getKey(testBlock).getNamespace().equals("jineric"))
-							.forEach((blockVariant) -> this.valueLookupBuilder(tagKey).add(blockVariant));
-				}
-			});
-			if (BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals("jineric")) {
-				this.valueLookupBuilder(tagKey).add(block);
-			}
-		}
 	}
 	
 	private void blockFamiliesToFamilyVariantTag(TagKey<Block> blockTag, BlockFamily.Variant familyVariantIn) {
