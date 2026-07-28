@@ -3,7 +3,7 @@ package jingy.jineric.server.network;
 import com.mojang.logging.LogUtils;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import jingy.jineric.access.JmRecipeBook;
+import jingy.jineric.base.injected_interfaces.JmRecipeBook;
 import jingy.jineric.mixin.access.ServerRecipeBookAccessor;
 import jingy.jineric.network.packet.s2c.play.JmRecipeBookSettingsS2CPacket;
 import jingy.jineric.recipe.book.JmRecipeBookOptions;

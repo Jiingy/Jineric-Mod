@@ -1,6 +1,6 @@
 package net.jineric.jineric_mod.mixin.client;
 
-import jingy.jineric.access.JmRecipeBook;
+import jingy.jineric.base.injected_interfaces.JmRecipeBook;
 import jingy.jineric.config.JmConfig;
 import jingy.jineric.recipe.book.JmRecipeBookOptions;
 import net.minecraft.client.ClientRecipeBook;

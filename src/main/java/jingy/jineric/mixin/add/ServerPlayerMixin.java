@@ -6,7 +6,7 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.mojang.authlib.GameProfile;
 import com.mojang.serialization.Codec;
-import jingy.jineric.access.JmServerPlayer;
+import jingy.jineric.base.injected_interfaces.JmServerPlayer;
 import jingy.jineric.config.JmConfig;
 import jingy.jineric.server.network.JmServerRecipeBook;
 import net.minecraft.server.MinecraftServer;

@@ -2,7 +2,7 @@ package jingy.jineric.mixin.add;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import jingy.jineric.access.JmRecipeBook;
+import jingy.jineric.base.injected_interfaces.JmRecipeBook;
 import net.minecraft.stats.RecipeBook;
 import net.minecraft.stats.RecipeBookSettings;
 import net.minecraft.world.inventory.RecipeBookType;

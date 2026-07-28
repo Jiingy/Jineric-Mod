@@ -2,7 +2,7 @@ package jingy.jineric.mixin.add;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import jingy.jineric.access.JmCampfireBlockEntity;
+import jingy.jineric.base.injected_interfaces.JmCampfireBlockEntity;
 import jingy.jineric.screen.CampfireScreenHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;

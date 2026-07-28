@@ -1,4 +1,4 @@
-package jingy.jineric.access;
+package jingy.jineric.base.injected_interfaces;
 
 import net.minecraft.data.BlockFamily;
 import net.minecraft.world.level.block.Block;

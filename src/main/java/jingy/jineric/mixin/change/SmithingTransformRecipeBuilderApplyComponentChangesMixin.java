@@ -1,6 +1,6 @@
 package jingy.jineric.mixin.change;
 
-import jingy.jineric.access.JmSmithingTransformRecipeBuilderAccess;
+import jingy.jineric.base.injected_interfaces.JmSmithingTransformRecipeBuilderAccess;
 import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.data.recipes.SmithingTransformRecipeBuilder;
 import net.minecraft.world.item.ItemStackTemplate;

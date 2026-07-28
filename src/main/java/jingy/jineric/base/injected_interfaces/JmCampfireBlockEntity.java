@@ -1,4 +1,4 @@
-package jingy.jineric.access;
+package jingy.jineric.base.injected_interfaces;
 
 public interface JmCampfireBlockEntity {
 	

@@ -1,4 +1,4 @@
-package jingy.jineric.access;
+package jingy.jineric.base.injected_interfaces;
 
 import jingy.jineric.server.network.JmServerRecipeBook;
 

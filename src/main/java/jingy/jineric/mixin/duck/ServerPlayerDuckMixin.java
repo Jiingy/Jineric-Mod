@@ -1,6 +1,6 @@
 package jingy.jineric.mixin.duck;
 
-import jingy.jineric.access.JmServerPlayer;
+import jingy.jineric.base.injected_interfaces.JmServerPlayer;
 import jingy.jineric.server.network.JmServerRecipeBook;
 import net.minecraft.server.level.ServerPlayer;
 import org.spongepowered.asm.mixin.Mixin;

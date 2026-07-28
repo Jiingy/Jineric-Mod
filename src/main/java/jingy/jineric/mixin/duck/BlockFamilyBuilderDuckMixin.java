@@ -1,6 +1,6 @@
 package jingy.jineric.mixin.duck;
 
-import jingy.jineric.access.JmBlockFamilyBuilder;
+import jingy.jineric.base.injected_interfaces.JmBlockFamilyBuilder;
 import jingy.jineric.data.family.JinericBlockFamilyVariants;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.world.level.block.Block;

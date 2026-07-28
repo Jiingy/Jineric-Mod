@@ -1,6 +1,6 @@
 package jingy.jineric.mixin.change;
 
-import jingy.jineric.access.JmShapedRecipeBuilder;
+import jingy.jineric.base.injected_interfaces.JmShapedRecipeBuilder;
 import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;

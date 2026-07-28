@@ -2,7 +2,7 @@ package jingy.jineric.mixin.change;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import jingy.jineric.access.JmItemProperties;
+import jingy.jineric.base.injected_interfaces.JmItemProperties;
 import jingy.jineric.config.JmConfig;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;

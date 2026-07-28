@@ -1,6 +1,6 @@
 package jingy.jineric.screen.slot;
 
-import jingy.jineric.access.JmCampfireBlockEntity;
+import jingy.jineric.base.injected_interfaces.JmCampfireBlockEntity;
 import jingy.jineric.screen.CampfireScreenHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;

@@ -1,6 +1,6 @@
 package jingy.jineric.mixin.duck;
 
-import jingy.jineric.access.JmRecipeProvider;
+import jingy.jineric.base.injected_interfaces.JmRecipeProvider;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.criterion.InventoryChangeTrigger;

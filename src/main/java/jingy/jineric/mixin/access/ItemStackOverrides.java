@@ -1,6 +1,6 @@
 package jingy.jineric.mixin.access;
 
-import jingy.jineric.access.JmItemStack;
+import jingy.jineric.base.injected_interfaces.JmItemStack;
 import jingy.jineric.component.JmDataComponentTypes;
 import net.minecraft.core.component.DataComponentHolder;
 import net.minecraft.core.component.DataComponentType;

@@ -1,6 +1,6 @@
 package jingy.jineric.mixin.duck;
 
-import jingy.jineric.access.JmClientGamePacketListener;
+import jingy.jineric.base.injected_interfaces.JmClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import org.spongepowered.asm.mixin.Mixin;
 

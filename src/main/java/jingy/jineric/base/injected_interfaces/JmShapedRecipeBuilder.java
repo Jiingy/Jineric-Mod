@@ -1,4 +1,4 @@
-package jingy.jineric.access;
+package jingy.jineric.base.injected_interfaces;
 
 import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;

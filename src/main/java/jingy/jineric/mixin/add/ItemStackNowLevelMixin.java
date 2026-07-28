@@ -4,7 +4,7 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.mojang.serialization.DataResult;
-import jingy.jineric.access.JmItemStack;
+import jingy.jineric.base.injected_interfaces.JmItemStack;
 import jingy.jineric.component.JmDataComponentTypes;
 import jingy.jineric.config.JmConfig;
 import jingy.jineric.item.WeaponUpgrader;

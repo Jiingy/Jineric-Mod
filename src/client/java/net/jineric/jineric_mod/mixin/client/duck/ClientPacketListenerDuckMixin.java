@@ -1,7 +1,7 @@
 package net.jineric.jineric_mod.mixin.client.duck;
 
-import jingy.jineric.access.JmClientGamePacketListener;
-import jingy.jineric.access.JmRecipeBook;
+import jingy.jineric.base.injected_interfaces.JmClientGamePacketListener;
+import jingy.jineric.base.injected_interfaces.JmRecipeBook;
 import jingy.jineric.network.packet.s2c.play.JmRecipeBookSettingsS2CPacket;
 import net.minecraft.client.ClientRecipeBook;
 import net.minecraft.client.Minecraft;

@@ -1,6 +1,6 @@
 package jingy.jineric.network.packet.s2c.play;
 
-import jingy.jineric.access.JmClientGamePacketListener;
+import jingy.jineric.base.injected_interfaces.JmClientGamePacketListener;
 import jingy.jineric.network.packet.JmPlayPackets;
 import jingy.jineric.recipe.book.JmRecipeBookOptions;
 import net.minecraft.network.FriendlyByteBuf;
