@@ -7,9 +7,7 @@
    },
    "mixins": [
       "BlockEntityTypeMixin",
-      "InputSlotFillerMixin",
       "LivingEntityFastFallingMixin",
-      "TransmuteRecipeResultMixin",
       "access.CategoryOptionAccessor",
       "access.CookingRecipeJsonBuilderAccessor",
       "access.ItemSettingsOverrides",
@@ -44,12 +42,9 @@
       "duck.BlockFamilyDuckMixin",
       "duck.ClientPlayPacketListenerDuckMixin",
       "duck.RecipeBookDuckMixin",
-      "duck.RecipeDuckMixin",
       "duck.RecipeGeneratorDuckMixin",
       "duck.ServerPlayerEntityDuckMixin",
       "fix.BlockFamilyModificationMixin",
-      "fix.BlocksForGrassSpreadingMixin",
-      "fix.BlocksForGrassSurvivingMixin",
       "fix.CanEnterTrapdoorMixin",
       "fix.CatSitOnBlockGoalMixin",
       "fix.ChestBlock$DoubleBlockProperties$PropertyRetrieverMixin",
@@ -60,6 +55,7 @@
       "fix.PointedDripstoneCanGrowMixin",
       "fix.SlipperyPartialBlocksMixin",
       "fix.SoulSpeedPartialBlocksMixin",
+      "fix.SurviveUnderGrassBlockMixin",
       "fix.WallsConnectionMixin"
    ],
    "injectors": {
