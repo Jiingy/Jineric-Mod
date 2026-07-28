@@ -75,7 +75,7 @@
            "jingy/jineric/access/JmItemStack"
         ],
         "net/minecraft/world/item/Item$Properties": [
-           "jingy/jineric/access/JmJmItemProperties"
+           "jingy/jineric/access/JmItemProperties"
         ],
         "net/minecraft/data/recipes/SmithingTransformRecipeBuilder": [
            "jingy/jineric/access/JmSmithingTransformRecipeBuilder"
