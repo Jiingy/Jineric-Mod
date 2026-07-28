@@ -2,7 +2,7 @@ package jingy.jineric.mixin.change;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import jingy.jineric.access.ItemSettingsAccess;
+import jingy.jineric.access.JmItemProperties;
 import jingy.jineric.config.JmConfig;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(Item.Properties.class)
-public abstract class ItemSettingsArmorLevelsMixin implements ItemSettingsAccess {
+public abstract class ItemSettingsArmorLevelsMixin implements JmItemProperties {
 	
 	//  GIVE ARMOR LEVELING
 	@WrapOperation(

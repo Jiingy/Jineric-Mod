@@ -1,12 +1,12 @@
 package jingy.jineric.mixin.duck;
 
-import jingy.jineric.access.BlockFamilyAccess;
+import jingy.jineric.access.JmBlockFamily;
 import net.minecraft.data.BlockFamily;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(BlockFamily.class)
-public class BlockFamilyDuckMixin implements BlockFamilyAccess {
+public class BlockFamilyDuckMixin implements JmBlockFamily {
 	@Unique
 	boolean jineric_mod$modded = false;
 	

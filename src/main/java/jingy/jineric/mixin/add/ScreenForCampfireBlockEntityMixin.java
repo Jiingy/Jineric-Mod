@@ -2,7 +2,7 @@ package jingy.jineric.mixin.add;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import jingy.jineric.access.CampfireBlockEntityAccess;
+import jingy.jineric.access.JmCampfireBlockEntity;
 import jingy.jineric.screen.CampfireScreenHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
@@ -28,7 +28,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 @Mixin(CampfireBlockEntity.class)
-public abstract class ScreenForCampfireBlockEntityMixin extends BlockEntity implements Container, MenuProvider, Nameable, Clearable, CampfireBlockEntityAccess {
+public abstract class ScreenForCampfireBlockEntityMixin extends BlockEntity implements Clearable, MenuProvider, Nameable, Container, JmCampfireBlockEntity {
 	//  VANILLA
 	@Shadow protected abstract void markUpdated();
 	@Shadow @Final private int[] cookingProgress;

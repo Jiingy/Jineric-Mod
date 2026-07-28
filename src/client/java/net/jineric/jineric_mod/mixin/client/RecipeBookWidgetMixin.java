@@ -1,6 +1,6 @@
 package net.jineric.jineric_mod.mixin.client;
 
-import jingy.jineric.access.RecipeBookAccess;
+import jingy.jineric.access.JmRecipeBook;
 import jingy.jineric.config.JmConfig;
 import jingy.jineric.recipe.book.JmRecipeBookOptions;
 import net.fabricmc.api.EnvType;
@@ -13,7 +13,10 @@ import net.minecraft.client.gui.narration.NarratableEntry;
 import net.minecraft.client.gui.screens.recipebook.RecipeBookComponent;
 import net.minecraft.network.protocol.game.ServerboundRecipeBookChangeSettingsPacket;
 import net.minecraft.world.inventory.RecipeBookMenu;
-import org.spongepowered.asm.mixin.*;
+import org.spongepowered.asm.mixin.Final;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -36,7 +39,7 @@ public abstract class RecipeBookWidgetMixin<T extends RecipeBookMenu> implements
 	private void replaceVanillaChecksWithJm(CallbackInfo ci) {
 		if (this.replaceVanilla) {
 			net.minecraft.world.inventory.RecipeBookType recipeBookType = this.menu.getRecipeBookType();
-			JmRecipeBookOptions jmRecipeBookOptions = ((RecipeBookAccess)this.book).jineric$getOptions();
+			JmRecipeBookOptions jmRecipeBookOptions = ((JmRecipeBook)this.book).jineric$getOptions();
 			this.minecraft.getConnection().send(
 					new ServerboundRecipeBookChangeSettingsPacket(
 							recipeBookType,

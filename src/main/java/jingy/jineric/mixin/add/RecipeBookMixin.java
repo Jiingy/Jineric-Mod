@@ -2,7 +2,7 @@ package jingy.jineric.mixin.add;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import jingy.jineric.access.RecipeBookAccess;
+import jingy.jineric.access.JmRecipeBook;
 import net.minecraft.stats.RecipeBook;
 import net.minecraft.stats.RecipeBookSettings;
 import net.minecraft.world.inventory.RecipeBookType;
@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(RecipeBook.class)
-public abstract class RecipeBookMixin implements RecipeBookAccess {
+public abstract class RecipeBookMixin implements JmRecipeBook {
 	@Unique private final boolean moddedRecipeBook = true;
 	
 	@WrapOperation(

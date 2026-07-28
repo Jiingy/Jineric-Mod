@@ -1,6 +1,6 @@
 package jingy.jineric.mixin.access;
 
-import jingy.jineric.access.ItemStackAccess;
+import jingy.jineric.access.JmItemStack;
 import jingy.jineric.component.JmDataComponentTypes;
 import net.minecraft.core.component.DataComponentHolder;
 import net.minecraft.core.component.DataComponentType;
@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(ItemStack.class)
-public abstract class ItemStackOverrides implements ItemStackAccess, DataComponentHolder {
+public abstract class ItemStackOverrides implements JmItemStack, DataComponentHolder {
 	@Shadow @Nullable public abstract <T> T set(DataComponentType<T> type, @Nullable T value);
 	
 	@Override

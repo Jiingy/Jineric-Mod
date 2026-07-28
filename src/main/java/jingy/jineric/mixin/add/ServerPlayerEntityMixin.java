@@ -6,7 +6,7 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.mojang.authlib.GameProfile;
 import com.mojang.serialization.Codec;
-import jingy.jineric.access.ServerPlayerEntityAccess;
+import jingy.jineric.access.JmServerPlayer;
 import jingy.jineric.config.JmConfig;
 import jingy.jineric.server.network.JmServerRecipeBook;
 import net.minecraft.server.MinecraftServer;
@@ -29,7 +29,7 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 @Mixin(ServerPlayer.class)
-public abstract class ServerPlayerEntityMixin extends Player implements ServerPlayerEntityAccess {
+public abstract class ServerPlayerEntityMixin extends Player implements JmServerPlayer {
 	public ServerPlayerEntityMixin(Level world, GameProfile profile) {
 		super(world, profile);
 	}
@@ -132,7 +132,7 @@ public abstract class ServerPlayerEntityMixin extends Player implements ServerPl
 	)
 	private void copyFromJmRecipeBook(ServerRecipeBook instance, ServerRecipeBook recipeBook, Operation<Void> original, ServerPlayer oldPlayer) {
 		if (this.moddedRecipeBook) {
-			this.jineric$getRecipeBook().copyFrom(((ServerPlayerEntityAccess) oldPlayer).jineric$getRecipeBook());
+			this.jineric$getRecipeBook().copyFrom(((JmServerPlayer) oldPlayer).jineric$getRecipeBook());
 		} else {
 			original.call(instance, recipeBook);
 		}

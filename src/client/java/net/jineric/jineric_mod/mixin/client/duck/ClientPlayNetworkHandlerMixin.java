@@ -1,7 +1,7 @@
 package net.jineric.jineric_mod.mixin.client.duck;
 
-import jingy.jineric.access.ClientPlayPacketListenerAccess;
-import jingy.jineric.access.RecipeBookAccess;
+import jingy.jineric.access.JmClientGamePacketListener;
+import jingy.jineric.access.JmRecipeBook;
 import jingy.jineric.network.packet.s2c.play.JmRecipeBookSettingsS2CPacket;
 import net.minecraft.client.ClientRecipeBook;
 import net.minecraft.client.Minecraft;
@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(ClientPacketListener.class)
-public abstract class ClientPlayNetworkHandlerMixin extends ClientCommonPacketListenerImpl implements ClientGamePacketListener, TickablePacketListener, ClientPlayPacketListenerAccess {
+public abstract class ClientPlayNetworkHandlerMixin extends ClientCommonPacketListenerImpl implements ClientGamePacketListener, TickablePacketListener, JmClientGamePacketListener {
 	protected ClientPlayNetworkHandlerMixin(Minecraft client, Connection connection, CommonListenerCookie connectionState) {
 		super(client, connection, connectionState);
 	}
@@ -25,7 +25,7 @@ public abstract class ClientPlayNetworkHandlerMixin extends ClientCommonPacketLi
 	public void jineric_mod$onJmRecipeBookSettings(JmRecipeBookSettingsS2CPacket packet) {
 		PacketUtils.ensureRunningOnSameThread(packet, this, this.minecraft.packetProcessor());
 		ClientRecipeBook clientRecipeBook = this.minecraft.player.getRecipeBook();
-		((RecipeBookAccess)clientRecipeBook).jineric$setOptions(packet.bookSettings());
+		((JmRecipeBook)clientRecipeBook).jineric$setOptions(packet.bookSettings());
 		this.refreshRecipeBook(clientRecipeBook);
 	}
 }

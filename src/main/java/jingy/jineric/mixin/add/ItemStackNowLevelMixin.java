@@ -4,7 +4,7 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.mojang.serialization.DataResult;
-import jingy.jineric.access.ItemStackAccess;
+import jingy.jineric.access.JmItemStack;
 import jingy.jineric.component.JmDataComponentTypes;
 import jingy.jineric.config.JmConfig;
 import jingy.jineric.item.WeaponUpgrader;
@@ -38,7 +38,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.function.Consumer;
 
 @Mixin(ItemStack.class)
-public abstract class ItemStackNowLevelMixin implements ItemStackAccess, DataComponentHolder {
+public abstract class ItemStackNowLevelMixin implements JmItemStack, DataComponentHolder {
 	@Shadow @Nullable public abstract <T> T set(DataComponentType<T> type, @Nullable T value);
 	@Shadow public abstract Item getItem();
 	
