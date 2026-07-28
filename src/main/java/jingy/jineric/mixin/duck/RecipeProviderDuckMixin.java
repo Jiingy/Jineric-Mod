@@ -1,15 +1,11 @@
 package jingy.jineric.mixin.duck;
 
-import jingy.jineric.access.RecipeGeneratorAccess;
+import jingy.jineric.access.JmRecipeProvider;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.criterion.InventoryChangeTrigger;
 import net.minecraft.advancements.criterion.MinMaxBounds;
-import net.minecraft.data.recipes.RecipeBuilder;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
@@ -21,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Mixin(RecipeProvider.class)
-public abstract class RecipeGeneratorDuckMixin implements RecipeGeneratorAccess {
+public abstract class RecipeProviderDuckMixin implements JmRecipeProvider {
 	@Shadow public static String getHasName(ItemLike item) {return null;}
 	@Shadow public abstract Criterion<InventoryChangeTrigger.TriggerInstance> has(ItemLike item);
 	@Shadow public abstract ShapelessRecipeBuilder shapeless(RecipeCategory category, ItemLike output);

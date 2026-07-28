@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
 @Mixin(SimpleCookingRecipeBuilder.class)
-public interface CookingRecipeJsonBuilderAccessor {
+public interface SimpleCookingRecipeBuilderAccessor {
 	
 	@Invoker("<init>")
 	static SimpleCookingRecipeBuilder invokeInit(

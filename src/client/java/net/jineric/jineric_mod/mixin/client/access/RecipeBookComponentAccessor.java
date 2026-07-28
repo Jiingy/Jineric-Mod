@@ -7,10 +7,11 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(RecipeBookComponent.class)
-public interface RecipeBookWidgetAccessor {
-	@Accessor
+public interface RecipeBookComponentAccessor {
+
+	@Accessor("recipeBookPage")
 	RecipeBookPage getRecipeBookPage();
 	
-	@Accessor
+	@Accessor("ghostSlots")
 	GhostSlots getGhostSlots();
 }

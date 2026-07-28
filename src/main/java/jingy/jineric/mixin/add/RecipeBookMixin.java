@@ -21,11 +21,11 @@ public abstract class RecipeBookMixin implements JmRecipeBook {
 					target = "Lnet/minecraft/stats/RecipeBookSettings;isOpen(Lnet/minecraft/world/inventory/RecipeBookType;)Z"
 			)
 	)
-	private boolean isJmGuiOpen(RecipeBookSettings instance, RecipeBookType category, Operation<Boolean> original) {
+	private boolean isJmGuiOpen(RecipeBookSettings instance, RecipeBookType type, Operation<Boolean> original) {
 		if (this.moddedRecipeBook) {
-			return this.jineric$getOptions().isGuiOpen(category);
+			return this.jineric$getOptions().isGuiOpen(type);
 		} else {
-			return original.call(instance, category);
+			return original.call(instance, type);
 		}
 	}
 	
@@ -36,11 +36,11 @@ public abstract class RecipeBookMixin implements JmRecipeBook {
 					target = "Lnet/minecraft/stats/RecipeBookSettings;setOpen(Lnet/minecraft/world/inventory/RecipeBookType;Z)V"
 			)
 	)
-	private void setJmGuiOpen(RecipeBookSettings instance, RecipeBookType category, boolean guiOpen, Operation<Void> original) {
+	private void setJmGuiOpen(RecipeBookSettings instance, RecipeBookType type, boolean _open, Operation<Void> original) {
 		if (this.moddedRecipeBook) {
-			this.jineric$getOptions().setGuiOpen(category, guiOpen);
+			this.jineric$getOptions().setGuiOpen(type, _open);
 		} else {
-			original.call(instance, category, guiOpen);
+			original.call(instance, type, _open);
 		}
 	}
 	
@@ -51,11 +51,11 @@ public abstract class RecipeBookMixin implements JmRecipeBook {
 					target = "Lnet/minecraft/stats/RecipeBookSettings;isFiltering(Lnet/minecraft/world/inventory/RecipeBookType;)Z"
 			)
 	)
-	private boolean isJmFilteringCraftable(RecipeBookSettings instance, RecipeBookType category, Operation<Boolean> original) {
+	private boolean isJmFilteringCraftable(RecipeBookSettings instance, RecipeBookType type, Operation<Boolean> original) {
 		if (this.moddedRecipeBook) {
-			return this.jineric$getOptions().isFilteringCraftable(category);
+			return this.jineric$getOptions().isFilteringCraftable(type);
 		} else {
-			return original.call(instance, category);
+			return original.call(instance, type);
 		}
 	}
 	
@@ -66,11 +66,11 @@ public abstract class RecipeBookMixin implements JmRecipeBook {
 					target = "Lnet/minecraft/stats/RecipeBookSettings;setFiltering(Lnet/minecraft/world/inventory/RecipeBookType;Z)V"
 			)
 	)
-	private void setJmFilteringCraftable(RecipeBookSettings instance, RecipeBookType category, boolean filtering, Operation<Void> original) {
+	private void setJmFilteringCraftable(RecipeBookSettings instance, RecipeBookType type, boolean filtering, Operation<Void> original) {
 		if (this.moddedRecipeBook) {
-			this.jineric$getOptions().setFilteringCraftable(category, filtering);
+			this.jineric$getOptions().setFilteringCraftable(type, filtering);
 		} else {
-			original.call(instance, category, filtering);
+			original.call(instance, type, filtering);
 		}
 	}
 	
@@ -81,11 +81,11 @@ public abstract class RecipeBookMixin implements JmRecipeBook {
 					target = "Lnet/minecraft/stats/RecipeBookSettings;setOpen(Lnet/minecraft/world/inventory/RecipeBookType;Z)V"
 			)
 	)
-	private void setJmCategoryOptions$guiOpen(RecipeBookSettings instance, RecipeBookType category, boolean guiOpen, Operation<Void> original) {
+	private void setJmCategoryOptions$guiOpen(RecipeBookSettings instance, RecipeBookType type, boolean _open, Operation<Void> original) {
 		if (this.moddedRecipeBook) {
-			this.jineric$getOptions().setGuiOpen(category, guiOpen);
+			this.jineric$getOptions().setGuiOpen(type, _open);
 		} else {
-			original.call(instance, category, guiOpen);
+			original.call(instance, type, _open);
 		}
 	}
 	
@@ -96,11 +96,11 @@ public abstract class RecipeBookMixin implements JmRecipeBook {
 					target = "Lnet/minecraft/stats/RecipeBookSettings;setFiltering(Lnet/minecraft/world/inventory/RecipeBookType;Z)V"
 			)
 	)
-	private void setJmCategoryOptions$filteringCraftable(RecipeBookSettings instance, RecipeBookType category, boolean filteringCraftable, Operation<Void> original) {
+	private void setJmCategoryOptions$filteringCraftable(RecipeBookSettings instance, RecipeBookType type, boolean filtering, Operation<Void> original) {
 		if (this.moddedRecipeBook) {
-			this.jineric$getOptions().setFilteringCraftable(category, filteringCraftable);
+			this.jineric$getOptions().setFilteringCraftable(type, filtering);
 		} else {
-			original.call(instance, category, filteringCraftable);
+			original.call(instance, type, filtering);
 		}
 	}
 }

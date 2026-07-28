@@ -6,17 +6,17 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
-@Mixin(net.minecraft.stats.RecipeBookSettings.TypeSettings.class)
-public interface CategoryOptionAccessor {
+@Mixin(RecipeBookSettings.TypeSettings.class)
+public interface RecipeBookSettingsTypeSettingsAccessor {
 	
 	@Invoker("codec")
-	static MapCodec<RecipeBookSettings.TypeSettings> callCreateCodec(String guiOpenField, String filteringCraftableField) {
+	static MapCodec<RecipeBookSettings.TypeSettings> invokeCodec(String guiOpenField, String filteringCraftableField) {
 		throw new UnsupportedOperationException();
 	}
 	
-	@Accessor
+	@Accessor("open")
 	boolean isOpen();
 	
-	@Accessor
+	@Accessor("filtering")
 	boolean isFiltering();
 }

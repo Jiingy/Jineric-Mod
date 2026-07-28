@@ -13,17 +13,17 @@ import org.spongepowered.asm.mixin.injection.At;
 import java.util.Arrays;
 
 @Mixin(VideoSettingsScreen.class)
-public abstract class VideoOptionsScreenMixin {
+public abstract class VideoSettingsScreenMixin {
 	
 	@ModifyReturnValue(
 			method = "preferenceOptions",
 			at = @At("RETURN")
 	)
-	private static OptionInstance<?>[] addModdedGameOptions(OptionInstance<?>[] original, Options gameOptions) {
+	private static OptionInstance<?>[] addModdedGameOptions(OptionInstance<?>[] original, Options options) {
 		//  Add modded options to specific indexes of the vanilla GameOptions array
 		return ArrayUtils
 				.insert(
-						putAfter(original, gameOptions.attackIndicator()), original, JmGameOptions.getItemLevelBarMode()
+						putAfter(original, options.attackIndicator()), original, JmGameOptions.getItemLevelBarMode()
 				);
 	}
 	

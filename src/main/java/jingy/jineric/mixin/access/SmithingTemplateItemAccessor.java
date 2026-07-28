@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(SmithingTemplateItem.class)
-public interface SmithingTemplateItemAccess {
+public interface SmithingTemplateItemAccessor {
 	
 	@Accessor("EMPTY_SLOT_HELMET")
 	static Identifier getEmptyHelmetTexture() {

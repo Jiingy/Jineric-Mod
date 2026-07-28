@@ -1,7 +1,7 @@
 package jingy.jineric.item;
 
 import jingy.jineric.base.JinericMain;
-import jingy.jineric.mixin.access.SmithingTemplateItemAccess;
+import jingy.jineric.mixin.access.SmithingTemplateItemAccessor;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
@@ -54,15 +54,15 @@ public class JinericSmithingTemplateItem extends SmithingTemplateItem {
 	
 	private static List<Identifier> getIronUpgradeEmptyBaseSlotTextures() {
 		return List.of(
-				SmithingTemplateItemAccess.getEmptySwordTexture(),
-				SmithingTemplateItemAccess.getEmptyPickaxeTexture(),
-				SmithingTemplateItemAccess.getEmptyAxeTexture(),
-				SmithingTemplateItemAccess.getEmptyHoeTexture(),
-				SmithingTemplateItemAccess.getEmptyShovelTexture()
+				SmithingTemplateItemAccessor.getEmptySwordTexture(),
+				SmithingTemplateItemAccessor.getEmptyPickaxeTexture(),
+				SmithingTemplateItemAccessor.getEmptyAxeTexture(),
+				SmithingTemplateItemAccessor.getEmptyHoeTexture(),
+				SmithingTemplateItemAccessor.getEmptyShovelTexture()
 		);
 	}
 	
 	private static List<Identifier> getIronUpgradeEmptyAdditionsSlotTextures() {
-		return List.of(SmithingTemplateItemAccess.getEmptySlotIngotTexture());
+		return List.of(SmithingTemplateItemAccessor.getEmptySlotIngotTexture());
 	}
 }

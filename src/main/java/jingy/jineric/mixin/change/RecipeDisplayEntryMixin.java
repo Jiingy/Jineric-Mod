@@ -26,10 +26,10 @@ public abstract class RecipeDisplayEntryMixin {
 					value = "RETURN"
 			)
 	)
-	private boolean checkInputStackCountForResult(boolean original, StackedItemContents finder) {
+	private boolean checkInputStackCountForResult(boolean original, StackedItemContents providedContents) {
 		if (this.display instanceof FoundryRecipeDisplay foundryRecipeDisplay) {
 			return this.craftingRequirements.filter(
-					ingredients -> ((RecipeFinderAccessor) finder).callCanCraft(ingredients, foundryRecipeDisplay.inputCount(), null)
+					ingredients -> ((RecipeFinderAccessor) providedContents).invokeCanCraft(ingredients, foundryRecipeDisplay.inputCount(), null)
 			).isPresent();
 		} else {
 			return original;

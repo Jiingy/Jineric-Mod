@@ -6,27 +6,27 @@
       "minVersion": "0.5.0"
    },
    "client": [
-      "CampfireBlockEntityRendererMixin",
-      "ChestBlockEntityRendererMixin",
+      "AbstractContainerScreenMixin",
+      "AbstractRecipeBookScreenMixin",
+      "CampfireRendererMixin",
+      "ChestRendererMixin",
       "DrawContextMixin",
-      "GameOptionsMixin",
-      "GhostRecipeMixin",
-      "HandledScreenMixin",
+      "GhostSlotsMixin",
       "InGameHudMixin",
-      "RecipeBookScreenMixin",
+      "OptionsMixin",
       "RecipeBookWidgetMixin",
-      "TexturedRenderLayersMixin",
-      "VideoOptionsScreenMixin",
-      "access.RecipeBookWidgetAccessor",
-      "access.TextureKeyAccess",
-      "access.overrides.GhostRecipeOverrides",
-      "access.overrides.RecipeBookScreenOverrides",
-      "duck.ClientPlayNetworkHandlerMixin"
+      "SheetsMixin",
+      "VideoSettingsScreenMixin",
+      "access.RecipeBookComponentAccessor",
+      "access.TextureSlotAccessor",
+      "access.overrides.AbstractRecipeBookScreenOverrides",
+      "access.overrides.GhostSlotsOverrides",
+      "duck.ClientPacketListenerDuckMixin"
    ],
    "injectors": {
       "defaultRequire": 1
    },
    "mixins": [
-      "access.GhostRecipeAccessor"
+      "access.GhostSlotsAccessor"
    ]
 }

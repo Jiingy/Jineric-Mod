@@ -6,10 +6,10 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
 @Mixin(TextureSlot.class)
-public interface TextureKeyAccess {
+public interface TextureSlotAccessor {
 	
 	@Invoker("<init>")
-	static TextureSlot initTextureKey(String name, @Nullable TextureSlot parent) {
+	static TextureSlot invokeInit(String name, @Nullable TextureSlot parent) {
 		throw new IllegalStateException("Could not invoke <init> in TextureSlot!");
 	}
 }

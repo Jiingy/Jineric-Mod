@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
 @Mixin(WoodType.class)
-public interface WoodTypeAccess {
+public interface WoodTypeAccessor {
 	
 	@Invoker("<init>")
 	static WoodType invokeInit(String name, BlockSetType blockSetType) {

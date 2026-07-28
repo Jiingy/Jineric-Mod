@@ -10,7 +10,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(RecipeDisplays.class)
-public abstract class RecipeDisplayBootstrapMixin {
+public abstract class RecipeDisplayRecipeDisplaysMixin {
+
 	@Inject(
 			method = "bootstrap",
 			at = @At("HEAD")

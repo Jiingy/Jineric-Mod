@@ -1,7 +1,5 @@
 package net.jineric.jineric_mod.mixin.client;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.jineric.jineric_mod.block.entity.state.JinericChestBlockEntityRenderStateVariant;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.state.ChestRenderState;
@@ -15,9 +13,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Map;
 
-@Environment(EnvType.CLIENT)
 @Mixin(Sheets.class)
-public abstract class TexturedRenderLayersMixin {
+public abstract class SheetsMixin {
+
 	@Shadow private static Material chooseMaterial(ChestType chestType, Material material, Material material2, Material material3) {
 		return null;
 	}

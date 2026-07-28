@@ -10,13 +10,13 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PotionBrewing.class)
-public abstract class BrewingRecipeRegistryMixin {
+public abstract class PotionBrewingMixin {
 	
 	@Inject(
 			at = @At("HEAD"),
 			method = "addVanillaMixes"
 	)
-	private static void jineric$registerDefaults(PotionBrewing.Builder builder, CallbackInfo ci) {
+	private static void addJmMixes(PotionBrewing.Builder builder, CallbackInfo ci) {
 		//DARKNESS
 		builder.addMix(Potions.NIGHT_VISION, Items.FERMENTED_SPIDER_EYE, JinericPotions.DARKNESS);
 		builder.addMix(JinericPotions.DARKNESS, Items.REDSTONE, JinericPotions.LONG_DARKNESS);

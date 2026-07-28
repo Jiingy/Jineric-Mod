@@ -28,13 +28,13 @@ public abstract class ItemsLevelMixin implements FeatureElement, ItemLike, Fabri
 			)
 	)
 	private void increaseToolLevelForMining(
-			ItemStack instance, int amount, LivingEntity miner, EquipmentSlot slot, Operation<Void> original,
+			ItemStack instance, int amount, LivingEntity owner, EquipmentSlot slot, Operation<Void> original,
 			@Local(index = 3, name = "state", ordinal = 0, argsOnly = true)BlockState state
 	) {
 		if (instance.is(ItemTags.PICKAXES) && state.is(ConventionalBlockTags.ORES)) {
-			instance.hurtAndBreak(amount * 2, miner, EquipmentSlot.MAINHAND);
+			instance.hurtAndBreak(amount * 2, owner, EquipmentSlot.MAINHAND);
 		} else {
-			original.call(instance, amount, miner, slot);
+			original.call(instance, amount, owner, slot);
 		}
 	}
 	

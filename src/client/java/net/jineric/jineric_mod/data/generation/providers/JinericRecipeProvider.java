@@ -10,7 +10,7 @@ import jingy.jineric.data.family.JinericBlockFamilies;
 import jingy.jineric.data.family.JinericBlockFamilyVariants;
 import jingy.jineric.item.JinericItems;
 import jingy.jineric.item.equipment.JmEquipmentAssetKeys;
-import jingy.jineric.mixin.access.CookingRecipeJsonBuilderAccessor;
+import jingy.jineric.mixin.access.SimpleCookingRecipeBuilderAccessor;
 import jingy.jineric.recipe.RefiningRecipe;
 import jingy.jineric.tag.JinericItemTags;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -610,7 +610,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 			}
 			
 			public SimpleCookingRecipeBuilder createRefining(Ingredient input, ItemLike output, RecipeCategory category, CookingBookCategory cookingRecipeCategory, float experience, int cookingTime) {
-				return CookingRecipeJsonBuilderAccessor.invokeInit(category, cookingRecipeCategory, output, input, experience, cookingTime, RefiningRecipe::new);
+				return SimpleCookingRecipeBuilderAccessor.invokeInit(category, cookingRecipeCategory, output, input, experience, cookingTime, RefiningRecipe::new);
 			}
 			
 			public void stairs(ItemLike input, ItemLike output) {

@@ -2,8 +2,6 @@ package net.jineric.jineric_mod.mixin.client;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import jingy.jineric.block.WoodenChestBlock;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.jineric.jineric_mod.block.entity.state.JinericChestBlockEntityRenderStateVariant;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.ChestRenderer;
@@ -13,9 +11,8 @@ import net.minecraft.world.level.block.entity.LidBlockEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
-@Environment(EnvType.CLIENT)
 @Mixin(ChestRenderer.class)
-public abstract class ChestBlockEntityRendererMixin<T extends BlockEntity & LidBlockEntity> implements BlockEntityRenderer<T, ChestRenderState> {
+public abstract class ChestRendererMixin<T extends BlockEntity & LidBlockEntity> implements BlockEntityRenderer<T, ChestRenderState> {
 	
 	@ModifyReturnValue(
 			method = "getChestMaterial",

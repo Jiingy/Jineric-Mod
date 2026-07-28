@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(GhostSlots.class)
-public abstract class GhostRecipeMixin implements JmGhostSlots {
+public abstract class GhostSlotsMixin implements JmGhostSlots {
 	
 	//  TODO RECIPE BOOK: This is hardcoded to only FoundryRecipe types and only the input slot.
 	//   Ideally this should work for any station, and any recipe with a stack count.

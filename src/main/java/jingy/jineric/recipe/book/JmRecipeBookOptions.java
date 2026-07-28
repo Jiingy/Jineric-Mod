@@ -3,7 +3,7 @@ package jingy.jineric.recipe.book;
 import com.google.common.annotations.VisibleForTesting;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import jingy.jineric.mixin.access.CategoryOptionAccessor;
+import jingy.jineric.mixin.access.RecipeBookSettingsTypeSettingsAccessor;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.stats.RecipeBookSettings;
@@ -11,9 +11,9 @@ import net.minecraft.world.inventory.RecipeBookType;
 import java.util.function.UnaryOperator;
 
 public class JmRecipeBookOptions {
-	public static final MapCodec<RecipeBookSettings.TypeSettings> REFINERY = CategoryOptionAccessor.callCreateCodec("isRefineryGuiOpen", "isRefineryFilteringCraftable");
-	public static final MapCodec<RecipeBookSettings.TypeSettings> FOUNDRY = CategoryOptionAccessor.callCreateCodec("isFoundryGuiOpen", "isFoundryFilteringCraftable");
-	public static final MapCodec<RecipeBookSettings.TypeSettings> KILN = CategoryOptionAccessor.callCreateCodec("isKilnGuiOpen", "isKilnFilteringCraftable");
+	public static final MapCodec<RecipeBookSettings.TypeSettings> REFINERY = RecipeBookSettingsTypeSettingsAccessor.invokeCodec("isRefineryGuiOpen", "isRefineryFilteringCraftable");
+	public static final MapCodec<RecipeBookSettings.TypeSettings> FOUNDRY = RecipeBookSettingsTypeSettingsAccessor.invokeCodec("isFoundryGuiOpen", "isFoundryFilteringCraftable");
+	public static final MapCodec<RecipeBookSettings.TypeSettings> KILN = RecipeBookSettingsTypeSettingsAccessor.invokeCodec("isKilnGuiOpen", "isKilnFilteringCraftable");
 	
 	public static final StreamCodec<FriendlyByteBuf, JmRecipeBookOptions> PACKET_CODEC = StreamCodec.composite(
 			//  Modded
@@ -137,7 +137,7 @@ public class JmRecipeBookOptions {
 	}
 	
 	public boolean isGuiOpen(RecipeBookType category) {
-		return ((CategoryOptionAccessor)(Object)this.getOption(category)).isOpen();
+		return ((RecipeBookSettingsTypeSettingsAccessor)(Object)this.getOption(category)).isOpen();
 	}
 	
 	public void setGuiOpen(RecipeBookType category, boolean open) {
@@ -145,7 +145,7 @@ public class JmRecipeBookOptions {
 	}
 	
 	public boolean isFilteringCraftable(RecipeBookType category) {
-		return ((CategoryOptionAccessor)(Object)this.getOption(category)).isFiltering();
+		return ((RecipeBookSettingsTypeSettingsAccessor)(Object)this.getOption(category)).isFiltering();
 	}
 	
 	public void setFilteringCraftable(RecipeBookType category, boolean filtering) {

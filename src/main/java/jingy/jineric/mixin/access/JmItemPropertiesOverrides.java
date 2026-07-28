@@ -1,6 +1,6 @@
 package jingy.jineric.mixin.access;
 
-import jingy.jineric.access.ItemSettingsAccess;
+import jingy.jineric.access.JmItemProperties;
 import jingy.jineric.component.JmDataComponentTypes;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.component.DataComponents;
@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(Item.Properties.class)
-public abstract class ItemSettingsOverrides implements ItemSettingsAccess {
+public abstract class JmItemPropertiesOverrides implements JmItemProperties {
 	@Shadow public abstract <T> Item.Properties component(DataComponentType<T> type, T value);
 	
 	@Override

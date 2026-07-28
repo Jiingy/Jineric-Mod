@@ -8,10 +8,11 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
 @Mixin(GhostSlots.class)
-public interface GhostRecipeAccessor {
-	@Invoker
+public interface GhostSlotsAccessor {
+
+	@Invoker("setInput")
 	void callSetInput(Slot slot, ContextMap context, SlotDisplay display);
 	
-	@Invoker
+	@Invoker("setResult")
 	void callSetResult(Slot slot, ContextMap context, SlotDisplay display);
 }

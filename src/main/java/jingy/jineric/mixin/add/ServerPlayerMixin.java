@@ -29,8 +29,8 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 @Mixin(ServerPlayer.class)
-public abstract class ServerPlayerEntityMixin extends Player implements JmServerPlayer {
-	public ServerPlayerEntityMixin(Level world, GameProfile profile) {
+public abstract class ServerPlayerMixin extends Player implements JmServerPlayer {
+	public ServerPlayerMixin(Level world, GameProfile profile) {
 		super(world, profile);
 	}
 	@Shadow @Final private MinecraftServer server;

@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import java.util.List;
 
 @Mixin(CampfireRenderer.class)
-public abstract class CampfireBlockEntityRendererMixin implements BlockEntityRenderer<CampfireBlockEntity, CampfireRenderState> {
+public abstract class CampfireRendererMixin implements BlockEntityRenderer<CampfireBlockEntity, CampfireRenderState> {
 	
 	@WrapOperation(
 			method = "extractRenderState(Lnet/minecraft/world/level/block/entity/CampfireBlockEntity;Lnet/minecraft/client/renderer/blockentity/state/CampfireRenderState;FLnet/minecraft/world/phys/Vec3;Lnet/minecraft/client/renderer/feature/ModelFeatureRenderer$CrumblingOverlay;)V",

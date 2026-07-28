@@ -4,7 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import jingy.jineric.access.JmRecipeBook;
-import jingy.jineric.mixin.access.ServerRecipeBookAccess;
+import jingy.jineric.mixin.access.ServerRecipeBookAccessor;
 import jingy.jineric.network.packet.s2c.play.JmRecipeBookSettingsS2CPacket;
 import jingy.jineric.recipe.book.JmRecipeBookOptions;
 import net.minecraft.network.protocol.game.ClientboundRecipeBookAddPacket;
@@ -45,7 +45,7 @@ public class JmServerRecipeBook extends ServerRecipeBook {
 		List<ClientboundRecipeBookAddPacket.Entry> list = new ArrayList(this.known.size());
 		
 		for (ResourceKey<Recipe<?>> registryKey : this.known) {
-			((ServerRecipeBookAccess)this).getCollector().displaysForRecipe(registryKey, display -> list.add(new ClientboundRecipeBookAddPacket.Entry(display, false, this.highlight.contains(registryKey))));
+			((ServerRecipeBookAccessor)this).getCollector().displaysForRecipe(registryKey, display -> list.add(new ClientboundRecipeBookAddPacket.Entry(display, false, this.highlight.contains(registryKey))));
 		}
 		
 		player.connection.send(new ClientboundRecipeBookAddPacket(list, true));

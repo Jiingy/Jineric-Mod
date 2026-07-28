@@ -16,8 +16,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(ClientPacketListener.class)
-public abstract class ClientPlayNetworkHandlerMixin extends ClientCommonPacketListenerImpl implements ClientGamePacketListener, TickablePacketListener, JmClientGamePacketListener {
-	protected ClientPlayNetworkHandlerMixin(Minecraft client, Connection connection, CommonListenerCookie connectionState) {
+public abstract class ClientPacketListenerDuckMixin extends ClientCommonPacketListenerImpl implements ClientGamePacketListener, TickablePacketListener, JmClientGamePacketListener {
+	protected ClientPacketListenerDuckMixin(Minecraft client, Connection connection, CommonListenerCookie connectionState) {
 		super(client, connection, connectionState);
 	}
 	@Shadow protected abstract void refreshRecipeBook(ClientRecipeBook recipeBook);

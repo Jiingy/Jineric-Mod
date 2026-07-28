@@ -1,6 +1,6 @@
 package jingy.jineric.mixin.change;
 
-import jingy.jineric.access.ShapedRecipeJsonBuilderAccess;
+import jingy.jineric.access.JmShapedRecipeBuilder;
 import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 @Mixin(ShapedRecipeBuilder.class)
-public abstract class ShapedRecipeJsonBuilderApplyComponentChangesMixin implements RecipeBuilder, ShapedRecipeJsonBuilderAccess {
+public abstract class ShapedRecipeBuilderApplyComponentChangesMixin implements RecipeBuilder, JmShapedRecipeBuilder {
     @Unique private DataComponentPatch componentChanges = DataComponentPatch.EMPTY;
 
     @Override

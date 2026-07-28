@@ -48,16 +48,16 @@ public abstract class ItemStackNowLevelMixin implements JmItemStack, DataCompone
 					target = "Lnet/minecraft/world/item/ItemStack;hurtAndBreak(ILnet/minecraft/server/level/ServerLevel;Lnet/minecraft/server/level/ServerPlayer;Ljava/util/function/Consumer;)V"
 			)
 	)
-	private void disableDamage(ItemStack instance, int amount, ServerLevel world, @Nullable ServerPlayer player, Consumer<Item> breakCallback, Operation<Void> original) {
+	private void disableDamage(ItemStack instance, int amount, ServerLevel level, @Nullable ServerPlayer player, Consumer<Item> onBreak, Operation<Void> original) {
 		if (instance.jineric$isUpgradable()) {
-			int level = instance.jineric$getLevel();
+			int itemLevel = instance.jineric$getLevel();
 			if (JmConfig.MODE_UPGRADE) {
-				if (level < instance.jineric$getMaxLevel()) {
-					this.level(level, amount, world, player, breakCallback);
+				if (itemLevel < instance.jineric$getMaxLevel()) {
+					this.level(itemLevel, amount, level, player);
 				}
 			}
 		} else {
-			original.call(instance, amount, world, player, breakCallback);
+			original.call(instance, amount, level, player, onBreak);
 		}
 	}
 	
@@ -68,16 +68,16 @@ public abstract class ItemStackNowLevelMixin implements JmItemStack, DataCompone
 			)
 	)
 	private void calculateWeaponLevelIncrease(
-			ItemStack instance, int amount, LivingEntity user, EquipmentSlot slot, Operation<Void> original,
-			@Local(name = "target", ordinal = 0, argsOnly = true)LivingEntity target
+			ItemStack instance, int amount, LivingEntity owner, EquipmentSlot slot, Operation<Void> original,
+			@Local(name = "mob", argsOnly = true)LivingEntity mob
 	) {
-		if (target.canBeSeenAsEnemy() && target.isPickable() && target.isAttackable()) {
+		if (mob.canBeSeenAsEnemy() && mob.isPickable() && mob.isAttackable()) {
 			if (instance.is(ItemTags.SWORDS)) {
-				instance.hurtAndBreak(WeaponUpgrader.setLevelIncrease(target), user, slot);
+				instance.hurtAndBreak(WeaponUpgrader.setLevelIncrease(mob), owner, slot);
 			} else if (instance.is(ItemTags.AXES)) {
-				instance.hurtAndBreak(WeaponUpgrader.setLevelIncrease(target) / 2, user, slot);
+				instance.hurtAndBreak(WeaponUpgrader.setLevelIncrease(mob) / 2, owner, slot);
 			} else {
-				original.call(instance, amount, user, slot);
+				original.call(instance, amount, owner, slot);
 			}
 		}
 		
@@ -102,13 +102,13 @@ public abstract class ItemStackNowLevelMixin implements JmItemStack, DataCompone
 					target = "Lnet/minecraft/world/item/TooltipFlag;isAdvanced()Z"
 			)
 	)
-	private void appendLevelTooltip(Item.TooltipContext context, TooltipDisplay displayComponent, @Nullable Player player, TooltipFlag type, Consumer<Component> textConsumer, CallbackInfo ci) {
-		if (type.isAdvanced()) {
-			if (this.jineric$isUpgradable() && displayComponent.shows(JmDataComponentTypes.LEVEL)) {
+	private void appendLevelTooltip(Item.TooltipContext context, TooltipDisplay display, @Nullable Player player, TooltipFlag tooltipFlag, Consumer<Component> builder, CallbackInfo ci) {
+		if (tooltipFlag.isAdvanced()) {
+			if (this.jineric$isUpgradable() && display.shows(JmDataComponentTypes.LEVEL)) {
 				if (this.jineric$getLevel() == this.jineric$getMaxLevel()) {
-					textConsumer.accept(Component.translatable("item.level.max"));
+					builder.accept(Component.translatable("item.level.max"));
 				} else {
-					textConsumer.accept(Component.translatable("item.level", this.jineric$getLevel(), this.jineric$getMaxLevel()));
+					builder.accept(Component.translatable("item.level", this.jineric$getLevel(), this.jineric$getMaxLevel()));
 				}
 			}
 		}
@@ -117,8 +117,8 @@ public abstract class ItemStackNowLevelMixin implements JmItemStack, DataCompone
 	
 	
 	@Unique
-	public void level(int level, int amount, ServerLevel serverLevel, @Nullable ServerPlayer player, Consumer<Item> breakCallback) {
-		int i = this.calculateLevel(amount, serverLevel, player);
+	public void level(int level, int amount, ServerLevel serverLevel, @Nullable ServerPlayer player) {
+		int i = this.calculateLevel(amount, player);
 		if (i != 0) {
 			this.jineric$setLevel(level + amount);
 			if (player != null && this.jineric$getRemainingLevel() == 0) {
@@ -128,7 +128,7 @@ public abstract class ItemStackNowLevelMixin implements JmItemStack, DataCompone
 	}
 	
 	@Unique
-	private int calculateLevel(int baseAmount, ServerLevel serverLevel, @Nullable ServerPlayer player) {
+	private int calculateLevel(int baseAmount, @Nullable ServerPlayer player) {
 		if (!this.jineric$isUpgradable()) {
 			return 0;
 		} else if (player != null && player.hasInfiniteMaterials()) {

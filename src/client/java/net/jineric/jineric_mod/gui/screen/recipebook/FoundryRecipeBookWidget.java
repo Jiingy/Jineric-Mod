@@ -5,8 +5,8 @@ import jingy.jineric.recipe.display.FoundryRecipeDisplay;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.jineric.jineric_mod.access.JmGhostSlots;
-import net.jineric.jineric_mod.mixin.client.access.GhostRecipeAccessor;
-import net.jineric.jineric_mod.mixin.client.access.RecipeBookWidgetAccessor;
+import net.jineric.jineric_mod.mixin.client.access.GhostSlotsAccessor;
+import net.jineric.jineric_mod.mixin.client.access.RecipeBookComponentAccessor;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.WidgetSprites;
 import net.minecraft.client.gui.screens.recipebook.FurnaceRecipeBookComponent;
@@ -44,8 +44,8 @@ public class FoundryRecipeBookWidget extends FurnaceRecipeBookComponent {
 	@Override
 	public void renderTooltip(GuiGraphics context, int x, int y, @Nullable Slot slot) {
 		if (this.isVisible()) {
-			((RecipeBookWidgetAccessor)this).getRecipeBookPage().renderTooltip(context, x, y);
-			((RecipeBookWidgetAccessor)this).getGhostSlots().renderTooltip(context, this.minecraft, x, y, slot);
+			((RecipeBookComponentAccessor)this).getRecipeBookPage().renderTooltip(context, x, y);
+			((RecipeBookComponentAccessor)this).getGhostSlots().renderTooltip(context, this.minecraft, x, y, slot);
 		}
 	}
 	
@@ -56,15 +56,15 @@ public class FoundryRecipeBookWidget extends FurnaceRecipeBookComponent {
 	
 	@Override
 	protected void fillGhostRecipe(GhostSlots ghostRecipe, RecipeDisplay recipeDisplay, ContextMap context) {
-		GhostRecipeAccessor ghostRecipeAccessor = ((GhostRecipeAccessor)ghostRecipe);
-		ghostRecipeAccessor.callSetResult(this.menu.getResultSlot(), context, recipeDisplay.result());
+		GhostSlotsAccessor ghostSlotsAccessor = ((GhostSlotsAccessor)ghostRecipe);
+		ghostSlotsAccessor.callSetResult(this.menu.getResultSlot(), context, recipeDisplay.result());
 		if (recipeDisplay instanceof FoundryRecipeDisplay foundryRecipeDisplay) {
 			NonNullList<Slot> screenHandlerSlots = this.menu.slots;
 			((JmGhostSlots)ghostRecipe).jineric$setRecipeDisplay(recipeDisplay);
-			ghostRecipeAccessor.callSetInput(screenHandlerSlots.get(0), context, foundryRecipeDisplay.ingredient());
+			ghostSlotsAccessor.callSetInput(screenHandlerSlots.get(0), context, foundryRecipeDisplay.ingredient());
 			Slot fuelSlot = screenHandlerSlots.get(1);
 			if (fuelSlot.getItem().isEmpty()) {
-				ghostRecipeAccessor.callSetInput(fuelSlot, context, foundryRecipeDisplay.fuel());
+				ghostSlotsAccessor.callSetInput(fuelSlot, context, foundryRecipeDisplay.fuel());
 			}
 		}
 	}
