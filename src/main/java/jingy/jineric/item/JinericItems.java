@@ -15,7 +15,6 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.equipment.ArmorMaterials;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.item.equipment.Equippable;
 import net.minecraft.world.level.block.Block;
@@ -348,8 +347,7 @@ public class JinericItems {
 	public static final Item KILN = register(JinericBlocks.KILN);
 	public static final Item REDSTONE_CAMPFIRE = register(JinericBlocks.REDSTONE_CAMPFIRE);
 	public static final Item STONE_CRUCIBLE = register(JinericBlocks.STONE_CRUCIBLE);
-	public static final Item SANDY_CLAY_LOAM = register("sandy_clay_loam");
-	
+
 	private static ResourceKey<Item> keyOf(String id) {
 		return ResourceKey.create(Registries.ITEM, JinericMain.ofJineric(id));
 	}
