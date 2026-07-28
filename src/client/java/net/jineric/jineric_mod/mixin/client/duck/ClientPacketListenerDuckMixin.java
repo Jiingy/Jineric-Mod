@@ -21,8 +21,9 @@ public abstract class ClientPacketListenerDuckMixin extends ClientCommonPacketLi
 		super(client, connection, connectionState);
 	}
 	@Shadow protected abstract void refreshRecipeBook(ClientRecipeBook recipeBook);
-	
-	public void jineric_mod$onJmRecipeBookSettings(JmRecipeBookSettingsS2CPacket packet) {
+
+	@Override
+	public void jineric$onJmRecipeBookSettings(JmRecipeBookSettingsS2CPacket packet) {
 		PacketUtils.ensureRunningOnSameThread(packet, this, this.minecraft.packetProcessor());
 		ClientRecipeBook clientRecipeBook = this.minecraft.player.getRecipeBook();
 		((JmRecipeBook)clientRecipeBook).jineric$setOptions(packet.bookSettings());

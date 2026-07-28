@@ -19,9 +19,9 @@
       "VideoSettingsScreenMixin",
       "accessor.RecipeBookComponentAccessor",
       "accessor.TextureSlotAccessor",
-      "accessor.overrides.AbstractRecipeBookScreenOverrides",
-      "accessor.overrides.GhostSlotsOverrides",
-      "duck.ClientPacketListenerDuckMixin"
+      "duck.AbstractRecipeBookScreenDuckMixin",
+      "duck.ClientPacketListenerDuckMixin",
+      "duck.GhostSlotsDuckMixin"
    ],
    "injectors": {
       "defaultRequire": 1

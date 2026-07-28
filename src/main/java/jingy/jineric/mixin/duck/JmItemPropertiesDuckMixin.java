@@ -1,4 +1,4 @@
-package jingy.jineric.mixin.accessor;
+package jingy.jineric.mixin.duck;
 
 import jingy.jineric.base.injected_interfaces.JmItemProperties;
 import jingy.jineric.component.JmDataComponentTypes;
@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(Item.Properties.class)
-public abstract class JmItemPropertiesOverrides implements JmItemProperties {
+public abstract class JmItemPropertiesDuckMixin implements JmItemProperties {
 	@Shadow public abstract <T> Item.Properties component(DataComponentType<T> type, T value);
 	
 	@Override

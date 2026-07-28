@@ -1,4 +1,4 @@
-package jingy.jineric.mixin.accessor;
+package jingy.jineric.mixin.duck;
 
 import jingy.jineric.base.injected_interfaces.JmItemStack;
 import jingy.jineric.component.JmDataComponentTypes;
@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(ItemStack.class)
-public abstract class ItemStackOverrides implements JmItemStack, DataComponentHolder {
+public abstract class ItemStackDuckMixin implements JmItemStack, DataComponentHolder {
 	@Shadow @Nullable public abstract <T> T set(DataComponentType<T> type, @Nullable T value);
 	
 	@Override

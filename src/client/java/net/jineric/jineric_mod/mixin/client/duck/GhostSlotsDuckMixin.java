@@ -1,4 +1,4 @@
-package net.jineric.jineric_mod.mixin.client.accessor.overrides;
+package net.jineric.jineric_mod.mixin.client.duck;
 
 import net.jineric.jineric_mod.base.injected_interfaces.JmGhostSlots;
 import net.minecraft.client.gui.screens.recipebook.GhostSlots;
@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(GhostSlots.class)
-public class GhostSlotsOverrides implements JmGhostSlots {
+public class GhostSlotsDuckMixin implements JmGhostSlots {
 	@Unique private RecipeDisplay recipeDisplay;
 	
 	@Override
