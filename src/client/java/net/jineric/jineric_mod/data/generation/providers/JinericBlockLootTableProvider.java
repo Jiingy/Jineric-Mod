@@ -3,8 +3,8 @@ package net.jineric.jineric_mod.data.generation.providers;
 import com.google.common.collect.ImmutableMap;
 import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.data.family.JinericBlockFamilyVariants;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootSubProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.BlockFamilies;
@@ -17,7 +17,7 @@ import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
-public class JinericBlockLootTableProvider extends FabricBlockLootTableProvider {
+public class JinericBlockLootTableProvider extends FabricBlockLootSubProvider {
 	Map<BlockFamily.Variant, JinericDropFactory> VARIANT_DROPS = ImmutableMap.<BlockFamily.Variant, JinericDropFactory>builder()
 			.put(BlockFamily.Variant.SLAB, blockDrop -> this.add(blockDrop, this::createSlabItemTable))
 			.put(JinericBlockFamilyVariants.BOOKSHELF, this::addBookshelfDrop)
@@ -25,7 +25,7 @@ public class JinericBlockLootTableProvider extends FabricBlockLootTableProvider 
 			.put(JinericBlockFamilyVariants.TRAPPED_CHEST, this::dropSelfNameableBlockEntityTable)
 			.build();
 	
-	public JinericBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
+	public JinericBlockLootTableProvider(FabricPackOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
 		super(dataOutput, registryLookup);
 	}
 	
@@ -91,11 +91,6 @@ public class JinericBlockLootTableProvider extends FabricBlockLootTableProvider 
 	
 	private boolean jinericNamespace(Block block) {
 		return block != null && BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals("jineric");
-	}
-	
-	@Override
-	public String getName() {
-		return "Block Loot Tables";
 	}
 	
 	@FunctionalInterface
