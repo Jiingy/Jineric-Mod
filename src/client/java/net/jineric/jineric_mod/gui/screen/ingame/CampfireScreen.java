@@ -5,7 +5,7 @@ import jingy.jineric.screen.CampfireScreenHandler;
 import jingy.jineric.screen.slot.CampfireLogSlog;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.CyclingSlotBackground;
 import net.minecraft.client.renderer.RenderPipelines;
@@ -49,35 +49,34 @@ public class CampfireScreen extends AbstractContainerScreen<CampfireScreenHandle
 		this.logSlotIcon2.tick(COOKING_SLOTS);
 		this.logSlotIcon3.tick(COOKING_SLOTS);
 	}
-	
+
 	@Override
-	protected void renderBg(GuiGraphics context, float deltaTicks, int mouseX, int mouseY) {
+	public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a) {
 		int x = this.leftPos;
 		int y = (this.height - this.imageHeight) / 2;
-		context.blit(RenderPipelines.GUI_TEXTURED, TEXTURE, x, y, 0.0F, 0.0F, this.imageWidth, this.imageHeight, 256, 256);
-		this.logSlotIcon0.render(this.menu, context, deltaTicks, this.leftPos, this.topPos);
-		this.logSlotIcon1.render(this.menu, context, deltaTicks, this.leftPos, this.topPos);
-		this.logSlotIcon2.render(this.menu, context, deltaTicks, this.leftPos, this.topPos);
-		this.logSlotIcon3.render(this.menu, context, deltaTicks, this.leftPos, this.topPos);
+		graphics.blit(RenderPipelines.GUI_TEXTURED, TEXTURE, x, y, 0.0F, 0.0F, this.imageWidth, this.imageHeight, 256, 256);
+		this.logSlotIcon0.extractRenderState(this.menu, graphics, a, this.leftPos, this.topPos);
+		this.logSlotIcon1.extractRenderState(this.menu, graphics, a, this.leftPos, this.topPos);
+		this.logSlotIcon2.extractRenderState(this.menu, graphics, a, this.leftPos, this.topPos);
+		this.logSlotIcon3.extractRenderState(this.menu, graphics, a, this.leftPos, this.topPos);
 	}
-	
+
 	@Override
-	public void render(GuiGraphics context, int mouseX, int mouseY, float deltaTicks) {
-		super.render(context, mouseX, mouseY, deltaTicks);
-		this.renderSlotTooltip(context, mouseX, mouseY);
-//		this.drawMouseoverTooltip(context, mouseX, mouseY);
+	public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a) {
+		super.extractRenderState(graphics, mouseX, mouseY, a);
+		this.renderSlotTooltip(graphics, mouseX, mouseY);
 	}
-	
-	private void renderSlotTooltip(GuiGraphics context, int mouseX, int mouseY) {
+
+	private void renderSlotTooltip(GuiGraphicsExtractor graphics, int mouseX, int mouseY) {
 		if (this.hoveredSlot != null) {
 			if (!this.hoveredSlot.hasItem()) {
 				if (this.hoveredSlot instanceof CampfireLogSlog) {
-					context.setTooltipForNextFrame(this.font, this.font.split(COOKING_SLOT_TEXT, 115), mouseX, mouseY);
+					graphics.setTooltipForNextFrame(this.font, this.font.split(COOKING_SLOT_TEXT, 115), mouseX, mouseY);
 				} else if (this.hoveredSlot.getContainerSlot() == 4) {
-					context.setTooltipForNextFrame(this.font, this.font.split(TINDER_SLOT_TEXT, 115), mouseX, mouseY);
+					graphics.setTooltipForNextFrame(this.font, this.font.split(TINDER_SLOT_TEXT, 115), mouseX, mouseY);
 				}
 			} else {
-				this.renderTooltip(context, mouseX, mouseY);
+				this.extractTooltip(graphics, mouseX, mouseY);
 			}
 		}
 	}
