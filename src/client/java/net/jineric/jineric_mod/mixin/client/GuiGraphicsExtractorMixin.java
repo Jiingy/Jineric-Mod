@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(GuiGraphicsExtractor.class)
-public abstract class DrawContextMixin {
+public abstract class GuiGraphicsExtractorMixin {
 	@Shadow @Final private Minecraft minecraft;
 	
 	@WrapOperation(
