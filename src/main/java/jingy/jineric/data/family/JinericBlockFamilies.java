@@ -17,7 +17,7 @@ public class JinericBlockFamilies extends BlockFamilies {
 			.stairs(JinericBlocks.SMOOTH_STONE_STAIRS)
 			.slab(Blocks.SMOOTH_STONE_SLAB)
 			.wall(JinericBlocks.SMOOTH_STONE_WALL)
-			.dontGenerateRecipe()
+			.dontGenerateCraftingRecipe()
 			.dontGenerateModel()
 			.modded$Jineric()
 			.getFamily();
