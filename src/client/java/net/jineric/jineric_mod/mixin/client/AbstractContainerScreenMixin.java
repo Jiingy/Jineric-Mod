@@ -1,7 +1,7 @@
 package net.jineric.jineric_mod.mixin.client;
 
 import jingy.jineric.StaticMixinFields;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
@@ -18,13 +18,13 @@ public abstract class AbstractContainerScreenMixin {
 	@Shadow @Nullable protected Slot hoveredSlot;
 	
 	@Inject(
-			method = "renderContents",
+			method = "extractContents",
 			at = @At(
 					value = "INVOKE",
-					target = "Lnet/minecraft/client/gui/screens/inventory/AbstractContainerScreen;renderSlotHighlightBack(Lnet/minecraft/client/gui/GuiGraphics;)V"
+					target = "Lnet/minecraft/client/gui/screens/inventory/AbstractContainerScreen;extractSlotHighlightBack(Lnet/minecraft/client/gui/GuiGraphicsExtractor;)V"
 			)
 	)
-	private void getFocussedSlot(GuiGraphics context, int mouseX, int mouseY, float deltaTicks, CallbackInfo ci) {
+	private void getFocussedSlot(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a, CallbackInfo ci) {
 		if (this.hoveredSlot != null) {
 			StaticMixinFields.FOCUSSED_HANDLED_SCREEN_ITEM_STACK = this.hoveredSlot.getItem();
 		} else {
