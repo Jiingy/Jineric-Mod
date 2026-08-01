@@ -4,7 +4,7 @@ import com.llamalad7.mixinextras.sugar.Local;
 import jingy.jineric.StaticMixinFields;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.gui.Gui;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.world.entity.player.Player;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -16,13 +16,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class InGameHudMixin {
 	
 	@Inject(
-			method = "renderItemHotbar",
+			method = "extractItemHotbar",
 			at = @At(value = "INVOKE",
 					target = "Lnet/minecraft/world/entity/player/Player;getOffhandItem()Lnet/minecraft/world/item/ItemStack;"
 			)
 	)
-	private void activateLevelBarIfSelected(GuiGraphics context, DeltaTracker tickCounter, CallbackInfo ci, @Local(ordinal = 0) Player playerEntity) {
-		this.setStaticSelectedSlot(playerEntity);
+	private void activateLevelBarIfSelected(
+			GuiGraphicsExtractor graphics, DeltaTracker deltaTracker, CallbackInfo ci,
+			@Local(type = Player.class,name = "player") Player player
+	) {
+		this.setStaticSelectedSlot(player);
 	}
 	
 	@Unique
