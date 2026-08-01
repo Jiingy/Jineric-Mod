@@ -17,18 +17,18 @@ public class WeaponUpgrader {
 	);
 	
 	public static int setLevelIncrease(LivingEntity livingEntity) {
-		if (livingEntity.getType().is(JinericEntityTypeTags.LEVELS_WEAPON_NONE)) {
+		if (livingEntity.typeHolder().is(JinericEntityTypeTags.LEVELS_WEAPON_NONE)) {
 			return 0;
 		}
-		if (livingEntity.getType().is(JinericEntityTypeTags.LEVELS_WEAPON_LOW)) {
+		if (livingEntity.typeHolder().is(JinericEntityTypeTags.LEVELS_WEAPON_LOW)) {
 			return 1;
-		} else if (livingEntity.getType().is(JinericEntityTypeTags.LEVELS_WEAPON_MEDIUM)) {
+		} else if (livingEntity.typeHolder().is(JinericEntityTypeTags.LEVELS_WEAPON_MEDIUM)) {
 			return 2;
-		} else if (livingEntity.getType().is(JinericEntityTypeTags.LEVELS_WEAPON_MEDIUM_PLUS)) {
+		} else if (livingEntity.typeHolder().is(JinericEntityTypeTags.LEVELS_WEAPON_MEDIUM_PLUS)) {
 			return 3;
-		} else if (livingEntity.getType().is(JinericEntityTypeTags.LEVELS_WEAPON_HIGH)) {
+		} else if (livingEntity.typeHolder().is(JinericEntityTypeTags.LEVELS_WEAPON_HIGH)) {
 			return 4;
-		} else if (livingEntity.getType().is(JinericEntityTypeTags.LEVELS_WEAPON_EXTREME)) {
+		} else if (livingEntity.typeHolder().is(JinericEntityTypeTags.LEVELS_WEAPON_EXTREME)) {
 			return 5;
 		} else {
 			return 0;
