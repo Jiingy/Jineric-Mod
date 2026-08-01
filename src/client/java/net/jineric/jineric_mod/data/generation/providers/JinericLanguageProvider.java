@@ -3,7 +3,7 @@ package net.jineric.jineric_mod.data.generation.providers;
 import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.data.family.EquipmentFamilies;
 import jingy.jineric.item.JinericItems;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.fabricmc.loader.impl.util.StringUtil;
 import net.minecraft.core.HolderLookup;
@@ -18,8 +18,11 @@ import java.nio.file.Path;
 import java.util.concurrent.CompletableFuture;
 
 public class JinericLanguageProvider extends FabricLanguageProvider {
-	public JinericLanguageProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
-		super(dataOutput, registryLookup);
+	protected final FabricPackOutput packOutput;
+
+	public JinericLanguageProvider(FabricPackOutput packOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
+		super(packOutput, registryLookup);
+		this.packOutput = packOutput;
 	}
 	
 	@Override
@@ -113,8 +116,8 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 	public void tryExisting(TranslationBuilder builder) {
 		try {
 			Path existingPath;
-			if (dataOutput.getModContainer().findPath("assets/jineric/lang/en_us_existing.json").isPresent()) {
-				existingPath = dataOutput.getModContainer().findPath("assets/jineric/lang/en_us_existing.json").get();
+			if (this.packOutput.getModContainer().findPath("assets/jineric/lang/en_us_existing.json").isPresent()) {
+				existingPath = this.packOutput.getModContainer().findPath("assets/jineric/lang/en_us_existing.json").get();
 				builder.add(existingPath);
 			}
 		} catch (Exception e) {
@@ -126,7 +129,7 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		BlockFamilies.getAllFamilies().forEach(blockFamily -> {
 			Block baseBlock = blockFamily.getBaseBlock();
 			this.addJineric(builder, baseBlock);
-			blockFamily.getVariants().forEach((variant, block) -> this.addJineric(builder, block));
+			blockFamily.getVariants().forEach((_, block) -> this.addJineric(builder, block));
 		});
 	}
 	

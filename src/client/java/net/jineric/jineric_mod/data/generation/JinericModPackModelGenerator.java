@@ -1,12 +1,12 @@
 package net.jineric.jineric_mod.data.generation;
 
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 
 public class JinericModPackModelGenerator extends FabricModelProvider {
-	public JinericModPackModelGenerator(FabricDataOutput output) {
+	public JinericModPackModelGenerator(FabricPackOutput output) {
 		super(output);
 	}
 	

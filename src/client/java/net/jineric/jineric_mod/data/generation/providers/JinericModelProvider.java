@@ -5,7 +5,7 @@ import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.data.family.JinericBlockFamilies;
 import jingy.jineric.item.JinericItems;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.jineric.jineric_mod.data.BlockStateCreators;
 import net.jineric.jineric_mod.data.JinericModels;
 import net.jineric.jineric_mod.data.JinericTextureMap;
@@ -35,7 +35,7 @@ import static net.minecraft.client.data.models.BlockModelGenerators.plainVariant
 
 public class JinericModelProvider extends FabricModelProvider {
 	
-	public JinericModelProvider(FabricDataOutput output) {
+	public JinericModelProvider(FabricPackOutput output) {
 		super(output);
 	}
 	
@@ -84,6 +84,7 @@ public class JinericModelProvider extends FabricModelProvider {
 	public void generateItemModels(ItemModelGenerators itemModelGenerator) {
 		this.registerWoodEquipmentFamily();
 		Identifier jungleLadderId = itemModelGenerator.generateLayeredItem(JinericItems.JUNGLE_LADDER, ModelLocationUtils.getModelLocation(JinericBlocks.JUNGLE_LADDER), JinericMain.ofJineric("block/jungle_ladder_overlay"));
+
 		itemModelGenerator.itemModelOutput.accept(JinericItems.JUNGLE_LADDER, ItemModelUtils.tintedModel(jungleLadderId, new GrassColorSource()));
 		itemModelGenerator.generateFlatItem(JinericItems.CLAY_BRICK, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.generateFlatItem(JinericItems.GOLDEN_BEETROOT, ModelTemplates.FLAT_ITEM);
