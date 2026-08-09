@@ -43,7 +43,7 @@ public class JinericRegistries {
 	}
 	
 	private static void registerOxidizableBlockPairs() {
-		OxidizableBlocksRegistry.registerWeatheringCopperBlocks(JinericBlocks.CUT_COPPER_WALLS);
+		OxidizableBlocksRegistry.registerWeatheringCopperBlocks(JinericBlocks.CUT_COPPER_WALL);
 	}
 	
 	private static void registerWaxableBlockPairs() {
