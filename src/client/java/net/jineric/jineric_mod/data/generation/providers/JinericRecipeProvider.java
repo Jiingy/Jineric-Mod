@@ -401,8 +401,8 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						.forEach(
 								(variant, block) -> {
 									if (block.requiredFeatures().isSubsetOf(featureFlagSet) && BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals("jineric")) {
-										RecipeProvider.FamilyRecipeProvider blockFamilyRecipeFactory = SHAPE_BUILDERS.get(variant);
-										ItemLike itemLike = this.getBaseBlock(blockFamily, variant);
+										RecipeProvider.FamilyCraftingRecipeProvider blockFamilyRecipeFactory = SHAPE_BUILDERS.get(variant);
+										ItemLike itemLike = this.getBaseBlockForCrafting(blockFamily, variant);
 										if (blockFamilyRecipeFactory != null) {
 											RecipeBuilder craftingRecipeJsonBuilder = blockFamilyRecipeFactory.create(this, block, itemLike);
 											blockFamily.getRecipeGroupPrefix().ifPresent(group -> craftingRecipeJsonBuilder.group(
