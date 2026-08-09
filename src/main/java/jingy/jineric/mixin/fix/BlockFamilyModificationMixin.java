@@ -7,6 +7,7 @@ import jingy.jineric.block.JinericBlocks;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.WeatheringCopper;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
@@ -321,93 +322,31 @@ public abstract class BlockFamilyModificationMixin {
 	private static BlockFamily.Builder modifyPurPurFamily(BlockFamily.Builder instance) {
 		return instance.wall(JinericBlocks.PURPUR_WALL);
 	}
-	
-	@Definition(id = "build", method = "Lnet/minecraft/data/BlockFamily$Builder;getFamily()Lnet/minecraft/data/BlockFamily;")
-	@Definition(id = "CUT_COPPER", field = "Lnet/minecraft/data/BlockFamilies;CUT_COPPER:Lnet/minecraft/data/BlockFamily;")
-	@Expression("CUT_COPPER = @(?.build())")
+
+	@Definition(id = "getFamily", method = "Lnet/minecraft/data/BlockFamily$Builder;getFamily()Lnet/minecraft/data/BlockFamily;")
+	@Expression("@(?.getFamily())")
 	@ModifyReceiver(
-			method = "<clinit>",
+			method = "lambda$static$0",
 			at = @At("MIXINEXTRAS:EXPRESSION")
 	)
-	private static BlockFamily.Builder modifyCutCopperFamily(BlockFamily.Builder instance) {
-		return instance.wall(JinericBlocks.CUT_COPPER_WALLS.exposed());
+	private static BlockFamily.Builder modifyCutCopperFamilyWaxed(
+			BlockFamily.Builder instance,
+			String prefix, WeatheringCopper.WeatherState state
+	) {
+		return instance.wall(JinericBlocks.CUT_COPPER_WALL.waxed().pick(state));
 	}
 	
-	@Definition(id = "build", method = "Lnet/minecraft/data/BlockFamily$Builder;getFamily()Lnet/minecraft/data/BlockFamily;")
-	@Definition(id = "EXPOSED_CUT_COPPER", field = "Lnet/minecraft/data/BlockFamilies;EXPOSED_CUT_COPPER:Lnet/minecraft/data/BlockFamily;")
-	@Expression("EXPOSED_CUT_COPPER = @(?.build())")
+	@Definition(id = "getFamily", method = "Lnet/minecraft/data/BlockFamily$Builder;getFamily()Lnet/minecraft/data/BlockFamily;")
+	@Expression("@(?.getFamily())")
 	@ModifyReceiver(
-			method = "<clinit>",
+			method = "lambda$static$1",
 			at = @At("MIXINEXTRAS:EXPRESSION")
 	)
-	private static BlockFamily.Builder modifyExposedCutCopperFamily(BlockFamily.Builder instance) {
-		return instance.wall(JinericBlocks.CUT_COPPER_WALLS.exposed());
-	}
-	
-	@Definition(id = "build", method = "Lnet/minecraft/data/BlockFamily$Builder;getFamily()Lnet/minecraft/data/BlockFamily;")
-	@Definition(id = "WEATHERED_CUT_COPPER", field = "Lnet/minecraft/data/BlockFamilies;WEATHERED_CUT_COPPER:Lnet/minecraft/data/BlockFamily;")
-	@Expression("WEATHERED_CUT_COPPER = @(?.build())")
-	@ModifyReceiver(
-			method = "<clinit>",
-			at = @At("MIXINEXTRAS:EXPRESSION")
-	)
-	private static BlockFamily.Builder modifyWeatheredCutCopperFamily(BlockFamily.Builder instance) {
-		return instance.wall(JinericBlocks.CUT_COPPER_WALLS.weathered());
-	}
-	
-	@Definition(id = "build", method = "Lnet/minecraft/data/BlockFamily$Builder;getFamily()Lnet/minecraft/data/BlockFamily;")
-	@Definition(id = "OXIDIZED_CUT_COPPER", field = "Lnet/minecraft/data/BlockFamilies;OXIDIZED_CUT_COPPER:Lnet/minecraft/data/BlockFamily;")
-	@Expression("OXIDIZED_CUT_COPPER = @(?.build())")
-	@ModifyReceiver(
-			method = "<clinit>",
-			at = @At("MIXINEXTRAS:EXPRESSION")
-	)
-	private static BlockFamily.Builder modifyOxidizedCutCopperFamily(BlockFamily.Builder instance) {
-		return instance.wall(JinericBlocks.CUT_COPPER_WALLS.oxidized());
-	}
-	
-	@Definition(id = "build", method = "Lnet/minecraft/data/BlockFamily$Builder;getFamily()Lnet/minecraft/data/BlockFamily;")
-	@Definition(id = "WAXED_CUT_COPPER", field = "Lnet/minecraft/data/BlockFamilies;WAXED_CUT_COPPER:Lnet/minecraft/data/BlockFamily;")
-	@Expression("WAXED_CUT_COPPER = @(?.build())")
-	@ModifyReceiver(
-			method = "<clinit>",
-			at = @At("MIXINEXTRAS:EXPRESSION")
-	)
-	private static BlockFamily.Builder modifyWaxedCutCopperFamily(BlockFamily.Builder instance) {
-		return instance.wall(JinericBlocks.CUT_COPPER_WALLS.waxed());
-	}
-	
-	@Definition(id = "build", method = "Lnet/minecraft/data/BlockFamily$Builder;getFamily()Lnet/minecraft/data/BlockFamily;")
-	@Definition(id = "WAXED_EXPOSED_CUT_COPPER", field = "Lnet/minecraft/data/BlockFamilies;WAXED_EXPOSED_CUT_COPPER:Lnet/minecraft/data/BlockFamily;")
-	@Expression("WAXED_EXPOSED_CUT_COPPER = @(?.build())")
-	@ModifyReceiver(
-			method = "<clinit>",
-			at = @At("MIXINEXTRAS:EXPRESSION")
-	)
-	private static BlockFamily.Builder modifyWaxedExposedCutCopperFamily(BlockFamily.Builder instance) {
-		return instance.wall(JinericBlocks.CUT_COPPER_WALLS.waxedExposed());
-	}
-	
-	@Definition(id = "build", method = "Lnet/minecraft/data/BlockFamily$Builder;getFamily()Lnet/minecraft/data/BlockFamily;")
-	@Definition(id = "WAXED_WEATHERED_CUT_COPPER", field = "Lnet/minecraft/data/BlockFamilies;WAXED_WEATHERED_CUT_COPPER:Lnet/minecraft/data/BlockFamily;")
-	@Expression("WAXED_WEATHERED_CUT_COPPER = @(?.build())")
-	@ModifyReceiver(
-			method = "<clinit>",
-			at = @At("MIXINEXTRAS:EXPRESSION")
-	)
-	private static BlockFamily.Builder modifyWaxedWeatheredCutCopperFamily(BlockFamily.Builder instance) {
-		return instance.wall(JinericBlocks.CUT_COPPER_WALLS.waxedWeathered());
-	}
-	
-	@Definition(id = "build", method = "Lnet/minecraft/data/BlockFamily$Builder;getFamily()Lnet/minecraft/data/BlockFamily;")
-	@Definition(id = "WAXED_OXIDIZED_CUT_COPPER", field = "Lnet/minecraft/data/BlockFamilies;WAXED_OXIDIZED_CUT_COPPER:Lnet/minecraft/data/BlockFamily;")
-	@Expression("WAXED_OXIDIZED_CUT_COPPER = @(?.build())")
-	@ModifyReceiver(
-			method = "<clinit>",
-			at = @At("MIXINEXTRAS:EXPRESSION")
-	)
-	private static BlockFamily.Builder modifyWaxedOxidizedCutCopperFamily(BlockFamily.Builder instance) {
-		return instance.wall(JinericBlocks.CUT_COPPER_WALLS.waxedOxidized());
+	private static BlockFamily.Builder modifyCutCopperFamilyWeathering(
+			BlockFamily.Builder instance,
+			String var0, WeatheringCopper.WeatherState state
+	) {
+		return instance.wall(JinericBlocks.CUT_COPPER_WALL.weathering().pick(state));
 	}
 	
 	@Definition(id = "build", method = "Lnet/minecraft/data/BlockFamily$Builder;getFamily()Lnet/minecraft/data/BlockFamily;")
@@ -429,7 +368,7 @@ public abstract class BlockFamilyModificationMixin {
 			at = @At("MIXINEXTRAS:EXPRESSION")
 	)
 	private static BlockFamily.Builder modifyStoneBrickFamily(BlockFamily.Builder instance) {
-		return instance.pillar$jineric(JinericBlocks.STONE_BRICK_PILLAR);
+		return instance.pillar(JinericBlocks.STONE_BRICK_PILLAR);
 	}
 	
 	@Definition(id = "build", method = "Lnet/minecraft/data/BlockFamily$Builder;getFamily()Lnet/minecraft/data/BlockFamily;")
@@ -440,6 +379,6 @@ public abstract class BlockFamilyModificationMixin {
 			at = @At("MIXINEXTRAS:EXPRESSION")
 	)
 	private static BlockFamily.Builder modifyTuffBrickFamily(BlockFamily.Builder instance) {
-		return instance.pillar$jineric(JinericBlocks.TUFF_BRICK_PILLAR);
+		return instance.pillar(JinericBlocks.TUFF_BRICK_PILLAR);
 	}
 }
