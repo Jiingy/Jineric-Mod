@@ -29,7 +29,6 @@ public class EarlyRiser implements Runnable {
 		
 		String blockFamily$Variant = mappingResolver.mapClassName("intermediary", "net.minecraft.class_5794$class_5796");
 		ClassTinkerers.enumBuilder(blockFamily$Variant, String.class)
-				.addEnum("PILLAR", "pillar")
 				.addEnum("BOOKSHELF", "bookshelf")
 				.addEnum("CHEST", "chest")
 				.addEnum("TRAPPED_CHEST", "trapped_chest")

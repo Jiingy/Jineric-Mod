@@ -19,12 +19,6 @@ public abstract class BlockFamilyBuilderDuckMixin implements JmBlockFamilyBuilde
 	}
 	
 	@Override
-	public BlockFamily.Builder pillar$jineric(Block block) {
-		this.family.getVariants().put(JinericBlockFamilyVariants.PILLAR, block);
-		return (BlockFamily.Builder)(Object)this;
-	}
-	
-	@Override
 	public BlockFamily.Builder bookshelf$jineric(Block block) {
 		this.family.getVariants().put(JinericBlockFamilyVariants.BOOKSHELF, block);
 		return (BlockFamily.Builder)(Object)this;

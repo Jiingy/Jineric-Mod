@@ -9,10 +9,6 @@ public interface JmBlockFamilyBuilder {
 		return null;
 	}
 	
-	default BlockFamily.Builder pillar$jineric(Block block) {
-		return null;
-	}
-	
 	default BlockFamily.Builder bookshelf$jineric(Block block) {
 		return null;
 	}
