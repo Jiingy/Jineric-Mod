@@ -1,7 +1,6 @@
 package jingy.jineric.screen;
 
 import jingy.jineric.recipe.JinericRecipePropertySet;
-import jingy.jineric.recipe.JinericRecipeTypes;
 import jingy.jineric.recipe.book.JinericRecipeBookType;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
@@ -16,16 +15,18 @@ public class FoundryScreenHandler extends AbstractFurnaceMenu {
 	
 	public FoundryScreenHandler(int syncId, Inventory playerInventory) {
 		super(
-				JinericScreenHandlerType.FOUNDRY, JinericRecipeTypes.FOUNDRY_SMELTING,
-				JinericRecipePropertySet.FOUNDRY_INPUT, JinericRecipeBookType.JINERIC_FOUNDRY,
+				JinericScreenHandlerType.FOUNDRY,
+                JinericRecipePropertySet.FOUNDRY_INPUT,
+				JinericRecipeBookType.JINERIC_FOUNDRY,
 				syncId, playerInventory
 		);
 	}
 	
 	public FoundryScreenHandler(int syncId, Inventory playerInventory, Container inventory, ContainerData propertyDelegate) {
 		super(
-				JinericScreenHandlerType.FOUNDRY, JinericRecipeTypes.FOUNDRY_SMELTING,
-				JinericRecipePropertySet.FOUNDRY_INPUT, JinericRecipeBookType.JINERIC_FOUNDRY,
+				JinericScreenHandlerType.FOUNDRY,
+				JinericRecipePropertySet.FOUNDRY_INPUT,
+				JinericRecipeBookType.JINERIC_FOUNDRY,
 				syncId, playerInventory, inventory, propertyDelegate
 		);
 	}
