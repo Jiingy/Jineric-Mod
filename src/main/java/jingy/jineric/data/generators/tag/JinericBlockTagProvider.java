@@ -418,6 +418,15 @@ public class JinericBlockTagProvider extends FabricTagsProvider.BlockTagsProvide
 				.add(JmBlockItemIds.PACKED_ICE_STAIRS)
 				.add(JmBlockItemIds.PACKED_ICE_SLAB)
 				.add(JmBlockItemIds.PACKED_ICE_WALL);
+		this.builder(JinericBlockTags.SAPLINGS)
+				.add(BlockItemIds.ACACIA_SAPLING)
+				.add(BlockItemIds.BIRCH_SAPLING)
+				.add(BlockItemIds.CHERRY_SAPLING)
+				.add(BlockItemIds.DARK_OAK_SAPLING)
+				.add(BlockItemIds.JUNGLE_SAPLING)
+				.add(BlockItemIds.OAK_SAPLING)
+				.add(BlockItemIds.PALE_OAK_SAPLING)
+				.add(BlockItemIds.SPRUCE_SAPLING);
 
 		// Sounds
 		this.builder(JinericBlockSoundTags.VEGETATION_SOUNDS)
