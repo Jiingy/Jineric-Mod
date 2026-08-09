@@ -1,8 +1,6 @@
 package jingy.jineric.mixin.change;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import jingy.jineric.mixin.accessor.RecipeFinderAccessor;
-import jingy.jineric.recipe.display.FoundryRecipeDisplay;
 import net.minecraft.world.entity.player.StackedItemContents;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.display.RecipeDisplay;
@@ -19,7 +17,8 @@ import java.util.Optional;
 public abstract class RecipeDisplayEntryMixin {
 	@Shadow @Final private Optional<List<Ingredient>> craftingRequirements;
 	@Shadow @Final private RecipeDisplay display;
-	
+
+	//TODO: 26.2 Fix or remove
 	@ModifyReturnValue(
 			method = "canCraft",
 			at = @At(
@@ -27,12 +26,12 @@ public abstract class RecipeDisplayEntryMixin {
 			)
 	)
 	private boolean checkInputStackCountForResult(boolean original, StackedItemContents providedContents) {
-		if (this.display instanceof FoundryRecipeDisplay foundryRecipeDisplay) {
-			return this.craftingRequirements.filter(
-					ingredients -> ((RecipeFinderAccessor) providedContents).invokeCanCraft(ingredients, foundryRecipeDisplay.inputCount(), null)
-			).isPresent();
-		} else {
+//		if (this.display instanceof FoundryRecipeDisplay foundryRecipeDisplay) {
+//			return this.craftingRequirements.filter(
+//					ingredients -> ((RecipeFinderAccessor) providedContents).invokeCanCraft(ingredients, foundryRecipeDisplay.inputCount(), null)
+//			).isPresent();
+//		} else {
 			return original;
-		}
+//		}
 	}
 }
