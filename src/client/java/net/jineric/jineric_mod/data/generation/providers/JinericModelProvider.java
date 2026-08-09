@@ -116,7 +116,7 @@ public class JinericModelProvider extends FabricModelProvider {
 		itemModelGenerator.generateFlatItem(JinericItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
 	}
 	
-	//TODO: can't be assed to fix this right now
+	//TODO: 26.2 Fix
 	public final void registerWoodEquipmentFamily() {
 //		EquipmentFamilies.WOODEN.getVariants().forEach(this::registerWoodEquipmentFamily);
 	}
