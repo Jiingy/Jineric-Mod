@@ -12,6 +12,6 @@ public abstract class AbstractRecipeBookScreenDuckMixin implements JmAbstractRec
 	@Unique
 	@Override
 	public RecipeBookComponent<?> jineric$recipeBookWidget() {
-		throw new RuntimeException();
+		return null;
 	}
 }
