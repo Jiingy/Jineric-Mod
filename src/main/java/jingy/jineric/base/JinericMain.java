@@ -44,7 +44,6 @@ public class JinericMain implements ModInitializer {
 		JinericItemTags.initialize();
 		JinericRecipeTypes.initialize();
 		JinericStats.initialize();
-		JinericRecipeSerializer.initialize();
 		JinericPotions.initialize();
 		JinericRecipeBookCategories.initialize();
 		JinericBlockEntityType.registerBlockEntityTypes();
