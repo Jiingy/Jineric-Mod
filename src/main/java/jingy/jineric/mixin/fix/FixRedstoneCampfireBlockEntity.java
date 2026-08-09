@@ -13,6 +13,7 @@ import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.BlockEntityTypes;
 import net.minecraft.world.level.block.entity.CampfireBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -40,7 +41,7 @@ public abstract class FixRedstoneCampfireBlockEntity extends BlockEntity {
 		if (state.getBlock() instanceof RedstoneCampfireBlock) {
 			return JinericBlockEntityType.REDSTONE_CAMPFIRE;
 		} else {
-			return BlockEntityType.CAMPFIRE;
+			return BlockEntityTypes.CAMPFIRE;
 		}
 	}
 	

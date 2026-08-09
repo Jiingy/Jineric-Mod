@@ -3,6 +3,7 @@ package jingy.jineric.mixin;
 import net.minecraft.world.level.block.StandingSignBlock;
 import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.BlockEntityTypes;
 import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -18,7 +19,7 @@ public abstract class BlockEntityTypeMixin {
 			cancellable = true
 	)
 	private void supports(BlockState state, CallbackInfoReturnable<Boolean> info) {
-		if (BlockEntityType.SIGN.equals((BlockEntityType)(Object)this) && (state.getBlock() instanceof StandingSignBlock || state.getBlock() instanceof WallSignBlock)) {
+		if (BlockEntityTypes.SIGN.equals((BlockEntityType)(Object)this) && (state.getBlock() instanceof StandingSignBlock || state.getBlock() instanceof WallSignBlock)) {
 			info.setReturnValue(true);
 		}
 	}

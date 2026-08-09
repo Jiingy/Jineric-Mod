@@ -8,7 +8,7 @@ import net.minecraft.stats.Stats;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.BlockEntityTypes;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.block.entity.TrappedChestBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -16,7 +16,7 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 
 public class WoodenTrappedChestBlock extends WoodenChestBlock {
 	public WoodenTrappedChestBlock(Properties settings, WoodType type) {
-		super(() -> BlockEntityType.TRAPPED_CHEST, settings, type);
+		super(() -> BlockEntityTypes.TRAPPED_CHEST, settings, type);
 	}
 	
 	@Override
