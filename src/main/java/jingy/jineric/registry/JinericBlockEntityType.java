@@ -25,27 +25,27 @@ public class JinericBlockEntityType {
 		register("kiln", KILN);
 		//  Vanilla
 			// Chest
-		BlockEntityTypes.CHEST.isValid(JinericBlocks.SPRUCE_CHEST.defaultBlockState());
-		BlockEntityTypes.CHEST.isValid(JinericBlocks.BIRCH_CHEST.defaultBlockState());
-		BlockEntityTypes.CHEST.isValid(JinericBlocks.JUNGLE_CHEST.defaultBlockState());
-		BlockEntityTypes.CHEST.isValid(JinericBlocks.ACACIA_CHEST.defaultBlockState());
-		BlockEntityTypes.CHEST.isValid(JinericBlocks.DARK_OAK_CHEST.defaultBlockState());
-		BlockEntityTypes.CHEST.isValid(JinericBlocks.MANGROVE_CHEST.defaultBlockState());
-		BlockEntityTypes.CHEST.isValid(JinericBlocks.CHERRY_CHEST.defaultBlockState());
-		BlockEntityTypes.CHEST.isValid(JinericBlocks.BAMBOO_CHEST.defaultBlockState());
-		BlockEntityTypes.CHEST.isValid(JinericBlocks.CRIMSON_CHEST.defaultBlockState());
-		BlockEntityTypes.CHEST.isValid(JinericBlocks.WARPED_CHEST.defaultBlockState());
-			//  Trapped Chest
-		BlockEntityTypes.TRAPPED_CHEST.isValid(JinericBlocks.TRAPPED_SPRUCE_CHEST.defaultBlockState());
-		BlockEntityTypes.TRAPPED_CHEST.isValid(JinericBlocks.TRAPPED_BIRCH_CHEST.defaultBlockState());
-		BlockEntityTypes.TRAPPED_CHEST.isValid(JinericBlocks.TRAPPED_JUNGLE_CHEST.defaultBlockState());
-		BlockEntityTypes.TRAPPED_CHEST.isValid(JinericBlocks.TRAPPED_ACACIA_CHEST.defaultBlockState());
-		BlockEntityTypes.TRAPPED_CHEST.isValid(JinericBlocks.TRAPPED_DARK_OAK_CHEST.defaultBlockState());
-		BlockEntityTypes.TRAPPED_CHEST.isValid(JinericBlocks.TRAPPED_MANGROVE_CHEST.defaultBlockState());
-		BlockEntityTypes.TRAPPED_CHEST.isValid(JinericBlocks.TRAPPED_CHERRY_CHEST.defaultBlockState());
-		BlockEntityTypes.TRAPPED_CHEST.isValid(JinericBlocks.TRAPPED_BAMBOO_CHEST.defaultBlockState());
-		BlockEntityTypes.TRAPPED_CHEST.isValid(JinericBlocks.TRAPPED_CRIMSON_CHEST.defaultBlockState());
-		BlockEntityTypes.TRAPPED_CHEST.isValid(JinericBlocks.TRAPPED_WARPED_CHEST.defaultBlockState());
+		BlockEntityTypes.CHEST.addValidBlock(JinericBlocks.SPRUCE_CHEST);
+		BlockEntityTypes.CHEST.addValidBlock(JinericBlocks.BIRCH_CHEST);
+		BlockEntityTypes.CHEST.addValidBlock(JinericBlocks.JUNGLE_CHEST);
+		BlockEntityTypes.CHEST.addValidBlock(JinericBlocks.ACACIA_CHEST);
+		BlockEntityTypes.CHEST.addValidBlock(JinericBlocks.DARK_OAK_CHEST);
+		BlockEntityTypes.CHEST.addValidBlock(JinericBlocks.MANGROVE_CHEST);
+		BlockEntityTypes.CHEST.addValidBlock(JinericBlocks.CHERRY_CHEST);
+		BlockEntityTypes.CHEST.addValidBlock(JinericBlocks.BAMBOO_CHEST);
+		BlockEntityTypes.CHEST.addValidBlock(JinericBlocks.CRIMSON_CHEST);
+		BlockEntityTypes.CHEST.addValidBlock(JinericBlocks.WARPED_CHEST);
+//			  Trapped Chest
+		BlockEntityTypes.TRAPPED_CHEST.addValidBlock(JinericBlocks.TRAPPED_SPRUCE_CHEST);
+		BlockEntityTypes.TRAPPED_CHEST.addValidBlock(JinericBlocks.TRAPPED_BIRCH_CHEST);
+		BlockEntityTypes.TRAPPED_CHEST.addValidBlock(JinericBlocks.TRAPPED_JUNGLE_CHEST);
+		BlockEntityTypes.TRAPPED_CHEST.addValidBlock(JinericBlocks.TRAPPED_ACACIA_CHEST);
+		BlockEntityTypes.TRAPPED_CHEST.addValidBlock(JinericBlocks.TRAPPED_DARK_OAK_CHEST);
+		BlockEntityTypes.TRAPPED_CHEST.addValidBlock(JinericBlocks.TRAPPED_MANGROVE_CHEST);
+		BlockEntityTypes.TRAPPED_CHEST.addValidBlock(JinericBlocks.TRAPPED_CHERRY_CHEST);
+		BlockEntityTypes.TRAPPED_CHEST.addValidBlock(JinericBlocks.TRAPPED_BAMBOO_CHEST);
+		BlockEntityTypes.TRAPPED_CHEST.addValidBlock(JinericBlocks.TRAPPED_CRIMSON_CHEST);
+		BlockEntityTypes.TRAPPED_CHEST.addValidBlock(JinericBlocks.TRAPPED_WARPED_CHEST);
 	}
 	
 	public static BlockEntityType<?> register(String id, BlockEntityType<?> blockEntityType) {
