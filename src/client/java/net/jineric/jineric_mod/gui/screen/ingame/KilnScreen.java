@@ -40,6 +40,4 @@ public class KilnScreen extends AbstractFurnaceScreen<KilnScreenHandler> impleme
 	public RecipeBookComponent<?> jineric$recipeBookWidget() {
 		return new FoundryRecipeBookWidget(this.menu, TOGGLE_KILN_SMELTABLE_TEXT, TABS);
 	}
-	
-	
 }
