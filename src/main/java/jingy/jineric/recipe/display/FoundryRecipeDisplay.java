@@ -10,12 +10,11 @@ import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.item.crafting.display.RecipeDisplay;
 import net.minecraft.world.item.crafting.display.SlotDisplay;
 
-public record FoundryRecipeDisplay(SlotDisplay ingredient, int inputCount, SlotDisplay fuel, SlotDisplay result, SlotDisplay craftingStation, int duration, float experience)
+public record FoundryRecipeDisplay(SlotDisplay ingredient, SlotDisplay fuel, SlotDisplay result, SlotDisplay craftingStation, int duration, float experience)
 		implements RecipeDisplay {
 	public static final MapCodec<FoundryRecipeDisplay> CODEC = RecordCodecBuilder.mapCodec(
 			instance -> instance.group(
 							SlotDisplay.CODEC.fieldOf("ingredient").forGetter(FoundryRecipeDisplay::ingredient),
-							Codec.INT.fieldOf("input_count").forGetter(FoundryRecipeDisplay::inputCount),
 							SlotDisplay.CODEC.fieldOf("fuel").forGetter(FoundryRecipeDisplay::fuel),
 							SlotDisplay.CODEC.fieldOf("result").forGetter(FoundryRecipeDisplay::result),
 							SlotDisplay.CODEC.fieldOf("crafting_station").forGetter(FoundryRecipeDisplay::craftingStation),
@@ -27,8 +26,6 @@ public record FoundryRecipeDisplay(SlotDisplay ingredient, int inputCount, SlotD
 	public static final StreamCodec<RegistryFriendlyByteBuf, FoundryRecipeDisplay> STREAM_CODEC = StreamCodec.composite(
 			SlotDisplay.STREAM_CODEC,
 			FoundryRecipeDisplay::ingredient,
-			ByteBufCodecs.INT,
-			FoundryRecipeDisplay::inputCount,
 			SlotDisplay.STREAM_CODEC,
 			FoundryRecipeDisplay::fuel,
 			SlotDisplay.STREAM_CODEC,
