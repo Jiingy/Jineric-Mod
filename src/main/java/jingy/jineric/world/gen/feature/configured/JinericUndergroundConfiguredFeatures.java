@@ -11,6 +11,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.random.WeightedList;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -40,12 +41,13 @@ public class JinericUndergroundConfiguredFeatures {
 		);
 	}
 	
-	protected static ConfiguredFeature<?, ?> createJmGrassBlockPatchFeature(BootstrapContext<ConfiguredFeature<?, ?>> registry) {
-		HolderGetter<ConfiguredFeature<?, ?>> registryEntryLookup = registry.lookup(Registries.CONFIGURED_FEATURE);
+	protected static ConfiguredFeature<?, ?> createJmGrassBlockPatchFeature(BootstrapContext<ConfiguredFeature<?, ?>> context) {
+		HolderGetter<Block> blocks = context.lookup(Registries.BLOCK);
+		HolderGetter<ConfiguredFeature<?, ?>> registryEntryLookup = context.lookup(Registries.CONFIGURED_FEATURE);
 		return new ConfiguredFeature<>(
 				Feature.VEGETATION_PATCH,
 				new VegetationPatchConfiguration(
-						JinericBlockTags.JM_GRASS_BLOCK_REPLACEABLE,
+						blocks.getOrThrow(JinericBlockTags.JM_GRASS_BLOCK_REPLACEABLE),
 						BlockStateProvider.simple(JinericBlocks.GRASS_BLOCK),
 						PlacementUtils.inlinePlaced(registryEntryLookup.getOrThrow(JinericUndergroundConfiguredFeatures.JM_GRASS_BLOCK_VEGETATION)),
 						CaveSurface.FLOOR,
