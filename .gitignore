@@ -28,5 +28,5 @@ bin/
 run/
 
 # private
-/todo.txt
+/src/todo.txt
 /brainstorming.txt
