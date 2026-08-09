@@ -15,10 +15,7 @@ public record JmRecipeBookSettingsS2CPacket(JmRecipeBookOptions bookSettings) im
 			JmRecipeBookSettingsS2CPacket::bookSettings,
 			JmRecipeBookSettingsS2CPacket::new
 	);
-	
-	//  TODO RECIPE BOOK: Code commented out due to my CustomPayload not working, and being unable to fix it without internet
-//	public static final CustomPayload.Id<JmRecipeBookSettingsS2CPacket> ID = new CustomPayload.Id<>(Identifier.of("jineric", "recipe_book_settings"));
-	
+
 	@Override
 	public PacketType<? extends Packet<ClientGamePacketListener>> type() {
 		return JmPlayPackets.RECIPE_BOOK_SETTINGS;
@@ -26,11 +23,6 @@ public record JmRecipeBookSettingsS2CPacket(JmRecipeBookOptions bookSettings) im
 	
 	@Override
 	public void handle(ClientGamePacketListener clientPlayPacketListener) {
-		((JmClientGamePacketListener)clientPlayPacketListener).jineric_mod$onJmRecipeBookSettings(this);
+		((JmClientGamePacketListener)clientPlayPacketListener).jineric$onJmRecipeBookSettings(this);
 	}
-	
-//	@Override
-//	public Id<? extends CustomPayload> getId() {
-//		return ID;
-//	}
 }
