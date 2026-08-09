@@ -7,6 +7,7 @@ import jingy.jineric.item.equipment.JmArmorMaterials;
 import jingy.jineric.item.equipment.JmEquipmentAssetKeys;
 import jingy.jineric.item.equipment.JmToolMaterials;
 import jingy.jineric.item.template.JmSmithingTemplateItem;
+import jingy.jineric.references.JmBlockItemIds;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -18,6 +19,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.item.equipment.Equippable;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.WeatheringCopperCollection;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;
@@ -198,7 +200,9 @@ public class JinericItems {
 	
 	//COPPER
 	//CUT
-	public static final WeatheringCopperItems CUT_COPPER_WALL = WeatheringCopperItems.create(JinericBlocks.CUT_COPPER_WALLS, JinericItems::register);
+	public static final WeatheringCopperCollection<Item> CUT_COPPER_WALL = WeatheringCopperCollection.registerItems(
+			JmBlockItemIds.CUT_COPPER_WALL, JinericBlocks.CUT_COPPER_WALL, Items::registerBlock
+	);
 	//ITEM STORAGE
 	public static final Item CHARCOAL_BLOCK = register(JinericBlocks.CHARCOAL_BLOCK);
 	public static final Item FLINT_BLOCK = register(JinericBlocks.FLINT_BLOCK);
@@ -355,11 +359,11 @@ public class JinericItems {
 	private static ResourceKey<Item> keyOf(ResourceKey<Block> blockKey) {
 		return ResourceKey.create(Registries.ITEM, blockKey.identifier());
 	}
-	
+
 	private static Item register(Block block) {
 		return register(block, BlockItem::new);
 	}
-	
+
 	private static Item register(Block block, Item.Properties settings) {
 		return register(block, BlockItem::new, settings);
 	}
@@ -384,7 +388,9 @@ public class JinericItems {
 	
 	private static Item register(Block block, BiFunction<Block, Item.Properties, Item> factory, Item.Properties settings) {
 		return register(
-				keyOf(block.builtInRegistryHolder().key()), itemSettings -> factory.apply(block, itemSettings), settings.useBlockDescriptionPrefix()
+				keyOf(block.builtInRegistryHolder().key()),
+				itemSettings -> factory.apply(block, itemSettings),
+				settings.useBlockDescriptionPrefix().requiredFeatures(block.requiredFeatures())
 		);
 	}
 	
@@ -400,8 +406,8 @@ public class JinericItems {
 		return register(keyOf(id), Item::new, settings);
 	}
 	
-	private static Item register(String id) {
-		return register(keyOf(id), Item::new, new Item.Properties());
+	private static Item register(String name) {
+		return register(keyOf(name), Item::new, new Item.Properties());
 	}
 	
 	private static Item register(ResourceKey<Item> key, Function<Item.Properties, Item> factory) {
