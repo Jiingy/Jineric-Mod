@@ -165,22 +165,22 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				this.refining(Blocks.SAND, Blocks.GLASS);
 				this.refining(Blocks.BASALT, Blocks.SMOOTH_BASALT);
 				this.refining(Blocks.CLAY, Blocks.TERRACOTTA);
-				this.refining(Blocks.WHITE_TERRACOTTA, Blocks.WHITE_GLAZED_TERRACOTTA);
-				this.refining(Blocks.LIGHT_GRAY_TERRACOTTA, Blocks.LIGHT_GRAY_GLAZED_TERRACOTTA);
-				this.refining(Blocks.GRAY_TERRACOTTA, Blocks.GRAY_GLAZED_TERRACOTTA);
-				this.refining(Blocks.BLACK_TERRACOTTA, Blocks.BLACK_GLAZED_TERRACOTTA);
-				this.refining(Blocks.BROWN_TERRACOTTA, Blocks.BROWN_GLAZED_TERRACOTTA);
-				this.refining(Blocks.RED_TERRACOTTA, Blocks.RED_GLAZED_TERRACOTTA);
-				this.refining(Blocks.ORANGE_TERRACOTTA, Blocks.ORANGE_GLAZED_TERRACOTTA);
-				this.refining(Blocks.YELLOW_TERRACOTTA, Blocks.YELLOW_GLAZED_TERRACOTTA);
-				this.refining(Blocks.LIME_TERRACOTTA, Blocks.LIME_GLAZED_TERRACOTTA);
-				this.refining(Blocks.GREEN_TERRACOTTA, Blocks.GREEN_GLAZED_TERRACOTTA);
-				this.refining(Blocks.CYAN_TERRACOTTA, Blocks.CYAN_GLAZED_TERRACOTTA);
-				this.refining(Blocks.LIGHT_BLUE_TERRACOTTA, Blocks.LIGHT_BLUE_GLAZED_TERRACOTTA);
-				this.refining(Blocks.BLUE_TERRACOTTA, Blocks.BLUE_GLAZED_TERRACOTTA);
-				this.refining(Blocks.PURPLE_TERRACOTTA, Blocks.PURPLE_GLAZED_TERRACOTTA);
-				this.refining(Blocks.MAGENTA_TERRACOTTA, Blocks.MAGENTA_GLAZED_TERRACOTTA);
-				this.refining(Blocks.PINK_TERRACOTTA, Blocks.PINK_GLAZED_TERRACOTTA);
+				this.refining(Blocks.DYED_TERRACOTTA.white(), Blocks.GLAZED_TERRACOTTA.white());
+				this.refining(Blocks.DYED_TERRACOTTA.lightGray(), Blocks.GLAZED_TERRACOTTA.lightGray());
+				this.refining(Blocks.DYED_TERRACOTTA.gray(), Blocks.GLAZED_TERRACOTTA.gray());
+				this.refining(Blocks.DYED_TERRACOTTA.black(), Blocks.GLAZED_TERRACOTTA.black());
+				this.refining(Blocks.DYED_TERRACOTTA.brown(), Blocks.GLAZED_TERRACOTTA.brown());
+				this.refining(Blocks.DYED_TERRACOTTA.red(), Blocks.GLAZED_TERRACOTTA.red());
+				this.refining(Blocks.DYED_TERRACOTTA.orange(), Blocks.GLAZED_TERRACOTTA.orange());
+				this.refining(Blocks.DYED_TERRACOTTA.yellow(), Blocks.GLAZED_TERRACOTTA.yellow());
+				this.refining(Blocks.DYED_TERRACOTTA.lime(), Blocks.GLAZED_TERRACOTTA.lime());
+				this.refining(Blocks.DYED_TERRACOTTA.green(), Blocks.GLAZED_TERRACOTTA.green());
+				this.refining(Blocks.DYED_TERRACOTTA.cyan(), Blocks.GLAZED_TERRACOTTA.cyan());
+				this.refining(Blocks.DYED_TERRACOTTA.lightBlue(), Blocks.GLAZED_TERRACOTTA.lightBlue());
+				this.refining(Blocks.DYED_TERRACOTTA.blue(), Blocks.GLAZED_TERRACOTTA.blue());
+				this.refining(Blocks.DYED_TERRACOTTA.purple(), Blocks.GLAZED_TERRACOTTA.purple());
+				this.refining(Blocks.DYED_TERRACOTTA.magenta(), Blocks.GLAZED_TERRACOTTA.magenta());
+				this.refining(Blocks.DYED_TERRACOTTA.pink(), Blocks.GLAZED_TERRACOTTA.pink());
 				this.refining(Blocks.WET_SPONGE, Blocks.SPONGE, RecipeCategory.MISC, CookingBookCategory.MISC, 0.2F);
 				
 				// STONECUTTING
