@@ -2,7 +2,7 @@ package jingy.jineric.mixin.change;
 
 import jingy.jineric.sound.JinericBlockSoundGroup;
 import jingy.jineric.tag.JinericBlockSoundTags;
-import net.minecraft.tags.BlockTags;
+import jingy.jineric.tag.JinericBlockTags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -38,7 +38,7 @@ public abstract class BlockSoundsMixin {
 			cir.setReturnValue(SoundType.WOOL);
 		} else if (state.is(Blocks.COBBLESTONE) || state.is(Blocks.INFESTED_COBBLESTONE)) {
 			cir.setReturnValue(JinericBlockSoundGroup.COBBLED_STONES);
-		} else if (state.is(BlockTags.SAPLINGS)) {
+		} else if (state.is(JinericBlockTags.SAPLINGS)) {
 			cir.setReturnValue(SoundType.CHERRY_SAPLING);
 		} else if (state.is(JinericBlockSoundTags.WOODEN_NETHER_BLOCK_SOUNDS)) {
 			cir.setReturnValue(SoundType.NETHER_WOOD);

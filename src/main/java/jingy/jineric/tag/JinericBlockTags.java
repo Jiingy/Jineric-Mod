@@ -16,7 +16,7 @@ public class JinericBlockTags {
 	public static final TagKey<Block> WOODEN_TRAPPED_CHESTS = registerBlockTag("wooden_trapped_chests");
 	public static final TagKey<Block> LADDERS = registerBlockTag("ladders");
 	public static final TagKey<Block> WOODEN_LADDERS = registerBlockTag("wooden_ladders");
-	
+	public static final TagKey<Block> SAPLINGS = registerBlockTag("saplings");
 	public static final TagKey<Block> INCORRECT_FOR_EMERALD_TOOL = registerBlockTag("incorrect_for_emerald_tool");
 	public static final TagKey<Block> BOOSTS_WOODEN_EQUIPMENT_LEVEL = registerBlockTag("boosts_wooden_equipment_level");
 	public static final TagKey<Block> BOOSTS_STONE_EQUIPMENT_LEVEL = registerBlockTag("boosts_stone_equipment_level");
