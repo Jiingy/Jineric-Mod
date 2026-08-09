@@ -572,7 +572,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 			}
 			
 			public void blockSmelting(ItemLike output, ItemLike input) {
-				SimpleCookingRecipeBuilder.smelting(Ingredient.of(input), RecipeCategory.BUILDING_BLOCKS, output.asItem(), 0.1F, 200)
+				SimpleCookingRecipeBuilder.smelting(Ingredient.of(input), RecipeCategory.BUILDING_BLOCKS, CookingBookCategory.BLOCKS, output.asItem(), 0.1F, 200)
 						.unlockedBy("has_" + input, this.has(input))
 						.save(recipeOutput);
 			}
