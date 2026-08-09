@@ -1,19 +1,28 @@
 package jingy.jineric.recipe;
 
+import com.mojang.serialization.MapCodec;
 import jingy.jineric.item.JinericItems;
 import jingy.jineric.recipe.book.JinericRecipeBookCategories;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.AbstractCookingRecipe;
-import net.minecraft.world.item.crafting.CookingBookCategory;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeBookCategory;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.ItemStackTemplate;
+import net.minecraft.world.item.crafting.*;
 
 public class RefiningRecipe extends AbstractCookingRecipe {
-	public RefiningRecipe(String group, CookingBookCategory category, Ingredient input, ItemStack output, float experience, int cookTime) {
-		super(group, category, input, output, experience, cookTime);
+	public static final MapCodec<RefiningRecipe> MAP_CODEC = cookingMapCodec(RefiningRecipe::new, 100);
+	public static final StreamCodec<RegistryFriendlyByteBuf, RefiningRecipe> STREAM_CODEC = cookingStreamCodec(RefiningRecipe::new);
+	public static final RecipeSerializer<RefiningRecipe> SERIALIZER = new RecipeSerializer<>(MAP_CODEC, STREAM_CODEC);
+
+	public RefiningRecipe(
+			CommonInfo commonInfo,
+			CookingBookInfo bookInfo,
+			Ingredient ingredient,
+			ItemStackTemplate result,
+			float experience,
+			int cookTime
+	) {
+		super(commonInfo, bookInfo, ingredient, result, experience, cookTime);
 	}
 	
 	@Override
@@ -23,7 +32,7 @@ public class RefiningRecipe extends AbstractCookingRecipe {
 	
 	@Override
 	public RecipeSerializer<RefiningRecipe> getSerializer() {
-		return JinericRecipeSerializer.REFINING;
+		return SERIALIZER;
 	}
 	
 	@Override
