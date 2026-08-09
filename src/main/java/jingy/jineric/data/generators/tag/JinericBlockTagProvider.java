@@ -9,9 +9,12 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
+import net.minecraft.references.BlockItemId;
 import net.minecraft.references.BlockItemIds;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
@@ -451,19 +454,19 @@ public class JinericBlockTagProvider extends FabricTagsProvider.BlockTagsProvide
 			blockToAdd.add(blockFamily.getBaseBlock());
 		}
 		blockToAdd.sort(Comparator.comparing(Block::toString));
-//		blockToAdd.stream()
-//				.filter(block -> BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals("jineric") && !block.defaultBlockState().is(tagKey))
-//				.forEach(block -> {
-//					BlockItemId blockItemId = new BlockItemId(
-//							ResourceKey.create(
-//									Registries.BLOCK, BuiltInRegistries.BLOCK.getKey(block)
-//							),
-//							ResourceKey.create(
-//									Registries.ITEM, BuiltInRegistries.ITEM.getKey(block.asItem())
-//							)
-//					);
-//					this.builder(tagKey).add(blockItemId);
-//				});
+		blockToAdd.stream()
+				.filter(block -> BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals("jineric") && !block.defaultBlockState().is(tagKey))
+				.forEach(block -> {
+					BlockItemId blockItemId = new BlockItemId(
+							ResourceKey.create(
+									Registries.BLOCK, BuiltInRegistries.BLOCK.getKey(block)
+							),
+							ResourceKey.create(
+									Registries.ITEM, BuiltInRegistries.ITEM.getKey(block.asItem())
+							)
+					);
+					this.builder(tagKey).add(blockItemId);
+				});
 	}
 	
 	private void blockFamiliesToFamilyVariantTag(TagKey<Block> blockTag, BlockFamily.Variant familyVariantIn) {
@@ -477,12 +480,12 @@ public class JinericBlockTagProvider extends FabricTagsProvider.BlockTagsProvide
 					if (blockFamily.get(familyVariantIn) != null) {
 						Block familyVariantBlock = blockFamily.get(familyVariantIn);
 						if (BuiltInRegistries.BLOCK.getKey(familyVariantBlock).getNamespace().equals("jineric")) {
-//							this.builder(blockTag).add(
-//									new BlockItemId(
-//											ResourceKey.create(Registries.BLOCK, BuiltInRegistries.BLOCK.getKey(familyVariantBlock)),
-//											ResourceKey.create(Registries.ITEM, BuiltInRegistries.ITEM.getKey(familyVariantBlock.asItem()))
-//									)
-//							);
+							this.builder(blockTag).add(
+									new BlockItemId(
+											ResourceKey.create(Registries.BLOCK, BuiltInRegistries.BLOCK.getKey(familyVariantBlock)),
+											ResourceKey.create(Registries.ITEM, BuiltInRegistries.ITEM.getKey(familyVariantBlock.asItem()))
+									)
+							);
 						}
 					}
 				}
