@@ -1,8 +1,10 @@
 accessWidener	v2	official
 accessible	class	net/minecraft/client/Options$OptionAccess
 accessible	class	net/minecraft/client/gui/screens/recipebook/GhostSlots$GhostSlot
+accessible  class   net/minecraft/data/recipes/RecipeProvider$FamilyCraftingRecipeProvider
 accessible	method	net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity getBurnDuration (Lnet/minecraft/world/level/block/entity/FuelValues;Lnet/minecraft/world/item/ItemStack;)I
 accessible	method	net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity getTotalCookTime (Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity;)I
+accessible  method  net/minecraft/world/item/Items registerBlock (Lnet/minecraft/references/BlockItemId;Lnet/minecraft/world/level/block/Block;)Lnet/minecraft/world/item/Item;
 accessible	field	net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity litTimeRemaining I
 accessible	field	net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity litTotalTime I
 accessible  field   net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity items Lnet/minecraft/core/NonNullList;
