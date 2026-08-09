@@ -70,14 +70,14 @@ public class JinericModelProvider extends FabricModelProvider {
 		this.registerCubeColumnBlockSet(JinericBlockFamilies.CUT_SOUL_SANDSTONE, JinericBlockFamilies.SOUL_SANDSTONE, bmg);
 		this.registerBorderBlockSet(JinericBlockFamilies.SMOOTH_STONE, bmg);
 		this.registerBorderBlockSet(JinericBlockFamilies.POLISHED_STONE, bmg);
-		this.registerWall(JinericBlockFamilies.CUT_COPPER, TextureMapping.cube(Blocks.CUT_COPPER), bmg);
-		this.registerWall(JinericBlockFamilies.EXPOSED_CUT_COPPER, TextureMapping.cube(Blocks.EXPOSED_CUT_COPPER), bmg);
-		this.registerWall(JinericBlockFamilies.WEATHERED_CUT_COPPER, TextureMapping.cube(Blocks.WEATHERED_CUT_COPPER), bmg);
-		this.registerWall(JinericBlockFamilies.OXIDIZED_CUT_COPPER, TextureMapping.cube(Blocks.OXIDIZED_CUT_COPPER), bmg);
-		this.registerWall(JinericBlockFamilies.WAXED_CUT_COPPER, TextureMapping.cube(Blocks.CUT_COPPER), bmg);
-		this.registerWall(JinericBlockFamilies.WAXED_EXPOSED_CUT_COPPER, TextureMapping.cube(Blocks.EXPOSED_CUT_COPPER), bmg);
-		this.registerWall(JinericBlockFamilies.WAXED_WEATHERED_CUT_COPPER, TextureMapping.cube(Blocks.WEATHERED_CUT_COPPER), bmg);
-		this.registerWall(JinericBlockFamilies.WAXED_OXIDIZED_CUT_COPPER, TextureMapping.cube(Blocks.OXIDIZED_CUT_COPPER), bmg);
+		this.registerWall(JinericBlockFamilies.CUT_COPPER.weathering().unaffected(), TextureMapping.cube(Blocks.CUT_COPPER.weathering().unaffected()), bmg);
+		this.registerWall(JinericBlockFamilies.CUT_COPPER.weathering().exposed(), TextureMapping.cube(Blocks.CUT_COPPER.weathering().exposed()), bmg);
+		this.registerWall(JinericBlockFamilies.CUT_COPPER.weathering().weathered(), TextureMapping.cube(Blocks.CUT_COPPER.weathering().weathered()), bmg);
+		this.registerWall(JinericBlockFamilies.CUT_COPPER.weathering().oxidized(), TextureMapping.cube(Blocks.CUT_COPPER.weathering().oxidized()), bmg);
+		this.registerWall(JinericBlockFamilies.CUT_COPPER.waxed().unaffected(), TextureMapping.cube(Blocks.CUT_COPPER.waxed().unaffected()), bmg);
+		this.registerWall(JinericBlockFamilies.CUT_COPPER.waxed().exposed(), TextureMapping.cube(Blocks.CUT_COPPER.waxed().exposed()), bmg);
+		this.registerWall(JinericBlockFamilies.CUT_COPPER.waxed().weathered(), TextureMapping.cube(Blocks.CUT_COPPER.waxed().weathered()), bmg);
+		this.registerWall(JinericBlockFamilies.CUT_COPPER.waxed().oxidized(), TextureMapping.cube(Blocks.CUT_COPPER.waxed().oxidized()), bmg);
 	}
 	
 	@Override
