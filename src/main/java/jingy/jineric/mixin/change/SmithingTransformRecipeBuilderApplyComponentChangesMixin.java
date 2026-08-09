@@ -1,6 +1,6 @@
 package jingy.jineric.mixin.change;
 
-import jingy.jineric.base.injected_interfaces.JmSmithingTransformRecipeBuilderAccess;
+import jingy.jineric.base.injected_interfaces.JmSmithingTransformRecipeBuilder;
 import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.data.recipes.SmithingTransformRecipeBuilder;
 import net.minecraft.world.item.ItemStackTemplate;
@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 @Mixin(SmithingTransformRecipeBuilder.class)
-public abstract class SmithingTransformRecipeBuilderApplyComponentChangesMixin implements JmSmithingTransformRecipeBuilderAccess {
+public abstract class SmithingTransformRecipeBuilderApplyComponentChangesMixin implements JmSmithingTransformRecipeBuilder {
     @Shadow @Final private ItemStackTemplate result;
 
     @Unique private DataComponentPatch componentChanges = DataComponentPatch.EMPTY;

@@ -1,7 +1,7 @@
 package net.jineric.jineric_mod.data.generation.providers;
 
 import com.google.common.collect.ImmutableMap;
-import jingy.jineric.access.ShapedRecipeJsonBuilderAccess;
+import jingy.jineric.base.injected_interfaces.JmShapedRecipeBuilder;
 import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.component.JmDataComponentTypes;
 import jingy.jineric.data.family.EquipmentFamilies;
@@ -463,7 +463,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 					componentChangesBuilder
 							.set(DataComponents.CUSTOM_MODEL_DATA, new CustomModelData(List.of(), List.of(), List.of(woodTypeVariant), List.of()))
 							.set(DataComponents.ITEM_NAME, Component.translatable("item.jineric." + woodTypeVariant));
-					((ShapedRecipeJsonBuilderAccess)recipeBuilder).jineric$componentChanges(componentChangesBuilder.build());
+					((JmShapedRecipeBuilder)recipeBuilder).jineric$componentChanges(componentChangesBuilder.build());
 					recipeBuilder.unlockedBy("has_" + getItemName(plank), this.has(plank));
 					recipeBuilder.group("wooden_" + variant);
 					recipeBuilder.save(recipeOutput, woodenRecipeKey);
@@ -711,7 +711,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 
 			private void offerCampfireRecipe() {
 				ShapedRecipeBuilder builder = this.shaped(RecipeCategory.DECORATIONS, Blocks.CAMPFIRE);
-				((ShapedRecipeJsonBuilderAccess) builder).jineric$componentChanges(
+				((JmShapedRecipeBuilder) builder).jineric$componentChanges(
 						DataComponentPatch.builder()
 								.set(DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY.with(BlockStateProperties.LIT, false))
 								.build()
