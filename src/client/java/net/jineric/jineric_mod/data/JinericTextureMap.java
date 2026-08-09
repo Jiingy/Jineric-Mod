@@ -5,6 +5,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.client.data.models.model.TextureSlot;
+import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.resources.Identifier;
@@ -72,8 +73,8 @@ public class JinericTextureMap {
 				.put(JinericTextureKey.SIDE_SHORT, JinericTextureMap.getMcSubIdToJineric(baseBlock, "_short"));
 	}
 	
-	public static Identifier getMcSubIdToJineric(Block block, String suffix) {
+	public static Material getMcSubIdToJineric(Block block, String suffix) {
 		Identifier identifier = BuiltInRegistries.BLOCK.getKey(block);
-		return JinericMain.ofJineric(identifier.getPath()).withPath(path -> "block/" + path + suffix);
+		return new Material(JinericMain.ofJineric(identifier.getPath()).withPath(path -> "block/" + path + suffix));
 	}
 }
