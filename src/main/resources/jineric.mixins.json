@@ -16,7 +16,7 @@
       "accessor.WoodTypeAccessor",
       "add.ItemsLevelMixin",
       "add.ItemStackNowLevelMixin",
-      "add.ModifySoleIngredientGettersMixin",
+     "add.ModifyRecipePropertySetsMixin",
       "add.PlayStateFactoriesMixin",
       "add.PotionBrewingMixin",
       "add.RecipeBookMixin",

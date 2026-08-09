@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import java.util.Map;
 
 @Mixin(RecipeManager.class)
-public abstract class ModifySoleIngredientGettersMixin extends SimplePreparableReloadListener<RecipeMap> implements RecipeAccess {
+public abstract class ModifyRecipePropertySetsMixin extends SimplePreparableReloadListener<RecipeMap> implements RecipeAccess {
 	@Mutable @Shadow @Final private static Map<ResourceKey<RecipePropertySet>, RecipeManager.IngredientExtractor> RECIPE_PROPERTY_SETS;
 
 	@Shadow
