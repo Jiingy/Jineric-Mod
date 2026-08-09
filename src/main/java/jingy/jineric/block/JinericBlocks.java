@@ -1,12 +1,14 @@
 package jingy.jineric.block;
 
 import jingy.jineric.base.JinericMain;
+import jingy.jineric.references.JmBlockItemIds;
 import jingy.jineric.registry.JinericBlockSettings;
 import jingy.jineric.sound.JinericBlockSoundGroup;
 import jingy.jineric.tag.JinericBlockTags;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.references.BlockItemId;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.ColorRGBA;
 import net.minecraft.world.level.block.*;
@@ -226,12 +228,13 @@ public class JinericBlocks {
 	public static final Block GRASS_BLOCK = register("grass_block", JmGrassBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK));
 	public static final Block PRISMARINE_BRICK_WALL = register("prismarine_brick_wall", WallBlock::new, BlockBehaviour.Properties.ofFullCopy(PRISMARINE_BRICKS));
 	public static final Block DARK_PRISMARINE_WALL = register("dark_prismarine_wall", WallBlock::new, BlockBehaviour.Properties.ofFullCopy(DARK_PRISMARINE));
-	public static final WeatheringCopperBlocks CUT_COPPER_WALLS = WeatheringCopperBlocks.create(
-			"cut_copper_wall",
+	
+	public static final WeatheringCopperCollection<Block> CUT_COPPER_WALL = WeatheringCopperCollection.registerBlocks(
+			JmBlockItemIds.CUT_COPPER_WALL,
 			JinericBlocks::register,
-			WallBlock::new,
+			(_, properties) -> new WallBlock(properties),
 			WeatheringCopperWallBlock::new,
-            _ -> BlockBehaviour.Properties.ofFullCopy(CUT_COPPER)
+			statex -> BlockBehaviour.Properties.ofFullCopy(CUT_COPPER.weathering().pick(statex))
 	);
 
 	//UTILITY
@@ -326,6 +329,10 @@ public class JinericBlocks {
 	private static Block registerTrappedChest(String id, Block base, WoodType woodType) {
 		boolean notNether = (woodType != WoodType.WARPED || woodType != WoodType.CRIMSON);
 		return register(id, settings -> new WoodenTrappedChestBlock(settings, woodType), notNether ? BlockBehaviour.Properties.ofFullCopy(base) : BlockBehaviour.Properties.ofFullCopy(base).sound(SoundType.NETHER_WOOD));
+	}
+
+	private static Block register(final BlockItemId id, final Function<BlockBehaviour.Properties, Block> factory, final BlockBehaviour.Properties properties) {
+		return register(id.block(), factory, properties);
 	}
 	
 	public static Block register(final ResourceKey<Block> id, final Function<BlockBehaviour.Properties, Block> factory, final BlockBehaviour.Properties properties) {
