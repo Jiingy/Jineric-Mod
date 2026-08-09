@@ -83,9 +83,13 @@ public class JinericModelProvider extends FabricModelProvider {
 	@Override
 	public void generateItemModels(ItemModelGenerators itemModelGenerator) {
 		this.registerWoodEquipmentFamily();
-		Identifier jungleLadderId = itemModelGenerator.generateLayeredItem(JinericItems.JUNGLE_LADDER, ModelLocationUtils.getModelLocation(JinericBlocks.JUNGLE_LADDER), JinericMain.ofJineric("block/jungle_ladder_overlay"));
-
+		Identifier jungleLadderId = itemModelGenerator.generateLayeredItem(
+				JinericItems.JUNGLE_LADDER,
+				TextureMapping.getBlockTexture(JinericBlocks.JUNGLE_LADDER),
+				TextureMapping.getBlockTexture(JinericBlocks.JUNGLE_LADDER, "_overlay")
+		);
 		itemModelGenerator.itemModelOutput.accept(JinericItems.JUNGLE_LADDER, ItemModelUtils.tintedModel(jungleLadderId, new GrassColorSource()));
+
 		itemModelGenerator.generateFlatItem(JinericItems.CLAY_BRICK, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.generateFlatItem(JinericItems.GOLDEN_BEETROOT, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.generateFlatItem(JinericItems.GOLDEN_POTATO, ModelTemplates.FLAT_ITEM);
