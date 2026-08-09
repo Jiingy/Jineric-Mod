@@ -13,6 +13,7 @@ import jingy.jineric.item.equipment.JmEquipmentAssetKeys;
 import jingy.jineric.mixin.accessor.SimpleCookingRecipeBuilderAccessor;
 import jingy.jineric.recipe.RefiningRecipe;
 import jingy.jineric.tag.JinericItemTags;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.advancements.criterion.InventoryChangeTrigger;
@@ -54,7 +55,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;
 
 public class JinericRecipeProvider extends FabricRecipeProvider {
-	public JinericRecipeProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+	public JinericRecipeProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
 		super(output, registriesFuture);
 	}
 	
