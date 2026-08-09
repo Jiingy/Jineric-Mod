@@ -1,13 +1,15 @@
 package jingy.jineric.data.generators.tag;
 
-import jingy.jineric.item.JinericItems;
+import jingy.jineric.references.JmBlockItemIds;
+import jingy.jineric.references.JmItemIds;
 import jingy.jineric.tag.JinericItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.references.BlockItemIds;
+import net.minecraft.references.ItemIds;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.Items;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -19,46 +21,51 @@ public class JinericItemTagProvider extends FabricTagsProvider.ItemTagsProvider 
 	@Override
 	protected void addTags(HolderLookup.Provider holderLookup) {
 		//  Modded
-		this.valueLookupBuilder(JinericItemTags.CHESTS)
+		this.builder(JinericItemTags.CHESTS)
 				.addTag(JinericItemTags.WOODEN_CHESTS);
-		this.valueLookupBuilder(JinericItemTags.WOODEN_CHESTS)
-				.add(Items.CHEST)
-				.add(JinericItems.SPRUCE_CHEST)
-				.add(JinericItems.BIRCH_CHEST)
-				.add(JinericItems.JUNGLE_CHEST)
-				.add(JinericItems.ACACIA_CHEST)
-				.add(JinericItems.DARK_OAK_CHEST)
-				.add(JinericItems.MANGROVE_CHEST)
-				.add(JinericItems.CHERRY_CHEST)
-				.add(JinericItems.BAMBOO_CHEST)
-				.add(JinericItems.CRIMSON_CHEST)
-				.add(JinericItems.WARPED_CHEST);
-		this.valueLookupBuilder(JinericItemTags.CUT_COPPER)
-				.add(Items.CUT_COPPER, Items.WAXED_CUT_COPPER)
-				.add(Items.EXPOSED_CUT_COPPER, Items.WAXED_EXPOSED_CUT_COPPER)
-				.add(Items.WEATHERED_CUT_COPPER, Items.WAXED_WEATHERED_CUT_COPPER)
-				.add(Items.OXIDIZED_CUT_COPPER, Items.OXIDIZED_CUT_COPPER);
-		this.valueLookupBuilder(JinericItemTags.ARMOR)
+		this.builder(JinericItemTags.WOODEN_CHESTS)
+				.add(BlockItemIds.CHEST)
+				.add(JmBlockItemIds.SPRUCE_CHEST)
+				.add(JmBlockItemIds.BIRCH_CHEST)
+				.add(JmBlockItemIds.JUNGLE_CHEST)
+				.add(JmBlockItemIds.ACACIA_CHEST)
+				.add(JmBlockItemIds.DARK_OAK_CHEST)
+				.add(JmBlockItemIds.MANGROVE_CHEST)
+				.add(JmBlockItemIds.CHERRY_CHEST)
+				.add(JmBlockItemIds.BAMBOO_CHEST)
+				.add(JmBlockItemIds.CRIMSON_CHEST)
+				.add(JmBlockItemIds.WARPED_CHEST);
+		this.builder(JinericItemTags.CUT_COPPER)
+				.add(BlockItemIds.CUT_COPPER.weathering().unaffected())
+				.add(BlockItemIds.CUT_COPPER.weathering().exposed())
+				.add(BlockItemIds.CUT_COPPER.weathering().weathered())
+				.add(BlockItemIds.CUT_COPPER.weathering().oxidized())
+				.add(BlockItemIds.CUT_COPPER.waxed().unaffected())
+				.add(BlockItemIds.CUT_COPPER.waxed().exposed())
+				.add(BlockItemIds.CUT_COPPER.waxed().weathered())
+				.add(BlockItemIds.CUT_COPPER.waxed().oxidized());
+		this.builder(JinericItemTags.ARMOR)
 				.forceAddTag(ItemTags.HEAD_ARMOR)
 				.forceAddTag(ItemTags.CHEST_ARMOR)
 				.forceAddTag(ItemTags.LEG_ARMOR)
 				.forceAddTag(ItemTags.FOOT_ARMOR);
-		this.valueLookupBuilder(JinericItemTags.STONE_EQUIPMENT_MATERIALS).add(Items.STONE);
-		this.valueLookupBuilder(ItemTags.HEAD_ARMOR).add(JinericItems.WOODEN_HELMET);
-		this.valueLookupBuilder(ItemTags.CHEST_ARMOR).add(JinericItems.WOODEN_CHESTPLATE);
-		this.valueLookupBuilder(ItemTags.LEG_ARMOR).add(JinericItems.WOODEN_LEGGINGS);
-		this.valueLookupBuilder(ItemTags.FOOT_ARMOR).add(JinericItems.WOODEN_BOOTS);
-		this.valueLookupBuilder(JinericItemTags.TINDER_MATERIALS)
-				.add(Items.FEATHER)
-				.add(Items.RED_MUSHROOM)
-				.add(Items.BROWN_MUSHROOM);
-		this.valueLookupBuilder(JinericItemTags.LOGS)
+		this.builder(JinericItemTags.STONE_EQUIPMENT_MATERIALS)
+				.add(BlockItemIds.STONE);
+		this.builder(ItemTags.HEAD_ARMOR).add(JmItemIds.WOODEN_HELMET);
+		this.builder(ItemTags.CHEST_ARMOR).add(JmItemIds.WOODEN_CHESTPLATE);
+		this.builder(ItemTags.LEG_ARMOR).add(JmItemIds.WOODEN_LEGGINGS);
+		this.builder(ItemTags.FOOT_ARMOR).add(JmItemIds.WOODEN_BOOTS);
+		this.builder(JinericItemTags.TINDER_MATERIALS)
+				.add(ItemIds.FEATHER)
+				.add(BlockItemIds.RED_MUSHROOM)
+				.add(BlockItemIds.BROWN_MUSHROOM);
+		this.builder(JinericItemTags.LOGS)
 				.forceAddTag(ConventionalItemTags.NATURAL_LOGS)
 				.forceAddTag(ConventionalItemTags.STRIPPED_LOGS);
-		this.valueLookupBuilder(JinericItemTags.WOODS)
+		this.builder(JinericItemTags.WOODS)
 				.forceAddTag(ConventionalItemTags.NATURAL_WOODS)
 				.forceAddTag(ConventionalItemTags.STRIPPED_WOODS);
-		this.valueLookupBuilder(JinericItemTags.LOGS_AND_WOODS)
+		this.builder(JinericItemTags.LOGS_AND_WOODS)
 				.forceAddTag(JinericItemTags.LOGS)
 				.forceAddTag(JinericItemTags.WOODS);
 				
