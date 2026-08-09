@@ -16,6 +16,7 @@ import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.model.*;
 import net.minecraft.client.renderer.item.ItemModel;
 import net.minecraft.client.renderer.special.ChestSpecialRenderer;
+import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.core.DefaultedRegistry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.BlockFamilies;
@@ -418,12 +419,11 @@ public class JinericModelProvider extends FabricModelProvider {
 	}
 	
 	public final void registerChest(Block chest, WoodType WoodType, boolean christmas, BlockModelGenerators bsmg) {
-		Identifier particleSource = JinericMain.ofJineric("block/" + WoodType.name() + "_chest_particle");
-		
-		bsmg.createAirLikeBlock(chest, particleSource);
-		Item item = chest.asItem();
-		Identifier identifier = ModelTemplates.CHEST_INVENTORY.create(item, TextureMapping.particle(particleSource), bsmg.modelOutput);
-		ItemModel.Unbaked unbaked = ItemModelUtils.specialModel(identifier, new ChestSpecialRenderer.Unbaked(BuiltInRegistries.BLOCK.getKey(chest)));
+		Material particle = new Material(JinericMain.ofJineric("block/" + WoodType.name() + "_chest_particle"));
+		bsmg.createAirLikeBlock(chest, particle);
+		Item chestItem = chest.asItem();
+		Identifier itemModelBase = ModelTemplates.CHEST_INVENTORY.create(chestItem, TextureMapping.particle(particle), bsmg.modelOutput);
+		ItemModel.Unbaked plainModel = ItemModelUtils.specialModel(itemModelBase, new ChestSpecialRenderer.Unbaked(BuiltInRegistries.BLOCK.getKey(chest)));
 		if (christmas) {
 			ItemModel.Unbaked giftModel = ItemModelUtils.specialModel(itemModelBase, new ChestSpecialRenderer.Unbaked(ChestSpecialRenderer.CHRISTMAS.single()));
 			bsmg.itemModelOutput.accept(chestItem, ItemModelUtils.isXmas(giftModel, plainModel));
