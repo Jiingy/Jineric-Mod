@@ -18,7 +18,7 @@ public abstract class SurviveUnderGrassBlockMixin {
 			method = "canStayAlive",
 			at = @At(
 					value = "INVOKE",
-					target = "Lnet/minecraft/world/level/lighting/LightEngine;getLightBlockInto(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/Direction;I)I"
+					target = "Lnet/minecraft/world/level/lighting/LightEngine;getLightDampeningInto(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/Direction;I)I"
 			),
 			cancellable = true
 	)
