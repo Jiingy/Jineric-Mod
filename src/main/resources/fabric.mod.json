@@ -81,7 +81,7 @@
            "jingy/jineric/base/injected_interfaces/JmSmithingTransformRecipeBuilder"
         ],
         "net/minecraft/world/level/block/entity/CampfireBlockEntity": [
-           "net/minecraft/world/level/block/entity/MenuProvider",
+           "net/minecraft/world/MenuProvider",
            "net/minecraft/world/Nameable",
            "net/minecraft/world/Container"
         ]
