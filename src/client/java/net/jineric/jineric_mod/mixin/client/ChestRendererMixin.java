@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(ChestRenderer.class)
 public abstract class ChestRendererMixin<T extends BlockEntity & LidBlockEntity> implements BlockEntityRenderer<T, ChestRenderState> {
-	
+	//TODO: 26.2 Fix
 	@ModifyReturnValue(
 			method = "getChestMaterial",
 			at = @At(
