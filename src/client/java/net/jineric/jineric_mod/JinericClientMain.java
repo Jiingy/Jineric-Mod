@@ -5,7 +5,6 @@ import jingy.jineric.recipe.book.JinericRecipeBookType;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.jineric.jineric_mod.block.entity.state.JinericChestBlockEntityRenderStateVariant;
 import net.jineric.jineric_mod.data.JinericModels;
 import net.jineric.jineric_mod.data.JinericTextureKey;
 import net.jineric.jineric_mod.recipe.JinericClientRecipeBookTypes;
@@ -28,7 +27,6 @@ public class JinericClientMain implements ClientModInitializer {
 		JinericColorProviders.registerColorProviders();
 		JinericBlockEntityRenderer.registerBlockEntityRenderers();
 		//  Enum Adders
-		JinericChestBlockEntityRenderStateVariant.initialize();
 		JinericClientRecipeBookTypes.initialize();
 	}
 }
