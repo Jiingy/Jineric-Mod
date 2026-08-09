@@ -7,7 +7,7 @@ import net.fabricmc.api.Environment;
 import net.jineric.jineric_mod.base.injected_interfaces.JmGhostSlots;
 import net.jineric.jineric_mod.mixin.client.accessor.GhostSlotsAccessor;
 import net.jineric.jineric_mod.mixin.client.accessor.RecipeBookComponentAccessor;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.WidgetSprites;
 import net.minecraft.client.gui.screens.recipebook.FurnaceRecipeBookComponent;
 import net.minecraft.client.gui.screens.recipebook.GhostSlots;
@@ -42,13 +42,13 @@ public class FoundryRecipeBookWidget extends FurnaceRecipeBookComponent {
 	}
 	
 	@Override
-	public void renderTooltip(GuiGraphics context, int x, int y, @Nullable Slot slot) {
+	public void extractTooltip(GuiGraphicsExtractor graphics, int mouseX, int mouseY, @Nullable Slot hoveredSlot) {
 		if (this.isVisible()) {
-			((RecipeBookComponentAccessor)this).getRecipeBookPage().renderTooltip(context, x, y);
-			((RecipeBookComponentAccessor)this).getGhostSlots().renderTooltip(context, this.minecraft, x, y, slot);
+			((RecipeBookComponentAccessor)this).getRecipeBookPage().extractTooltip(graphics, mouseX	, mouseY);
+			((RecipeBookComponentAccessor)this).getGhostSlots().extractTooltip(graphics, this.minecraft, mouseX, mouseY, hoveredSlot);
 		}
 	}
-	
+
 	@Override
 	protected void selectMatchingRecipes(RecipeCollection recipeResultCollection, StackedItemContents recipeFinder) {
 		recipeResultCollection.selectRecipes(recipeFinder, recipeDisplay -> recipeDisplay instanceof FoundryRecipeDisplay);
