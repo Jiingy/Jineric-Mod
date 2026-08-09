@@ -25,7 +25,7 @@ public class RefineryScreen extends AbstractFurnaceScreen<RefineryScreenHandler>
 	private static final List<RecipeBookComponent.TabInfo> TABS = List.of(
 			new RecipeBookComponent.TabInfo(JinericClientRecipeBookTypes.JINERIC_REFINERY),
 			new RecipeBookComponent.TabInfo(Items.STONE, JinericRecipeBookCategories.REFINERY_BLOCKS),
-			new RecipeBookComponent.TabInfo(Items.CYAN_GLAZED_TERRACOTTA, JinericRecipeBookCategories.REFINERY_MISC)
+			new RecipeBookComponent.TabInfo(Items.GLAZED_TERRACOTTA.cyan(), JinericRecipeBookCategories.REFINERY_MISC)
 	);
 	
 	public RefineryScreen(RefineryScreenHandler container, Inventory inventory, Component title) {
