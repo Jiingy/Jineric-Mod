@@ -48,7 +48,7 @@
       "java": ">=25",
       "fabric-api": "*"
    },
-   "accessWidener": "jineric.accesswidener",
+   "accessWidener": "jineric.classtweaker",
    "suggests": {
       "another-mod": "*"
    },

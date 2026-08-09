@@ -1,4 +1,4 @@
-accessWidener	v2	official
+classTweaker v2 official
 accessible	class	net/minecraft/client/Options$OptionAccess
 accessible	class	net/minecraft/client/gui/screens/recipebook/GhostSlots$GhostSlot
 accessible  class   net/minecraft/data/recipes/RecipeProvider$FamilyCraftingRecipeProvider

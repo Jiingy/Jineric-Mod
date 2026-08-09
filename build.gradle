@@ -12,7 +12,7 @@ loom {
             sourceSet sourceSets.client
         }
     }
-	accessWidenerPath = file("src/main/resources/jineric.accesswidener")
+	accessWidenerPath = file("src/main/resources/jineric.classtweaker")
 }
 
 fabricApi {
