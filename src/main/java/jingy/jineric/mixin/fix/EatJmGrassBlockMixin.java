@@ -5,7 +5,6 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import jingy.jineric.block.JinericBlocks;
 import net.minecraft.world.entity.ai.goal.EatBlockGoal;
 import net.minecraft.world.entity.ai.goal.Goal;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.predicate.BlockStatePredicate;
 import org.jetbrains.annotations.Nullable;
@@ -29,10 +28,10 @@ public abstract class EatJmGrassBlockMixin extends Goal {
 			method = "canUse",
 			at = @At(
 					value = "INVOKE",
-					target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/world/level/block/Block;)Z"
+					target = "Lnet/minecraft/world/level/block/state/BlockState;is(Ljava/lang/Object;)Z"
 			)
 	)
-	private boolean canStartJmGrassBlockCheck(BlockState instance, Block block, Operation<Boolean> original) {
+	private boolean canStartJmGrassBlockCheck(BlockState instance, Object block, Operation<Boolean> original) {
 		return original.call(instance, block) || instance.is(JinericBlocks.GRASS_BLOCK);
 	}
 	
@@ -40,10 +39,10 @@ public abstract class EatJmGrassBlockMixin extends Goal {
 			method = "tick",
 			at = @At(
 					value = "INVOKE",
-					target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/world/level/block/Block;)Z"
+					target = "Lnet/minecraft/world/level/block/state/BlockState;is(Ljava/lang/Object;)Z"
 			)
 	)
-	private boolean tickJmGrassBlockCheck(BlockState instance, Block block, Operation<Boolean> original) {
+	private boolean tickJmGrassBlockCheck(BlockState instance, Object block, Operation<Boolean> original) {
 		return original.call(instance, block) || instance.is(JinericBlocks.GRASS_BLOCK);
 	}
 	

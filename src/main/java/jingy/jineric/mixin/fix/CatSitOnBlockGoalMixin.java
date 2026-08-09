@@ -5,7 +5,6 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import jingy.jineric.block.JinericBlocks;
 import jingy.jineric.tag.JinericBlockTags;
 import net.minecraft.world.entity.ai.goal.CatSitOnBlockGoal;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -17,23 +16,23 @@ public abstract class CatSitOnBlockGoalMixin {
 			method = "isValidTarget",
 			at = @At(
 					value = "INVOKE",
-					target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/world/level/block/Block;)Z",
+					target = "Lnet/minecraft/world/level/block/state/BlockState;is(Ljava/lang/Object;)Z",
 					ordinal = 0
 			)
 	)
-	private boolean jineric$addJinericChests(BlockState instance, Block block, Operation<Boolean> original) {
-		return original.call(instance, block) || instance.is(JinericBlockTags.CHESTS);
+	private boolean jineric$addJinericChests(BlockState instance, Object o, Operation<Boolean> original) {
+		return original.call(instance, o) || instance.is(JinericBlockTags.CHESTS);
 	}
 	
 	@WrapOperation(
 			method = "isValidTarget",
 			at = @At(
 					value = "INVOKE",
-					target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/world/level/block/Block;)Z",
+					target = "Lnet/minecraft/world/level/block/state/BlockState;is(Ljava/lang/Object;)Z",
 					ordinal = 1
 			)
 	)
-	private boolean jineric$addRefinery(BlockState instance, Block block, Operation<Boolean> original) {
-		return original.call(instance, block) || instance.is(JinericBlocks.REFINERY);
+	private boolean jineric$addRefinery(BlockState instance, Object o, Operation<Boolean> original) {
+		return original.call(instance, o) || instance.is(JinericBlocks.REFINERY);
 	}
 }
