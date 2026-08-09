@@ -28,7 +28,7 @@ public class FoundryRecipeJsonBuilder implements RecipeBuilder {
 	@Nullable
 	private String group;
 	private final FoundrySmeltingRecipe.RecipeFactory recipeFactory;
-	
+	//TODO: 26.2 Fix or remove
 	private FoundryRecipeJsonBuilder(
 			RecipeCategory category,
 			CookingBookCategory cookingCategory,
