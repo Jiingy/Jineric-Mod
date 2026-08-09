@@ -425,10 +425,10 @@ public class JinericModelProvider extends FabricModelProvider {
 		Identifier identifier = ModelTemplates.CHEST_INVENTORY.create(item, TextureMapping.particle(particleSource), bsmg.modelOutput);
 		ItemModel.Unbaked unbaked = ItemModelUtils.specialModel(identifier, new ChestSpecialRenderer.Unbaked(BuiltInRegistries.BLOCK.getKey(chest)));
 		if (christmas) {
-			ItemModel.Unbaked unbaked2 = ItemModelUtils.specialModel(identifier, new ChestSpecialRenderer.Unbaked(ChestSpecialRenderer.GIFT_CHEST_TEXTURE));
-			bsmg.itemModelOutput.accept(item, ItemModelUtils.isXmas(unbaked2, unbaked));
+			ItemModel.Unbaked giftModel = ItemModelUtils.specialModel(itemModelBase, new ChestSpecialRenderer.Unbaked(ChestSpecialRenderer.CHRISTMAS.single()));
+			bsmg.itemModelOutput.accept(chestItem, ItemModelUtils.isXmas(giftModel, plainModel));
 		} else {
-			bsmg.itemModelOutput.accept(item, unbaked);
+			bsmg.itemModelOutput.accept(chestItem, plainModel);
 		}
 	}
 	
