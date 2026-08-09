@@ -9,15 +9,17 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(AbstractRecipeBookScreen.class)
 public abstract class AbstractRecipeBookScreenMixin implements JmAbstractRecipeBookScreen {
-	
+
+	//TODO: 26.2 Either fix or remove if unnecessary
 	@ModifyVariable(
 			method = "<init>",
 			at = @At(value = "CTOR_HEAD"),
-			argsOnly = true,
-			name = "recipeBookComponent"
+			name = "recipeBookComponent",
+			argsOnly = true
 	)
 	private RecipeBookComponent<?> returnJmWidgetIfPresent(RecipeBookComponent<?> recipeBookComponent) {
 		RecipeBookComponent<?> jineric$recipeBookWidget = this.jineric$recipeBookWidget();
-		return jineric$recipeBookWidget != null ? jineric$recipeBookWidget : recipeBookComponent;
+		return recipeBookComponent;
+//		return jineric$recipeBookWidget != null ? jineric$recipeBookWidget : recipeBookComponent;
 	}
 }
