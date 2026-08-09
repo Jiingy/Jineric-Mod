@@ -65,6 +65,9 @@ public class JmBlockItemIds {
     public static final BlockItemId SUGAR_BLOCK = create("sugar_block");
     public static final BlockItemId PRISMARINE_CRYSTAL_BLOCK = create("prismarine_crystal_block");
     public static final BlockItemId BONE_MEAL_BLOCK = create("bone_meal_block");
+    public static final BlockItemId ROTTEN_FLESH_BLOCK = create("rotten_flesh_block");
+    public static final BlockItemId STICK_BLOCK = create("stick_block");
+    public static final BlockItemId PAPER_BLOCK = create("paper_block");
     public static final BlockItemId FLINT_BLOCK = create("flint_block");
     public static final BlockItemId CHARCOAL_BLOCK = create("charcoal_block");
     public static final BlockItemId STONE_BRICK_PILLAR = create("stone_brick_pillar");
@@ -75,6 +78,8 @@ public class JmBlockItemIds {
     public static final BlockItemId PACKED_ICE_STAIRS = create("packed_ice_stairs");
     public static final BlockItemId PACKED_ICE_SLAB = create("packed_ice_slab");
     public static final BlockItemId PACKED_ICE_WALL = create("packed_ice_wall");
+    public static final BlockItemId REDSTONE_CAMPFIRE = create("redstone_campfire");
+    public static final BlockItemId SOUL_JACK_O_LANTERN = create("soul_jack_o_lantern");
 
     private static WeatheringCopperCollection<BlockItemId> createSimpleCopper(final String baseName) {
         return WeatheringCopperCollection.prefixWithState(WeatheringCopperCollection.create(baseName)).map(JmBlockItemIds::create);
