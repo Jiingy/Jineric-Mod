@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Hud.class)
-public abstract class InGameHudMixin {
+public abstract class HudMixin {
 	
 	@Inject(
 			method = "extractItemHotbar",
