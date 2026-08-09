@@ -3,7 +3,6 @@ package jingy.jineric.recipe;
 import com.mojang.serialization.MapCodec;
 import jingy.jineric.item.JinericItems;
 import jingy.jineric.recipe.book.JinericRecipeBookCategories;
-import jingy.jineric.recipe.display.FoundryRecipeDisplay;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.Item;
