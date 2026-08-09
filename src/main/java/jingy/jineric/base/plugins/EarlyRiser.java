@@ -14,20 +14,20 @@ public class EarlyRiser implements Runnable {
 		//  Server
 		MappingResolver mappingResolver = FabricLoader.getInstance().getMappingResolver();
 		
-		String recipeBookType = mappingResolver.mapClassName("intermediary", "net.minecraft.class_5421");
+		String recipeBookType = mappingResolver.mapClassName("official", "net.minecraft.world.inventory.RecipeBookType");
 		ClassTinkerers.enumBuilder(recipeBookType)
 				.addEnum("JINERIC_REFINERY")
 				.addEnum("JINERIC_FOUNDRY")
 				.addEnum("JINERIC_KILN")
 				.build();
 		
-		String recipeCategory = mappingResolver.mapClassName("intermediary", "net.minecraft.class_7800");
+		String recipeCategory = mappingResolver.mapClassName("official", "net.minecraft.data.recipes.RecipeCategory");
 		ClassTinkerers.enumBuilder(recipeCategory, String.class)
 				.addEnum("JINERIC_BLOCK_SETS", "jineric_block_sets")
 				.addEnum("JINERIC_MISC_BLOCKS", "jineric_misc_blocks")
 				.build();
 		
-		String blockFamily$Variant = mappingResolver.mapClassName("intermediary", "net.minecraft.class_5794$class_5796");
+		String blockFamily$Variant = mappingResolver.mapClassName("official", "net.minecraft.data.BlockFamily$Variant");
 		ClassTinkerers.enumBuilder(blockFamily$Variant, String.class)
 				.addEnum("BOOKSHELF", "bookshelf")
 				.addEnum("CHEST", "chest")
@@ -37,9 +37,9 @@ public class EarlyRiser implements Runnable {
 		
 		//  Client
 		if (FabricLoader.getInstance().getEnvironmentType().equals(EnvType.CLIENT)) {
-			String recipeBookCategory = "[L" + mappingResolver.mapClassName("intermediary", "net.minecraft.class_10355") + ";";
-			String clientRecipeBookType = mappingResolver.mapClassName("intermediary", "net.minecraft.class_10331");
-			ClassTinkerers.enumBuilder(clientRecipeBookType, recipeBookCategory)
+			String recipeBookCategory = "[L" + mappingResolver.mapClassName("official", "net.minecraft.world.item.crafting.RecipeBookCategory") + ";";
+			String searchRecipeBookCategory = mappingResolver.mapClassName("official", "net.minecraft.client.gui.screens.recipebook.SearchRecipeBookCategory");
+			ClassTinkerers.enumBuilder(searchRecipeBookCategory, recipeBookCategory)
 					.addEnum("JINERIC_REFINERY", () -> new Object[]{
 							new RecipeBookCategory[]{
 									JinericRecipeBookCategories.REFINERY_BLOCKS,
@@ -55,33 +55,35 @@ public class EarlyRiser implements Runnable {
 							}
 					})
 					.build();
-			
-			String chestBlockEntityRenderState$Variant = mappingResolver.mapClassName("intermediary", "net.minecraft.class_11959$class_11960");
-			ClassTinkerers.enumBuilder(chestBlockEntityRenderState$Variant)
+
+			String ChestMaterialType = mappingResolver.mapClassName("official", "net.minecraft.client.renderer.blockentity.state.ChestRenderState.ChestMaterialType");
+			ClassTinkerers.enumBuilder(ChestMaterialType)
 //					.addEnum("JINERIC_OAK")
-					.addEnum("JINERIC_SPRUCE")
-					.addEnum("JINERIC_BIRCH")
-					.addEnum("JINERIC_JUNGLE")
-					.addEnum("JINERIC_ACACIA")
-					.addEnum("JINERIC_DARK_OAK")
-					.addEnum("JINERIC_MANGROVE")
-					.addEnum("JINERIC_CHERRY")
-//					.addEnum("JINERIC_PALE_OAK")
-					.addEnum("JINERIC_BAMBOO")
-					.addEnum("JINERIC_CRIMSON")
-					.addEnum("JINERIC_WARPED")
-					.addEnum("JINERIC_TRAPPED_SPRUCE")
-//					.addEnum("JINERIC_TRAPPED_OAK")
-					.addEnum("JINERIC_TRAPPED_BIRCH")
-					.addEnum("JINERIC_TRAPPED_JUNGLE")
-					.addEnum("JINERIC_TRAPPED_ACACIA")
-					.addEnum("JINERIC_TRAPPED_DARK_OAK")
-					.addEnum("JINERIC_TRAPPED_MANGROVE")
-					.addEnum("JINERIC_TRAPPED_CHERRY")
-//					.addEnum("JINERIC_TRAPPED_PALE_OAK")
-					.addEnum("JINERIC_TRAPPED_BAMBOO")
-					.addEnum("JINERIC_TRAPPED_CRIMSON")
-					.addEnum("JINERIC_TRAPPED_WARPED")
+					.addEnum("JINERIC_WOODEN_SPRUCE")
+					.addEnum("JINERIC_WOODEN_BIRCH")
+					.addEnum("JINERIC_WOODEN_JUNGLE")
+					.addEnum("JINERIC_WOODEN_ACACIA")
+					.addEnum("JINERIC_WOODEN_DARK_OAK")
+					.addEnum("JINERIC_WOODEN_MANGROVE")
+					.addEnum("JINERIC_WOODEN_CHERRY")
+//					.addEnum("JINERIC_WOODEN_PALE_OAK")
+//					.addEnum("JINERIC_WOODEN_POPLAR")
+					.addEnum("JINERIC_WOODEN_BAMBOO")
+					.addEnum("JINERIC_WOODEN_CRIMSON")
+					.addEnum("JINERIC_WOODEN_WARPED")
+					.addEnum("JINERIC_WOODEN_TRAPPED_SPRUCE")
+//					.addEnum("JINERIC_WOODEN_TRAPPED_OAK")
+					.addEnum("JINERIC_WOODEN_TRAPPED_BIRCH")
+					.addEnum("JINERIC_WOODEN_TRAPPED_JUNGLE")
+					.addEnum("JINERIC_WOODEN_TRAPPED_ACACIA")
+					.addEnum("JINERIC_WOODEN_TRAPPED_DARK_OAK")
+					.addEnum("JINERIC_WOODEN_TRAPPED_MANGROVE")
+					.addEnum("JINERIC_WOODEN_TRAPPED_CHERRY")
+//					.addEnum("JINERIC_WOODEN_TRAPPED_PALE_OAK")
+//					.addEnum("JINERIC_WOODEN_TRAPPED_POPLAR")
+					.addEnum("JINERIC_WOODEN_TRAPPED_BAMBOO")
+					.addEnum("JINERIC_WOODEN_TRAPPED_CRIMSON")
+					.addEnum("JINERIC_WOODEN_TRAPPED_WARPED")
 					.build();
 		}
 	}
