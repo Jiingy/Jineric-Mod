@@ -1,6 +1,5 @@
 package net.jineric.jineric_mod.render;
 
-import jingy.jineric.base.JinericMain;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.jineric.jineric_mod.renderer.special.JmChestSpecialRenderer;
@@ -34,8 +33,4 @@ public class JmSheets extends Sheets {
 	public static final MultiblockChestResources<SpriteId> CHEST_TRAPPED_BAMBOO = JmChestSpecialRenderer.TRAPPED_BAMBOO.map(CHEST_MAPPER::apply);
 	public static final MultiblockChestResources<SpriteId> CHEST_TRAPPED_WARPED = JmChestSpecialRenderer.TRAPPED_WARPED.map(CHEST_MAPPER::apply);
 	public static final MultiblockChestResources<SpriteId> CHEST_TRAPPED_CRIMSON = JmChestSpecialRenderer.TRAPPED_CRIMSON.map(CHEST_MAPPER::apply);
-
-	public static SpriteId mapJineric(String id) {
-		return CHEST_MAPPER.apply(JinericMain.ofJineric(id));
-	}
 }
