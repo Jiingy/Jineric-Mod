@@ -1,0 +1,32 @@
+# gradle
+.gradle/
+build/
+out/
+classes/
+src/main/generated/.cache/
+
+# eclipse
+*.launch
+
+# idea
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# vscode
+.settings/
+.vscode/
+bin/
+.classpath
+.project
+
+# macos
+*.DS_Store
+
+# fabric
+run/
+
+# private
+/src/todo.txt
+/brainstorming.txt
