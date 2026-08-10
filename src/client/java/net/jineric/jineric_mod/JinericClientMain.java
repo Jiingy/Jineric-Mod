@@ -12,6 +12,7 @@ import net.jineric.jineric_mod.registry.JinericBlockEntityRenderer;
 import net.jineric.jineric_mod.registry.JinericColorProviders;
 import net.jineric.jineric_mod.registry.JinericEntityModels;
 import net.jineric.jineric_mod.registry.JinericHandledScreens;
+import net.jineric.jineric_mod.render.block.JmBuiltInBlockModels;
 
 @Environment(EnvType.CLIENT)
 public class JinericClientMain implements ClientModInitializer {
@@ -26,6 +27,7 @@ public class JinericClientMain implements ClientModInitializer {
 		JinericHandledScreens.registerMenuScreens();
 		JinericColorProviders.registerColorProviders();
 		JinericBlockEntityRenderer.registerBlockEntityRenderers();
+		JmBuiltInBlockModels.addJmDefaults();
 		//  Enum Adders
 		JinericClientRecipeBookTypes.initialize();
 	}
