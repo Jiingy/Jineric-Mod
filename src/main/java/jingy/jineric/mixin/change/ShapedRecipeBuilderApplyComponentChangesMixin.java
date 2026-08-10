@@ -4,16 +4,17 @@ import jingy.jineric.base.injected_interfaces.JmShapedRecipeBuilder;
 import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.CraftingBookCategory;
-import net.minecraft.world.item.crafting.ShapedRecipePattern;
+import net.minecraft.world.item.ItemStackTemplate;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 @Mixin(ShapedRecipeBuilder.class)
 public abstract class ShapedRecipeBuilderApplyComponentChangesMixin implements RecipeBuilder, JmShapedRecipeBuilder {
+    @Shadow @Final private ItemStackTemplate result;
     @Unique private DataComponentPatch componentChanges = DataComponentPatch.EMPTY;
 
     @Override
@@ -26,14 +27,14 @@ public abstract class ShapedRecipeBuilderApplyComponentChangesMixin implements R
             method = "save",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/item/crafting/ShapedRecipe;<init>(Ljava/lang/String;Lnet/minecraft/world/item/crafting/CraftingBookCategory;Lnet/minecraft/world/item/crafting/ShapedRecipePattern;Lnet/minecraft/world/item/ItemStack;Z)V"
+                    target = "Lnet/minecraft/world/item/crafting/ShapedRecipe;<init>(Lnet/minecraft/world/item/crafting/Recipe$CommonInfo;Lnet/minecraft/world/item/crafting/CraftingRecipe$CraftingBookInfo;Lnet/minecraft/world/item/crafting/ShapedRecipePattern;Lnet/minecraft/world/item/ItemStackTemplate;)V"
             ),
             index = 3
     )
-    private ItemStack applyComponentChanges(String group, CraftingBookCategory category, ShapedRecipePattern raw, ItemStack original, boolean showNotification) {
+    private ItemStackTemplate applyComponentChanges(ItemStackTemplate result) {
         if (!componentChanges.isEmpty()) {
-			original.applyComponentsAndValidate(this.componentChanges);
+            return new ItemStackTemplate(this.result.item().value(), this.componentChanges);
         }
-        return original;
+        return result;
     }
 }
