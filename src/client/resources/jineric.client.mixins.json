@@ -26,6 +26,7 @@
   "mixins": [
     "AbstractRecipeBookScreenMixin",
     "ChestRendererMixin",
-    "accessor.GhostSlotsAccessor"
+    "accessor.GhostSlotsAccessor",
+    "add.ChestMaterialTypeMixin"
   ]
 }

@@ -55,36 +55,6 @@ public class EarlyRiser implements Runnable {
 							}
 					})
 					.build();
-
-			String ChestMaterialType = mappingResolver.mapClassName("official", "net.minecraft.client.renderer.blockentity.state.ChestRenderState$ChestMaterialType");
-			ClassTinkerers.enumBuilder(ChestMaterialType)
-//					.addEnum("JM_WOODEN_CHEST_OAK")
-					.addEnum("JM_WOODEN_CHEST_SPRUCE")
-					.addEnum("JM_WOODEN_CHEST_BIRCH")
-					.addEnum("JM_WOODEN_CHEST_JUNGLE")
-					.addEnum("JM_WOODEN_CHEST_ACACIA")
-					.addEnum("JM_WOODEN_CHEST_DARK_OAK")
-					.addEnum("JM_WOODEN_CHEST_MANGROVE")
-					.addEnum("JM_WOODEN_CHEST_CHERRY")
-//					.addEnum("JM_WOODEN_CHEST_PALE_OAK")
-//					.addEnum("JM_WOODEN_CHEST_POPLAR")
-					.addEnum("JM_WOODEN_CHEST_BAMBOO")
-					.addEnum("JM_WOODEN_CHEST_CRIMSON")
-					.addEnum("JM_WOODEN_CHEST_WARPED")
-					.addEnum("JM_WOODEN_TRAPPED_CHEST_SPRUCE")
-//					.addEnum("JM_WOODEN_TRAPPED_CHEST_OAK")
-					.addEnum("JM_WOODEN_TRAPPED_CHEST_BIRCH")
-					.addEnum("JM_WOODEN_TRAPPED_CHEST_JUNGLE")
-					.addEnum("JM_WOODEN_TRAPPED_CHEST_ACACIA")
-					.addEnum("JM_WOODEN_TRAPPED_CHEST_DARK_OAK")
-					.addEnum("JM_WOODEN_TRAPPED_CHEST_MANGROVE")
-					.addEnum("JM_WOODEN_TRAPPED_CHEST_CHERRY")
-//					.addEnum("JM_WOODEN_TRAPPED_CHEST_PALE_OAK")
-//					.addEnum("JM_WOODEN_TRAPPED_CHEST_POPLAR")
-					.addEnum("JM_WOODEN_TRAPPED_CHEST_BAMBOO")
-					.addEnum("JM_WOODEN_TRAPPED_CHEST_CRIMSON")
-					.addEnum("JM_WOODEN_TRAPPED_CHEST_WARPED")
-					.build();
 		}
 	}
 }

@@ -12,3 +12,31 @@ accessible	field	net/minecraft/world/level/block/entity/AbstractFurnaceBlockEnti
 accessible	field	net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity cookingTimer I
 accessible	field	net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity cookingTotalTime I
 accessible	field	net/minecraft/client/data/models/ItemModelGenerators$TrimMaterialData materialKey Lnet/minecraft/resources/ResourceKey;
+
+#   Enum Extension
+transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_SPRUCE
+#transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_OAK
+transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_BIRCH
+transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_JUNGLE
+transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_ACACIA
+transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_DARK_OAK
+transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_MANGROVE
+transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_CHERRY
+#transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_PALE_OAK
+#transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_POPLAR
+transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_BAMBOO
+transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_CRIMSON
+transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_WARPED
+transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_TRAPPED_SPRUCE
+#transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_TRAPPED_OAK
+transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_TRAPPED_BIRCH
+transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_TRAPPED_JUNGLE
+transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_TRAPPED_ACACIA
+transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_TRAPPED_DARK_OAK
+transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_TRAPPED_MANGROVE
+transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_TRAPPED_CHERRY
+#transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_TRAPPED_PALE_OAK
+#transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_TRAPPED_POPLAR
+transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_TRAPPED_BAMBOO
+transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_TRAPPED_CRIMSON
+transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_TRAPPED_WARPED
