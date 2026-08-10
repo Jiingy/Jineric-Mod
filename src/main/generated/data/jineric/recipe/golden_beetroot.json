@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "group": "nugget_gilded",
   "key": {
     "I": "minecraft:beetroot",
@@ -12,7 +11,6 @@
     "NNN"
   ],
   "result": {
-    "count": 1,
     "id": "jineric:golden_beetroot"
   }
 }

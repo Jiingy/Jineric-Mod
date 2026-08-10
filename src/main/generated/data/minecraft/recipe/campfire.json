@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "L": "#minecraft:logs",
     "S": "minecraft:stick",
@@ -17,7 +16,6 @@
         "lit": "false"
       }
     },
-    "count": 1,
     "id": "minecraft:campfire"
   }
 }
