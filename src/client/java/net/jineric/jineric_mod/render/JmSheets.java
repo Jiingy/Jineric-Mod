@@ -20,6 +20,8 @@ public class JmSheets extends Sheets {
 	public static final MultiblockChestResources<SpriteId> CHEST_PALE_OAK = JmChestSpecialRenderer.PALE_OAK.map(CHEST_MAPPER::apply);
 	public static final MultiblockChestResources<SpriteId> CHEST_POPLAR = JmChestSpecialRenderer.POPLAR.map(CHEST_MAPPER::apply);
 	public static final MultiblockChestResources<SpriteId> CHEST_BAMBOO = JmChestSpecialRenderer.BAMBOO.map(CHEST_MAPPER::apply);
+	public static final MultiblockChestResources<SpriteId> CHEST_WARPED = JmChestSpecialRenderer.WARPED.map(CHEST_MAPPER::apply);
+	public static final MultiblockChestResources<SpriteId> CHEST_CRIMSON = JmChestSpecialRenderer.CRIMSON.map(CHEST_MAPPER::apply);
 	public static final MultiblockChestResources<SpriteId> CHEST_TRAPPED_SPRUCE = JmChestSpecialRenderer.TRAPPED_SPRUCE.map(CHEST_MAPPER::apply);
 	public static final MultiblockChestResources<SpriteId> CHEST_TRAPPED_BIRCH = JmChestSpecialRenderer.TRAPPED_BIRCH.map(CHEST_MAPPER::apply);
 	public static final MultiblockChestResources<SpriteId> CHEST_TRAPPED_JUNGLE = JmChestSpecialRenderer.TRAPPED_JUNGLE.map(CHEST_MAPPER::apply);
@@ -30,6 +32,8 @@ public class JmSheets extends Sheets {
 	public static final MultiblockChestResources<SpriteId> CHEST_TRAPPED_PALE_OAK = JmChestSpecialRenderer.TRAPPED_PALE_OAK.map(CHEST_MAPPER::apply);
 	public static final MultiblockChestResources<SpriteId> CHEST_TRAPPED_POPLAR = JmChestSpecialRenderer.TRAPPED_POPLAR.map(CHEST_MAPPER::apply);
 	public static final MultiblockChestResources<SpriteId> CHEST_TRAPPED_BAMBOO = JmChestSpecialRenderer.TRAPPED_BAMBOO.map(CHEST_MAPPER::apply);
+	public static final MultiblockChestResources<SpriteId> CHEST_TRAPPED_WARPED = JmChestSpecialRenderer.TRAPPED_WARPED.map(CHEST_MAPPER::apply);
+	public static final MultiblockChestResources<SpriteId> CHEST_TRAPPED_CRIMSON = JmChestSpecialRenderer.TRAPPED_CRIMSON.map(CHEST_MAPPER::apply);
 
 	public static SpriteId mapJineric(String id) {
 		return CHEST_MAPPER.apply(JinericMain.ofJineric(id));
