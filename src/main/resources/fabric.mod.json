@@ -65,7 +65,7 @@
         "net/minecraft/data/BlockFamily": [
            "jingy/jineric/base/injected_interfaces/JmBlockFamily"
         ],
-        "net/minecraft/data/BlockFamily$Builder": [
+        "net/minecraft/data/BlockFamily\u0024Builder": [
            "jingy/jineric/base/injected_interfaces/JmBlockFamilyBuilder"
         ],
         "net/minecraft/data/recipes/RecipeProvider": [
@@ -74,7 +74,7 @@
         "net/minecraft/world/item/ItemStack": [
            "jingy/jineric/base/injected_interfaces/JmItemStack"
         ],
-        "net/minecraft/world/item/Item$Properties": [
+        "net/minecraft/world/item/Item\u0024Properties": [
            "jingy/jineric/base/injected_interfaces/JmItemProperties"
         ],
         "net/minecraft/data/recipes/SmithingTransformRecipeBuilder": [
