@@ -2,7 +2,6 @@
   "type": "minecraft:stonecutting",
   "ingredient": "jineric:wavy_sandstone",
   "result": {
-    "count": 1,
     "id": "jineric:wavy_sandstone_wall"
   }
 }

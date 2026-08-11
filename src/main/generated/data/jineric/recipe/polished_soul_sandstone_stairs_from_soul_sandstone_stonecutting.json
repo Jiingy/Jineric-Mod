@@ -2,7 +2,6 @@
   "type": "minecraft:stonecutting",
   "ingredient": "jineric:soul_sandstone",
   "result": {
-    "count": 1,
     "id": "jineric:polished_soul_sandstone_stairs"
   }
 }
