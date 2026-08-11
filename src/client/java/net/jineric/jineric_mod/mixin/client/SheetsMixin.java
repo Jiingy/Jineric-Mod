@@ -60,7 +60,6 @@ public abstract class SheetsMixin {
 					case JINERIC_WOODEN_TRAPPED_BAMBOO -> JmSheets.CHEST_TRAPPED_BAMBOO.select(type);
 					case JINERIC_WOODEN_TRAPPED_WARPED -> JmSheets.CHEST_TRAPPED_WARPED.select(type);
 					case JINERIC_WOODEN_TRAPPED_CRIMSON -> JmSheets.CHEST_TRAPPED_CRIMSON.select(type);
-					default -> throw new MatchException(null, null);
 				}
 		);
 	}
