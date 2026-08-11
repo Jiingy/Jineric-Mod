@@ -23,7 +23,7 @@
       "base": "jineric:item/bamboo_chest",
       "model": {
         "type": "minecraft:chest",
-        "texture": "jineric:bamboo_chest"
+        "texture": "jineric:bamboo"
       }
     },
     "pattern": "MM-dd",

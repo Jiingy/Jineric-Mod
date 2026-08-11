@@ -23,7 +23,7 @@
       "base": "jineric:item/cherry_chest",
       "model": {
         "type": "minecraft:chest",
-        "texture": "jineric:cherry_chest"
+        "texture": "jineric:cherry"
       }
     },
     "pattern": "MM-dd",

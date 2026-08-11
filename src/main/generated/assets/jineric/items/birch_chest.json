@@ -23,7 +23,7 @@
       "base": "jineric:item/birch_chest",
       "model": {
         "type": "minecraft:chest",
-        "texture": "jineric:birch_chest"
+        "texture": "jineric:birch"
       }
     },
     "pattern": "MM-dd",

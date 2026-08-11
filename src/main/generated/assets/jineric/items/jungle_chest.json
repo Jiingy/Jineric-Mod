@@ -23,7 +23,7 @@
       "base": "jineric:item/jungle_chest",
       "model": {
         "type": "minecraft:chest",
-        "texture": "jineric:jungle_chest"
+        "texture": "jineric:jungle"
       }
     },
     "pattern": "MM-dd",

@@ -23,7 +23,7 @@
       "base": "jineric:item/acacia_chest",
       "model": {
         "type": "minecraft:chest",
-        "texture": "jineric:acacia_chest"
+        "texture": "jineric:acacia"
       }
     },
     "pattern": "MM-dd",
