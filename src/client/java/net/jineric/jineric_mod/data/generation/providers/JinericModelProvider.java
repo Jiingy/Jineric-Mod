@@ -2,6 +2,8 @@ package net.jineric.jineric_mod.data.generation.providers;
 
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.JinericBlocks;
+import jingy.jineric.data.family.EquipmentFamilies;
+import jingy.jineric.data.family.EquipmentFamily;
 import jingy.jineric.data.family.JinericBlockFamilies;
 import jingy.jineric.item.JinericItems;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
@@ -12,9 +14,12 @@ import net.jineric.jineric_mod.data.JinericTextureMap;
 import net.minecraft.client.color.item.GrassColorSource;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.ItemModelOutput;
 import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.model.*;
 import net.minecraft.client.renderer.item.ItemModel;
+import net.minecraft.client.renderer.item.SelectItemModel;
+import net.minecraft.client.renderer.item.properties.select.CustomModelDataProperty;
 import net.minecraft.client.renderer.special.ChestSpecialRenderer;
 import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.core.DefaultedRegistry;
@@ -28,6 +33,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiConsumer;
 
@@ -35,14 +41,17 @@ import static net.minecraft.client.data.models.BlockModelGenerators.createSimple
 import static net.minecraft.client.data.models.BlockModelGenerators.plainVariant;
 
 public class JinericModelProvider extends FabricModelProvider {
-	
+	private BiConsumer<Identifier, ModelInstance> modelOutput;
+	private ItemModelOutput itemModelOutput;
+
 	public JinericModelProvider(FabricPackOutput output) {
 		super(output);
 	}
 	
 	@Override
 	public void generateBlockStateModels(BlockModelGenerators bmg) {
-		BiConsumer<Identifier, ModelInstance> itemModelOutput = bmg.modelOutput;
+		this.modelOutput = bmg.modelOutput;
+		this.itemModelOutput = bmg.itemModelOutput;
 		this.registerBlockFamilyModels(bmg);
 		this.registerWoodSetModels(bmg);
 		bmg.createTrivialCube(JinericBlocks.PRISMARINE_CRYSTAL_BLOCK);
@@ -118,58 +127,42 @@ public class JinericModelProvider extends FabricModelProvider {
 	
 	//TODO: 26.2 Fix
 	public final void registerWoodEquipmentFamily() {
-//		EquipmentFamilies.WOODEN.getVariants().forEach(this::registerWoodEquipmentFamily);
+		EquipmentFamilies.WOODEN.getVariants().forEach(this::registerWoodEquipmentFamily);
 	}
 	
-//	public final void registerWoodEquipmentFamily(EquipmentFamily.Variant variant, Item item) {
-//		List<SelectItemModel.SwitchCase<ResourceKey<TrimMaterial>>> list = new ArrayList(TRIM_MATERIAL_MODELS.size());
-//
-//		for (WoodType woodType : WoodType.values().toList()) {
-//			String woodTypeName = woodType.name();
-//			String woodTypeVariant = woodTypeName + "_" + variant;
-//			Identifier itemId = getPrefixItemModelId(item, woodTypeName  + "_");
-//
-//			//  Generates armor item models with trim overlay
-////			List<SelectItemModel.SwitchCase<RegistryKey<ArmorTrimMaterial>>> list
-////					= new ArrayList<>(ItemModelGenerator.TRIM_MATERIALS.size()
-////			);
-////			for (ItemModelGenerator.TrimMaterial trimMaterial : ItemModelGenerator.TRIM_MATERIALS) {
-////				Identifier identifier4 = itemId.withSuffixedPath("_" + trimMaterial.assets().base().suffix() + "_trim");
-////				Identifier layer1 = trimIdPrefix.withSuffixedPath("_" + trimMaterial.assets().getAssetId(equipmentKey).suffix());
-////				ItemModel.Unbaked unbaked;
-////				this.uploadArmorWithTrim(identifier4, layer0, layer1);
-////				unbaked = ItemModels.basic(identifier4);
-////				list.add(ItemModels.switchCase(trimMaterial.materialKey, unbaked));
-////			}
-//			ModelTemplate model = variant.isArmor() ? ModelTemplates.FLAT_ITEM : ModelTemplates.FLAT_HANDHELD_ITEM;
-//			Identifier identifier = Identifier.parse(woodTypeVariant).withPrefix("item/");
-//			model.create(
-//					identifier,
-//					TextureMapping.layer0(itemId),
-//					this.itemModelOutput
-//			);
-//
-//			list.add(
-//					ItemModelUtils.when(
-//							woodTypeVariant,
-//							ItemModelUtils.plainModel(identifier)
-//					)
-//			);
-//		}
-//
-//		if (variant.isArmor()) {
-//			ModelTemplates.FLAT_ITEM.create(item, TextureMapping.layer0(item), this.itemModelOutput);
-//		}
-//
-//		this.itemModelOutput.accept(
-//				item,
-//				ItemModelUtils.select(
-//						new TrimMaterialProperty(),
-//						ItemModelUtils.plainModel(BuiltInRegistries.ITEM.getKey(item).withPrefix("item/")),
-//						list
-//				)
-//		);
-//	}
+	public final void registerWoodEquipmentFamily(EquipmentFamily.Variant variant, Item item) {
+//		List<SelectItemModel.SwitchCase<ResourceKey<TrimMaterial>>> list = new ArrayList<>(ItemModelGenerators.TRIM_MATERIAL_MODELS.size());
+		List<SelectItemModel.SwitchCase<String>> customModelDataList = new ArrayList<>();
+		for (WoodType woodType : WoodType.values().toList()) {
+			String woodTypeName = woodType.name();
+			String woodTypeVariant = woodTypeName + "_" + variant;
+			Identifier itemId = getPrefixItemModelId(item, woodTypeName  + "_");
+			Material itemMaterial = new Material(itemId);
+			ModelTemplate model = variant.isArmor() ? ModelTemplates.FLAT_ITEM : ModelTemplates.FLAT_HANDHELD_ITEM;
+			Identifier identifier = Identifier.parse(woodTypeVariant).withPrefix("item/");
+			model.create(
+					identifier,
+					TextureMapping.layer0(itemMaterial),
+					this.modelOutput
+			);
+			customModelDataList.add(
+					ItemModelUtils.when(woodTypeVariant, ItemModelUtils.plainModel(identifier))
+			);
+		}
+
+		if (variant.isArmor()) {
+			ModelTemplates.FLAT_ITEM.create(item, TextureMapping.layer0(item), this.modelOutput);
+		}
+
+		this.itemModelOutput.accept(
+				item,
+				ItemModelUtils.select(
+						new CustomModelDataProperty(0),
+						ItemModelUtils.plainModel(BuiltInRegistries.ITEM.getKey(item).withPrefix("item/")),
+						customModelDataList
+				)
+		);
+	}
 	
 	public static Identifier getPrefixItemModelId(Item item, String prefix) {
 		String path = BuiltInRegistries.ITEM.getKey(item).getPath();
