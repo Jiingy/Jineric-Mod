@@ -75,10 +75,10 @@ public class JinericModelProvider extends FabricModelProvider {
 		this.registerWall(JinericBlockFamilies.CUT_COPPER.weathering().exposed(), TextureMapping.cube(Blocks.CUT_COPPER.weathering().exposed()), bmg);
 		this.registerWall(JinericBlockFamilies.CUT_COPPER.weathering().weathered(), TextureMapping.cube(Blocks.CUT_COPPER.weathering().weathered()), bmg);
 		this.registerWall(JinericBlockFamilies.CUT_COPPER.weathering().oxidized(), TextureMapping.cube(Blocks.CUT_COPPER.weathering().oxidized()), bmg);
-		this.registerWall(JinericBlockFamilies.CUT_COPPER.waxed().unaffected(), TextureMapping.cube(Blocks.CUT_COPPER.waxed().unaffected()), bmg);
-		this.registerWall(JinericBlockFamilies.CUT_COPPER.waxed().exposed(), TextureMapping.cube(Blocks.CUT_COPPER.waxed().exposed()), bmg);
-		this.registerWall(JinericBlockFamilies.CUT_COPPER.waxed().weathered(), TextureMapping.cube(Blocks.CUT_COPPER.waxed().weathered()), bmg);
-		this.registerWall(JinericBlockFamilies.CUT_COPPER.waxed().oxidized(), TextureMapping.cube(Blocks.CUT_COPPER.waxed().oxidized()), bmg);
+		this.registerWall(JinericBlockFamilies.CUT_COPPER.waxed().unaffected(), TextureMapping.cube(Blocks.CUT_COPPER.weathering().unaffected()), bmg);
+		this.registerWall(JinericBlockFamilies.CUT_COPPER.waxed().exposed(), TextureMapping.cube(Blocks.CUT_COPPER.weathering().exposed()), bmg);
+		this.registerWall(JinericBlockFamilies.CUT_COPPER.waxed().weathered(), TextureMapping.cube(Blocks.CUT_COPPER.weathering().weathered()), bmg);
+		this.registerWall(JinericBlockFamilies.CUT_COPPER.waxed().oxidized(), TextureMapping.cube(Blocks.CUT_COPPER.weathering().oxidized()), bmg);
 	}
 	
 	@Override
