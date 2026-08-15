@@ -17,7 +17,8 @@ public abstract class ModifyVanillaToolMaterialMixin {
 			)
 	)
 	private static void modifyWoodToolMaterial(Args args) {
-		args.set(2, 1.50F);
+		args.set(1, 32);
+		args.set(2, 1.33F);
 	}
 	
 	@ModifyArgs(
@@ -28,6 +29,7 @@ public abstract class ModifyVanillaToolMaterialMixin {
 			)
 	)
 	private static void modifyStoneToolMaterial(Args args) {
-		args.set(2, 2.5F);
+		args.set(1, 128);
+		args.set(2, 2.0F);
 	}
 }
