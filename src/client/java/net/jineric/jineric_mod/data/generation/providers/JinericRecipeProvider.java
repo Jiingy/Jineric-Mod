@@ -395,6 +395,12 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
                         .pattern("SS")
                         .unlockedBy("has_polished_stone", this.has(JinericBlocks.POLISHED_STONE))
                         .save(recipeOutput, replaceVanilla(Blocks.STONE_BRICKS));
+				this.nineBlockStorageRecipes(
+						RecipeCategory.MISC, Items.CLAY_BALL,
+						RecipeCategory.BUILDING_BLOCKS, Items.CLAY,
+						"jineric_replace_clay", "clay",
+						"jineric_replace_clay_ball", "clay_ball"
+				);
 			}
 			
 			@Override
