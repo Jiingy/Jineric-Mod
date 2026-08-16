@@ -1,0 +1,10 @@
+{
+  "type": "jineric:refining",
+  "category": "blocks",
+  "cookingtime": 800,
+  "experience": 0.2,
+  "ingredient": "minecraft:purple_terracotta",
+  "result": {
+    "id": "minecraft:purple_glazed_terracotta"
+  }
+}

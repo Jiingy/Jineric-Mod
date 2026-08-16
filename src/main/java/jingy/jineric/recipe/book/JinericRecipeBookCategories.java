@@ -8,6 +8,9 @@ import net.minecraft.world.item.crafting.RecipeBookCategory;
 public class JinericRecipeBookCategories {
 	public final static RecipeBookCategory REFINERY_BLOCKS = register("refinery_blocks");
 	public final static RecipeBookCategory REFINERY_MISC = register("refinery_misc");
+	public final static RecipeBookCategory FOUNDRY = register("foundry");
+	public final static RecipeBookCategory KILN_BLOCKS = register("kiln_blocks");
+	public final static RecipeBookCategory KILN_MISC = register("kiln_misc");
 
 	private static RecipeBookCategory register(String id) {
 		return Registry.register(BuiltInRegistries.RECIPE_BOOK_CATEGORY, JinericMain.ofJineric(id), new RecipeBookCategory());

@@ -1,0 +1,8 @@
+{
+  "type": "jineric:firing",
+  "experience": 0.2,
+  "ingredient": "minecraft:wet_sponge",
+  "result": {
+    "id": "minecraft:sponge"
+  }
+}

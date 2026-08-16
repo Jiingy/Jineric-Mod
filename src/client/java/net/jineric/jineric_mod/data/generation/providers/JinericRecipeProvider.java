@@ -11,6 +11,7 @@ import jingy.jineric.data.family.JinericBlockFamilyVariants;
 import jingy.jineric.item.JinericItems;
 import jingy.jineric.item.equipment.JmEquipmentAssetKeys;
 import jingy.jineric.mixin.accessor.SimpleCookingRecipeBuilderAccessor;
+import jingy.jineric.recipe.FiringRecipe;
 import jingy.jineric.recipe.RefiningRecipe;
 import jingy.jineric.tag.JinericItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
@@ -43,9 +44,11 @@ import net.minecraft.world.item.equipment.Equippable;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ColorCollection;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.WoodType;
+import org.jspecify.annotations.Nullable;
 
 import java.util.Arrays;
 import java.util.List;
@@ -182,7 +185,12 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				this.refining(Blocks.DYED_TERRACOTTA.magenta(), Blocks.GLAZED_TERRACOTTA.magenta());
 				this.refining(Blocks.DYED_TERRACOTTA.pink(), Blocks.GLAZED_TERRACOTTA.pink());
 				this.refining(Blocks.WET_SPONGE, Blocks.SPONGE, RecipeCategory.MISC, CookingBookCategory.MISC, 0.2F);
-				
+				//	Firing
+				ColorCollection.zipApply(Blocks.DYED_TERRACOTTA, Blocks.GLAZED_TERRACOTTA, (input, output) -> this.firingBlock(input, output, 0.2F));
+				this.firingBlock(Blocks.SAND, Blocks.GLASS, 0.2F);
+				this.firingBlock(Blocks.BASALT, Blocks.SMOOTH_BASALT, 0.2F);
+				this.firingBlock(Blocks.CLAY, Blocks.TERRACOTTA, 0.2F);
+				this.firingMisc(Blocks.WET_SPONGE, Blocks.SPONGE, 0.2F, null);
 				// STONECUTTING
 				this.genStonecuttingFromFamilyBase(JinericBlocks.SNOW_BRICKS, JinericBlockFamilies.SNOW_BRICKS);
 				this.genStonecuttingFromFamilyBase(Blocks.SMOOTH_BASALT, JinericBlockFamilies.SMOOTH_BASALT);
@@ -618,9 +626,26 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						.unlockedBy(getHasName(input), this.has(input))
 						.save(recipeOutput, getItemName(output) + "_from_refining_" + getItemName(input));
 			}
-			
+
 			public SimpleCookingRecipeBuilder createRefining(Ingredient input, ItemLike output, RecipeCategory category, CookingBookCategory cookingRecipeCategory, float experience, int cookingTime) {
 				return SimpleCookingRecipeBuilderAccessor.invokeInit(category, cookingRecipeCategory, output, input, experience, cookingTime, RefiningRecipe::new);
+			}
+
+			public void firingBlock(ItemLike input, ItemLike output, float xp) {
+				this.createRefining(Ingredient.of(input), output, RecipeCategory.BUILDING_BLOCKS, CookingBookCategory.BLOCKS, xp, 800)
+						.unlockedBy(getHasName(input), this.has(input))
+						.save(recipeOutput, getItemName(output) + "_from_firing_" + getItemName(input));
+			}
+
+			public void firingMisc(ItemLike input, ItemLike output, float xp, @Nullable String group) {
+				this.createFiring(Ingredient.of(input), output, RecipeCategory.MISC, CookingBookCategory.MISC, xp, 600)
+						.group(group)
+						.unlockedBy(getHasName(input), this.has(input))
+						.save(recipeOutput, getItemName(output) + "_from_firing_" + getItemName(input));
+			}
+
+			public SimpleCookingRecipeBuilder createFiring(Ingredient input, ItemLike output, RecipeCategory category, CookingBookCategory bookCategory, float xp, int cookingTime) {
+				return SimpleCookingRecipeBuilderAccessor.invokeInit(category, bookCategory, output, input, xp, cookingTime, FiringRecipe::new);
 			}
 			
 			public void stairs(ItemLike input, ItemLike output) {
