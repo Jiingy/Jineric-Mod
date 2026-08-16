@@ -632,7 +632,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 			}
 
 			public void firingBlock(ItemLike input, ItemLike output, float xp) {
-				this.createRefining(Ingredient.of(input), output, RecipeCategory.BUILDING_BLOCKS, CookingBookCategory.BLOCKS, xp, 800)
+				this.createFiring(Ingredient.of(input), output, RecipeCategory.BUILDING_BLOCKS, CookingBookCategory.BLOCKS, xp, 800)
 						.unlockedBy(getHasName(input), this.has(input))
 						.save(recipeOutput, getItemName(output) + "_from_firing_" + getItemName(input));
 			}
