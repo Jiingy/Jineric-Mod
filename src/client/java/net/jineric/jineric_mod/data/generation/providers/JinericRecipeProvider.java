@@ -357,6 +357,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				this.shaped(RecipeCategory.MISC, JinericItems.CLAY_BRICK)
 						.define('C', Items.CLAY_BALL)
 						.pattern("CC")
+						.pattern("CC")
 						.unlockedBy(getHasName(Items.CLAY_BALL), this.has(Items.CLAY_BALL))
 						.save(recipeOutput);
 

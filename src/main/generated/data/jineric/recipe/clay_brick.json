@@ -4,6 +4,7 @@
     "C": "minecraft:clay_ball"
   },
   "pattern": [
+    "CC",
     "CC"
   ],
   "result": {
