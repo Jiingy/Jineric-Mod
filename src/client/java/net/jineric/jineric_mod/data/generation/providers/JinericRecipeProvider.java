@@ -725,12 +725,12 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 								.set(DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY.with(BlockStateProperties.LIT, false))
 								.build()
 				);
-				builder.define('S', Items.STICK).define('T', JinericItems.TINDER).define('L', ItemTags.LOGS)
-						.pattern("SSS")
-						.pattern("LTL")
+				builder.define('S', Items.STICK)
+						.define('L', ItemTags.LOGS)
+						.pattern("LSL")
 						.pattern("LLL")
 						.unlockedBy("has_stick", this.has(Items.STICK))
-						.unlockedBy("has_tinder", this.has(JinericItems.TINDER))
+						.unlockedBy("has_log", this.has(ItemTags.LOGS))
 						.save(recipeOutput, replaceVanilla(Items.CAMPFIRE));
 			}
 		};

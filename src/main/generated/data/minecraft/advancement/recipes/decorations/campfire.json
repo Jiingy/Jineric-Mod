@@ -1,6 +1,16 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#minecraft:logs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_stick": {
       "conditions": {
         "items": [
@@ -16,23 +26,13 @@
         "recipe": "minecraft:campfire"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_tinder": {
-      "conditions": {
-        "items": [
-          {
-            "items": "jineric:tinder"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
       "has_the_recipe",
       "has_stick",
-      "has_tinder"
+      "has_log"
     ]
   ],
   "rewards": {
