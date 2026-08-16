@@ -350,7 +350,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						.unlockedBy("has_log", this.has(ItemTags.LOGS_THAT_BURN))
 						.save(recipeOutput, "charcoal_from_campfire_cooking");
 				
-				SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(JinericItems.CLAY_BRICK), RecipeCategory.MISC, Items.BRICK, 0.1F, 600)
+				SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(JinericItems.CLAY_BRICK), RecipeCategory.MISC, Items.BRICK, 0.1F, 800)
 						.unlockedBy("has_clay_brick", this.has(JinericItems.CLAY_BRICK))
 						.save(recipeOutput, "brick_from_campfire_cooking");
 
