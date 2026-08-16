@@ -289,7 +289,9 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						.pattern("BBB")
 						.pattern("BbB")
 						.pattern("BCB")
-						.unlockedBy("has_charcoal", has(Items.CHARCOAL))
+						.unlockedBy("has_" + getItemName(Items.BRICKS), this.has(Items.BRICKS))
+						.unlockedBy("has_" + getItemName(Items.BRICK), this.has(Items.BRICK))
+						.unlockedBy("has_" + getItemName(Items.CHARCOAL), this.has(Items.CHARCOAL))
 						.save(recipeOutput);
 				this.shaped(RecipeCategory.BUILDING_BLOCKS, JinericBlocks.GRASS_BLOCK, 3)
 						.define('G', Blocks.GRASS_BLOCK)

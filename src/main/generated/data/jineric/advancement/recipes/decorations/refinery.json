@@ -1,6 +1,26 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_brick": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:brick"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:bricks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_charcoal": {
       "conditions": {
         "items": [
@@ -21,6 +41,8 @@
   "requirements": [
     [
       "has_the_recipe",
+      "has_bricks",
+      "has_brick",
       "has_charcoal"
     ]
   ],
