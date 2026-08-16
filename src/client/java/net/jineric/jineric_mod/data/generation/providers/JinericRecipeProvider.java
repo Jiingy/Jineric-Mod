@@ -361,10 +361,11 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						.unlockedBy(getHasName(Items.CLAY_BALL), this.has(Items.CLAY_BALL))
 						.save(recipeOutput);
 
-				this.shapeless(RecipeCategory.MISC, Items.CLAY_BALL, 2)
+				this.shapeless(RecipeCategory.MISC, Items.CLAY_BALL, 4)
 						.requires(JinericItems.CLAY_BRICK)
+						.group(getItemName(Items.CLAY_BALL))
 						.unlockedBy(getHasName(Items.CLAY_BALL), this.has(Items.CLAY_BALL))
-						.save(recipeOutput);
+						.save(recipeOutput, "clay_ball_from_clay_brick");
 
 				//  -> Vanilla
 				this.shapeless(RecipeCategory.MISC, Items.STRING, 4)

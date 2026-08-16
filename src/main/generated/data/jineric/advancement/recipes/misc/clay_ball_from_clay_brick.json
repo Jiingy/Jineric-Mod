@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "jineric:clay_ball"
+        "recipe": "jineric:clay_ball_from_clay_brick"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "jineric:clay_ball"
+      "jineric:clay_ball_from_clay_brick"
     ]
   }
 }
