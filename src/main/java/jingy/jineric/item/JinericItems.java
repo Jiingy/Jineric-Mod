@@ -2,8 +2,11 @@ package jingy.jineric.item;
 
 import jingy.jineric.base.JinericMain;
 import jingy.jineric.block.JinericBlocks;
+import jingy.jineric.config.JmConfig;
 import jingy.jineric.item.equipment.JmArmorMaterials;
 import jingy.jineric.item.equipment.JmEquipmentAssetKeys;
+import jingy.jineric.item.equipment.JmToolMaterials;
+import jingy.jineric.item.template.JmSmithingTemplateItem;
 import jingy.jineric.references.JmBlockItemIds;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
@@ -269,7 +272,10 @@ public class JinericItems {
 	public static final Item GOLDEN_BEETROOT = register("golden_beetroot", new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(1.2f).build()));
 	//MISC JINERIC
 	public static final Item SOUL_JACK_O_LANTERN = register(JinericBlocks.SOUL_JACK_O_LANTERN);
-
+	public static final Item FIRE_STARTER = register("fire_starter", BowDrillItem::new, new Item.Properties().stacksTo(1));
+	public static final Item TINDER = register(JinericBlocks.TINDER);
+	public static final Item CLAY_BRICK = register("clay_brick");
+	
 	//EQUIPMENT
 	//WOODEN
 	public static final Item WOODEN_HELMET = register("wooden_helmet",
@@ -292,10 +298,65 @@ public class JinericItems {
 					.humanoidArmor(JmArmorMaterials.WOODEN, ArmorType.BOOTS)
 					.component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.FEET).setAsset(JmEquipmentAssetKeys.EMERALD).build())
 	);
-
+	//EMERALD
+	public static final Item EMERALD_HELMET = register("emerald_helmet",
+			new Item.Properties()
+					.humanoidArmor(JmArmorMaterials.EMERALD, ArmorType.HELMET)
+					.component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.HEAD).setAsset(JmEquipmentAssetKeys.EMERALD).build())
+	);
+	public static final Item EMERALD_CHESTPLATE = register("emerald_chestplate",
+			new Item.Properties()
+					.humanoidArmor(JmArmorMaterials.EMERALD, ArmorType.CHESTPLATE)
+					.component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.CHEST).setAsset(JmEquipmentAssetKeys.EMERALD).build())
+	);
+	public static final Item EMERALD_LEGGINGS = register("emerald_leggings",
+			new Item.Properties()
+					.humanoidArmor(JmArmorMaterials.EMERALD, ArmorType.LEGGINGS)
+					.component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.LEGS).setAsset(JmEquipmentAssetKeys.EMERALD).build())
+	);
+	public static final Item EMERALD_BOOTS = register("emerald_boots",
+			new Item.Properties()
+					.humanoidArmor(JmArmorMaterials.EMERALD, ArmorType.BOOTS)
+					.component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.FEET).setAsset(JmEquipmentAssetKeys.EMERALD).build())
+	);
+	public static final Item EMERALD_SWORD = register("emerald_sword", new Item.Properties().sword(JmToolMaterials.EMERALD, 3.0F, -2.4F));
+	public static final Item EMERALD_SHOVEL = register("emerald_shovel", settings -> new ShovelItem(JmToolMaterials.EMERALD, 1.5F, -3.0F, settings));
+	public static final Item EMERALD_PICKAXE = register("emerald_pickaxe", new Item.Properties().pickaxe(JmToolMaterials.EMERALD, 1.0F, -2.8F));
+	public static final Item EMERALD_AXE = register("emerald_axe", settings -> new AxeItem(JmToolMaterials.EMERALD, 5.0F, -3.0F, settings));
+	public static final Item EMERALD_HOE = register("emerald_hoe", settings -> new HoeItem(JmToolMaterials.EMERALD, -3.0F, 0.0F, settings));
+	
+	public static final Item FLINT_PICKAXE = register("flint_pickaxe", new Item.Properties().pickaxe(JmToolMaterials.FLINT, 1.0F, -2.8F));
+	public static final Item DEEPSLATE_PICKAXE = register("deepslate_pickaxe", new Item.Properties().pickaxe(JmToolMaterials.DEEPSLATE, 1.0F, -2.8F));
+	public static final Item AMETHYST_PICKAXE = register("amethyst_pickaxe", new Item.Properties().pickaxe(JmToolMaterials.AMETHYST, 1.0F, -2.8F));
+	
+	//TEMPLATES
+	public static final Item STONE_UPGRADE_SMITHING_TEMPLATE = register("stone_upgrade_smithing_template",
+			JmSmithingTemplateItem::createStoneUpgrade,
+			JmConfig.UPGRADE_TEMPLATE ? new Item.Properties().jineric$maxLevel(2) : new Item.Properties()
+	);
+	public static final Item COPPER_UPGRADE_SMITHING_TEMPLATE = register("copper_upgrade_smithing_template",
+			JmSmithingTemplateItem::createCopperUpgrade,
+			JmConfig.UPGRADE_TEMPLATE ? new Item.Properties().jineric$maxLevel(4) : new Item.Properties()
+	);
+	public static final Item IRON_UPGRADE_SMITHING_TEMPLATE = register("iron_upgrade_smithing_template",
+			JmSmithingTemplateItem::createIronUpgrade,
+			JmConfig.UPGRADE_TEMPLATE ? new Item.Properties().jineric$maxLevel(8) : new Item.Properties()
+	);
+	public static final Item GOLD_UPGRADE_SMITHING_TEMPLATE = register("gold_upgrade_smithing_template",
+			JmSmithingTemplateItem::createGoldUpgrade,
+			JmConfig.UPGRADE_TEMPLATE ? new Item.Properties().jineric$maxLevel(16) : new Item.Properties()
+	);
+	public static final Item DIAMOND_UPGRADE_SMITHING_TEMPLATE = register("diamond_upgrade_smithing_template",
+			JmSmithingTemplateItem::createDiamondUpgrade,
+			JmConfig.UPGRADE_TEMPLATE ? new Item.Properties().jineric$maxLevel(32) : new Item.Properties()
+	);
+	
 	//WIP OR UNKNOWN ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	public static final Item REFINERY = register(JinericBlocks.REFINERY);
+	public static final Item FOUNDRY = register(JinericBlocks.FOUNDRY);
+	public static final Item KILN = register(JinericBlocks.KILN);
 	public static final Item REDSTONE_CAMPFIRE = register(JinericBlocks.REDSTONE_CAMPFIRE);
+	public static final Item STONE_CRUCIBLE = register(JinericBlocks.STONE_CRUCIBLE);
 
 	private static ResourceKey<Item> keyOf(String id) {
 		return ResourceKey.create(Registries.ITEM, JinericMain.ofJineric(id));

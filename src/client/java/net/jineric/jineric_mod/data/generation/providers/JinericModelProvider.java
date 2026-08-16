@@ -100,9 +100,29 @@ public class JinericModelProvider extends FabricModelProvider {
 		);
 		itemModelGenerator.itemModelOutput.accept(JinericItems.JUNGLE_LADDER, ItemModelUtils.tintedModel(jungleLadderId, new GrassColorSource()));
 
+		itemModelGenerator.generateFlatItem(JinericItems.CLAY_BRICK, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.generateFlatItem(JinericItems.GOLDEN_BEETROOT, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.generateFlatItem(JinericItems.GOLDEN_POTATO, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.generateFlatItem(JinericItems.GOLDEN_SWEET_BERRIES, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(JinericItems.EMERALD_HELMET, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(JinericItems.EMERALD_CHESTPLATE, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(JinericItems.EMERALD_LEGGINGS, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(JinericItems.EMERALD_BOOTS, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(JinericItems.EMERALD_PICKAXE, ModelTemplates.FLAT_HANDHELD_ITEM);
+		itemModelGenerator.generateFlatItem(JinericItems.EMERALD_AXE, ModelTemplates.FLAT_HANDHELD_ITEM);
+		itemModelGenerator.generateFlatItem(JinericItems.EMERALD_SWORD, ModelTemplates.FLAT_HANDHELD_ITEM);
+		itemModelGenerator.generateFlatItem(JinericItems.EMERALD_SHOVEL, ModelTemplates.FLAT_HANDHELD_ITEM);
+		itemModelGenerator.generateFlatItem(JinericItems.EMERALD_HOE, ModelTemplates.FLAT_HANDHELD_ITEM);
+		itemModelGenerator.generateFlatItem(JinericItems.FLINT_PICKAXE, ModelTemplates.FLAT_HANDHELD_ITEM);
+		itemModelGenerator.generateFlatItem(JinericItems.DEEPSLATE_PICKAXE, ModelTemplates.FLAT_HANDHELD_ITEM);
+		itemModelGenerator.generateFlatItem(JinericItems.AMETHYST_PICKAXE, ModelTemplates.FLAT_HANDHELD_ITEM);
+		itemModelGenerator.generateFlatItem(JinericItems.STONE_CRUCIBLE, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(JinericItems.FIRE_STARTER, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(JinericItems.STONE_UPGRADE_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(JinericItems.COPPER_UPGRADE_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(JinericItems.GOLD_UPGRADE_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(JinericItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE, ModelTemplates.FLAT_ITEM);
 	}
 	
 	//TODO: 26.2 Fix
