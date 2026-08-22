@@ -15,7 +15,6 @@ public class EquipmentFamilies {
 	public static List<EquipmentFamily> FAMILIES = Lists.newArrayList();
 	
 	public static final EquipmentFamily WOODEN = register(Items.AIR)
-			.smithingTemplate(JinericItems.STONE_UPGRADE_SMITHING_TEMPLATE)
 			.pickaxe(Items.WOODEN_PICKAXE)
 			.axe(Items.WOODEN_AXE)
 			.sword(Items.WOODEN_SWORD)
@@ -39,7 +38,6 @@ public class EquipmentFamilies {
 			.build();
 	
 	public static final EquipmentFamily STONE = register(Items.STONE)
-			.smithingTemplate(JinericItems.COPPER_UPGRADE_SMITHING_TEMPLATE)
 			.pickaxe(Items.STONE_PICKAXE)
 			.axe(Items.STONE_AXE)
 			.sword(Items.STONE_SWORD)
@@ -49,7 +47,6 @@ public class EquipmentFamilies {
 			.build();
 	
 	public static final EquipmentFamily COPPER = register(Items.COPPER_INGOT)
-			.smithingTemplate(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE)
 			.pickaxe(Items.COPPER_PICKAXE)
 			.axe(Items.COPPER_AXE)
 			.sword(Items.COPPER_SWORD)
@@ -63,7 +60,6 @@ public class EquipmentFamilies {
 			.build();
 	
 	public static final EquipmentFamily IRON = register(Items.IRON_INGOT)
-			.smithingTemplate(JinericItems.GOLD_UPGRADE_SMITHING_TEMPLATE)
 			.pickaxe(Items.IRON_PICKAXE)
 			.axe(Items.IRON_AXE)
 			.sword(Items.IRON_SWORD)
@@ -77,7 +73,6 @@ public class EquipmentFamilies {
 			.build();
 	
 	public static final EquipmentFamily GOLDEN = register(Items.GOLD_INGOT)
-			.smithingTemplate(JinericItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE)
 			.pickaxe(Items.GOLDEN_PICKAXE)
 			.axe(Items.GOLDEN_AXE)
 			.sword(Items.GOLDEN_SWORD)

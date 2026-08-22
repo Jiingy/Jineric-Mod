@@ -26,7 +26,6 @@ public abstract class ModifyRecipePropertySetsMixin extends SimplePreparableRelo
 		RECIPE_PROPERTY_SETS = ImmutableMap.<ResourceKey<RecipePropertySet>, RecipeManager.IngredientExtractor>builder()
 				.putAll(RECIPE_PROPERTY_SETS)
 				.put(JinericRecipePropertySet.REFINERY_INPUT, forSingleInput(JinericRecipeTypes.REFINING))
-				.put(JinericRecipePropertySet.FOUNDRY_INPUT, forSingleInput(JinericRecipeTypes.FOUNDRY_SMELTING))
 				.build();
 	}
 }

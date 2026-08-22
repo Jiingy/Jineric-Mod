@@ -48,35 +48,10 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		builder.add(JinericBlocks.REDSTONE_CAMPFIRE, "Redstone Campfire");
 		builder.add(JinericBlocks.PRISMARINE_CRYSTAL_BLOCK, "Sea Crystal Block");
 		builder.add(JinericBlocks.REFINERY, "Refinery");
-		builder.add(JinericBlocks.FOUNDRY, "Foundry");
 			//Items
-		builder.add(JinericItems.CLAY_BRICK, "Clay Brick");
 		builder.add(JinericItems.GOLDEN_POTATO, "Golden Potato");
 		builder.add(JinericItems.GOLDEN_SWEET_BERRIES, "Golden Sweet Berries");
 		builder.add(JinericItems.GOLDEN_BEETROOT, "Golden Beetroot");
-		builder.add(JinericItems.STONE_UPGRADE_SMITHING_TEMPLATE, "Stone Upgrade");
-		builder.add(JinericItems.COPPER_UPGRADE_SMITHING_TEMPLATE, "Copper Upgrade");
-		builder.add(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE, "Iron Upgrade");
-		builder.add(JinericItems.GOLD_UPGRADE_SMITHING_TEMPLATE, "Gold Upgrade");
-		builder.add(JinericItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE, "Diamond Upgrade");
-		builder.add("item.jineric.smithing_template.stone_upgrade.applies_to", "Stone Equipment");
-		builder.add("item.jineric.smithing_template.copper_upgrade.applies_to", "Copper Equipment");
-		builder.add("item.jineric.smithing_template.iron_upgrade.applies_to", "Iron Equipment");
-		builder.add("item.jineric.smithing_template.gold_upgrade.applies_to", "Gold Equipment");
-		builder.add("item.jineric.smithing_template.diamond_upgrade.applies_to", "Diamond Equipment");
-		builder.add("item.jineric.smithing_template.stone_upgrade.ingredients", "Stone");
-		builder.add("item.jineric.smithing_template.copper_upgrade.ingredients", "Copper Ingot");
-		builder.add("item.jineric.smithing_template.iron_upgrade.ingredients", "Iron Ingot");
-		builder.add("item.jineric.smithing_template.gold_upgrade.ingredients", "Gold Ingot");
-		builder.add("item.jineric.smithing_template.diamond_upgrade.ingredients", "Diamond");
-		builder.add("item.jineric.smithing_template.stone_upgrade.base_slot_description", "Add wooden armor, weapon, or tool");
-		builder.add("item.jineric.smithing_template.stone_upgrade.additions_slot_description", "Add Stone");
-		builder.add("item.jineric.smithing_template.iron_upgrade.base_slot_description", "Add stone weapon or tool");
-		builder.add("item.jineric.smithing_template.iron_upgrade.additions_slot_description", "Add Iron Ingot");
-		builder.add("item.jineric.smithing_template.diamond_upgrade.base_slot_description", "Add iron armor, weapon, or tool");
-		builder.add("item.jineric.smithing_template.diamond_upgrade.additions_slot_description", "Add Diamond");
-		builder.add("item.level", "Level: %s / %s");
-		builder.add("item.level.max", "Level: Max");
 			//  GUI
 		builder.add("gui.jineric.recipe_book.toggle_recipes.foundry_smeltable", "Showing Smeltable");
 		builder.add("gui.jineric.recipe_book.toggle_recipes.refinable", "Showing Refinable");
@@ -84,8 +59,6 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		//TODO DURABILITY: remove `jineric`
 		builder.add("container.jineric.foundry", "Foundry");
 		builder.add("container.jineric.campfire", "Campfire");
-		builder.add("container.jineric.campfire.cooking_slot_description", "Add food, log, or clay brick");
-		builder.add("container.jineric.campfire.tinder_slot_description", "Ignore this slot, it does nothing");
 		builder.add("container.oak_chest", "Oak Chest");
 		builder.add("container.spruce_chest", "Spruce Chest");
 		builder.add("container.birch_chest", "Birch Chest");
@@ -107,10 +80,6 @@ public class JinericLanguageProvider extends FabricLanguageProvider {
 		builder.add("container.double_weathered_copper_chest", "Double Weathered Copper Chest");
 		builder.add("container.double_oxidized_copper_chest", "Double Oxidized Copper Chest");
 			//  Options
-		builder.add("options.jineric.itemLevelBarMode", "Item Level Bar");
-		builder.add("options.jineric.itemLevelBar.always", "Always");
-		builder.add("options.jineric.itemLevelBar.hover", "Hover");
-		builder.add("options.jineric.itemLevelBar.never", "Never");
 	}
 	
 	public void tryExisting(TranslationBuilder builder) {

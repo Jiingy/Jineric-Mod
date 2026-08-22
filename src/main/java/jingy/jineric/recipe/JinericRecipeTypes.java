@@ -8,9 +8,7 @@ import net.minecraft.world.item.crafting.RecipeType;
 
 public interface JinericRecipeTypes {
 	RecipeType<RefiningRecipe> REFINING = register("refining");
-	RecipeType<FoundrySmeltingRecipe> FOUNDRY_SMELTING = register("foundry_smelting");
-	RecipeType<FoundrySmeltingRecipe> KILN_FIRING = register("kiln_firing");
-	
+
 	static <T extends Recipe<?>> RecipeType<T> register(String id) {
 		return Registry.register(BuiltInRegistries.RECIPE_TYPE, JinericMain.ofJineric(id), new RecipeType<T>() {
 			public String toString() {

@@ -59,9 +59,6 @@
         }
      },
      "loom:injected_interfaces": {
-        "net/minecraft/client/gui/screens/inventory/AbstractRecipeBookScreen": [
-           "net/jineric/jineric_mod/base/injected_interfaces/JmAbstractRecipeBookScreen"
-        ],
         "net/minecraft/data/BlockFamily": [
            "jingy/jineric/base/injected_interfaces/JmBlockFamily"
         ],
@@ -70,20 +67,6 @@
         ],
         "net/minecraft/data/recipes/RecipeProvider": [
            "jingy/jineric/base/injected_interfaces/JmRecipeProvider"
-        ],
-        "net/minecraft/world/item/ItemStack": [
-           "jingy/jineric/base/injected_interfaces/JmItemStack"
-        ],
-        "net/minecraft/world/item/Item\u0024Properties": [
-           "jingy/jineric/base/injected_interfaces/JmItemProperties"
-        ],
-        "net/minecraft/data/recipes/SmithingTransformRecipeBuilder": [
-           "jingy/jineric/base/injected_interfaces/JmSmithingTransformRecipeBuilder"
-        ],
-        "net/minecraft/world/level/block/entity/CampfireBlockEntity": [
-           "net/minecraft/world/MenuProvider",
-           "net/minecraft/world/Nameable",
-           "net/minecraft/world/Container"
         ]
      }
    }

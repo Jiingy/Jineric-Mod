@@ -3,7 +3,6 @@ package net.jineric.jineric_mod.data.generation.providers;
 import com.google.common.collect.ImmutableMap;
 import jingy.jineric.base.injected_interfaces.JmShapedRecipeBuilder;
 import jingy.jineric.block.JinericBlocks;
-import jingy.jineric.component.JmDataComponentTypes;
 import jingy.jineric.data.family.EquipmentFamilies;
 import jingy.jineric.data.family.EquipmentFamily;
 import jingy.jineric.data.family.JinericBlockFamilies;
@@ -12,7 +11,6 @@ import jingy.jineric.item.JinericItems;
 import jingy.jineric.item.equipment.JmEquipmentAssetKeys;
 import jingy.jineric.mixin.accessor.SimpleCookingRecipeBuilderAccessor;
 import jingy.jineric.recipe.RefiningRecipe;
-import jingy.jineric.tag.JinericItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.advancements.predicates.MinMaxBounds;
@@ -29,13 +27,11 @@ import net.minecraft.data.recipes.*;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.HoneycombItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.component.BlockItemStateProperties;
 import net.minecraft.world.item.component.CustomModelData;
 import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -44,7 +40,6 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.WoodType;
 
 import java.util.Arrays;
@@ -249,12 +244,8 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				this.stonecutterResultFromBase(RecipeCategory.DECORATIONS, JinericBlocks.SMOOTH_QUARTZ_WALL, Blocks.SMOOTH_QUARTZ);
 				this.stonecutterResultFromBase(RecipeCategory.DECORATIONS, JinericBlocks.PURPUR_WALL, Blocks.PURPUR_BLOCK);
 				
-				//  SMITHING
-				this.offerEquipmentFamilyUpgrade(EquipmentFamilies.WOODEN, EquipmentFamilies.STONE);
-
 				//  CUSTOM
 				//  -> Modded
-				this.offerCampfireRecipe();
 				this.shaped(RecipeCategory.BUILDING_BLOCKS, JinericBlocks.SOUL_JACK_O_LANTERN)
 						.define('P', Blocks.CARVED_PUMPKIN)
 						.define('T', Blocks.SOUL_TORCH)
@@ -297,75 +288,6 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						.pattern("GG")
 						.unlockedBy("has_grass_block", this.has(Blocks.GRASS_BLOCK))
 						.save(recipeOutput);
-				this.shaped(RecipeCategory.DECORATIONS, JinericItems.TINDER)
-						.define('T', JinericItemTags.TINDER_MATERIALS)
-						.pattern("TT")
-						.pattern("TT")
-						.unlockedBy("has_tinder_material", this.has(JinericItemTags.TINDER_MATERIALS))
-						.save(recipeOutput);
-				this.shaped(RecipeCategory.TOOLS, JinericItems.BOW_DRILL)
-						.define('B', Items.BOW).define('S', Items.STICK).define('L', ItemTags.LOGS_THAT_BURN)
-						.pattern("B")
-						.pattern("S")
-						.pattern("L")
-						.unlockedBy("has_flammable_log", this.has(ItemTags.LOGS_THAT_BURN))
-						.save(recipeOutput);
-
-				this.shaped(RecipeCategory.MISC, JinericItems.STONE_UPGRADE_SMITHING_TEMPLATE, 1)
-						.define('M', Items.SMOOTH_STONE).define('S', Items.STONE)
-						.define('W', JinericItemTags.WOODS).define('L', JinericItemTags.LOGS)
-						.pattern("LML")
-						.pattern("LSL")
-						.pattern("WWW")
-						.unlockedBy("has_cobblestone", this.has(Items.COBBLESTONE))
-						.save(recipeOutput, getItemName(JinericItems.STONE_UPGRADE_SMITHING_TEMPLATE));
-
-				this.shaped(RecipeCategory.MISC, JinericItems.COPPER_UPGRADE_SMITHING_TEMPLATE, 1)
-						.define('F', Items.SMOOTH_STONE).define('T', JinericItemTags.CUT_COPPER).define('E', Items.STONE)
-						.pattern("FTF")
-						.pattern("FEF")
-						.pattern("FFF")
-						.unlockedBy("has_copper_ingot", this.has(Items.COPPER_INGOT))
-						.save(recipeOutput, getItemName(JinericItems.COPPER_UPGRADE_SMITHING_TEMPLATE));
-
-				this.shaped(RecipeCategory.MISC, JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE, 1)
-						.define('F', ItemTags.COPPER).define('T', Items.IRON_BLOCK).define('E', Items.DEEPSLATE)
-						.pattern("FTF")
-						.pattern("FEF")
-						.pattern("FFF")
-//						.group(getItemName(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE))
-						.unlockedBy("has_iron_ingot", this.has(Items.IRON_INGOT))
-						.save(recipeOutput, getItemName(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE));
-
-				this.shaped(RecipeCategory.MISC, JinericItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE, 1)
-						.define('F', Items.IRON_INGOT).define('T', Items.DIAMOND_BLOCK).define('E', Items.DEEPSLATE)
-						.pattern("FTF")
-						.pattern("FEF")
-						.pattern("FFF")
-//						.group(getItemName(JinericItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE))
-						.unlockedBy("has_" + getItemName(Items.DIAMOND), this.has(Items.DIAMOND))
-						.save(recipeOutput, getItemName(JinericItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE));
-				
-				SimpleCookingRecipeBuilder.campfireCooking(this.tag(ItemTags.LOGS_THAT_BURN), RecipeCategory.MISC, Items.CHARCOAL, 0.15F, 800)
-						.unlockedBy("has_log", this.has(ItemTags.LOGS_THAT_BURN))
-						.save(recipeOutput, "charcoal_from_campfire_cooking");
-				
-				SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(JinericItems.CLAY_BRICK), RecipeCategory.MISC, Items.BRICK, 0.1F, 800)
-						.unlockedBy("has_clay_brick", this.has(JinericItems.CLAY_BRICK))
-						.save(recipeOutput, "brick_from_campfire_cooking");
-
-				this.shaped(RecipeCategory.MISC, JinericItems.CLAY_BRICK)
-						.define('C', Items.CLAY_BALL)
-						.pattern("CC")
-						.pattern("CC")
-						.unlockedBy(getHasName(Items.CLAY_BALL), this.has(Items.CLAY_BALL))
-						.save(recipeOutput);
-
-				this.shapeless(RecipeCategory.MISC, Items.CLAY_BALL, 4)
-						.requires(JinericItems.CLAY_BRICK)
-						.group(getItemName(Items.CLAY_BALL))
-						.unlockedBy(getHasName(Items.CLAY_BALL), this.has(Items.CLAY_BALL))
-						.save(recipeOutput, "clay_ball_from_clay_brick");
 
 				//  -> Vanilla
 				this.shapeless(RecipeCategory.MISC, Items.STRING, 4)
@@ -373,21 +295,6 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						.unlockedBy("has_wool", this.has(ItemTags.WOOL))
 						.group("string")
 						.save(recipeOutput);
-				this.shaped(RecipeCategory.DECORATIONS, Blocks.SMITHING_TABLE)
-						.define('S', Items.SMOOTH_STONE)
-						.define('W', ItemTags.PLANKS)
-						.pattern("SS")
-						.pattern("WW")
-						.pattern("WW")
-						.unlockedBy("has_planks", this.has(ItemTags.PLANKS))
-						.save(recipeOutput, replaceVanilla(Blocks.SMITHING_TABLE));
-				this.shaped(RecipeCategory.DECORATIONS, Blocks.TORCH, 4)
-						.define('S', Items.STICK)
-						.define('C', Ingredient.of(Items.COAL, Items.CHARCOAL))
-						.pattern("C")
-						.pattern("S")
-						.unlockedBy("has_coal", this.has(ItemTags.COALS))
-						.save(recipeOutput, replaceVanilla(Items.TORCH));
 
                 this.shaped(RecipeCategory.BUILDING_BLOCKS, Blocks.STONE_BRICKS, 4)
                         .define('S', JinericBlocks.POLISHED_STONE)
@@ -395,12 +302,6 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
                         .pattern("SS")
                         .unlockedBy("has_polished_stone", this.has(JinericBlocks.POLISHED_STONE))
                         .save(recipeOutput, replaceVanilla(Blocks.STONE_BRICKS));
-				this.nineBlockStorageRecipes(
-						RecipeCategory.MISC, Items.CLAY_BALL,
-						RecipeCategory.BUILDING_BLOCKS, Items.CLAY,
-						"jineric_replace_clay", "clay",
-						"jineric_replace_clay_ball", "clay_ball"
-				);
 			}
 			
 			@Override
@@ -479,26 +380,6 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				});
 			}
 
-			public void offerEquipmentFamilyUpgrade(EquipmentFamily inputFamily, EquipmentFamily resultFamily) {
-				inputFamily.getVariants().forEach((variant, item) -> {
-					if (resultFamily.getVariants().containsKey(variant)) {
-						Item resultVariantItem = resultFamily.getVariantItem(variant);
-						String recipeId = getItemName(resultVariantItem) + "_smithing";
-						if (BuiltInRegistries.ITEM.getKey(item).getNamespace().equals("minecraft")) {
-							recipeId = replaceVanilla(resultVariantItem);
-						}
-						this.offerSmithingUpgradeRecipe(
-								inputFamily.getSmithingTemplate(),
-								item,
-								resultFamily.getMaterialTag(),
-								resultVariantItem,
-								equipmentRecipeCategory(variant),
-								recipeId
-						);
-					}
-				});
-			}
-
 			public ShapedRecipeBuilder createEquipmentVariantBase(EquipmentFamily family, EquipmentFamily.Variant variant, Item item) {
 				ShapedRecipeBuilder recipeBuilder = this.shaped(variant.isCombat() ? RecipeCategory.COMBAT : RecipeCategory.TOOLS, item);
 				Item material = family.getMaterial();
@@ -513,34 +394,6 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				return recipeBuilder;
 			}
 
-			public void offerVanillaSmithingUpgradeRecipe(Item template, Item input, TagKey<Item> material, Item result, RecipeCategory category) {
-				this.offerSmithingUpgradeRecipe(template, input, material, result, category, replaceVanilla(result));
-			}
-
-			public void offerSmithingUpgradeRecipe(Item template, Item input, TagKey<Item> material, Item result, RecipeCategory category) {
-				this.offerSmithingUpgradeRecipe(template, input, material, result, category, getItemName(result) + "_smithing");
-			}
-
-			public void offerSmithingUpgradeRecipe(Item template, Item input, TagKey<Item> material, Item result, RecipeCategory category, String recipeId) {
-				SmithingTransformRecipeBuilder builder = SmithingTransformRecipeBuilder.smithing(
-						Ingredient.of(template),
-						Ingredient.of(input),
-						this.tag(material),
-						category,
-						result
-				);
-				if (template.equals(JinericItems.STONE_UPGRADE_SMITHING_TEMPLATE)) {
-					builder.jineric$componentChanges(DataComponentPatch.builder()
-							.set(DataComponents.ITEM_NAME, Component.translatable(BuiltInRegistries.ITEM.getKey(result).toLanguageKey("item")))
-							.set(JmDataComponentTypes.LEVEL, 0)
-							.remove(DataComponents.CUSTOM_MODEL_DATA)
-							.build()
-					);
-				}
-				builder.unlocks("has_" + getItemName(input), this.has(material));
-				builder.save(recipeOutput, recipeId);
-			}
-			
 			public void genStonecuttingFromFamilyBase(Block input, BlockFamily... inputFamilies) {
 				DefaultedRegistry<Block> blockRegistry = BuiltInRegistries.BLOCK;
 				Arrays.stream(inputFamilies).iterator().forEachRemaining(blockFamily -> {
@@ -716,22 +569,6 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						.pattern("SS")
 						.unlockedBy("has_" + input, this.has(input))
 						.save(recipeOutput);
-			}
-
-			private void offerCampfireRecipe() {
-				ShapedRecipeBuilder builder = this.shaped(RecipeCategory.DECORATIONS, Blocks.CAMPFIRE);
-				((JmShapedRecipeBuilder) builder).jineric$componentChanges(
-						DataComponentPatch.builder()
-								.set(DataComponents.BLOCK_STATE, BlockItemStateProperties.EMPTY.with(BlockStateProperties.LIT, false))
-								.build()
-				);
-				builder.define('S', Items.STICK)
-						.define('L', ItemTags.LOGS)
-						.pattern("LSL")
-						.pattern("LLL")
-						.unlockedBy("has_stick", this.has(Items.STICK))
-						.unlockedBy("has_log", this.has(ItemTags.LOGS))
-						.save(recipeOutput, replaceVanilla(Items.CAMPFIRE));
 			}
 		};
 	}

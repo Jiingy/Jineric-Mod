@@ -17,8 +17,6 @@ public class EarlyRiser implements Runnable {
 		String recipeBookType = mappingResolver.mapClassName("official", "net.minecraft.world.inventory.RecipeBookType");
 		ClassTinkerers.enumBuilder(recipeBookType)
 				.addEnum("JINERIC_REFINERY")
-				.addEnum("JINERIC_FOUNDRY")
-				.addEnum("JINERIC_KILN")
 				.build();
 		
 		String recipeCategory = mappingResolver.mapClassName("official", "net.minecraft.data.recipes.RecipeCategory");
@@ -44,14 +42,6 @@ public class EarlyRiser implements Runnable {
 							new RecipeBookCategory[]{
 									JinericRecipeBookCategories.REFINERY_BLOCKS,
 									JinericRecipeBookCategories.REFINERY_MISC
-							}
-					}).addEnum("JINERIC_FOUNDRY", () -> new Object[]{
-							new RecipeBookCategory[]{
-									JinericRecipeBookCategories.FOUNDRY
-							}
-					}).addEnum("JINERIC_KILN", () -> new Object[] {
-							new RecipeBookCategory[] {
-									JinericRecipeBookCategories.KILN
 							}
 					})
 					.build();
