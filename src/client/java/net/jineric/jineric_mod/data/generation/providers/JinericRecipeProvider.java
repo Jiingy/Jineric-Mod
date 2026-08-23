@@ -304,10 +304,9 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						.unlockedBy("has_tinder_material", this.has(JinericItemTags.TINDER_MATERIALS))
 						.save(recipeOutput);
 				this.shaped(RecipeCategory.TOOLS, JinericItems.FIRE_STARTER)
-						.define('B', Items.BOW).define('S', Items.STICK).define('L', ItemTags.LOGS_THAT_BURN)
-						.pattern("B")
-						.pattern("S")
-						.pattern("L")
+						.define('S', Items.STICK).define('s', Items.STRING).define('L', ItemTags.LOGS_THAT_BURN)
+						.pattern("sSs")
+						.pattern(" L ")
 						.unlockedBy("has_flammable_log", this.has(ItemTags.LOGS_THAT_BURN))
 						.save(recipeOutput);
 

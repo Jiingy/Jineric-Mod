@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "L": "#minecraft:logs_that_burn",
+    "S": "minecraft:stick",
+    "s": "minecraft:string"
+  },
+  "pattern": [
+    "sSs",
+    " L "
+  ],
+  "result": {
+    "id": "jineric:fire_starter"
+  }
+}
