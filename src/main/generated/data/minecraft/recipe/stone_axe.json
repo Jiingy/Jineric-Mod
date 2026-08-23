@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "#jineric:stone_equipment_materials",
+  "base": "minecraft:wooden_axe",
+  "result": {
+    "components": {
+      "!minecraft:custom_model_data": {},
+      "jineric:level": 0,
+      "minecraft:item_name": {
+        "translate": "item.minecraft.stone_axe"
+      }
+    },
+    "id": "minecraft:stone_axe"
+  },
+  "template": "jineric:stone_upgrade_smithing_template"
+}

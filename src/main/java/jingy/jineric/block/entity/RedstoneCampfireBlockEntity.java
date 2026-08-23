@@ -1,6 +1,7 @@
 package jingy.jineric.block.entity;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.CampfireBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -18,5 +19,10 @@ public class RedstoneCampfireBlockEntity extends CampfireBlockEntity {
 			}
 		}
 		return outputSignal * 2;
+	}
+	
+	@Override
+	public Component getDisplayName() {
+		return Component.translatable("container.redstone_campfire");
 	}
 }

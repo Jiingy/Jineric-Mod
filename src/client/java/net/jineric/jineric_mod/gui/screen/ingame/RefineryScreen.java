@@ -5,6 +5,7 @@ import jingy.jineric.recipe.book.JinericRecipeBookCategories;
 import jingy.jineric.screen.RefineryScreenHandler;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.jineric.jineric_mod.gui.screen.recipebook.RefineryRecipeBookWidget;
 import net.jineric.jineric_mod.recipe.JinericClientRecipeBookTypes;
 import net.minecraft.client.gui.screens.inventory.AbstractFurnaceScreen;
 import net.minecraft.client.gui.screens.recipebook.RecipeBookComponent;
@@ -29,5 +30,10 @@ public class RefineryScreen extends AbstractFurnaceScreen<RefineryScreenHandler>
 	
 	public RefineryScreen(RefineryScreenHandler container, Inventory inventory, Component title) {
 		super(container, inventory, title, TOGGLE_REFINABLE_TEXT, TEXTURE, LIT_PROGRESS_TEXTURE, BURN_PROGRESS_TEXTURE, TABS);
+	}
+	
+	@Override
+	public RecipeBookComponent<?> jineric$recipeBookWidget() {
+		return new RefineryRecipeBookWidget(this.menu, TOGGLE_REFINABLE_TEXT, TABS);
 	}
 }

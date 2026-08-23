@@ -7,12 +7,22 @@ import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootSubProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.storage.loot.IntRange;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
+import net.minecraft.world.level.storage.loot.functions.LimitCount;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -53,8 +63,25 @@ public class JinericBlockLootTableProvider extends FabricBlockLootSubProvider {
 		this.dropSelf(JinericBlocks.CHARCOAL_BLOCK);
 		this.dropSelf(JinericBlocks.SOUL_JACK_O_LANTERN);
 		this.add(JinericBlocks.GRASS_BLOCK, block -> this.createSingleItemTableWithSilkTouch(block, Blocks.DIRT));
+		this.dropSelf(JinericBlocks.STONE_CRUCIBLE);
+		this.dropSelf(JinericBlocks.TINDER);
+		this.add(Blocks.CLAY, block -> this.createClayDrops(block));
 	}
 
+	public LootTable.Builder createClayDrops(final Block block) {
+		HolderLookup.RegistryLookup<Enchantment> enchantments = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+		return this.createSilkTouchDispatchTable(
+				block,
+				this.applyExplosionDecay(
+						block,
+                        LootItem.lootTableItem(Items.CLAY_BALL)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F)))
+                                .apply(ApplyBonusCount.addOreBonusCount(enchantments.getOrThrow(Enchantments.FORTUNE)))
+                                .apply(LimitCount.limitCount(IntRange.range(1, 9)))
+                )
+        );
+	}
+	
 	public void dropSelfNameableBlockEntityTable(Block input) {
 		this.add(input, this::createNameableBlockEntityTable);
 	}

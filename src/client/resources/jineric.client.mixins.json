@@ -6,16 +6,27 @@
     "minVersion": "0.5.0"
   },
   "client": [
+    "AbstractContainerScreenMixin",
+    "CampfireRendererMixin",
+    "GuiGraphicsExtractorMixin",
+    "HudMixin",
+    "OptionsMixin",
     "RecipeBookWidgetMixin",
     "SheetsMixin",
+    "VideoSettingsScreenMixin",
+    "accessor.RecipeBookComponentAccessor",
     "accessor.TextureSlotAccessor",
-    "duck.ClientPacketListenerDuckMixin"
+    "duck.AbstractRecipeBookScreenDuckMixin",
+    "duck.ClientPacketListenerDuckMixin",
+    "duck.GhostSlotsDuckMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "mixins": [
+    "AbstractRecipeBookScreenMixin",
     "ChestRendererMixin",
+    "accessor.GhostSlotsAccessor",
     "add.ChestMaterialTypeMixin"
   ]
 }

@@ -15,9 +15,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.item.equipment.Equippable;
 import net.minecraft.world.level.block.Block;
@@ -275,7 +273,7 @@ public class JinericItems {
 	public static final Item FIRE_STARTER = register("fire_starter", BowDrillItem::new, new Item.Properties().stacksTo(1));
 	public static final Item TINDER = register(JinericBlocks.TINDER);
 	public static final Item CLAY_BRICK = register("clay_brick");
-	
+
 	//EQUIPMENT
 	//WOODEN
 	public static final Item WOODEN_HELMET = register("wooden_helmet",
@@ -324,11 +322,11 @@ public class JinericItems {
 	public static final Item EMERALD_PICKAXE = register("emerald_pickaxe", new Item.Properties().pickaxe(JmToolMaterials.EMERALD, 1.0F, -2.8F));
 	public static final Item EMERALD_AXE = register("emerald_axe", settings -> new AxeItem(JmToolMaterials.EMERALD, 5.0F, -3.0F, settings));
 	public static final Item EMERALD_HOE = register("emerald_hoe", settings -> new HoeItem(JmToolMaterials.EMERALD, -3.0F, 0.0F, settings));
-	
+
 	public static final Item FLINT_PICKAXE = register("flint_pickaxe", new Item.Properties().pickaxe(JmToolMaterials.FLINT, 1.0F, -2.8F));
 	public static final Item DEEPSLATE_PICKAXE = register("deepslate_pickaxe", new Item.Properties().pickaxe(JmToolMaterials.DEEPSLATE, 1.0F, -2.8F));
 	public static final Item AMETHYST_PICKAXE = register("amethyst_pickaxe", new Item.Properties().pickaxe(JmToolMaterials.AMETHYST, 1.0F, -2.8F));
-	
+
 	//TEMPLATES
 	public static final Item STONE_UPGRADE_SMITHING_TEMPLATE = register("stone_upgrade_smithing_template",
 			JmSmithingTemplateItem::createStoneUpgrade,
@@ -350,7 +348,7 @@ public class JinericItems {
 			JmSmithingTemplateItem::createDiamondUpgrade,
 			JmConfig.UPGRADE_TEMPLATE ? new Item.Properties().jineric$maxLevel(32) : new Item.Properties()
 	);
-	
+
 	//WIP OR UNKNOWN ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	public static final Item REFINERY = register(JinericBlocks.REFINERY);
 	public static final Item FOUNDRY = register(JinericBlocks.FOUNDRY);

@@ -354,11 +354,11 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 //						.group(getItemName(JinericItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE))
 						.unlockedBy("has_" + getItemName(Items.DIAMOND), this.has(Items.DIAMOND))
 						.save(recipeOutput, getItemName(JinericItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE));
-				
+
 				SimpleCookingRecipeBuilder.campfireCooking(this.tag(ItemTags.LOGS_THAT_BURN), RecipeCategory.MISC, Items.CHARCOAL, 0.15F, 800)
 						.unlockedBy("has_log", this.has(ItemTags.LOGS_THAT_BURN))
 						.save(recipeOutput, "charcoal_from_campfire_cooking");
-				
+
 				SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(JinericItems.CLAY_BRICK), RecipeCategory.MISC, Items.BRICK, 0.1F, 800)
 						.unlockedBy("has_clay_brick", this.has(JinericItems.CLAY_BRICK))
 						.save(recipeOutput, "brick_from_campfire_cooking");
@@ -549,7 +549,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 				builder.unlocks("has_" + getItemName(input), this.has(material));
 				builder.save(recipeOutput, recipeId);
 			}
-			
+
 			public void genStonecuttingFromFamilyBase(Block input, BlockFamily... inputFamilies) {
 				DefaultedRegistry<Block> blockRegistry = BuiltInRegistries.BLOCK;
 				Arrays.stream(inputFamilies).iterator().forEachRemaining(blockFamily -> {
@@ -647,7 +647,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 			public SimpleCookingRecipeBuilder createFiring(Ingredient input, ItemLike output, RecipeCategory category, CookingBookCategory bookCategory, float xp, int cookingTime) {
 				return SimpleCookingRecipeBuilderAccessor.invokeInit(category, bookCategory, output, input, xp, cookingTime, FiringRecipe::new);
 			}
-			
+
 			public void stairs(ItemLike input, ItemLike output) {
 				this.stairBuilder(output, Ingredient.of(input))
 						.unlockedBy("has_" + input, this.has(input))

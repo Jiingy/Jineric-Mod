@@ -256,6 +256,11 @@ public class JmCreativeModeTabs {
 				entries.accept(JinericItems.GOLDEN_BEETROOT);
 				entries.accept(JinericItems.REDSTONE_LANTERN);
 				entries.accept(JinericItems.REDSTONE_CAMPFIRE);
+				entries.accept(JinericItems.STONE_UPGRADE_SMITHING_TEMPLATE);
+				entries.accept(JinericItems.COPPER_UPGRADE_SMITHING_TEMPLATE);
+				entries.accept(JinericItems.IRON_UPGRADE_SMITHING_TEMPLATE);
+				entries.accept(JinericItems.GOLD_UPGRADE_SMITHING_TEMPLATE);
+				entries.accept(JinericItems.DIAMOND_UPGRADE_SMITHING_TEMPLATE);
 			}).build();
 	
 	public static final CreativeModeTab BLOCKS = CreativeModeTab.builder(CreativeModeTab.Row.TOP, 1)

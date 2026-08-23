@@ -1,10 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-<<<<<<<< HEAD:src/main/generated/assets/jineric/items/pale_oak_ladder.json
-    "model": "jineric:item/pale_oak_ladder"
-========
     "model": "jineric:item/fire_starter"
->>>>>>>> 2a7d5d84 (Updated recipe and other data for fire starter):src/main/generated/assets/jineric/items/fire_starter.json
   }
 }
