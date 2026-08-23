@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "wooden_bookshelf",
+  "key": {
+    "B": "minecraft:book",
+    "P": "minecraft:pale_oak_planks"
+  },
+  "pattern": [
+    "PPP",
+    "BBB",
+    "PPP"
+  ],
+  "result": {
+    "id": "jineric:pale_oak_bookshelf"
+  }
+}

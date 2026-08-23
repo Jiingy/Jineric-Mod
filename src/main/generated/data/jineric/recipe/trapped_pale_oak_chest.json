@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "wooden_trapped_chest",
+  "ingredients": [
+    "jineric:pale_oak_chest",
+    "minecraft:tripwire_hook"
+  ],
+  "result": {
+    "id": "jineric:trapped_pale_oak_chest"
+  }
+}

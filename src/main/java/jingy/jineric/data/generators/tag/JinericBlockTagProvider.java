@@ -380,6 +380,7 @@ public class JinericBlockTagProvider extends FabricTagsProvider.BlockTagsProvide
 				.add(JmBlockItemIds.DARK_OAK_CHEST)
 				.add(JmBlockItemIds.MANGROVE_CHEST)
 				.add(JmBlockItemIds.CHERRY_CHEST)
+				.add(JmBlockItemIds.PALE_OAK_CHEST)
 				.add(JmBlockItemIds.BAMBOO_CHEST)
 				.add(JmBlockItemIds.CRIMSON_CHEST)
 				.add(JmBlockItemIds.WARPED_CHEST);
@@ -391,6 +392,7 @@ public class JinericBlockTagProvider extends FabricTagsProvider.BlockTagsProvide
 				.add(JmBlockItemIds.TRAPPED_DARK_OAK_CHEST)
 				.add(JmBlockItemIds.TRAPPED_MANGROVE_CHEST)
 				.add(JmBlockItemIds.TRAPPED_CHERRY_CHEST)
+				.add(JmBlockItemIds.TRAPPED_PALE_OAK_CHEST)
 				.add(JmBlockItemIds.TRAPPED_BAMBOO_CHEST)
 				.add(JmBlockItemIds.TRAPPED_CRIMSON_CHEST)
 				.add(JmBlockItemIds.TRAPPED_WARPED_CHEST);
@@ -402,6 +404,7 @@ public class JinericBlockTagProvider extends FabricTagsProvider.BlockTagsProvide
 				.add(JmBlockItemIds.DARK_OAK_LADDER)
 				.add(JmBlockItemIds.MANGROVE_LADDER)
 				.add(JmBlockItemIds.CHERRY_LADDER)
+				.add(JmBlockItemIds.PALE_OAK_LADDER)
 				.add(JmBlockItemIds.BAMBOO_LADDER)
 				.add(JmBlockItemIds.CRIMSON_LADDER)
 				.add(JmBlockItemIds.WARPED_LADDER);
@@ -413,6 +416,7 @@ public class JinericBlockTagProvider extends FabricTagsProvider.BlockTagsProvide
 				.add(JmBlockItemIds.DARK_OAK_BOOKSHELF)
 				.add(JmBlockItemIds.MANGROVE_BOOKSHELF)
 				.add(JmBlockItemIds.CHERRY_BOOKSHELF)
+				.add(JmBlockItemIds.PALE_OAK_BOOKSHELF)
 				.add(JmBlockItemIds.BAMBOO_BOOKSHELF)
 				.add(JmBlockItemIds.CRIMSON_BOOKSHELF)
 				.add(JmBlockItemIds.WARPED_BOOKSHELF);

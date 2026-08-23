@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_ladder",
+  "key": {
+    "/": "minecraft:stick",
+    "P": "minecraft:pale_oak_planks"
+  },
+  "pattern": [
+    "P P",
+    "P/P",
+    "P P"
+  ],
+  "result": {
+    "count": 6,
+    "id": "jineric:pale_oak_ladder"
+  }
+}

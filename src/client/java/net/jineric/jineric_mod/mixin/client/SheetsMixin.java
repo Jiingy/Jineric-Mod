@@ -47,6 +47,7 @@ public abstract class SheetsMixin {
 					case JINERIC_WOODEN_DARK_OAK -> JmSheets.CHEST_DARK_OAK.select(type);
 					case JINERIC_WOODEN_MANGROVE -> JmSheets.CHEST_MANGROVE.select(type);
 					case JINERIC_WOODEN_CHERRY -> JmSheets.CHEST_CHERRY.select(type);
+					case JINERIC_WOODEN_PALE_OAK -> JmSheets.CHEST_PALE_OAK.select(type);
 					case JINERIC_WOODEN_BAMBOO -> JmSheets.CHEST_BAMBOO.select(type);
 					case JINERIC_WOODEN_WARPED -> JmSheets.CHEST_WARPED.select(type);
 					case JINERIC_WOODEN_CRIMSON -> JmSheets.CHEST_CRIMSON.select(type);
@@ -57,6 +58,7 @@ public abstract class SheetsMixin {
 					case JINERIC_WOODEN_TRAPPED_DARK_OAK -> JmSheets.CHEST_TRAPPED_DARK_OAK.select(type);
 					case JINERIC_WOODEN_TRAPPED_MANGROVE -> JmSheets.CHEST_TRAPPED_MANGROVE.select(type);
 					case JINERIC_WOODEN_TRAPPED_CHERRY -> JmSheets.CHEST_TRAPPED_CHERRY.select(type);
+					case JINERIC_WOODEN_TRAPPED_PALE_OAK -> JmSheets.CHEST_TRAPPED_PALE_OAK.select(type);
 					case JINERIC_WOODEN_TRAPPED_BAMBOO -> JmSheets.CHEST_TRAPPED_BAMBOO.select(type);
 					case JINERIC_WOODEN_TRAPPED_WARPED -> JmSheets.CHEST_TRAPPED_WARPED.select(type);
 					case JINERIC_WOODEN_TRAPPED_CRIMSON -> JmSheets.CHEST_TRAPPED_CRIMSON.select(type);

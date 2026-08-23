@@ -258,6 +258,7 @@ public class JinericBlocks {
 	public static final Block BAMBOO_BOOKSHELF = register("bamboo_bookshelf", BlockBehaviour.Properties.ofFullCopy(BOOKSHELF).sound(SoundType.CHISELED_BOOKSHELF));
 	public static final Block BIRCH_BOOKSHELF = register("birch_bookshelf", BlockBehaviour.Properties.ofFullCopy(BOOKSHELF).sound(SoundType.CHISELED_BOOKSHELF));
 	public static final Block CHERRY_BOOKSHELF = register("cherry_bookshelf", BlockBehaviour.Properties.ofFullCopy(BOOKSHELF).sound(SoundType.CHISELED_BOOKSHELF));
+	public static final Block PALE_OAK_BOOKSHELF = register("pale_oak_bookshelf", BlockBehaviour.Properties.ofFullCopy(BOOKSHELF).sound(SoundType.CHISELED_BOOKSHELF));
 	public static final Block CRIMSON_BOOKSHELF = register("crimson_bookshelf", BlockBehaviour.Properties.ofFullCopy(BOOKSHELF).sound(SoundType.NETHER_WOOD));
 	public static final Block DARK_OAK_BOOKSHELF = register("dark_oak_bookshelf", BlockBehaviour.Properties.ofFullCopy(BOOKSHELF).sound(SoundType.CHISELED_BOOKSHELF));
 	public static final Block JUNGLE_BOOKSHELF = register("jungle_bookshelf", BlockBehaviour.Properties.ofFullCopy(BOOKSHELF).sound(SoundType.CHISELED_BOOKSHELF));
@@ -268,6 +269,7 @@ public class JinericBlocks {
 	public static final Block BAMBOO_LADDER = register("bamboo_ladder", LadderBlock::new, BlockBehaviour.Properties.ofFullCopy(LADDER).sound(JinericBlockSoundGroup.WOODEN_LADDER));
 	public static final Block BIRCH_LADDER = register("birch_ladder", LadderBlock::new, BlockBehaviour.Properties.ofFullCopy(LADDER).sound(JinericBlockSoundGroup.WOODEN_LADDER));
 	public static final Block CHERRY_LADDER = register("cherry_ladder", LadderBlock::new, BlockBehaviour.Properties.ofFullCopy(LADDER).sound(JinericBlockSoundGroup.WOODEN_LADDER));
+	public static final Block PALE_OAK_LADDER = register("pale_oak_ladder", LadderBlock::new, BlockBehaviour.Properties.ofFullCopy(LADDER).sound(JinericBlockSoundGroup.WOODEN_LADDER));
 	public static final Block DARK_OAK_LADDER = register("dark_oak_ladder", LadderBlock::new, BlockBehaviour.Properties.ofFullCopy(LADDER).sound(JinericBlockSoundGroup.WOODEN_LADDER));
 	public static final Block SPRUCE_LADDER = register("spruce_ladder", LadderBlock::new, BlockBehaviour.Properties.ofFullCopy(LADDER).sound(JinericBlockSoundGroup.WOODEN_LADDER));
 	public static final Block JUNGLE_LADDER = register("jungle_ladder", LadderBlock::new, BlockBehaviour.Properties.ofFullCopy(LADDER).sound(JinericBlockSoundGroup.WOODEN_LADDER));
@@ -281,6 +283,7 @@ public class JinericBlocks {
 	public static final Block DARK_OAK_CHEST = registerChest("dark_oak_chest", Blocks.CHEST, WoodType.DARK_OAK);
 	public static final Block MANGROVE_CHEST = registerChest("mangrove_chest", Blocks.CHEST, WoodType.MANGROVE);
 	public static final Block CHERRY_CHEST = registerChest("cherry_chest", Blocks.CHEST, WoodType.CHERRY);
+	public static final Block PALE_OAK_CHEST = registerChest("pale_oak_chest", Blocks.CHEST, WoodType.PALE_OAK);
 	public static final Block BAMBOO_CHEST = registerChest("bamboo_chest", Blocks.CHEST, WoodType.BAMBOO);
 	public static final Block CRIMSON_CHEST = registerChest("crimson_chest", Blocks.CHEST, WoodType.CRIMSON);
 	public static final Block WARPED_CHEST = registerChest("warped_chest", Blocks.CHEST, WoodType.WARPED);
@@ -291,6 +294,7 @@ public class JinericBlocks {
 	public static final Block TRAPPED_DARK_OAK_CHEST = registerTrappedChest("trapped_dark_oak_chest", Blocks.TRAPPED_CHEST, WoodType.DARK_OAK);
 	public static final Block TRAPPED_MANGROVE_CHEST = registerTrappedChest("trapped_mangrove_chest", Blocks.TRAPPED_CHEST, WoodType.MANGROVE);
 	public static final Block TRAPPED_CHERRY_CHEST = registerTrappedChest("trapped_cherry_chest", Blocks.TRAPPED_CHEST, WoodType.CHERRY);
+	public static final Block TRAPPED_PALE_OAK_CHEST = registerTrappedChest("trapped_pale_oak_chest", Blocks.CHEST, WoodType.PALE_OAK);
 	public static final Block TRAPPED_BAMBOO_CHEST = registerTrappedChest("trapped_bamboo_chest", Blocks.TRAPPED_CHEST, WoodType.BAMBOO);
 	public static final Block TRAPPED_CRIMSON_CHEST = registerTrappedChest("trapped_crimson_chest", Blocks.TRAPPED_CHEST, WoodType.CRIMSON);
 	public static final Block TRAPPED_WARPED_CHEST = registerTrappedChest("trapped_warped_chest", Blocks.TRAPPED_CHEST, WoodType.WARPED);

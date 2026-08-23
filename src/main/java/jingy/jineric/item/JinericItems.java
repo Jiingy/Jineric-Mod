@@ -222,6 +222,7 @@ public class JinericItems {
 	public static final Item DARK_OAK_BOOKSHELF = register(JinericBlocks.DARK_OAK_BOOKSHELF);
 	public static final Item MANGROVE_BOOKSHELF = register(JinericBlocks.MANGROVE_BOOKSHELF);
 	public static final Item CHERRY_BOOKSHELF = register(JinericBlocks.CHERRY_BOOKSHELF);
+	public static final Item PALE_OAK_BOOKSHELF = register(JinericBlocks.PALE_OAK_BOOKSHELF);
 	public static final Item BAMBOO_BOOKSHELF = register(JinericBlocks.BAMBOO_BOOKSHELF);
 	public static final Item CRIMSON_BOOKSHELF = register(JinericBlocks.CRIMSON_BOOKSHELF);
 	public static final Item WARPED_BOOKSHELF = register(JinericBlocks.WARPED_BOOKSHELF);
@@ -233,6 +234,7 @@ public class JinericItems {
 	public static final Item DARK_OAK_CHEST = register(JinericBlocks.DARK_OAK_CHEST);
 	public static final Item MANGROVE_CHEST = register(JinericBlocks.MANGROVE_CHEST);
 	public static final Item CHERRY_CHEST = register(JinericBlocks.CHERRY_CHEST);
+	public static final Item PALE_OAK_CHEST = register(JinericBlocks.PALE_OAK_CHEST);
 	public static final Item BAMBOO_CHEST = register(JinericBlocks.BAMBOO_CHEST);
 	public static final Item CRIMSON_CHEST = register(JinericBlocks.CRIMSON_CHEST);
 	public static final Item WARPED_CHEST = register(JinericBlocks.WARPED_CHEST);
@@ -243,6 +245,7 @@ public class JinericItems {
 	public static final Item TRAPPED_DARK_OAK_CHEST = register(JinericBlocks.TRAPPED_DARK_OAK_CHEST);
 	public static final Item TRAPPED_MANGROVE_CHEST = register(JinericBlocks.TRAPPED_MANGROVE_CHEST);
 	public static final Item TRAPPED_CHERRY_CHEST = register(JinericBlocks.TRAPPED_CHERRY_CHEST);
+	public static final Item TRAPPED_PALE_OAK_CHEST = register(JinericBlocks.TRAPPED_PALE_OAK_CHEST);
 	public static final Item TRAPPED_BAMBOO_CHEST = register(JinericBlocks.TRAPPED_BAMBOO_CHEST);
 	public static final Item TRAPPED_CRIMSON_CHEST = register(JinericBlocks.TRAPPED_CRIMSON_CHEST);
 	public static final Item TRAPPED_WARPED_CHEST = register(JinericBlocks.TRAPPED_WARPED_CHEST);
@@ -254,6 +257,7 @@ public class JinericItems {
 	public static final Item DARK_OAK_LADDER = register(JinericBlocks.DARK_OAK_LADDER);
 	public static final Item MANGROVE_LADDER = register(JinericBlocks.MANGROVE_LADDER);
 	public static final Item CHERRY_LADDER = register(JinericBlocks.CHERRY_LADDER);
+	public static final Item PALE_OAK_LADDER = register(JinericBlocks.PALE_OAK_LADDER);
 	public static final Item BAMBOO_LADDER = register(JinericBlocks.BAMBOO_LADDER);
 	public static final Item WARPED_LADDER = register(JinericBlocks.WARPED_LADDER);
 	public static final Item CRIMSON_LADDER = register(JinericBlocks.CRIMSON_LADDER);

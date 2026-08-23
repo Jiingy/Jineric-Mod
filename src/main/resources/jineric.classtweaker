@@ -22,7 +22,7 @@ transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRend
 transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_DARK_OAK
 transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_MANGROVE
 transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_CHERRY
-#transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_PALE_OAK
+transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_PALE_OAK
 #transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_POPLAR
 transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_BAMBOO
 transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_CRIMSON
@@ -35,7 +35,7 @@ transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRend
 transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_TRAPPED_DARK_OAK
 transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_TRAPPED_MANGROVE
 transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_TRAPPED_CHERRY
-#transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_TRAPPED_PALE_OAK
+transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_TRAPPED_PALE_OAK
 #transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_TRAPPED_POPLAR
 transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_TRAPPED_BAMBOO
 transitive-extend-enum net/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType JINERIC_WOODEN_TRAPPED_CRIMSON

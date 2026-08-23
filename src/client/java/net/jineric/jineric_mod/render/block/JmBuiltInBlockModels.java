@@ -15,7 +15,7 @@ public class JmBuiltInBlockModels extends BuiltInBlockModels {
         BuiltInBlockModelsCallback.EVENT.register(builder -> builder.put(createXmasChest(JmChestSpecialRenderer.DARK_OAK), JinericBlocks.DARK_OAK_CHEST));
         BuiltInBlockModelsCallback.EVENT.register(builder -> builder.put(createXmasChest(JmChestSpecialRenderer.MANGROVE), JinericBlocks.MANGROVE_CHEST));
         BuiltInBlockModelsCallback.EVENT.register(builder -> builder.put(createXmasChest(JmChestSpecialRenderer.CHERRY), JinericBlocks.CHERRY_CHEST));
-//        BuiltInBlockModelsCallback.EVENT.register(builder -> builder.put(createXmasChest(JmChestSpecialRenderer.PALE_OAK), JinericBlocks.PALE_OAK_CHEST));
+        BuiltInBlockModelsCallback.EVENT.register(builder -> builder.put(createXmasChest(JmChestSpecialRenderer.PALE_OAK), JinericBlocks.PALE_OAK_CHEST));
 //        BuiltInBlockModelsCallback.EVENT.register(builder -> builder.put(createXmasChest(JmChestSpecialRenderer.POPLAR), JinericBlocks.POPLAR_CHEST));
         BuiltInBlockModelsCallback.EVENT.register(builder -> builder.put(createXmasChest(JmChestSpecialRenderer.BAMBOO), JinericBlocks.BAMBOO_CHEST));
         BuiltInBlockModelsCallback.EVENT.register(builder -> builder.put(createXmasChest(JmChestSpecialRenderer.CRIMSON), JinericBlocks.CRIMSON_CHEST));
@@ -27,7 +27,7 @@ public class JmBuiltInBlockModels extends BuiltInBlockModels {
         BuiltInBlockModelsCallback.EVENT.register(builder -> builder.put(createXmasChest(JmChestSpecialRenderer.TRAPPED_DARK_OAK), JinericBlocks.TRAPPED_DARK_OAK_CHEST));
         BuiltInBlockModelsCallback.EVENT.register(builder -> builder.put(createXmasChest(JmChestSpecialRenderer.TRAPPED_MANGROVE), JinericBlocks.TRAPPED_MANGROVE_CHEST));
         BuiltInBlockModelsCallback.EVENT.register(builder -> builder.put(createXmasChest(JmChestSpecialRenderer.TRAPPED_CHERRY), JinericBlocks.TRAPPED_CHERRY_CHEST));
-//        BuiltInBlockModelsCallback.EVENT.register(builder -> builder.put(createXmasChest(JmChestSpecialRenderer.TRAPPED_PALE_OAK), JinericBlocks.TRAPPED_PALE_OAK_CHEST));
+        BuiltInBlockModelsCallback.EVENT.register(builder -> builder.put(createXmasChest(JmChestSpecialRenderer.TRAPPED_PALE_OAK), JinericBlocks.TRAPPED_PALE_OAK_CHEST));
 //        BuiltInBlockModelsCallback.EVENT.register(builder -> builder.put(createXmasChest(JmChestSpecialRenderer.TRAPPED_POPLAR), JinericBlocks.TRAPPED_POPLAR_CHEST));
         BuiltInBlockModelsCallback.EVENT.register(builder -> builder.put(createXmasChest(JmChestSpecialRenderer.TRAPPED_BAMBOO), JinericBlocks.TRAPPED_BAMBOO_CHEST));
         BuiltInBlockModelsCallback.EVENT.register(builder -> builder.put(createXmasChest(JmChestSpecialRenderer.TRAPPED_CRIMSON), JinericBlocks.TRAPPED_CRIMSON_CHEST));

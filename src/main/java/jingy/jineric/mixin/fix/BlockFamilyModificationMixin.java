@@ -145,6 +145,21 @@ public abstract class BlockFamilyModificationMixin {
 				.trappedChest$jineric(JinericBlocks.TRAPPED_CHERRY_CHEST)
 				.ladder$jineric(JinericBlocks.CHERRY_LADDER);
 	}
+
+	@Definition(id = "build", method = "Lnet/minecraft/data/BlockFamily$Builder;getFamily()Lnet/minecraft/data/BlockFamily;")
+	@Definition(id = "PALE_OAK", field = "Lnet/minecraft/data/BlockFamilies;PALE_OAK_PLANKS:Lnet/minecraft/data/BlockFamily;")
+	@Expression("PALE_OAK = @(?.build())")
+	@ModifyReceiver(
+			method = "<clinit>",
+			at = @At("MIXINEXTRAS:EXPRESSION")
+	)
+	private static BlockFamily.Builder modifyPaleOakFamily(BlockFamily.Builder instance) {
+		return instance
+				.bookshelf$jineric(JinericBlocks.PALE_OAK_BOOKSHELF)
+				.chest$jineric(JinericBlocks.PALE_OAK_CHEST)
+				.trappedChest$jineric(JinericBlocks.TRAPPED_PALE_OAK_CHEST)
+				.ladder$jineric(JinericBlocks.PALE_OAK_LADDER);
+	}
 	
 	@Definition(id = "build", method = "Lnet/minecraft/data/BlockFamily$Builder;getFamily()Lnet/minecraft/data/BlockFamily;")
 	@Definition(id = "WARPED", field = "Lnet/minecraft/data/BlockFamilies;WARPED_PLANKS:Lnet/minecraft/data/BlockFamily;")

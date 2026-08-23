@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/template_chest",
+  "textures": {
+    "particle": "jineric:block/pale_oak_chest_particle"
+  }
+}

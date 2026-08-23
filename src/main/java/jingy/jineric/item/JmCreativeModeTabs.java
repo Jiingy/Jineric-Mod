@@ -212,6 +212,7 @@ public class JmCreativeModeTabs {
 				entries.accept(JinericItems.DARK_OAK_BOOKSHELF);
 				entries.accept(JinericItems.MANGROVE_BOOKSHELF);
 				entries.accept(JinericItems.CHERRY_BOOKSHELF);
+				entries.accept(JinericItems.PALE_OAK_BOOKSHELF);
 				entries.accept(JinericItems.BAMBOO_BOOKSHELF);
 				entries.accept(JinericItems.CRIMSON_BOOKSHELF);
 				entries.accept(JinericItems.WARPED_BOOKSHELF);
@@ -222,6 +223,7 @@ public class JmCreativeModeTabs {
 				entries.accept(JinericItems.DARK_OAK_CHEST);
 				entries.accept(JinericItems.MANGROVE_CHEST);
 				entries.accept(JinericItems.CHERRY_CHEST);
+				entries.accept(JinericItems.PALE_OAK_CHEST);
 				entries.accept(JinericItems.BAMBOO_CHEST);
 				entries.accept(JinericItems.CRIMSON_CHEST);
 				entries.accept(JinericItems.WARPED_CHEST);
@@ -232,6 +234,7 @@ public class JmCreativeModeTabs {
 				entries.accept(JinericItems.TRAPPED_DARK_OAK_CHEST);
 				entries.accept(JinericItems.TRAPPED_MANGROVE_CHEST);
 				entries.accept(JinericItems.TRAPPED_CHERRY_CHEST);
+				entries.accept(JinericItems.TRAPPED_PALE_OAK_CHEST);
 				entries.accept(JinericItems.TRAPPED_BAMBOO_CHEST);
 				entries.accept(JinericItems.TRAPPED_CRIMSON_CHEST);
 				entries.accept(JinericItems.TRAPPED_WARPED_CHEST);
@@ -242,6 +245,7 @@ public class JmCreativeModeTabs {
 				entries.accept(JinericItems.DARK_OAK_LADDER);
 				entries.accept(JinericItems.MANGROVE_LADDER);
 				entries.accept(JinericItems.CHERRY_LADDER);
+				entries.accept(JinericItems.PALE_OAK_LADDER);
 				entries.accept(JinericItems.BAMBOO_LADDER);
 				entries.accept(JinericItems.CRIMSON_LADDER);
 				entries.accept(JinericItems.WARPED_LADDER);
@@ -471,7 +475,8 @@ public class JmCreativeModeTabs {
 			entries.insertAfter(JinericItems.ACACIA_LADDER, JinericItems.DARK_OAK_LADDER);
 			entries.insertAfter(JinericItems.DARK_OAK_LADDER, JinericItems.MANGROVE_LADDER);
 			entries.insertAfter(JinericItems.MANGROVE_LADDER, JinericItems.CHERRY_LADDER);
-			entries.insertAfter(JinericItems.CHERRY_LADDER, JinericItems.BAMBOO_LADDER);
+			entries.insertAfter(JinericItems.CHERRY_LADDER, JinericItems.PALE_OAK_LADDER);
+			entries.insertAfter(JinericItems.PALE_OAK_LADDER, JinericItems.BAMBOO_LADDER);
 			entries.insertAfter(JinericItems.BAMBOO_LADDER, JinericItems.CRIMSON_LADDER);
 			entries.insertAfter(JinericItems.CRIMSON_LADDER, JinericItems.WARPED_LADDER);
 			//BOOKSHELVES
@@ -482,7 +487,8 @@ public class JmCreativeModeTabs {
 			entries.insertAfter(JinericItems.ACACIA_BOOKSHELF, JinericItems.DARK_OAK_BOOKSHELF);
 			entries.insertAfter(JinericItems.DARK_OAK_BOOKSHELF, JinericItems.MANGROVE_BOOKSHELF);
 			entries.insertAfter(JinericItems.MANGROVE_BOOKSHELF, JinericItems.CHERRY_BOOKSHELF);
-			entries.insertAfter(JinericItems.CHERRY_BOOKSHELF, JinericItems.BAMBOO_BOOKSHELF);
+			entries.insertAfter(JinericItems.CHERRY_BOOKSHELF, JinericItems.PALE_OAK_BOOKSHELF);
+			entries.insertAfter(JinericItems.PALE_OAK_BOOKSHELF, JinericItems.BAMBOO_BOOKSHELF);
 			entries.insertAfter(JinericItems.BAMBOO_BOOKSHELF, JinericItems.CRIMSON_BOOKSHELF);
 			entries.insertAfter(JinericItems.CRIMSON_BOOKSHELF, JinericItems.WARPED_BOOKSHELF);
 			//CHESTS
@@ -493,7 +499,8 @@ public class JmCreativeModeTabs {
 			entries.insertAfter(JinericItems.ACACIA_CHEST, JinericItems.DARK_OAK_CHEST);
 			entries.insertAfter(JinericItems.DARK_OAK_CHEST, JinericItems.MANGROVE_CHEST);
 			entries.insertAfter(JinericItems.MANGROVE_CHEST, JinericItems.CHERRY_CHEST);
-			entries.insertAfter(JinericItems.CHERRY_CHEST, JinericItems.BAMBOO_CHEST);
+			entries.insertAfter(JinericItems.CHERRY_CHEST, JinericItems.PALE_OAK_CHEST);
+			entries.insertAfter(JinericItems.PALE_OAK_CHEST, JinericItems.BAMBOO_CHEST);
 			entries.insertAfter(JinericItems.BAMBOO_CHEST, JinericItems.CRIMSON_CHEST);
 			entries.insertAfter(JinericItems.CRIMSON_CHEST, JinericItems.WARPED_CHEST);
 		});

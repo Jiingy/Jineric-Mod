@@ -58,7 +58,7 @@ public abstract class ChestRendererMixin<T extends BlockEntity & LidBlockEntity>
 			case "dark_oak" -> trapped ? ChestRenderState.ChestMaterialType.JINERIC_WOODEN_TRAPPED_DARK_OAK : ChestRenderState.ChestMaterialType.JINERIC_WOODEN_DARK_OAK;
 			case "mangrove" -> trapped ? ChestRenderState.ChestMaterialType.JINERIC_WOODEN_TRAPPED_MANGROVE : ChestRenderState.ChestMaterialType.JINERIC_WOODEN_MANGROVE;
 			case "cherry" -> trapped ? ChestRenderState.ChestMaterialType.JINERIC_WOODEN_TRAPPED_CHERRY : ChestRenderState.ChestMaterialType.JINERIC_WOODEN_CHERRY;
-//			case "pale_oak" -> trapped ? ChestRenderState.ChestMaterialType.JINERIC_WOODEN_TRAPPED_PALE_OAK : ChestRenderState.ChestMaterialType.JINERIC_WOODEN_PALE_OAK;
+			case "pale_oak" -> trapped ? ChestRenderState.ChestMaterialType.JINERIC_WOODEN_TRAPPED_PALE_OAK : ChestRenderState.ChestMaterialType.JINERIC_WOODEN_PALE_OAK;
 //			case "poplar" -> trapped ? ChestRenderState.ChestMaterialType.JINERIC_WOODEN_TRAPPED_POPLAR : ChestRenderState.ChestMaterialType.JINERIC_WOODEN_POPLAR;
 			case "bamboo" -> trapped ? ChestRenderState.ChestMaterialType.JINERIC_WOODEN_TRAPPED_BAMBOO : ChestRenderState.ChestMaterialType.JINERIC_WOODEN_BAMBOO;
 			case "crimson" -> trapped ? ChestRenderState.ChestMaterialType.JINERIC_WOODEN_TRAPPED_CRIMSON : ChestRenderState.ChestMaterialType.JINERIC_WOODEN_CRIMSON;

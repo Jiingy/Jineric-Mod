@@ -27,6 +27,7 @@ public class JinericBlockEntityType {
 		BlockEntityTypes.CHEST.addValidBlock(JinericBlocks.DARK_OAK_CHEST);
 		BlockEntityTypes.CHEST.addValidBlock(JinericBlocks.MANGROVE_CHEST);
 		BlockEntityTypes.CHEST.addValidBlock(JinericBlocks.CHERRY_CHEST);
+		BlockEntityTypes.CHEST.addValidBlock(JinericBlocks.PALE_OAK_CHEST);
 		BlockEntityTypes.CHEST.addValidBlock(JinericBlocks.BAMBOO_CHEST);
 		BlockEntityTypes.CHEST.addValidBlock(JinericBlocks.CRIMSON_CHEST);
 		BlockEntityTypes.CHEST.addValidBlock(JinericBlocks.WARPED_CHEST);
@@ -38,6 +39,7 @@ public class JinericBlockEntityType {
 		BlockEntityTypes.TRAPPED_CHEST.addValidBlock(JinericBlocks.TRAPPED_DARK_OAK_CHEST);
 		BlockEntityTypes.TRAPPED_CHEST.addValidBlock(JinericBlocks.TRAPPED_MANGROVE_CHEST);
 		BlockEntityTypes.TRAPPED_CHEST.addValidBlock(JinericBlocks.TRAPPED_CHERRY_CHEST);
+		BlockEntityTypes.TRAPPED_CHEST.addValidBlock(JinericBlocks.TRAPPED_PALE_OAK_CHEST);
 		BlockEntityTypes.TRAPPED_CHEST.addValidBlock(JinericBlocks.TRAPPED_BAMBOO_CHEST);
 		BlockEntityTypes.TRAPPED_CHEST.addValidBlock(JinericBlocks.TRAPPED_CRIMSON_CHEST);
 		BlockEntityTypes.TRAPPED_CHEST.addValidBlock(JinericBlocks.TRAPPED_WARPED_CHEST);
