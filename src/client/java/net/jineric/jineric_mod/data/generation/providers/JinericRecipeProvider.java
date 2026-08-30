@@ -87,7 +87,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 					.put(BlockFamily.Variant.WALL,
 							(recipeProvider, output, input) -> recipeProvider.wallBuilder(RecipeCategory.BUILDING_BLOCKS, output, Ingredient.of(input)))
 					.put(JinericBlockFamilyVariants.BOOKSHELF, (recipeProvider, output, input) -> recipeProvider.bookshelfBuilder$jineric(Ingredient.of(input), output))
-					.put(JinericBlockFamilyVariants.CHEST, (recipeProvider, output, input) -> recipeProvider.chestBuilder$jineric(Ingredient.of(input), output))
+					.put(JinericBlockFamilyVariants.CHEST, (recipeProvider, output, input) -> recipeProvider.chestBuilder$jineric(input, output))
 					.put(JinericBlockFamilyVariants.LADDER, (recipeProvider, output, input) -> recipeProvider.ladderBuilder$jineric(Ingredient.of(input), output))
 					.build();
 			

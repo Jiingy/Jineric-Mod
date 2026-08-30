@@ -2,12 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "group": "wooden_chest",
   "key": {
-    "P": "minecraft:jungle_planks"
+    "M": "minecraft:jungle_planks"
   },
   "pattern": [
-    "PPP",
-    "P P",
-    "PPP"
+    "MMM",
+    "M M",
+    "MMM"
   ],
   "result": {
     "id": "jineric:jungle_chest"

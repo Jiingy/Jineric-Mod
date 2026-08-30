@@ -8,7 +8,7 @@ public interface JmRecipeProvider {
 	default RecipeBuilder bookshelfBuilder$jineric(Ingredient input, ItemLike output) {
 		return null;
 	}
-	default RecipeBuilder chestBuilder$jineric(Ingredient input, ItemLike output) {
+	default RecipeBuilder chestBuilder$jineric(ItemLike input, ItemLike output) {
 		return null;
 	}
 	default RecipeBuilder trappedChestBuilder$jineric(Ingredient input, ItemLike output) {

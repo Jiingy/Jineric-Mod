@@ -1,8 +1,6 @@
 package jingy.jineric.mixin.duck;
 
 import jingy.jineric.base.injected_interfaces.JmRecipeProvider;
-import net.minecraft.advancements.predicates.MinMaxBounds;
-import net.minecraft.advancements.triggers.CriteriaTriggers;
 import net.minecraft.advancements.triggers.Criterion;
 import net.minecraft.advancements.triggers.InventoryChangeTrigger;
 import net.minecraft.data.recipes.*;
@@ -12,9 +10,6 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-
-import java.util.List;
-import java.util.Optional;
 
 @Mixin(RecipeProvider.class)
 public abstract class RecipeProviderDuckMixin implements JmRecipeProvider {
@@ -40,24 +35,13 @@ public abstract class RecipeProviderDuckMixin implements JmRecipeProvider {
 	}
 	
 	@Override
-	public RecipeBuilder chestBuilder$jineric(Ingredient input, ItemLike output) {
+	public RecipeBuilder chestBuilder$jineric(ItemLike input, ItemLike output) {
 		return this.shaped(RecipeCategory.DECORATIONS, output)
 				.group("chest")
-				.define('P', input)
-				.pattern("PPP")
-				.pattern("P P")
-				.pattern("PPP")
-				.unlockedBy(
-						"has_lots_of_items",
-						CriteriaTriggers.INVENTORY_CHANGED
-								.createCriterion(
-										new InventoryChangeTrigger.TriggerInstance(
-												Optional.empty(),
-												new InventoryChangeTrigger.TriggerInstance.Slots(MinMaxBounds.Ints.atLeast(10), MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY),
-												List.of()
-										)
-								)
-				);
+				.define('M', input)
+				.pattern("MMM")
+				.pattern("M M")
+				.pattern("MMM");
 	}
 	
 	@Override

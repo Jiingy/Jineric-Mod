@@ -2,12 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "group": "wooden_chest",
   "key": {
-    "P": "minecraft:bamboo_planks"
+    "M": "minecraft:bamboo_planks"
   },
   "pattern": [
-    "PPP",
-    "P P",
-    "PPP"
+    "MMM",
+    "M M",
+    "MMM"
   ],
   "result": {
     "id": "jineric:bamboo_chest"
