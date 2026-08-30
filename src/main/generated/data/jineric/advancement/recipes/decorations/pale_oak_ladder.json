@@ -13,11 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-<<<<<<<< HEAD:src/main/generated/data/jineric/advancement/recipes/decorations/pale_oak_ladder.json
         "recipe": "jineric:pale_oak_ladder"
-========
-        "recipe": "jineric:fire_starter"
->>>>>>>> 2a7d5d84 (Updated recipe and other data for fire starter):src/main/generated/data/jineric/advancement/recipes/tools/fire_starter.json
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -30,11 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-<<<<<<<< HEAD:src/main/generated/data/jineric/advancement/recipes/decorations/pale_oak_ladder.json
       "jineric:pale_oak_ladder"
-========
-      "jineric:fire_starter"
->>>>>>>> 2a7d5d84 (Updated recipe and other data for fire starter):src/main/generated/data/jineric/advancement/recipes/tools/fire_starter.json
     ]
   }
 }

@@ -1,10 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-<<<<<<<< HEAD:src/main/generated/assets/jineric/models/item/pale_oak_ladder.json
     "layer0": "jineric:block/pale_oak_ladder"
-========
-    "layer0": "jineric:item/fire_starter"
->>>>>>>> 2a7d5d84 (Updated recipe and other data for fire starter):src/main/generated/assets/jineric/models/item/fire_starter.json
   }
 }
