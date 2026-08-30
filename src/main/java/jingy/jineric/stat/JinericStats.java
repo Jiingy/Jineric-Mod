@@ -10,7 +10,8 @@ import net.minecraft.stats.Stats;
 public class JinericStats {
 	public static final Identifier INTERACT_WITH_REFINERY = register("interact_with_refinery", StatFormatter.DEFAULT);
 	public static final Identifier INTERACT_WITH_KILN = register("interact_with_kiln", StatFormatter.DEFAULT);
-	
+	public static final Identifier INTERACT_WITH_CHARCOAL_PILE = register("interact_with_charcoal_pile", StatFormatter.DEFAULT);
+
 	private static Identifier register(String id, StatFormatter formatter) {
 		Identifier identifier = JinericMain.ofJineric(id);
 		Registry.register(BuiltInRegistries.CUSTOM_STAT, identifier, identifier);
