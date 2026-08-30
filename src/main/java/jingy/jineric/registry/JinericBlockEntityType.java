@@ -15,7 +15,8 @@ public class JinericBlockEntityType {
 	public static final BlockEntityType<CrucibleBlockEntity> CRUCIBLE = FabricBlockEntityTypeBuilder.create(CrucibleBlockEntity::new, JinericBlocks.STONE_CRUCIBLE).build();
 	public static final BlockEntityType<FoundryBlockEntity> FOUNDRY = FabricBlockEntityTypeBuilder.create(FoundryBlockEntity::new, JinericBlocks.FOUNDRY).build();
 	public static final BlockEntityType<KilnBlockEntity> KILN = FabricBlockEntityTypeBuilder.create(KilnBlockEntity::new, JinericBlocks.KILN).build();
-	
+	public static final BlockEntityType<CharcoalPileBlockEntity> CHARCOAL_PILE = FabricBlockEntityTypeBuilder.create(CharcoalPileBlockEntity::new, JinericBlocks.CHARCOAL_PILE).build();
+
 	public static void registerBlockEntityTypes() {
 		//  Modded
 		register("refinery", REFINERY);
@@ -23,6 +24,8 @@ public class JinericBlockEntityType {
 		register("crucible", CRUCIBLE);
 		register("foundry", FOUNDRY);
 		register("kiln", KILN);
+		register("charcoal_pile", CHARCOAL_PILE);
+
 		//  Vanilla
 			// Chest
 		BlockEntityTypes.CHEST.addValidBlock(JinericBlocks.SPRUCE_CHEST);
