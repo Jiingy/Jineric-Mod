@@ -410,6 +410,60 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						"jineric_replace_clay", "clay",
 						"jineric_replace_clay_ball", "clay_ball"
 				);
+				this.shaped(RecipeCategory.TOOLS, Items.WOODEN_AXE)
+						.group("wooden_axe")
+						.define('#', Items.STICK)
+						.define('X', ItemTags.WOODEN_TOOL_MATERIALS)
+						.pattern("XX")
+						.pattern("X#")
+						.pattern(" #")
+						.unlockedBy("has_stick", this.has(Items.STICK))
+						.save(recipeOutput, replaceVanilla(Items.WOODEN_AXE));
+				this.shaped(RecipeCategory.TOOLS, Items.WOODEN_HOE)
+						.group("wooden_hoe")
+						.define('#', Items.STICK)
+						.define('X', ItemTags.WOODEN_TOOL_MATERIALS)
+						.pattern("XX")
+						.pattern(" #")
+						.pattern(" #")
+						.unlockedBy("has_stick", this.has(Items.STICK))
+						.save(recipeOutput, replaceVanilla(Items.WOODEN_HOE));
+				this.shaped(RecipeCategory.TOOLS, Items.WOODEN_PICKAXE)
+						.group("wooden_pickaxe")
+						.define('#', Items.STICK)
+						.define('X', ItemTags.WOODEN_TOOL_MATERIALS)
+						.pattern("XXX")
+						.pattern(" # ")
+						.pattern(" # ")
+						.unlockedBy("has_stick", this.has(Items.STICK))
+						.save(recipeOutput, replaceVanilla(Items.WOODEN_PICKAXE));
+				this.shaped(RecipeCategory.TOOLS, Items.WOODEN_SHOVEL)
+						.group("wooden_shovel")
+						.define('#', Items.STICK)
+						.define('X', ItemTags.WOODEN_TOOL_MATERIALS)
+						.pattern("X")
+						.pattern("#")
+						.pattern("#")
+						.unlockedBy("has_stick", this.has(Items.STICK))
+						.save(recipeOutput, replaceVanilla(Items.WOODEN_SHOVEL));
+				this.shaped(RecipeCategory.COMBAT, Items.WOODEN_SWORD)
+						.group("wooden_sword")
+						.define('#', Items.STICK)
+						.define('X', ItemTags.WOODEN_TOOL_MATERIALS)
+						.pattern("X")
+						.pattern("X")
+						.pattern("#")
+						.unlockedBy("has_stick", this.has(Items.STICK))
+						.save(recipeOutput, replaceVanilla(Items.WOODEN_SWORD));
+				this.shaped(RecipeCategory.COMBAT, Items.WOODEN_SPEAR)
+						.group("wooden_spear")
+						.define('#', Items.STICK)
+						.define('X', ItemTags.WOODEN_TOOL_MATERIALS)
+						.pattern("  X")
+						.pattern(" # ")
+						.pattern("#  ")
+						.unlockedBy("has_stick", this.has(Items.STICK))
+						.save(recipeOutput, replaceVanilla(Items.WOODEN_SPEAR));
 			}
 			
 			@Override
