@@ -254,6 +254,11 @@ public class JinericBlocks {
 			KilnBlock::new,
 			BlockBehaviour.Properties.ofFullCopy(FURNACE).lightLevel(createLightLevelFromLitBlockState(13)).sound(SoundType.DEEPSLATE)
 	);
+	public static final Block CHARCOAL_PILE = register(
+			"charcoal_pile",
+			CharcoalPileBlock::new,
+			BlockBehaviour.Properties.ofFullCopy(TERRACOTTA)
+	);
 	
 	//REDSTONE
 	public static final Block REDSTONE_LANTERN = register(
