@@ -27,6 +27,7 @@ public abstract class ModifyRecipePropertySetsMixin extends SimplePreparableRelo
 				.putAll(RECIPE_PROPERTY_SETS)
 				.put(JinericRecipePropertySet.REFINERY_INPUT, forSingleInput(JinericRecipeTypes.REFINING))
 				.put(JinericRecipePropertySet.FOUNDRY_INPUT, forSingleInput(JinericRecipeTypes.FOUNDRY_SMELTING))
+				.put(JinericRecipePropertySet.KILN_INPUT, forSingleInput(JinericRecipeTypes.FIRING))
 				.build();
 	}
 }
