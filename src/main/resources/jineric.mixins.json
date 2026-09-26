@@ -25,6 +25,7 @@
     "add.ScreenForCampfireBlockMixin",
     "add.ServerPlayerMixin",
     "add.ToolMaterialMaxLevelMixin",
+    "change.AbstractFurnaceCrackOnUseMixin",
     "change.BellBlockShapeMixin",
     "change.BlockSoundsMixin",
     "change.CropBlockStrengthMixin",
