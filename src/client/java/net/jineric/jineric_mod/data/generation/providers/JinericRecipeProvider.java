@@ -390,7 +390,7 @@ public class JinericRecipeProvider extends FabricRecipeProvider {
 						.pattern("WW")
 						.unlockedBy("has_planks", this.has(ItemTags.PLANKS))
 						.save(recipeOutput, replaceVanilla(Blocks.SMITHING_TABLE));
-				this.shaped(RecipeCategory.DECORATIONS, Blocks.TORCH, 4)
+				this.shaped(RecipeCategory.DECORATIONS, Blocks.TORCH, 2)
 						.define('S', Items.STICK)
 						.define('C', Ingredient.of(Items.COAL, Items.CHARCOAL))
 						.pattern("C")
